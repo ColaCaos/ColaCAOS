@@ -1,0 +1,700 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\definecolor{MyBlue}{rgb}{0.2,0.2,0.6}
+%Colors can be specified using RGB values
+\sectionfont{\color{MyBlue}}
+\subsectionfont{\color{MyBlue}}
+%Numerical citations in brackets
+\usepackage[square,numbers]{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Estudio de la sensibilidad al Caos en sistemas físicos y su impacto en la
+ predicción meteorológica
+\end_layout
+
+\begin_layout Author
+Rubén Torre Merino
+\end_layout
+
+\begin_layout Date
+Febrero de 2025
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+En el estudio de los fenómenos naturales, hay sistemas cuyas ecuaciones
+ de evolución son deterministas pero, aun así, resultan impredecibles a
+ largo plazo debido a la enorme sensibilidad en las condiciones iniciales.
+ Este fenómenose conoce comúnmente como “caos”.Algunos ejemplos son el comportami
+ento del péndulo doble, la función logística y, a una escala mucho mayor
+ y más compleja, la predicción meteorológica
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Veritasium1"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Veritasium2"
+literal "false"
+
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+La llamada “Teoría del Caos” cobró especial relevancia en el ámbito de la
+ meteorología tras los trabajos de Edward Lorenz en la década de 1960, cuando
+ descubrió que pequeñas variaciones en las condiciones iniciales del modelo
+ en tan solo el cuarto decimal de los datos provocaban grandes diferencias
+ en el resultado final de las predicciones.
+ Además, se establecía un horizonte de predictabilidad más allá del cual,
+ los modelos matemáticos no podían llegar a pesar de incrementar la precisión
+ con la se conocía el estado inicial de los datos del sistema 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FiniteHorizon"
+literal "false"
+
+\end_inset
+
+.
+ Este descubrimiento supuso una transformación en la forma de comprender
+ la predicción del clima y la fiabilidad de algunos modelos matemáticos.
+\end_layout
+
+\begin_layout Standard
+En esta investigación se pretende analizar la aparición de caos en sistemas
+ aparentemente simples (como la función logística 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "logisticFunction"
+literal "false"
+
+\end_inset
+
+ y el péndulo doble 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JPhys"
+literal "false"
+
+\end_inset
+
+) y trazar un paralelismo con la complejidad de los modelos de predicción
+ meteorológica.
+ El foco se pondrá en la imposibilidad de predecir con exactitud el comportamien
+to de ciertos sistemas —pese a ser descritos por ecuaciones deterministas—
+ cuando se producen ligeras variaciones en las condiciones iniciales.
+\end_layout
+
+\begin_layout Standard
+Las preguntas fundamentales que orientan este trabajo serían:
+\end_layout
+
+\begin_layout Itemize
+¿Cómo se manifiesta el comportamiento caótico en sistemas relativamente
+ simples, como la función logística y el péndulo doble 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bbc"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "metoffice"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PBS"
+literal "false"
+
+\end_inset
+
+? 
+\end_layout
+
+\begin_layout Itemize
+¿Qué relación guardan estos fenómenos caóticos con la complejidad de la
+ predicción meteorológica ?
+\end_layout
+
+\begin_layout Itemize
+¿Es posible realizar analogías entre la falta de predictibilidad de un sistema
+ sencillo como el péndulo doble y la complejidad de la predicción del clima?
+\end_layout
+
+\begin_layout Section
+Objetivo
+\end_layout
+
+\begin_layout Standard
+El objetivo principal de este proyecto es:
+\end_layout
+
+\begin_layout Itemize
+Analizar experimental y teóricamente la presencia de caos en sistemas determinis
+tas sencillos (función logística y péndulo doble) y establecer un paralelismo
+ con la imposibilidad de predecir el clima con total precisión.
+ 
+\end_layout
+
+\begin_layout Standard
+Este objetivo incluye:
+\end_layout
+
+\begin_layout Itemize
+Describir el comportamiento caótico a partir de la función logística y del
+ péndulo doble.
+ 
+\end_layout
+
+\begin_layout Itemize
+Evaluar la sensibilidad de dichos sistemas a variaciones mínimas en las
+ condiciones iniciales.
+ 
+\end_layout
+
+\begin_layout Itemize
+Comparar las características de impredecibilidad en sistemas simples con
+ la problemática de la predicción meteorológica.
+ Realizar entrevistas a expertos (físicos y meteorólogos) para contrastar
+ la visión teórica y experimental con la práctica profesional en instituciones
+ como la Agencia Estatal de Meteorología (AEMET).
+ 
+\end_layout
+
+\begin_layout Standard
+El objetivo es realista porque:
+\end_layout
+
+\begin_layout Itemize
+Se puede programar la función logística y el péndulo doble con Python y
+ otras herramientas (ChatGPT, Algodoo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "algodoo"
+literal "false"
+
+\end_inset
+
+, etc.).
+ A lo largo del proyecto se utilizará extensivamente ChatGPT para ayuda
+ con las labores de programación.
+ 
+\end_layout
+
+\begin_layout Itemize
+Se puede construir y seguir experimentalmente el movimiento de un péndulo
+ doble con recursos accesibles.
+ 
+\end_layout
+
+\begin_layout Itemize
+Se dispone de la posibilidad de realizar entrevistas a expertos y recopilar
+ datos sobre la predicción del clima para establecer comparaciones.
+\end_layout
+
+\begin_layout Section
+Procedimiento
+\end_layout
+
+\begin_layout Standard
+El método de trabajo constará de varias fases:
+\end_layout
+
+\begin_layout Enumerate
+Revisión teórica y bibliográfica
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Lectura de artículos y libros sobre la Teoría del Caos, la función logística
+ y la dinámica del péndulo doble.
+\end_layout
+
+\begin_layout Itemize
+Investigación de los fundamentos de la predicción climática y de la historia
+ del descubrimiento del caos en meteorología (Lorenz, etc.).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Estudio de la función logística
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Utilizar Excel para calcular iteraciones de la función logística y analizar
+ gráficamente la aparición de comportamiento caótico al variar el parámetro
+ de crecimiento.
+ 
+\end_layout
+
+\begin_layout Itemize
+Emplear Python para automatizar y generar gráficos que muestren la dependencia
+ extrema de las condiciones iniciales.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Construcción y análisis del péndulo doble
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Construir un péndulo doble sencillo con materiales asequibles (madera, metal,
+ etc.).
+ 
+\end_layout
+
+\begin_layout Itemize
+Implementar un sistema de seguimiento con la cámara del portátil y código
+ en Python (apoyado en bibliotecas de visión por computadora 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OCV"
+literal "false"
+
+\end_inset
+
+) para grabar y extraer datos de las trayectorias del péndulo.
+ 
+\end_layout
+
+\begin_layout Itemize
+Comparar las trayectorias experimentales con simulaciones numéricas (por
+ ejemplo, con Python o Algodoo), observando la divergencia de trayectorias
+ al variar mínimamente las condiciones iniciales.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Paralelismos con la predicción climática
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Analizar la bibliografía científica y realizar entrevistas con meteorólogos
+ o físicos en la AEMET u otras instituciones.
+ 
+\end_layout
+
+\begin_layout Itemize
+Estudiar cómo la Teoría del Caos influye en la dificultad de predecir fenómenos
+ meteorológicos a medio y largo plazo.
+\end_layout
+
+\begin_layout Itemize
+Elaborar un informe comparando las conclusiones experimentales del péndulo
+ doble con la dificultad de predicción en los modelos climáticos, resaltando
+ la sensibilidad a las condiciones iniciales.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Recopilación y análisis de datos
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Organizar los datos obtenidos y de las mediciones del péndulo doble.
+ Analizar la dispersión de resultados, la sensibilidad a condiciones iniciales
+ y las conclusiones sobre impredecibilidad.
+ Redacción de la memoria en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ (LyX 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lyx"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Recoger toda la información teórica, los resultados numéricos y experimentales,
+ las entrevistas y las conclusiones.
+\end_layout
+
+\begin_layout Itemize
+Redactar la memoria final del proyecto
+\end_layout
+
+\begin_layout Standard
+Con el objeto de documentar ampliamente el trabajo realizado, se realizará
+ un blog en el que se irán publicando los resultados intermedios.
+ Si el código generado es significativamente extenso, se procederá a crear
+ un repositorio con el software
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Recursos necesarios
+\end_layout
+
+\begin_layout Standard
+Materiales de laboratorio y construcción
+\end_layout
+
+\begin_layout Enumerate
+Piezas de metal o madera para construir el péndulo doble.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tornillos, tuercas y herramientas básicas (taladro, destornilladores, etc.).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Software 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Python y bibliotecas científicas asociadas
+\end_layout
+
+\begin_layout Itemize
+ChatGPT para apoyo en la generación de código y resolución de dudas puntuales.
+ 
+\end_layout
+
+\begin_layout Itemize
+Algodoo para simulaciones gráficas y de dinámica.
+ 
+\end_layout
+
+\begin_layout Itemize
+LyX (editor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ ) para la redacción de la memoria.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Recursos humanos
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tutor/a del proyecto para seguimiento y orientación.
+\end_layout
+
+\begin_layout Itemize
+Entrevistas con profesionales de la AEMET y/o físicos-meteorólogos disponibles.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Recursos de búsqueda y documentación
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Acceso a internet para la consulta de artículos y foros de discusión académica.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Temporalización
+\end_layout
+
+\begin_layout Standard
+El proyecto se desarrollará desde marzo hasta septiembre, distribuyendo
+ las tareas de la siguiente manera:
+\end_layout
+
+\begin_layout Enumerate
+Marzo – Abril
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Revisión teórica y bibliográfica sobre caos, péndulo doble y modelos climáticos.
+ 
+\end_layout
+
+\begin_layout Itemize
+Primeros ensayos en Excel de la función logística y familiarización con
+ Python para la simulación.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Mayo
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Construcción del péndulo doble.
+ 
+\end_layout
+
+\begin_layout Itemize
+Diseño y pruebas del sistema de seguimiento con la cámara del portátil.
+ 
+\end_layout
+
+\begin_layout Itemize
+Comienzo de las simulaciones en Python y Algodoo.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Junio
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Toma de datos experimental del péndulo doble y comparación con simulaciones.
+\end_layout
+
+\begin_layout Itemize
+Profundización en la función logística: iteraciones, bifurcaciones y mapa
+ del caos.
+ 
+\end_layout
+
+\begin_layout Itemize
+Entrevistas preliminares con meteorólogos y/o físicos de la AEMET.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Julio
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Análisis de datos obtenidos (péndulo doble y función logística).
+ 
+\end_layout
+
+\begin_layout Itemize
+Recopilación de información de las entrevistas y elaboración de conclusiones
+ parciales.
+ 
+\end_layout
+
+\begin_layout Itemize
+Integración de conceptos teóricos y resultados experimentales.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Agosto
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Redacción inicial de la memoria en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ (LyX).
+ Revisión y ampliación de resultados, gráficos y conclusiones.
+ Septiembre
+\end_layout
+
+\begin_layout Itemize
+Correcciones finales de la memoria.
+ Presentación del proyecto de investigación completo.
+ Preparación de la defensa o exposición oral si fuera requerida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrama.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cronograma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "chaos"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
