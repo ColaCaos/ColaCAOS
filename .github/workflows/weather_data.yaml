@@ -55,5 +55,4 @@ jobs:
             humidityRetro.csv
             pressureRetro.csv
             windRetro.csv
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
