@@ -43,21 +43,16 @@ jobs:
       # Step 5: Commit the updated CSV files to the "data" branch
       - name: Push CSV files using git commands
         run: |
-          # Configure git with your desired name and email.
           git config user.name "ColaCaos"
           git config user.email "rubentrabajoinsti@gmail.com"
           
-          # Check out the data branch; create it if it doesn't exist.
           git checkout data || git checkout -b data
-
-          # Stage the CSV files.
           git add temperatureForecast.csv humidityForecast.csv pressureForecast.csv windForecast.csv \
                   temperatureRetro.csv humidityRetro.csv pressureRetro.csv windRetro.csv
-
-          # Create a commit if there are any changes.
           git commit -m "Daily update of CSV files - $(date)" || echo "No changes to commit"
           
-          # Push the commit to the data branch using the PAT for authentication.
-          git push https://$PAT_TOKEN@github.com/ColaCaos/ColaCAOS.git data
+          # Set the remote URL to include your PAT
+          git remote set-url origin https://$PAT_TOKEN@github.com/ColaCaos/ColaCAOS.git
+          git push origin data
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
