@@ -39,7 +39,7 @@ jobs:
       - name: Commit CSV files to data branch
         uses: EndBug/add-and-commit@v9
         with:
-          branch: data  # This tells the action to commit to the "data" branch
+          new_branch: data      # This tells the action to check out the "data" branch.
           message: "Daily update of CSV files - $(date)"
           add: |
             temperatureForecast.csv
@@ -51,5 +51,4 @@ jobs:
             pressureRetro.csv
             windRetro.csv
         env:
-          # The GITHUB_TOKEN is automatically provided by GitHub Actions for authentication.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
