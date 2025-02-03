@@ -35,6 +35,11 @@ jobs:
         run: |
           python meteoblue/DailyScript.py
 
+      - name: Verify PAT is set
+        run: echo "PAT token is set."
+        env:
+          MY_PAT: ${{ secrets.PAT_TOKEN }}
+
       # Step 5: Commit the updated CSV files to the "data" branch
       - name: Commit CSV files to data branch
         uses: EndBug/add-and-commit@v9
