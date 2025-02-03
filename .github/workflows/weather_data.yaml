@@ -33,7 +33,7 @@ jobs:
       # Step 4: Run Your Weather Data Script
       - name: Run Weather Data Script
         run: |
-          python weather_data.py
+          python meteoblue/DalyScript.py
 
       # Step 5: Commit the updated CSV files to the "data" branch
       - name: Commit CSV files to data branch
