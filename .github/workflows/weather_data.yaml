@@ -49,19 +49,19 @@ jobs:
           
           # Check out the 'data' branch; create it if it doesn't exist.
           git checkout data || git checkout -b data
-          
+
           # Stage the CSV files.
           git add temperatureForecast.csv humidityForecast.csv pressureForecast.csv windForecast.csv \
                   temperatureRetro.csv humidityRetro.csv pressureRetro.csv windRetro.csv
-          
+
           # Create a commit if there are any changes.
           git commit -m "Daily update of CSV files - $(date)" || echo "No changes to commit"
           
-          # Unset the default GITHUB_TOKEN to avoid interference.
-          unset GITHUB_TOKEN
-          
-          # Set the remote URL to include your PAT (wrapped in quotes for proper expansion).
-          git remote set-url origin "https://${PAT_TOKEN}@github.com/ColaCaos/ColaCAOS.git"
+          # Override the default GITHUB_TOKEN by exporting your PAT as GITHUB_TOKEN.
+          export GITHUB_TOKEN="${PAT_TOKEN}"
+
+          # Set the remote URL to include the token (now GITHUB_TOKEN holds your PAT).
+          git remote set-url origin "https://${GITHUB_TOKEN}@github.com/ColaCaos/ColaCAOS.git"
           
           # Push to the 'data' branch.
           git push origin data
