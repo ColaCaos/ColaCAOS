@@ -1,0 +1,58 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usetikzlibrary{shapes.geometric, arrows, positioning, fit, calc}
+
+\begin{document}
+\begin{tikzpicture}[
+    node distance=1.2cm and 2cm,
+    every node/.style={font=\small},
+    proceso/.style={rectangle, draw, rounded corners, minimum width=2.8cm, minimum height=1cm, align=center, text width=2.8cm},
+    flecha/.style={->, >=stealth, thick},
+    rama/.style={ellipse, draw, align=center, minimum width=2.5cm, minimum height=0.8cm},
+    % Colores personalizados para cada parte
+    colorInicio/.style={fill=orange!30},
+    colorPronostico/.style={fill=blue!20},
+    colorRetro/.style={fill=green!20}
+  ]
+  
+  % Nodo de inicio: Ejecución Diaria
+  \node (inicio) [proceso, colorInicio] {Ejecución Diaria del Script};
+
+  % División en dos ramas: Parte 1 y Parte 2
+  \node (parte1) [proceso, colorPronostico, below left=of inicio, xshift=-1cm] {Parte 1:\\Recopilación de Datos de Pronóstico};
+  \node (parte2) [proceso, colorRetro, below right=of inicio, xshift=1cm] {Parte 2:\\Recopilación de Datos Retro};
+
+  \draw [flecha] (inicio) -- (parte1);
+  \draw [flecha] (inicio) -- (parte2);
+
+  % ---------------- Parte 1: Datos de Pronóstico ----------------
+  \node (apiPron) [proceso, colorPronostico, below=of parte1] {Llamar API:\\Pronóstico de 15 días\\(Hoy + 14 días)};
+  \node (extraerPron) [proceso, colorPronostico, below=of apiPron] {Extraer Valores:\\(Temp, Humedad, Presión, Viento)};
+  \node (construirPron) [proceso, colorPronostico, below=of extraerPron] {Construir Fila de Pronóstico\\(15 columnas: Fecha + 14 días)};
+  \node (anexarPron) [proceso, colorPronostico, below=of construirPron] {Anexar Fila a CSV de Pronóstico};
+
+  \draw [flecha] (parte1) -- (apiPron);
+  \draw [flecha] (apiPron) -- (extraerPron);
+  \draw [flecha] (extraerPron) -- (construirPron);
+  \draw [flecha] (construirPron) -- (anexarPron);
+
+  % ---------------- Parte 2: Datos Retro ----------------
+  \node (apiHist) [proceso, colorRetro, below=of parte2] {Llamar API:\\Datos Históricos\\(Observaciones de ayer)};
+  \node (extraerHist) [proceso, colorRetro, below=of apiHist] {Extraer Valores Observados};
+  \node (leerCSV) [proceso, colorRetro, below=of extraerHist] {Leer CSV de Pronóstico\\(Datos previos)};
+  \node (construirRetro) [proceso, colorRetro, below=of leerCSV] {Construir Fila Retro\\(16 columnas: Fecha, Observado, f1--f14)};
+  \node (anexarRetro) [proceso, colorRetro, below=of construirRetro] {Anexar Fila a CSV Retro};
+
+  \draw [flecha] (parte2) -- (apiHist);
+  \draw [flecha] (apiHist) -- (extraerHist);
+  \draw [flecha] (extraerHist) -- (leerCSV);
+  \draw [flecha] (leerCSV) -- (construirRetro);
+  \draw [flecha] (construirRetro) -- (anexarRetro);
+
+  % Opcional: Cajas de agrupación para mayor claridad
+  \begin{scope}[on background layer]
+    \node [fit=(parte1) (anexarPron), draw, dashed, rounded corners, inner sep=5pt, label=above:\textbf{Archivos CSV de Pronóstico}] {};
+    \node [fit=(parte2) (anexarRetro), draw, dashed, rounded corners, inner sep=5pt, label=above:\textbf{Archivos CSV Retro}] {};
+  \end{scope}
+
+\end{tikzpicture}
+\end{document}
