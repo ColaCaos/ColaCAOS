@@ -100,8 +100,8 @@
 \begin_body
 
 \begin_layout Title
-Estudio de la sensibilidad al Caos en sistemas físicos y su impacto en la
- predicción meteorológica
+Estudio del Caos en sistemas físicos y su relación con la predicción meteorológi
+ca
 \end_layout
 
 \begin_layout Author
@@ -588,12 +588,6 @@ Toma de datos experimental del péndulo doble y comparación con simulaciones.
 \end_layout
 
 \begin_layout Itemize
-Profundización en la función logística: iteraciones, bifurcaciones y mapa
- del caos.
- 
-\end_layout
-
-\begin_layout Itemize
 Entrevistas preliminares con meteorólogos y/o físicos de la AEMET.
 \end_layout
 
@@ -612,10 +606,6 @@ Análisis de datos obtenidos (péndulo doble y función logística).
 Recopilación de información de las entrevistas y elaboración de conclusiones
  parciales.
  
-\end_layout
-
-\begin_layout Itemize
-Integración de conceptos teóricos y resultados experimentales.
 \end_layout
 
 \end_deeper
@@ -654,7 +644,7 @@ Correcciones finales de la memoria.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
