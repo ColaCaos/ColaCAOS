@@ -1,0 +1,25 @@
+Aquí tienes el código para el entrenamiento de una red neuronal para predecir la temperatura y cantidad de lluvia de forma horaria en una localidad (Galapagar), a partir de sus datos históricos horarios (galapagar.csv). 
+
+
+
+
+Ahora quiero ampliar los datos de partida. En vez de usar solo los datos históricos de Galapagar, quiero meter los datos históricos de otras estaciones situadas en España, y seleccionadas estrategicamente para tener en cuenta las dependencias espacio temporales. Las estaciones circundantes son: pontevedra, salamanca, huelva, ciudadreal, valencia, almeria, creus, santander, guadalajar, y burgos. Para cada una de ellas he creado un archivo con sus datos historicos que se llama estacion.csv. Su contenido es el siguiente (fragmento):
+
+latitude,longitude,elevation,utc_offset_seconds,timezone,timezone_abbreviation
+43.479786,-3.6486511,35.0,3600,Europe/Berlin,GMT+1
+
+time,temperature_2m (°C),relative_humidity_2m (%),rain (mm),surface_pressure (hPa),wind_speed_10m (km/h),wind_direction_10m (°)
+2017-01-01T00:00,3.1,93,0.00,1025.0,5.0,201
+2017-01-01T01:00,6.5,83,0.00,1024.8,7.9,231
+2017-01-01T02:00,6.1,80,0.00,1024.1,6.7,216
+2017-01-01T03:00,5.9,80,0.00,1023.5,6.1,208
+2017-01-01T04:00,5.6,78,0.00,1023.1,6.2,201
+2017-01-01T05:00,5.6,77,0.00,1022.6,7.1,204
+2017-01-01T06:00,5.6,78,0.00,1022.0,8.9,201
+2017-01-01T07:00,5.5,79,0.00,1021.5,10.8,201
+2017-01-01T08:00,5.8,79,0.00,1021.2,10.8,206
+2017-01-01T09:00,6.2,76,0.00,1020.8,9.4,203
+2017-01-01T10:00,7.1,72,0.00,1020.3,7.9,196
+2017-01-01T11:00,8.2,67,0.00,1020.1,6.2,201
+
+Con estos datos, quiero que amplies el script inicial, para que en lugar de entrenar la red neuronal con los datos de galapagar, utilices el resto de estaciones. Los datos a predecir son los mismos que antes: temperatura y cantidad de lluvia solo para galapagar. Quiero que la prediccion se haga con un INPUT_WINDOW de 72 horas, y quiero que el OUTPUT_WINDOW sean las 24 horas siguientes.
