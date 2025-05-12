@@ -21,6 +21,13 @@
     "text": "Simulación en Python\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr, x0, n = 3.9, 0.2, 100\nx = np.zeros(n)\nx[0] = x0\nfor i in range(1, n):\n    x[i] = r * x[i-1] * (1 - x[i-1])\n\nplt.plot(x, marker='o')\nplt.title(\"Evolución del mapa logístico\")\nplt.xlabel(\"Iteración n\")\nplt.ylabel(\"xₙ\")\nplt.grid(True)\nplt.show()"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "mi_blog_caos",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -28,10 +35,17 @@
     "text": "About this site"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "mi_blog_caos",
+    "objectID": "posts/cobweb.html",
+    "href": "posts/cobweb.html",
+    "title": "Diagrama Cobweb Interactivo",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Ajusta el parámetro r con el deslizador y observa cómo cambia el diagrama:\n\nimport numpy as np\nimport plotly.graph_objects as go\n\n# Función que construye el diagrama cobweb para un valor de r\ndef make_cobweb(r, x0=0.2, steps=40):\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n    fig = go.Figure([\n        go.Scatter(x=xs, y=ys, mode='lines', name='f(x)=r·x(1−x)'),\n        go.Scatter(x=xs, y=xs, mode='lines', name='y=x', line=dict(dash='dash'))\n    ])\n    x, y = x0, x0\n    xc, yc = [x], [y]\n    for _ in range(steps):\n        y = r * x * (1 - x)\n        xc += [x, x]; yc += [x, y]\n        x = y\n        xc += [x]; yc += [y]\n    fig.add_trace(go.Scatter(x=xc, y=yc, mode='lines', name='Cobweb', line=dict(color='red')))\n    return fig\n\n# Crear frames para el slider\nrs = np.linspace(2.5, 4.0, 31)\nframes = [go.Frame(data=make_cobweb(r).data, name=f\"{r:.2f}\") for r in rs]\n\n# Figura base y asignación de frames\nfig = make_cobweb(rs[0])\nfig.frames = frames\n\n# Configuración del slider\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\",\n                                           frame=dict(duration=0, redraw=True),\n                                           transition=dict(duration=0))])\n         for r in rs]\n\nfig.update_layout(\n    updatemenus=[dict(type=\"buttons\", showactive=False, y=1, x=1.1,\n                      xanchor=\"right\", yanchor=\"top\", pad=dict(t=0, r=10),\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])],\n    sliders=[dict(active=0, pad=dict(t=60), steps=steps)],\n    xaxis=dict(range=[0,1]), yaxis=dict(range=[0,1]),\n    width=600, height=600\n)\n\nfig.show()"
+  },
+  {
+    "objectID": "posts/cobweb.html#diagrama-cobweb-interactivo",
+    "href": "posts/cobweb.html#diagrama-cobweb-interactivo",
+    "title": "Diagrama Cobweb Interactivo",
+    "section": "",
+    "text": "Ajusta el parámetro r con el deslizador y observa cómo cambia el diagrama:\n\nimport numpy as np\nimport plotly.graph_objects as go\n\n# Función que construye el diagrama cobweb para un valor de r\ndef make_cobweb(r, x0=0.2, steps=40):\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n    fig = go.Figure([\n        go.Scatter(x=xs, y=ys, mode='lines', name='f(x)=r·x(1−x)'),\n        go.Scatter(x=xs, y=xs, mode='lines', name='y=x', line=dict(dash='dash'))\n    ])\n    x, y = x0, x0\n    xc, yc = [x], [y]\n    for _ in range(steps):\n        y = r * x * (1 - x)\n        xc += [x, x]; yc += [x, y]\n        x = y\n        xc += [x]; yc += [y]\n    fig.add_trace(go.Scatter(x=xc, y=yc, mode='lines', name='Cobweb', line=dict(color='red')))\n    return fig\n\n# Crear frames para el slider\nrs = np.linspace(2.5, 4.0, 31)\nframes = [go.Frame(data=make_cobweb(r).data, name=f\"{r:.2f}\") for r in rs]\n\n# Figura base y asignación de frames\nfig = make_cobweb(rs[0])\nfig.frames = frames\n\n# Configuración del slider\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\",\n                                           frame=dict(duration=0, redraw=True),\n                                           transition=dict(duration=0))])\n         for r in rs]\n\nfig.update_layout(\n    updatemenus=[dict(type=\"buttons\", showactive=False, y=1, x=1.1,\n                      xanchor=\"right\", yanchor=\"top\", pad=dict(t=0, r=10),\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])],\n    sliders=[dict(active=0, pad=dict(t=60), steps=steps)],\n    xaxis=dict(range=[0,1]), yaxis=dict(range=[0,1]),\n    width=600, height=600\n)\n\nfig.show()"
   }
 ]

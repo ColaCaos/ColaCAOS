@@ -35,10 +35,7 @@ def make_cobweb(r, x0=0.2, steps=40):
 
 # Crear frames para el slider
 rs = np.linspace(2.5, 4.0, 31)
-frames = []
-for r in rs:
-    f = make_cobweb(r)
-    frames.append(dict(name=f"{r:.2f}", data=[trace.data for trace in f.data]))
+frames = [go.Frame(data=make_cobweb(r).data, name=f"{r:.2f}") for r in rs]
 
 # Figura base y asignación de frames
 fig = make_cobweb(rs[0])
