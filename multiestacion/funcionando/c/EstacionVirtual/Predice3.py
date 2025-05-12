@@ -221,15 +221,56 @@ def main():
         temp = tp_n * s_t + m_t
         rain = max(rp_n * s_r + m_r, 0.0)
         rows.append({'time': t_pred, 'horizon_h': h, 'pred_temp': temp, 'pred_rain': rain})
-    dfres = pd.DataFrame(rows)
+        dfres = pd.DataFrame(rows)
     os.makedirs('results', exist_ok=True)
-    dfres.to_csv('results/next24h_predictions.csv', index=False)
+    out_fn = 'results/next24h_predictions.csv'
+    # Cargar anteriores predicciones y unir sin duplicados
+    if os.path.exists(out_fn):
+        prev = pd.read_csv(out_fn, parse_dates=['time']).set_index('time')
+    else:
+        prev = None
+    new = dfres.set_index('time')
+    if prev is not None:
+        combined = pd.concat([prev, new])
+        combined = combined[~combined.index.duplicated(keep='last')].sort_index()
+        # rellenar huecos por interpolación horaria
+        idx = pd.date_range(combined.index.min(), combined.index.max(), freq='h')
+        combined = combined.reindex(idx)
+        combined['pred_temp'] = combined['pred_temp'].interpolate(method='time')
+        combined['pred_rain'] = combined['pred_rain'].interpolate(method='time')
+    else:
+        combined = new
+    # Guardar predicciones actualizadas
+    combined = combined.reset_index().rename(columns={'index':'time'})
+    combined.to_csv(out_fn, index=False)
 
-    # 7) graficar
+        # 7) graficar últimas 24h de predicción
     plt.figure(); plt.plot(dfres.time, dfres.pred_temp, marker='o'); plt.title('Temp +24h'); plt.tight_layout(); plt.savefig('results/next24h_temp.png'); plt.close()
     plt.figure(); plt.plot(dfres.time, dfres.pred_rain, marker='o'); plt.title('Rain +24h'); plt.tight_layout(); plt.savefig('results/next24h_rain.png'); plt.close()
 
     print('Pronóstico hora a hora generado en results/next24h_predictions.csv')
+
+    # 8) Generar tabla pivote de pronósticos históricos
+    # Cargar CSV combinado
+    df_all = pd.read_csv(out_fn, parse_dates=['time'])
+    # Pivot para temperatura
+    pivot_temp = df_all.pivot(index='time', columns='horizon_h', values='pred_temp')
+    pivot_temp = pivot_temp.sort_index()
+    # Asegurar índice continuo hora a hora
+    idx = pd.date_range(pivot_temp.index.min(), pivot_temp.index.max(), freq='h')
+    pivot_temp = pivot_temp.reindex(idx)
+    # Rellenar gaps con NaN o interpolación si se desea
+
+    # Pivot para precipitación
+    pivot_rain = df_all.pivot(index='time', columns='horizon_h', values='pred_rain')
+    pivot_rain = pivot_rain.sort_index()
+    pivot_rain = pivot_rain.reindex(idx)
+
+    # Guardar tablas pivote
+    pivot_temp.to_csv('results/pivot_pred_temp.csv', index_label='time')
+    pivot_rain.to_csv('results/pivot_pred_rain.csv', index_label='time')
+
+    print('Tablas pivote guardadas en results/pivot_pred_temp.csv y pivot_pred_rain.csv')
 
 if __name__ == '__main__':
     main()

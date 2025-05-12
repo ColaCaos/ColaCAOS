@@ -64,7 +64,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Dispositivo utilizado:", device, flush=True)
 
 # Parámetros de predicción
-INPUT_WINDOW = 74    # últimas 74 horas
+INPUT_WINDOW = 24    # últimas 74 horas
 OUTPUT_WINDOW = 24   # próximas 24 horas
 
 FEATURES = ['temperature_2m (°C)', 'relative_humidity_2m (%)', 'rain (mm)',
@@ -75,8 +75,8 @@ BASE_FEATURES = FEATURES + TEMPORAL_FEATURES  # 10 features por estación
 # Variables objetivo: sólo se predicen temperatura y lluvia para Galapagar
 OUTPUT_FEATURES = ['temperature_2m (°C)', 'rain (mm)']
 
-HIDDEN_SIZE = 64
-NUM_LAYERS = 2
+HIDDEN_SIZE = 128
+NUM_LAYERS = 1
 
 # Diccionario de archivos. Asegúrate de incluir solo las estaciones usadas en el entrenamiento.
 station_files = {
