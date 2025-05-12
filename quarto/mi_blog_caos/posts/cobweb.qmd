@@ -10,6 +10,14 @@ execute:
 
 ## Diagrama Cobweb Interactivo
 
+**Nota**: asegúrate de tener `plotly` instalado en tu entorno:
+
+```bash
+conda install -c conda-forge plotly
+# o bien
+pip install plotly
+```
+
 Ajusta el parámetro *r* con el deslizador y observa cómo cambia el diagrama:
 
 ```{python}
