@@ -10,6 +10,8 @@ website:
         text: Home
       - href: posts/mapa-logistico.qmd
         text: Mapa Logístico
+      - href: posts/cobweb.qmd
+        text: Cobweb
       - about.qmd
 
 format:
