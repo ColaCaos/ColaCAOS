@@ -1,0 +1,37 @@
+name: Predicción horaria
+
+# Se ejecuta cada hora
+on:
+  schedule:
+    - cron: '0 * * * *'  # cada hora a minuto 0 (UTC)
+
+jobs:
+  run-predice3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Run Predice3.py
+        run: |
+          source venv/bin/activate
+          cd multiestacion/funcionando/c/EstacionVirtual
+          python Predice3.py
+
+      - name: Upload results as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: predicciones-horarias
+          path: multiestacion/funcionando/c/EstacionVirtual/results/  
