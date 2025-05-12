@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "posts/mapa-logistico.html",
+    "href": "posts/mapa-logistico.html",
+    "title": "El Mapa Logístico",
+    "section": "",
+    "text": "El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\n\n\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento."
+  },
+  {
+    "objectID": "posts/mapa-logistico.html#introducción",
+    "href": "posts/mapa-logistico.html#introducción",
+    "title": "El Mapa Logístico",
+    "section": "",
+    "text": "El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\n\n\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento."
+  },
+  {
+    "objectID": "posts/mapa-logistico.html#simulación-en-python",
+    "href": "posts/mapa-logistico.html#simulación-en-python",
+    "title": "El Mapa Logístico",
+    "section": "Simulación en Python",
+    "text": "Simulación en Python\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr, x0, n = 3.9, 0.2, 100\nx = np.zeros(n)\nx[0] = x0\nfor i in range(1, n):\n    x[i] = r * x[i-1] * (1 - x[i-1])\n\nplt.plot(x, marker='o')\nplt.title(\"Evolución del mapa logístico\")\nplt.xlabel(\"Iteración n\")\nplt.ylabel(\"xₙ\")\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "mi_blog_caos",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]
