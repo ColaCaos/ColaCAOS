@@ -1,0 +1,22 @@
+Evaluación de Métricas:
+
+Horizonte de 4 horas
+Temperatura: MAE = 1.632, MSE = 4.367, RMSE = 2.090, R² = 0.677, SMAPE = 40.157%
+Lluvia: MAE = 0.204, MSE = 0.355, RMSE = 0.595, R² = -0.333, SMAPE = 181.260%
+Clasificación Lluvia: Accuracy = 0.340, Precision = 0.222, Recall = 0.995, F1 = 0.363, AUC-ROC = 0.879 (TP = 181, TN = 146, FP = 634, FN = 1)
+
+Horizonte de 8 horas
+Temperatura: MAE = 1.874, MSE = 5.486, RMSE = 2.342, R² = 0.594, SMAPE = 44.057%
+Lluvia: MAE = 0.244, MSE = 0.406, RMSE = 0.637, R² = -0.525, SMAPE = 183.515%
+Clasificación Lluvia: Accuracy = 0.321, Precision = 0.218, Recall = 1.000, F1 = 0.358, AUC-ROC = 0.837 (TP = 182, TN = 127, FP = 653, FN = 0)
+
+Horizonte de 16 horas
+Temperatura: MAE = 2.169, MSE = 6.863, RMSE = 2.620, R² = 0.493, SMAPE = 49.525%
+Lluvia: MAE = 0.291, MSE = 0.560, RMSE = 0.749, R² = -1.108, SMAPE = 184.718%
+Clasificación Lluvia: Accuracy = 0.279, Precision = 0.206, Recall = 0.989, F1 = 0.342, AUC-ROC = 0.745 (TP = 180, TN = 88, FP = 692, FN = 2)
+
+Horizonte de 24 horas
+Temperatura: MAE = 2.282, MSE = 7.898, RMSE = 2.810, R² = 0.416, SMAPE = 50.940%
+Lluvia: MAE = 0.303, MSE = 0.546, RMSE = 0.739, R² = -1.055, SMAPE = 187.208%
+Clasificación Lluvia: Accuracy = 0.290, Precision = 0.205, Recall = 0.956, F1 = 0.338, AUC-ROC = 0.702 (TP = 174, TN = 105, FP = 675, FN = 8)
+
