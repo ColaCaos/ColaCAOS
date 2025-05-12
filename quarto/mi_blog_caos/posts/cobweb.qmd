@@ -1,5 +1,6 @@
 ---
 title: "Diagrama Cobweb Interactivo"
+jupyter: python3
 format:
   html:
     math: katex
