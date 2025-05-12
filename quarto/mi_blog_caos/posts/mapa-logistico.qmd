@@ -1,0 +1,43 @@
+---
+title: "El Mapa Logístico"
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+---
+
+## Introducción
+
+El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:
+
+$$
+x_{n+1} = r\,x_n\,(1 - x_n)
+$$
+
+donde:
+
+- $x_n \in [0,1]$ es la población normalizada.
+- $r$ regula la tasa de crecimiento.
+
+---
+
+## Simulación en Python
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r, x0, n = 3.9, 0.2, 100
+x = np.zeros(n)
+x[0] = x0
+for i in range(1, n):
+    x[i] = r * x[i-1] * (1 - x[i-1])
+
+plt.plot(x, marker='o')
+plt.title("Evolución del mapa logístico")
+plt.xlabel("Iteración n")
+plt.ylabel("xₙ")
+plt.grid(True)
+plt.show()
+```
