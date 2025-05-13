@@ -20,7 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          # Instalar librerías necesarias
+          pip install pandas numpy torch matplotlib requests
 
       - name: Run Predice3.py
         run: |
