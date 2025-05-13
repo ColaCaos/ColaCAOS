@@ -12,6 +12,8 @@ website:
         text: Mapa Logístico
       - href: posts/cobweb.qmd
         text: Cobweb
+      - href: posts/bifurcaciones.qmd
+        text: Bifurcaciones
       - about.qmd
 
 format:

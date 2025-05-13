@@ -1,0 +1,234 @@
+---
+title: "El diagrama de bifurcaciones"
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+---
+
+---
+
+# El Mapa Logístico: Una Ventana al Caos
+
+**Duración de la explicación original:** 0:00 – 17:17
+
+## 1. ¿Qué es el mapa logístico?
+
+El **mapa logístico** es un modelo discreto que, con una única ecuación, describe la evolución de una población normalizada $x_n$ paso a paso y muestra comportamientos que van desde la convergencia hasta el caos.
+
+Se define mediante la iteración:
+
+$$
+ x_{n+1} = r\,x_n\,(1 - x_n)
+$$
+
+* **$x_n \in [0,1]$:** población normalizada en la iteración $n$.
+* **$r$:** parámetro de control o tasa de crecimiento (capacidad reproductiva).
+
+> **Nota:** Para garantizar que $x_{n+1} \in [0,1]$, se restringe $r$ a $0 < r \le 4$.
+
+## 2. Breve historia
+
+1. **Ecuación continua:** proviene de la ecuación logística diferencial, usada en biología para modelar el crecimiento con límite de recursos.
+2. **Discretización:** Robert May (1976) introdujo su forma iterada y mostró que, pese a la regla sencilla, su dinámica es muy rica.
+
+## 3. Forma y dominio de la función
+
+La función asociada es:
+
+$$
+ f(x) = r\,x\,(1 - x)
+$$
+
+1. **Parábola invertida:** abre hacia abajo.
+2. **Punto máximo:**
+
+   * Se alcanza en $x = 1/2$.
+   * Valor máximo: $f(1/2) = r/4$.
+3. **Dominio y recorrido:**
+
+   * Dominio: $x \in [0,1]$.
+   * Para $0 < r \le 4$, el recorrido queda en $[0,1]$.
+
+## 4. Puntos fijos y estabilidad
+
+Un **punto fijo** $x^*$ satisface:
+
+$$
+ f(x^*) = x^*.
+$$
+
+Para el mapa logístico:
+
+* $x^*_1 = 0$.
+* $x^*_2 = 1 - 1/r$ (si $r > 1$).
+
+La derivada es:
+
+$$
+ f'(x) = r(1 - 2x).
+$$
+
+Un punto fijo es estable si $\lvert f'(x^*)\rvert < 1$. Una perturbación $\delta$ en $x_n = x^* + \delta$ evoluciona como:
+
+$$
+ x_{n+1} - x^* \approx f'(x^*)\,\delta,
+$$
+
+por lo que si $\lvert f'(x^*)\rvert < 1$, la desviación disminuye.
+
+* **En $x^*_1=0$:** $f'(0)=r$. Estable si $0 < r < 1$.
+* **En $x^*_2=1-1/r$:** $f'(x^*_2)=2-r$. Estable si $\lvert2-r\rvert<1$ → $1 < r < 3$.
+
+**Resumen de convergencia:**
+
+* $0 < r < 1$: converge a $x=0$.
+* $1 < r < 3$: converge a $x=1-1/r$.
+
+## 5. Cálculo de iteraciones
+
+### 5.1 Condición inicial
+
+Elige $x_0 \in (0,1)$, p.ej. $0.1$, $0.2$, $0.5$.
+
+### 5.2 Procedimiento
+
+```{python}
+# Iteración del mapa logístico
+def iterar_mapa(r, x0, N):
+    x = x0
+    resultados = []
+    for _ in range(N):
+        x = r * x * (1 - x)
+        resultados.append(x)
+    return resultados
+```
+
+Descarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor.
+
+## 6. Comportamientos según $r$
+
+| Rango de $r$            | Comportamiento                          |
+| ----------------------- | --------------------------------------- |
+| $0 < r < 1$             | Convergencia a $0$                      |
+| $1 < r < 3$             | Convergencia a $1 - 1/r$                |
+| $3 \le r < 3.449$       | Ciclo de periodo 2                      |
+| $3.449 \le r < 3.544$   | Ciclo de periodo 4                      |
+| $3.544 \le r < 3.56995$ | Ciclos de periodos 8, 16, 32, …         |
+| $3.56995 < r \le 4$     | Régimen caótico con ventanas periódicas |
+
+## 7. Duplicación de periodo y constante de Feigenbaum
+
+Conforme $r$ crece, aparecen bifurcaciones que duplican el periodo:
+
+1. $r_1=3.0$ → periodo 2
+2. $r_2 \approx 3.449$ → periodo 4
+3. $r_3 \approx 3.544$ → periodo 8
+   …
+
+La sucesión $\{r_n\}$ converge a:
+
+$$
+ r_\infty \approx 3.56995.
+$$
+
+Definimos $\Delta r_n = r_n - r_{n-1}$. La razón
+
+$$
+ \lim_{n \to \infty} \frac{\Delta r_{n-1}}{\Delta r_n} = \delta \approx 4.6692\dots
+$$
+
+es la **constante de Feigenbaum**, universal en mapas unimodales.
+
+## 8. Diagrama de bifurcación
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r_values = np.linspace(2.5, 4.0, 1500)
+iterations, last = 1000, 100
+r_plot, x_plot = [], []
+for r in r_values:
+    x = 0.5
+    for _ in range(iterations):
+        x = r * x * (1 - x)
+    for _ in range(last):
+        x = r * x * (1 - x)
+        r_plot.append(r)
+        x_plot.append(x)
+
+plt.figure(figsize=(8,6))
+plt.plot(r_plot, x_plot, '.', markersize=0.5)
+plt.title('Diagrama de bifurcación del mapa logístico')
+plt.xlabel('Parámetro r')
+plt.ylabel('$x_n$ (atractor)')
+plt.show()
+```
+
+## 9. Caos y ventanas periódicas
+
+Cuando el parámetro supera el umbral de acumulación de bifurcaciones
+
+$$
+ r_\infty \approx 3.56995,
+$$
+
+el mapa entra en **un régimen caótico** caracterizado por varias propiedades fundamentales:
+
+1. **Sensibilidad a las condiciones iniciales.**
+
+   * Dos valores iniciales muy cercanos $x_0$ y $x_0+\epsilon$ se separan exponencialmente con el tiempo.
+   * Se define el **exponente de Lyapunov**:
+
+   $$
+   \lambda = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|f'(x_n)\bigr|.
+   $$
+
+   Si $\lambda > 0$, las trayectorias divergen.
+
+2. **Estructura fractal y autosemejanza.**
+
+   * Aun en la región caótica, aparecen **ventanas periódicas** donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de $r\approx3.828$).
+
+3. **Teorema Li–Yorke.**
+
+   * La existencia de un ciclo de período 3 implica ciclos de **todos** los períodos.
+
+### 9.1 Diagrama detallado para $r > r_\infty$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r_inf = 3.56995
+r_values = np.linspace(r_inf, 4.0, 1200)
+iterations, last = 1000, 200
+r_plot, x_plot = [], []
+for r in r_values:
+    x = 0.5
+    for _ in range(iterations):
+        x = r * x * (1 - x)
+    for _ in range(last):
+        x = r * x * (1 - x)
+        r_plot.append(r)
+        x_plot.append(x)
+
+plt.figure(figsize=(8,6))
+plt.plot(r_plot, x_plot, '.', markersize=0.4)
+plt.title('Detalle del diagrama de bifurcación para r > r_\infty')
+plt.xlabel('Parámetro r')
+plt.ylabel('$x_n$ (atractor)')
+plt.tight_layout()
+plt.show()
+```
+
+## 10. Conclusión y siguientes pasos Conclusión y siguientes pasos
+
+1. Implementa el mapa en Python, R o Excel.
+2. Experimenta con distintos $r$ y $x_0$.
+3. Visualiza cobweb plots y diagramas de bifurcación.
+4. Estudia la constante de Feigenbaum en otros mapas unimodales.
+
+```

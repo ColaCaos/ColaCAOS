@@ -21,11 +21,81 @@
     "text": "Simulación en Python\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr, x0, n = 3.9, 0.2, 100\nx = np.zeros(n)\nx[0] = x0\nfor i in range(1, n):\n    x[i] = r * x[i-1] * (1 - x[i-1])\n\nplt.plot(x, marker='o')\nplt.title(\"Evolución del mapa logístico\")\nplt.xlabel(\"Iteración n\")\nplt.ylabel(\"xₙ\")\nplt.grid(True)\nplt.show()"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "mi_blog_caos",
+    "objectID": "posts/bifurcaciones.html",
+    "href": "posts/bifurcaciones.html",
+    "title": "El diagrama de bifurcaciones",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Duración de la explicación original: 0:00 – 17:17\n\n\nEl mapa logístico es un modelo discreto que, con una única ecuación, describe la evolución de una población normalizada \\(x_n\\) paso a paso y muestra comportamientos que van desde la convergencia hasta el caos.\nSe define mediante la iteración:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\n\n\\(x_n \\in [0,1]\\): población normalizada en la iteración \\(n\\).\n\\(r\\): parámetro de control o tasa de crecimiento (capacidad reproductiva).\n\n\nNota: Para garantizar que \\(x_{n+1} \\in [0,1]\\), se restringe \\(r\\) a \\(0 &lt; r \\le 4\\).\n\n\n\n\n\nEcuación continua: proviene de la ecuación logística diferencial, usada en biología para modelar el crecimiento con límite de recursos.\nDiscretización: Robert May (1976) introdujo su forma iterada y mostró que, pese a la regla sencilla, su dinámica es muy rica.\n\n\n\n\nLa función asociada es:\n\\[\nf(x) = r\\,x\\,(1 - x)\n\\]\n\nParábola invertida: abre hacia abajo.\nPunto máximo:\n\nSe alcanza en \\(x = 1/2\\).\nValor máximo: \\(f(1/2) = r/4\\).\n\nDominio y recorrido:\n\nDominio: \\(x \\in [0,1]\\).\nPara \\(0 &lt; r \\le 4\\), el recorrido queda en \\([0,1]\\).\n\n\n\n\n\nUn punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara el mapa logístico:\n\n\\(x^*_1 = 0\\).\n\\(x^*_2 = 1 - 1/r\\) (si \\(r &gt; 1\\)).\n\nLa derivada es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nUn punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\). Una perturbación \\(\\delta\\) en \\(x_n = x^* + \\delta\\) evoluciona como:\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta,\n\\]\npor lo que si \\(\\lvert f'(x^*)\\rvert &lt; 1\\), la desviación disminuye.\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\).\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\).\n\nResumen de convergencia:\n\n\\(0 &lt; r &lt; 1\\): converge a \\(x=0\\).\n\\(1 &lt; r &lt; 3\\): converge a \\(x=1-1/r\\).\n\n\n\n\n\n\nElige \\(x_0 \\in (0,1)\\), p.ej. \\(0.1\\), \\(0.2\\), \\(0.5\\).\n\n\n\n\n# Iteración del mapa logístico\ndef iterar_mapa(r, x0, N):\n    x = x0\n    resultados = []\n    for _ in range(N):\n        x = r * x * (1 - x)\n        resultados.append(x)\n    return resultados\n\nDescarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor.\n\n\n\n\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas\n\n\n\n\n\n\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales.\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_values = np.linspace(2.5, 4.0, 1500)\niterations, last = 1000, 100\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.5)\nplt.title('Diagrama de bifurcación del mapa logístico')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nPara \\(r &gt; r_\\infty\\):\n\nSensibilidad: pequeñas diferencias en \\(x_0\\) divergen.\nFractal: aparecen ventanas periódicas, p.ej. periodo 3 cerca de \\(r \\approx 3.828\\).\nLi–Yorke: un ciclo de periodo 3 implica ciclos de todos los periodos.\n\n\n\n\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```"
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#qué-es-el-mapa-logístico",
+    "href": "posts/bifurcaciones.html#qué-es-el-mapa-logístico",
+    "title": "El diagrama de bifurcaciones",
+    "section": "1. ¿Qué es el mapa logístico?",
+    "text": "1. ¿Qué es el mapa logístico?\nEl mapa logístico es un modelo discreto que, con una única ecuación, describe la evolución de una población normalizada \\(x_n\\) paso a paso y muestra comportamientos que van desde la convergencia hasta el caos.\nSe define mediante la iteración:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\n\n\\(x_n \\in [0,1]\\): población normalizada en la iteración \\(n\\).\n\\(r\\): parámetro de control o tasa de crecimiento (capacidad reproductiva).\n\n\nNota: Para garantizar que \\(x_{n+1} \\in [0,1]\\), se restringe \\(r\\) a \\(0 &lt; r \\le 4\\)."
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#breve-historia",
+    "href": "posts/bifurcaciones.html#breve-historia",
+    "title": "El diagrama de bifurcaciones",
+    "section": "2. Breve historia",
+    "text": "2. Breve historia\n\nEcuación continua: proviene de la ecuación logística diferencial, usada en biología para modelar el crecimiento con límite de recursos.\nDiscretización: Robert May (1976) introdujo su forma iterada y mostró que, pese a la regla sencilla, su dinámica es muy rica."
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#forma-y-dominio-de-la-función",
+    "href": "posts/bifurcaciones.html#forma-y-dominio-de-la-función",
+    "title": "El diagrama de bifurcaciones",
+    "section": "3. Forma y dominio de la función",
+    "text": "3. Forma y dominio de la función\nLa función asociada es:\n\\[\nf(x) = r\\,x\\,(1 - x)\n\\]\n\nParábola invertida: abre hacia abajo.\nPunto máximo:\n\nSe alcanza en \\(x = 1/2\\).\nValor máximo: \\(f(1/2) = r/4\\).\n\nDominio y recorrido:\n\nDominio: \\(x \\in [0,1]\\).\nPara \\(0 &lt; r \\le 4\\), el recorrido queda en \\([0,1]\\)."
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#puntos-fijos-y-estabilidad",
+    "href": "posts/bifurcaciones.html#puntos-fijos-y-estabilidad",
+    "title": "El diagrama de bifurcaciones",
+    "section": "4. Puntos fijos y estabilidad",
+    "text": "4. Puntos fijos y estabilidad\nUn punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara el mapa logístico:\n\n\\(x^*_1 = 0\\).\n\\(x^*_2 = 1 - 1/r\\) (si \\(r &gt; 1\\)).\n\nLa derivada es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nUn punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\). Una perturbación \\(\\delta\\) en \\(x_n = x^* + \\delta\\) evoluciona como:\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta,\n\\]\npor lo que si \\(\\lvert f'(x^*)\\rvert &lt; 1\\), la desviación disminuye.\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\).\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\).\n\nResumen de convergencia:\n\n\\(0 &lt; r &lt; 1\\): converge a \\(x=0\\).\n\\(1 &lt; r &lt; 3\\): converge a \\(x=1-1/r\\)."
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#cálculo-de-iteraciones",
+    "href": "posts/bifurcaciones.html#cálculo-de-iteraciones",
+    "title": "El diagrama de bifurcaciones",
+    "section": "5. Cálculo de iteraciones",
+    "text": "5. Cálculo de iteraciones\n\n5.1 Condición inicial\nElige \\(x_0 \\in (0,1)\\), p.ej. \\(0.1\\), \\(0.2\\), \\(0.5\\).\n\n\n5.2 Procedimiento\n\n# Iteración del mapa logístico\ndef iterar_mapa(r, x0, N):\n    x = x0\n    resultados = []\n    for _ in range(N):\n        x = r * x * (1 - x)\n        resultados.append(x)\n    return resultados\n\nDescarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor."
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#comportamientos-según-r",
+    "href": "posts/bifurcaciones.html#comportamientos-según-r",
+    "title": "El diagrama de bifurcaciones",
+    "section": "6. Comportamientos según \\(r\\)",
+    "text": "6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas"
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
+    "href": "posts/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
+    "title": "El diagrama de bifurcaciones",
+    "section": "7. Duplicación de periodo y constante de Feigenbaum",
+    "text": "7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales."
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#diagrama-de-bifurcación",
+    "href": "posts/bifurcaciones.html#diagrama-de-bifurcación",
+    "title": "El diagrama de bifurcaciones",
+    "section": "8. Diagrama de bifurcación",
+    "text": "8. Diagrama de bifurcación\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_values = np.linspace(2.5, 4.0, 1500)\niterations, last = 1000, 100\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.5)\nplt.title('Diagrama de bifurcación del mapa logístico')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.show()"
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#caos-y-ventanas-periódicas",
+    "href": "posts/bifurcaciones.html#caos-y-ventanas-periódicas",
+    "title": "El diagrama de bifurcaciones",
+    "section": "9. Caos y ventanas periódicas",
+    "text": "9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_inf = 3.56995\nr_values = np.linspace(r_inf, 4.0, 1200)\niterations, last = 1000, 200\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.4)\nplt.title('Detalle del diagrama de bifurcación para r &gt; r_\\infty')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#conclusión-y-siguientes-pasos",
+    "href": "posts/bifurcaciones.html#conclusión-y-siguientes-pasos",
+    "title": "El diagrama de bifurcaciones",
+    "section": "",
+    "text": "Implementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```"
   },
   {
     "objectID": "about.html",
@@ -33,6 +103,13 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "mi_blog_caos",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "posts/cobweb.html",
@@ -47,5 +124,12 @@
     "title": "Diagrama Cobweb Interactivo",
     "section": "",
     "text": "A la izquierda se muestra el diagrama cobweb y a la derecha la evolución temporal de (x_n). Ajusta el parámetro r con el deslizador.\n\nimport numpy as np\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\n# Función que calcula coordenadas de cobweb y serie de x_n\ndef compute_cobweb_and_series(r, x0=0.2, steps=40):\n    # Línea logística y la identidad\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n\n    # Serie de iteraciones de la función logística\n    series = [x0]\n    x = x0\n    for _ in range(steps):\n        x = r * x * (1 - x)\n        series.append(x)\n\n    # Coordenadas para el diagrama cobweb\n    xc, yc = [series[0]], [series[0]]\n    for val in series[1:]:\n        # vertical\n        xc.append(xc[-1]); yc.append(val)\n        # horizontal\n        xc.append(val); yc.append(val)\n\n    return xs, ys, xc, yc, series\n\n# Valores de r para el slider\ne_rs = np.linspace(2.5, 4.0, 31)\nframes = []\nfor r in e_rs:\n    xs, ys, xc, yc, series = compute_cobweb_and_series(r)\n    frames.append(\n        go.Frame(\n            name=f\"{r:.2f}\",\n            data=[\n                go.Scatter(x=xs, y=ys, mode='lines'),\n                go.Scatter(x=xs, y=xs, mode='lines', line=dict(dash='dash')),\n                go.Scatter(x=xc, y=yc, mode='lines', line=dict(color='red')),\n                go.Scatter(x=list(range(len(series))), y=series, mode='lines+markers')\n            ]\n        )\n    )\n\n# Crear figura con subplots 1x2\ngrid = make_subplots(rows=1, cols=2, subplot_titles=(\"Cobweb\",\"Evolución de x_n\"))\n# Trazas iniciales (r = e_rs[0])\nr0 = e_rs[0]\nxs0, ys0, xc0, yc0, series0 = compute_cobweb_and_series(r0)\ngrid.add_trace(go.Scatter(x=xs0, y=ys0, mode='lines', name='f(x)'), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xs0, y=xs0, mode='lines', name='y=x', line=dict(dash='dash')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xc0, y=yc0, mode='lines', name='Cobweb', line=dict(color='red')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=list(range(len(series0))), y=series0, mode='lines+markers', name='x_n'), row=1, col=2)\n# Asignar frames y configurar animación\n\ngrid.frames = frames\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\", frame=dict(duration=0, redraw=True), transition=dict(duration=0))])\n         for r in e_rs]\n\ngrid.update_layout(\n    width=1000, height=500,\n    sliders=[dict(active=0, pad=dict(t=50), steps=steps)],\n    updatemenus=[dict(type=\"buttons\", showactive=False,\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])]\n)\n\ngrid.show()"
+  },
+  {
+    "objectID": "posts/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
+    "href": "posts/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
+    "title": "El diagrama de bifurcaciones",
+    "section": "10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
+    "text": "10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```"
   }
 ]
