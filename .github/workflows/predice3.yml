@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -20,7 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          # Instalar librerías necesarias
           pip install pandas numpy torch matplotlib requests
 
       - name: Run Predice3.py
@@ -31,13 +33,10 @@ jobs:
       - name: Commit and push updated results
         run: |
           cd multiestacion/funcionando/c/EstacionVirtual
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
           git add results/
           git commit -m "Update predictions [skip ci]" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd multiestacion/funcionando/c/EstacionVirtual
-          python Predice3.py
