@@ -30,8 +30,4 @@ jobs:
           cd multiestacion/funcionando/c/EstacionVirtual
           python Predice3.py
 
-      - name: Upload results as artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: predicciones-horarias
-          path: multiestacion/funcionando/c/EstacionVirtual/results/  
+      
