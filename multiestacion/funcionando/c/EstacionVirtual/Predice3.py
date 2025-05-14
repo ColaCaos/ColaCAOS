@@ -250,28 +250,38 @@ def main():
 
     print('Pronóstico hora a hora generado en results/next24h_predictions.csv')
 
-    # 8) Generar tabla pivote de pronósticos históricos
-    # Cargar CSV combinado
-    df_all = pd.read_csv(out_fn, parse_dates=['time'])
-    # Pivot para temperatura
-    pivot_temp = df_all.pivot(index='time', columns='horizon_h', values='pred_temp')
-    pivot_temp = pivot_temp.sort_index()
-    # Asegurar índice continuo hora a hora
-    idx = pd.date_range(pivot_temp.index.min(), pivot_temp.index.max(), freq='h')
-    pivot_temp = pivot_temp.reindex(idx)
-    # Rellenar gaps con NaN o interpolación si se desea
+    # 9) Pivot histórico de predicciones acumulado
+    # ------------------------------------------------------------------
+    # Queremos una fila por ejecución: run_time + pred_1…pred_24
+    run_time = merged.index[-1]
 
-    # Pivot para precipitación
-    pivot_rain = df_all.pivot(index='time', columns='horizon_h', values='pred_rain')
-    pivot_rain = pivot_rain.sort_index()
-    pivot_rain = pivot_rain.reindex(idx)
+    # Construir la fila actual de temperatura
+    temp_row = {'run_time': run_time}
+    for h in range(1, OUTPUT_WINDOW+1):
+        temp_row[str(h)] = dfres.loc[dfres.horizon_h == h, 'pred_temp'].values[0]
+    # Y la de precipitación
+    rain_row = {'run_time': run_time}
+    for h in range(1, OUTPUT_WINDOW+1):
+        rain_row[str(h)] = dfres.loc[dfres.horizon_h == h, 'pred_rain'].values[0]
 
-    # Guardar tablas pivote
-    pivot_temp.to_csv('results/pivot_pred_temp.csv', index_label='time')
-    pivot_rain.to_csv('results/pivot_pred_rain.csv', index_label='time')
+    # Función auxiliar para acumular
+    def append_and_save(row, fn):
+        if os.path.exists(fn):
+            df_prev = pd.read_csv(fn, parse_dates=['run_time']).set_index('run_time')
+            df_prev = df_prev.astype(float)
+            df_new = pd.DataFrame([row]).set_index('run_time')
+            df_comb = pd.concat([df_prev, df_new])
+            df_comb = df_comb[~df_comb.index.duplicated(keep='last')].sort_index()
+        else:
+            df_comb = pd.DataFrame([row]).set_index('run_time')
+        df_comb.reset_index().to_csv(fn, index=False)
 
-    print('Tablas pivote guardadas en results/pivot_pred_temp.csv y pivot_pred_rain.csv')
+    # Guardar ambos pivot
+    os.makedirs('results', exist_ok=True)
+    append_and_save(temp_row, 'results/pivot_pred_temp.csv')
+    append_and_save(rain_row, 'results/pivot_pred_rain.csv')
 
+    print('Pivot acumulado actualizado en results/pivot_pred_*.csv')
 if __name__ == '__main__':
     main()
     main()
