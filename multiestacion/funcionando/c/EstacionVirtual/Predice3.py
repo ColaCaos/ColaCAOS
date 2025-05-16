@@ -5,10 +5,10 @@ Predice3.py
 Ejecuta cada hora y genera:
   - results/next24h_predictions.csv: histórico acumulado de predicciones hora a hora para próximas 24h, sin duplicados ni huecos.
   - results/next24h_temp.png y next24h_rain.png: gráficos de las últimas 24h de predicción.
-  - results/pivot_pred_temp.csv: tabla acumulada de temperaturas (index=run_time, columns=1–24).
-  - results/pivot_pred_rain.csv: tabla acumulada de lluvias.
+  - results/pivot_pred_temp.csv: tabla acumulada de temperaturas por ejecución (index=run_time, columns=1–24).
+  - results/pivot_pred_rain.csv: tabla acumulada de lluvias por ejecución.
 
-Basado en Predice2.py con pivot acumulado.
+Basado en Predice2.py con pivot por run_time.
 """
 import os
 import requests
@@ -50,7 +50,6 @@ numeric_cols = [
     'Velocidad del viento (km/h)',
     'Dirección del viento'
 ]
-cat_cols = []
 time_feats = ['hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
 
 dir2deg = {
@@ -72,31 +71,24 @@ OUTPUT_WINDOW = 24
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # -------------------------
-# Funciones utilitarias
+# Utilidades
 # -------------------------
 def fetch_csv(url):
-    r = requests.get(url)
-    r.raise_for_status()
+    r = requests.get(url); r.raise_for_status()
     lines = r.text.splitlines()
-    for i, l in enumerate(lines):
+    for i,l in enumerate(lines):
         if l.startswith('"Fecha y hora oficial"'):
-            return pd.read_csv(
-                StringIO("\n".join(lines[i:])), sep=',', quotechar='"',
-                parse_dates=['Fecha y hora oficial'], dayfirst=True
-            )
+            return pd.read_csv(StringIO("\n".join(lines[i:])), quotechar='"', sep=',', parse_dates=['Fecha y hora oficial'], dayfirst=True)
     raise RuntimeError('Cabecera no encontrada')
 
 def update_history(st):
     fn = f"{st}.csv"
     df_new = fetch_csv(station_urls[st]).set_index('Fecha y hora oficial')
-    if os.path.exists(fn):
-        df_hist = pd.read_csv(fn, parse_dates=['datetime'], index_col='datetime')
-    else:
-        df_hist = pd.DataFrame()
+    df_hist = pd.read_csv(fn, parse_dates=['datetime'], index_col='datetime') if os.path.exists(fn) else pd.DataFrame()
     df = pd.concat([df_hist, df_new[numeric_cols]])
     df = df[~df.index.duplicated()].sort_index()
     df = df.reindex(pd.date_range(df.index.min(), df.index.max(), freq='h'))
-    df[numeric_cols] = df[numeric_cols].interpolate(method='time')
+    df[numeric_cols] = df[numeric_cols].infer_objects().interpolate(method='time')
     df['Dirección del viento'] = df['Dirección del viento'].map(dir2deg).ffill().bfill()
     df['datetime'] = df.index
     df.to_csv(fn, index=False, float_format='%.1f')
@@ -104,10 +96,10 @@ def update_history(st):
 
 def add_time_feats(df):
     t = df['datetime']
-    df['hour_sin'] = np.sin(2 * np.pi * t.dt.hour / 24)
-    df['hour_cos'] = np.cos(2 * np.pi * t.dt.hour / 24)
-    df['dow_sin'] = np.sin(2 * np.pi * t.dt.dayofweek / 7)
-    df['dow_cos'] = np.cos(2 * np.pi * t.dt.dayofweek / 7)
+    df['hour_sin'] = np.sin(2*np.pi*t.dt.hour/24)
+    df['hour_cos'] = np.cos(2*np.pi*t.dt.hour/24)
+    df['dow_sin'] = np.sin(2*np.pi*t.dt.dayofweek/7)
+    df['dow_cos'] = np.cos(2*np.pi*t.dt.dayofweek/7)
     return df
 
 class ForecastNet(nn.Module):
@@ -118,29 +110,27 @@ class ForecastNet(nn.Module):
         self.fc = nn.Linear(hid, od)
         self.proj = nn.Linear(od, in_dim)
         self.steps = steps
-
     def forward(self, x):
-        _, (h, c) = self.encoder(x)
-        inp = x[:, -1:, :2]
-        outs = []
+        _,(h,c)=self.encoder(x)
+        inp=x[:,-1:,:2]
+        outs=[]
         for _ in range(self.steps):
-            d = self.proj(inp)
-            o, (h, c) = self.decoder(d, (h, c))
-            p = self.fc(o)
+            d=self.proj(inp)
+            o,(h,c)=self.decoder(d,(h,c))
+            p=self.fc(o)
             outs.append(p)
-            inp = p
-        return torch.cat(outs, 1)
+            inp=p
+        return torch.cat(outs,1)
 
 # -------------------------
-# Pivot helper
+# Append helper
 # -------------------------
 def append_and_save(row, fn):
-    # Asegurar directorio
     os.makedirs(os.path.dirname(fn), exist_ok=True)
     if os.path.exists(fn):
         df_prev = pd.read_csv(fn)
-        if 'run_time' not in df_prev.columns and 'time' in df_prev.columns:
-            df_prev = df_prev.rename(columns={'time': 'run_time'})
+        if 'time' in df_prev.columns and 'run_time' not in df_prev.columns:
+            df_prev = df_prev.rename(columns={'time':'run_time'})
         df_prev['run_time'] = pd.to_datetime(df_prev['run_time'])
         df_prev = df_prev.set_index('run_time')
         df_new = pd.DataFrame([row]).set_index('run_time')
@@ -151,102 +141,84 @@ def append_and_save(row, fn):
     df_comb.reset_index().to_csv(fn, index=False)
 
 # -------------------------
-# Ejecución principal
+# Main
 # -------------------------
 def main():
-    # 1) Actualizar históricos
+    # 1) Histórico
     for st in station_urls:
         print(f"Histórico {st} ->", update_history(st))
-
-    # 2) Cargar y combinar
-    dfs = []
+    # 2) Cargar + combinar
+    dfs=[]
     for st in station_urls:
-        df = pd.read_csv(f"{st}.csv", parse_dates=['datetime'])
-        df = add_time_feats(df)
-        df.set_index('datetime', inplace=True)
-        feats = numeric_cols + time_feats
-        df = df[feats]
-        df.columns = [f"{st}_{c}" for c in feats]
+        df=pd.read_csv(f"{st}.csv",parse_dates=['datetime'])
+        df=add_time_feats(df)
+        df.set_index('datetime',inplace=True)
+        feats=numeric_cols+time_feats
+        df=df[feats]
+        df.columns=[f"{st}_{c}" for c in feats]
         dfs.append(df)
-    merged = reduce(lambda a, b: a.join(b, how='inner'), dfs).sort_index()
-
+    merged=reduce(lambda a,b:a.join(b,how='inner'),dfs).sort_index()
     # 3) Normalizar
-    stats = pd.read_csv('model/normalization_stats.csv', index_col=0)
-    stats.columns = ['mean', 'std']
-    merged_norm = merged.copy()
+    stats=pd.read_csv('model/normalization_stats.csv',index_col=0)
+    stats.columns=['mean','std']
+    norm=merged.copy()
     for col in merged.columns:
-        base = col.split('_', 1)[1]
+        base=col.split('_',1)[1]
         if base in feature_map:
-            key = feature_map[base]
-            m, s = stats.at[key, 'mean'], stats.at[key, 'std']
-            merged_norm[col] = (merged[col] - m) / s
-
-    # 4) Preparar última ventana
-    state = torch.load('model/forecast_model.pt', map_location=DEVICE)
-    input_dim = state['encoder.weight_ih_l0'].shape[1]
-    hidden_size = state['encoder.weight_ih_l0'].shape[0] // 4
-    num_layers = len([k for k in state.keys() if k.startswith('encoder.weight_ih_l')])
-    cols = [f"{st}_{feat}" for st in station_urls for feat in numeric_cols + time_feats]
-    data = merged_norm[cols].values
-    if data.shape[0] < INPUT_WINDOW:
-        print(f"No hay suficientes datos ({data.shape[0]}) para ventana {INPUT_WINDOW}h.")
+            key=feature_map[base]
+            m,s=stats.at[key,'mean'],stats.at[key,'std']
+            norm[col]=(merged[col]-m)/s
+    # 4) Ventana
+    state=torch.load('model/forecast_model.pt',map_location=DEVICE)
+    in_dim=state['encoder.weight_ih_l0'].shape[1]
+    hid=state['encoder.weight_ih_l0'].shape[0]//4
+    layers=len([k for k in state if k.startswith('encoder.weight_ih_l')])
+    cols=[f"{st}_{f}" for st in station_urls for f in numeric_cols+time_feats]
+    data=norm[cols].values
+    if len(data)<INPUT_WINDOW:
+        print(f"No hay suficientes datos ({len(data)}) para ventana {INPUT_WINDOW}h.")
         return
-    window = torch.tensor(data[-INPUT_WINDOW:], dtype=torch.float32).unsqueeze(0).to(DEVICE)
-
-    # 5) Predecir próximas 24h
-    model = ForecastNet(input_dim, hidden_size, num_layers, OUTPUT_WINDOW, 2).to(DEVICE)
-    model.load_state_dict(state, strict=False)
+    win=torch.tensor(data[-INPUT_WINDOW:],dtype=torch.float32).unsqueeze(0).to(DEVICE)
+    # 5) Predicción
+    model=ForecastNet(in_dim,hid,layers,OUTPUT_WINDOW,2).to(DEVICE)
+    model.load_state_dict(state,strict=False)
     model.eval()
-    with torch.no_grad():
-        pred = model(window).cpu().numpy().squeeze(0)
-
-    # 6) Compilar resultados
-    last_time = merged.index[-1]
-    rows = []
-    for h in range(1, OUTPUT_WINDOW + 1):
-        t_pred = last_time + timedelta(hours=h)
-        tp_n, rp_n = pred[h-1]
-        m_t, s_t = stats.at['temperature_2m (°C)', 'mean'], stats.at['temperature_2m (°C)', 'std']
-        m_r, s_r = stats.at['rain (mm)', 'mean'], stats.at['rain (mm)', 'std']
-        temp = tp_n * s_t + m_t
-        rain = max(rp_n * s_r + m_r, 0.0)
-        rows.append({'time': t_pred, 'horizon_h': h, 'pred_temp': temp, 'pred_rain': rain})
-    dfres = pd.DataFrame(rows)
-
-    # 7) Guardar histórico combinado
-    os.makedirs('results', exist_ok=True)
-    out_fn = 'results/next24h_predictions.csv'
-    if os.path.exists(out_fn):
-        prev = pd.read_csv(out_fn, parse_dates=['time']).set_index('time')
-        combined = pd.concat([prev, dfres.set_index('time')])
-        combined = combined[~combined.index.duplicated(keep='last')].sort_index()
-        idx = pd.date_range(combined.index.min(), combined.index.max(), freq='h')
-        combined = combined.reindex(idx)
-        combined['pred_temp'] = combined['pred_temp'].interpolate(method='time')
-        combined['pred_rain'] = combined['pred_rain'].interpolate(method='time')
+    with torch.no_grad(): pred=model(win).cpu().numpy().squeeze(0)
+    # 6) Compilar
+    last=merged.index[-1]
+    dfres=pd.DataFrame([
+        {'time':last+timedelta(hours=h),'horizon_h':h,
+         'pred_temp':pred[h-1,0]*stats.at['temperature_2m (°C)','std']+stats.at['temperature_2m (°C)','mean'],
+         'pred_rain':max(pred[h-1,1]*stats.at['rain (mm)','std']+stats.at['rain (mm)','mean'],0.0)}
+        for h in range(1,OUTPUT_WINDOW+1)
+    ])
+    # 7) Histórico next24h
+    os.makedirs('results',exist_ok=True)
+    fn='results/next24h_predictions.csv'
+    if os.path.exists(fn):
+        prev=pd.read_csv(fn,parse_dates=['time']).set_index('time')
+        comb=pd.concat([prev, dfres.set_index('time')])
+        comb=comb[~comb.index.duplicated(keep='last')].sort_index()
+        idx=pd.date_range(comb.index.min(),comb.index.max(),freq='h')
+        comb=comb.reindex(idx)
+        comb['pred_temp']=comb['pred_temp'].interpolate(method='time')
+        comb['pred_rain']=comb['pred_rain'].interpolate(method='time')
     else:
-        combined = dfres.set_index('time')
-    combined.reset_index().rename(columns={'index':'time'}).to_csv(out_fn, index=False)
-
-    # 8) Graficar últimas 24h
-    plt.figure(); plt.plot(dfres.time, dfres.pred_temp, marker='o'); plt.title('Temp +24h'); plt.tight_layout(); plt.savefig('results/next24h_temp.png'); plt.close()
-    plt.figure(); plt.plot(dfres.time, dfres.pred_rain, marker='o'); plt.title('Rain +24h'); plt.tight_layout(); plt.savefig('results/next24h_rain.png'); plt.close()
-
-    # 9) Pivot acumulado
-    run_time = last_time
-    # temperatura
-    temp_row = {'run_time': run_time}
-    for h in range(1, OUTPUT_WINDOW+1):
-        temp_row[str(h)] = dfres.loc[dfres.horizon_h == h, 'pred_temp'].values[0]
-    # precipitación
-    rain_row = {'run_time': run_time}
-    for h in range(1, OUTPUT_WINDOW+1):
-        rain_row[str(h)] = dfres.loc[dfres.horizon_h == h, 'pred_rain'].values[0]
-
-    append_and_save(temp_row, 'results/pivot_pred_temp.csv')
-    append_and_save(rain_row, 'results/pivot_pred_rain.csv')
-
+        comb=dfres.set_index('time')
+    comb.reset_index().rename(columns={'index':'time'}).to_csv(fn,index=False)
+    # 8) Gráficos
+    plt.figure();plt.plot(dfres.time,dfres.pred_temp,marker='o');plt.title('Temp +24h');plt.tight_layout();plt.savefig('results/next24h_temp.png');plt.close()
+    plt.figure();plt.plot(dfres.time,dfres.pred_rain,marker='o');plt.title('Rain +24h');plt.tight_layout();plt.savefig('results/next24h_rain.png');plt.close()
+    # 9) Pivot por run_time
+    run_time=last
+    temp_row={'run_time':run_time}
+    rain_row={'run_time':run_time}
+    for h in range(1,OUTPUT_WINDOW+1):
+        temp_row[str(h)]=dfres.loc[dfres.horizon_h==h,'pred_temp'].values[0]
+        rain_row[str(h)]=dfres.loc[dfres.horizon_h==h,'pred_rain'].values[0]
+    append_and_save(temp_row,'results/pivot_pred_temp.csv')
+    append_and_save(rain_row,'results/pivot_pred_rain.csv')
     print('Pivot acumulado actualizado en results/')
 
-if __name__ == '__main__':
+if __name__=='__main__':
     main()
