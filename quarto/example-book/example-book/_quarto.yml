@@ -1,0 +1,24 @@
+project:
+  type: book
+  output-dir: _output
+
+book:
+  title: "Example Book"
+  author: "ChatGPT"
+  chapters:
+    - index.qmd
+    - part: "Chapter 1: Introduction to Dynamics"
+      chapters:
+        - 01-intro/what-is-dynamics.qmd
+        - 01-intro/newton-laws.qmd
+    - part: "Chapter 2: Nonlinear Systems"
+      chapters:
+        - 02-nonlinear/basics.qmd
+        - 02-nonlinear/bifurcations.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    math: katex

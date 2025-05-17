@@ -1,16 +1,6 @@
 #!/usr/bin/env python3
 """
-Script para generar predicciones en Galapagar usando los últimos 72h de datos de estaciones externas:
-  - pontevedra, salamanca, huelva, ciudadreal, valencia, almeria, creus, Santander, Segovia, Guadalajara, Burgos
-1) Descargar y actualizar históricos horarios de AEMET para cada estación (excepto Galapagar)
-2) Preprocesar datos:
-   - completar gaps por interpolación
-   - convertir direcciones de viento a grados
-   - añadir variables temporales (hora y día de la semana)
-   - renombrar a nombres de features del entrenamiento
-3) Normalizar según stats de entrenamiento
-4) Generar pronóstico hora a hora para las próximas 24h con ForecastNet
-5) Guardar resultados en CSV y gráficos
+Script corregido para generar predicciones +24h en Galapagar (usando datos de Torrelodones) replicando la lógica de predictMultiAMPmetrics.py.
 """
 import os
 import requests
@@ -24,7 +14,7 @@ from datetime import timedelta
 from functools import reduce
 
 # -------------------------
-# Configuración
+# Configuración de estaciones (Torrelodones como Galapagar)
 # -------------------------
 station_urls = {
     'pontevedra':  'https://www.aemet.es/es/eltiempo/observacion/ultimosdatos_1484C_datos-horarios.csv?k=gal&l=1484C&datos=det&w=0&f=temperatura&x=',
@@ -38,24 +28,18 @@ station_urls = {
     'Segovia':     'https://www.aemet.es/es/eltiempo/observacion/ultimosdatos_2465_datos-horarios.csv?k=cle&l=2465&datos=det&w=0&f=temperatura&x=h24',
     'Guadalajara': 'https://www.aemet.es/es/eltiempo/observacion/ultimosdatos_3168D_datos-horarios.csv?k=clm&l=3168D&datos=det&w=0&f=temperatura&x=h24',
     'Burgos':      'https://www.aemet.es/es/eltiempo/observacion/ultimosdatos_2331_datos-horarios.csv?k=cle&l=2331&datos=det&w=0&f=temperatura&x=h24',
+    # Galapagar -> Torrelodones (código 3272M)
     'galapagar':   'https://www.aemet.es/es/eltiempo/observacion/ultimosdatos_3272M_datos-horarios.csv?k=mad&l=3272M&datos=det&w=0&f=temperatura&x='
 }
 
-# Columnas a obtener (solo features usadas en entrenamiento: 6 numéricas + 4 temporales)
+# Columnas de interés y mapeos
 numeric_cols = [
-    'Temperatura (ºC)',
-    'Humedad (%)',
-    'Precipitación (mm)',
-    'Presión (hPa)',
-    'Velocidad del viento (km/h)',
-    'Dirección del viento'  # direcciones convertidas a grados
+    'Temperatura (ºC)', 'Humedad (%)', 'Precipitación (mm)',
+    'Presión (hPa)', 'Velocidad del viento (km/h)', 'Dirección del viento'
 ]
-# Eliminamos Racha( km/h) y Tendencia(hPa); 'Dirección del viento' se convierte a grados y se trata como numérica
-cat_cols = []  # ya convertimos dirección de viento
-time_feats = ['hour_sin','hour_cos','dow_sin','dow_cos']
+cat_cols = []  # la dirección ya se convierte a grados
+time_feats = ['hour_sin', 'hour_cos', 'dow_sin', 'dow_cos']
 
-# Mapeo para convertir direcciones de viento a grados
-# (usado en update_history)
 dir2deg = {
     'Norte': 0, 'Nornoreste': 22.5, 'Noreste': 45, 'Estenoreste': 67.5,
     'Este': 90, 'Estesureste': 112.5, 'Sureste': 135, 'Sursureste': 157.5,
@@ -63,24 +47,25 @@ dir2deg = {
     'Oeste': 270, 'Oestonoroeste': 292.5, 'Noroeste': 315, 'Nornoroeste': 337.5
 }
 
-# Mapeo para stats de entrenamiento (ahora solo numéricas originales) (ahora solo numéricas originales)
+# Mapa de nombres de características a índices de stats
 feature_map = {
     'Temperatura (ºC)': 'temperature_2m (°C)',
     'Humedad (%)': 'relative_humidity_2m (%)',
     'Precipitación (mm)': 'rain (mm)',
     'Presión (hPa)': 'surface_pressure (hPa)',
-    'Velocidad del viento (km/h)': 'wind_speed_10m (km/h)'  
+    'Velocidad del viento (km/h)': 'wind_speed_10m (km/h)',
+    'Dirección del viento': 'wind_direction_10m (°)'
 }
 
-# Ventana de entrada (horas) ahora 24 según nuevo modelo
-# Ventana de entrada (horas) ahora 24 según nuevo modelo
+# Ventanas y dispositivo
 INPUT_WINDOW = 24
 OUTPUT_WINDOW = 24
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # -------------------------
-# Descargar y parsear CSV AEMET
+# Funciones auxiliares
 # -------------------------
+
 def fetch_csv(url):
     r = requests.get(url); r.raise_for_status()
     lines = r.text.splitlines()
@@ -92,145 +77,190 @@ def fetch_csv(url):
             )
     raise RuntimeError("Cabecera no encontrada en AEMET.")
 
-# -------------------------
-# Actualizar histórico CSV
-# -------------------------
+
 def update_history(st):
+    """
+    Descarga los datos de AEMET para la estación st, 
+    mantiene sólo las últimas INPUT_WINDOW horas, 
+    interpola huecos, codifica la dirección del viento
+    y reescribe el fichero 'st.csv'.
+    """
     fn = f"{st}.csv"
+    # 1) Descargar y parsear df_new
     df_new = fetch_csv(station_urls[st]).set_index('Fecha y hora oficial')
+    df_new = df_new[numeric_cols + cat_cols]
+    # 2) Convertir direcciones y renombrar datetime
+    df_new['Dirección del viento'] = df_new['Dirección del viento'].map(dir2deg)
+    df_new['datetime'] = df_new.index
+    # 3) Si hay histórico previo, cargarlo y añadir nuevos datos
     if os.path.exists(fn):
-        df_hist = pd.read_csv(fn, parse_dates=['datetime'], index_col='datetime')
+        df_old = pd.read_csv(fn, parse_dates=['datetime']).set_index('datetime')
+        df_comb = pd.concat([df_old, df_new], axis=0)
+        # Eliminar duplicados manteniendo el más reciente
+        df_comb = df_comb[~df_comb.index.duplicated(keep='last')]
     else:
-        df_hist = pd.DataFrame()
-    df = pd.concat([df_hist, df_new[numeric_cols + cat_cols]])
-    df = df[~df.index.duplicated(keep='last')].sort_index()
-    df = df.reindex(pd.date_range(df.index.min(), df.index.max(), freq='h'))
-    df[numeric_cols] = df[numeric_cols].interpolate(method='time')
-    # convertir viento a grados
-    df['Dirección del viento'] = df['Dirección del viento'].map(dir2deg).ffill().bfill()
-    df['datetime'] = df.index
-    df.to_csv(fn, index=False, float_format='%.1f')
+        df_comb = df_new
+    # 4) Reindexar para frecuencia horaria continua
+    df_comb = df_comb.reindex(pd.date_range(df_comb.index.min(),
+                                            df_comb.index.max(),
+                                            freq='h'))
+    # 5) Interpolar numéricos y rellenar dirección
+    df_comb[numeric_cols] = df_comb[numeric_cols].interpolate(method='time')
+    df_comb['Dirección del viento'] = df_comb['Dirección del viento'].ffill().bfill()
+    # 6) Mantener sólo las últimas INPUT_WINDOW horas
+    df_final = df_comb.tail(INPUT_WINDOW)
+    # 7) Preparar columna datetime y escribir
+    df_final = df_final.copy()
+    df_final['datetime'] = df_final.index
+    df_final.to_csv(fn, index=False, float_format='%.1f')
     return fn
 
-# -------------------------
-# Añadir variables temporales
-# -------------------------
+
 def add_time_feats(df):
     t = df['datetime']
     df['hour_sin'] = np.sin(2*np.pi*t.dt.hour/24)
     df['hour_cos'] = np.cos(2*np.pi*t.dt.hour/24)
-    df['dow_sin'] = np.sin(2*np.pi*t.dt.dayofweek/7)
-    df['dow_cos'] = np.cos(2*np.pi*t.dt.dayofweek/7)
+    df['dow_sin']  = np.sin(2*np.pi*t.dt.dayofweek/7)
+    df['dow_cos']  = np.cos(2*np.pi*t.dt.dayofweek/7)
     return df
 
 # -------------------------
-# ForecastNet LSTM
+# Modelo ForecastNet
 # -------------------------
 class ForecastNet(nn.Module):
-    def __init__(self, in_dim, hid, nl, steps, od, drop=0.2):
+    def __init__(self, in_dim, hid, nl, steps, od, drop=0.0):
         super().__init__()
-        # El encoder recibe in_dim features
-        self.encoder = nn.LSTM(input_size=in_dim, hidden_size=hid, num_layers=nl,
-                                batch_first=True, dropout=drop)
-        # El decoder debe recibir también in_dim features para cargar el checkpoint correctamente
-        self.decoder = nn.LSTM(input_size=in_dim, hidden_size=hid, num_layers=nl,
-                                batch_first=True, dropout=drop)
+        self.encoder = nn.LSTM(
+            input_size=in_dim, hidden_size=hid, num_layers=nl,
+            batch_first=True, dropout=drop if nl>1 else 0)
+        self.decoder = nn.LSTM(
+            input_size=in_dim, hidden_size=hid, num_layers=nl,
+            batch_first=True, dropout=drop if nl>1 else 0)
         self.fc   = nn.Linear(hid, od)
         self.proj = nn.Linear(od, in_dim)
         self.steps = steps
-    def forward(self, x):
-        _, (h, c) = self.encoder(x)
-        inp = x[:, -1:, :2]
-        outs = []
-        for _ in range(self.steps):
-            d = self.proj(inp)
-            o, (h, c) = self.decoder(d, (h, c))
-            p = self.fc(o)
-            outs.append(p)
-            inp = p
-        return torch.cat(outs, dim=1)
 
 # -------------------------
 # Pipeline principal
 # -------------------------
-def main():
-    # 1) actualizar históricos
-    for st in station_urls:
-        print(f"Histórico {st} ->", update_history(st))
 
-    # 2) cargar y combinar datos
+def main():
+    # 1) Actualizar CSVs
+    for st in station_urls:
+        print(f"Actualizado histórico {st} ->", update_history(st))
+
+    # 2) Cargar y unir usando índice de Galapagar
+    # Leer Galapagar para definir el índice horario común
+    df_g = pd.read_csv('galapagar.csv', parse_dates=['datetime'])
+    df_g = add_time_feats(df_g).set_index('datetime')
+    time_index = df_g.index
+
     dfs = []
     for st in station_urls:
         df = pd.read_csv(f"{st}.csv", parse_dates=['datetime'])
-        df = add_time_feats(df)
-        df.set_index('datetime', inplace=True)
+        df = add_time_feats(df).set_index('datetime')
+        # Reindexar al índice común de Galapagar
+        df = df.reindex(time_index)
+        # Interpolar valores numéricos y rellenar dirección
+        df[numeric_cols] = df[numeric_cols].interpolate(method='time')
+        df['Dirección del viento'] = df['Dirección del viento'].ffill().bfill()
+        # Seleccionar columnas y renombrar con prefijo de estación
         feats = numeric_cols + cat_cols + time_feats
         df = df[feats]
         df.columns = [f"{st}_{c}" for c in feats]
         dfs.append(df)
-    merged = reduce(lambda a, b: a.join(b, how='inner'), dfs).sort_index()
+    merged = pd.concat(dfs, axis=1).sort_index()
 
-    # 3) normalizar
+# 3) Normalizar todas las features (numéricas y temporales)
     stats = pd.read_csv('model/normalization_stats.csv', index_col=0)
-    stats.columns = ['mean', 'std']
+    if list(stats.columns) != ['mean','std']:
+        stats.columns = ['mean','std']
     merged_norm = merged.copy()
+    input_cols = []
+    # Normalizar con estadísticas por estación y característica
     for col in merged.columns:
-        base = col.split('_', 1)[1]
+        station, base = col.split('_', 1)
+        # Mapear base en español a clave en stats
         if base in feature_map:
-            key = feature_map[base]
-            if key in stats.index:
-                m, s = stats.at[key, 'mean'], stats.at[key, 'std']
-                merged_norm[col] = (merged[col] - m) / s
+            eng_base = feature_map[base]
+        elif base in time_feats:
+            eng_base = base
+        else:
+            continue
+        # Construir clave de stats usando nombre de estación en minúsculas (salvo galapagar)
+        if station.lower() != 'galapagar':
+            key = f"{station.lower()}_{eng_base}"
+        else:
+            key = eng_base
+        if key not in stats.index:
+            raise KeyError(f"Clave de normalización no encontrada: {key}")
+        # Extraer media y std
+        m, s = stats.at[key, 'mean'], stats.at[key, 'std']
+        # Normalizar
+        merged_norm[col] = (merged[col] - m) / s
+        input_cols.append(col)
 
-    # 4) preparar datos de entrada con orden consistente de features
+# 4) Preparar ventana de entrada
     state = torch.load('model/forecast_model.pt', map_location=DEVICE)
     input_dim = state['encoder.weight_ih_l0'].shape[1]
     hidden_size = state['encoder.weight_ih_l0'].shape[0] // 4
-    num_layers = len([k for k in state.keys() if k.startswith('encoder.weight_ih_l')])
-    base_feats = numeric_cols + cat_cols + time_feats
-    input_cols = []
-    for st in station_urls:
-        for feat in base_feats:
-            col = f"{st}_{feat}"
-            if col not in merged_norm.columns:
-                raise KeyError(f"Columna faltante en merged_norm: {col}")
-            input_cols.append(col)
+    num_layers = len([k for k in state if k.startswith('encoder.weight_ih_l')])
+
     if len(input_cols) != input_dim:
-        raise ValueError(f"Número de columnas de entrada {len(input_cols)} no coincide con input_dim {input_dim}")
+        raise ValueError(f"Dim entrada {len(input_cols)} != esperado {input_dim}")
+
     data = merged_norm[input_cols].values
     if data.shape[0] < INPUT_WINDOW:
-        print(f"No hay suficientes datos ({data.shape[0]}) para ventana {INPUT_WINDOW}h.")
-        return
+        raise RuntimeError("No hay suficientes datos para ventana de 24h.")
     last_win = torch.tensor(data[-INPUT_WINDOW:], dtype=torch.float32).unsqueeze(0).to(DEVICE)
 
-    # 5) predecir próximas 24h
-    model = ForecastNet(input_dim, hidden_size, num_layers, OUTPUT_WINDOW, 2).to(DEVICE)
+    # 5) Cargar modelo y generar +24h con iniciales de Galapagar
+    model = ForecastNet(input_dim, hidden_size, num_layers, OUTPUT_WINDOW, 2)
     model.load_state_dict(state, strict=False)
+    model = model.to(DEVICE)
     model.eval()
-    with torch.no_grad():
-        pred = model(last_win).cpu().numpy().squeeze(0)
 
-    # 6) compilar pronóstico hora a hora
-    last_time = merged.index[-1]
+    # índices de temperatura y lluvia de Galapagar
+    idx_t = input_cols.index('galapagar_Temperatura (ºC)')
+    idx_r = input_cols.index('galapagar_Precipitación (mm)')
+    with torch.no_grad():
+        _, (h, c) = model.encoder(last_win)
+        inp = last_win[:, -1:, [idx_t, idx_r]]  # [1,1,2]
+        outs = []
+        for _ in range(OUTPUT_WINDOW):
+            d = model.proj(inp)
+            out, (h, c) = model.decoder(d, (h, c))
+            p = model.fc(out)  # [1,1,2]
+            outs.append(p)
+            inp = p
+        pred = torch.cat(outs, dim=1).cpu().numpy().squeeze(0)
+
+    # 6) Desnormalizar y guardar resultados
     rows = []
-    for h in range(1, OUTPUT_WINDOW+1):
-        t_pred = last_time + timedelta(hours=h)
-        tp_n, rp_n = pred[h-1]
-        m_t, s_t = stats.at['temperature_2m (°C)', 'mean'], stats.at['temperature_2m (°C)', 'std']
-        m_r, s_r = stats.at['rain (mm)', 'mean'], stats.at['rain (mm)', 'std']
-        temp = tp_n * s_t + m_t
-        rain = max(rp_n * s_r + m_r, 0.0)
-        rows.append({'time': t_pred, 'horizon_h': h, 'pred_temp': temp, 'pred_rain': rain})
+    last_time = merged.index[-1]
+    for hstep in range(1, OUTPUT_WINDOW+1):
+        tm = last_time + timedelta(hours=hstep)
+        tp_n, rp_n = pred[hstep-1]
+        m_t, s_t = stats.at['temperature_2m (°C)','mean'], stats.at['temperature_2m (°C)','std']
+        m_r, s_r = stats.at['rain (mm)','mean'], stats.at['rain (mm)','std']
+        # Desnormalización
+        temp_val = tp_n * s_t + m_t
+        rain_val = rp_n * s_r + m_r
+        # Aplicar umbral: nada si < 0.1 mm/h
+        if rain_val < 0.1:
+            rain_val = 0.0
+        rows.append({
+            'time': tm,
+            'horizon_h': hstep,
+            'pred_temp': temp_val,
+            'pred_rain': rain_val
+        })
     dfres = pd.DataFrame(rows)
     os.makedirs('results', exist_ok=True)
     dfres.to_csv('results/next24h_predictions.csv', index=False)
-
-    # 7) graficar
-    plt.figure(); plt.plot(dfres.time, dfres.pred_temp, marker='o'); plt.title('Temp +24h'); plt.tight_layout(); plt.savefig('results/next24h_temp.png'); plt.close()
-    plt.figure(); plt.plot(dfres.time, dfres.pred_rain, marker='o'); plt.title('Rain +24h'); plt.tight_layout(); plt.savefig('results/next24h_rain.png'); plt.close()
-
-    print('Pronóstico hora a hora generado en results/next24h_predictions.csv')
+    plt.figure(); plt.plot(dfres.time, dfres.pred_temp, marker='o'); plt.title('Temperatura +24h'); plt.tight_layout(); plt.savefig('results/next24h_temp.png'); plt.close()
+    plt.figure(); plt.plot(dfres.time, dfres.pred_rain, marker='o'); plt.title('Precipitación +24h'); plt.tight_layout(); plt.savefig('results/next24h_rain.png'); plt.close()
+    print('Pronóstico +24h generado: results/next24h_predictions.csv')
 
 if __name__ == '__main__':
-    main()
     main()

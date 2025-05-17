@@ -1,0 +1,3 @@
+# Basics of Nonlinear Systems
+
+Nonlinear systems are those whose output is not directly proportional to their input.

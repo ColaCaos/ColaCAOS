@@ -1,149 +1,265 @@
 [
   {
-    "objectID": "posts/mapa-logistico.html",
-    "href": "posts/mapa-logistico.html",
-    "title": "El Mapa Logístico",
-    "section": "",
-    "text": "El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\n\n\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento."
-  },
-  {
-    "objectID": "posts/mapa-logistico.html#introducción",
-    "href": "posts/mapa-logistico.html#introducción",
-    "title": "El Mapa Logístico",
-    "section": "",
-    "text": "El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\n\n\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento."
-  },
-  {
-    "objectID": "posts/mapa-logistico.html#simulación-en-python",
-    "href": "posts/mapa-logistico.html#simulación-en-python",
-    "title": "El Mapa Logístico",
-    "section": "Simulación en Python",
-    "text": "Simulación en Python\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr, x0, n = 3.9, 0.2, 100\nx = np.zeros(n)\nx[0] = x0\nfor i in range(1, n):\n    x[i] = r * x[i-1] * (1 - x[i-1])\n\nplt.plot(x, marker='o')\nplt.title(\"Evolución del mapa logístico\")\nplt.xlabel(\"Iteración n\")\nplt.ylabel(\"xₙ\")\nplt.grid(True)\nplt.show()"
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#qué-es-el-mapa-logístico",
-    "href": "posts/bifurcaciones.html#qué-es-el-mapa-logístico",
-    "title": "El diagrama de bifurcaciones",
-    "section": "1. ¿Qué es el mapa logístico?",
-    "text": "1. ¿Qué es el mapa logístico?\nEl mapa logístico es un modelo discreto que, con una única ecuación, describe la evolución de una población normalizada \\(x_n\\) paso a paso y muestra comportamientos que van desde la convergencia hasta el caos.\nSe define mediante la iteración:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\n\n\\(x_n \\in [0,1]\\): población normalizada en la iteración \\(n\\).\n\\(r\\): parámetro de control o tasa de crecimiento (capacidad reproductiva).\n\n\nNota: Para garantizar que \\(x_{n+1} \\in [0,1]\\), se restringe \\(r\\) a \\(0 &lt; r \\le 4\\)."
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#breve-historia",
-    "href": "posts/bifurcaciones.html#breve-historia",
-    "title": "El diagrama de bifurcaciones",
-    "section": "2. Breve historia",
-    "text": "2. Breve historia\n\nEcuación continua: proviene de la ecuación logística diferencial, usada en biología para modelar el crecimiento con límite de recursos.\nDiscretización: Robert May (1976) introdujo su forma iterada y mostró que, pese a la regla sencilla, su dinámica es muy rica."
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#forma-y-dominio-de-la-función",
-    "href": "posts/bifurcaciones.html#forma-y-dominio-de-la-función",
-    "title": "El diagrama de bifurcaciones",
-    "section": "3. Forma y dominio de la función",
-    "text": "3. Forma y dominio de la función\nLa función asociada es:\n\\[\nf(x) = r\\,x\\,(1 - x)\n\\]\n\nParábola invertida: abre hacia abajo.\nPunto máximo:\n\nSe alcanza en \\(x = 1/2\\).\nValor máximo: \\(f(1/2) = r/4\\).\n\nDominio y recorrido:\n\nDominio: \\(x \\in [0,1]\\).\nPara \\(0 &lt; r \\le 4\\), el recorrido queda en \\([0,1]\\)."
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#puntos-fijos-y-estabilidad",
-    "href": "posts/bifurcaciones.html#puntos-fijos-y-estabilidad",
-    "title": "El diagrama de bifurcaciones",
-    "section": "4. Puntos fijos y estabilidad",
-    "text": "4. Puntos fijos y estabilidad"
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#cálculo-de-iteraciones",
-    "href": "posts/bifurcaciones.html#cálculo-de-iteraciones",
-    "title": "El diagrama de bifurcaciones",
-    "section": "5. Cálculo de iteraciones",
-    "text": "5. Cálculo de iteraciones\n\n5.1 Condición inicial\nElige \\(x_0 \\in (0,1)\\), p.ej. \\(0.1\\), \\(0.2\\), \\(0.5\\).\n\n\n5.2 Procedimiento\n\n# Iteración del mapa logístico\ndef iterar_mapa(r, x0, N):\n    x = x0\n    resultados = []\n    for _ in range(N):\n        x = r * x * (1 - x)\n        resultados.append(x)\n    return resultados\n\nDescarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor."
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#comportamientos-según-r",
-    "href": "posts/bifurcaciones.html#comportamientos-según-r",
-    "title": "El diagrama de bifurcaciones",
-    "section": "6. Comportamientos según \\(r\\)",
-    "text": "6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas"
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
-    "href": "posts/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
-    "title": "El diagrama de bifurcaciones",
-    "section": "7. Duplicación de periodo y constante de Feigenbaum",
-    "text": "7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales."
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#diagrama-de-bifurcación",
-    "href": "posts/bifurcaciones.html#diagrama-de-bifurcación",
-    "title": "El diagrama de bifurcaciones",
-    "section": "8. Diagrama de bifurcación",
-    "text": "8. Diagrama de bifurcación\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_values = np.linspace(2.5, 4.0, 1500)\niterations, last = 1000, 100\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.5)\nplt.title('Diagrama de bifurcación del mapa logístico')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.show()"
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#caos-y-ventanas-periódicas",
-    "href": "posts/bifurcaciones.html#caos-y-ventanas-periódicas",
-    "title": "El diagrama de bifurcaciones",
-    "section": "9. Caos y ventanas periódicas",
-    "text": "9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_inf = 3.56995\nr_values = np.linspace(r_inf, 4.0, 1200)\niterations, last = 1000, 200\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.4)\nplt.title('Detalle del diagrama de bifurcación para r &gt; r_\\infty')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.tight_layout()\nplt.show()"
-  },
-  {
-    "objectID": "posts/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
-    "href": "posts/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
-    "title": "El diagrama de bifurcaciones",
-    "section": "10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
-    "text": "10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "mi_blog_caos",
+    "title": "Caos: Teoría y Experimentos",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "1 Bienvenido\nEste libro explora el fascinante mundo del caos desde distintos puntos de vista:\n\nModelos matemáticos simples, como la función logística, que nos introducen a las bifurcaciones, atractores y comportamiento impredecible en sistemas deterministas.\nSistemas físicos reales, como el péndulo doble, que muestran cómo el caos se manifiesta en el mundo tangible.\nMeteorología y clima, donde la sensibilidad a condiciones iniciales limita la predictibilidad de los modelos atmosféricos y climáticos.\nExperimentos caseros, que puedes realizar tú mismo para observar el caos en acción.\n\nCada capítulo está dividido en secciones independientes, con gráficos, simulaciones, ecuaciones en LaTeX y referencias a la literatura científica cuando sea relevante.\n\n“El aleteo de una mariposa en Brasil puede provocar un tornado en Texas.”\n— Edward Lorenz\n\nComencemos el viaje hacia la comprensión del caos.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Caos: Teoría y Experimentos</span>"
+    ]
   },
   {
-    "objectID": "posts/cobweb.html",
-    "href": "posts/cobweb.html",
-    "title": "Diagrama Cobweb Interactivo",
+    "objectID": "01-logistica/mapa-logistico.html",
+    "href": "01-logistica/mapa-logistico.html",
+    "title": "2  El Mapa Logístico",
     "section": "",
-    "text": "A la izquierda se muestra el diagrama cobweb y a la derecha la evolución temporal de (x_n). Ajusta el parámetro r con el deslizador.\n\nimport numpy as np\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\n# Función que calcula coordenadas de cobweb y serie de x_n\ndef compute_cobweb_and_series(r, x0=0.2, steps=40):\n    # Línea logística y la identidad\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n\n    # Serie de iteraciones de la función logística\n    series = [x0]\n    x = x0\n    for _ in range(steps):\n        x = r * x * (1 - x)\n        series.append(x)\n\n    # Coordenadas para el diagrama cobweb\n    xc, yc = [series[0]], [series[0]]\n    for val in series[1:]:\n        # vertical\n        xc.append(xc[-1]); yc.append(val)\n        # horizontal\n        xc.append(val); yc.append(val)\n\n    return xs, ys, xc, yc, series\n\n# Valores de r para el slider\ne_rs = np.linspace(2.5, 4.0, 31)\nframes = []\nfor r in e_rs:\n    xs, ys, xc, yc, series = compute_cobweb_and_series(r)\n    frames.append(\n        go.Frame(\n            name=f\"{r:.2f}\",\n            data=[\n                go.Scatter(x=xs, y=ys, mode='lines'),\n                go.Scatter(x=xs, y=xs, mode='lines', line=dict(dash='dash')),\n                go.Scatter(x=xc, y=yc, mode='lines', line=dict(color='red')),\n                go.Scatter(x=list(range(len(series))), y=series, mode='lines+markers')\n            ]\n        )\n    )\n\n# Crear figura con subplots 1x2\ngrid = make_subplots(rows=1, cols=2, subplot_titles=(\"Cobweb\",\"Evolución de x_n\"))\n# Trazas iniciales (r = e_rs[0])\nr0 = e_rs[0]\nxs0, ys0, xc0, yc0, series0 = compute_cobweb_and_series(r0)\ngrid.add_trace(go.Scatter(x=xs0, y=ys0, mode='lines', name='f(x)'), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xs0, y=xs0, mode='lines', name='y=x', line=dict(dash='dash')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xc0, y=yc0, mode='lines', name='Cobweb', line=dict(color='red')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=list(range(len(series0))), y=series0, mode='lines+markers', name='x_n'), row=1, col=2)\n# Asignar frames y configurar animación\n\ngrid.frames = frames\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\", frame=dict(duration=0, redraw=True), transition=dict(duration=0))])\n         for r in e_rs]\n\ngrid.update_layout(\n    width=1000, height=500,\n    sliders=[dict(active=0, pad=dict(t=50), steps=steps)],\n    updatemenus=[dict(type=\"buttons\", showactive=False,\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])]\n)\n\ngrid.show()"
+    "text": "3 El Mapa Logístico",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
+    ]
   },
   {
-    "objectID": "posts/cobweb.html#diagrama-cobweb-interactivo-con-serie-de-x_n",
-    "href": "posts/cobweb.html#diagrama-cobweb-interactivo-con-serie-de-x_n",
-    "title": "Diagrama Cobweb Interactivo",
+    "objectID": "01-logistica/mapa-logistico.html#introducción",
+    "href": "01-logistica/mapa-logistico.html#introducción",
+    "title": "2  El Mapa Logístico",
+    "section": "3.1 Introducción",
+    "text": "3.1 Introducción\nEl mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\n\n\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento.",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/mapa-logistico.html#simulación-en-python",
+    "href": "01-logistica/mapa-logistico.html#simulación-en-python",
+    "title": "2  El Mapa Logístico",
+    "section": "3.2 Simulación en Python",
+    "text": "3.2 Simulación en Python\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr, x0, n = 3.9, 0.2, 100\nx = np.zeros(n)\nx[0] = x0\nfor i in range(1, n):\n    x[i] = r * x[i-1] * (1 - x[i-1])\n\nplt.plot(x, marker='o')\nplt.title(\"Evolución del mapa logístico\")\nplt.xlabel(\"Iteración n\")\nplt.ylabel(\"xₙ\")\nplt.grid(True)\nplt.show()",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/cobweb.html",
+    "href": "01-logistica/cobweb.html",
+    "title": "3  Diagrama Cobweb Interactivo",
     "section": "",
-    "text": "A la izquierda se muestra el diagrama cobweb y a la derecha la evolución temporal de (x_n). Ajusta el parámetro r con el deslizador.\n\nimport numpy as np\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\n# Función que calcula coordenadas de cobweb y serie de x_n\ndef compute_cobweb_and_series(r, x0=0.2, steps=40):\n    # Línea logística y la identidad\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n\n    # Serie de iteraciones de la función logística\n    series = [x0]\n    x = x0\n    for _ in range(steps):\n        x = r * x * (1 - x)\n        series.append(x)\n\n    # Coordenadas para el diagrama cobweb\n    xc, yc = [series[0]], [series[0]]\n    for val in series[1:]:\n        # vertical\n        xc.append(xc[-1]); yc.append(val)\n        # horizontal\n        xc.append(val); yc.append(val)\n\n    return xs, ys, xc, yc, series\n\n# Valores de r para el slider\ne_rs = np.linspace(2.5, 4.0, 31)\nframes = []\nfor r in e_rs:\n    xs, ys, xc, yc, series = compute_cobweb_and_series(r)\n    frames.append(\n        go.Frame(\n            name=f\"{r:.2f}\",\n            data=[\n                go.Scatter(x=xs, y=ys, mode='lines'),\n                go.Scatter(x=xs, y=xs, mode='lines', line=dict(dash='dash')),\n                go.Scatter(x=xc, y=yc, mode='lines', line=dict(color='red')),\n                go.Scatter(x=list(range(len(series))), y=series, mode='lines+markers')\n            ]\n        )\n    )\n\n# Crear figura con subplots 1x2\ngrid = make_subplots(rows=1, cols=2, subplot_titles=(\"Cobweb\",\"Evolución de x_n\"))\n# Trazas iniciales (r = e_rs[0])\nr0 = e_rs[0]\nxs0, ys0, xc0, yc0, series0 = compute_cobweb_and_series(r0)\ngrid.add_trace(go.Scatter(x=xs0, y=ys0, mode='lines', name='f(x)'), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xs0, y=xs0, mode='lines', name='y=x', line=dict(dash='dash')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xc0, y=yc0, mode='lines', name='Cobweb', line=dict(color='red')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=list(range(len(series0))), y=series0, mode='lines+markers', name='x_n'), row=1, col=2)\n# Asignar frames y configurar animación\n\ngrid.frames = frames\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\", frame=dict(duration=0, redraw=True), transition=dict(duration=0))])\n         for r in e_rs]\n\ngrid.update_layout(\n    width=1000, height=500,\n    sliders=[dict(active=0, pad=dict(t=50), steps=steps)],\n    updatemenus=[dict(type=\"buttons\", showactive=False,\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])]\n)\n\ngrid.show()"
+    "text": "4 Diagrama Cobweb Interactivo",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb Interactivo</span>"
+    ]
   },
   {
-    "objectID": "posts/bifurcaciones.html#cálculo-de-la-derivada",
-    "href": "posts/bifurcaciones.html#cálculo-de-la-derivada",
-    "title": "El diagrama de bifurcaciones",
-    "section": "Cálculo de la derivada",
-    "text": "Cálculo de la derivada\nPartimos de la función del mapa logístico:\n\\[\nf(x) = r\\,x\\,(1 - x).\n\\]\nPara obtener su derivada:\n\nAplicamos la regla del producto: \\[\nf'(x) = r \\frac{d}{dx}\\bigl[x(1 - x)\\bigr]\n      = r\\bigl[(1 - x) + x(-1)\\bigr].\n\\]\nSimplificamos: \\[\nf'(x) = r\\,(1 - x - x)\n      = r\\,(1 - 2x).\n\\]\n\nPor tanto,\n\\[\n\\boxed{f'(x) = r\\,(1 - 2x).}\n\\]"
+    "objectID": "01-logistica/cobweb.html#diagrama-cobweb-interactivo-con-serie-de-x_n",
+    "href": "01-logistica/cobweb.html#diagrama-cobweb-interactivo-con-serie-de-x_n",
+    "title": "3  Diagrama Cobweb Interactivo",
+    "section": "4.1 Diagrama Cobweb Interactivo con Serie de (x_n)",
+    "text": "4.1 Diagrama Cobweb Interactivo con Serie de (x_n)\nA la izquierda se muestra el diagrama cobweb y a la derecha la evolución temporal de (x_n). Ajusta el parámetro r con el deslizador.\n\nimport numpy as np\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\n# Función que calcula coordenadas de cobweb y serie de x_n\ndef compute_cobweb_and_series(r, x0=0.2, steps=40):\n    # Línea logística y la identidad\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n\n    # Serie de iteraciones de la función logística\n    series = [x0]\n    x = x0\n    for _ in range(steps):\n        x = r * x * (1 - x)\n        series.append(x)\n\n    # Coordenadas para el diagrama cobweb\n    xc, yc = [series[0]], [series[0]]\n    for val in series[1:]:\n        # vertical\n        xc.append(xc[-1]); yc.append(val)\n        # horizontal\n        xc.append(val); yc.append(val)\n\n    return xs, ys, xc, yc, series\n\n# Valores de r para el slider\ne_rs = np.linspace(2.5, 4.0, 31)\nframes = []\nfor r in e_rs:\n    xs, ys, xc, yc, series = compute_cobweb_and_series(r)\n    frames.append(\n        go.Frame(\n            name=f\"{r:.2f}\",\n            data=[\n                go.Scatter(x=xs, y=ys, mode='lines'),\n                go.Scatter(x=xs, y=xs, mode='lines', line=dict(dash='dash')),\n                go.Scatter(x=xc, y=yc, mode='lines', line=dict(color='red')),\n                go.Scatter(x=list(range(len(series))), y=series, mode='lines+markers')\n            ]\n        )\n    )\n\n# Crear figura con subplots 1x2\ngrid = make_subplots(rows=1, cols=2, subplot_titles=(\"Cobweb\",\"Evolución de x_n\"))\n# Trazas iniciales (r = e_rs[0])\nr0 = e_rs[0]\nxs0, ys0, xc0, yc0, series0 = compute_cobweb_and_series(r0)\ngrid.add_trace(go.Scatter(x=xs0, y=ys0, mode='lines', name='f(x)'), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xs0, y=xs0, mode='lines', name='y=x', line=dict(dash='dash')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xc0, y=yc0, mode='lines', name='Cobweb', line=dict(color='red')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=list(range(len(series0))), y=series0, mode='lines+markers', name='x_n'), row=1, col=2)\n# Asignar frames y configurar animación\n\ngrid.frames = frames\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\", frame=dict(duration=0, redraw=True), transition=dict(duration=0))])\n         for r in e_rs]\n\ngrid.update_layout(\n    width=1000, height=500,\n    sliders=[dict(active=0, pad=dict(t=50), steps=steps)],\n    updatemenus=[dict(type=\"buttons\", showactive=False,\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])]\n)\n\ngrid.show()",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb Interactivo</span>"
+    ]
   },
   {
-    "objectID": "posts/bifurcaciones.html#criterio-de-estabilidad-fx-1",
-    "href": "posts/bifurcaciones.html#criterio-de-estabilidad-fx-1",
-    "title": "El diagrama de bifurcaciones",
-    "section": "Criterio de estabilidad (f’(x^*)< 1)",
-    "text": "Criterio de estabilidad (f’(x^*)&lt; 1)\nSea (x^) un punto fijo, es decir (f(x^) = x^*). Consideremos una pequeña perturbación (), de modo que en la iteración (n) tenemos\n\\[\nx_n = x^* + \\delta.\n\\]\nAl aplicar el mapa:\n\\[\nx_{n+1}\n= f(x_n)\n= f(x^* + \\delta)\n\\approx f(x^*) + f'(x^*) \\,\\delta\n= x^* + f'(x^*)\\,\\delta.\n\\]\nPor tanto, la nueva desviación respecto a (x^*) es\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta.\n\\]\n\nSi (f’(x^)&lt; 1), entonces (x_{n+1} - x^&lt; ).\nCada iteración reduce la desviación: el punto fijo atrae las trayectorias (es estable).\nSi (f’(x^*)&gt; 1), la desviación crece y las trayectorias se alejan del punto fijo (es inestable).\n\nEn resumen, ()\nUn punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara el mapa logístico:\n\n\\(x^*_1 = 0\\).\n\\(x^*_2 = 1 - 1/r\\) (si \\(r &gt; 1\\)).\n\nLa derivada es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nUn punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\). Una perturbación \\(\\delta\\) en \\(x_n = x^* + \\delta\\) evoluciona como:\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta,\n\\]\npor lo que si \\(\\lvert f'(x^*)\\rvert &lt; 1\\), la desviación disminuye.\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\).\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\).\n\nResumen de convergencia:\n\n\\(0 &lt; r &lt; 1\\): converge a \\(x=0\\).\n\\(1 &lt; r &lt; 3\\): converge a \\(x=1-1/r\\)."
+    "objectID": "01-logistica/bifurcaciones.html",
+    "href": "01-logistica/bifurcaciones.html",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "",
+    "text": "5 El Mapa Logístico: Una Ventana al Caos\nDuración de la explicación original: 0:00 – 17:17",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
   },
   {
-    "objectID": "posts/bifurcaciones.html#criterio-de-estabilidad",
-    "href": "posts/bifurcaciones.html#criterio-de-estabilidad",
-    "title": "El diagrama de bifurcaciones",
-    "section": "Criterio de estabilidad",
-    "text": "Criterio de estabilidad\nSea \\(x^*\\) un punto fijo (es decir, \\(f(x^*) = x^*\\)). Consideremos una pequeña perturbación \\(\\delta\\) tal que:\n\\[\nx_n = x^* + \\delta.\n\\]\nAl aplicar el mapa:\n\\[\nx_{n+1}\n= f(x_n)\n= f(x^* + \\delta)\n\\approx f(x^*) + f'(x^*)\\,\\delta\n= x^* + f'(x^*)\\,\\delta.\n\\]\nLa nueva desviación respecto a \\(x^*\\) es\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta.\n\\]\n\nSi \\(\\lvert f'(x^*)\\rvert &lt; 1\\), entonces \\(\\lvert x_{n+1} - x^*\\rvert &lt; \\lvert \\delta\\rvert\\). Cada iteración reduce la desviación: el punto fijo atrae las trayectorias (es estable).\nSi \\(\\lvert f'(x^*)\\rvert &gt; 1\\), la desviación crece y las trayectorias se alejan del punto fijo (es inestable).\n\nEn resumen:\n\\[\n\\lvert f'(x^*)\\rvert &lt; 1\n\\quad\\Longrightarrow\\quad\n\\text{$x^*$ es estable}.\n\\]\nUn punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara el mapa logístico:\n\n\\(x^*_1 = 0\\).\n\\(x^*_2 = 1 - 1/r\\) (si \\(r &gt; 1\\)).\n\nLa derivada es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nUn punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\). Una perturbación \\(\\delta\\) en \\(x_n = x^* + \\delta\\) evoluciona como:\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta,\n\\]\npor lo que si \\(\\lvert f'(x^*)\\rvert &lt; 1\\), la desviación disminuye.\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\).\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\).\n\nResumen de convergencia:\n\n\\(0 &lt; r &lt; 1\\): converge a \\(x=0\\).\n\\(1 &lt; r &lt; 3\\): converge a \\(x=1-1/r\\).\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 0.99\nx0 = 0.5\nn_iter = 50\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 0.99)')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 2.99\nx0 = 0.01\nn_iter = 200\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 2.99) después de 200 iteraciones')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 3.01\nx0 = 0.2\nn_iter = 2000\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 3.01) después de 2000 iteraciones')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()"
+    "objectID": "01-logistica/bifurcaciones.html#qué-es-el-mapa-logístico",
+    "href": "01-logistica/bifurcaciones.html#qué-es-el-mapa-logístico",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.1 1. ¿Qué es el mapa logístico?",
+    "text": "5.1 1. ¿Qué es el mapa logístico?\nEl mapa logístico es un modelo discreto que, con una única ecuación, describe la evolución de una población normalizada \\(x_n\\) paso a paso y muestra comportamientos que van desde la convergencia hasta el caos.\nSe define mediante la iteración:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\n\n\\(x_n \\in [0,1]\\): población normalizada en la iteración \\(n\\).\n\\(r\\): parámetro de control o tasa de crecimiento (capacidad reproductiva).\n\n\nNota: Para garantizar que \\(x_{n+1} \\in [0,1]\\), se restringe \\(r\\) a \\(0 &lt; r \\le 4\\).",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
   },
   {
-    "objectID": "posts/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
-    "href": "posts/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
-    "title": "El diagrama de bifurcaciones",
-    "section": "4. Primera Bifurcación: Duplicación de Período en \\(r = 3\\)",
-    "text": "4. Primera Bifurcación: Duplicación de Período en \\(r = 3\\)\nEn \\(r = 3\\), la derivada en el punto fijo \\(x^* = 1 - \\frac{1}{r}\\) se vuelve \\(-1\\), lo cual genera una órbita de período 2.\nSurgen dos nuevos puntos \\(p\\) y \\(q\\) que no son puntos fijos, sino puntos de período 2 tales que:\n\\[\nf(p) = q, \\quad f(q) = p\n\\]\nEsto significa que:\n\\[\nf(f(p)) = p\n\\]\nLo cual implica que \\(p\\) es un punto fijo del mapa iterado \\(f^2\\).\nDado que \\(f(x) = r x (1 - x)\\), podemos escribir:\n\\[\nf(p) = r p (1 - p)\n\\]\nEntonces:\n\\[\nf(f(p)) = r \\cdot f(p) \\cdot (1 - f(p)) = r \\cdot [r p (1 - p)] \\cdot \\left[1 - r p (1 - p)\\right]\n\\]\nQueremos encontrar los puntos de período 2, así que igualamos:\n\\[\nf(f(p)) = p\n\\]\nDesarrollando completamente:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nPasando todo al mismo lado:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) - p = 0\n\\]\nFactorizamos \\(p\\):\n\\[\np \\left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \\right] = 0\n\\]\nUna de las soluciones es \\(p = 0\\) (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.\nExpandimos el polinomio:\n\\[\nf(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nExpandimos paso a paso:\n\n\\(f(p) = r p (1 - p)\\)\n\n\\(1 - f(p) = 1 - r p (1 - p)\\)\n\n\\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\\)\n\nMultiplicamos todo por \\(r^2 p\\)\n\nResulta en un polinomio de cuarto grado en \\(p\\)\n\nEste polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 2.9\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=2.9$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3\nx0 = 0.2\nn_iter = 2000\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3.1\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.1$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3.2\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.2$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()"
+    "objectID": "01-logistica/bifurcaciones.html#breve-historia",
+    "href": "01-logistica/bifurcaciones.html#breve-historia",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.2 2. Breve historia",
+    "text": "5.2 2. Breve historia\n\nEcuación continua: proviene de la ecuación logística diferencial, usada en biología para modelar el crecimiento con límite de recursos.\nDiscretización: Robert May (1976) introdujo su forma iterada y mostró que, pese a la regla sencilla, su dinámica es muy rica.",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#forma-y-dominio-de-la-función",
+    "href": "01-logistica/bifurcaciones.html#forma-y-dominio-de-la-función",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.3 3. Forma y dominio de la función",
+    "text": "5.3 3. Forma y dominio de la función\nLa función asociada es:\n\\[\nf(x) = r\\,x\\,(1 - x)\n\\]\n\nParábola invertida: abre hacia abajo.\nPunto máximo:\n\nSe alcanza en \\(x = 1/2\\).\nValor máximo: \\(f(1/2) = r/4\\).\n\nDominio y recorrido:\n\nDominio: \\(x \\in [0,1]\\).\nPara \\(0 &lt; r \\le 4\\), el recorrido queda en \\([0,1]\\).",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#puntos-fijos-y-estabilidad",
+    "href": "01-logistica/bifurcaciones.html#puntos-fijos-y-estabilidad",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.4 4. Puntos fijos y estabilidad",
+    "text": "5.4 4. Puntos fijos y estabilidad",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#cálculo-de-la-derivada",
+    "href": "01-logistica/bifurcaciones.html#cálculo-de-la-derivada",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.5 Cálculo de la derivada",
+    "text": "5.5 Cálculo de la derivada\nPartimos de la función del mapa logístico:\n\\[\nf(x) = r\\,x\\,(1 - x).\n\\]\nPara obtener su derivada:\n\nAplicamos la regla del producto: \\[\nf'(x) = r \\frac{d}{dx}\\bigl[x(1 - x)\\bigr]\n      = r\\bigl[(1 - x) + x(-1)\\bigr].\n\\]\nSimplificamos: \\[\nf'(x) = r\\,(1 - x - x)\n      = r\\,(1 - 2x).\n\\]\n\nPor tanto,\n\\[\n\\boxed{f'(x) = r\\,(1 - 2x).}\n\\]",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#criterio-de-estabilidad",
+    "href": "01-logistica/bifurcaciones.html#criterio-de-estabilidad",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.6 Criterio de estabilidad",
+    "text": "5.6 Criterio de estabilidad\nSea \\(x^*\\) un punto fijo (es decir, \\(f(x^*) = x^*\\)). Consideremos una pequeña perturbación \\(\\delta\\) tal que:\n\\[\nx_n = x^* + \\delta.\n\\]\nAl aplicar el mapa:\n\\[\nx_{n+1}\n= f(x_n)\n= f(x^* + \\delta)\n\\approx f(x^*) + f'(x^*)\\,\\delta\n= x^* + f'(x^*)\\,\\delta.\n\\]\nLa nueva desviación respecto a \\(x^*\\) es\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta.\n\\]\n\nSi \\(\\lvert f'(x^*)\\rvert &lt; 1\\), entonces \\(\\lvert x_{n+1} - x^*\\rvert &lt; \\lvert \\delta\\rvert\\). Cada iteración reduce la desviación: el punto fijo atrae las trayectorias (es estable).\nSi \\(\\lvert f'(x^*)\\rvert &gt; 1\\), la desviación crece y las trayectorias se alejan del punto fijo (es inestable).\n\nEn resumen:\n\\[\n\\lvert f'(x^*)\\rvert &lt; 1\n\\quad\\Longrightarrow\\quad\n\\text{$x^*$ es estable}.\n\\]\nUn punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara el mapa logístico:\n\n\\(x^*_1 = 0\\).\n\\(x^*_2 = 1 - 1/r\\) (si \\(r &gt; 1\\)).\n\nLa derivada es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nUn punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\). Una perturbación \\(\\delta\\) en \\(x_n = x^* + \\delta\\) evoluciona como:\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta,\n\\]\npor lo que si \\(\\lvert f'(x^*)\\rvert &lt; 1\\), la desviación disminuye.\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\).\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\).\n\nResumen de convergencia:\n\n\\(0 &lt; r &lt; 1\\): converge a \\(x=0\\).\n\\(1 &lt; r &lt; 3\\): converge a \\(x=1-1/r\\).\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 0.99\nx0 = 0.5\nn_iter = 50\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 0.99)')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 2.99\nx0 = 0.01\nn_iter = 200\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 2.99) después de 200 iteraciones')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 3.01\nx0 = 0.2\nn_iter = 2000\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 3.01) después de 2000 iteraciones')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
+    "href": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.7 4. Primera Bifurcación: Duplicación de Período en \\(r = 3\\)",
+    "text": "5.7 4. Primera Bifurcación: Duplicación de Período en \\(r = 3\\)\nEn \\(r = 3\\), la derivada en el punto fijo \\(x^* = 1 - \\frac{1}{r}\\) se vuelve \\(-1\\), lo cual genera una órbita de período 2.\nSurgen dos nuevos puntos \\(p\\) y \\(q\\) que no son puntos fijos, sino puntos de período 2 tales que:\n\\[\nf(p) = q, \\quad f(q) = p\n\\]\nEsto significa que:\n\\[\nf(f(p)) = p\n\\]\nLo cual implica que \\(p\\) es un punto fijo del mapa iterado \\(f^2\\).\nDado que \\(f(x) = r x (1 - x)\\), podemos escribir:\n\\[\nf(p) = r p (1 - p)\n\\]\nEntonces:\n\\[\nf(f(p)) = r \\cdot f(p) \\cdot (1 - f(p)) = r \\cdot [r p (1 - p)] \\cdot \\left[1 - r p (1 - p)\\right]\n\\]\nQueremos encontrar los puntos de período 2, así que igualamos:\n\\[\nf(f(p)) = p\n\\]\nDesarrollando completamente:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nPasando todo al mismo lado:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) - p = 0\n\\]\nFactorizamos \\(p\\):\n\\[\np \\left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \\right] = 0\n\\]\nUna de las soluciones es \\(p = 0\\) (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.\nExpandimos el polinomio:\n\\[\nf(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nExpandimos paso a paso:\n\n\\(f(p) = r p (1 - p)\\)\n\n\\(1 - f(p) = 1 - r p (1 - p)\\)\n\n\\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\\)\n\nMultiplicamos todo por \\(r^2 p\\)\n\nResulta en un polinomio de cuarto grado en \\(p\\)\n\nEste polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 2.9\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=2.9$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3\nx0 = 0.2\nn_iter = 2000\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3.1\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.1$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3.2\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.2$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#cálculo-de-iteraciones",
+    "href": "01-logistica/bifurcaciones.html#cálculo-de-iteraciones",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.8 5. Cálculo de iteraciones",
+    "text": "5.8 5. Cálculo de iteraciones\n\n5.8.1 5.1 Condición inicial\nElige \\(x_0 \\in (0,1)\\), p.ej. \\(0.1\\), \\(0.2\\), \\(0.5\\).\n\n\n5.8.2 5.2 Procedimiento\n\n# Iteración del mapa logístico\ndef iterar_mapa(r, x0, N):\n    x = x0\n    resultados = []\n    for _ in range(N):\n        x = r * x * (1 - x)\n        resultados.append(x)\n    return resultados\n\nDescarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor.",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#comportamientos-según-r",
+    "href": "01-logistica/bifurcaciones.html#comportamientos-según-r",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.9 6. Comportamientos según \\(r\\)",
+    "text": "5.9 6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
+    "href": "01-logistica/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.10 7. Duplicación de periodo y constante de Feigenbaum",
+    "text": "5.10 7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales.",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#diagrama-de-bifurcación",
+    "href": "01-logistica/bifurcaciones.html#diagrama-de-bifurcación",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.11 8. Diagrama de bifurcación",
+    "text": "5.11 8. Diagrama de bifurcación\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_values = np.linspace(2.5, 4.0, 1500)\niterations, last = 1000, 100\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.5)\nplt.title('Diagrama de bifurcación del mapa logístico')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.show()",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#caos-y-ventanas-periódicas",
+    "href": "01-logistica/bifurcaciones.html#caos-y-ventanas-periódicas",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.12 9. Caos y ventanas periódicas",
+    "text": "5.12 9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n5.12.1 9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_inf = 3.56995\nr_values = np.linspace(r_inf, 4.0, 1200)\niterations, last = 1000, 200\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.4)\nplt.title('Detalle del diagrama de bifurcación para r &gt; r_\\infty')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.tight_layout()\nplt.show()",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
+    "href": "01-logistica/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
+    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "section": "5.13 10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
+    "text": "5.13 10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```",
+    "crumbs": [
+      "1. Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+    ]
+  },
+  {
+    "objectID": "02-pendulo-doble/test.html",
+    "href": "02-pendulo-doble/test.html",
+    "title": "5  test",
+    "section": "",
+    "text": "tttttttttttttttttttttttt",
+    "crumbs": [
+      "2. El Caos en vivo: El péndulo doble",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "03-meteorologia/test.html",
+    "href": "03-meteorologia/test.html",
+    "title": "6  test",
+    "section": "",
+    "text": "tttttttttttttttttttttttt",
+    "crumbs": [
+      "3. La Meteorología y el Caos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/test.html",
+    "href": "04-clima/test.html",
+    "title": "7  test",
+    "section": "",
+    "text": "tttttttttttttttttttttttt",
+    "crumbs": [
+      "4. El Clima y el Caos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "05-experimentos/test.html",
+    "href": "05-experimentos/test.html",
+    "title": "8  test",
+    "section": "",
+    "text": "tttttttttttttttttttttttt",
+    "crumbs": [
+      "5. Mis experimentos con el Caos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>test</span>"
+    ]
   }
 ]

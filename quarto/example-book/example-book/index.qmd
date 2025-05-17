@@ -1,0 +1,8 @@
+---
+title: "Example Book"
+format: html
+---
+
+# Welcome
+
+This is a simple example of a Quarto book with multiple chapters and multiple sections per chapter.

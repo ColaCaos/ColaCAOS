@@ -1,0 +1,6 @@
+---
+title: "Example Book"
+format: html
+---
+
+Welcome to this example book. Use the left menu to explore chapters and sections.

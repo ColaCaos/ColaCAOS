@@ -1,0 +1,3 @@
+# Bifurcations
+
+Bifurcations describe how the qualitative nature of a system changes with parameters.
