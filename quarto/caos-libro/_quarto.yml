@@ -7,29 +7,38 @@ book:
   author: "Alberto"
   chapters:
     - index.qmd
-    - part: "1. Introducción al Caos a través de la Función Logística"
+
+    - part: "Introducción al Caos a través de la Función Logística"
       chapters:
         - 01-logistica/mapa-logistico.qmd
         - 01-logistica/cobweb.qmd
+        - 01-logistica/puntos-fijos.qmd
         - 01-logistica/bifurcaciones.qmd
-    - part: "2. El Caos en vivo: El péndulo doble"
+
+    - part: "El Caos en vivo: El péndulo doble"
       chapters:
+        - 02-pendulo-doble/_index.qmd
         - 02-pendulo-doble/test.qmd
-    - part: "3. La Meteorología y el Caos"
+
+    - part: "La Meteorología y el Caos"
       chapters:
+        - 03-meteorologia/_index.qmd
         - 03-meteorologia/test.qmd
-    - part: "4. El Clima y el Caos"
+
+    - part: "El Clima y el Caos"
       chapters:
+        - 04-clima/_index.qmd
         - 04-clima/test.qmd
-    - part: "5. Mis experimentos con el Caos"
+
+    - part: "Mis experimentos con el Caos"
       chapters:
+        - 05-experimentos/_index.qmd
         - 05-experimentos/test.qmd
 
 format:
   html:
     theme: cosmo
-    toc: true
+    toc: true            # sidebar jerárquica
+    toc-depth: 2         # hasta niveles ## 
     number-sections: true
     math: katex
-  pdf:
-    documentclass: book

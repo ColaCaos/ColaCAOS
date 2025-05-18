@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -146,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">1. Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Mapa Logístico</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Mapa Logístico</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,7 +145,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">1. Introducción al Caos a través de la Función Logística</span></a>
+ <span class="menu-text">Introducción al Caos a través de la Función Logística</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -195,13 +160,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-logistica/cobweb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diagrama Cobweb Interactivo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diagrama Cobweb</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/puntos-fijos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Puntos fijos de una función</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01-logistica/bifurcaciones.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">El Mapa Logístico: Una Ventana al Caos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estudio formal del mapa logístico</span></span></a>
   </div>
 </li>
       </ul>
@@ -209,7 +180,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">2. El Caos en vivo: El péndulo doble</span></a>
+ <span class="menu-text">El Caos en vivo: El péndulo doble</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -217,41 +188,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../02-pendulo-doble/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">test</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">3. La Meteorología y el Caos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../03-meteorologia/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">test</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">4. El Clima y el Caos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../04-clima/test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
@@ -259,8 +202,54 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">La Meteorología y el Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-meteorologia/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-meteorologia/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">El Clima y el Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-clima/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-clima/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">5. Mis experimentos con el Caos</span></a>
+ <span class="menu-text">Mis experimentos con el Caos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -268,8 +257,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../05-experimentos/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -283,19 +278,17 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul>
-  <li><a href="#el-mapa-logístico" id="toc-el-mapa-logístico" class="nav-link active" data-scroll-target="#el-mapa-logístico"><span class="header-section-number">3</span> El Mapa Logístico</a>
   <ul class="collapse">
-  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción"><span class="header-section-number">3.1</span> Introducción</a></li>
-  <li><a href="#simulación-en-python" id="toc-simulación-en-python" class="nav-link" data-scroll-target="#simulación-en-python"><span class="header-section-number">3.2</span> Simulación en Python</a></li>
-  </ul></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">2.1</span> Introducción</a></li>
+  <li><a href="#relevancia" id="toc-relevancia" class="nav-link" data-scroll-target="#relevancia"><span class="header-section-number">2.2</span> Relevancia</a></li>
+  <li><a href="#simulación-en-python" id="toc-simulación-en-python" class="nav-link" data-scroll-target="#simulación-en-python"><span class="header-section-number">2.3</span> Simulación en Python</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">1. Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Mapa Logístico</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Mapa Logístico</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Mapa Logístico</span></h1>
 </div>
@@ -314,10 +307,8 @@ window.Quarto = {
 </header>
 
 
-<section id="el-mapa-logístico" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> El Mapa Logístico</h1>
-<section id="introducción" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">3.1</span> Introducción</h2>
+<section id="introducción" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">2.1</span> Introducción</h2>
 <p>El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:</p>
 <p><span class="math display">\[
 x_{n+1} = r\,x_n\,(1 - x_n)
@@ -327,38 +318,114 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 <li><span class="math inline">\(x_n \in [0,1]\)</span> es la población normalizada.</li>
 <li><span class="math inline">\(r\)</span> regula la tasa de crecimiento.</li>
 </ul>
-<hr>
+<p>Se le llama “mapa”, porque n teoría de sistemas dinámicos, un mapa es simplemente una regla o función que toma un valor (o un punto en el espacio de estados) y lo “mapea” al siguiente valor. Algo similar a una función. El nombre “logístico” procede de la ecuación logística que modela el crecimiento de poblaciones con un límite (“capacidad de carga”).</p>
+<p>Se trata, a grosso modo, de una sucesión en el que el siguiente valor depende del anterior. De este tipo, hemos visto bastantes en el bachillerato, como:</p>
+<section id="sucesión-aritmética" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="sucesión-aritmética"><span class="header-section-number">2.1.1</span> Sucesión aritmética</h3>
+<ul>
+<li>Definición recursiva: <span class="math inline">\(a_{n+1} = a_n + d\)</span>, donde <span class="math inline">\(d\)</span> es la diferencia constante.<br>
+</li>
+<li>Término general: <span class="math inline">\(a_n = a_0 + n\,d\)</span>.<br>
+</li>
+<li>Comportamiento: crecimiento o decrecimiento uniforme.</li>
+</ul>
 </section>
-<section id="simulación-en-python" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="simulación-en-python"><span class="header-section-number">3.2</span> Simulación en Python</h2>
-<div id="8c70ed38" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r, x0, n <span class="op">=</span> <span class="fl">3.9</span>, <span class="fl">0.2</span>, <span class="dv">100</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.zeros(n)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>] <span class="op">=</span> x0</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    x[i] <span class="op">=</span> r <span class="op">*</span> x[i<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> x[i<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.plot(x, marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Evolución del mapa logístico"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Iteración n"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"xₙ"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="sucesión-geométrica" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="sucesión-geométrica"><span class="header-section-number">2.1.2</span> Sucesión geométrica</h3>
+<ul>
+<li>Definición recursiva: <span class="math inline">\(a_{n+1} = q\,a_n\)</span>, donde <span class="math inline">\(q\)</span> es la razón constante.<br>
+</li>
+<li>Término general: <span class="math inline">\(a_n = a_0\,q^n\)</span>.<br>
+</li>
+<li>Comportamiento: decae si <span class="math inline">\(|q|&lt;1\)</span>, es constante si <span class="math inline">\(|q|=1\)</span>, crece o alterna si <span class="math inline">\(|q|&gt;1\)</span>.</li>
+</ul>
+</section>
+<section id="sucesiones-lineales-de-orden-superior" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="sucesiones-lineales-de-orden-superior"><span class="header-section-number">2.1.3</span> Sucesiones lineales de orden superior</h3>
+<ul>
+<li>Ejemplo: Fibonacci<br>
+<span class="math inline">\(F_{n+1} = F_n + F_{n-1}\)</span>, con <span class="math inline">\(F_0=0,\;F_1=1\)</span>.<br>
+</li>
+<li>Tienen fórmula cerrada y crecen de forma suave y predecible.</li>
+</ul>
+<p>¿Qué tiene de especial el mapa logístico?. Lo veremos a continuación. Como primera pista, hay que observar que se trata de una ecuación no lineal, lo cual es un factor común de los sistemás caóticos. Una ecuación no lineal es aquella en la que la incógnita:</p>
+<ul>
+<li>Aparece con potencias distintas de uno,</li>
+<li>O bien se combina consigo misma (productos, potencias),</li>
+<li>O involucra funciones no lineales (exponenciales, trigonométricas…).</li>
+</ul>
+</section>
+</section>
+<section id="relevancia" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="relevancia"><span class="header-section-number">2.2</span> Relevancia</h2>
+<p>Su relevancia radica en que, a partir de una ecuación muy elemental, se observa toda la complejidad característica del caos: bifurcaciones, ciclos de periodo en expansión y dependencia sensible a las condiciones iniciales. Además su popularidad se debe a que esta ecuación modela muy bien diversos sistemas físicos como pueden ser:</p>
+<ol type="1">
+<li>Dinámica de poblaciones</li>
+<li>Modelos económicos de oferta y demanda</li>
+<li>Reacciones químicas oscilantes</li>
+<li>Circuitos con realimentación</li>
+</ol>
+<p>El caso más paradigmático de estudio es el primero, es decir, la evolución de la población de animales, plantas o células con el tiempo. ¿Por qué se emplea la función logística para ello?. Porque al principio, la población crece rápidamente pero después debido a la falta de recursos del entorno se suelen producir colapsos poblacionanales.</p>
+<p>Para valores de <span class="math inline">\(r\)</span> menor que uno, la población final tiende a cero, lo que resulta lógico, dado que la población inicial no crece.</p>
+<p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, la secuencia <span class="math inline">\({x_n}\)</span> converge a un único valor fijo, que además es estable.</p>
+<p>Pero al aumentar <span class="math inline">\(r\)</span> por encima de 3, llega la primera sorpresa. Primero aparece un ciclo doble (dos valores alternantes), luego ciclos de periodo 4, 8, 16… y así sucesivamente, hasta que el comportamiento se vuelve aparentemente aleatorio, o mejor dicho caótico. A lo largo del proyecto iremos distinguiendo claramente entre el término aleatorio y el término caótico.</p>
+</section>
+<section id="simulación-en-python" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="simulación-en-python"><span class="header-section-number">2.3</span> Simulación en Python</h2>
+<p>Vamos a refrendar lo anteriormente dicho con simulaciones de la función logística. Como veremos a continuación, para valores de <span class="math inline">\(r\)</span> menores de 1, el valor final de <span class="math inline">\(x_n\)</span> tiende a cero.</p>
+<div id="fc5f3fca" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="mapa-logistico_files/figure-html/cell-2-output-1.png" width="589" height="450" class="figure-img"></p>
+<p><img src="mapa-logistico_files/figure-html/cell-2-output-1.png" width="606" height="451" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, el valor final de <span class="math inline">\(x_n\)</span> tiende a un punto estable</p>
+<div id="b2d19749" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mapa-logistico_files/figure-html/cell-3-output-1.png" width="597" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.449, el valor final de <span class="math inline">\(x_n\)</span> tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos.</p>
+<div id="ec6b7218" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mapa-logistico_files/figure-html/cell-4-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.544, el valor final de <span class="math inline">\(x_n\)</span> tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.</p>
+<div id="5ab77e4f" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mapa-logistico_files/figure-html/cell-5-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Y a partir de <span class="math inline">\(r = 3.56995\)</span> no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico</p>
+<div id="44c02393" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mapa-logistico_files/figure-html/cell-6-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Curioso, ¿verdad?. En la siguiente sección podrás experimentar con diferentes valores de r y diferentes valores iniciales, para ver cuál es el estado final del sistema. Después en sucesivas secciones, iremos explicando formalmente con ayuda de las matemáticas por qué ocurre ésto.</p>
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -768,8 +835,8 @@ x_{n+1} = r\,x_n\,(1 - x_n)
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-logistica/cobweb.html" class="pagination-link" aria-label="Diagrama Cobweb Interactivo">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diagrama Cobweb Interactivo</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../01-logistica/cobweb.html" class="pagination-link" aria-label="Diagrama Cobweb">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diagrama Cobweb</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,83 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Puntos fijos de una función
+
+## ¿Qué es un punto fijo?
+
+Un **punto fijo** de una función $f$ es un valor $x^*$ que satisface $$x^* = f(x^*)$$
+
+Intuitivamente, si comenzamos en $x^*$ y aplicamos la función, nos quedamos en el mismo punto. En la sección anterior vimos que en el diagram interactivo graficábamos también la función $y=x$. Si nuestra función $f(x)=x" cruza en algún momento la función $y=x$, entonces tenemos un punto fijo en nuestra función. 
+
+La pregunta que hay que hacerse, es la siguiente. Si hacemos iteraciones sucesivas de nuestro mapa/función, ¿convergemos a un punto fijo?. Para responder esta cuestión, vamos a hacer uso de la derivada de la función que estamos estudiando.
+
+## Estudio formal de la convergencia
+
+Para ver si la sucesión $x_n$ converge al punto fijo  $x^*$ que define la ecuación $x^* = f(x^*)$, en primer lugar vamos a definir el **error**:
+$$
+e_n = x_n - x^*,
+$$
+Es decir, $e_n$ es lo que dista el resultado en la iteración $n$ de la sucesión.
+
+La función $f$  se puede aproximar alrededor de $x^*$ por medio de su derivada primera:
+$$
+f(x_n) \approx f(x^*) + f'(x^*)\,(x_n - x^*) 
+$$
+
+y usando $f(x^*)=x^*$, obtenemos
+$$
+e_{n+1} \approx x_{n+1} - x^* = f'(x^*)\,e_n 
+$$
+
+Si $\lvert f'(x^*)\rvert < 1$, entonces $\lvert e_{n+1}\rvert < \lvert e_n\rvert$ y por tanto $\lvert e_n\rvert\to0$, garantizando que $x_n\to x^*$.
+
+## Ejemplo: $f(x)=\cos(x)$
+
+Si algún día te aburres, coge una calculadora y empieza a apretar sucesivas veces la función coseno. Verás que acabarás teniendo en el display de la calculadora el valor 0.739. No es magia. El valor $x^* \approx 0.739085$ es el punto fijo de la función coseno.
+
+Veamoslo más formalmente. Consideremos la iteración
+$$
+x_{n+1} = \cos(x_n), \quad x_0 = 0.
+$$
+
+Los primeros valores son:
+$$
+\begin{aligned}
+x_1 &= \cos(0)=1,\\
+x_2 &= \cos(1)\approx0.540302,\\
+x_3 &= \cos(x_2)\approx0.857553,\\
+x_4 &= \cos(x_3)\approx0.654290,\\
+x_5 &= \cos(x_4)\approx0.793480,\\
+x_6 &= \cos(x_5)\approx0.701369,\\
+x_7 &= \cos(x_6)\approx0.763960,\\
+x_8 &= \cos(x_7)\approx0.722102,\\
+x_9 &= \cos(x_8)\approx0.750417,\\
+x_{10} &= \cos(x_9)\approx0.731404,\\
+\end{aligned}
+$$
+
+Vemos que los valores van oscilando, pero rápidamente se aproximan al punto fijo
+$$
+x^* \approx 0.739085,
+$$
+que satisface $x^* = \cos(x^*)$ (la ecuación $x^* = \cos(x^*)$ no tiene solución en forma de fórmula elemental, pues es una ecuación transcendental).
+
+Además, la derivada en este punto es menor que 1, lo que confirma que es un punto de atracción de la función.
+$$
+f'(x) = -\sin(x),
+\quad
+\lvert f'(x^*)\rvert = \lvert\sin(x^*)\rvert < 1,
+$$
+por lo que la iteración converge a $x^*$.
+
+Si vuelves a la sección anterior, verás que para valores de $r$ entre 1 y 3, el mapa logístico converge al punto fijo de la función logísitica. Siempre, independientemente del valor de $x_0$ que elijas. 
+
+Curiosamente, a partir de $r=3$ la derivada de la función logística en el punto de corte con $y=x$ pasa a tener un valor mayor en valor absoluto que 1, por lo que en este momento el punto de corte deja de ser un punto fijo. 
+
+En la siguiente sección, calcularemos formalmente los puntos fijos de la función logística y estudiaremos formalmente como se comporta la sucesión. 

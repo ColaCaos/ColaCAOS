@@ -14,9 +14,9 @@
     "href": "01-logistica/mapa-logistico.html",
     "title": "2  El Mapa Logístico",
     "section": "",
-    "text": "3 El Mapa Logístico",
+    "text": "2.1 Introducción\nEl mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\nSe le llama “mapa”, porque n teoría de sistemas dinámicos, un mapa es simplemente una regla o función que toma un valor (o un punto en el espacio de estados) y lo “mapea” al siguiente valor. Algo similar a una función. El nombre “logístico” procede de la ecuación logística que modela el crecimiento de poblaciones con un límite (“capacidad de carga”).\nSe trata, a grosso modo, de una sucesión en el que el siguiente valor depende del anterior. De este tipo, hemos visto bastantes en el bachillerato, como:",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
+      "Introducción al Caos a través de la Función Logística",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
     ]
   },
@@ -24,10 +24,21 @@
     "objectID": "01-logistica/mapa-logistico.html#introducción",
     "href": "01-logistica/mapa-logistico.html#introducción",
     "title": "2  El Mapa Logístico",
-    "section": "3.1 Introducción",
-    "text": "3.1 Introducción\nEl mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\ndonde:\n\n\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento.",
+    "section": "",
+    "text": "\\(x_n \\in [0,1]\\) es la población normalizada.\n\\(r\\) regula la tasa de crecimiento.\n\n\n\n\n2.1.1 Sucesión aritmética\n\nDefinición recursiva: \\(a_{n+1} = a_n + d\\), donde \\(d\\) es la diferencia constante.\n\nTérmino general: \\(a_n = a_0 + n\\,d\\).\n\nComportamiento: crecimiento o decrecimiento uniforme.\n\n\n\n2.1.2 Sucesión geométrica\n\nDefinición recursiva: \\(a_{n+1} = q\\,a_n\\), donde \\(q\\) es la razón constante.\n\nTérmino general: \\(a_n = a_0\\,q^n\\).\n\nComportamiento: decae si \\(|q|&lt;1\\), es constante si \\(|q|=1\\), crece o alterna si \\(|q|&gt;1\\).\n\n\n\n2.1.3 Sucesiones lineales de orden superior\n\nEjemplo: Fibonacci\n\\(F_{n+1} = F_n + F_{n-1}\\), con \\(F_0=0,\\;F_1=1\\).\n\nTienen fórmula cerrada y crecen de forma suave y predecible.\n\n¿Qué tiene de especial el mapa logístico?. Lo veremos a continuación. Como primera pista, hay que observar que se trata de una ecuación no lineal, lo cual es un factor común de los sistemás caóticos. Una ecuación no lineal es aquella en la que la incógnita:\n\nAparece con potencias distintas de uno,\nO bien se combina consigo misma (productos, potencias),\nO involucra funciones no lineales (exponenciales, trigonométricas…).",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/mapa-logistico.html#relevancia",
+    "href": "01-logistica/mapa-logistico.html#relevancia",
+    "title": "2  El Mapa Logístico",
+    "section": "2.2 Relevancia",
+    "text": "2.2 Relevancia\nSu relevancia radica en que, a partir de una ecuación muy elemental, se observa toda la complejidad característica del caos: bifurcaciones, ciclos de periodo en expansión y dependencia sensible a las condiciones iniciales. Además su popularidad se debe a que esta ecuación modela muy bien diversos sistemas físicos como pueden ser:\n\nDinámica de poblaciones\nModelos económicos de oferta y demanda\nReacciones químicas oscilantes\nCircuitos con realimentación\n\nEl caso más paradigmático de estudio es el primero, es decir, la evolución de la población de animales, plantas o células con el tiempo. ¿Por qué se emplea la función logística para ello?. Porque al principio, la población crece rápidamente pero después debido a la falta de recursos del entorno se suelen producir colapsos poblacionanales.\nPara valores de \\(r\\) menor que uno, la población final tiende a cero, lo que resulta lógico, dado que la población inicial no crece.\nPara valores de \\(r\\) entre 1 y 3, la secuencia \\({x_n}\\) converge a un único valor fijo, que además es estable.\nPero al aumentar \\(r\\) por encima de 3, llega la primera sorpresa. Primero aparece un ciclo doble (dos valores alternantes), luego ciclos de periodo 4, 8, 16… y así sucesivamente, hasta que el comportamiento se vuelve aparentemente aleatorio, o mejor dicho caótico. A lo largo del proyecto iremos distinguiendo claramente entre el término aleatorio y el término caótico.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
     ]
   },
@@ -35,231 +46,286 @@
     "objectID": "01-logistica/mapa-logistico.html#simulación-en-python",
     "href": "01-logistica/mapa-logistico.html#simulación-en-python",
     "title": "2  El Mapa Logístico",
-    "section": "3.2 Simulación en Python",
-    "text": "3.2 Simulación en Python\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr, x0, n = 3.9, 0.2, 100\nx = np.zeros(n)\nx[0] = x0\nfor i in range(1, n):\n    x[i] = r * x[i-1] * (1 - x[i-1])\n\nplt.plot(x, marker='o')\nplt.title(\"Evolución del mapa logístico\")\nplt.xlabel(\"Iteración n\")\nplt.ylabel(\"xₙ\")\nplt.grid(True)\nplt.show()",
+    "section": "2.3 Simulación en Python",
+    "text": "2.3 Simulación en Python\nVamos a refrendar lo anteriormente dicho con simulaciones de la función logística. Como veremos a continuación, para valores de \\(r\\) menores de 1, el valor final de \\(x_n\\) tiende a cero.\n\n\n\n\n\n\n\n\n\nPara valores de \\(r\\) entre 1 y 3, el valor final de \\(x_n\\) tiende a un punto estable\n\n\n\n\n\n\n\n\n\nPara valores de \\(r\\) entre 3 y 3.449, el valor final de \\(x_n\\) tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos.\n\n\n\n\n\n\n\n\n\nPara valores de \\(r\\) entre 3 y 3.544, el valor final de \\(x_n\\) tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.\n\n\n\n\n\n\n\n\n\nY a partir de \\(r = 3.56995\\) no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico\n\n\n\n\n\n\n\n\n\nCurioso, ¿verdad?. En la siguiente sección podrás experimentar con diferentes valores de r y diferentes valores iniciales, para ver cuál es el estado final del sistema. Después en sucesivas secciones, iremos explicando formalmente con ayuda de las matemáticas por qué ocurre ésto.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
+      "Introducción al Caos a través de la Función Logística",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>El Mapa Logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/cobweb.html",
     "href": "01-logistica/cobweb.html",
-    "title": "3  Diagrama Cobweb Interactivo",
+    "title": "3  Diagrama Cobweb",
     "section": "",
-    "text": "4 Diagrama Cobweb Interactivo",
+    "text": "3.1 Introducción\nEn sistemas discretos iterativos, un diagrama cobweb o “telaraña” es una representación gráfica que ilustra cómo evoluciona la secuencia \\[\nx_{n+1} = f(x_n)\n\\] paso a paso. Facilita la visualización de convergencia, ciclos y caos.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb Interactivo</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb</span>"
     ]
   },
   {
-    "objectID": "01-logistica/cobweb.html#diagrama-cobweb-interactivo-con-serie-de-x_n",
-    "href": "01-logistica/cobweb.html#diagrama-cobweb-interactivo-con-serie-de-x_n",
-    "title": "3  Diagrama Cobweb Interactivo",
-    "section": "4.1 Diagrama Cobweb Interactivo con Serie de (x_n)",
-    "text": "4.1 Diagrama Cobweb Interactivo con Serie de (x_n)\nA la izquierda se muestra el diagrama cobweb y a la derecha la evolución temporal de (x_n). Ajusta el parámetro r con el deslizador.\n\nimport numpy as np\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\n# Función que calcula coordenadas de cobweb y serie de x_n\ndef compute_cobweb_and_series(r, x0=0.2, steps=40):\n    # Línea logística y la identidad\n    xs = np.linspace(0, 1, 200)\n    ys = r * xs * (1 - xs)\n\n    # Serie de iteraciones de la función logística\n    series = [x0]\n    x = x0\n    for _ in range(steps):\n        x = r * x * (1 - x)\n        series.append(x)\n\n    # Coordenadas para el diagrama cobweb\n    xc, yc = [series[0]], [series[0]]\n    for val in series[1:]:\n        # vertical\n        xc.append(xc[-1]); yc.append(val)\n        # horizontal\n        xc.append(val); yc.append(val)\n\n    return xs, ys, xc, yc, series\n\n# Valores de r para el slider\ne_rs = np.linspace(2.5, 4.0, 31)\nframes = []\nfor r in e_rs:\n    xs, ys, xc, yc, series = compute_cobweb_and_series(r)\n    frames.append(\n        go.Frame(\n            name=f\"{r:.2f}\",\n            data=[\n                go.Scatter(x=xs, y=ys, mode='lines'),\n                go.Scatter(x=xs, y=xs, mode='lines', line=dict(dash='dash')),\n                go.Scatter(x=xc, y=yc, mode='lines', line=dict(color='red')),\n                go.Scatter(x=list(range(len(series))), y=series, mode='lines+markers')\n            ]\n        )\n    )\n\n# Crear figura con subplots 1x2\ngrid = make_subplots(rows=1, cols=2, subplot_titles=(\"Cobweb\",\"Evolución de x_n\"))\n# Trazas iniciales (r = e_rs[0])\nr0 = e_rs[0]\nxs0, ys0, xc0, yc0, series0 = compute_cobweb_and_series(r0)\ngrid.add_trace(go.Scatter(x=xs0, y=ys0, mode='lines', name='f(x)'), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xs0, y=xs0, mode='lines', name='y=x', line=dict(dash='dash')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=xc0, y=yc0, mode='lines', name='Cobweb', line=dict(color='red')), row=1, col=1)\ngrid.add_trace(go.Scatter(x=list(range(len(series0))), y=series0, mode='lines+markers', name='x_n'), row=1, col=2)\n# Asignar frames y configurar animación\n\ngrid.frames = frames\nsteps = [dict(label=f\"{r:.2f}\", method=\"animate\",\n              args=[[f\"{r:.2f}\"], dict(mode=\"immediate\", frame=dict(duration=0, redraw=True), transition=dict(duration=0))])\n         for r in e_rs]\n\ngrid.update_layout(\n    width=1000, height=500,\n    sliders=[dict(active=0, pad=dict(t=50), steps=steps)],\n    updatemenus=[dict(type=\"buttons\", showactive=False,\n                      buttons=[dict(label=\"Play\", method=\"animate\",\n                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])]\n)\n\ngrid.show()",
+    "objectID": "01-logistica/cobweb.html#construcción-del-diagrama-cobweb",
+    "href": "01-logistica/cobweb.html#construcción-del-diagrama-cobweb",
+    "title": "3  Diagrama Cobweb",
+    "section": "3.2 Construcción del diagrama Cobweb",
+    "text": "3.2 Construcción del diagrama Cobweb\n\nDibujamos las curvas:\n\n\\(y = f(x)\\)\n\\(y = x\\)\n\n\nPartimos de un valor inicial \\(x_0\\) en el eje horizontal.\n\nTrazamos verticalmente desde \\((x_0,0)\\) hasta \\(\\bigl(x_0, f(x_0)\\bigr)\\).\n\nDesde \\(\\bigl(x_0, f(x_0)\\bigr)\\) traza horizontalmente hasta la recta \\(y=x\\), llegando a \\(\\bigl(f(x_0), f(x_0)\\bigr)\\). Este valor es \\(x_1\\).\n\nRepite el proceso usando \\(x_1\\) para obtener \\(x_2\\), y así sucesivamente.\n\nAl unir los segmentos verticales y horizontales se forma la “telaraña” que muestra la evolución \\(x_0 \\to x_1 \\to x_2 \\to \\dots\\). Así vemos la evolución del sistema.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb Interactivo</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/cobweb.html#para-qué-sirve",
+    "href": "01-logistica/cobweb.html#para-qué-sirve",
+    "title": "3  Diagrama Cobweb",
+    "section": "3.3 ¿Para qué sirve?",
+    "text": "3.3 ¿Para qué sirve?\n\nConvergencia a punto fijo: si la telaraña se aproxima a un punto de intersección entre \\(y=f(x)\\) y \\(y=x\\). En la siguiente sección analizaremos el término “punto fijo”\nDetección de ciclos: patrones periódicos (por ejemplo, saltos entre dos puntos indican un ciclo de periodo 2).\n\nObservación de caos: en funciones no lineales como el mapa logístico, con ciertos parámetros la telaraña no se estabiliza y refleja sensibilidad a condiciones iniciales.\n\nAquí dejo un diagrama interactivo, en el que se observan la función logística \\(y=f(x)=rx(x-1)\\), la función \\(y = x\\), y el diagrama de telaraña.\nEl usuario puede jugar con el valor de \\(r\\) y de \\(x_0\\) (el valor inicial de población), y ver la evolución de la población después de 100 iteraciones del mapa logístico.\n\n\n    \n    \n        \n        Loading BokehJS ...",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/puntos-fijos.html",
+    "href": "01-logistica/puntos-fijos.html",
+    "title": "4  Puntos fijos de una función",
+    "section": "",
+    "text": "4.1 ¿Qué es un punto fijo?\nUn punto fijo de una función \\(f\\) es un valor \\(x^*\\) que satisface \\[x^* = f(x^*)\\]\nIntuitivamente, si comenzamos en \\(x^*\\) y aplicamos la función, nos quedamos en el mismo punto. En la sección anterior vimos que en el diagram interactivo graficábamos también la función \\(y=x\\). Si nuestra función $f(x)=x” cruza en algún momento la función \\(y=x\\), entonces tenemos un punto fijo en nuestra función.\nLa pregunta que hay que hacerse, es la siguiente. Si hacemos iteraciones sucesivas de nuestro mapa/función, ¿convergemos a un punto fijo?. Para responder esta cuestión, vamos a hacer uso de la derivada de la función que estamos estudiando.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Puntos fijos de una función</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/puntos-fijos.html#estudio-formal-de-la-convergencia",
+    "href": "01-logistica/puntos-fijos.html#estudio-formal-de-la-convergencia",
+    "title": "4  Puntos fijos de una función",
+    "section": "4.2 Estudio formal de la convergencia",
+    "text": "4.2 Estudio formal de la convergencia\nPara ver si la sucesión \\(x_n\\) converge al punto fijo \\(x^*\\) que define la ecuación \\(x^* = f(x^*)\\), en primer lugar vamos a definir el error: \\[\ne_n = x_n - x^*,\n\\] Es decir, \\(e_n\\) es lo que dista el resultado en la iteración \\(n\\) de la sucesión.\nLa función \\(f\\) se puede aproximar alrededor de \\(x^*\\) por medio de su derivada primera: \\[\nf(x_n) \\approx f(x^*) + f'(x^*)\\,(x_n - x^*)\n\\]\ny usando \\(f(x^*)=x^*\\), obtenemos \\[\ne_{n+1} \\approx x_{n+1} - x^* = f'(x^*)\\,e_n\n\\]\nSi \\(\\lvert f'(x^*)\\rvert &lt; 1\\), entonces \\(\\lvert e_{n+1}\\rvert &lt; \\lvert e_n\\rvert\\) y por tanto \\(\\lvert e_n\\rvert\\to0\\), garantizando que \\(x_n\\to x^*\\).",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Puntos fijos de una función</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/puntos-fijos.html#ejemplo-fxcosx",
+    "href": "01-logistica/puntos-fijos.html#ejemplo-fxcosx",
+    "title": "4  Puntos fijos de una función",
+    "section": "4.3 Ejemplo: \\(f(x)=\\cos(x)\\)",
+    "text": "4.3 Ejemplo: \\(f(x)=\\cos(x)\\)\nSi algún día te aburres, coge una calculadora y empieza a apretar sucesivas veces la función coseno. Verás que acabarás teniendo en el display de la calculadora el valor 0.739. No es magia. El valor \\(x^* \\approx 0.739085\\) es el punto fijo de la función coseno.\nVeamoslo más formalmente. Consideremos la iteración \\[\nx_{n+1} = \\cos(x_n), \\quad x_0 = 0.\n\\]\nLos primeros valores son: \\[\n\\begin{aligned}\nx_1 &= \\cos(0)=1,\\\\\nx_2 &= \\cos(1)\\approx0.540302,\\\\\nx_3 &= \\cos(x_2)\\approx0.857553,\\\\\nx_4 &= \\cos(x_3)\\approx0.654290,\\\\\nx_5 &= \\cos(x_4)\\approx0.793480,\\\\\nx_6 &= \\cos(x_5)\\approx0.701369,\\\\\nx_7 &= \\cos(x_6)\\approx0.763960,\\\\\nx_8 &= \\cos(x_7)\\approx0.722102,\\\\\nx_9 &= \\cos(x_8)\\approx0.750417,\\\\\nx_{10} &= \\cos(x_9)\\approx0.731404,\\\\\n\\end{aligned}\n\\]\nVemos que los valores van oscilando, pero rápidamente se aproximan al punto fijo \\[\nx^* \\approx 0.739085,\n\\] que satisface \\(x^* = \\cos(x^*)\\) (la ecuación \\(x^* = \\cos(x^*)\\) no tiene solución en forma de fórmula elemental, pues es una ecuación transcendental).\nAdemás, la derivada en este punto es menor que 1, lo que confirma que es un punto de atracción de la función. \\[\nf'(x) = -\\sin(x),\n\\quad\n\\lvert f'(x^*)\\rvert = \\lvert\\sin(x^*)\\rvert &lt; 1,\n\\] por lo que la iteración converge a \\(x^*\\).\nSi vuelves a la sección anterior, verás que para valores de \\(r\\) entre 1 y 3, el mapa logístico converge al punto fijo de la función logísitica. Siempre, independientemente del valor de \\(x_0\\) que elijas.\nCuriosamente, a partir de \\(r=3\\) la derivada de la función logística en el punto de corte con \\(y=x\\) pasa a tener un valor mayor en valor absoluto que 1, por lo que en este momento el punto de corte deja de ser un punto fijo.\nEn la siguiente sección, calcularemos formalmente los puntos fijos de la función logística y estudiaremos formalmente como se comporta la sucesión.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Puntos fijos de una función</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html",
     "href": "01-logistica/bifurcaciones.html",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
+    "title": "5  Estudio formal del mapa logístico",
     "section": "",
-    "text": "5 El Mapa Logístico: Una Ventana al Caos\nDuración de la explicación original: 0:00 – 17:17",
+    "text": "5.1 Análisis de la función logística\nEn los siguientes apartados vamos a desentrañar desde un punto de vista matemático como se comporta el mapa logístico. Ya hemos visto en los apartados anteriores, vía simulación, que el comportamiento es muy errático dependiendo del valor de \\(r\\). Veamos por qué.\nPara empezar veremos la función logística y la analizaremos como haríamos con cualquier otra función para ver su forma. Para ello, recurrimos a las técnicas habituales de analisis de funciones.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
-    "objectID": "01-logistica/bifurcaciones.html#qué-es-el-mapa-logístico",
-    "href": "01-logistica/bifurcaciones.html#qué-es-el-mapa-logístico",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.1 1. ¿Qué es el mapa logístico?",
-    "text": "5.1 1. ¿Qué es el mapa logístico?\nEl mapa logístico es un modelo discreto que, con una única ecuación, describe la evolución de una población normalizada \\(x_n\\) paso a paso y muestra comportamientos que van desde la convergencia hasta el caos.\nSe define mediante la iteración:\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\n\n\\(x_n \\in [0,1]\\): población normalizada en la iteración \\(n\\).\n\\(r\\): parámetro de control o tasa de crecimiento (capacidad reproductiva).\n\n\nNota: Para garantizar que \\(x_{n+1} \\in [0,1]\\), se restringe \\(r\\) a \\(0 &lt; r \\le 4\\).",
+    "objectID": "01-logistica/bifurcaciones.html#análisis-de-la-función-logística",
+    "href": "01-logistica/bifurcaciones.html#análisis-de-la-función-logística",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "",
+    "text": "5.1.1 Dominio y ceros\n\nPor definición, el Dominio es: \\(0 \\le x \\le 1\\)\n\nEn este dominio los Ceros de la función están en:\n\n\\(f(0) = r \\cdot 0 \\cdot (1-0) = 0\\)\n\n\\(f(1) = r \\cdot 1 \\cdot (1-1) = 0\\)\n\n\n\n\n5.1.2 Derivada y monotonía\nPara conocer los máximos y mínimos primero hemos de calcular la derivada,\n\nDerivada:\n\\[f'(x) = r(1 - 2x)\\]\n\nLa derivada tiene una raíz en \\(x=1/2\\), independientemente del valor de \\(r\\). Por lo tanto, el signo de \\(f'(x)\\):\n\nSi \\(0 \\le x &lt; \\tfrac12\\), entonces \\(f'(x) &gt; 0\\) ⇒ creciente\n\nSi \\(x = \\tfrac12\\), entonces \\(f'(x) = 0\\)\n\nSi \\(\\tfrac12 &lt; x \\le 1\\), entonces \\(f'(x) &lt; 0\\) ⇒ decreciente\n\n\nDe acuerdo al estudio de la derivada, tenemos un punto crítico en \\(x = \\tfrac12\\). Puesto que la derivada pasa a ser creciente a decreciente en este punto, tenemos un máximo. La función, pues, tiene un valor máximo:\n\\[f\\bigl(\\tfrac12\\bigr) = \\frac{r}{4}\\]\nObservar que si \\(r&gt;4\\) entonces el máximo de la función es mayor que 1. Esto no puede darse, ya que la funcíón logística normaliza los recursos máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que no puede ocurrir físicamente), el valor de r siempre se establece por debajo de 4.\n\n\n5.1.3 Concavidad\n\nSegunda derivada:\n\\[f''(x) = -2r\\]\n\nComo \\(r&gt;0\\), \\(f''(x)&lt;0\\) en todo el dominio ⇒ cóncava hacia abajo\n\n\n\n5.1.4 Rango de la función\nDe acuerdo, al estudio anterior, la función es siempre positiva, con valores entre \\(0\\) y \\(\\tfrac{r}{4}\\)\nSi vamos a la sección con el diagrama de telaraña, veremos efectivamente esta forma de la función.\n\n\n5.1.5 Resumen gráfico\n\nParábola invertida con vértice en \\(\\bigl(\\tfrac12,\\tfrac{r}{4}\\bigr)\\)\n\nCrece de \\(x=0\\) a \\(x=\\tfrac12\\), luego decrece hasta \\(x=1\\)",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
-    "objectID": "01-logistica/bifurcaciones.html#breve-historia",
-    "href": "01-logistica/bifurcaciones.html#breve-historia",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.2 2. Breve historia",
-    "text": "5.2 2. Breve historia\n\nEcuación continua: proviene de la ecuación logística diferencial, usada en biología para modelar el crecimiento con límite de recursos.\nDiscretización: Robert May (1976) introdujo su forma iterada y mostró que, pese a la regla sencilla, su dinámica es muy rica.",
+    "objectID": "01-logistica/bifurcaciones.html#término-genérico-del-mapa-logístico",
+    "href": "01-logistica/bifurcaciones.html#término-genérico-del-mapa-logístico",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.2 Término genérico del mapa logístico",
+    "text": "5.2 Término genérico del mapa logístico\nEn las sucesiones aritméticas y geométricas es fácil expresar el termino enésimo de la sucesión en función del primer término de la misma. Veamos:\nTérmino general de la sucesión aritmética\n\\[a_n = a_1 + (n-1)d\\] donde: - \\(a_1\\) es el primer término. - \\(d\\) es la diferencia común. - \\(n\\) es la posición del término.\nTérmino general de la sucesión geométrica\n\\[a_n = a_1 \\cdot r^{\\,n-1}\\] donde: - \\(a_1\\) es el primer término. - \\(r\\) es la razón común. - \\(n\\) es la posición del término.\n¿Podemos hacer lo mismo con el mapa logístico?. Hagamos las primeras iteraciones.\n\\[\nx_1 = r\\,x_0\\,(1 - x_0)\n\\]\n\\[\nx_2 = r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\n\\]\n\\[\nx_3 = r^3\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\n\\]\n\\[\nx_4 = r^4\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\,\n\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\n\\]\n\\[\n\\begin{aligned}\nx_5 =\\;& r^5\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\\\\n&\\times\\;\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\\\\\n&\\times\\;\\bigl(1 - r^4\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\,\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\\bigr)\n\\end{aligned}\n\\]\nComo podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente \\(x_0\\) y de \\(r\\), pero a medida que iteramos, la expresión se vuelve muy complicada.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
-    ]
-  },
-  {
-    "objectID": "01-logistica/bifurcaciones.html#forma-y-dominio-de-la-función",
-    "href": "01-logistica/bifurcaciones.html#forma-y-dominio-de-la-función",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.3 3. Forma y dominio de la función",
-    "text": "5.3 3. Forma y dominio de la función\nLa función asociada es:\n\\[\nf(x) = r\\,x\\,(1 - x)\n\\]\n\nParábola invertida: abre hacia abajo.\nPunto máximo:\n\nSe alcanza en \\(x = 1/2\\).\nValor máximo: \\(f(1/2) = r/4\\).\n\nDominio y recorrido:\n\nDominio: \\(x \\in [0,1]\\).\nPara \\(0 &lt; r \\le 4\\), el recorrido queda en \\([0,1]\\).",
-    "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
-    ]
-  },
-  {
-    "objectID": "01-logistica/bifurcaciones.html#puntos-fijos-y-estabilidad",
-    "href": "01-logistica/bifurcaciones.html#puntos-fijos-y-estabilidad",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.4 4. Puntos fijos y estabilidad",
-    "text": "5.4 4. Puntos fijos y estabilidad",
-    "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
-    ]
-  },
-  {
-    "objectID": "01-logistica/bifurcaciones.html#cálculo-de-la-derivada",
-    "href": "01-logistica/bifurcaciones.html#cálculo-de-la-derivada",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.5 Cálculo de la derivada",
-    "text": "5.5 Cálculo de la derivada\nPartimos de la función del mapa logístico:\n\\[\nf(x) = r\\,x\\,(1 - x).\n\\]\nPara obtener su derivada:\n\nAplicamos la regla del producto: \\[\nf'(x) = r \\frac{d}{dx}\\bigl[x(1 - x)\\bigr]\n      = r\\bigl[(1 - x) + x(-1)\\bigr].\n\\]\nSimplificamos: \\[\nf'(x) = r\\,(1 - x - x)\n      = r\\,(1 - 2x).\n\\]\n\nPor tanto,\n\\[\n\\boxed{f'(x) = r\\,(1 - 2x).}\n\\]",
-    "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#criterio-de-estabilidad",
     "href": "01-logistica/bifurcaciones.html#criterio-de-estabilidad",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.6 Criterio de estabilidad",
-    "text": "5.6 Criterio de estabilidad\nSea \\(x^*\\) un punto fijo (es decir, \\(f(x^*) = x^*\\)). Consideremos una pequeña perturbación \\(\\delta\\) tal que:\n\\[\nx_n = x^* + \\delta.\n\\]\nAl aplicar el mapa:\n\\[\nx_{n+1}\n= f(x_n)\n= f(x^* + \\delta)\n\\approx f(x^*) + f'(x^*)\\,\\delta\n= x^* + f'(x^*)\\,\\delta.\n\\]\nLa nueva desviación respecto a \\(x^*\\) es\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta.\n\\]\n\nSi \\(\\lvert f'(x^*)\\rvert &lt; 1\\), entonces \\(\\lvert x_{n+1} - x^*\\rvert &lt; \\lvert \\delta\\rvert\\). Cada iteración reduce la desviación: el punto fijo atrae las trayectorias (es estable).\nSi \\(\\lvert f'(x^*)\\rvert &gt; 1\\), la desviación crece y las trayectorias se alejan del punto fijo (es inestable).\n\nEn resumen:\n\\[\n\\lvert f'(x^*)\\rvert &lt; 1\n\\quad\\Longrightarrow\\quad\n\\text{$x^*$ es estable}.\n\\]\nUn punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara el mapa logístico:\n\n\\(x^*_1 = 0\\).\n\\(x^*_2 = 1 - 1/r\\) (si \\(r &gt; 1\\)).\n\nLa derivada es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nUn punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\). Una perturbación \\(\\delta\\) en \\(x_n = x^* + \\delta\\) evoluciona como:\n\\[\nx_{n+1} - x^* \\approx f'(x^*)\\,\\delta,\n\\]\npor lo que si \\(\\lvert f'(x^*)\\rvert &lt; 1\\), la desviación disminuye.\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\).\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\).\n\nResumen de convergencia:\n\n\\(0 &lt; r &lt; 1\\): converge a \\(x=0\\).\n\\(1 &lt; r &lt; 3\\): converge a \\(x=1-1/r\\).\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 0.99\nx0 = 0.5\nn_iter = 50\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 0.99)')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 2.99\nx0 = 0.01\nn_iter = 200\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 2.99) después de 200 iteraciones')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetros\nr = 3.01\nx0 = 0.2\nn_iter = 2000\n\n# Función logística\ndef f(x): return r * x * (1 - x)\n\n# Valores de x para la curva\nx_vals = np.linspace(0, 1, 400)\ny_vals = f(x_vals)\n\n# Iteraciones para el cobweb\nx_cobweb = [x0]\ny_cobweb = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_cobweb.append(x)\n    y_cobweb.append(y)\n    x = y\n    x_cobweb.append(x)\n    y_cobweb.append(x)\n\n# Graficar\nplt.figure(figsize=(6,6))\nplt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')\nplt.plot(x_vals, x_vals, '--', label='$y=x$')\nplt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)\nplt.scatter(x0, 0, color='red', zorder=5, label='Inicio')\nplt.title('Cobweb plot para el mapa logístico (r = 3.01) después de 2000 iteraciones')\nplt.xlabel('$x_n$')\nplt.ylabel('$x_{n+1}$')\nplt.legend()\nplt.tight_layout()\nplt.show()",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.3 Criterio de estabilidad",
+    "text": "5.3 Criterio de estabilidad\n\n5.3.1 Puntos fijos\nTal y como habíamos visto anteriormente, un punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara encontrar los puntos fijos de la función logística, resolvemos: \\[\nr\\,x\\,(1 - x) = x.\n\\] Llevando todos los términos a un lado: \\[\nr\\,x\\,(1 - x) - x = 0\n\\quad\\Longrightarrow\\quad\nx\\bigl(r\\,(1 - x) - 1\\bigr) = 0.\n\\] De aquí se obtienen dos soluciones: \\[x_1 = 0\\] y \\(x_2\\) tal que \\(r\\,(1 - x_2) - 1 = 0\\), es decir: \\[\n  1 - x_2 = \\frac{1}{r}\n  \\;\\Longrightarrow\\;\n  x_2 = 1 - \\frac{1}{r}.\n  \\]\n\n\n5.3.2 Evaluación de la derivada en los puntos fijos\nLa derivada de la función logística es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nY además, de la sección sobre los puntos fijos sabemos que un punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\).\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\). Es decir, para valores de \\(r\\) comprendidos entre 0 y 1, el valor de \\(x=0\\) es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en \\(x=0\\). Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un \\(r&lt;1\\), veremos que la función lógistica solamente toca a la recta \\(y=x\\) en \\(x=0\\)\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\). Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de \\(x_0\\) que pongan para valores de \\(r\\) entre 1 y 3, siempre se convergerá a un punto que es \\(x^*_2=1-1/r\\) .\n\nTal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo \\(r/4\\), pero al final se estabilizar en un valor menor que es igual a \\(x^*_2=1-1/r\\) .\n\n\n\n\n\n\n\n\n\nAñadamos unos gráficos para verlo mejor.\nEn este primero, vemos para un valor de \\(r=0.99\\) como la población va decreciendo iteración tras iteración hasta llegar al punto fijo \\(x=0\\)\n\n\n\n\n\n\n\n\n\nEn este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta \\(y=x\\)), a pesar de que el valor de \\(r\\) está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.\n\n\n\n\n\n\n\n\n\nPero, ¿qué pasa cuando subimos por encima de \\(r=3\\)?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a conerger hacia ese valor. En este caso, vemos que para \\(r=3.01\\)? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento \\(r\\) es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.\n\n\n\n\n\n\n\n\n\nAunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para\\(r\\approx3\\). Algunos ejemplos son:\n\nMoscas de la carne (Lucilia cuprina). En los famosos experimentos de Nicholson sobre poblaciones de mosca de la carne en frascos, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones.\nEscarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron colonias de Tribolium en el laboratorio controlando sólo la tasa de natalidad por suministro de alimento. Se observó un ciclo bienal: una generación con números muy altos y la siguiente bastante más baja, en perfecta alternancia.\nDaphnia en estanques experimentales. Algunos estudios con pulgas de agua (Daphnia) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta.\nPeces capelán (Mallotus villosus). En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y un efecto de “sobrepoblación–agotamiento de recursos”.\n\nEn todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo\nEn el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
     "href": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.7 4. Primera Bifurcación: Duplicación de Período en \\(r = 3\\)",
-    "text": "5.7 4. Primera Bifurcación: Duplicación de Período en \\(r = 3\\)\nEn \\(r = 3\\), la derivada en el punto fijo \\(x^* = 1 - \\frac{1}{r}\\) se vuelve \\(-1\\), lo cual genera una órbita de período 2.\nSurgen dos nuevos puntos \\(p\\) y \\(q\\) que no son puntos fijos, sino puntos de período 2 tales que:\n\\[\nf(p) = q, \\quad f(q) = p\n\\]\nEsto significa que:\n\\[\nf(f(p)) = p\n\\]\nLo cual implica que \\(p\\) es un punto fijo del mapa iterado \\(f^2\\).\nDado que \\(f(x) = r x (1 - x)\\), podemos escribir:\n\\[\nf(p) = r p (1 - p)\n\\]\nEntonces:\n\\[\nf(f(p)) = r \\cdot f(p) \\cdot (1 - f(p)) = r \\cdot [r p (1 - p)] \\cdot \\left[1 - r p (1 - p)\\right]\n\\]\nQueremos encontrar los puntos de período 2, así que igualamos:\n\\[\nf(f(p)) = p\n\\]\nDesarrollando completamente:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nPasando todo al mismo lado:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) - p = 0\n\\]\nFactorizamos \\(p\\):\n\\[\np \\left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \\right] = 0\n\\]\nUna de las soluciones es \\(p = 0\\) (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.\nExpandimos el polinomio:\n\\[\nf(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nExpandimos paso a paso:\n\n\\(f(p) = r p (1 - p)\\)\n\n\\(1 - f(p) = 1 - r p (1 - p)\\)\n\n\\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\\)\n\nMultiplicamos todo por \\(r^2 p\\)\n\nResulta en un polinomio de cuarto grado en \\(p\\)\n\nEste polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 2.9\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=2.9$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3\nx0 = 0.2\nn_iter = 2000\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3.1\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.1$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Parámetro y condición inicial\nr = 3.2\nx0 = 0.2\nn_iter = 20\n\n# Definición de funciones\ndef f(x): return r * x * (1 - x)\ndef f2(x): return f(f(x))\n\n# Dominio\nx_vals = np.linspace(0, 1, 400)\ny_f = f(x_vals)\ny_f2 = f2(x_vals)\n\n# Construcción del cobweb sobre f\nx_coords = [x0]\ny_coords = [0]\nx, y = x0, 0\nfor _ in range(n_iter):\n    y = f(x)\n    x_coords.extend([x, y])\n    y_coords.extend([y, y])\n    x = y\n\n# Plot\nplt.figure(figsize=(6, 6))\nplt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')\nplt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')\nplt.plot(x_vals, y_f, color='green', label='$f(x)$')\nplt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')\nplt.scatter([x0], [0], marker='o', color='red', label='$x_0$')\nplt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.2$')\nplt.xlabel('$x$')\nplt.ylabel('$y$')\nplt.legend()\nplt.tight_layout()\nplt.show()",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.4 Primera bifurcación: duplicación de Período en \\(r = 3\\)",
+    "text": "5.4 Primera bifurcación: duplicación de Período en \\(r = 3\\)\nEn \\(r = 3\\), la derivada en el punto fijo \\(x^* = 1 - \\frac{1}{r}\\) se vuelve \\(-1\\), lo cual genera una órbita de período 2.\nSurgen dos nuevos puntos \\(p\\) y \\(q\\) que no son puntos fijos, sino puntos de período 2 tales que:\n\\[\nf(p) = q, \\quad f(q) = p\n\\]\nEsto significa que:\n\\[\nf(f(p)) = p\n\\]\nLo cual implica que \\(p\\) es un punto fijo del mapa iterado \\(f^2\\).\nDado que \\(f(x) = r x (1 - x)\\), podemos escribir:\n\\[\nf(p) = r p (1 - p)\n\\]\nEntonces:\n\\[\nf(f(p)) = r \\cdot f(p) \\cdot (1 - f(p)) = r \\cdot [r p (1 - p)] \\cdot \\left[1 - r p (1 - p)\\right]\n\\]\nQueremos encontrar los puntos de período 2, así que igualamos:\n\\[\nf(f(p)) = p\n\\]\nDesarrollando completamente:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nPasando todo al mismo lado:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) - p = 0\n\\]\nFactorizamos \\(p\\):\n\\[\np \\left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \\right] = 0\n\\]\nUna de las soluciones es \\(p = 0\\) (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.\nExpandimos el polinomio:\n\\[\nf(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nExpandimos paso a paso:\n\n\\(f(p) = r p (1 - p)\\)\n\n\\(1 - f(p) = 1 - r p (1 - p)\\)\n\n\\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\\)\n\nMultiplicamos todo por \\(r^2 p\\)\n\nResulta en un polinomio de cuarto grado en \\(p\\)\n\nEste polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#cálculo-de-iteraciones",
     "href": "01-logistica/bifurcaciones.html#cálculo-de-iteraciones",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.8 5. Cálculo de iteraciones",
-    "text": "5.8 5. Cálculo de iteraciones\n\n5.8.1 5.1 Condición inicial\nElige \\(x_0 \\in (0,1)\\), p.ej. \\(0.1\\), \\(0.2\\), \\(0.5\\).\n\n\n5.8.2 5.2 Procedimiento\n\n# Iteración del mapa logístico\ndef iterar_mapa(r, x0, N):\n    x = x0\n    resultados = []\n    for _ in range(N):\n        x = r * x * (1 - x)\n        resultados.append(x)\n    return resultados\n\nDescarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor.",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.5 5. Cálculo de iteraciones",
+    "text": "5.5 5. Cálculo de iteraciones\n\n5.5.1 5.1 Condición inicial\nElige \\(x_0 \\in (0,1)\\), p.ej. \\(0.1\\), \\(0.2\\), \\(0.5\\).\n\n\n5.5.2 5.2 Procedimiento\nDescarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#comportamientos-según-r",
     "href": "01-logistica/bifurcaciones.html#comportamientos-según-r",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.9 6. Comportamientos según \\(r\\)",
-    "text": "5.9 6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.6 6. Comportamientos según \\(r\\)",
+    "text": "5.6 6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
     "href": "01-logistica/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.10 7. Duplicación de periodo y constante de Feigenbaum",
-    "text": "5.10 7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales.",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.7 7. Duplicación de periodo y constante de Feigenbaum",
+    "text": "5.7 7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales.",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#diagrama-de-bifurcación",
     "href": "01-logistica/bifurcaciones.html#diagrama-de-bifurcación",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.11 8. Diagrama de bifurcación",
-    "text": "5.11 8. Diagrama de bifurcación\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_values = np.linspace(2.5, 4.0, 1500)\niterations, last = 1000, 100\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.5)\nplt.title('Diagrama de bifurcación del mapa logístico')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.show()",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.8 8. Diagrama de bifurcación",
+    "text": "5.8 8. Diagrama de bifurcación",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#caos-y-ventanas-periódicas",
     "href": "01-logistica/bifurcaciones.html#caos-y-ventanas-periódicas",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.12 9. Caos y ventanas periódicas",
-    "text": "5.12 9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n5.12.1 9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr_inf = 3.56995\nr_values = np.linspace(r_inf, 4.0, 1200)\niterations, last = 1000, 200\nr_plot, x_plot = [], []\nfor r in r_values:\n    x = 0.5\n    for _ in range(iterations):\n        x = r * x * (1 - x)\n    for _ in range(last):\n        x = r * x * (1 - x)\n        r_plot.append(r)\n        x_plot.append(x)\n\nplt.figure(figsize=(8,6))\nplt.plot(r_plot, x_plot, '.', markersize=0.4)\nplt.title('Detalle del diagrama de bifurcación para r &gt; r_\\infty')\nplt.xlabel('Parámetro r')\nplt.ylabel('$x_n$ (atractor)')\nplt.tight_layout()\nplt.show()",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.9 9. Caos y ventanas periódicas",
+    "text": "5.9 9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n5.9.1 9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
     "href": "01-logistica/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
-    "title": "4  El Mapa Logístico: Una Ventana al Caos",
-    "section": "5.13 10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
-    "text": "5.13 10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.10 10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
+    "text": "5.10 10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```",
     "crumbs": [
-      "1. Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>El Mapa Logístico: Una Ventana al Caos</span>"
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "02-pendulo-doble/_index.html",
+    "href": "02-pendulo-doble/_index.html",
+    "title": "6  Caos: Teoría y Experimentos",
+    "section": "",
+    "text": "7 Bienvenido\nEste libro explora el fascinante mundo del caos desde distintos puntos de vista:\n\nModelos matemáticos simples, como la función logística, que nos introducen a las bifurcaciones, atractores y comportamiento impredecible en sistemas deterministas.\nSistemas físicos reales, como el péndulo doble, que muestran cómo el caos se manifiesta en el mundo tangible.\nMeteorología y clima, donde la sensibilidad a condiciones iniciales limita la predictibilidad de los modelos atmosféricos y climáticos.\nExperimentos caseros, que puedes realizar tú mismo para observar el caos en acción.\n\nCada capítulo está dividido en secciones independientes, con gráficos, simulaciones, ecuaciones en LaTeX y referencias a la literatura científica cuando sea relevante.\n\n“El aleteo de una mariposa en Brasil puede provocar un tornado en Texas.”\n— Edward Lorenz\n\nComencemos el viaje hacia la comprensión del caos.",
+    "crumbs": [
+      "El Caos en vivo: El péndulo doble",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Caos: Teoría y Experimentos</span>"
     ]
   },
   {
     "objectID": "02-pendulo-doble/test.html",
     "href": "02-pendulo-doble/test.html",
-    "title": "5  test",
+    "title": "7  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
-      "2. El Caos en vivo: El péndulo doble",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>test</span>"
+      "El Caos en vivo: El péndulo doble",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "03-meteorologia/_index.html",
+    "href": "03-meteorologia/_index.html",
+    "title": "8  1. Introducción al Caos a través de la Función Logística",
+    "section": "",
+    "text": "9 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "crumbs": [
+      "La Meteorología y el Caos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "03-meteorologia/test.html",
     "href": "03-meteorologia/test.html",
-    "title": "6  test",
+    "title": "9  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
-      "3. La Meteorología y el Caos",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>test</span>"
+      "La Meteorología y el Caos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/_index.html",
+    "href": "04-clima/_index.html",
+    "title": "10  1. Introducción al Caos a través de la Función Logística",
+    "section": "",
+    "text": "11 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "04-clima/test.html",
     "href": "04-clima/test.html",
-    "title": "7  test",
+    "title": "11  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
-      "4. El Clima y el Caos",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>test</span>"
+      "El Clima y el Caos",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "05-experimentos/_index.html",
+    "href": "05-experimentos/_index.html",
+    "title": "12  1. Introducción al Caos a través de la Función Logística",
+    "section": "",
+    "text": "13 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "crumbs": [
+      "Mis experimentos con el Caos",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "05-experimentos/test.html",
     "href": "05-experimentos/test.html",
-    "title": "8  test",
+    "title": "13  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
-      "5. Mis experimentos con el Caos",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>test</span>"
+      "Mis experimentos con el Caos",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>test</span>"
     ]
   }
 ]

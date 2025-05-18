@@ -1,0 +1,88 @@
+---
+jupyter: python3
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Diagrama Cobweb Interactivo
+
+
+## Diagrama Cobweb Interactivo con Serie de \(x_n\)
+
+A la izquierda se muestra el diagrama cobweb y a la derecha la evolución temporal de \(x_n\). Ajusta el parámetro *r* con el deslizador.
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Función que calcula coordenadas de cobweb y serie de x_n
+def compute_cobweb_and_series(r, x0=0.2, steps=40):
+    # Línea logística y la identidad
+    xs = np.linspace(0, 1, 200)
+    ys = r * xs * (1 - xs)
+
+    # Serie de iteraciones de la función logística
+    series = [x0]
+    x = x0
+    for _ in range(steps):
+        x = r * x * (1 - x)
+        series.append(x)
+
+    # Coordenadas para el diagrama cobweb
+    xc, yc = [series[0]], [series[0]]
+    for val in series[1:]:
+        # vertical
+        xc.append(xc[-1]); yc.append(val)
+        # horizontal
+        xc.append(val); yc.append(val)
+
+    return xs, ys, xc, yc, series
+
+# Valores de r para el slider
+e_rs = np.linspace(2.5, 4.0, 31)
+frames = []
+for r in e_rs:
+    xs, ys, xc, yc, series = compute_cobweb_and_series(r)
+    frames.append(
+        go.Frame(
+            name=f"{r:.2f}",
+            data=[
+                go.Scatter(x=xs, y=ys, mode='lines'),
+                go.Scatter(x=xs, y=xs, mode='lines', line=dict(dash='dash')),
+                go.Scatter(x=xc, y=yc, mode='lines', line=dict(color='red')),
+                go.Scatter(x=list(range(len(series))), y=series, mode='lines+markers')
+            ]
+        )
+    )
+
+# Crear figura con subplots 1x2
+grid = make_subplots(rows=1, cols=2, subplot_titles=("Cobweb","Evolución de x_n"))
+# Trazas iniciales (r = e_rs[0])
+r0 = e_rs[0]
+xs0, ys0, xc0, yc0, series0 = compute_cobweb_and_series(r0)
+grid.add_trace(go.Scatter(x=xs0, y=ys0, mode='lines', name='f(x)'), row=1, col=1)
+grid.add_trace(go.Scatter(x=xs0, y=xs0, mode='lines', name='y=x', line=dict(dash='dash')), row=1, col=1)
+grid.add_trace(go.Scatter(x=xc0, y=yc0, mode='lines', name='Cobweb', line=dict(color='red')), row=1, col=1)
+grid.add_trace(go.Scatter(x=list(range(len(series0))), y=series0, mode='lines+markers', name='x_n'), row=1, col=2)
+# Asignar frames y configurar animación
+
+grid.frames = frames
+steps = [dict(label=f"{r:.2f}", method="animate",
+              args=[[f"{r:.2f}"], dict(mode="immediate", frame=dict(duration=0, redraw=True), transition=dict(duration=0))])
+         for r in e_rs]
+
+grid.update_layout(
+    width=1000, height=500,
+    sliders=[dict(active=0, pad=dict(t=50), steps=steps)],
+    updatemenus=[dict(type="buttons", showactive=False,
+                      buttons=[dict(label="Play", method="animate",
+                                    args=[None, dict(frame=dict(duration=100, redraw=True), fromcurrent=True)])])]
+)
+
+grid.show()
+```
