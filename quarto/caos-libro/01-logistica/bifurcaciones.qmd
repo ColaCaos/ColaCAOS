@@ -106,7 +106,7 @@ x_5 =\;& r^5\,x_0\,(1 - x_0)\,
 \end{aligned}
 $$
 
-Como podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente $x_0$ y de $r$, pero a medida que iteramos, la expresión se vuelve muy complicada. 
+Como podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente $x_0$ y de $r$, pero a medida que iteramos, la expresión se vuelve muy complicada. A pesar de todo, hay que destacar que la función es **puramente determinista**. Es decir, se podría formular el valor de la iteración enésima en función de los valores de $x_0$ y de $r$.  
 
 ## Criterio de estabilidad
 
@@ -260,7 +260,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Pero, ¿qué pasa cuando subimos por encima de $r=3$?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a conerger hacia ese valor. En este caso, vemos que para $r=3.01$? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento $r$ es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse. 
+Pero, ¿qué pasa cuando subimos por encima de $r=3$?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para $r=3.01$? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento $r$ es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse. 
 
 
 ```{python}
@@ -318,9 +318,11 @@ En todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tra
 
 En el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.
 
-## Primera bifurcación: duplicación de Período en $r = 3$
+## Primera bifurcación: duplicación de período en $r = 3$
 
-En $r = 3$, la derivada en el punto fijo $x^* = 1 - \frac{1}{r}$ se vuelve $-1$, lo cual genera una órbita de período 2.
+### Análisis matemático
+
+En $r = 3$, la derivada en el punto fijo $x^* = 1 - \frac{1}{r}$ se vuelve $-1$, lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.
 
 Surgen dos nuevos puntos $p$ y $q$ que no son puntos fijos, sino puntos de período 2 tales que:
 
@@ -328,13 +330,15 @@ $$
 f(p) = q, \quad f(q) = p
 $$
 
+Es decir, si al mapa logístico se le alimenta con un valor $p$, da como resultado un valor $q$, que al ser metido otra vez en el mapa logístico da el valor $p$ inicial.
+
 Esto significa que:
 
 $$
 f(f(p)) = p
 $$
 
-Lo cual implica que $p$ es un punto fijo del mapa iterado $f^2$.
+Lo cual implica que $p$ es un punto fijo del mapa iterado $f^2$ (esta notación significa la composicion de una función con sigo misma $f^2()=f \circ f = f(f())$, no el cuadrado de la función)
 
 Dado que $f(x) = r x (1 - x)$, podemos escribir:
 
@@ -354,7 +358,9 @@ $$
 f(f(p)) = p
 $$
 
-Desarrollando completamente:
+Hay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función $f^2()=f \circ f = f(f())$ y la función $y=x$, y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.
+
+Sigamos con la resolución analtíca. Para ello, desarrollamos completamente $f(f(p)) = p$:
 
 $$
 r^2 p (1 - p)(1 - r p (1 - p)) = p
@@ -389,6 +395,10 @@ Expandimos paso a paso:
 5. Resulta en un polinomio de cuarto grado en $p$
 
 Este polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.
+
+### Análisis gráfico 
+
+Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con $r=2.9$. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta $y=x$ en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada $f \circ f$. La recta $y=x$ solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.
 
 ```{python}
 import numpy as np
@@ -433,97 +443,7 @@ plt.tight_layout()
 plt.show()
 
 ```
-
-
-```{python}
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Parámetro y condición inicial
-r = 3
-x0 = 0.2
-n_iter = 2000
-
-# Definición de funciones
-def f(x): return r * x * (1 - x)
-def f2(x): return f(f(x))
-
-# Dominio
-x_vals = np.linspace(0, 1, 400)
-y_f = f(x_vals)
-y_f2 = f2(x_vals)
-
-# Construcción del cobweb sobre f
-x_coords = [x0]
-y_coords = [0]
-x, y = x0, 0
-for _ in range(n_iter):
-    y = f(x)
-    x_coords.extend([x, y])
-    y_coords.extend([y, y])
-    x = y
-
-# Plot
-plt.figure(figsize=(6, 6))
-plt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')
-plt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')
-plt.plot(x_vals, y_f, color='green', label='$f(x)$')
-plt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')
-plt.scatter([x0], [0], marker='o', color='red', label='$x_0$')
-plt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3$')
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend()
-plt.tight_layout()
-plt.show()
-
-```
-
-
-```{python}
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Parámetro y condición inicial
-r = 3.1
-x0 = 0.2
-n_iter = 20
-
-# Definición de funciones
-def f(x): return r * x * (1 - x)
-def f2(x): return f(f(x))
-
-# Dominio
-x_vals = np.linspace(0, 1, 400)
-y_f = f(x_vals)
-y_f2 = f2(x_vals)
-
-# Construcción del cobweb sobre f
-x_coords = [x0]
-y_coords = [0]
-x, y = x0, 0
-for _ in range(n_iter):
-    y = f(x)
-    x_coords.extend([x, y])
-    y_coords.extend([y, y])
-    x = y
-
-# Plot
-plt.figure(figsize=(6, 6))
-plt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')
-plt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')
-plt.plot(x_vals, y_f, color='green', label='$f(x)$')
-plt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')
-plt.scatter([x0], [0], marker='o', color='red', label='$x_0$')
-plt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.1$')
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend()
-plt.tight_layout()
-plt.show()
-
-```
-
+Y ahora veamos lo que pasa cuando $r=3.2$. En este caso, la segunda iteración corta con la recta $y=x$ en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.
 
 ```{python}
 import numpy as np
@@ -568,7 +488,225 @@ plt.tight_layout()
 plt.show()
 
 ```
+### Analisis de estabilidad de la primera bifurcación
 
+En primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es  
+$$
+f(x) = rx(1 - x),
+$$  
+y su iteración doble se define como  
+$$
+f^{(2)}(x) = f\bigl(f(x)\bigr).
+$$  
+Queremos hallar los valores de $x$ que satisfacen  
+$$
+f^{(2)}(x) = x.
+$$
+
+#### Expresión explícita de $(f^{(2)}(x))$
+
+Primero calculamos  
+$$
+f(x) = r x - r x^2.
+$$  
+Luego  
+$$
+f\bigl(f(x)\bigr)
+= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
+= r\bigl(r x - r x^2\bigr)\bigl(1 - (r x - r x^2)\bigr)
+$$  
+
+Por tanto  
+   $$
+   f^{(2)}(x)
+   = r\,(r x - r x^2)\,(1 - r x + r x^2)
+   = r^2\,x\,(1 - x)\,(1 - r x + r x^2)
+   $$
+En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.
+
+#### Ecuación para los puntos periódicos de período 1 o 2
+
+Queremos las soluciones de  
+$$
+f^{(2)}(x) - x = 0.
+$$  
+Sabemos que las raíces de  
+$$
+f(x) - x = r x (1 - x) - x = 0
+$$  
+también anulan $f^{(2)}(x) - x$. Esas raíces son:
+$$x = 0$$ 
+$$x = \dfrac{r - 1}{r}$$
+Para aislar los de periodo 2, dividimos $f^{(2)}(x)-x$ por $f(x)-x$ y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable ($1<r<3$).
+
+#### Factorización y obtención de las raíces
+
+Los puntos de periodo 2 son raíces de  
+$$
+r^2\,x^2 \;-\; (r^2 + r)\,x \;+\; (r + 1) = 0.
+$$  
+Llamemos $x_1$ y $x_2$ a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:
+
+$$
+x_1 = \frac{r^2 + r + r\sqrt{(r+1)(r-3)}}{2r^2}
+      = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+$$
+
+$$
+x_2 = \frac{r^2 + r - r\sqrt{(r+1)(r-3)}}{2r^2}
+      = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
+$$
+
+Obsérvese, que para $r=3$, no hay dos soluciones, sino una, que coincide con el punto estable ($x=2/3$). 
+Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso $1<r<3$ . Es decir, cuando estábamos en la región estable $1<r<3$, el punto de estabilidad final lo daba el cruce que la función logística con la recta $y=x$, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.
+
+
+#### Derivada de $f$ y criterio de estabilidad
+
+Supongamos que $(x_1,x_2)$ es un ciclo de periodo 2, es decir  
+$$
+f(x_1)=x_2,\qquad f(x_2)=x_1.
+$$  
+Queremos ver qué pasa si en lugar de empezar exactamente en $x_1$ tomamos un punto “ligeramente” desviado:  
+$$
+x_1 + \delta,
+$$  
+con $\delta$ muy pequeño.
+
+Al aplicar $f$ alrededor de $x_1$, usamos la aproximación lineal:
+
+$$
+f(x_1 + \delta)
+\approx f(x_1) + f'(x_1)\,\delta
+= x_2 + f'(x_1)\,\delta.
+$$
+
+Así, tras una iteración, nuestro error (desviación) se amplifica o reduce por el factor $f'(x_1)$.
+
+Ahora iteramos de nuevo, partiendo de  
+$$
+x_2 + f'(x_1)\,\delta.
+$$  
+Otra vez linealizamos en torno a $x_2$:
+
+$$
+f\bigl(x_2 + f'(x_1)\,\delta\bigr)
+\approx f(x_2) + f'(x_2)\,\bigl(f'(x_1)\,\delta\bigr)
+= x_1 + \bigl[f'(x_2)\,f'(x_1)\bigr]\,\delta.
+$$
+
+Después de dos pasos (una vuelta completa al ciclo de período 2), la desviación original $\delta$ se convierte en
+
+$$
+\delta_{\rm nuevo} = f'(x_2)\,f'(x_1)\,\delta.
+$$
+
+Por tanto, **el factor que controla la estabilidad** del ciclo de período 2 es precisamente
+
+$$
+\Lambda = f'(x_1)\,f'(x_2).
+$$
+
+- Si $|\Lambda|<1$, la desviación $\delta$ tiende a cero y el ciclo es **estable**.  
+- Si $|\Lambda|>1$, la desviación crece y el ciclo es **inestable**.
+
+
+Veamos otra forma de calcularlo. Formalmente, la derivada de la composición $f^{(2)}=f\circ f$ se calcula con la regla de la cadena:
+
+$$
+(f^{(2)})'(x)
+= f'(f(x))\,f'(x).
+$$
+
+Si evaluamos en $x=x_1$, tenemos:
+
+$$
+(f^{(2)})'(x_1)
+= f'(f(x_1))\,f'(x_1)
+= f'(x_2)\,f'(x_1),
+$$
+
+que es exactamente el mismo producto que acabamos de entender con el argumento de las dos iteraciones sucesivas.
+
+
+Por lo tanto, el ciclo de periodo 2 es estable si  
+$$
+\bigl|f'(x_1)\,f'(x_2)\bigr| < 1.
+$$  
+
+
+Vamos a proceder a evaluar el producto de derivadas en los puntos $x_1$ y $x_2$ calculados anteriormente. Recordemos:
+$$
+x_1 = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+\qquad
+x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r},
+$$
+y
+$$
+f'(x) = r\,(1 - 2x).
+$$
+
+1. **Derivada en \(x_1\)**  
+   \[
+   \begin{aligned}
+   f'(x_1)
+   &= r\Bigl(1 - 2\,x_1\Bigr)
+   = r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
+   &= r\Bigl(1 - \frac{r+1 + \sqrt{(r+1)(r-3)}}{r}\Bigr)
+   = r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
+   &= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
+   = -1 \;-\;\sqrt{(r+1)(r-3)}.
+   \end{aligned}
+   \]
+
+2. **Derivada en \(x_2\)**  
+   \[
+   \begin{aligned}
+   f'(x_2)
+   &= r\Bigl(1 - 2\,x_2\Bigr)
+   = r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
+   &= r\Bigl(1 - \frac{r+1 - \sqrt{(r+1)(r-3)}}{r}\Bigr)
+   = r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
+   &= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
+   = -1 \;+\;\sqrt{(r+1)(r-3)}.
+   \end{aligned}
+   \]
+
+3. **Producto de las derivadas**  
+   \[
+   \begin{aligned}
+   f'(x_1)\,f'(x_2)
+   &= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
+      \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
+   &= (-1)^2 \;-\;\bigl(\sqrt{(r+1)(r-3)}\bigr)^2
+   = 1 \;-\;(r+1)(r-3) \\[4pt]
+   &= 1 - \bigl(r^2 - 2r - 3\bigr)
+   = -\,r^2 + 2r + 4.
+   \end{aligned}
+   \]
+
+
+La bifurcación de periodo 2 a periodo 4 ocurre cuando el producto cruza $-1$ (al graficar la función $f \circ f$ se observa que su derivada se va haciendo negativa en el punto de cruce con $y=x$ a medida que aumentamos $r$ ; por ello no igualamos a +1):
+$$
+-r^2 + 2r + 4 = -1
+\quad\Longrightarrow\quad
+r^2 - 2r - 5 = 0
+\quad\Longrightarrow\quad
+r = 1 \pm \sqrt{6}.
+$$  
+Despreciando la solución negativa, tomamos  
+$$
+r_c = 1 + \sqrt{6} \approx 3.44949.
+$$
+
+Por lo tanto, recopilando lo que tenemos hasta ahora:
+
+- Para $0 < r < 1 $ la sucesión tiende a cero
+- Para $1 < r < 3$ la sucesión tiende a un punto final único
+- Para $3 < r < 1 + \sqrt{6}$ tiende a dos puntos que se van alternando  
+
+
+¿Qué pasará a partir de $r > 1 + \sqrt{6}$ ?
 
 ## 5. Cálculo de iteraciones
 

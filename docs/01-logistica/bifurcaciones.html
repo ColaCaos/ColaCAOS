@@ -282,7 +282,7 @@ window.Quarto = {
   <li><a href="#análisis-de-la-función-logística" id="toc-análisis-de-la-función-logística" class="nav-link active" data-scroll-target="#análisis-de-la-función-logística"><span class="header-section-number">5.1</span> Análisis de la función logística</a></li>
   <li><a href="#término-genérico-del-mapa-logístico" id="toc-término-genérico-del-mapa-logístico" class="nav-link" data-scroll-target="#término-genérico-del-mapa-logístico"><span class="header-section-number">5.2</span> Término genérico del mapa logístico</a></li>
   <li><a href="#criterio-de-estabilidad" id="toc-criterio-de-estabilidad" class="nav-link" data-scroll-target="#criterio-de-estabilidad"><span class="header-section-number">5.3</span> Criterio de estabilidad</a></li>
-  <li><a href="#primera-bifurcación-duplicación-de-período-en-r-3" id="toc-primera-bifurcación-duplicación-de-período-en-r-3" class="nav-link" data-scroll-target="#primera-bifurcación-duplicación-de-período-en-r-3"><span class="header-section-number">5.4</span> Primera bifurcación: duplicación de Período en <span class="math inline">\(r = 3\)</span></a></li>
+  <li><a href="#primera-bifurcación-duplicación-de-período-en-r-3" id="toc-primera-bifurcación-duplicación-de-período-en-r-3" class="nav-link" data-scroll-target="#primera-bifurcación-duplicación-de-período-en-r-3"><span class="header-section-number">5.4</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span></a></li>
   <li><a href="#cálculo-de-iteraciones" id="toc-cálculo-de-iteraciones" class="nav-link" data-scroll-target="#cálculo-de-iteraciones"><span class="header-section-number">5.5</span> 5. Cálculo de iteraciones</a></li>
   <li><a href="#comportamientos-según-r" id="toc-comportamientos-según-r" class="nav-link" data-scroll-target="#comportamientos-según-r"><span class="header-section-number">5.6</span> 6. Comportamientos según <span class="math inline">\(r\)</span></a></li>
   <li><a href="#duplicación-de-periodo-y-constante-de-feigenbaum" id="toc-duplicación-de-periodo-y-constante-de-feigenbaum" class="nav-link" data-scroll-target="#duplicación-de-periodo-y-constante-de-feigenbaum"><span class="header-section-number">5.7</span> 7. Duplicación de periodo y constante de Feigenbaum</a></li>
@@ -408,7 +408,7 @@ x_5 =\;&amp; r^5\,x_0\,(1 - x_0)\,
 &amp;\times\;\bigl(1 - r^4\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\bigr)
 \end{aligned}
 \]</span></p>
-<p>Como podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente <span class="math inline">\(x_0\)</span> y de <span class="math inline">\(r\)</span>, pero a medida que iteramos, la expresión se vuelve muy complicada.</p>
+<p>Como podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente <span class="math inline">\(x_0\)</span> y de <span class="math inline">\(r\)</span>, pero a medida que iteramos, la expresión se vuelve muy complicada. A pesar de todo, hay que destacar que la función es <strong>puramente determinista</strong>. Es decir, se podría formular el valor de la iteración enésima en función de los valores de <span class="math inline">\(x_0\)</span> y de <span class="math inline">\(r\)</span>.</p>
 </section>
 <section id="criterio-de-estabilidad" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="criterio-de-estabilidad"><span class="header-section-number">5.3</span> Criterio de estabilidad</h2>
@@ -442,7 +442,7 @@ f'(x) = r(1 - 2x).
 <li><strong>En <span class="math inline">\(x^*_2=1-1/r\)</span>:</strong> <span class="math inline">\(f'(x^*_2)=2-r\)</span>. Estable si <span class="math inline">\(\lvert2-r\rvert&lt;1\)</span> → <span class="math inline">\(1 &lt; r &lt; 3\)</span>. Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de <span class="math inline">\(x_0\)</span> que pongan para valores de <span class="math inline">\(r\)</span> entre 1 y 3, siempre se convergerá a un punto que es <span class="math inline">\(x^*_2=1-1/r\)</span> .</li>
 </ul>
 <p>Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo <span class="math inline">\(r/4\)</span>, pero al final se estabilizar en un valor menor que es igual a <span class="math inline">\(x^*_2=1-1/r\)</span> .</p>
-<div id="67f70dbe" class="cell" data-execution_count="1">
+<div id="6c31e1f0" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -453,7 +453,7 @@ f'(x) = r(1 - 2x).
 </div>
 <p>Añadamos unos gráficos para verlo mejor.</p>
 <p>En este primero, vemos para un valor de <span class="math inline">\(r=0.99\)</span> como la población va decreciendo iteración tras iteración hasta llegar al punto fijo <span class="math inline">\(x=0\)</span></p>
-<div id="ff0d9954" class="cell" data-execution_count="2">
+<div id="cefecd5c" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -463,7 +463,7 @@ f'(x) = r(1 - 2x).
 </div>
 </div>
 <p>En este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta <span class="math inline">\(y=x\)</span>), a pesar de que el valor de <span class="math inline">\(r\)</span> está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.</p>
-<div id="169af27a" class="cell" data-execution_count="3">
+<div id="e2f36b6e" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -472,8 +472,8 @@ f'(x) = r(1 - 2x).
 </div>
 </div>
 </div>
-<p>Pero, ¿qué pasa cuando subimos por encima de <span class="math inline">\(r=3\)</span>?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a conerger hacia ese valor. En este caso, vemos que para <span class="math inline">\(r=3.01\)</span>? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento <span class="math inline">\(r\)</span> es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.</p>
-<div id="3ddf100f" class="cell" data-execution_count="4">
+<p>Pero, ¿qué pasa cuando subimos por encima de <span class="math inline">\(r=3\)</span>?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para <span class="math inline">\(r=3.01\)</span>? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento <span class="math inline">\(r\)</span> es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.</p>
+<div id="e192fe21" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -494,17 +494,20 @@ f'(x) = r(1 - 2x).
 </section>
 </section>
 <section id="primera-bifurcación-duplicación-de-período-en-r-3" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="primera-bifurcación-duplicación-de-período-en-r-3"><span class="header-section-number">5.4</span> Primera bifurcación: duplicación de Período en <span class="math inline">\(r = 3\)</span></h2>
-<p>En <span class="math inline">\(r = 3\)</span>, la derivada en el punto fijo <span class="math inline">\(x^* = 1 - \frac{1}{r}\)</span> se vuelve <span class="math inline">\(-1\)</span>, lo cual genera una órbita de período 2.</p>
+<h2 data-number="5.4" class="anchored" data-anchor-id="primera-bifurcación-duplicación-de-período-en-r-3"><span class="header-section-number">5.4</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span></h2>
+<section id="análisis-matemático" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="análisis-matemático"><span class="header-section-number">5.4.1</span> Análisis matemático</h3>
+<p>En <span class="math inline">\(r = 3\)</span>, la derivada en el punto fijo <span class="math inline">\(x^* = 1 - \frac{1}{r}\)</span> se vuelve <span class="math inline">\(-1\)</span>, lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.</p>
 <p>Surgen dos nuevos puntos <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> que no son puntos fijos, sino puntos de período 2 tales que:</p>
 <p><span class="math display">\[
 f(p) = q, \quad f(q) = p
 \]</span></p>
+<p>Es decir, si al mapa logístico se le alimenta con un valor <span class="math inline">\(p\)</span>, da como resultado un valor <span class="math inline">\(q\)</span>, que al ser metido otra vez en el mapa logístico da el valor <span class="math inline">\(p\)</span> inicial.</p>
 <p>Esto significa que:</p>
 <p><span class="math display">\[
 f(f(p)) = p
 \]</span></p>
-<p>Lo cual implica que <span class="math inline">\(p\)</span> es un punto fijo del mapa iterado <span class="math inline">\(f^2\)</span>.</p>
+<p>Lo cual implica que <span class="math inline">\(p\)</span> es un punto fijo del mapa iterado <span class="math inline">\(f^2\)</span> (esta notación significa la composicion de una función con sigo misma <span class="math inline">\(f^2()=f \circ f = f(f())\)</span>, no el cuadrado de la función)</p>
 <p>Dado que <span class="math inline">\(f(x) = r x (1 - x)\)</span>, podemos escribir:</p>
 <p><span class="math display">\[
 f(p) = r p (1 - p)
@@ -517,7 +520,8 @@ f(f(p)) = r \cdot f(p) \cdot (1 - f(p)) = r \cdot [r p (1 - p)] \cdot \left[1 - 
 <p><span class="math display">\[
 f(f(p)) = p
 \]</span></p>
-<p>Desarrollando completamente:</p>
+<p>Hay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función <span class="math inline">\(f^2()=f \circ f = f(f())\)</span> y la función <span class="math inline">\(y=x\)</span>, y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.</p>
+<p>Sigamos con la resolución analtíca. Para ello, desarrollamos completamente <span class="math inline">\(f(f(p)) = p\)</span>:</p>
 <p><span class="math display">\[
 r^2 p (1 - p)(1 - r p (1 - p)) = p
 \]</span></p>
@@ -547,7 +551,11 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 <li>Resulta en un polinomio de cuarto grado en <span class="math inline">\(p\)</span></li>
 </ol>
 <p>Este polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.</p>
-<div id="d0f146ac" class="cell" data-execution_count="5">
+</section>
+<section id="análisis-gráfico" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="análisis-gráfico"><span class="header-section-number">5.4.2</span> Análisis gráfico</h3>
+<p>Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con <span class="math inline">\(r=2.9\)</span>. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta <span class="math inline">\(y=x\)</span> en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada <span class="math inline">\(f \circ f\)</span>. La recta <span class="math inline">\(y=x\)</span> solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.</p>
+<div id="074b27d4" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -556,7 +564,8 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 </div>
 </div>
 </div>
-<div id="b3da8d9b" class="cell" data-execution_count="6">
+<p>Y ahora veamos lo que pasa cuando <span class="math inline">\(r=3.2\)</span>. En este caso, la segunda iteración corta con la recta <span class="math inline">\(y=x\)</span> en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.</p>
+<div id="fd82180c" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -565,24 +574,191 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 </div>
 </div>
 </div>
-<div id="a3b5d242" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bifurcaciones_files/figure-html/cell-8-output-1.png" width="564" height="563" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="3480994a" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bifurcaciones_files/figure-html/cell-9-output-1.png" width="564" height="563" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+</section>
+<section id="analisis-de-estabilidad-de-la-primera-bifurcación" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="analisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">5.4.3</span> Analisis de estabilidad de la primera bifurcación</h3>
+<p>En primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es<br>
+<span class="math display">\[
+f(x) = rx(1 - x),
+\]</span><br>
+y su iteración doble se define como<br>
+<span class="math display">\[
+f^{(2)}(x) = f\bigl(f(x)\bigr).
+\]</span><br>
+Queremos hallar los valores de <span class="math inline">\(x\)</span> que satisfacen<br>
+<span class="math display">\[
+f^{(2)}(x) = x.
+\]</span></p>
+<section id="expresión-explícita-de-f2x" class="level4" data-number="5.4.3.1">
+<h4 data-number="5.4.3.1" class="anchored" data-anchor-id="expresión-explícita-de-f2x"><span class="header-section-number">5.4.3.1</span> Expresión explícita de <span class="math inline">\((f^{(2)}(x))\)</span></h4>
+<p>Primero calculamos<br>
+<span class="math display">\[
+f(x) = r x - r x^2.
+\]</span><br>
+Luego<br>
+<span class="math display">\[
+f\bigl(f(x)\bigr)
+= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
+= r\bigl(r x - r x^2\bigr)\bigl(1 - (r x - r x^2)\bigr)
+\]</span></p>
+<p>Por tanto<br>
+<span class="math display">\[
+   f^{(2)}(x)
+   = r\,(r x - r x^2)\,(1 - r x + r x^2)
+   = r^2\,x\,(1 - x)\,(1 - r x + r x^2)
+   \]</span> En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.</p>
+</section>
+<section id="ecuación-para-los-puntos-periódicos-de-período-1-o-2" class="level4" data-number="5.4.3.2">
+<h4 data-number="5.4.3.2" class="anchored" data-anchor-id="ecuación-para-los-puntos-periódicos-de-período-1-o-2"><span class="header-section-number">5.4.3.2</span> Ecuación para los puntos periódicos de período 1 o 2</h4>
+<p>Queremos las soluciones de<br>
+<span class="math display">\[
+f^{(2)}(x) - x = 0.
+\]</span><br>
+Sabemos que las raíces de<br>
+<span class="math display">\[
+f(x) - x = r x (1 - x) - x = 0
+\]</span><br>
+también anulan <span class="math inline">\(f^{(2)}(x) - x\)</span>. Esas raíces son: <span class="math display">\[x = 0\]</span> <span class="math display">\[x = \dfrac{r - 1}{r}\]</span> Para aislar los de periodo 2, dividimos <span class="math inline">\(f^{(2)}(x)-x\)</span> por <span class="math inline">\(f(x)-x\)</span> y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable (<span class="math inline">\(1&lt;r&lt;3\)</span>).</p>
+</section>
+<section id="factorización-y-obtención-de-las-raíces" class="level4" data-number="5.4.3.3">
+<h4 data-number="5.4.3.3" class="anchored" data-anchor-id="factorización-y-obtención-de-las-raíces"><span class="header-section-number">5.4.3.3</span> Factorización y obtención de las raíces</h4>
+<p>Los puntos de periodo 2 son raíces de<br>
+<span class="math display">\[
+r^2\,x^2 \;-\; (r^2 + r)\,x \;+\; (r + 1) = 0.
+\]</span><br>
+Llamemos <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:</p>
+<p><span class="math display">\[
+x_1 = \frac{r^2 + r + r\sqrt{(r+1)(r-3)}}{2r^2}
+      = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+\]</span></p>
+<p><span class="math display">\[
+x_2 = \frac{r^2 + r - r\sqrt{(r+1)(r-3)}}{2r^2}
+      = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
+\]</span></p>
+<p>Obsérvese, que para <span class="math inline">\(r=3\)</span>, no hay dos soluciones, sino una, que coincide con el punto estable (<span class="math inline">\(x=2/3\)</span>). Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso <span class="math inline">\(1&lt;r&lt;3\)</span> . Es decir, cuando estábamos en la región estable <span class="math inline">\(1&lt;r&lt;3\)</span>, el punto de estabilidad final lo daba el cruce que la función logística con la recta <span class="math inline">\(y=x\)</span>, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.</p>
+</section>
+<section id="derivada-de-f-y-criterio-de-estabilidad" class="level4" data-number="5.4.3.4">
+<h4 data-number="5.4.3.4" class="anchored" data-anchor-id="derivada-de-f-y-criterio-de-estabilidad"><span class="header-section-number">5.4.3.4</span> Derivada de <span class="math inline">\(f\)</span> y criterio de estabilidad</h4>
+<p>Supongamos que <span class="math inline">\((x_1,x_2)\)</span> es un ciclo de periodo 2, es decir<br>
+<span class="math display">\[
+f(x_1)=x_2,\qquad f(x_2)=x_1.
+\]</span><br>
+Queremos ver qué pasa si en lugar de empezar exactamente en <span class="math inline">\(x_1\)</span> tomamos un punto “ligeramente” desviado:<br>
+<span class="math display">\[
+x_1 + \delta,
+\]</span><br>
+con <span class="math inline">\(\delta\)</span> muy pequeño.</p>
+<p>Al aplicar <span class="math inline">\(f\)</span> alrededor de <span class="math inline">\(x_1\)</span>, usamos la aproximación lineal:</p>
+<p><span class="math display">\[
+f(x_1 + \delta)
+\approx f(x_1) + f'(x_1)\,\delta
+= x_2 + f'(x_1)\,\delta.
+\]</span></p>
+<p>Así, tras una iteración, nuestro error (desviación) se amplifica o reduce por el factor <span class="math inline">\(f'(x_1)\)</span>.</p>
+<p>Ahora iteramos de nuevo, partiendo de<br>
+<span class="math display">\[
+x_2 + f'(x_1)\,\delta.
+\]</span><br>
+Otra vez linealizamos en torno a <span class="math inline">\(x_2\)</span>:</p>
+<p><span class="math display">\[
+f\bigl(x_2 + f'(x_1)\,\delta\bigr)
+\approx f(x_2) + f'(x_2)\,\bigl(f'(x_1)\,\delta\bigr)
+= x_1 + \bigl[f'(x_2)\,f'(x_1)\bigr]\,\delta.
+\]</span></p>
+<p>Después de dos pasos (una vuelta completa al ciclo de período 2), la desviación original <span class="math inline">\(\delta\)</span> se convierte en</p>
+<p><span class="math display">\[
+\delta_{\rm nuevo} = f'(x_2)\,f'(x_1)\,\delta.
+\]</span></p>
+<p>Por tanto, <strong>el factor que controla la estabilidad</strong> del ciclo de período 2 es precisamente</p>
+<p><span class="math display">\[
+\Lambda = f'(x_1)\,f'(x_2).
+\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(|\Lambda|&lt;1\)</span>, la desviación <span class="math inline">\(\delta\)</span> tiende a cero y el ciclo es <strong>estable</strong>.<br>
+</li>
+<li>Si <span class="math inline">\(|\Lambda|&gt;1\)</span>, la desviación crece y el ciclo es <strong>inestable</strong>.</li>
+</ul>
+<p>Veamos otra forma de calcularlo. Formalmente, la derivada de la composición <span class="math inline">\(f^{(2)}=f\circ f\)</span> se calcula con la regla de la cadena:</p>
+<p><span class="math display">\[
+(f^{(2)})'(x)
+= f'(f(x))\,f'(x).
+\]</span></p>
+<p>Si evaluamos en <span class="math inline">\(x=x_1\)</span>, tenemos:</p>
+<p><span class="math display">\[
+(f^{(2)})'(x_1)
+= f'(f(x_1))\,f'(x_1)
+= f'(x_2)\,f'(x_1),
+\]</span></p>
+<p>que es exactamente el mismo producto que acabamos de entender con el argumento de las dos iteraciones sucesivas.</p>
+<p>Por lo tanto, el ciclo de periodo 2 es estable si<br>
+<span class="math display">\[
+\bigl|f'(x_1)\,f'(x_2)\bigr| &lt; 1.
+\]</span></p>
+<p>Vamos a proceder a evaluar el producto de derivadas en los puntos <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> calculados anteriormente. Recordemos: <span class="math display">\[
+x_1 = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+\qquad
+x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r},
+\]</span> y <span class="math display">\[
+f'(x) = r\,(1 - 2x).
+\]</span></p>
+<ol type="1">
+<li><p><strong>Derivada en (x_1)</strong><br>
+[</p>
+<span class="math display">\[\begin{aligned}
+f'(x_1)
+&amp;= r\Bigl(1 - 2\,x_1\Bigr)
+= r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
+&amp;= r\Bigl(1 - \frac{r+1 + \sqrt{(r+1)(r-3)}}{r}\Bigr)
+= r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
+&amp;= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
+= -1 \;-\;\sqrt{(r+1)(r-3)}.
+\end{aligned}\]</span>
+<p>]</p></li>
+<li><p><strong>Derivada en (x_2)</strong><br>
+[</p>
+<span class="math display">\[\begin{aligned}
+f'(x_2)
+&amp;= r\Bigl(1 - 2\,x_2\Bigr)
+= r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
+&amp;= r\Bigl(1 - \frac{r+1 - \sqrt{(r+1)(r-3)}}{r}\Bigr)
+= r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
+&amp;= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
+= -1 \;+\;\sqrt{(r+1)(r-3)}.
+\end{aligned}\]</span>
+<p>]</p></li>
+<li><p><strong>Producto de las derivadas</strong><br>
+[</p>
+<span class="math display">\[\begin{aligned}
+f'(x_1)\,f'(x_2)
+&amp;= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
+   \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
+&amp;= (-1)^2 \;-\;\bigl(\sqrt{(r+1)(r-3)}\bigr)^2
+= 1 \;-\;(r+1)(r-3) \\[4pt]
+&amp;= 1 - \bigl(r^2 - 2r - 3\bigr)
+= -\,r^2 + 2r + 4.
+\end{aligned}\]</span>
+<p>]</p></li>
+</ol>
+<p>La bifurcación de periodo 2 a periodo 4 ocurre cuando el producto cruza <span class="math inline">\(-1\)</span> (al graficar la función <span class="math inline">\(f \circ f\)</span> se observa que su derivada se va haciendo negativa en el punto de cruce con <span class="math inline">\(y=x\)</span> a medida que aumentamos <span class="math inline">\(r\)</span> ; por ello no igualamos a +1): <span class="math display">\[
+-r^2 + 2r + 4 = -1
+\quad\Longrightarrow\quad
+r^2 - 2r - 5 = 0
+\quad\Longrightarrow\quad
+r = 1 \pm \sqrt{6}.
+\]</span><br>
+Despreciando la solución negativa, tomamos<br>
+<span class="math display">\[
+r_c = 1 + \sqrt{6} \approx 3.44949.
+\]</span></p>
+<p>Por lo tanto, recopilando lo que tenemos hasta ahora:</p>
+<ul>
+<li>Para $0 &lt; r &lt; 1 $ la sucesión tiende a cero</li>
+<li>Para <span class="math inline">\(1 &lt; r &lt; 3\)</span> la sucesión tiende a un punto final único</li>
+<li>Para <span class="math inline">\(3 &lt; r &lt; 1 + \sqrt{6}\)</span> tiende a dos puntos que se van alternando</li>
+</ul>
+<p>¿Qué pasará a partir de <span class="math inline">\(r &gt; 1 + \sqrt{6}\)</span> ?</p>
+</section>
+</section>
 </section>
 <section id="cálculo-de-iteraciones" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="cálculo-de-iteraciones"><span class="header-section-number">5.5</span> 5. Cálculo de iteraciones</h2>
@@ -652,11 +828,11 @@ r_\infty \approx 3.56995.
 </section>
 <section id="diagrama-de-bifurcación" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="diagrama-de-bifurcación"><span class="header-section-number">5.8</span> 8. Diagrama de bifurcación</h2>
-<div id="0b8e67ae" class="cell" data-execution_count="10">
+<div id="fa08f239" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bifurcaciones_files/figure-html/cell-11-output-1.png" width="665" height="524" class="figure-img"></p>
+<p><img src="bifurcaciones_files/figure-html/cell-9-output-1.png" width="665" height="524" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -690,11 +866,11 @@ r_\infty \approx 3.56995,
 </ol>
 <section id="diagrama-detallado-para-r-r_infty" class="level3" data-number="5.9.1">
 <h3 data-number="5.9.1" class="anchored" data-anchor-id="diagrama-detallado-para-r-r_infty"><span class="header-section-number">5.9.1</span> 9.1 Diagrama detallado para <span class="math inline">\(r &gt; r_\infty\)</span></h3>
-<div id="4f64d6ff" class="cell" data-execution_count="11">
+<div id="6c85674c" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bifurcaciones_files/figure-html/cell-12-output-1.png" width="755" height="564" class="figure-img"></p>
+<p><img src="bifurcaciones_files/figure-html/cell-10-output-1.png" width="755" height="564" class="figure-img"></p>
 </figure>
 </div>
 </div>
