@@ -701,14 +701,115 @@ $$
 
 Por lo tanto, recopilando lo que tenemos hasta ahora:
 
-- Para $0 < r < 1 $ la sucesión tiende a cero
+- Para $0 < r < 1$ la sucesión tiende a cero
 - Para $1 < r < 3$ la sucesión tiende a un punto final único
-- Para $3 < r < 1 + \sqrt{6}$ tiende a dos puntos que se van alternando  
+- Para $3 < r < (1 + \sqrt{6})$ tiende a dos puntos que se van alternando  
 
 
 ¿Qué pasará a partir de $r > 1 + \sqrt{6}$ ?
 
 ## 5. Cálculo de iteraciones
+
+# Código Quarto para el diagrama de bifurcación (valores finales)
+
+```{python}
+
+import warnings
+from bokeh.plotting import figure, show, output_notebook
+from bokeh.models import ColumnDataSource, Spinner, CustomJS
+from bokeh.layouts import column, row
+from bokeh.util.warnings import BokehDeprecationWarning
+import numpy as np
+
+# 1) Silenciar advertencias de deprecación de circle()
+warnings.filterwarnings('ignore', category=BokehDeprecationWarning)
+
+# Para renderizar en el notebook
+output_notebook(hide_banner=True)
+
+# Parámetros iniciales
+r_min0, r_max0, iter0, x0_0 = 2.5, 4.0, 200, 0.5
+n_r, m_y = 201, 400
+
+# Función para calcular datos de bifurcación con x0 variable
+def compute_data(r_min, r_max, iterations, x0):
+    r_vals = np.linspace(r_min, r_max, n_r)
+    r_data, x_data = [], []
+    for r in r_vals:
+        x = x0
+        for _ in range(iterations):
+            x = r * x * (1 - x)
+            r_data.append(r)
+            x_data.append(x)
+    return r_data, x_data
+
+# Datos iniciales
+r_data, x_data = compute_data(r_min0, r_max0, iter0, x0_0)
+source = ColumnDataSource(data=dict(r=r_data, x=x_data))
+
+# Figura
+p = figure(width=800, height=600, title="Diagrama de bifurcación",
+           x_axis_label="r", y_axis_label="x")
+p.circle('r', 'x', source=source, size=1, alpha=0.6)
+
+# Spinners para r_min, r_max, iteraciones y x0
+spinner_rmin = Spinner(title="r mínimo", low=0.0000, high=4.0000,
+                       step=0.0001, value=r_min0, format="0.0000")
+spinner_rmax = Spinner(title="r máximo", low=0.0000, high=4.0000,
+                       step=0.0001, value=r_max0, format="0.0000")
+spinner_iter = Spinner(title="Iteraciones", low=1, high=500,
+                       step=1, value=iter0)
+spinner_x0   = Spinner(title="x₀ inicial", low=0.000, high=1.000,
+                       step=0.001, value=x0_0, format="0.000")
+
+# Callback JS
+callback = CustomJS(args=dict(source=source,
+                              spinner_rmin=spinner_rmin,
+                              spinner_rmax=spinner_rmax,
+                              spinner_iter=spinner_iter,
+                              spinner_x0=spinner_x0,
+                              n_r=n_r),
+                    code="""
+    const rmin = spinner_rmin.value;
+    const rmax = spinner_rmax.value;
+    const iters = spinner_iter.value;
+    const x0    = spinner_x0.value;
+    const n     = n_r;
+    const dx    = (rmax - rmin) / (n - 1);
+    const r_vals = [];
+    for (let i = 0; i < n; i++) {
+        r_vals.push(rmin + i * dx);
+    }
+    const r_data = [];
+    const x_data = [];
+    for (let j = 0; j < n; j++) {
+        let r = r_vals[j];
+        let x = x0;
+        for (let k = 0; k < iters; k++) {
+            x = r * x * (1 - x);
+            r_data.push(r);
+            x_data.push(x);
+        }
+    }
+    source.data = {r: r_data, x: x_data};
+    source.change.emit();
+""")
+
+spinner_rmin.js_on_change('value', callback)
+spinner_rmax.js_on_change('value', callback)
+spinner_iter.js_on_change('value', callback)
+spinner_x0.js_on_change('value', callback)
+
+# Layout y muestra
+layout = column(
+    p,
+    row(spinner_rmin, spinner_rmax, spinner_iter, spinner_x0)
+)
+show(layout)
+
+
+```
+
 
 ### 5.1 Condición inicial
 
