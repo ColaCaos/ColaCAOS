@@ -475,136 +475,410 @@ Consideramos el **mapa logístico**
 $$
 x_{n+1} = f(x_n) = r\,x_n\,(1 - x_n),
 $$  
-donde $r>0$ es el parámetro de control.
 
-La derivada de $f$ es  
+La derivada de $f$, tal y como hemos visto en anteriores secciones, es  
 $$
 f'(x) = r\,(1 - 2x).
 $$
 
-Para una trayectoria $x_0, x_1, \dots, x_{N}$, el exponente de Lyapunov máximo se define como  
+Por lo tanto, si tenemos una sucesión de puntos compuesta por $x_0, x_1, \dots, x_{N}$, el exponente de Lyapunov máximo se calculará a partir de la multiplicación de las derivadas de la función logística en cada uno de los puntos de la sucesión, es decir,
+
 $$
 \lambda = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|f'(x_n)\bigr|
         = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|r\,(1 - 2x_n)\bigr|.
-$$  
-Bajo hipótesis de ergodicidad y existencia de medida invariante $\rho(x)$, puede reescribirse como  
-$$
-\lambda(r) = \int_{0}^{1} \ln\bigl|r\,(1 - 2x)\bigr|\,\rho(x)\,\mathrm{d}x.
 $$
 
+En la práctica, no podemos llevar la sucesión al infinito, por lo que tomamos N iteraciones y aplicamos la siguiente fórmula aproximada
 
-Para $r=4$, el sistema es completamente caótico y su densidad invariante conocida es  
-$$
-\rho(x) = \frac{1}{\pi\,\sqrt{x\,(1 - x)}},\quad x\in(0,1).
-$$
-
-### 5. Cálculo analítico para $r=4$  
-Sustituyendo en la integral:
-$$
-\lambda(4)
-= \int_{0}^{1} \ln\bigl|4\,(1 - 2x)\bigr|\;\frac{\mathrm{d}x}{\pi\sqrt{x(1 - x)}}.
-$$
-Hacemos el cambio de variable  
-$$
-x = \sin^2\theta,\quad \mathrm{d}x = 2\sin\theta\cos\theta\,\mathrm{d}\theta,\quad
-\theta\in\bigl[0,\tfrac{\pi}{2}\bigr].
-$$
-Entonces $\sqrt{x(1 - x)} = \sin\theta\cos\theta$ y
-$$
-\rho(x)\,\mathrm{d}x
-= \frac{1}{\pi\,\sin\theta\cos\theta}\,\bigl(2\sin\theta\cos\theta\,\mathrm{d}\theta\bigr)
-= \frac{2}{\pi}\,\mathrm{d}\theta.
-$$
-Además,
-$$
-1 - 2x = 1 - 2\sin^2\theta = \cos(2\theta),
-$$
-y por tanto
-$$
-\lambda(4)
-= \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \ln\bigl|4\cos(2\theta)\bigr|\,\mathrm{d}\theta.
-$$
-Se separa en
-$$
-\ln\bigl|4\cos(2\theta)\bigr|
-= \ln 4 + \ln\bigl|\cos(2\theta)\bigr|,
-$$
-y se usa la integral conocida
-$$
-\int_{0}^{\frac{\pi}{2}}\ln\bigl|\cos(2\theta)\bigr|\,\mathrm{d}\theta = -\frac{\pi}{2}\ln2.
-$$
-Así,
-$$
-\lambda(4)
-= \frac{2}{\pi}\Biggl[\int_{0}^{\frac{\pi}{2}}\ln4\,\mathrm{d}\theta
-              + \int_{0}^{\frac{\pi}{2}}\ln\bigl|\cos(2\theta)\bigr|\,\mathrm{d}\theta\Biggr]
-= \frac{2}{\pi}\Bigl[\frac{\pi}{2}\ln4 - \frac{\pi}{2}\ln2\Bigr]
-= \ln2.
-$$
-
-### 6. Resultado final  
-Para $r=4$, el exponente de Lyapunov es  
-$$
-\boxed{\lambda(4) = \ln 2 \approx 0.6931,}
-$$  
-lo que confirma el comportamiento caótico sensible a las condiciones iniciales.
-
-
-## Cálculo teórico del exponente de Lyapunov para $r=4$ con técnica de 1.º de Bachillerato
-
-### 1. Mapa logístico y derivada  
-Para $r=4$, el mapa logístico es  
-$$
-x_{n+1} = 4\,x_n\,(1 - x_n),
-$$  
-y su derivada es  
-$$
-f'(x) = 4\,(1 - 2x).
-$$
-
-### 2. Error tras $n$ iteraciones  
-Si $x'_0 = x_0 + \delta_0$ y $\delta_n = |x'_n - x_n|$, entonces  
-$$
-\delta_{n} \approx \delta_0 \prod_{k=0}^{n-1} \bigl|f'(x_k)\bigr|
-= \delta_0 \prod_{k=0}^{n-1} \bigl|4\,(1 - 2x_k)\bigr|.
-$$
-
-### 3. Exponente aproximado en $N$ pasos  
-Definimos  
 $$
 \lambda_N = \frac{1}{N} \sum_{k=0}^{N-1} \ln\bigl|f'(x_k)\bigr|
 = \frac{1}{N} \sum_{k=0}^{N-1} \ln\bigl|4\,(1 - 2x_k)\bigr|.
 $$  
-Al aumentar $N$, $\lambda_N \to \lambda$.
+Al aumentar $N$, $\lambda_N$ tenderá a  $\lambda$.
 
-### 4. Ejemplo numérico sencillo ($N=5$)  
-Tomemos $x_0 = 0.3$ y $\delta_0$ muy pequeño. Calculamos sucesivamente:
+### Ejemplo numérico sencillo ($N=20$)  
 
-| $n$ | $x_n$   | $|f'(x_n)|$               | $\ln|f'(x_n)|$ |
-|:---:|:-------:|:-------------------------:|:--------------:|
-| 0   | 0.3000  | $|4(1 - 0.6)| = 1.6$       | $0.470$        |
-| 1   | 0.8400  | $|4(1 - 1.68)| = 2.72$     | $1.001$        |
-| 2   | 0.5376  | $|4(1 - 1.0752)| = 0.3008$ | $-1.200$       |
-| 3   | 0.9953  | $|4(1 - 1.9906)| = 3.9626$ | $1.377$        |
-| 4   | 0.0186  | $|4(1 - 0.0372)| = 3.8512$ | $1.348$        |
+Vamos a calcular el exponente de Lyapunov para el caso de $r=4$. Tal y como vimos en las simulaciones que hicimos en el primer apartado, con $r=4$ se prevé que el error se vaya doblando en cada paso, o lo que es lo mismo, que el exponente de Lyapunov sea $\lambda = \ln 2 \approx 0.6931$
 
-Sumamos los logaritmos:  
+Tomemos de nuevo el mapa logístico con $r = 4$, es decir,
 $$
-\sum_{k=0}^{4} \ln|f'(x_k)| = 0.470 + 1.001 - 1.200 + 1.377 + 1.348 = 2.996.
-$$  
-Y calculamos  
+f(x) = 4x(1 - x),
 $$
-\lambda_5 = \frac{2.996}{5} = 0.599.
+y su derivada
+$$
+f'(x) = 4(1 - 2x).
+$$
+Queremos calcular el exponente de Lyapunov aproximado usando $20$ iteraciones, empezando con
+$$
+x_{0} = 0.3000
+$$
+Para ello, iremos calculando sucesivamente cada $x_{n+1} = f(x_{n})$, el valor absoluto de la derivada $\lvert f'(x_{n})\rvert$, y luego $\ln\lvert f'(x_{n})\rvert$. Mostraremos en la siguiente tabla $x_{n}$ redondeado a cuatro cifras decimales, $\lvert f'(x_{n})\rvert$ redondeado a cuatro cifras decimales, y $\ln\lvert f'(x_{n})\rvert$ redondeado a tres cifras decimales.
+
+| $n$ | $x_{n}$  | $|f'(x_{n})|$               | $\ln|f'(x_{n})|$ |
+|:---:|:--------:|:---------------------------:|:----------------:|
+| 0   | 0.3000   | $|4(1 - 2\cdot0.3000)| = 1.6000$   | 0.470           |
+| 1   | 0.8400   | $|4(1 - 2\cdot0.8400)| = 2.7200$   | 1.001           |
+| 2   | 0.5376   | $|4(1 - 2\cdot0.5376)| = 0.3008$   | -1.201          |
+| 3   | 0.9953   | $|4(1 - 2\cdot0.9953)| = 3.9548$   | 1.375           |
+| 4   | 0.0186   | $|4(1 - 2\cdot0.0186)| = 3.8201$   | 1.340           |
+| 5   | 0.0879   | $|4(1 - 2\cdot0.0879)| = 3.2964$   | 1.193           |
+| 6   | 0.3208   | $|4(1 - 2\cdot0.3208)| = 1.4332$   | 0.360           |
+| 7   | 0.8716   | $|4(1 - 2\cdot0.8716)| = 2.9729$   | 1.090           |
+| 8   | 0.4476   | $|4(1 - 2\cdot0.4476)| = 0.4191$   | -0.870          |
+| 9   | 0.9890   | $|4(1 - 2\cdot0.9890)| = 3.9122$   | 1.364           |
+| 10  | 0.0434   | $|4(1 - 2\cdot0.0434)| = 3.6526$   | 1.295           |
+| 11  | 0.1661   | $|4(1 - 2\cdot0.1661)| = 2.6708$   | 0.982           |
+| 12  | 0.5542   | $|4(1 - 2\cdot0.5542)| = 0.4333$   | -0.836          |
+| 13  | 0.9883   | $|4(1 - 2\cdot0.9883)| = 3.9061$   | 1.363           |
+| 14  | 0.0464   | $|4(1 - 2\cdot0.0464)| = 3.6289$   | 1.289           |
+| 15  | 0.1770   | $|4(1 - 2\cdot0.1770)| = 2.5844$   | 0.949           |
+| 16  | 0.5826   | $|4(1 - 2\cdot0.5826)| = 0.6605$   | -0.415          |
+| 17  | 0.9727   | $|4(1 - 2\cdot0.9727)| = 3.7819$   | 1.330           |
+| 18  | 0.1061   | $|4(1 - 2\cdot0.1061)| = 3.1512$   | 1.148           |
+| 19  | 0.3794   | $|4(1 - 2\cdot0.3794)| = 0.9651$   | -0.036          |
+
+Cada fila se interpreta así:
+
+1. Calculamos $x_{n+1} = 4\,x_{n}\,(1 - x_{n})$ usando el valor exacto de $x_{n}$ y luego redondeamos el resultado a cuatro decimales para mostrarlo.
+2. Evaluamos la derivada en el valor exacto de $x_{n}$: $f'(x_{n}) = 4(1 - 2x_{n})$, tomamos su valor absoluto, y lo redondeamos a cuatro decimales.
+3. Finalmente, calculamos $\ln\lvert f'(x_{n})\rvert$ a partir del valor de la derivada ya redondeada, y lo redondeamos a tres decimales.
+
+Ahora sumamos todos los logaritmos obtenidos:
+$$
+\begin{aligned}
+\sum_{k=0}^{19} \ln\lvert f'(x_{k})\rvert \;=\;& 
+0.470 + 1.001 \;-\; 1.201 + 1.375 + 1.340 + 1.193 + 0.360 + 1.090 \;-\; 0.870 + 1.364 \\
+&+ 1.295 + 0.982 \;-\; 0.836 + 1.363 + 1.289 + 0.949 \;-\; 0.415 + 1.330 + 1.148 \;-\; 0.036 \\
+=\;& 13.191.
+\end{aligned}
+$$
+Por último promediamos esta suma, por lo que el exponente de Lyapunov aproximado para $N = 20$ queda como
+$$
+\lambda_{20} 
+= \frac{1}{20} \sum_{k=0}^{19} \ln\lvert f'(x_{k})\rvert 
+= \frac{13.191}{20} = 0.6596.
 $$
 
-### 5. Tendencia y valor real  
-Con más iteraciones $N$, el promedio $\lambda_N$ sube y se acerca a  
-$$
-\lambda = \ln 2 \approx 0.6931,
-$$  
-que es el **valor exacto** para $r=4$.
+Como vemos, el valor $0.6596$ es muy próximo al teórico $0.6931$. De hecho, $e^{0.6596}=1.934$ que está muy cerca de $2$.
+
+Para $N = 20$ hemos obtenido $\lambda_{20} \approx 0.6596$. Si continuáramos con más iteraciones, como $N = 100$ o $N = 1000$, veríamos que $\lambda_{N}$ se acerca gradualmente a $0.6931$. Esto muestra que, aunque las primeras iteraciones pueden desviarse, al promediar sobre muchas iteraciones el resultado converge al **valor exacto** del exponente de Lyapunov para $r = 4$.
+
+### Cálculo del coeficiente de Lyapunov para todo el mapa logístico
+
+Vamos a aplicar este procedimiento para todos los valores de $r$ en el mapa logístico. Y vamos a ser más precisos; para cada valor de $r$ haremos 1000 iteraciones en lugar de 20, calcularemos la derivada en cada uno de los puntos, y sumaremos sus logaritmos.  El resultado es el que se muestra a continuación 
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Number of r values and iterations
+num_r = 1000
+num_iterations = 1000
+
+# Generate r values between 0 and 4
+r_values = np.linspace(0, 4, num_r)
+
+# Array to store the Lyapunov exponent for each r
+lyapunov_exponents = np.zeros(num_r)
+
+# Calculate Lyapunov exponent for each r
+for i, r in enumerate(r_values):
+    x = 0.3  # Initial condition
+    lyapunov_sum = 0.0
+    
+    for _ in range(num_iterations):
+        derivative = abs(r * (1 - 2 * x))
+        # Avoid log(0) by ensuring x is not exactly at 0.5 for r=0
+        if derivative > 0:
+            lyapunov_sum += np.log(derivative)
+        x = r * x * (1 - x)  # Update x
+
+    # Average over the iterations
+    lyapunov_exponents[i] = lyapunov_sum / num_iterations
+
+# Plot the results
+plt.figure(figsize=(8, 6))
+plt.plot(r_values, lyapunov_exponents, lw=0.5)
+plt.axhline(0, color='gray', lw=0.5)
+plt.title("Exponente de Lyapunov vs r")
+plt.xlabel("r")
+plt.ylabel("Exponente de Lyapunov")
+plt.grid(True)
+plt.show()
+
+
+```
+
+Vamos a interpretar esta gráfica, y ver si cuadra con los conocimientos previos del mapa logístico.
+
+Para valores **$0 < r \le 1$**, sabemos que todas las iteraciones convergen al punto fijo $x^* = 0$.  Por lo tanto el exponente de Lyapunov: $\lambda(r) < 0$ ya que no estamos en la zona caótica.
+
+Para $r = 1$, la ecuación del mapa logístico es
+   $$
+   x_{n+1} \;=\; 1 \cdot x_n \,(1 - x_n) \;=\; x_n \,(1 - x_n).
+   $$
+
+Los puntos fijos (soluciones de $x^* = x^*(1 - x^*)$) se determinan resolviendo
+   $$
+   x^* = x^*(1 - x^*) 
+   \quad\Longrightarrow\quad
+   x^*(1 - (1 - x^*)) = 0 
+   \;\Longrightarrow\;
+   x^* \bigl(1 - 1 + x^*\bigr) = 0 
+   \;\Longrightarrow\;
+   x^* \cdot x^* = 0.
+   $$
+
+Por tanto, el único punto fijo es
+   $$
+   x^* = 0.
+   $$
+
+La derivada del mapa general es
+   $$
+   f'(x) = r\,(1 - 2x).
+   $$
+
+Si evaluamos en $r = 1$ en el punto fijo $x^* = 0$, obtenemos
+   $$
+   f'(x^*) \;=\; 1 \cdot \bigl(1 - 2 \cdot 0\bigr) \;=\; 1.
+   $$
+
+Es decir, las iteraciones siempre terminan en una derivada igual a 1, cuyo logaritmos es cero. Por eso el coeficiente de Lyapunov promediado es cero.
+
+
+Para valores **$1 < r < 3$**, vemos que de nuevo el exponente es negativo. En esta zona la función logística tiende a valores estables comprendidos entre 0 y 1, pero ni es caótica ni periódica. Podemos verlo matemáticamente, ya que sabemos que en esta zona el mapa logístico tiende al punto fijo $1-1/r$, y si evaluamos la derivada de la función logística en ese punto fijo tenemos $2 - r$, y como $1<r<3$ se tiene $-1 < 2 - r < 1$, de modo que $|2 - r|<1$ y por tanto $\lambda(r) = \ln|2 - r| < 0$. Es decir, se suman logaritmos que son siempre negativos, por lo que el promedio final nunca podrá ser positivo.
+
+
+ Para $r = 3$ sabemos que el mapa logístico tiende a
+   $$
+   x^* \;=\; 1 - \frac{1}{3} \;=\; \frac{2}{3}.
+   $$
+
+Evaluándola la derivada en este punto $x^* = \tfrac{2}{3}$ para $r = 3$:
+   $$
+   f'\bigl(x^*\bigr) 
+   = 3 \cdot \Bigl(1 - 2 \cdot \tfrac{2}{3}\Bigr) 
+   = 3 \cdot \Bigl(1 - \tfrac{4}{3}\Bigr) 
+   = 3 \cdot \Bigl(-\tfrac{1}{3}\Bigr) 
+   = -1.
+   $$
+
+Que en valor absoluto es 1, y por lo tanto al igual que el caso con $r=1$, el exponente de Lyapunov es cero.
+
+Para **$3 < r < r_2 \approx 3.4495$**  sabemos que existe un ciclo estable de periodo 2. $\lambda(r)$ en este rango vuelve a ser negativo, porque aunque ya no convergemos a un punto fijo, sí converge a un ciclo de periodo 2. En el límite $r \to r_2$, $\lambda(r)$ se acerca nuevamente a 0, pues se produce la segunda bifurcación hacia un ciclo de periodo 4.
+
+En todos los ciclos restantes hasta $r_\infty \approx 3.5699456\dots$* tenemos el mismo comportamiento, valores negativos en las zonas de los ciclos y acercandose a cero cuando cambiamos de periodo.
+
+Para $r_\infty < r \le 4$** vemos que en la mayoría de estos $r$ en los que sabemos que el sistema es caótico se cumple que $\lambda(r) > 0$. Sin embargo, dentro de este intervalo caótico aparecen “ventanas” periódicas (por ejemplo, cerca de $r\approx 3.8284$, donde hay un ciclo de periodo 3). En esas ventanas periódicas $\lambda(r)$ vuelve a ser negativo. Justo en el borde de cada ventana periódica (bifurcaciones dentro del caos) se tiene $\lambda(r)=0$. En la vecindad de $r = 4$, el valor promedio exacto es $\lambda(4) = \ln 2 \approx 0.6931$ tal y como habíamos visto.
+
+## El exponente de Lyapunov y el caos
+
+En la siguiente gráfica vemos lo que hemos ido contanto pormenorizadamente en la sección anterior. Cada vez que el sistema está en una zona no caótica, el exponente de Lyapunov es negativo.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+num_r = 1000
+num_iterations = 1000
+transient = 100  # iteraciones iniciales a descartar
+
+# Valores de r entre 0 y 4
+r_values = np.linspace(0, 4, num_r)
+
+# Array para exponentes de Lyapunov
+lyapunov_exponents = np.zeros(num_r)
+
+# Lista para almacenar los valores finales de x (bifurcación)
+x_values = []
+
+# Iterar sobre cada r
+for idx, r in enumerate(r_values):
+    x = 0.3  # condición inicial
+    lyapunov_sum = 0.0
+    x_tmp = []
+    
+    for i in range(num_iterations):
+        derivative = abs(r * (1 - 2 * x))
+        if derivative > 0:
+            lyapunov_sum += np.log(derivative)
+        
+        x = r * x * (1 - x)
+        
+        # Después del “transient”, guardar x para diagrama de bifurcación
+        if i >= transient:
+            x_tmp.append(x)
+    
+    lyapunov_exponents[idx] = lyapunov_sum / num_iterations
+    x_values.append(x_tmp)
+
+# Dibujar la figura
+plt.figure(figsize=(8, 7))
+
+# Dibujar los puntos de bifurcación
+for i, r in enumerate(r_values):
+    plt.plot([r]*len(x_values[i]), x_values[i], ',k', alpha=0.3)
+
+# Dibujar el exponente de Lyapunov con línea roja más gruesa
+plt.plot(r_values, lyapunov_exponents, 'r-', linewidth=2, label='Exponente de Lyapunov')
+
+# Línea horizontal en lambda = 0
+plt.axhline(0, color='gray', linewidth=0.7)
+
+plt.xlabel('r')
+plt.ylabel('Valores de x (bifurcación) y λ (Lyapunov)')
+plt.title('Diagrama de bifurcación y exponente de Lyapunov vs r')
+plt.ylim(-2, 1)  # Mostrar rango donde se ve λ
+plt.legend(loc='upper right')
+plt.grid(True)
+
+plt.show()
+
+```
+
+
+De hecho, si hacemos zoom en la zona donde aparece el caos, vemos que en las ventanas de periodicidad el exponente de Lyapunov se vuelve negativo.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+num_r = 1000
+num_iterations = 1000
+transient = 100  # iteraciones iniciales a descartar
+
+# Valores de r entre 0 y 4
+r_values = np.linspace(3.5, 4, num_r)
+
+# Array para exponentes de Lyapunov
+lyapunov_exponents = np.zeros(num_r)
+
+# Lista para almacenar los valores finales de x (bifurcación)
+x_values = []
+
+# Iterar sobre cada r
+for idx, r in enumerate(r_values):
+    x = 0.3  # condición inicial
+    lyapunov_sum = 0.0
+    x_tmp = []
+    
+    for i in range(num_iterations):
+        derivative = abs(r * (1 - 2 * x))
+        if derivative > 0:
+            lyapunov_sum += np.log(derivative)
+        
+        x = r * x * (1 - x)
+        
+        # Después del “transient”, guardar x para diagrama de bifurcación
+        if i >= transient:
+            x_tmp.append(x)
+    
+    lyapunov_exponents[idx] = lyapunov_sum / num_iterations
+    x_values.append(x_tmp)
+
+# Dibujar la figura
+plt.figure(figsize=(8, 7))
+
+# Dibujar los puntos de bifurcación
+for i, r in enumerate(r_values):
+    plt.plot([r]*len(x_values[i]), x_values[i], ',k', alpha=0.3)
+
+# Dibujar el exponente de Lyapunov con línea roja más gruesa
+plt.plot(r_values, lyapunov_exponents, 'r-', linewidth=2, label='Exponente de Lyapunov')
+
+# Línea horizontal en lambda = 0
+plt.axhline(0, color='gray', linewidth=0.7)
+
+plt.xlabel('r')
+plt.ylabel('Valores de x (bifurcación) y λ (Lyapunov)')
+plt.title('Diagrama de bifurcación y exponente de Lyapunov vs r')
+plt.ylim(-2, 1)  # Mostrar rango donde se ve λ
+plt.legend(loc='upper right')
+plt.grid(True)
+
+plt.show()
+
+```
+
+
+La pregunta que debemos hacer es la siguiente, ¿es el exponente de lyapunov un parámetro que nos puede decir si una serie temporal que estamos observando es caótica? Una serie temporal es simplemente una lista de valores que varían con el tiempo, como por ejemplo la temperatura diaria de una ciudad: $T_0, T_1, T_2, \dots$.
+
+Llamamos a esos valores $x_0, x_1, x_2, \dots$ y cada subíndice indica la “etapa” o “momento” en que lo medimos.
+
+Decir que una serie temporal es **caótica** significa de acuerdo a la teoría del caos que ha de cumplir tres condiciones:
+
+1. **Es determinista**: existe una “regla” (una función) que, dado el estado actual $x_n$, calcula el siguiente $x_{n+1}$. No hay azar puro: si conoces $x_n$ exactamente, sabes $x_{n+1}$.  
+2. **Tiene sensibilidad a condiciones iniciales**: dos valores muy parecidos $x_0$ y $x_0 + \delta_0$ se separan de forma exponencial a medida que iteras la regla. Aunque $\delta_0$ sea minúsculo, al cabo de varias iteraciones la diferencia es muy grande.  
+3. **Se ve impredecible a largo plazo**: aunque la regla sea determinista, al crecer las diferencias “desordenadas” parece un comportamiento aleatorio.  
+
+
+Por ejemplo, ir anotando los números que salen directamente de una ruleta no es una serie caótica, ya que no hay ninguna regla para saber $x_{n+1}$ si conoces $x_n$ exactamente. Eso a pesar de ser impredecible a largo plazo. Es muy importante hacer notar, que un sistema caótico tiene unas reglas deterministas muy claras.   En este caso **no se puede calcular ningún exponente de Lyapunov** porque no hay función \(f\) continua o diferenciable que escriba $x_{n+1} = f(x_n)$. Si intentáramos “forzar” un cálculo, estaríamos midiendo ruido y obtendríamos resultados sin sentido práctico: un “valor de $\lambda$” aquí no nos dice nada sobre determinismo o caos, sino solo sobre la aleatoriedad de los datos.
+
+Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A todo el mundo le parece que predecir el valor de una acción a lo largo del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como fuciona la bolsa. El precio de una acción o de un índice bursátil depende de decenas de variables:  
+     • Resultados financieros de las empresas.  
+     • Noticias económicas o políticas.  
+     • Sentimiento de los inversores y rumores.  
+     • Tipos de interés, inflación, datos macroeconómicos.  
+     • Eventos inesperados (crisis, pandemias, etc.).  
+
+Cada día (o incluso cada minuto) entran al mercado miles de órdenes de compra y venta, influidas por estas variables.  
+
+No existe una regla sencilla $x_{n+1} = f(x_n)$. A diferencia del mapa logístico, donde si conocemos $x_n$ y el parámetro $r$ podemos calcular $x_{n+1} = r\,x_n\,(1 - x_n)$, en la bolsa no hay una función sencilla y fija que relacione el precio de hoy con el de mañana.  
+   
+Por estas razones, el precio de la bolsa es, en gran medida, un proceso aleatorio que incorpora ruido y reacciones humanas, no un sistema determinista como el mapa logístico.
+
+
+
+Aunque la idea teórica es clara, en la práctica al trabajar con datos reales (o simulados) hay que tener cuidado:
+
+1. **Longitud de la serie**  
+   - Se necesitan series largas (miles de puntos) para que el promedio $\frac{1}{N}\sum \ln(\cdots)$ converja bien.  
+   - Si la serie es muy corta, la estimación de $\lambda$ puede ser errónea.
+
+2. **Ruido**  
+   - Los datos pueden incluir ruido (errores de medición o componentes aleatorios).  
+   - El ruido hace que los vecinos “más cercanos” no reflejen solo la dinámica determinista, sino también la parte estocástica.  
+   - Hay que filtrar o atenuar el ruido antes de estimar $\lambda$.
+
+3. **Elección de parámetros**  
+   - Debes escoger bien el retraso $\tau$ y la dimensión $m$. Si $\tau$ es muy pequeño, los componentes de $\mathbf{y}_n$ están muy correlacionados. Si $\tau$ es muy grande, la información puede perderse.  
+   - La dimensión $m$ debe ser al menos el doble de la dimensión fractal del atractor (según Takens), pero no la conocemos a priori.  
+   - Elegir vecinos cercanos: hay que fijar un radio o número de vecinos. Si es muy pequeño, no hallas suficientes vecinos; si es muy grande, mezclas puntos que ya no son “locales”.
+
+4. **No–estacionariedad**  
+   - Si el sistema cambia con el tiempo (parametros no constantes), la estimación de $\lambda$ promedia dinámicas diferentes y pierde validez.
+
+5. **Conclusiones dudosas**  
+   - Un $\lambda$ ligeramente positivo puede deberse a ruido.  
+   - Un $\lambda$ cercano a cero puede indicar un ciclo largo o comportamiento cuasiperiódico, no necesariamente caos.
 
 ---
 
-**Conclusión:**  
-Mediante multiplicaciones sencillas y sumas de logaritmos en un número finito de pasos, vemos cómo $\lambda_N$ evoluciona hacia $\ln 2$, evitando así cálculos de integrales y usando solo aritmética elemental y logaritmos.
+## 7. Resumen final y conclusivo
+
+- **Teoría**:  
+  - Un exponente de Lyapunov $\lambda > 0$ indica sensibilidad exponencial a condiciones iniciales, rasgo característico del **caos**.  
+  - Si $\lambda < 0$, la serie converge a un punto fijo o a un ciclo periódico, no hay caos.  
+  - Si $\lambda = 0$, estamos en la frontera entre estabilidad y caos (bifurcaciones o cuasiperiodicidad).
+
+- **Práctica** (analizar datos reales):  
+  1. Reconstruir el espacio de fases con vectores retrasados.  
+  2. Estimar factores de estiramiento local comparando vecinos en cada paso.  
+  3. Promediar los logaritmos de esos factores para obtener $\lambda_{\max}$.  
+  4. Controlar que la serie sea suficientemente larga, filtrar el ruido y elegir bien los parámetros $(\tau, m, \text{número de vecinos})$.
+
+- **Conclusión didáctica**:  
+  > **¿Puede el exponente de Lyapunov decirnos si una serie temporal es caótica?**  
+  >  
+  > **Sí**, siempre que lo calculemos cuidadosamente. Un valor de $\lambda > 0$ nos indica que la serie proviene de un sistema que separa exponencialmente trayectorias, es decir, de un sistema **caótico**.  
+  >  
+  > Sin embargo, para datos reales hace falta mucho cuidado: hay que reconstruir el espacio de fases (usando el Teorema de Takens), filtrar el ruido, contar con suficientes datos y escoger bien los parámetros del método. Solo entonces la estimación de $\lambda$ será confiable y podremos afirmar con seguridad que la serie es caótica.
+
+Con esto, cualquier estudiante de primero de bachillerato puede entender qué es el exponente de Lyapunov, cómo se relaciona con el caos, y qué limitaciones prácticas existen al aplicarlo sobre una serie temporal real.  
+
+
+

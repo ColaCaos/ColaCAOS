@@ -20,6 +20,7 @@ book:
         - 01-logistica/simulacion.qmd
         - 01-logistica/Caos.qmd
         - 01-logistica/lyapunov.qmd
+        - 01-logistica/criterio.qmd
 
     - part: "El Caos en vivo: El péndulo doble"
       chapters:

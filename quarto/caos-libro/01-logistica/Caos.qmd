@@ -221,7 +221,7 @@ plt.figure()
 bifurcation(3.74432144, 3.744321455)
 ```
 
-Haciendo de nuevo zoom en torno a 0.5, vemos como aparece el diagrama de bifurcación original, tras 1.000.000 de iteraciones. 
+Haciendo de nuevo zoom en torno a 0.5, vemos como aparece el diagrama de bifurcación original, esta vez en los valores de $r$ comprendidos entre 3.7443214444 y 3.744321448 , tras 1.000.000 de iteraciones. 
 ```{python}
 import numpy as np
 import matplotlib.pyplot as plt
