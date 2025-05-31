@@ -1,0 +1,610 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Efecto mariposa
+
+## Sensibilidad a las condiciones iniciales
+
+Cuando estamos en la zona estable del mapa logístico, desde cualquier valor de $x_0$ del que partamos, llegaremos siempre hasta el mismo valor final, bien sea el punto fijo que hemos calculado previamente, o cualquiera de los valores de las órbitas periódicas. Por ejemplo, para $r=2.8$ 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 2.8
+x0_values = np.linspace(0.1, 0.9, 9)
+n_iter = 20
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=2.8$)')
+plt.legend([f'$x_0={v:.1f}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+
+Y para $r=3.1$, vemos como también los puntos alcanzados son los mismos para valores próximos de inicio de la sucesión. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.1
+x0_values = np.linspace(0.1, 0.11, 10)
+n_iter = 50
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=3.1$)')
+plt.legend([f'$x_0={v:.3f}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+
+En los dos casos anteriores, no parece que la evolución del sistema sea sensible a la condición inicial de partida. Tras unas pocas iteraciones, da igual de donde se parta, que se converge al mismo punto.
+
+Pero, ¿qué pasa cuando estamos en las zonas caóticas?. Veamos la iteración del mapa logístico para $r=3.69$ partiendo de dos valores muy similares, que solo se separan en $10^{-5}$ unidades.
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.69
+x0_values = np.linspace(0.2, 0.2001, 2)
+n_iter = 40
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=3.69$)')
+plt.legend([f'$x_0={v:.10f}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+
+A la vista del gráfico, vemos como a partir de la iteración 10 empiezan a haber pequeñas diferencias que se van amplificando a medida que avanza la simulación. Aquí vemos que sí que empieza a haber sensibilidad a las condiciones iniciales. 
+
+Probemos con una diferencia de valores iniciales aún mas pequeña, en este caso $10^{-7}$ unidades.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.69
+x0_values = np.linspace(0.2, 0.2000001, 2)
+n_iter = 40
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=3.69$)')
+plt.legend([f'$x_0={v:.10f}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+
+Ahora la separación de ambas simulaciones se produce a partir de la iteración número 30. Vamos con una diferencia aún mas pequeña, ahora $10^{-10}$ unidades.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.69
+x0_values = np.linspace(0.2, 0.2000000001, 2)
+n_iter = 70
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=3.69$)')
+plt.legend([f'$x_0={v:.10f}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+La separación entre ambas curvas empieza a hacerse visible a partir de la iteración 50. ¿Qué pasa si hacemos la diferencia aún más pequeña, en este caso $10^{-15}$ unidades?. Pues como vemos en la siguiente gráfica, a partir de la iteración 85 empezamos a ver la divergencia de ambas sucesiones. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.69
+x0_values = np.linspace(0.2, 0.200000000000001, 2)
+
+n_iter = 100
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=3.69$)')
+plt.legend([f'$x_0={v:.15g}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+
+¿Qué está pasando aquí?. ¿Cómo puede ser que dos valores iniciales que se diferencian en un valor tan pequeño como $10^{-15}$ unidades den valores tan diferentes tras 100 iteraciones?. Si las unidades fueran metros, estaríamos hablando de una diferencia de un femtómetro. Y aún más importante: si quiero simular un sistema físico como éste en la región caótica, ¿cómo voy a poder medir su condición inicial con tal precisión?. De hecho, parece que la precisión requerida sería infinita. A poco que me equivoque en la estimación de la condición inicial, no voy a poder calcular bien su estado final pasado un número grande de iteraciones. ¿Cómo puede ser si mi sistema es determinista y está regido por una ecuación tan sencilla?. Hemos topado con el caos y el **efecto mariposa**. Y lo inquietante es que este fenómeno se da en sistemas físicos como la meteorología. 
+
+### Inestabilidad de las cálculos numéricos
+
+Cuando nos encontramos con un sistema físico con alta dependencia a las condiciones iniciales, no solamente tenemos el problema de conocer con total exactitud el estado inicial del sistema, sino que como veremos a continuación los cálculos numéricos que hacemos en nuesto ordenador para estudiar su evolución se vuelven también muy inestables. A continuación pondré un ejemplo sobre lo que acabo de decir.
+
+Pongamos que quiero simular el mapa logístico tal cual lo he estado haciendo en las secciones anteriores. La fórmula es superconocida (form1):
+
+$$
+x_{n+1} = r\,x_n\,(1 - x_n)
+$$
+
+Pero también podríamos expresarlo como (form2):
+
+$$
+x_{n+1} = r\,x_n - r\,{x_n}^2
+$$
+
+Matemáticamente son equivalentes pero a un computador le estamos diciendo cosas diferentes. 
+* En el primer caso le decimos que reste 1 menos {x_n}, y que a continuación lo multiplique por $r$ y $x_n$. En total 1 resta y dos multiplicaciones
+* En el segundo caso le decimos que multiplique por $r$ y $x_n$ por un lado. Por otro lado que que eleve $x_n$ al cuadrado, y que lo multiplique por $r$. Y al final que reste el primer resultado intermedio menos el segundo. En total 1 resta, 2 multiplicaciones y 1 cuadrado.
+
+A esto hay que añadir que en un ordenador los números decimales se representan mediante aproximaciones. Por ejemplo, con 32 bits,el número 0.2 se representa como 0.200000003, debido a la precisión finita que dan los 32 bits. Por lo tanto entre el número real y el que representamos, la mayoría de veces va a haber un error. Estos errores se comportarán de manera diferente según los cálculos aritméticos que hagamos con ellos. En el siguiente plot, vemos los errores en un ordenador entre las dos fórmulas al partir del valor $x_0=0.2$ y con un $r=4$. 
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 4.0
+n_iter = 1000
+x0 = 0.2
+
+# Arrays prealocados en doble precisión
+x_form1 = np.empty(n_iter + 1, dtype=np.float64)
+x_form2 = np.empty(n_iter + 1, dtype=np.float64)
+x_form1[0] = x0
+x_form2[0] = x0
+
+# Iteración del mapa logístico
+for i in range(n_iter):
+    x_form1[i + 1] = r * x_form1[i] * (1 - x_form1[i])       # r * x * (1 - x)
+    x_form2[i + 1] = r * x_form2[i] - r * (x_form2[i] ** 2)  # r * x - r * x^2
+
+# Cálculo del error absoluto
+error = np.abs(x_form1 - x_form2)
+
+# Gráfico de las primeras 100 iteraciones
+plt.figure(figsize=(6, 6))
+plt.plot(error[:100], marker='o', markersize=4)
+plt.xlabel('Iteración')
+plt.ylabel('Error absoluto |x_form1 - x_form2|')
+plt.title('Error numérico: primeras 100 iteraciones')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+Vemos como al principio el error es imperceptible, pero a media que avanzamos va creciendo. A partir de la iteración 50 este error se hace ya notable, y desde entonces se puede decir que ambas fórmulas evolucionan de forma totalmente distinta. Por lo tanto, vemos como en un sistema caótico, no sólo las condiciones iniciales determinan el valor final de forma extrema, sino que también cuando simulamos este sistema en una máquina computacional, la forma en la que se representan los números y la forma de las operaciones también influyen de forma muy notable.
+
+Pero vamos a ir un paso más. Veamos que evolución tienen realmente los errores. Para poder bien los errores al principio y al final, vamos a usar una escala logarítmica en el eje Y. El resultado se muestra a continuación.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 4.0
+n_iter = 1000
+x0 = 0.2
+
+# Arrays prealocados en doble precisión
+x_form1 = np.empty(n_iter + 1, dtype=np.float64)
+x_form2 = np.empty(n_iter + 1, dtype=np.float64)
+x_form1[0] = x0
+x_form2[0] = x0
+
+# Iteración del mapa logístico
+for i in range(n_iter):
+    x_form1[i + 1] = r * x_form1[i] * (1 - x_form1[i])
+    x_form2[i + 1] = r * x_form2[i] - r * (x_form2[i] ** 2)
+
+# Cálculo del error absoluto
+error = np.abs(x_form1 - x_form2)
+
+# Ajuste lineal en escala log para iteraciones 1 a 50
+x_vals = np.arange(1, 51)
+y_vals = error[1:51]
+# Excluir ceros (no aparecen en este rango)
+log_y = np.log10(y_vals)
+m, c = np.polyfit(x_vals, log_y, 1)
+
+# Reconstruir la recta en escala original
+fit_log = m * x_vals + c
+fit_curve = 10**fit_log
+
+# Graficar
+plt.figure(figsize=(6, 6))
+plt.plot(error[:50], marker='o', markersize=4, label='Error absoluto')
+plt.plot(x_vals, fit_curve, linestyle='--', label=f'Ajuste log-linear: slope={m:.3f}')
+plt.yscale('log')
+plt.xlabel('Iteración')
+plt.ylabel('Error absoluto |x_form1 - x_form2|')
+plt.title('Error numérico: primeras 50 iteraciones (escala log)')
+plt.grid(True, which='both')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+¿Qué es lo que vemos?. Que los errores crecen linealmente dentro de la escala logarítmica. 
+
+
+En escala $\log_{10}$ hemos ajustado:
+$$
+\log_{10}(\mathrm{error}_n)\approx 0.303\,n + C
+$$
+donde $C$ es la ordenada en el origen. Pasando de logaritmos a forma explícita:
+$$
+\mathrm{error}_n \approx 10^C \times 10^{0.303\,n}
+= A\,\bigl(10^{0.303}\bigr)^n
+\approx A\,2^n,
+$$
+puesto que $10^{0.303}\approx2$.
+
+Equivalentemente, en base $e$:
+$$
+\ln(\mathrm{error}_n)
+= \ln(10)\,\log_{10}(\mathrm{error}_n)
+\approx (0.303\,\ln 10)\,n + \ln A
+\approx 0.698\,n + \ln A,
+$$
+de donde
+$$
+\mathrm{error}_n \approx A\,e^{0.698\,n}\approx A\,(2.01)^n.
+$$
+
+**Conclusión.** El error crece de forma **exponencial** con $n$, aproximadamente duplicándose en cada iteración.
+
+Curioso, ¿verdad?. El error se va multiplicando por 2 en cada iteración. Por 2 exactamente. ¿A qué se debe esto????
+
+## Cálculo matemático de la amplificación de desviaciones iniciales
+
+A continación daremos una explicación matemática a este fenómeno que estamos observando. 
+
+Imagina que quieres predecir el tiempo atmosférico. Nunca conoces la temperatura, presión o humedad con absoluta precisión: siempre hay un error mínimo en la medición. Si ese error crece muy despacio, podrías predecir con confianza varios días por delante. Pero si crece muy rápido, tu predicción se vuelve inútil en muy poco tiempo.  
+
+En los siguientes párrafos, veros un concepto matemático muy útil en el estudio del caos: el **exponente de Lyapunov**, que llamaremos $\lambda$ y que cuantifica la tasa de crecimiento de estos errores.
+
+### Error inicial
+
+* Sea $x_0$ el estado “verdadero” del sistema en el tiempo inicial.  
+* Tu medida real tiene un pequeño error $\delta_0$, de modo que en realidad partes de  
+   $$
+     x_0 + \delta_0,
+     \quad\text{con}\;|\delta_0|\ll 1.
+   $$
+
+Ese $\delta_0$ es tan pequeño que, al principio, los dos estados están casi juntos. Es lo que hemos visto en los ejemplos anteriores, donde en la primera iteración las dos simulaciones estaban casi juntas.
+
+### Cómo evoluciona el error
+
+Supón que el sistema avanza según una regla $f$ (nuestra función logística), es decir:
+$$
+x_{n+1} = f(x_n).
+$$
+Queremos ver qué sucede con $\delta_n$, la diferencia en el paso $n$. Para ello:
+
+1. **Linealizamos** la función $f$ alrededor de $x_n$.  
+   Si $f$ es suave, podemos aproximar
+   $$
+     f(x_n + \delta_n)
+     \approx f(x_n)
+          + f'(x_n)\,\delta_n,
+   $$
+   donde $f'(x_n)$ es la **derivada** (o pendiente) de $f$ en $x_n$.
+
+2. De esta aproximación se deduce que
+   $$
+     \delta_{n+1} 
+     = f(x_n + \delta_n) - f(x_n)
+     \approx f'(x_n)\,\delta_n.
+   $$
+
+Pero ojo. Cuando calculamos errores, siempre son distancia, es decir debe ser siempre un número no negativo. La derivada indica pendiente y sentido.Cuando linealizamos  
+   $$
+   f(x_n + \delta_n)\approx f(x_n) + f'(x_n)\,\delta_n,
+   $$  
+   el término $f'(x_n)\,\delta_n$ nos da **cuánto** y en **qué dirección** cambia la diferencia $\delta_n$.
+
+La distancia ha de ser siempre no negativa. Por tanto, definimos  :
+   $$
+   \delta_{n+1} = \bigl|\,x'_{n+1} - x_{n+1}\bigr|.
+   $$  
+Sin valor absoluto, un $f'(x_n)<0$ haría que la “distancia” resultase negativa, lo cual no tiene sentido para una medida de error.
+
+El verdadero error en módulo es $\bigl|f'(x_n)\bigr|$$ porque:  
+
+   - Si $\lvert f'(x_n)\rvert>1$, la distancia **aumenta**   
+   - Si $\lvert f'(x_n)\rvert<1$, la distancia **disminuye**
+
+Pongamos un ejemplo numérico:
+Supongamos $f'(x_n)=-2$ y $\delta_n=0.01$:  
+
+   - Sin valor absoluto:  
+     $$
+     \delta_{n+1}\approx(-2)\times0.01=-0.02\quad(\text{sin sentido físico}).
+     $$  
+   - Con valor absoluto:  
+     $$
+     \delta_{n+1}\approx\bigl|-2\bigr|\times0.01=2\times0.01=0.02,
+     $$  
+     reflejando correctamente que la distancia se **duplica**.
+
+Por todo ello, la fórmula adecuada para la evolución del error es  
+$$
+\delta_{n+1} \approx \bigl|f'(x_n)\bigr|\,\delta_n,
+$$  
+garantizando que $\delta_{n+1}\ge0$ y midiendo la **magnitud** real del estiramiento en cada paso.
+
+
+## Errores sucesivos
+
+Si repetimos la relaciones anterior paso a paso obtenemos
+
+
+1. Primera iteración  
+   $$
+   \delta_1 \approx \bigl|f'(x_0)\bigr|\,\delta_0.
+   $$
+
+2. Segunda iteración. En este caso es la derivada en $x_1$ multiplicado por el error anterior (utilizamos para el error anterior la fórmula del paso 1). En total vemos que el error en la segunda iteración, es el error inicial multiplicado por dos derivadas.
+   $$
+   \delta_2
+   \approx \bigl|f'(x_1)\bigr|\,\delta_1
+   \approx \bigl|f'(x_1)\bigr|\;\bigl|f'(x_0)\bigr|\;\delta_0.
+   $$
+
+3. Tercera iteración. Aquí ya vemos como aparece un patrón. Vamos multiplicando el error inicial por las sucesivas derivadas.
+   $$
+   \delta_3
+   \approx \bigl|f'(x_2)\bigr|\,\delta_2
+   \approx \bigl|f'(x_2)\bigr|\;\bigl|f'(x_1)\bigr|\;\bigl|f'(x_0)\bigr|\;\delta_0.
+   $$
+
+En general, para cualquier \(n\ge1\) podemos generalizar el patrón encontrado:  
+$$
+\delta_n
+\;\approx\;
+\Bigl(\prod_{k=0}^{n-1}\bigl|f'(x_k)\bigr|\Bigr)\;\delta_0.
+$$
+
+
+## De producto a suma
+
+Para manejar productos es muy útil usar los logaritmos, porque transforman productos en sumas:
+$$
+\ln\bigl(\delta_n/\delta_0\bigr)
+= \ln\Bigl(\prod_{k=0}^{n-1} f'(x_k)\Bigr)
+= \sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+$$
+
+Esta formula nos da el logaritmo de cuánto ha crecido el error tras n iteraciones en relación al error inicial.
+
+## Definición del exponente de Lyapunov $\lambda$
+
+Sabemos según la fórmula anterior, cuánto ha crecido el error en $n$ iteraciones. Ahora bien, estaría mejor saber cuanto crece de media por cada iteración. Para ello, solo tenemos que dividir la suma anterior entre $n$.
+
+$$
+\frac{1}{n}\,\sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+$$
+
+Ahora vamos a suponer que la simulación es muy larga y que queremos hacer un promedio. Para ello tomamos el límite cuando $n\to\infty$ de la expresión anterior:
+$$
+\lambda
+= \lim_{n\to\infty}
+\frac{1}{n}\,\sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+$$
+
+Este factor $\lambda$ es lo que crece de media el error en cada iteración en mi sistema. LO que crece de forma logarítmica. Lo que crece realmente en magnitud en cada iteración es $e^\lambda$
+
+- Si $\lambda>0$, el error crece con cada iteracion, puesto que el número $e$ elevado a un valor positivo siempre da un número mayor que 1. Puesto que multiplico mi error por un número mayor que 1, el error va creciendo iteración tras iteración ($e^\lambda$$e^\lambda$$e^\lambda$......=$(e^\lambda)^n$=$a^n$ con $a>1$) . Crece por lo tanto **exponencialmente**, y el sistema es **caótico** (muy sensible a la precisión inicial). 
+- Si $\lambda<0$, el error **se atenúa** y las trayectorias convergen (sistema estable).La argumentación es justa la contraria del caso anterior. El número $e$ elevado a un valor negativo siempre da un número menor que 1.
+- Si $\lambda=0$, estamos en un caso límite de inestabilidad neutra.
+
+## Cálculo del exponente de Lyapunov para el mapa logístico
+
+Consideramos el **mapa logístico**  
+$$
+x_{n+1} = f(x_n) = r\,x_n\,(1 - x_n),
+$$  
+donde $r>0$ es el parámetro de control.
+
+La derivada de $f$ es  
+$$
+f'(x) = r\,(1 - 2x).
+$$
+
+Para una trayectoria $x_0, x_1, \dots, x_{N}$, el exponente de Lyapunov máximo se define como  
+$$
+\lambda = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|f'(x_n)\bigr|
+        = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|r\,(1 - 2x_n)\bigr|.
+$$  
+Bajo hipótesis de ergodicidad y existencia de medida invariante $\rho(x)$, puede reescribirse como  
+$$
+\lambda(r) = \int_{0}^{1} \ln\bigl|r\,(1 - 2x)\bigr|\,\rho(x)\,\mathrm{d}x.
+$$
+
+
+Para $r=4$, el sistema es completamente caótico y su densidad invariante conocida es  
+$$
+\rho(x) = \frac{1}{\pi\,\sqrt{x\,(1 - x)}},\quad x\in(0,1).
+$$
+
+### 5. Cálculo analítico para $r=4$  
+Sustituyendo en la integral:
+$$
+\lambda(4)
+= \int_{0}^{1} \ln\bigl|4\,(1 - 2x)\bigr|\;\frac{\mathrm{d}x}{\pi\sqrt{x(1 - x)}}.
+$$
+Hacemos el cambio de variable  
+$$
+x = \sin^2\theta,\quad \mathrm{d}x = 2\sin\theta\cos\theta\,\mathrm{d}\theta,\quad
+\theta\in\bigl[0,\tfrac{\pi}{2}\bigr].
+$$
+Entonces $\sqrt{x(1 - x)} = \sin\theta\cos\theta$ y
+$$
+\rho(x)\,\mathrm{d}x
+= \frac{1}{\pi\,\sin\theta\cos\theta}\,\bigl(2\sin\theta\cos\theta\,\mathrm{d}\theta\bigr)
+= \frac{2}{\pi}\,\mathrm{d}\theta.
+$$
+Además,
+$$
+1 - 2x = 1 - 2\sin^2\theta = \cos(2\theta),
+$$
+y por tanto
+$$
+\lambda(4)
+= \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \ln\bigl|4\cos(2\theta)\bigr|\,\mathrm{d}\theta.
+$$
+Se separa en
+$$
+\ln\bigl|4\cos(2\theta)\bigr|
+= \ln 4 + \ln\bigl|\cos(2\theta)\bigr|,
+$$
+y se usa la integral conocida
+$$
+\int_{0}^{\frac{\pi}{2}}\ln\bigl|\cos(2\theta)\bigr|\,\mathrm{d}\theta = -\frac{\pi}{2}\ln2.
+$$
+Así,
+$$
+\lambda(4)
+= \frac{2}{\pi}\Biggl[\int_{0}^{\frac{\pi}{2}}\ln4\,\mathrm{d}\theta
+              + \int_{0}^{\frac{\pi}{2}}\ln\bigl|\cos(2\theta)\bigr|\,\mathrm{d}\theta\Biggr]
+= \frac{2}{\pi}\Bigl[\frac{\pi}{2}\ln4 - \frac{\pi}{2}\ln2\Bigr]
+= \ln2.
+$$
+
+### 6. Resultado final  
+Para $r=4$, el exponente de Lyapunov es  
+$$
+\boxed{\lambda(4) = \ln 2 \approx 0.6931,}
+$$  
+lo que confirma el comportamiento caótico sensible a las condiciones iniciales.
+
+
+## Cálculo teórico del exponente de Lyapunov para $r=4$ con técnica de 1.º de Bachillerato
+
+### 1. Mapa logístico y derivada  
+Para $r=4$, el mapa logístico es  
+$$
+x_{n+1} = 4\,x_n\,(1 - x_n),
+$$  
+y su derivada es  
+$$
+f'(x) = 4\,(1 - 2x).
+$$
+
+### 2. Error tras $n$ iteraciones  
+Si $x'_0 = x_0 + \delta_0$ y $\delta_n = |x'_n - x_n|$, entonces  
+$$
+\delta_{n} \approx \delta_0 \prod_{k=0}^{n-1} \bigl|f'(x_k)\bigr|
+= \delta_0 \prod_{k=0}^{n-1} \bigl|4\,(1 - 2x_k)\bigr|.
+$$
+
+### 3. Exponente aproximado en $N$ pasos  
+Definimos  
+$$
+\lambda_N = \frac{1}{N} \sum_{k=0}^{N-1} \ln\bigl|f'(x_k)\bigr|
+= \frac{1}{N} \sum_{k=0}^{N-1} \ln\bigl|4\,(1 - 2x_k)\bigr|.
+$$  
+Al aumentar $N$, $\lambda_N \to \lambda$.
+
+### 4. Ejemplo numérico sencillo ($N=5$)  
+Tomemos $x_0 = 0.3$ y $\delta_0$ muy pequeño. Calculamos sucesivamente:
+
+| $n$ | $x_n$   | $|f'(x_n)|$               | $\ln|f'(x_n)|$ |
+|:---:|:-------:|:-------------------------:|:--------------:|
+| 0   | 0.3000  | $|4(1 - 0.6)| = 1.6$       | $0.470$        |
+| 1   | 0.8400  | $|4(1 - 1.68)| = 2.72$     | $1.001$        |
+| 2   | 0.5376  | $|4(1 - 1.0752)| = 0.3008$ | $-1.200$       |
+| 3   | 0.9953  | $|4(1 - 1.9906)| = 3.9626$ | $1.377$        |
+| 4   | 0.0186  | $|4(1 - 0.0372)| = 3.8512$ | $1.348$        |
+
+Sumamos los logaritmos:  
+$$
+\sum_{k=0}^{4} \ln|f'(x_k)| = 0.470 + 1.001 - 1.200 + 1.377 + 1.348 = 2.996.
+$$  
+Y calculamos  
+$$
+\lambda_5 = \frac{2.996}{5} = 0.599.
+$$
+
+### 5. Tendencia y valor real  
+Con más iteraciones $N$, el promedio $\lambda_N$ sube y se acerca a  
+$$
+\lambda = \ln 2 \approx 0.6931,
+$$  
+que es el **valor exacto** para $r=4$.
+
+---
+
+**Conclusión:**  
+Mediante multiplicaciones sencillas y sumas de logaritmos en un número finito de pasos, vemos cómo $\lambda_N$ evoluciona hacia $\ln 2$, evitando así cálculos de integrales y usando solo aritmética elemental y logaritmos.

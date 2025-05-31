@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; Efecto mariposa – Caos: Teoría y Experimentos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../02-pendulo-doble/_index.html" rel="next">
+<link href="../01-logistica/Caos.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4e4b9be472244950dedd20f9d2c0893e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/lyapunov.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Efecto mariposa</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Caos: Teoría y Experimentos</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introducción al Caos a través de la Función Logística</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/mapa-logistico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El Mapa Logístico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/cobweb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diagrama de telaraña</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/puntos-fijos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Puntos fijos de una función</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/analisis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estudio formal del mapa logístico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/generico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Término genérico del mapa logístico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/estable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estabilidad del mapa logístico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/bifurcaciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Primera bifurcación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/simulacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bifurcaciones sucesivas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/Caos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Caos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-logistica/lyapunov.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Efecto mariposa</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">El Caos en vivo: El péndulo doble</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">La Meteorología y el Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-meteorologia/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-meteorologia/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">El Clima y el Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-clima/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-clima/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Mis experimentos con el Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-experimentos/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sensibilidad-a-las-condiciones-iniciales" id="toc-sensibilidad-a-las-condiciones-iniciales" class="nav-link active" data-scroll-target="#sensibilidad-a-las-condiciones-iniciales"><span class="header-section-number">11.1</span> Sensibilidad a las condiciones iniciales</a></li>
+  <li><a href="#cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales" id="toc-cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales" class="nav-link" data-scroll-target="#cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales"><span class="header-section-number">11.2</span> Cálculo matemático de la amplificación de desviaciones iniciales</a></li>
+  <li><a href="#errores-sucesivos" id="toc-errores-sucesivos" class="nav-link" data-scroll-target="#errores-sucesivos"><span class="header-section-number">11.3</span> Errores sucesivos</a></li>
+  <li><a href="#de-producto-a-suma" id="toc-de-producto-a-suma" class="nav-link" data-scroll-target="#de-producto-a-suma"><span class="header-section-number">11.4</span> De producto a suma</a></li>
+  <li><a href="#definición-del-exponente-de-lyapunov-lambda" id="toc-definición-del-exponente-de-lyapunov-lambda" class="nav-link" data-scroll-target="#definición-del-exponente-de-lyapunov-lambda"><span class="header-section-number">11.5</span> Definición del exponente de Lyapunov <span class="math inline">\(\lambda\)</span></a></li>
+  <li><a href="#cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico" id="toc-cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico" class="nav-link" data-scroll-target="#cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico"><span class="header-section-number">11.6</span> Cálculo del exponente de Lyapunov para el mapa logístico</a></li>
+  <li><a href="#cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato" id="toc-cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato" class="nav-link" data-scroll-target="#cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato"><span class="header-section-number">11.7</span> Cálculo teórico del exponente de Lyapunov para <span class="math inline">\(r=4\)</span> con técnica de 1.º de Bachillerato</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/lyapunov.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Efecto mariposa</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Efecto mariposa</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sensibilidad-a-las-condiciones-iniciales" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="sensibilidad-a-las-condiciones-iniciales"><span class="header-section-number">11.1</span> Sensibilidad a las condiciones iniciales</h2>
+<p>Cuando estamos en la zona estable del mapa logístico, desde cualquier valor de <span class="math inline">\(x_0\)</span> del que partamos, llegaremos siempre hasta el mismo valor final, bien sea el punto fijo que hemos calculado previamente, o cualquiera de los valores de las órbitas periódicas. Por ejemplo, para <span class="math inline">\(r=2.8\)</span></p>
+<div id="6f524ef2" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-2-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Y para <span class="math inline">\(r=3.1\)</span>, vemos como también los puntos alcanzados son los mismos para valores próximos de inicio de la sucesión.</p>
+<div id="ba8b67db" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-3-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En los dos casos anteriores, no parece que la evolución del sistema sea sensible a la condición inicial de partida. Tras unas pocas iteraciones, da igual de donde se parta, que se converge al mismo punto.</p>
+<p>Pero, ¿qué pasa cuando estamos en las zonas caóticas?. Veamos la iteración del mapa logístico para <span class="math inline">\(r=3.69\)</span> partiendo de dos valores muy similares, que solo se separan en <span class="math inline">\(10^{-5}\)</span> unidades.</p>
+<div id="8091c75c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-4-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A la vista del gráfico, vemos como a partir de la iteración 10 empiezan a haber pequeñas diferencias que se van amplificando a medida que avanza la simulación. Aquí vemos que sí que empieza a haber sensibilidad a las condiciones iniciales.</p>
+<p>Probemos con una diferencia de valores iniciales aún mas pequeña, en este caso <span class="math inline">\(10^{-7}\)</span> unidades.</p>
+<div id="7f1ef999" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-5-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora la separación de ambas simulaciones se produce a partir de la iteración número 30. Vamos con una diferencia aún mas pequeña, ahora <span class="math inline">\(10^{-10}\)</span> unidades.</p>
+<div id="dac38dae" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-6-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La separación entre ambas curvas empieza a hacerse visible a partir de la iteración 50. ¿Qué pasa si hacemos la diferencia aún más pequeña, en este caso <span class="math inline">\(10^{-15}\)</span> unidades?. Pues como vemos en la siguiente gráfica, a partir de la iteración 85 empezamos a ver la divergencia de ambas sucesiones.</p>
+<div id="9199348c" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-7-output-1.png" width="589" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>¿Qué está pasando aquí?. ¿Cómo puede ser que dos valores iniciales que se diferencian en un valor tan pequeño como <span class="math inline">\(10^{-15}\)</span> unidades den valores tan diferentes tras 100 iteraciones?. Si las unidades fueran metros, estaríamos hablando de una diferencia de un femtómetro. Y aún más importante: si quiero simular un sistema físico como éste en la región caótica, ¿cómo voy a poder medir su condición inicial con tal precisión?. De hecho, parece que la precisión requerida sería infinita. A poco que me equivoque en la estimación de la condición inicial, no voy a poder calcular bien su estado final pasado un número grande de iteraciones. ¿Cómo puede ser si mi sistema es determinista y está regido por una ecuación tan sencilla?. Hemos topado con el caos y el <strong>efecto mariposa</strong>. Y lo inquietante es que este fenómeno se da en sistemas físicos como la meteorología.</p>
+<section id="inestabilidad-de-las-cálculos-numéricos" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="inestabilidad-de-las-cálculos-numéricos"><span class="header-section-number">11.1.1</span> Inestabilidad de las cálculos numéricos</h3>
+<p>Cuando nos encontramos con un sistema físico con alta dependencia a las condiciones iniciales, no solamente tenemos el problema de conocer con total exactitud el estado inicial del sistema, sino que como veremos a continuación los cálculos numéricos que hacemos en nuesto ordenador para estudiar su evolución se vuelven también muy inestables. A continuación pondré un ejemplo sobre lo que acabo de decir.</p>
+<p>Pongamos que quiero simular el mapa logístico tal cual lo he estado haciendo en las secciones anteriores. La fórmula es superconocida (form1):</p>
+<p><span class="math display">\[
+x_{n+1} = r\,x_n\,(1 - x_n)
+\]</span></p>
+<p>Pero también podríamos expresarlo como (form2):</p>
+<p><span class="math display">\[
+x_{n+1} = r\,x_n - r\,{x_n}^2
+\]</span></p>
+<p>Matemáticamente son equivalentes pero a un computador le estamos diciendo cosas diferentes. * En el primer caso le decimos que reste 1 menos {x_n}, y que a continuación lo multiplique por <span class="math inline">\(r\)</span> y <span class="math inline">\(x_n\)</span>. En total 1 resta y dos multiplicaciones * En el segundo caso le decimos que multiplique por <span class="math inline">\(r\)</span> y <span class="math inline">\(x_n\)</span> por un lado. Por otro lado que que eleve <span class="math inline">\(x_n\)</span> al cuadrado, y que lo multiplique por <span class="math inline">\(r\)</span>. Y al final que reste el primer resultado intermedio menos el segundo. En total 1 resta, 2 multiplicaciones y 1 cuadrado.</p>
+<p>A esto hay que añadir que en un ordenador los números decimales se representan mediante aproximaciones. Por ejemplo, con 32 bits,el número 0.2 se representa como 0.200000003, debido a la precisión finita que dan los 32 bits. Por lo tanto entre el número real y el que representamos, la mayoría de veces va a haber un error. Estos errores se comportarán de manera diferente según los cálculos aritméticos que hagamos con ellos. En el siguiente plot, vemos los errores en un ordenador entre las dos fórmulas al partir del valor <span class="math inline">\(x_0=0.2\)</span> y con un <span class="math inline">\(r=4\)</span>.</p>
+<div id="8c5e3b80" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-8-output-1.png" width="565" height="564" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Vemos como al principio el error es imperceptible, pero a media que avanzamos va creciendo. A partir de la iteración 50 este error se hace ya notable, y desde entonces se puede decir que ambas fórmulas evolucionan de forma totalmente distinta. Por lo tanto, vemos como en un sistema caótico, no sólo las condiciones iniciales determinan el valor final de forma extrema, sino que también cuando simulamos este sistema en una máquina computacional, la forma en la que se representan los números y la forma de las operaciones también influyen de forma muy notable.</p>
+<p>Pero vamos a ir un paso más. Veamos que evolución tienen realmente los errores. Para poder bien los errores al principio y al final, vamos a usar una escala logarítmica en el eje Y. El resultado se muestra a continuación.</p>
+<div id="9dda8d61" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lyapunov_files/figure-html/cell-9-output-1.png" width="564" height="564" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>¿Qué es lo que vemos?. Que los errores crecen linealmente dentro de la escala logarítmica.</p>
+<p>En escala <span class="math inline">\(\log_{10}\)</span> hemos ajustado: <span class="math display">\[
+\log_{10}(\mathrm{error}_n)\approx 0.303\,n + C
+\]</span> donde <span class="math inline">\(C\)</span> es la ordenada en el origen. Pasando de logaritmos a forma explícita: <span class="math display">\[
+\mathrm{error}_n \approx 10^C \times 10^{0.303\,n}
+= A\,\bigl(10^{0.303}\bigr)^n
+\approx A\,2^n,
+\]</span> puesto que <span class="math inline">\(10^{0.303}\approx2\)</span>.</p>
+<p>Equivalentemente, en base <span class="math inline">\(e\)</span>: <span class="math display">\[
+\ln(\mathrm{error}_n)
+= \ln(10)\,\log_{10}(\mathrm{error}_n)
+\approx (0.303\,\ln 10)\,n + \ln A
+\approx 0.698\,n + \ln A,
+\]</span> de donde <span class="math display">\[
+\mathrm{error}_n \approx A\,e^{0.698\,n}\approx A\,(2.01)^n.
+\]</span></p>
+<p><strong>Conclusión.</strong> El error crece de forma <strong>exponencial</strong> con <span class="math inline">\(n\)</span>, aproximadamente duplicándose en cada iteración.</p>
+<p>Curioso, ¿verdad?. El error se va multiplicando por 2 en cada iteración. Por 2 exactamente. ¿A qué se debe esto????</p>
+</section>
+</section>
+<section id="cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales"><span class="header-section-number">11.2</span> Cálculo matemático de la amplificación de desviaciones iniciales</h2>
+<p>A continación daremos una explicación matemática a este fenómeno que estamos observando.</p>
+<p>Imagina que quieres predecir el tiempo atmosférico. Nunca conoces la temperatura, presión o humedad con absoluta precisión: siempre hay un error mínimo en la medición. Si ese error crece muy despacio, podrías predecir con confianza varios días por delante. Pero si crece muy rápido, tu predicción se vuelve inútil en muy poco tiempo.</p>
+<p>En los siguientes párrafos, veros un concepto matemático muy útil en el estudio del caos: el <strong>exponente de Lyapunov</strong>, que llamaremos <span class="math inline">\(\lambda\)</span> y que cuantifica la tasa de crecimiento de estos errores.</p>
+<section id="error-inicial" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="error-inicial"><span class="header-section-number">11.2.1</span> Error inicial</h3>
+<ul>
+<li>Sea <span class="math inline">\(x_0\)</span> el estado “verdadero” del sistema en el tiempo inicial.<br>
+</li>
+<li>Tu medida real tiene un pequeño error <span class="math inline">\(\delta_0\)</span>, de modo que en realidad partes de<br>
+<span class="math display">\[
+   x_0 + \delta_0,
+   \quad\text{con}\;|\delta_0|\ll 1.
+\]</span></li>
+</ul>
+<p>Ese <span class="math inline">\(\delta_0\)</span> es tan pequeño que, al principio, los dos estados están casi juntos. Es lo que hemos visto en los ejemplos anteriores, donde en la primera iteración las dos simulaciones estaban casi juntas.</p>
+</section>
+<section id="cómo-evoluciona-el-error" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="cómo-evoluciona-el-error"><span class="header-section-number">11.2.2</span> Cómo evoluciona el error</h3>
+<p>Supón que el sistema avanza según una regla <span class="math inline">\(f\)</span> (nuestra función logística), es decir: <span class="math display">\[
+x_{n+1} = f(x_n).
+\]</span> Queremos ver qué sucede con <span class="math inline">\(\delta_n\)</span>, la diferencia en el paso <span class="math inline">\(n\)</span>. Para ello:</p>
+<ol type="1">
+<li><p><strong>Linealizamos</strong> la función <span class="math inline">\(f\)</span> alrededor de <span class="math inline">\(x_n\)</span>.<br>
+Si <span class="math inline">\(f\)</span> es suave, podemos aproximar <span class="math display">\[
+  f(x_n + \delta_n)
+  \approx f(x_n)
+       + f'(x_n)\,\delta_n,
+\]</span> donde <span class="math inline">\(f'(x_n)\)</span> es la <strong>derivada</strong> (o pendiente) de <span class="math inline">\(f\)</span> en <span class="math inline">\(x_n\)</span>.</p></li>
+<li><p>De esta aproximación se deduce que <span class="math display">\[
+  \delta_{n+1}
+  = f(x_n + \delta_n) - f(x_n)
+  \approx f'(x_n)\,\delta_n.
+\]</span></p></li>
+</ol>
+<p>Pero ojo. Cuando calculamos errores, siempre son distancia, es decir debe ser siempre un número no negativo. La derivada indica pendiente y sentido.Cuando linealizamos<br>
+<span class="math display">\[
+   f(x_n + \delta_n)\approx f(x_n) + f'(x_n)\,\delta_n,
+   \]</span><br>
+el término <span class="math inline">\(f'(x_n)\,\delta_n\)</span> nos da <strong>cuánto</strong> y en <strong>qué dirección</strong> cambia la diferencia <span class="math inline">\(\delta_n\)</span>.</p>
+<p>La distancia ha de ser siempre no negativa. Por tanto, definimos : <span class="math display">\[
+   \delta_{n+1} = \bigl|\,x'_{n+1} - x_{n+1}\bigr|.
+   \]</span><br>
+Sin valor absoluto, un <span class="math inline">\(f'(x_n)&lt;0\)</span> haría que la “distancia” resultase negativa, lo cual no tiene sentido para una medida de error.</p>
+<p>El verdadero error en módulo es <span class="math inline">\(\bigl|f'(x_n)\bigr|\)</span>$ porque:</p>
+<ul>
+<li>Si <span class="math inline">\(\lvert f'(x_n)\rvert&gt;1\)</span>, la distancia <strong>aumenta</strong><br>
+</li>
+<li>Si <span class="math inline">\(\lvert f'(x_n)\rvert&lt;1\)</span>, la distancia <strong>disminuye</strong></li>
+</ul>
+<p>Pongamos un ejemplo numérico: Supongamos <span class="math inline">\(f'(x_n)=-2\)</span> y <span class="math inline">\(\delta_n=0.01\)</span>:</p>
+<ul>
+<li>Sin valor absoluto:<br>
+<span class="math display">\[
+\delta_{n+1}\approx(-2)\times0.01=-0.02\quad(\text{sin sentido físico}).
+\]</span><br>
+</li>
+<li>Con valor absoluto:<br>
+<span class="math display">\[
+\delta_{n+1}\approx\bigl|-2\bigr|\times0.01=2\times0.01=0.02,
+\]</span><br>
+reflejando correctamente que la distancia se <strong>duplica</strong>.</li>
+</ul>
+<p>Por todo ello, la fórmula adecuada para la evolución del error es<br>
+<span class="math display">\[
+\delta_{n+1} \approx \bigl|f'(x_n)\bigr|\,\delta_n,
+\]</span><br>
+garantizando que <span class="math inline">\(\delta_{n+1}\ge0\)</span> y midiendo la <strong>magnitud</strong> real del estiramiento en cada paso.</p>
+</section>
+</section>
+<section id="errores-sucesivos" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="errores-sucesivos"><span class="header-section-number">11.3</span> Errores sucesivos</h2>
+<p>Si repetimos la relaciones anterior paso a paso obtenemos</p>
+<ol type="1">
+<li><p>Primera iteración<br>
+<span class="math display">\[
+\delta_1 \approx \bigl|f'(x_0)\bigr|\,\delta_0.
+\]</span></p></li>
+<li><p>Segunda iteración. En este caso es la derivada en <span class="math inline">\(x_1\)</span> multiplicado por el error anterior (utilizamos para el error anterior la fórmula del paso 1). En total vemos que el error en la segunda iteración, es el error inicial multiplicado por dos derivadas. <span class="math display">\[
+\delta_2
+\approx \bigl|f'(x_1)\bigr|\,\delta_1
+\approx \bigl|f'(x_1)\bigr|\;\bigl|f'(x_0)\bigr|\;\delta_0.
+\]</span></p></li>
+<li><p>Tercera iteración. Aquí ya vemos como aparece un patrón. Vamos multiplicando el error inicial por las sucesivas derivadas. <span class="math display">\[
+\delta_3
+\approx \bigl|f'(x_2)\bigr|\,\delta_2
+\approx \bigl|f'(x_2)\bigr|\;\bigl|f'(x_1)\bigr|\;\bigl|f'(x_0)\bigr|\;\delta_0.
+\]</span></p></li>
+</ol>
+<p>En general, para cualquier (n) podemos generalizar el patrón encontrado:<br>
+<span class="math display">\[
+\delta_n
+\;\approx\;
+\Bigl(\prod_{k=0}^{n-1}\bigl|f'(x_k)\bigr|\Bigr)\;\delta_0.
+\]</span></p>
+</section>
+<section id="de-producto-a-suma" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="de-producto-a-suma"><span class="header-section-number">11.4</span> De producto a suma</h2>
+<p>Para manejar productos es muy útil usar los logaritmos, porque transforman productos en sumas: <span class="math display">\[
+\ln\bigl(\delta_n/\delta_0\bigr)
+= \ln\Bigl(\prod_{k=0}^{n-1} f'(x_k)\Bigr)
+= \sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+\]</span></p>
+<p>Esta formula nos da el logaritmo de cuánto ha crecido el error tras n iteraciones en relación al error inicial.</p>
+</section>
+<section id="definición-del-exponente-de-lyapunov-lambda" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="definición-del-exponente-de-lyapunov-lambda"><span class="header-section-number">11.5</span> Definición del exponente de Lyapunov <span class="math inline">\(\lambda\)</span></h2>
+<p>Sabemos según la fórmula anterior, cuánto ha crecido el error en <span class="math inline">\(n\)</span> iteraciones. Ahora bien, estaría mejor saber cuanto crece de media por cada iteración. Para ello, solo tenemos que dividir la suma anterior entre <span class="math inline">\(n\)</span>.</p>
+<p><span class="math display">\[
+\frac{1}{n}\,\sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+\]</span></p>
+<p>Ahora vamos a suponer que la simulación es muy larga y que queremos hacer un promedio. Para ello tomamos el límite cuando <span class="math inline">\(n\to\infty\)</span> de la expresión anterior: <span class="math display">\[
+\lambda
+= \lim_{n\to\infty}
+\frac{1}{n}\,\sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+\]</span></p>
+<p>Este factor <span class="math inline">\(\lambda\)</span> es lo que crece de media el error en cada iteración en mi sistema. LO que crece de forma logarítmica. Lo que crece realmente en magnitud en cada iteración es <span class="math inline">\(e^\lambda\)</span></p>
+<ul>
+<li>Si <span class="math inline">\(\lambda&gt;0\)</span>, el error crece con cada iteracion, puesto que el número <span class="math inline">\(e\)</span> elevado a un valor positivo siempre da un número mayor que 1. Puesto que multiplico mi error por un número mayor que 1, el error va creciendo iteración tras iteración (<span class="math inline">\(e^\lambda\)</span><span class="math inline">\(e^\lambda\)</span><span class="math inline">\(e^\lambda\)</span>……=<span class="math inline">\((e^\lambda)^n\)</span>=<span class="math inline">\(a^n\)</span> con <span class="math inline">\(a&gt;1\)</span>) . Crece por lo tanto <strong>exponencialmente</strong>, y el sistema es <strong>caótico</strong> (muy sensible a la precisión inicial).</li>
+<li>Si <span class="math inline">\(\lambda&lt;0\)</span>, el error <strong>se atenúa</strong> y las trayectorias convergen (sistema estable).La argumentación es justa la contraria del caso anterior. El número <span class="math inline">\(e\)</span> elevado a un valor negativo siempre da un número menor que 1.</li>
+<li>Si <span class="math inline">\(\lambda=0\)</span>, estamos en un caso límite de inestabilidad neutra.</li>
+</ul>
+</section>
+<section id="cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico"><span class="header-section-number">11.6</span> Cálculo del exponente de Lyapunov para el mapa logístico</h2>
+<p>Consideramos el <strong>mapa logístico</strong><br>
+<span class="math display">\[
+x_{n+1} = f(x_n) = r\,x_n\,(1 - x_n),
+\]</span><br>
+donde <span class="math inline">\(r&gt;0\)</span> es el parámetro de control.</p>
+<p>La derivada de <span class="math inline">\(f\)</span> es<br>
+<span class="math display">\[
+f'(x) = r\,(1 - 2x).
+\]</span></p>
+<p>Para una trayectoria <span class="math inline">\(x_0, x_1, \dots, x_{N}\)</span>, el exponente de Lyapunov máximo se define como<br>
+<span class="math display">\[
+\lambda = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|f'(x_n)\bigr|
+        = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|r\,(1 - 2x_n)\bigr|.
+\]</span><br>
+Bajo hipótesis de ergodicidad y existencia de medida invariante <span class="math inline">\(\rho(x)\)</span>, puede reescribirse como<br>
+<span class="math display">\[
+\lambda(r) = \int_{0}^{1} \ln\bigl|r\,(1 - 2x)\bigr|\,\rho(x)\,\mathrm{d}x.
+\]</span></p>
+<p>Para <span class="math inline">\(r=4\)</span>, el sistema es completamente caótico y su densidad invariante conocida es<br>
+<span class="math display">\[
+\rho(x) = \frac{1}{\pi\,\sqrt{x\,(1 - x)}},\quad x\in(0,1).
+\]</span></p>
+<section id="cálculo-analítico-para-r4" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="cálculo-analítico-para-r4"><span class="header-section-number">11.6.1</span> 5. Cálculo analítico para <span class="math inline">\(r=4\)</span></h3>
+<p>Sustituyendo en la integral: <span class="math display">\[
+\lambda(4)
+= \int_{0}^{1} \ln\bigl|4\,(1 - 2x)\bigr|\;\frac{\mathrm{d}x}{\pi\sqrt{x(1 - x)}}.
+\]</span> Hacemos el cambio de variable<br>
+<span class="math display">\[
+x = \sin^2\theta,\quad \mathrm{d}x = 2\sin\theta\cos\theta\,\mathrm{d}\theta,\quad
+\theta\in\bigl[0,\tfrac{\pi}{2}\bigr].
+\]</span> Entonces <span class="math inline">\(\sqrt{x(1 - x)} = \sin\theta\cos\theta\)</span> y <span class="math display">\[
+\rho(x)\,\mathrm{d}x
+= \frac{1}{\pi\,\sin\theta\cos\theta}\,\bigl(2\sin\theta\cos\theta\,\mathrm{d}\theta\bigr)
+= \frac{2}{\pi}\,\mathrm{d}\theta.
+\]</span> Además, <span class="math display">\[
+1 - 2x = 1 - 2\sin^2\theta = \cos(2\theta),
+\]</span> y por tanto <span class="math display">\[
+\lambda(4)
+= \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \ln\bigl|4\cos(2\theta)\bigr|\,\mathrm{d}\theta.
+\]</span> Se separa en <span class="math display">\[
+\ln\bigl|4\cos(2\theta)\bigr|
+= \ln 4 + \ln\bigl|\cos(2\theta)\bigr|,
+\]</span> y se usa la integral conocida <span class="math display">\[
+\int_{0}^{\frac{\pi}{2}}\ln\bigl|\cos(2\theta)\bigr|\,\mathrm{d}\theta = -\frac{\pi}{2}\ln2.
+\]</span> Así, <span class="math display">\[
+\lambda(4)
+= \frac{2}{\pi}\Biggl[\int_{0}^{\frac{\pi}{2}}\ln4\,\mathrm{d}\theta
+              + \int_{0}^{\frac{\pi}{2}}\ln\bigl|\cos(2\theta)\bigr|\,\mathrm{d}\theta\Biggr]
+= \frac{2}{\pi}\Bigl[\frac{\pi}{2}\ln4 - \frac{\pi}{2}\ln2\Bigr]
+= \ln2.
+\]</span></p>
+</section>
+<section id="resultado-final" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="resultado-final"><span class="header-section-number">11.6.2</span> 6. Resultado final</h3>
+<p>Para <span class="math inline">\(r=4\)</span>, el exponente de Lyapunov es<br>
+<span class="math display">\[
+\boxed{\lambda(4) = \ln 2 \approx 0.6931,}
+\]</span><br>
+lo que confirma el comportamiento caótico sensible a las condiciones iniciales.</p>
+</section>
+</section>
+<section id="cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato"><span class="header-section-number">11.7</span> Cálculo teórico del exponente de Lyapunov para <span class="math inline">\(r=4\)</span> con técnica de 1.º de Bachillerato</h2>
+<section id="mapa-logístico-y-derivada" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="mapa-logístico-y-derivada"><span class="header-section-number">11.7.1</span> 1. Mapa logístico y derivada</h3>
+<p>Para <span class="math inline">\(r=4\)</span>, el mapa logístico es<br>
+<span class="math display">\[
+x_{n+1} = 4\,x_n\,(1 - x_n),
+\]</span><br>
+y su derivada es<br>
+<span class="math display">\[
+f'(x) = 4\,(1 - 2x).
+\]</span></p>
+</section>
+<section id="error-tras-n-iteraciones" class="level3" data-number="11.7.2">
+<h3 data-number="11.7.2" class="anchored" data-anchor-id="error-tras-n-iteraciones"><span class="header-section-number">11.7.2</span> 2. Error tras <span class="math inline">\(n\)</span> iteraciones</h3>
+<p>Si <span class="math inline">\(x'_0 = x_0 + \delta_0\)</span> y <span class="math inline">\(\delta_n = |x'_n - x_n|\)</span>, entonces<br>
+<span class="math display">\[
+\delta_{n} \approx \delta_0 \prod_{k=0}^{n-1} \bigl|f'(x_k)\bigr|
+= \delta_0 \prod_{k=0}^{n-1} \bigl|4\,(1 - 2x_k)\bigr|.
+\]</span></p>
+</section>
+<section id="exponente-aproximado-en-n-pasos" class="level3" data-number="11.7.3">
+<h3 data-number="11.7.3" class="anchored" data-anchor-id="exponente-aproximado-en-n-pasos"><span class="header-section-number">11.7.3</span> 3. Exponente aproximado en <span class="math inline">\(N\)</span> pasos</h3>
+<p>Definimos<br>
+<span class="math display">\[
+\lambda_N = \frac{1}{N} \sum_{k=0}^{N-1} \ln\bigl|f'(x_k)\bigr|
+= \frac{1}{N} \sum_{k=0}^{N-1} \ln\bigl|4\,(1 - 2x_k)\bigr|.
+\]</span><br>
+Al aumentar <span class="math inline">\(N\)</span>, <span class="math inline">\(\lambda_N \to \lambda\)</span>.</p>
+</section>
+<section id="ejemplo-numérico-sencillo-n5" class="level3" data-number="11.7.4">
+<h3 data-number="11.7.4" class="anchored" data-anchor-id="ejemplo-numérico-sencillo-n5"><span class="header-section-number">11.7.4</span> 4. Ejemplo numérico sencillo (<span class="math inline">\(N=5\)</span>)</h3>
+<p>Tomemos <span class="math inline">\(x_0 = 0.3\)</span> y <span class="math inline">\(\delta_0\)</span> muy pequeño. Calculamos sucesivamente:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x_n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(|f'(x_n)|\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\ln|f'(x_n)|\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.3000</td>
+<td style="text-align: center;"><span class="math inline">\(|4(1 - 0.6)| = 1.6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.470\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.8400</td>
+<td style="text-align: center;"><span class="math inline">\(|4(1 - 1.68)| = 2.72\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.001\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.5376</td>
+<td style="text-align: center;"><span class="math inline">\(|4(1 - 1.0752)| = 0.3008\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1.200\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.9953</td>
+<td style="text-align: center;"><span class="math inline">\(|4(1 - 1.9906)| = 3.9626\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.377\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.0186</td>
+<td style="text-align: center;"><span class="math inline">\(|4(1 - 0.0372)| = 3.8512\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.348\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Sumamos los logaritmos:<br>
+<span class="math display">\[
+\sum_{k=0}^{4} \ln|f'(x_k)| = 0.470 + 1.001 - 1.200 + 1.377 + 1.348 = 2.996.
+\]</span><br>
+Y calculamos<br>
+<span class="math display">\[
+\lambda_5 = \frac{2.996}{5} = 0.599.
+\]</span></p>
+</section>
+<section id="tendencia-y-valor-real" class="level3" data-number="11.7.5">
+<h3 data-number="11.7.5" class="anchored" data-anchor-id="tendencia-y-valor-real"><span class="header-section-number">11.7.5</span> 5. Tendencia y valor real</h3>
+<p>Con más iteraciones <span class="math inline">\(N\)</span>, el promedio <span class="math inline">\(\lambda_N\)</span> sube y se acerca a<br>
+<span class="math display">\[
+\lambda = \ln 2 \approx 0.6931,
+\]</span><br>
+que es el <strong>valor exacto</strong> para <span class="math inline">\(r=4\)</span>.</p>
+<hr>
+<p><strong>Conclusión:</strong><br>
+Mediante multiplicaciones sencillas y sumas de logaritmos en un número finito de pasos, vemos cómo <span class="math inline">\(\lambda_N\)</span> evoluciona hacia <span class="math inline">\(\ln 2\)</span>, evitando así cálculos de integrales y usando solo aritmética elemental y logaritmos.</p>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../01-logistica/Caos.html" class="pagination-link" aria-label="Caos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Caos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../02-pendulo-doble/_index.html" class="pagination-link" aria-label="Caos: Teoría y Experimentos">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

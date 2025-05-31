@@ -7,10 +7,10 @@ execute:
   echo: false
 ---
 
-# Diagrama Cobweb
+# Diagrama de telaraña 
 
 ## Introducción
-En sistemas discretos iterativos, un **diagrama cobweb** o “telaraña” es una representación gráfica que ilustra cómo evoluciona la secuencia
+En sistemas discretos iterativos, un "diagrama cobweb" o “diagrama de telaraña” es una representación gráfica que ilustra cómo evoluciona la secuencia
 $$
 x_{n+1} = f(x_n)
 $$
@@ -44,7 +44,7 @@ from bokeh.layouts import column, row
 from bokeh.io import output_notebook
 
 # Esto activa la inserción de JS/CSS de Bokeh en el HTML
-output_notebook()
+output_notebook(hide_banner=True)
 
 # Parámetros iniciales
 r0, x0_0, steps = 3.2, 0.2, 100

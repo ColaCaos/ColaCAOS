@@ -56,34 +56,34 @@
   {
     "objectID": "01-logistica/cobweb.html",
     "href": "01-logistica/cobweb.html",
-    "title": "3  Diagrama Cobweb",
+    "title": "3  Diagrama de telaraña",
     "section": "",
-    "text": "3.1 Introducción\nEn sistemas discretos iterativos, un diagrama cobweb o “telaraña” es una representación gráfica que ilustra cómo evoluciona la secuencia \\[\nx_{n+1} = f(x_n)\n\\] paso a paso. Facilita la visualización de convergencia, ciclos y caos.",
+    "text": "3.1 Introducción\nEn sistemas discretos iterativos, un “diagrama cobweb” o “diagrama de telaraña” es una representación gráfica que ilustra cómo evoluciona la secuencia \\[\nx_{n+1} = f(x_n)\n\\] paso a paso. Facilita la visualización de convergencia, ciclos y caos.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama de telaraña</span>"
     ]
   },
   {
     "objectID": "01-logistica/cobweb.html#construcción-del-diagrama-cobweb",
     "href": "01-logistica/cobweb.html#construcción-del-diagrama-cobweb",
-    "title": "3  Diagrama Cobweb",
+    "title": "3  Diagrama de telaraña",
     "section": "3.2 Construcción del diagrama Cobweb",
     "text": "3.2 Construcción del diagrama Cobweb\n\nDibujamos las curvas:\n\n\\(y = f(x)\\)\n\\(y = x\\)\n\n\nPartimos de un valor inicial \\(x_0\\) en el eje horizontal.\n\nTrazamos verticalmente desde \\((x_0,0)\\) hasta \\(\\bigl(x_0, f(x_0)\\bigr)\\).\n\nDesde \\(\\bigl(x_0, f(x_0)\\bigr)\\) traza horizontalmente hasta la recta \\(y=x\\), llegando a \\(\\bigl(f(x_0), f(x_0)\\bigr)\\). Este valor es \\(x_1\\).\n\nRepite el proceso usando \\(x_1\\) para obtener \\(x_2\\), y así sucesivamente.\n\nAl unir los segmentos verticales y horizontales se forma la “telaraña” que muestra la evolución \\(x_0 \\to x_1 \\to x_2 \\to \\dots\\). Así vemos la evolución del sistema.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama de telaraña</span>"
     ]
   },
   {
     "objectID": "01-logistica/cobweb.html#para-qué-sirve",
     "href": "01-logistica/cobweb.html#para-qué-sirve",
-    "title": "3  Diagrama Cobweb",
+    "title": "3  Diagrama de telaraña",
     "section": "3.3 ¿Para qué sirve?",
-    "text": "3.3 ¿Para qué sirve?\n\nConvergencia a punto fijo: si la telaraña se aproxima a un punto de intersección entre \\(y=f(x)\\) y \\(y=x\\). En la siguiente sección analizaremos el término “punto fijo”\nDetección de ciclos: patrones periódicos (por ejemplo, saltos entre dos puntos indican un ciclo de periodo 2).\n\nObservación de caos: en funciones no lineales como el mapa logístico, con ciertos parámetros la telaraña no se estabiliza y refleja sensibilidad a condiciones iniciales.\n\nAquí dejo un diagrama interactivo, en el que se observan la función logística \\(y=f(x)=rx(x-1)\\), la función \\(y = x\\), y el diagrama de telaraña.\nEl usuario puede jugar con el valor de \\(r\\) y de \\(x_0\\) (el valor inicial de población), y ver la evolución de la población después de 100 iteraciones del mapa logístico.\n\n\n    \n    \n        \n        Loading BokehJS ...",
+    "text": "3.3 ¿Para qué sirve?\n\nConvergencia a punto fijo: si la telaraña se aproxima a un punto de intersección entre \\(y=f(x)\\) y \\(y=x\\). En la siguiente sección analizaremos el término “punto fijo”\nDetección de ciclos: patrones periódicos (por ejemplo, saltos entre dos puntos indican un ciclo de periodo 2).\n\nObservación de caos: en funciones no lineales como el mapa logístico, con ciertos parámetros la telaraña no se estabiliza y refleja sensibilidad a condiciones iniciales.\n\nAquí dejo un diagrama interactivo, en el que se observan la función logística \\(y=f(x)=rx(x-1)\\), la función \\(y = x\\), y el diagrama de telaraña.\nEl usuario puede jugar con el valor de \\(r\\) y de \\(x_0\\) (el valor inicial de población), y ver la evolución de la población después de 100 iteraciones del mapa logístico.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama Cobweb</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diagrama de telaraña</span>"
     ]
   },
   {
@@ -120,212 +120,509 @@
     ]
   },
   {
+    "objectID": "01-logistica/analisis.html",
+    "href": "01-logistica/analisis.html",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "",
+    "text": "5.1 Dominio y ceros\nEn los siguientes apartados vamos a desentrañar desde un punto de vista matemático como se comporta el mapa logístico. Ya hemos visto en los apartados anteriores, vía simulación, que el comportamiento es muy errático dependiendo del valor de \\(r\\). Veamos por qué.\nPara empezar veremos la función logística y la analizaremos como haríamos con cualquier otra función para ver su forma. Para ello, recurrimos a las técnicas habituales de analisis de funciones.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/analisis.html#dominio-y-ceros",
+    "href": "01-logistica/analisis.html#dominio-y-ceros",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "",
+    "text": "Por definición, el Dominio es: \\(0 \\le x \\le 1\\)\n\nEn este dominio los Ceros de la función están en:\n\n\\(f(0) = r \\cdot 0 \\cdot (1-0) = 0\\)\n\n\\(f(1) = r \\cdot 1 \\cdot (1-1) = 0\\)",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/analisis.html#derivada-y-monotonía",
+    "href": "01-logistica/analisis.html#derivada-y-monotonía",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.2 Derivada y monotonía",
+    "text": "5.2 Derivada y monotonía\nPara conocer los máximos y mínimos primero hemos de calcular la derivada,\n\nDerivada:\n\\[f'(x) = r(1 - 2x)\\]\n\nLa derivada tiene una raíz en \\(x=1/2\\), independientemente del valor de \\(r\\). Por lo tanto, el signo de \\(f'(x)\\):\n\nSi \\(0 \\le x &lt; \\tfrac12\\), entonces \\(f'(x) &gt; 0\\) ⇒ creciente\n\nSi \\(x = \\tfrac12\\), entonces \\(f'(x) = 0\\)\n\nSi \\(\\tfrac12 &lt; x \\le 1\\), entonces \\(f'(x) &lt; 0\\) ⇒ decreciente\n\n\nDe acuerdo al estudio de la derivada, tenemos un punto crítico en \\(x = \\tfrac12\\). Puesto que la derivada pasa a ser creciente a decreciente en este punto, tenemos un máximo. La función, pues, tiene un valor máximo:\n\\[f\\bigl(\\tfrac12\\bigr) = \\frac{r}{4}\\]\nObservar que si \\(r&gt;4\\) entonces el máximo de la función es mayor que 1. Esto no puede darse, ya que la funcíón logística normaliza los recursos máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que no puede ocurrir físicamente), el valor de r siempre se establece por debajo de 4.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/analisis.html#concavidad",
+    "href": "01-logistica/analisis.html#concavidad",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.3 Concavidad",
+    "text": "5.3 Concavidad\n\nSegunda derivada:\n\\[f''(x) = -2r\\]\n\nComo \\(r&gt;0\\), \\(f''(x)&lt;0\\) en todo el dominio ⇒ cóncava hacia abajo",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/analisis.html#rango-de-la-función",
+    "href": "01-logistica/analisis.html#rango-de-la-función",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.4 Rango de la función",
+    "text": "5.4 Rango de la función\nDe acuerdo, al estudio anterior, la función es siempre positiva, con valores entre \\(0\\) y \\(\\tfrac{r}{4}\\)\nSi vamos a la sección con el diagrama de telaraña, veremos efectivamente esta forma de la función.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/analisis.html#resumen-gráfico",
+    "href": "01-logistica/analisis.html#resumen-gráfico",
+    "title": "5  Estudio formal del mapa logístico",
+    "section": "5.5 Resumen gráfico",
+    "text": "5.5 Resumen gráfico\n\nParábola invertida con vértice en \\(\\bigl(\\tfrac12,\\tfrac{r}{4}\\bigr)\\)\n\nCrece de \\(x=0\\) a \\(x=\\tfrac12\\), luego decrece hasta \\(x=1\\)",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/generico.html",
+    "href": "01-logistica/generico.html",
+    "title": "6  Término genérico del mapa logístico",
+    "section": "",
+    "text": "En las sucesiones aritméticas y geométricas es fácil expresar el termino enésimo de la sucesión en función del primer término de la misma. Veamos:\nTérmino general de la sucesión aritmética\n\\[a_n = a_1 + (n-1)d\\] donde: - \\(a_1\\) es el primer término. - \\(d\\) es la diferencia común. - \\(n\\) es la posición del término.\nTérmino general de la sucesión geométrica\n\\[a_n = a_1 \\cdot r^{\\,n-1}\\] donde: - \\(a_1\\) es el primer término. - \\(r\\) es la razón común. - \\(n\\) es la posición del término.\n¿Podemos hacer lo mismo con el mapa logístico?. Hagamos las primeras iteraciones.\n\\[\nx_1 = r\\,x_0\\,(1 - x_0)\n\\]\n\\[\nx_2 = r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\n\\]\n\\[\nx_3 = r^3\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\n\\]\n\\[\nx_4 = r^4\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\,\n\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\n\\]\n\\[\n\\begin{aligned}\nx_5 =\\;& r^5\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\\\\n&\\times\\;\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\\\\\n&\\times\\;\\bigl(1 - r^4\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\,\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\\bigr)\n\\end{aligned}\n\\]\nComo podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente \\(x_0\\) y de \\(r\\), pero a medida que iteramos, la expresión se vuelve muy complicada. A pesar de todo, hay que destacar que la función es puramente determinista. Es decir, se podría formular el valor de la iteración enésima en función de los valores de \\(x_0\\) y de \\(r\\).",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Término genérico del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/estable.html",
+    "href": "01-logistica/estable.html",
+    "title": "7  Estabilidad del mapa logístico",
+    "section": "",
+    "text": "7.1 Puntos fijos\nTal y como habíamos visto anteriormente, un punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara encontrar los puntos fijos de la función logística, resolvemos: \\[\nr\\,x\\,(1 - x) = x.\n\\] Llevando todos los términos a un lado: \\[\nr\\,x\\,(1 - x) - x = 0\n\\quad\\Longrightarrow\\quad\nx\\bigl(r\\,(1 - x) - 1\\bigr) = 0.\n\\] De aquí se obtienen dos soluciones: \\[x_1 = 0\\] y \\(x_2\\) tal que \\(r\\,(1 - x_2) - 1 = 0\\), es decir: \\[\n  1 - x_2 = \\frac{1}{r}\n  \\;\\Longrightarrow\\;\n  x_2 = 1 - \\frac{1}{r}.\n  \\]",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estabilidad del mapa logístico</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/estable.html#evaluación-de-la-derivada-en-los-puntos-fijos",
+    "href": "01-logistica/estable.html#evaluación-de-la-derivada-en-los-puntos-fijos",
+    "title": "7  Estabilidad del mapa logístico",
+    "section": "7.2 Evaluación de la derivada en los puntos fijos",
+    "text": "7.2 Evaluación de la derivada en los puntos fijos\nLa derivada de la función logística es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nY además, de la sección sobre los puntos fijos sabemos que un punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\).\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\). Es decir, para valores de \\(r\\) comprendidos entre 0 y 1, el valor de \\(x=0\\) es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en \\(x=0\\). Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un \\(r&lt;1\\), veremos que la función lógistica solamente toca a la recta \\(y=x\\) en \\(x=0\\)\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\). Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de \\(x_0\\) que pongan para valores de \\(r\\) entre 1 y 3, siempre se convergerá a un punto que es \\(x^*_2=1-1/r\\) .\n\nTal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo \\(r/4\\), pero al final se estabilizar en un valor menor que es igual a \\(x^*_2=1-1/r\\) .\n\n\n\n\n\n\n\n\n\nAñadamos unos gráficos para verlo mejor.\nEn este primero, vemos para un valor de \\(r=0.99\\) como la población va decreciendo iteración tras iteración hasta llegar al punto fijo \\(x=0\\)\n\n\n\n\n\n\n\n\n\nEn este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta \\(y=x\\)), a pesar de que el valor de \\(r\\) está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.\n\n\n\n\n\n\n\n\n\nPero, ¿qué pasa cuando subimos por encima de \\(r=3\\)?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para \\(r=3.01\\)? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento \\(r\\) es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.\n\n\n\n\n\n\n\n\n\nAunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para\\(r\\approx3\\). Algunos ejemplos son:\n\nMoscas de la carne (Lucilia cuprina). En los famosos experimentos de Nicholson sobre poblaciones de mosca de la carne en frascos, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones.\nEscarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron colonias de Tribolium en el laboratorio controlando sólo la tasa de natalidad por suministro de alimento. Se observó un ciclo bienal: una generación con números muy altos y la siguiente bastante más baja, en perfecta alternancia.\nDaphnia en estanques experimentales. Algunos estudios con pulgas de agua (Daphnia) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta.\nPeces capelán (Mallotus villosus). En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y un efecto de “sobrepoblación–agotamiento de recursos”.\n\nEn todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo\nEn el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estabilidad del mapa logístico</span>"
+    ]
+  },
+  {
     "objectID": "01-logistica/bifurcaciones.html",
     "href": "01-logistica/bifurcaciones.html",
-    "title": "5  Estudio formal del mapa logístico",
+    "title": "8  Primera bifurcación",
     "section": "",
-    "text": "5.1 Análisis de la función logística\nEn los siguientes apartados vamos a desentrañar desde un punto de vista matemático como se comporta el mapa logístico. Ya hemos visto en los apartados anteriores, vía simulación, que el comportamiento es muy errático dependiendo del valor de \\(r\\). Veamos por qué.\nPara empezar veremos la función logística y la analizaremos como haríamos con cualquier otra función para ver su forma. Para ello, recurrimos a las técnicas habituales de analisis de funciones.",
+    "text": "8.1 Primera bifurcación: duplicación de período en \\(r = 3\\). Análisis matemático\nTal y como vimos en la sección anterior cuando \\(r &gt; 3\\) el valor final de la sucesión logística alterna entre dos valores finales. Vamos a hacer un análisis matématico para explicar por qué pasa ésto.\nEn \\(r = 3\\), la derivada en el punto fijo \\(x^* = 1 - \\frac{1}{r}\\) se vuelve \\(-1\\), lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.\nSurgen dos nuevos puntos \\(p\\) y \\(q\\) que no son puntos fijos, sino puntos de período 2 tales que:\n\\[\nf(p) = q, \\quad f(q) = p\n\\]\nEs decir, si al mapa logístico se le alimenta con un valor \\(p\\), da como resultado un valor \\(q\\), que al ser metido otra vez en el mapa logístico da el valor \\(p\\) inicial.\nEsto significa que:\n\\[\nf(f(p)) = p\n\\]\nLo cual implica que \\(p\\) es un punto fijo del mapa iterado \\(f^2\\) (esta notación significa la composicion de una función con sigo misma \\(f^2()=f \\circ f = f(f())\\), no el cuadrado de la función)\nDado que \\(f(x) = r x (1 - x)\\), podemos escribir:\n\\[\nf(p) = r p (1 - p)\n\\]\nEntonces:\n\\[\nf(f(p)) = r \\cdot f(p) \\cdot (1 - f(p)) = r \\cdot [r p (1 - p)] \\cdot \\left[1 - r p (1 - p)\\right]\n\\]\nQueremos encontrar los puntos de período 2, así que igualamos:\n\\[\nf(f(p)) = p\n\\]\nHay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función \\(f^2()=f \\circ f = f(f())\\) y la función \\(y=x\\), y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.\nSigamos con la resolución analtíca. Para ello, desarrollamos completamente \\(f(f(p)) = p\\):\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nPasando todo al mismo lado:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) - p = 0\n\\]\nFactorizamos \\(p\\):\n\\[\np \\left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \\right] = 0\n\\]\nUna de las soluciones es \\(p = 0\\) (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.\nExpandimos el polinomio:\n\\[\nf(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nExpandimos paso a paso:\nEste polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
-    "objectID": "01-logistica/bifurcaciones.html#análisis-de-la-función-logística",
-    "href": "01-logistica/bifurcaciones.html#análisis-de-la-función-logística",
-    "title": "5  Estudio formal del mapa logístico",
+    "objectID": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático",
+    "href": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático",
+    "title": "8  Primera bifurcación",
     "section": "",
-    "text": "5.1.1 Dominio y ceros\n\nPor definición, el Dominio es: \\(0 \\le x \\le 1\\)\n\nEn este dominio los Ceros de la función están en:\n\n\\(f(0) = r \\cdot 0 \\cdot (1-0) = 0\\)\n\n\\(f(1) = r \\cdot 1 \\cdot (1-1) = 0\\)\n\n\n\n\n5.1.2 Derivada y monotonía\nPara conocer los máximos y mínimos primero hemos de calcular la derivada,\n\nDerivada:\n\\[f'(x) = r(1 - 2x)\\]\n\nLa derivada tiene una raíz en \\(x=1/2\\), independientemente del valor de \\(r\\). Por lo tanto, el signo de \\(f'(x)\\):\n\nSi \\(0 \\le x &lt; \\tfrac12\\), entonces \\(f'(x) &gt; 0\\) ⇒ creciente\n\nSi \\(x = \\tfrac12\\), entonces \\(f'(x) = 0\\)\n\nSi \\(\\tfrac12 &lt; x \\le 1\\), entonces \\(f'(x) &lt; 0\\) ⇒ decreciente\n\n\nDe acuerdo al estudio de la derivada, tenemos un punto crítico en \\(x = \\tfrac12\\). Puesto que la derivada pasa a ser creciente a decreciente en este punto, tenemos un máximo. La función, pues, tiene un valor máximo:\n\\[f\\bigl(\\tfrac12\\bigr) = \\frac{r}{4}\\]\nObservar que si \\(r&gt;4\\) entonces el máximo de la función es mayor que 1. Esto no puede darse, ya que la funcíón logística normaliza los recursos máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que no puede ocurrir físicamente), el valor de r siempre se establece por debajo de 4.\n\n\n5.1.3 Concavidad\n\nSegunda derivada:\n\\[f''(x) = -2r\\]\n\nComo \\(r&gt;0\\), \\(f''(x)&lt;0\\) en todo el dominio ⇒ cóncava hacia abajo\n\n\n\n5.1.4 Rango de la función\nDe acuerdo, al estudio anterior, la función es siempre positiva, con valores entre \\(0\\) y \\(\\tfrac{r}{4}\\)\nSi vamos a la sección con el diagrama de telaraña, veremos efectivamente esta forma de la función.\n\n\n5.1.5 Resumen gráfico\n\nParábola invertida con vértice en \\(\\bigl(\\tfrac12,\\tfrac{r}{4}\\bigr)\\)\n\nCrece de \\(x=0\\) a \\(x=\\tfrac12\\), luego decrece hasta \\(x=1\\)",
+    "text": "\\(f(p) = r p (1 - p)\\)\n\n\\(1 - f(p) = 1 - r p (1 - p)\\)\n\n\\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\\)\n\nMultiplicamos todo por \\(r^2 p\\)\n\nResulta en un polinomio de cuarto grado en \\(p\\)",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
-    "objectID": "01-logistica/bifurcaciones.html#término-genérico-del-mapa-logístico",
-    "href": "01-logistica/bifurcaciones.html#término-genérico-del-mapa-logístico",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "5.2 Término genérico del mapa logístico",
-    "text": "5.2 Término genérico del mapa logístico\nEn las sucesiones aritméticas y geométricas es fácil expresar el termino enésimo de la sucesión en función del primer término de la misma. Veamos:\nTérmino general de la sucesión aritmética\n\\[a_n = a_1 + (n-1)d\\] donde: - \\(a_1\\) es el primer término. - \\(d\\) es la diferencia común. - \\(n\\) es la posición del término.\nTérmino general de la sucesión geométrica\n\\[a_n = a_1 \\cdot r^{\\,n-1}\\] donde: - \\(a_1\\) es el primer término. - \\(r\\) es la razón común. - \\(n\\) es la posición del término.\n¿Podemos hacer lo mismo con el mapa logístico?. Hagamos las primeras iteraciones.\n\\[\nx_1 = r\\,x_0\\,(1 - x_0)\n\\]\n\\[\nx_2 = r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\n\\]\n\\[\nx_3 = r^3\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\n\\]\n\\[\nx_4 = r^4\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\,\n\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\n\\]\n\\[\n\\begin{aligned}\nx_5 =\\;& r^5\\,x_0\\,(1 - x_0)\\,\n\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\n\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\\\\n&\\times\\;\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\\\\\n&\\times\\;\\bigl(1 - r^4\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\,\\bigl(1 - r^3\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\,\\bigl(1 - r^2\\,x_0\\,(1 - x_0)\\,\\bigl(1 - r\\,x_0\\,(1 - x_0)\\bigr)\\bigr)\\bigr)\\bigr)\n\\end{aligned}\n\\]\nComo podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente \\(x_0\\) y de \\(r\\), pero a medida que iteramos, la expresión se vuelve muy complicada. A pesar de todo, hay que destacar que la función es puramente determinista. Es decir, se podría formular el valor de la iteración enésima en función de los valores de \\(x_0\\) y de \\(r\\).",
+    "objectID": "01-logistica/bifurcaciones.html#análisis-gráfico",
+    "href": "01-logistica/bifurcaciones.html#análisis-gráfico",
+    "title": "8  Primera bifurcación",
+    "section": "8.2 Análisis gráfico",
+    "text": "8.2 Análisis gráfico\nVamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con \\(r=2.9\\). Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta \\(y=x\\) en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada \\(f \\circ f\\). La recta \\(y=x\\) solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.\n\n\n\n\n\n\n\n\n\nY ahora veamos lo que pasa cuando \\(r=3.2\\). En este caso, la segunda iteración corta con la recta \\(y=x\\) en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
-    "objectID": "01-logistica/bifurcaciones.html#criterio-de-estabilidad",
-    "href": "01-logistica/bifurcaciones.html#criterio-de-estabilidad",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "5.3 Criterio de estabilidad",
-    "text": "5.3 Criterio de estabilidad\n\n5.3.1 Puntos fijos\nTal y como habíamos visto anteriormente, un punto fijo \\(x^*\\) satisface:\n\\[\nf(x^*) = x^*.\n\\]\nPara encontrar los puntos fijos de la función logística, resolvemos: \\[\nr\\,x\\,(1 - x) = x.\n\\] Llevando todos los términos a un lado: \\[\nr\\,x\\,(1 - x) - x = 0\n\\quad\\Longrightarrow\\quad\nx\\bigl(r\\,(1 - x) - 1\\bigr) = 0.\n\\] De aquí se obtienen dos soluciones: \\[x_1 = 0\\] y \\(x_2\\) tal que \\(r\\,(1 - x_2) - 1 = 0\\), es decir: \\[\n  1 - x_2 = \\frac{1}{r}\n  \\;\\Longrightarrow\\;\n  x_2 = 1 - \\frac{1}{r}.\n  \\]\n\n\n5.3.2 Evaluación de la derivada en los puntos fijos\nLa derivada de la función logística es:\n\\[\nf'(x) = r(1 - 2x).\n\\]\nY además, de la sección sobre los puntos fijos sabemos que un punto fijo es estable si \\(\\lvert f'(x^*)\\rvert &lt; 1\\).\n\nEn \\(x^*_1=0\\): \\(f'(0)=r\\). Estable si \\(0 &lt; r &lt; 1\\). Es decir, para valores de \\(r\\) comprendidos entre 0 y 1, el valor de \\(x=0\\) es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en \\(x=0\\). Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un \\(r&lt;1\\), veremos que la función lógistica solamente toca a la recta \\(y=x\\) en \\(x=0\\)\nEn \\(x^*_2=1-1/r\\): \\(f'(x^*_2)=2-r\\). Estable si \\(\\lvert2-r\\rvert&lt;1\\) → \\(1 &lt; r &lt; 3\\). Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de \\(x_0\\) que pongan para valores de \\(r\\) entre 1 y 3, siempre se convergerá a un punto que es \\(x^*_2=1-1/r\\) .\n\nTal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo \\(r/4\\), pero al final se estabilizar en un valor menor que es igual a \\(x^*_2=1-1/r\\) .\n\n\n\n\n\n\n\n\n\nAñadamos unos gráficos para verlo mejor.\nEn este primero, vemos para un valor de \\(r=0.99\\) como la población va decreciendo iteración tras iteración hasta llegar al punto fijo \\(x=0\\)\n\n\n\n\n\n\n\n\n\nEn este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta \\(y=x\\)), a pesar de que el valor de \\(r\\) está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.\n\n\n\n\n\n\n\n\n\nPero, ¿qué pasa cuando subimos por encima de \\(r=3\\)?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para \\(r=3.01\\)? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento \\(r\\) es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.\n\n\n\n\n\n\n\n\n\nAunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para\\(r\\approx3\\). Algunos ejemplos son:\n\nMoscas de la carne (Lucilia cuprina). En los famosos experimentos de Nicholson sobre poblaciones de mosca de la carne en frascos, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones.\nEscarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron colonias de Tribolium en el laboratorio controlando sólo la tasa de natalidad por suministro de alimento. Se observó un ciclo bienal: una generación con números muy altos y la siguiente bastante más baja, en perfecta alternancia.\nDaphnia en estanques experimentales. Algunos estudios con pulgas de agua (Daphnia) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta.\nPeces capelán (Mallotus villosus). En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y un efecto de “sobrepoblación–agotamiento de recursos”.\n\nEn todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo\nEn el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.",
+    "objectID": "01-logistica/bifurcaciones.html#analisis-de-estabilidad-de-la-primera-bifurcación",
+    "href": "01-logistica/bifurcaciones.html#analisis-de-estabilidad-de-la-primera-bifurcación",
+    "title": "8  Primera bifurcación",
+    "section": "8.3 Analisis de estabilidad de la primera bifurcación",
+    "text": "8.3 Analisis de estabilidad de la primera bifurcación\nEn primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es\n\\[\nf(x) = rx(1 - x),\n\\]\ny su iteración doble se define como\n\\[\nf^{(2)}(x) = f\\bigl(f(x)\\bigr).\n\\]\nQueremos hallar los valores de \\(x\\) que satisfacen\n\\[\nf^{(2)}(x) = x.\n\\]\n\n8.3.1 Expresión explícita de \\((f^{(2)}(x))\\)\nPrimero calculamos\n\\[\nf(x) = r x - r x^2.\n\\]\nLuego\n\\[\nf\\bigl(f(x)\\bigr)\n= r\\bigl(f(x)\\bigr)\\bigl(1 - f(x)\\bigr)\n= r\\bigl(r x - r x^2\\bigr)\\bigl(1 - (r x - r x^2)\\bigr)\n\\]\nPor tanto\n\\[\n   f^{(2)}(x)\n   = r\\,(r x - r x^2)\\,(1 - r x + r x^2)\n   = r^2\\,x\\,(1 - x)\\,(1 - r x + r x^2)\n   \\] En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.\n\n\n8.3.2 Ecuación para los puntos periódicos de período 1 o 2\nQueremos las soluciones de\n\\[\nf^{(2)}(x) - x = 0.\n\\]\nSabemos que las raíces de\n\\[\nf(x) - x = r x (1 - x) - x = 0\n\\]\ntambién anulan \\(f^{(2)}(x) - x\\). Esas raíces son: \\[x = 0\\] \\[x = \\dfrac{r - 1}{r}\\] Para aislar los de periodo 2, dividimos \\(f^{(2)}(x)-x\\) por \\(f(x)-x\\) y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable (\\(1&lt;r&lt;3\\)).\n\n\n8.3.3 Factorización y obtención de las raíces\nLos puntos de periodo 2 son raíces de\n\\[\nr^2\\,x^2 \\;-\\; (r^2 + r)\\,x \\;+\\; (r + 1) = 0.\n\\]\nLlamemos \\(x_1\\) y \\(x_2\\) a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:\n\\[\nx_1 = \\frac{r^2 + r + r\\sqrt{(r+1)(r-3)}}{2r^2}\n      = \\frac{r+1 + \\sqrt{(r+1)(r-3)}}{2r},\n\\]\n\\[\nx_2 = \\frac{r^2 + r - r\\sqrt{(r+1)(r-3)}}{2r^2}\n      = \\frac{r+1 - \\sqrt{(r+1)(r-3)}}{2r}.\n\\]\nObsérvese, que para \\(r=3\\), no hay dos soluciones, sino una, que coincide con el punto estable (\\(x=2/3\\)). Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso \\(1&lt;r&lt;3\\) . Es decir, cuando estábamos en la región estable \\(1&lt;r&lt;3\\), el punto de estabilidad final lo daba el cruce que la función logística con la recta \\(y=x\\), imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.\n\n\n8.3.4 Derivada de \\(f\\) y criterio de estabilidad\nSupongamos que \\((x_1,x_2)\\) es un ciclo de periodo 2, es decir\n\\[\nf(x_1)=x_2,\\qquad f(x_2)=x_1.\n\\]\nQueremos ver qué pasa si en lugar de empezar exactamente en \\(x_1\\) tomamos un punto “ligeramente” desviado:\n\\[\nx_1 + \\delta,\n\\]\ncon \\(\\delta\\) muy pequeño.\nAl aplicar \\(f\\) alrededor de \\(x_1\\), usamos la aproximación lineal:\n\\[\nf(x_1 + \\delta)\n\\approx f(x_1) + f'(x_1)\\,\\delta\n= x_2 + f'(x_1)\\,\\delta.\n\\]\nAsí, tras una iteración, nuestro error (desviación) se amplifica o reduce por el factor \\(f'(x_1)\\).\nAhora iteramos de nuevo, partiendo de\n\\[\nx_2 + f'(x_1)\\,\\delta.\n\\]\nOtra vez linealizamos en torno a \\(x_2\\):\n\\[\nf\\bigl(x_2 + f'(x_1)\\,\\delta\\bigr)\n\\approx f(x_2) + f'(x_2)\\,\\bigl(f'(x_1)\\,\\delta\\bigr)\n= x_1 + \\bigl[f'(x_2)\\,f'(x_1)\\bigr]\\,\\delta.\n\\]\nDespués de dos pasos (una vuelta completa al ciclo de período 2), la desviación original \\(\\delta\\) se convierte en\n\\[\n\\delta_{\\rm nuevo} = f'(x_2)\\,f'(x_1)\\,\\delta.\n\\]\nPor tanto, el factor que controla la estabilidad del ciclo de período 2 es precisamente\n\\[\n\\Lambda = f'(x_1)\\,f'(x_2).\n\\]\n\nSi \\(|\\Lambda|&lt;1\\), la desviación \\(\\delta\\) tiende a cero y el ciclo es estable.\n\nSi \\(|\\Lambda|&gt;1\\), la desviación crece y el ciclo es inestable.\n\nVeamos otra forma de calcularlo. Formalmente, la derivada de la composición \\(f^{(2)}=f\\circ f\\) se calcula con la regla de la cadena:\n\\[\n(f^{(2)})'(x)\n= f'(f(x))\\,f'(x).\n\\]\nSi evaluamos en \\(x=x_1\\), tenemos:\n\\[\n(f^{(2)})'(x_1)\n= f'(f(x_1))\\,f'(x_1)\n= f'(x_2)\\,f'(x_1),\n\\]\nque es exactamente el mismo producto que acabamos de entender con el argumento de las dos iteraciones sucesivas.\nPor lo tanto, el ciclo de periodo 2 es estable si\n\\[\n\\bigl|f'(x_1)\\,f'(x_2)\\bigr| &lt; 1.\n\\]\nVamos a proceder a evaluar el producto de derivadas en los puntos \\(x_1\\) y \\(x_2\\) calculados anteriormente. Recordemos: \\[\nx_1 = \\frac{r+1 + \\sqrt{(r+1)(r-3)}}{2r},\n\\qquad\nx_2 = \\frac{r+1 - \\sqrt{(r+1)(r-3)}}{2r},\n\\] y \\[\nf'(x) = r\\,(1 - 2x).\n\\]\n\nDerivada en (x_1)\n[\n\\[\\begin{aligned}\nf'(x_1)\n&= r\\Bigl(1 - 2\\,x_1\\Bigr)\n= r\\Bigl(1 - 2\\,\\frac{r+1 + \\sqrt{(r+1)(r-3)}}{2r}\\Bigr) \\\\[6pt]\n&= r\\Bigl(1 - \\frac{r+1 + \\sqrt{(r+1)(r-3)}}{r}\\Bigr)\n= r\\Bigl(\\frac{r - (r+1 + \\sqrt{(r+1)(r-3)})}{r}\\Bigr) \\\\[6pt]\n&= r\\;\\frac{-1 - \\sqrt{(r+1)(r-3)}}{r}\n= -1 \\;-\\;\\sqrt{(r+1)(r-3)}.\n\\end{aligned}\\]\n]\nDerivada en (x_2)\n[\n\\[\\begin{aligned}\nf'(x_2)\n&= r\\Bigl(1 - 2\\,x_2\\Bigr)\n= r\\Bigl(1 - 2\\,\\frac{r+1 - \\sqrt{(r+1)(r-3)}}{2r}\\Bigr) \\\\[6pt]\n&= r\\Bigl(1 - \\frac{r+1 - \\sqrt{(r+1)(r-3)}}{r}\\Bigr)\n= r\\Bigl(\\frac{r - (r+1 - \\sqrt{(r+1)(r-3)})}{r}\\Bigr) \\\\[6pt]\n&= r\\;\\frac{-1 + \\sqrt{(r+1)(r-3)}}{r}\n= -1 \\;+\\;\\sqrt{(r+1)(r-3)}.\n\\end{aligned}\\]\n]\nProducto de las derivadas\n[\n\\[\\begin{aligned}\nf'(x_1)\\,f'(x_2)\n&= \\bigl(-1 - \\sqrt{(r+1)(r-3)}\\bigr)\n   \\bigl(-1 + \\sqrt{(r+1)(r-3)}\\bigr) \\\\[6pt]\n&= (-1)^2 \\;-\\;\\bigl(\\sqrt{(r+1)(r-3)}\\bigr)^2\n= 1 \\;-\\;(r+1)(r-3) \\\\[4pt]\n&= 1 - \\bigl(r^2 - 2r - 3\\bigr)\n= -\\,r^2 + 2r + 4.\n\\end{aligned}\\]\n]\n\nLa bifurcación de periodo 2 a periodo 4 ocurre cuando el producto cruza \\(-1\\) (al graficar la función \\(f \\circ f\\) se observa que su derivada se va haciendo negativa en el punto de cruce con \\(y=x\\) a medida que aumentamos \\(r\\) ; por ello no igualamos a +1): \\[\n-r^2 + 2r + 4 = -1\n\\quad\\Longrightarrow\\quad\nr^2 - 2r - 5 = 0\n\\quad\\Longrightarrow\\quad\nr = 1 \\pm \\sqrt{6}.\n\\]\nDespreciando la solución negativa, tomamos\n\\[\nr_c = 1 + \\sqrt{6} \\approx 3.44949.\n\\]\nPor lo tanto, recopilando lo que tenemos hasta ahora:\n\nPara \\(0 &lt; r &lt; 1\\) la sucesión tiende a cero\nPara \\(1 &lt; r &lt; 3\\) la sucesión tiende a un punto final único\nPara \\(3 &lt; r &lt; (1 + \\sqrt{6})\\) tiende a dos puntos que se van alternando\n\n¿Qué pasará a partir de \\(r &gt; 1 + \\sqrt{6}\\) ?. Podríamos repetir el análisis que acabamos de realizar. Sin embargo, resulta muy farragoso matemáticamente, dado que el orden de los polinomios involucrados es muy grande. Por ello, vamos a recurrir a la simulación numérica en la siguiente sección.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
-    ]
-  },
-  {
-    "objectID": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
-    "href": "01-logistica/bifurcaciones.html#primera-bifurcación-duplicación-de-período-en-r-3",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "5.4 Primera bifurcación: duplicación de período en \\(r = 3\\)",
-    "text": "5.4 Primera bifurcación: duplicación de período en \\(r = 3\\)\n\n5.4.1 Análisis matemático\nEn \\(r = 3\\), la derivada en el punto fijo \\(x^* = 1 - \\frac{1}{r}\\) se vuelve \\(-1\\), lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.\nSurgen dos nuevos puntos \\(p\\) y \\(q\\) que no son puntos fijos, sino puntos de período 2 tales que:\n\\[\nf(p) = q, \\quad f(q) = p\n\\]\nEs decir, si al mapa logístico se le alimenta con un valor \\(p\\), da como resultado un valor \\(q\\), que al ser metido otra vez en el mapa logístico da el valor \\(p\\) inicial.\nEsto significa que:\n\\[\nf(f(p)) = p\n\\]\nLo cual implica que \\(p\\) es un punto fijo del mapa iterado \\(f^2\\) (esta notación significa la composicion de una función con sigo misma \\(f^2()=f \\circ f = f(f())\\), no el cuadrado de la función)\nDado que \\(f(x) = r x (1 - x)\\), podemos escribir:\n\\[\nf(p) = r p (1 - p)\n\\]\nEntonces:\n\\[\nf(f(p)) = r \\cdot f(p) \\cdot (1 - f(p)) = r \\cdot [r p (1 - p)] \\cdot \\left[1 - r p (1 - p)\\right]\n\\]\nQueremos encontrar los puntos de período 2, así que igualamos:\n\\[\nf(f(p)) = p\n\\]\nHay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función \\(f^2()=f \\circ f = f(f())\\) y la función \\(y=x\\), y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.\nSigamos con la resolución analtíca. Para ello, desarrollamos completamente \\(f(f(p)) = p\\):\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nPasando todo al mismo lado:\n\\[\nr^2 p (1 - p)(1 - r p (1 - p)) - p = 0\n\\]\nFactorizamos \\(p\\):\n\\[\np \\left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \\right] = 0\n\\]\nUna de las soluciones es \\(p = 0\\) (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.\nExpandimos el polinomio:\n\\[\nf(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p\n\\]\nExpandimos paso a paso:\n\n\\(f(p) = r p (1 - p)\\)\n\n\\(1 - f(p) = 1 - r p (1 - p)\\)\n\n\\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\\)\n\nMultiplicamos todo por \\(r^2 p\\)\n\nResulta en un polinomio de cuarto grado en \\(p\\)\n\nEste polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.\n\n\n5.4.2 Análisis gráfico\nVamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con \\(r=2.9\\). Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta \\(y=x\\) en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada \\(f \\circ f\\). La recta \\(y=x\\) solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.\n\n\n\n\n\n\n\n\n\nY ahora veamos lo que pasa cuando \\(r=3.2\\). En este caso, la segunda iteración corta con la recta \\(y=x\\) en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.\n\n\n\n\n\n\n\n\n\n\n\n5.4.3 Analisis de estabilidad de la primera bifurcación\nEn primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es\n\\[\nf(x) = rx(1 - x),\n\\]\ny su iteración doble se define como\n\\[\nf^{(2)}(x) = f\\bigl(f(x)\\bigr).\n\\]\nQueremos hallar los valores de \\(x\\) que satisfacen\n\\[\nf^{(2)}(x) = x.\n\\]\n\n5.4.3.1 Expresión explícita de \\((f^{(2)}(x))\\)\nPrimero calculamos\n\\[\nf(x) = r x - r x^2.\n\\]\nLuego\n\\[\nf\\bigl(f(x)\\bigr)\n= r\\bigl(f(x)\\bigr)\\bigl(1 - f(x)\\bigr)\n= r\\bigl(r x - r x^2\\bigr)\\bigl(1 - (r x - r x^2)\\bigr)\n\\]\nPor tanto\n\\[\n   f^{(2)}(x)\n   = r\\,(r x - r x^2)\\,(1 - r x + r x^2)\n   = r^2\\,x\\,(1 - x)\\,(1 - r x + r x^2)\n   \\] En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.\n\n\n5.4.3.2 Ecuación para los puntos periódicos de período 1 o 2\nQueremos las soluciones de\n\\[\nf^{(2)}(x) - x = 0.\n\\]\nSabemos que las raíces de\n\\[\nf(x) - x = r x (1 - x) - x = 0\n\\]\ntambién anulan \\(f^{(2)}(x) - x\\). Esas raíces son: \\[x = 0\\] \\[x = \\dfrac{r - 1}{r}\\] Para aislar los de periodo 2, dividimos \\(f^{(2)}(x)-x\\) por \\(f(x)-x\\) y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable (\\(1&lt;r&lt;3\\)).\n\n\n5.4.3.3 Factorización y obtención de las raíces\nLos puntos de periodo 2 son raíces de\n\\[\nr^2\\,x^2 \\;-\\; (r^2 + r)\\,x \\;+\\; (r + 1) = 0.\n\\]\nLlamemos \\(x_1\\) y \\(x_2\\) a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:\n\\[\nx_1 = \\frac{r^2 + r + r\\sqrt{(r+1)(r-3)}}{2r^2}\n      = \\frac{r+1 + \\sqrt{(r+1)(r-3)}}{2r},\n\\]\n\\[\nx_2 = \\frac{r^2 + r - r\\sqrt{(r+1)(r-3)}}{2r^2}\n      = \\frac{r+1 - \\sqrt{(r+1)(r-3)}}{2r}.\n\\]\nObsérvese, que para \\(r=3\\), no hay dos soluciones, sino una, que coincide con el punto estable (\\(x=2/3\\)). Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso \\(1&lt;r&lt;3\\) . Es decir, cuando estábamos en la región estable \\(1&lt;r&lt;3\\), el punto de estabilidad final lo daba el cruce que la función logística con la recta \\(y=x\\), imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.\n\n\n5.4.3.4 Derivada de \\(f\\) y criterio de estabilidad\nSupongamos que \\((x_1,x_2)\\) es un ciclo de periodo 2, es decir\n\\[\nf(x_1)=x_2,\\qquad f(x_2)=x_1.\n\\]\nQueremos ver qué pasa si en lugar de empezar exactamente en \\(x_1\\) tomamos un punto “ligeramente” desviado:\n\\[\nx_1 + \\delta,\n\\]\ncon \\(\\delta\\) muy pequeño.\nAl aplicar \\(f\\) alrededor de \\(x_1\\), usamos la aproximación lineal:\n\\[\nf(x_1 + \\delta)\n\\approx f(x_1) + f'(x_1)\\,\\delta\n= x_2 + f'(x_1)\\,\\delta.\n\\]\nAsí, tras una iteración, nuestro error (desviación) se amplifica o reduce por el factor \\(f'(x_1)\\).\nAhora iteramos de nuevo, partiendo de\n\\[\nx_2 + f'(x_1)\\,\\delta.\n\\]\nOtra vez linealizamos en torno a \\(x_2\\):\n\\[\nf\\bigl(x_2 + f'(x_1)\\,\\delta\\bigr)\n\\approx f(x_2) + f'(x_2)\\,\\bigl(f'(x_1)\\,\\delta\\bigr)\n= x_1 + \\bigl[f'(x_2)\\,f'(x_1)\\bigr]\\,\\delta.\n\\]\nDespués de dos pasos (una vuelta completa al ciclo de período 2), la desviación original \\(\\delta\\) se convierte en\n\\[\n\\delta_{\\rm nuevo} = f'(x_2)\\,f'(x_1)\\,\\delta.\n\\]\nPor tanto, el factor que controla la estabilidad del ciclo de período 2 es precisamente\n\\[\n\\Lambda = f'(x_1)\\,f'(x_2).\n\\]\n\nSi \\(|\\Lambda|&lt;1\\), la desviación \\(\\delta\\) tiende a cero y el ciclo es estable.\n\nSi \\(|\\Lambda|&gt;1\\), la desviación crece y el ciclo es inestable.\n\nVeamos otra forma de calcularlo. Formalmente, la derivada de la composición \\(f^{(2)}=f\\circ f\\) se calcula con la regla de la cadena:\n\\[\n(f^{(2)})'(x)\n= f'(f(x))\\,f'(x).\n\\]\nSi evaluamos en \\(x=x_1\\), tenemos:\n\\[\n(f^{(2)})'(x_1)\n= f'(f(x_1))\\,f'(x_1)\n= f'(x_2)\\,f'(x_1),\n\\]\nque es exactamente el mismo producto que acabamos de entender con el argumento de las dos iteraciones sucesivas.\nPor lo tanto, el ciclo de periodo 2 es estable si\n\\[\n\\bigl|f'(x_1)\\,f'(x_2)\\bigr| &lt; 1.\n\\]\nVamos a proceder a evaluar el producto de derivadas en los puntos \\(x_1\\) y \\(x_2\\) calculados anteriormente. Recordemos: \\[\nx_1 = \\frac{r+1 + \\sqrt{(r+1)(r-3)}}{2r},\n\\qquad\nx_2 = \\frac{r+1 - \\sqrt{(r+1)(r-3)}}{2r},\n\\] y \\[\nf'(x) = r\\,(1 - 2x).\n\\]\n\nDerivada en (x_1)\n[\n\\[\\begin{aligned}\nf'(x_1)\n&= r\\Bigl(1 - 2\\,x_1\\Bigr)\n= r\\Bigl(1 - 2\\,\\frac{r+1 + \\sqrt{(r+1)(r-3)}}{2r}\\Bigr) \\\\[6pt]\n&= r\\Bigl(1 - \\frac{r+1 + \\sqrt{(r+1)(r-3)}}{r}\\Bigr)\n= r\\Bigl(\\frac{r - (r+1 + \\sqrt{(r+1)(r-3)})}{r}\\Bigr) \\\\[6pt]\n&= r\\;\\frac{-1 - \\sqrt{(r+1)(r-3)}}{r}\n= -1 \\;-\\;\\sqrt{(r+1)(r-3)}.\n\\end{aligned}\\]\n]\nDerivada en (x_2)\n[\n\\[\\begin{aligned}\nf'(x_2)\n&= r\\Bigl(1 - 2\\,x_2\\Bigr)\n= r\\Bigl(1 - 2\\,\\frac{r+1 - \\sqrt{(r+1)(r-3)}}{2r}\\Bigr) \\\\[6pt]\n&= r\\Bigl(1 - \\frac{r+1 - \\sqrt{(r+1)(r-3)}}{r}\\Bigr)\n= r\\Bigl(\\frac{r - (r+1 - \\sqrt{(r+1)(r-3)})}{r}\\Bigr) \\\\[6pt]\n&= r\\;\\frac{-1 + \\sqrt{(r+1)(r-3)}}{r}\n= -1 \\;+\\;\\sqrt{(r+1)(r-3)}.\n\\end{aligned}\\]\n]\nProducto de las derivadas\n[\n\\[\\begin{aligned}\nf'(x_1)\\,f'(x_2)\n&= \\bigl(-1 - \\sqrt{(r+1)(r-3)}\\bigr)\n   \\bigl(-1 + \\sqrt{(r+1)(r-3)}\\bigr) \\\\[6pt]\n&= (-1)^2 \\;-\\;\\bigl(\\sqrt{(r+1)(r-3)}\\bigr)^2\n= 1 \\;-\\;(r+1)(r-3) \\\\[4pt]\n&= 1 - \\bigl(r^2 - 2r - 3\\bigr)\n= -\\,r^2 + 2r + 4.\n\\end{aligned}\\]\n]\n\nLa bifurcación de periodo 2 a periodo 4 ocurre cuando el producto cruza \\(-1\\) (al graficar la función \\(f \\circ f\\) se observa que su derivada se va haciendo negativa en el punto de cruce con \\(y=x\\) a medida que aumentamos \\(r\\) ; por ello no igualamos a +1): \\[\n-r^2 + 2r + 4 = -1\n\\quad\\Longrightarrow\\quad\nr^2 - 2r - 5 = 0\n\\quad\\Longrightarrow\\quad\nr = 1 \\pm \\sqrt{6}.\n\\]\nDespreciando la solución negativa, tomamos\n\\[\nr_c = 1 + \\sqrt{6} \\approx 3.44949.\n\\]\nPor lo tanto, recopilando lo que tenemos hasta ahora:\n\nPara \\(0 &lt; r &lt; 1\\) la sucesión tiende a cero\nPara \\(1 &lt; r &lt; 3\\) la sucesión tiende a un punto final único\nPara \\(3 &lt; r &lt; (1 + \\sqrt{6})\\) tiende a dos puntos que se van alternando\n\n¿Qué pasará a partir de \\(r &gt; 1 + \\sqrt{6}\\) ?",
-    "crumbs": [
-      "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#cálculo-de-iteraciones",
     "href": "01-logistica/bifurcaciones.html#cálculo-de-iteraciones",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "5.5 5. Cálculo de iteraciones",
-    "text": "5.5 5. Cálculo de iteraciones",
+    "title": "8  Primera bifurcación",
+    "section": "8.4 5. Cálculo de iteraciones",
+    "text": "8.4 5. Cálculo de iteraciones",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#comportamientos-según-r",
     "href": "01-logistica/bifurcaciones.html#comportamientos-según-r",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "6.1 6. Comportamientos según \\(r\\)",
-    "text": "6.1 6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas",
+    "title": "8  Primera bifurcación",
+    "section": "9.1 6. Comportamientos según \\(r\\)",
+    "text": "9.1 6. Comportamientos según \\(r\\)\n\n\n\nRango de \\(r\\)\nComportamiento\n\n\n\n\n\\(0 &lt; r &lt; 1\\)\nConvergencia a \\(0\\)\n\n\n\\(1 &lt; r &lt; 3\\)\nConvergencia a \\(1 - 1/r\\)\n\n\n\\(3 \\le r &lt; 3.449\\)\nCiclo de periodo 2\n\n\n\\(3.449 \\le r &lt; 3.544\\)\nCiclo de periodo 4\n\n\n\\(3.544 \\le r &lt; 3.56995\\)\nCiclos de periodos 8, 16, 32, …\n\n\n\\(3.56995 &lt; r \\le 4\\)\nRégimen caótico con ventanas periódicas",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
     "href": "01-logistica/bifurcaciones.html#duplicación-de-periodo-y-constante-de-feigenbaum",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "6.2 7. Duplicación de periodo y constante de Feigenbaum",
-    "text": "6.2 7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales.",
+    "title": "8  Primera bifurcación",
+    "section": "9.2 7. Duplicación de periodo y constante de Feigenbaum",
+    "text": "9.2 7. Duplicación de periodo y constante de Feigenbaum\nConforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo:\n\n\\(r_1=3.0\\) → periodo 2\n\\(r_2 \\approx 3.449\\) → periodo 4\n\\(r_3 \\approx 3.544\\) → periodo 8 …\n\nLa sucesión \\(\\{r_n\\}\\) converge a:\n\\[\nr_\\infty \\approx 3.56995.\n\\]\nDefinimos \\(\\Delta r_n = r_n - r_{n-1}\\). La razón\n\\[\n\\lim_{n \\to \\infty} \\frac{\\Delta r_{n-1}}{\\Delta r_n} = \\delta \\approx 4.6692\\dots\n\\]\nes la constante de Feigenbaum, universal en mapas unimodales.",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#diagrama-de-bifurcación",
     "href": "01-logistica/bifurcaciones.html#diagrama-de-bifurcación",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "6.3 8. Diagrama de bifurcación",
-    "text": "6.3 8. Diagrama de bifurcación",
+    "title": "8  Primera bifurcación",
+    "section": "9.3 8. Diagrama de bifurcación",
+    "text": "9.3 8. Diagrama de bifurcación",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#caos-y-ventanas-periódicas",
     "href": "01-logistica/bifurcaciones.html#caos-y-ventanas-periódicas",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "6.4 9. Caos y ventanas periódicas",
-    "text": "6.4 9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n6.4.1 9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)",
+    "title": "8  Primera bifurcación",
+    "section": "9.4 9. Caos y ventanas periódicas",
+    "text": "9.4 9. Caos y ventanas periódicas\nCuando el parámetro supera el umbral de acumulación de bifurcaciones\n\\[\nr_\\infty \\approx 3.56995,\n\\]\nel mapa entra en un régimen caótico caracterizado por varias propiedades fundamentales:\n\nSensibilidad a las condiciones iniciales.\n\nDos valores iniciales muy cercanos \\(x_0\\) y \\(x_0+\\epsilon\\) se separan exponencialmente con el tiempo.\nSe define el exponente de Lyapunov:\n\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|.\n\\]\nSi \\(\\lambda &gt; 0\\), las trayectorias divergen.\nEstructura fractal y autosemejanza.\n\nAun en la región caótica, aparecen ventanas periódicas donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de \\(r\\approx3.828\\)).\n\nTeorema Li–Yorke.\n\nLa existencia de un ciclo de período 3 implica ciclos de todos los períodos.\n\n\n\n9.4.1 9.1 Diagrama detallado para \\(r &gt; r_\\infty\\)",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
     ]
   },
   {
     "objectID": "01-logistica/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
     "href": "01-logistica/bifurcaciones.html#conclusión-y-siguientes-pasos-conclusión-y-siguientes-pasos",
-    "title": "5  Estudio formal del mapa logístico",
-    "section": "6.5 10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
-    "text": "6.5 10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```",
+    "title": "8  Primera bifurcación",
+    "section": "9.5 10. Conclusión y siguientes pasos Conclusión y siguientes pasos",
+    "text": "9.5 10. Conclusión y siguientes pasos Conclusión y siguientes pasos\n\nImplementa el mapa en Python, R o Excel.\nExperimenta con distintos \\(r\\) y \\(x_0\\).\nVisualiza cobweb plots y diagramas de bifurcación.\nEstudia la constante de Feigenbaum en otros mapas unimodales.\n\n```",
     "crumbs": [
       "Introducción al Caos a través de la Función Logística",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estudio formal del mapa logístico</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Primera bifurcación</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/simulacion.html",
+    "href": "01-logistica/simulacion.html",
+    "title": "9  Bifurcaciones sucesivas",
+    "section": "",
+    "text": "En el siguiente diagrama interactivo se muestra el valor final del mapa logístico para distintos valores de la tasa de crecimiento \\(r\\). El usuario puede jugar con los valores de \\(r\\), el valor inicial de \\(x\\) y el número de iteraciones hasta un máximo de 500 iteraciones.\n\n\n\n  \n\n\n\nEl primer detalle que no pasa desapercibido es ver como los valores máximos y mínimos están constreñidos entre dos curvas perfectamente definidas. En la siguiente gráfica se puede apreciar que el máximo que alcanza para cada valor de \\(r\\) es precisamente \\(r/4\\) tal y como habíamos calculado en la sección en la que hicimos el análisis formal del mapa logístico. Y su valor mínimo es la iteración del valor máximo, es decir \\(r^2/4(1-r/4)\\). Solamente cuando \\(r=4\\) se cubre todo el rango de valores desde 0 hasta 1.\n\n\n\n\n\n\n\n\n\nSigamos con el análisis visual del gráfico. Conforme \\(r\\) crece, aparecen bifurcaciones que duplican el periodo sucesivamente:\n\n\\(r_1=3.0\\) → periodo 2. Analizada en la sección anterior.\n\\(r_2 \\approx 3.449\\) → periodo 4. Tal y como vimos en la sección anterior para \\(r = 1 + \\sqrt{6}\\), la primera bifurcación deja de ser estable y vemos que aparece una bifurcación adicional, por lo que el valor final del mapa lógístico alterna entre 4 valores finales.\n\\(r_3 \\approx 3.544\\) → periodo 8. Aparece una nueva bifurcación y ahora el valor final del mapa lógístico alterna entre 8 valores finales.\n\nVamos a hacer un zoom a la zona con \\(r\\) entre 3.4 y 3.6 para ver que pasa con más detalle a partir de \\(r_3 \\approx 3.544\\)\n\n\n\n\n\n\n\n\n\nVemos un montón de bifurcaciones (periodo 2, 4, 8, 16). Vamos a hacer un zoom adicional a la zona con \\(r\\) comprendido entre 3.449 y 3.56995.\n\n\n\n\n\n\n\n\n\nVemos ahora mejor las primerasbifurcaciones (periodo 2, 4, 8, 16). Parece que el valor final de la función logística va creando sucesivamente nuevos ciclos, hasta que llegamos a un valor cercano a 3.57 (3.56995 para ser más exactos). A partid de este valor de \\(r\\) dejan de verse claramente oscilaciones periódicas, y pasamos al régimen caótico. Vamos a hacer un zoom adicional a la zona con \\(r\\) comprendido entre 3.56 y 3.575.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Bifurcaciones sucesivas</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/Caos.html",
+    "href": "01-logistica/Caos.html",
+    "title": "10  Caos",
+    "section": "",
+    "text": "10.1 División en bandas\nComo dijimos en la seccíón anterior, a partir de \\(r_\\infty \\approx 3.56995\\), el mapa logístico entra en un régimen caótico. Para \\(r &lt; r_\\infty\\), aparecían sucesivas bifurcaciones de periodo \\(1 \\to 2 \\to 4 \\to 8 \\to \\cdots\\). En \\(r = r_\\infty\\), esas bifurcaciones se acumulan y ya no hay ciclos periódicos finitos: el valor final se vuelve errático. Sin embargo a medida que vamos observando el mapa aparecen comportamientos extraños.\nJusto tras \\(r_\\infty\\), la zona caótica se parte en dos bandas disjuntas: en el diagrama de bifurcación aparecen dos hileras de puntos con un hueco entre ellas.\nA medida que subimos \\(r\\), esas dos bandas se bifurcan en 4, luego en 8, repitiendo la misma lógica de duplicación pero sobre la estructura del caos.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/Caos.html#ventanas-de-periodicidad",
+    "href": "01-logistica/Caos.html#ventanas-de-periodicidad",
+    "title": "10  Caos",
+    "section": "10.2 Ventanas de periodicidad",
+    "text": "10.2 Ventanas de periodicidad\nEn medio del caos surgen islas de orden donde aparece un ciclo estable de periodo \\(k\\) (por ejemplo, un ciclo de orden 3 alrededor de \\(r\\approx3.828\\)).\n\n\n\n\n\n\n\n\n\nDentro de cada ventana periódica se reproduce una mini-cascada de duplicación de periodo \\(k \\to 2k \\to 4k \\to \\cdots\\). Lo mismo que teníamos en la zona \\(3 &lt; r &lt; 3.56995\\) pero ahora dentro de la zona caótica. Vemos como el caos da paso de nuevo a las órbitas periódicas",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/Caos.html#repetición-infinita",
+    "href": "01-logistica/Caos.html#repetición-infinita",
+    "title": "10  Caos",
+    "section": "10.3 Repetición infinita",
+    "text": "10.3 Repetición infinita\nLas ventanas de periodicidad están infinitamente repetidas: en cada fragmento de la región caótica, por pequeño que sea, habrá alguna ventana donde emerja un ciclo estable.\nAsí vemos como enre 3.73 y 3.76 aparecen un ciclo de período 5.\n\n\n\n\n\n\n\n\n\nSi nos centramos en los valores de x alrededor de 0.5, vemos claramente el diagrama de bifurcación inicial replicado aquí, con tan solo 1000 iteraciones.\n\n\n\n\n\n\n\n\n\nY dentro de esta replicación del diagrama de bifurcación original, podemos encontrar el ciclo de periodo 5 de nuevo, en los valores de \\(r\\) comprendidos entre 3.74431 y 3.74433.\n\n\n\n\n\n\n\n\n\nY de nuevo, cogemos la replicación del diagrama de bifurcación original alrededor de 0.5 y nos encontramos con el ciclo de periodo 5 de nuevo, en los valores de \\(r\\) comprendidos entre 3.74432144 y 3.744321455. Cada vez necesitaremos más iteraciones para apreciar el diagrama de bifurcación original. De hecho, para plotear esta última gráfica se han requerido 100.000 iteraciones\n\n\n\n\n\n\n\n\n\nHaciendo de nuevo zoom en torno a 0.5, vemos como aparece el diagrama de bifurcación original, tras 1.000.000 de iteraciones.\n\n\n\n\n\n\n\n\n\nPodemos seguir así infinitamente. Lo que hemos encontrado es una estructura fractal.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Caos</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html",
+    "href": "01-logistica/lyapunov.html",
+    "title": "11  Efecto mariposa",
+    "section": "",
+    "text": "11.1 Sensibilidad a las condiciones iniciales\nCuando estamos en la zona estable del mapa logístico, desde cualquier valor de \\(x_0\\) del que partamos, llegaremos siempre hasta el mismo valor final, bien sea el punto fijo que hemos calculado previamente, o cualquiera de los valores de las órbitas periódicas. Por ejemplo, para \\(r=2.8\\)\nY para \\(r=3.1\\), vemos como también los puntos alcanzados son los mismos para valores próximos de inicio de la sucesión.\nEn los dos casos anteriores, no parece que la evolución del sistema sea sensible a la condición inicial de partida. Tras unas pocas iteraciones, da igual de donde se parta, que se converge al mismo punto.\nPero, ¿qué pasa cuando estamos en las zonas caóticas?. Veamos la iteración del mapa logístico para \\(r=3.69\\) partiendo de dos valores muy similares, que solo se separan en \\(10^{-5}\\) unidades.\nA la vista del gráfico, vemos como a partir de la iteración 10 empiezan a haber pequeñas diferencias que se van amplificando a medida que avanza la simulación. Aquí vemos que sí que empieza a haber sensibilidad a las condiciones iniciales.\nProbemos con una diferencia de valores iniciales aún mas pequeña, en este caso \\(10^{-7}\\) unidades.\nAhora la separación de ambas simulaciones se produce a partir de la iteración número 30. Vamos con una diferencia aún mas pequeña, ahora \\(10^{-10}\\) unidades.\nLa separación entre ambas curvas empieza a hacerse visible a partir de la iteración 50. ¿Qué pasa si hacemos la diferencia aún más pequeña, en este caso \\(10^{-15}\\) unidades?. Pues como vemos en la siguiente gráfica, a partir de la iteración 85 empezamos a ver la divergencia de ambas sucesiones.\n¿Qué está pasando aquí?. ¿Cómo puede ser que dos valores iniciales que se diferencian en un valor tan pequeño como \\(10^{-15}\\) unidades den valores tan diferentes tras 100 iteraciones?. Si las unidades fueran metros, estaríamos hablando de una diferencia de un femtómetro. Y aún más importante: si quiero simular un sistema físico como éste en la región caótica, ¿cómo voy a poder medir su condición inicial con tal precisión?. De hecho, parece que la precisión requerida sería infinita. A poco que me equivoque en la estimación de la condición inicial, no voy a poder calcular bien su estado final pasado un número grande de iteraciones. ¿Cómo puede ser si mi sistema es determinista y está regido por una ecuación tan sencilla?. Hemos topado con el caos y el efecto mariposa. Y lo inquietante es que este fenómeno se da en sistemas físicos como la meteorología.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#partimos-del-concepto-de-error-inicial",
+    "href": "01-logistica/lyapunov.html#partimos-del-concepto-de-error-inicial",
+    "title": "11  Efecto mariposa",
+    "section": "11.3 2. Partimos del concepto de error inicial",
+    "text": "11.3 2. Partimos del concepto de error inicial\n\nSea \\(x_0\\) el estado “verdadero” del sistema en el tiempo inicial.\n\nTu medida real tiene un pequeño error \\(\\delta_0\\), de modo que en realidad partes de\n\\[\n  x_0 + \\delta_0,\n  \\quad\\text{con}\\;|\\delta_0|\\ll 1.\n\\]\n\nEse \\(\\delta_0\\) es tan pequeño que, al principio, los dos estados están casi juntos.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#cómo-evoluciona-el-error",
+    "href": "01-logistica/lyapunov.html#cómo-evoluciona-el-error",
+    "title": "11  Efecto mariposa",
+    "section": "11.3 3. Cómo evoluciona el error",
+    "text": "11.3 3. Cómo evoluciona el error\nSupón que el sistema avanza según una regla \\(f\\), es decir: \\[\nx_{n+1} = f(x_n).\n\\] Queremos ver qué sucede con \\(\\delta_n\\), la diferencia en el paso \\(n\\). Para ello:\n\nLinealizamos la función \\(f\\) alrededor de \\(x_n\\).\nSi \\(f\\) es suave, podemos aproximar \\[\n  f(x_n + \\delta_n)\n  \\approx f(x_n)\n       + f'(x_n)\\,\\delta_n,\n\\] donde \\(f'(x_n)\\) es la derivada (o pendiente) de \\(f\\) en \\(x_n\\).\nDe esta aproximación se deduce que \\[\n  \\delta_{n+1}\n  = f(x_n + \\delta_n) - f(x_n)\n  \\approx f'(x_n)\\,\\delta_n.\n\\]",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#producto-de-factores-de-estiramiento",
+    "href": "01-logistica/lyapunov.html#producto-de-factores-de-estiramiento",
+    "title": "11  Efecto mariposa",
+    "section": "11.3 4. Producto de factores de estiramiento",
+    "text": "11.3 4. Producto de factores de estiramiento\nSi repetimos la relaciones anterior paso a paso obtenemos: \\[\n\\begin{aligned}\n  \\delta_1 &\\approx f'(x_0)\\,\\delta_0,\\\\\n  \\delta_2 &\\approx f'(x_1)\\,\\delta_1\n            = f'(x_1)\\,f'(x_0)\\,\\delta_0,\\\\\n  &\\vdots\\\\\n  \\delta_n &\\approx \\Bigl(\\prod_{k=0}^{n-1} f'(x_k)\\Bigr)\\,\\delta_0.\n\\end{aligned}\n\\]\nCada factor \\(f'(x_k)\\) nos dice cuánto se “estira” el error en la iteración \\(k\\).",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#de-producto-a-suma-uso-de-logaritmos",
+    "href": "01-logistica/lyapunov.html#de-producto-a-suma-uso-de-logaritmos",
+    "title": "11  Efecto mariposa",
+    "section": "11.4 5. De producto a suma: uso de logaritmos",
+    "text": "11.4 5. De producto a suma: uso de logaritmos\nPara manejar productos es muy útil usar los logaritmos, porque transforman productos en sumas: \\[\n\\ln\\bigl(\\delta_n/\\delta_0\\bigr)\n= \\ln\\Bigl(\\prod_{k=0}^{n-1} f'(x_k)\\Bigr)\n= \\sum_{k=0}^{n-1}\\ln\\bigl|f'(x_k)\\bigr|.\n\\]",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#definición-del-exponente-de-lyapunov-lambda",
+    "href": "01-logistica/lyapunov.html#definición-del-exponente-de-lyapunov-lambda",
+    "title": "11  Efecto mariposa",
+    "section": "11.5 Definición del exponente de Lyapunov \\(\\lambda\\)",
+    "text": "11.5 Definición del exponente de Lyapunov \\(\\lambda\\)\nSabemos según la fórmula anterior, cuánto ha crecido el error en \\(n\\) iteraciones. Ahora bien, estaría mejor saber cuanto crece de media por cada iteración. Para ello, solo tenemos que dividir la suma anterior entre \\(n\\).\n\\[\n\\frac{1}{n}\\,\\sum_{k=0}^{n-1}\\ln\\bigl|f'(x_k)\\bigr|.\n\\]\nAhora vamos a suponer que la simulación es muy larga y que queremos hacer un promedio. Para ello tomamos el límite cuando \\(n\\to\\infty\\) de la expresión anterior: \\[\n\\lambda\n= \\lim_{n\\to\\infty}\n\\frac{1}{n}\\,\\sum_{k=0}^{n-1}\\ln\\bigl|f'(x_k)\\bigr|.\n\\]\nEste factor \\(\\lambda\\) es lo que crece de media el error en cada iteración en mi sistema. LO que crece de forma logarítmica. Lo que crece realmente en magnitud en cada iteración es \\(e^\\lambda\\)\n\nSi \\(\\lambda&gt;0\\), el error crece con cada iteracion, puesto que el número \\(e\\) elevado a un valor positivo siempre da un número mayor que 1. Puesto que multiplico mi error por un número mayor que 1, el error va creciendo iteración tras iteración (\\(e^\\lambda\\)\\(e^\\lambda\\)\\(e^\\lambda\\)……=\\((e^\\lambda)^n\\)=\\(a^n\\) con \\(a&gt;1\\)) . Crece por lo tanto exponencialmente, y el sistema es caótico (muy sensible a la precisión inicial).\nSi \\(\\lambda&lt;0\\), el error se atenúa y las trayectorias convergen (sistema estable).La argumentación es justa la contraria del caso anterior. El número \\(e\\) elevado a un valor negativo siempre da un número menor que 1.\nSi \\(\\lambda=0\\), estamos en un caso límite de inestabilidad neutra.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#interpretación-práctica",
+    "href": "01-logistica/lyapunov.html#interpretación-práctica",
+    "title": "11  Efecto mariposa",
+    "section": "11.6 7. Interpretación práctica",
+    "text": "11.6 7. Interpretación práctica\nDe la definición se desprende que, para grandes \\(n\\), \\[\n\\ln\\bigl(\\delta_n/\\delta_0\\bigr)\\approx \\lambda\\,n\n\\quad\\Longrightarrow\\quad\n\\delta_n\\approx \\delta_0\\,e^{\\lambda\\,n}.\n\\] - Un \\(\\lambda=0.5\\) significa que cada paso multiplica el error por \\(e^{0.5}\\approx1.65\\).\n- Un \\(\\lambda=\\ln 2\\approx0.693\\) (como sucede en el mapa logístico para \\(r=4\\)) duplica el error en cada iteración: \\(\\delta_n\\approx\\delta_0\\,2^n\\).",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#ejemplo-sencillo-mapa-logístico-r4",
+    "href": "01-logistica/lyapunov.html#ejemplo-sencillo-mapa-logístico-r4",
+    "title": "11  Efecto mariposa",
+    "section": "11.7 8. Ejemplo sencillo: mapa logístico (\\(r=4\\))",
+    "text": "11.7 8. Ejemplo sencillo: mapa logístico (\\(r=4\\))\nEn el mapa logístico \\[\nx_{n+1} = 4\\,x_n\\,(1 - x_n),\n\\] la derivada es\n\\[\nf'(x) = 4\\,(1 - 2x).\n\\] Se puede demostrar (por integración sobre la distribución de puntos) que\n\\[\n\\lambda\n= \\int_0^1 \\frac{1}{\\pi\\sqrt{x(1-x)}}\\,\n  \\ln\\bigl|4(1 - 2x)\\bigr|\\,dx\n= \\ln 2.\n\\] Por tanto, los errores crecen como \\(2^n\\):",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
     ]
   },
   {
     "objectID": "02-pendulo-doble/_index.html",
     "href": "02-pendulo-doble/_index.html",
-    "title": "6  Caos: Teoría y Experimentos",
+    "title": "12  Caos: Teoría y Experimentos",
     "section": "",
-    "text": "7 Bienvenido\nEste libro explora el fascinante mundo del caos desde distintos puntos de vista:\n\nModelos matemáticos simples, como la función logística, que nos introducen a las bifurcaciones, atractores y comportamiento impredecible en sistemas deterministas.\nSistemas físicos reales, como el péndulo doble, que muestran cómo el caos se manifiesta en el mundo tangible.\nMeteorología y clima, donde la sensibilidad a condiciones iniciales limita la predictibilidad de los modelos atmosféricos y climáticos.\nExperimentos caseros, que puedes realizar tú mismo para observar el caos en acción.\n\nCada capítulo está dividido en secciones independientes, con gráficos, simulaciones, ecuaciones en LaTeX y referencias a la literatura científica cuando sea relevante.\n\n“El aleteo de una mariposa en Brasil puede provocar un tornado en Texas.”\n— Edward Lorenz\n\nComencemos el viaje hacia la comprensión del caos.",
+    "text": "13 Bienvenido\nEste libro explora el fascinante mundo del caos desde distintos puntos de vista:\n\nModelos matemáticos simples, como la función logística, que nos introducen a las bifurcaciones, atractores y comportamiento impredecible en sistemas deterministas.\nSistemas físicos reales, como el péndulo doble, que muestran cómo el caos se manifiesta en el mundo tangible.\nMeteorología y clima, donde la sensibilidad a condiciones iniciales limita la predictibilidad de los modelos atmosféricos y climáticos.\nExperimentos caseros, que puedes realizar tú mismo para observar el caos en acción.\n\nCada capítulo está dividido en secciones independientes, con gráficos, simulaciones, ecuaciones en LaTeX y referencias a la literatura científica cuando sea relevante.\n\n“El aleteo de una mariposa en Brasil puede provocar un tornado en Texas.”\n— Edward Lorenz\n\nComencemos el viaje hacia la comprensión del caos.",
     "crumbs": [
       "El Caos en vivo: El péndulo doble",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Caos: Teoría y Experimentos</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Caos: Teoría y Experimentos</span>"
     ]
   },
   {
     "objectID": "02-pendulo-doble/test.html",
     "href": "02-pendulo-doble/test.html",
-    "title": "7  test",
+    "title": "13  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
       "El Caos en vivo: El péndulo doble",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>test</span>"
     ]
   },
   {
     "objectID": "03-meteorologia/_index.html",
     "href": "03-meteorologia/_index.html",
-    "title": "8  1. Introducción al Caos a través de la Función Logística",
+    "title": "14  1. Introducción al Caos a través de la Función Logística",
     "section": "",
-    "text": "9 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "text": "15 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
     "crumbs": [
       "La Meteorología y el Caos",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "03-meteorologia/test.html",
     "href": "03-meteorologia/test.html",
-    "title": "9  test",
+    "title": "15  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
       "La Meteorología y el Caos",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>test</span>"
     ]
   },
   {
     "objectID": "04-clima/_index.html",
     "href": "04-clima/_index.html",
-    "title": "10  1. Introducción al Caos a través de la Función Logística",
+    "title": "16  1. Introducción al Caos a través de la Función Logística",
     "section": "",
-    "text": "11 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "text": "17 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
     "crumbs": [
       "El Clima y el Caos",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "04-clima/test.html",
     "href": "04-clima/test.html",
-    "title": "11  test",
+    "title": "17  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
       "El Clima y el Caos",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>test</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>test</span>"
     ]
   },
   {
     "objectID": "05-experimentos/_index.html",
     "href": "05-experimentos/_index.html",
-    "title": "12  1. Introducción al Caos a través de la Función Logística",
+    "title": "18  1. Introducción al Caos a través de la Función Logística",
     "section": "",
-    "text": "13 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "text": "19 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
     "crumbs": [
       "Mis experimentos con el Caos",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "05-experimentos/test.html",
     "href": "05-experimentos/test.html",
-    "title": "13  test",
+    "title": "19  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
       "Mis experimentos con el Caos",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>test</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#amplificación-de-desviaciones-iniciales",
+    "href": "01-logistica/lyapunov.html#amplificación-de-desviaciones-iniciales",
+    "title": "11  Efecto mariposa",
+    "section": "11.2 Amplificación de desviaciones iniciales",
+    "text": "11.2 Amplificación de desviaciones iniciales\nA continación daremos una explicación matemática a este fenómeno que estamos observando.\nImagina que quieres predecir el tiempo atmosférico. Nunca conoces la temperatura, presión o humedad con absoluta precisión: siempre hay un error mínimo en la medición. Si ese error crece muy despacio, podrías predecir con confianza varios días por delante. Pero si crece muy rápido, tu predicción se vuelve inútil en muy poco tiempo.\nEn los siguientes párrafos, veros un concepto matemático muy útil en el estudio del caos: el exponente de Lyapunov, que llamaremos \\(\\lambda\\) y que cuantifica la tasa de crecimiento de estos errores.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#sensibilidad-a-las-condiciones-iniciales",
+    "href": "01-logistica/lyapunov.html#sensibilidad-a-las-condiciones-iniciales",
+    "title": "11  Efecto mariposa",
+    "section": "",
+    "text": "11.1.1 Inestabilidad de las cálculos numéricos\nCuando nos encontramos con un sistema físico con alta dependencia a las condiciones iniciales, no solamente tenemos el problema de conocer con total exactitud el estado inicial del sistema, sino que como veremos a continuación los cálculos numéricos que hacemos en nuesto ordenador para estudiar su evolución se vuelven también muy inestables. A continuación pondré un ejemplo sobre lo que acabo de decir.\nPongamos que quiero simular el mapa logístico tal cual lo he estado haciendo en las secciones anteriores. La fórmula es superconocida (form1):\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\nPero también podríamos expresarlo como (form2):\n\\[\nx_{n+1} = r\\,x_n - r\\,{x_n}^2\n\\]\nMatemáticamente son equivalentes pero a un computador le estamos diciendo cosas diferentes. * En el primer caso le decimos que reste 1 menos {x_n}, y que a continuación lo multiplique por \\(r\\) y \\(x_n\\). En total 1 resta y dos multiplicaciones * En el segundo caso le decimos que multiplique por \\(r\\) y \\(x_n\\) por un lado. Por otro lado que que eleve \\(x_n\\) al cuadrado, y que lo multiplique por \\(r\\). Y al final que reste el primer resultado intermedio menos el segundo. En total 1 resta, 2 multiplicaciones y 1 cuadrado.\nA esto hay que añadir que en un ordenador los números decimales se representan mediante aproximaciones. Por ejemplo, con 32 bits,el número 0.2 se representa como 0.200000003, debido a la precisión finita que dan los 32 bits. Por lo tanto entre el número real y el que representamos, la mayoría de veces va a haber un error. Estos errores se comportarán de manera diferente según los cálculos aritméticos que hagamos con ellos. En el siguiente plot, vemos los errores en un ordenador entre las dos fórmulas al partir del valor \\(x_0=0.2\\) y con un \\(r=4\\).\n\n\n\n\n\n\n\n\n\nVemos como al principio el error es imperceptible, pero a media que avanzamos va creciendo. A partir de la iteración 50 este error se hace ya notable, y desde entonces se puede decir que ambas fórmulas evolucionan de forma totalmente distinta. Por lo tanto, vemos como en un sistema caótico, no sólo las condiciones iniciales determinan el valor final de forma extrema, sino que también cuando simulamos este sistema en una máquina computacional, la forma en la que se representan los números y la forma de las operaciones también influyen de forma muy notable.\nPero vamos a ir un paso más. Veamos que evolución tienen realmente los errores. Para poder bien los errores al principio y al final, vamos a usar una escala logarítmica en el eje Y. El resultado se muestra a continuación.\n\n\n\n\n\n\n\n\n\n¿Qué es lo que vemos?. Que los errores crecen linealmente dentro de la escala logarítmica.\nEn escala \\(\\log_{10}\\) hemos ajustado: \\[\n\\log_{10}(\\mathrm{error}_n)\\approx 0.303\\,n + C\n\\] donde \\(C\\) es la ordenada en el origen. Pasando de logaritmos a forma explícita: \\[\n\\mathrm{error}_n \\approx 10^C \\times 10^{0.303\\,n}\n= A\\,\\bigl(10^{0.303}\\bigr)^n\n\\approx A\\,2^n,\n\\] puesto que \\(10^{0.303}\\approx2\\).\nEquivalentemente, en base \\(e\\): \\[\n\\ln(\\mathrm{error}_n)\n= \\ln(10)\\,\\log_{10}(\\mathrm{error}_n)\n\\approx (0.303\\,\\ln 10)\\,n + \\ln A\n\\approx 0.698\\,n + \\ln A,\n\\] de donde \\[\n\\mathrm{error}_n \\approx A\\,e^{0.698\\,n}\\approx A\\,(2.01)^n.\n\\]\nConclusión. El error crece de forma exponencial con \\(n\\), aproximadamente duplicándose en cada iteración.\nCurioso, ¿verdad?. El error se va multiplicando por 2 en cada iteración. Por 2 exactamente. ¿A qué se debe esto????",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales",
+    "href": "01-logistica/lyapunov.html#cálculo-matemático-de-la-amplificación-de-desviaciones-iniciales",
+    "title": "11  Efecto mariposa",
+    "section": "11.2 Cálculo matemático de la amplificación de desviaciones iniciales",
+    "text": "11.2 Cálculo matemático de la amplificación de desviaciones iniciales\nA continación daremos una explicación matemática a este fenómeno que estamos observando.\nImagina que quieres predecir el tiempo atmosférico. Nunca conoces la temperatura, presión o humedad con absoluta precisión: siempre hay un error mínimo en la medición. Si ese error crece muy despacio, podrías predecir con confianza varios días por delante. Pero si crece muy rápido, tu predicción se vuelve inútil en muy poco tiempo.\nEn los siguientes párrafos, veros un concepto matemático muy útil en el estudio del caos: el exponente de Lyapunov, que llamaremos \\(\\lambda\\) y que cuantifica la tasa de crecimiento de estos errores.\n\n11.2.1 Error inicial\n\nSea \\(x_0\\) el estado “verdadero” del sistema en el tiempo inicial.\n\nTu medida real tiene un pequeño error \\(\\delta_0\\), de modo que en realidad partes de\n\\[\n   x_0 + \\delta_0,\n   \\quad\\text{con}\\;|\\delta_0|\\ll 1.\n\\]\n\nEse \\(\\delta_0\\) es tan pequeño que, al principio, los dos estados están casi juntos. Es lo que hemos visto en los ejemplos anteriores, donde en la primera iteración las dos simulaciones estaban casi juntas.\n\n\n11.2.2 Cómo evoluciona el error\nSupón que el sistema avanza según una regla \\(f\\) (nuestra función logística), es decir: \\[\nx_{n+1} = f(x_n).\n\\] Queremos ver qué sucede con \\(\\delta_n\\), la diferencia en el paso \\(n\\). Para ello:\n\nLinealizamos la función \\(f\\) alrededor de \\(x_n\\).\nSi \\(f\\) es suave, podemos aproximar \\[\n  f(x_n + \\delta_n)\n  \\approx f(x_n)\n       + f'(x_n)\\,\\delta_n,\n\\] donde \\(f'(x_n)\\) es la derivada (o pendiente) de \\(f\\) en \\(x_n\\).\nDe esta aproximación se deduce que \\[\n  \\delta_{n+1}\n  = f(x_n + \\delta_n) - f(x_n)\n  \\approx f'(x_n)\\,\\delta_n.\n\\]\n\nPero ojo. Cuando calculamos errores, siempre son distancia, es decir debe ser siempre un número no negativo. La derivada indica pendiente y sentido.Cuando linealizamos\n\\[\n   f(x_n + \\delta_n)\\approx f(x_n) + f'(x_n)\\,\\delta_n,\n   \\]\nel término \\(f'(x_n)\\,\\delta_n\\) nos da cuánto y en qué dirección cambia la diferencia \\(\\delta_n\\).\nLa distancia ha de ser siempre no negativa. Por tanto, definimos : \\[\n   \\delta_{n+1} = \\bigl|\\,x'_{n+1} - x_{n+1}\\bigr|.\n   \\]\nSin valor absoluto, un \\(f'(x_n)&lt;0\\) haría que la “distancia” resultase negativa, lo cual no tiene sentido para una medida de error.\nEl verdadero error en módulo es \\(\\bigl|f'(x_n)\\bigr|\\)$ porque:\n\nSi \\(\\lvert f'(x_n)\\rvert&gt;1\\), la distancia aumenta\n\nSi \\(\\lvert f'(x_n)\\rvert&lt;1\\), la distancia disminuye\n\nPongamos un ejemplo numérico: Supongamos \\(f'(x_n)=-2\\) y \\(\\delta_n=0.01\\):\n\nSin valor absoluto:\n\\[\n\\delta_{n+1}\\approx(-2)\\times0.01=-0.02\\quad(\\text{sin sentido físico}).\n\\]\n\nCon valor absoluto:\n\\[\n\\delta_{n+1}\\approx\\bigl|-2\\bigr|\\times0.01=2\\times0.01=0.02,\n\\]\nreflejando correctamente que la distancia se duplica.\n\nPor todo ello, la fórmula adecuada para la evolución del error es\n\\[\n\\delta_{n+1} \\approx \\bigl|f'(x_n)\\bigr|\\,\\delta_n,\n\\]\ngarantizando que \\(\\delta_{n+1}\\ge0\\) y midiendo la magnitud real del estiramiento en cada paso.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#errores-sucesivos",
+    "href": "01-logistica/lyapunov.html#errores-sucesivos",
+    "title": "11  Efecto mariposa",
+    "section": "11.3 Errores sucesivos",
+    "text": "11.3 Errores sucesivos\nSi repetimos la relaciones anterior paso a paso obtenemos\n\nPrimera iteración\n\\[\n\\delta_1 \\approx \\bigl|f'(x_0)\\bigr|\\,\\delta_0.\n\\]\nSegunda iteración. En este caso es la derivada en \\(x_1\\) multiplicado por el error anterior (utilizamos para el error anterior la fórmula del paso 1). En total vemos que el error en la segunda iteración, es el error inicial multiplicado por dos derivadas. \\[\n\\delta_2\n\\approx \\bigl|f'(x_1)\\bigr|\\,\\delta_1\n\\approx \\bigl|f'(x_1)\\bigr|\\;\\bigl|f'(x_0)\\bigr|\\;\\delta_0.\n\\]\nTercera iteración. Aquí ya vemos como aparece un patrón. Vamos multiplicando el error inicial por las sucesivas derivadas. \\[\n\\delta_3\n\\approx \\bigl|f'(x_2)\\bigr|\\,\\delta_2\n\\approx \\bigl|f'(x_2)\\bigr|\\;\\bigl|f'(x_1)\\bigr|\\;\\bigl|f'(x_0)\\bigr|\\;\\delta_0.\n\\]\n\nEn general, para cualquier (n) podemos generalizar el patrón encontrado:\n\\[\n\\delta_n\n\\;\\approx\\;\n\\Bigl(\\prod_{k=0}^{n-1}\\bigl|f'(x_k)\\bigr|\\Bigr)\\;\\delta_0.\n\\]",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#de-producto-a-suma",
+    "href": "01-logistica/lyapunov.html#de-producto-a-suma",
+    "title": "11  Efecto mariposa",
+    "section": "11.4 De producto a suma",
+    "text": "11.4 De producto a suma\nPara manejar productos es muy útil usar los logaritmos, porque transforman productos en sumas: \\[\n\\ln\\bigl(\\delta_n/\\delta_0\\bigr)\n= \\ln\\Bigl(\\prod_{k=0}^{n-1} f'(x_k)\\Bigr)\n= \\sum_{k=0}^{n-1}\\ln\\bigl|f'(x_k)\\bigr|.\n\\]\nEsta formula nos da el logaritmo de cuánto ha crecido el error tras n iteraciones en relación al error inicial.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico",
+    "href": "01-logistica/lyapunov.html#cálculo-del-exponente-de-lyapunov-para-el-mapa-logístico",
+    "title": "11  Efecto mariposa",
+    "section": "11.6 Cálculo del exponente de Lyapunov para el mapa logístico",
+    "text": "11.6 Cálculo del exponente de Lyapunov para el mapa logístico\nConsideramos el mapa logístico\n\\[\nx_{n+1} = f(x_n) = r\\,x_n\\,(1 - x_n),\n\\]\ndonde \\(r&gt;0\\) es el parámetro de control.\nLa derivada de \\(f\\) es\n\\[\nf'(x) = r\\,(1 - 2x).\n\\]\nPara una trayectoria \\(x_0, x_1, \\dots, x_{N}\\), el exponente de Lyapunov máximo se define como\n\\[\n\\lambda = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|f'(x_n)\\bigr|\n        = \\lim_{N\\to\\infty} \\frac{1}{N} \\sum_{n=0}^{N-1} \\ln\\bigl|r\\,(1 - 2x_n)\\bigr|.\n\\]\nBajo hipótesis de ergodicidad y existencia de medida invariante \\(\\rho(x)\\), puede reescribirse como\n\\[\n\\lambda(r) = \\int_{0}^{1} \\ln\\bigl|r\\,(1 - 2x)\\bigr|\\,\\rho(x)\\,\\mathrm{d}x.\n\\]\nPara \\(r=4\\), el sistema es completamente caótico y su densidad invariante conocida es\n\\[\n\\rho(x) = \\frac{1}{\\pi\\,\\sqrt{x\\,(1 - x)}},\\quad x\\in(0,1).\n\\]\n\n11.6.1 5. Cálculo analítico para \\(r=4\\)\nSustituyendo en la integral: \\[\n\\lambda(4)\n= \\int_{0}^{1} \\ln\\bigl|4\\,(1 - 2x)\\bigr|\\;\\frac{\\mathrm{d}x}{\\pi\\sqrt{x(1 - x)}}.\n\\] Hacemos el cambio de variable\n\\[\nx = \\sin^2\\theta,\\quad \\mathrm{d}x = 2\\sin\\theta\\cos\\theta\\,\\mathrm{d}\\theta,\\quad\n\\theta\\in\\bigl[0,\\tfrac{\\pi}{2}\\bigr].\n\\] Entonces \\(\\sqrt{x(1 - x)} = \\sin\\theta\\cos\\theta\\) y \\[\n\\rho(x)\\,\\mathrm{d}x\n= \\frac{1}{\\pi\\,\\sin\\theta\\cos\\theta}\\,\\bigl(2\\sin\\theta\\cos\\theta\\,\\mathrm{d}\\theta\\bigr)\n= \\frac{2}{\\pi}\\,\\mathrm{d}\\theta.\n\\] Además, \\[\n1 - 2x = 1 - 2\\sin^2\\theta = \\cos(2\\theta),\n\\] y por tanto \\[\n\\lambda(4)\n= \\frac{2}{\\pi} \\int_{0}^{\\frac{\\pi}{2}} \\ln\\bigl|4\\cos(2\\theta)\\bigr|\\,\\mathrm{d}\\theta.\n\\] Se separa en \\[\n\\ln\\bigl|4\\cos(2\\theta)\\bigr|\n= \\ln 4 + \\ln\\bigl|\\cos(2\\theta)\\bigr|,\n\\] y se usa la integral conocida \\[\n\\int_{0}^{\\frac{\\pi}{2}}\\ln\\bigl|\\cos(2\\theta)\\bigr|\\,\\mathrm{d}\\theta = -\\frac{\\pi}{2}\\ln2.\n\\] Así, \\[\n\\lambda(4)\n= \\frac{2}{\\pi}\\Biggl[\\int_{0}^{\\frac{\\pi}{2}}\\ln4\\,\\mathrm{d}\\theta\n              + \\int_{0}^{\\frac{\\pi}{2}}\\ln\\bigl|\\cos(2\\theta)\\bigr|\\,\\mathrm{d}\\theta\\Biggr]\n= \\frac{2}{\\pi}\\Bigl[\\frac{\\pi}{2}\\ln4 - \\frac{\\pi}{2}\\ln2\\Bigr]\n= \\ln2.\n\\]\n\n\n11.6.2 6. Resultado final\nPara \\(r=4\\), el exponente de Lyapunov es\n\\[\n\\boxed{\\lambda(4) = \\ln 2 \\approx 0.6931,}\n\\]\nlo que confirma el comportamiento caótico sensible a las condiciones iniciales.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
+    ]
+  },
+  {
+    "objectID": "01-logistica/lyapunov.html#cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato",
+    "href": "01-logistica/lyapunov.html#cálculo-teórico-del-exponente-de-lyapunov-para-r4-con-técnica-de-1.º-de-bachillerato",
+    "title": "11  Efecto mariposa",
+    "section": "11.7 Cálculo teórico del exponente de Lyapunov para \\(r=4\\) con técnica de 1.º de Bachillerato",
+    "text": "11.7 Cálculo teórico del exponente de Lyapunov para \\(r=4\\) con técnica de 1.º de Bachillerato\n\n11.7.1 1. Mapa logístico y derivada\nPara \\(r=4\\), el mapa logístico es\n\\[\nx_{n+1} = 4\\,x_n\\,(1 - x_n),\n\\]\ny su derivada es\n\\[\nf'(x) = 4\\,(1 - 2x).\n\\]\n\n\n11.7.2 2. Error tras \\(n\\) iteraciones\nSi \\(x'_0 = x_0 + \\delta_0\\) y \\(\\delta_n = |x'_n - x_n|\\), entonces\n\\[\n\\delta_{n} \\approx \\delta_0 \\prod_{k=0}^{n-1} \\bigl|f'(x_k)\\bigr|\n= \\delta_0 \\prod_{k=0}^{n-1} \\bigl|4\\,(1 - 2x_k)\\bigr|.\n\\]\n\n\n11.7.3 3. Exponente aproximado en \\(N\\) pasos\nDefinimos\n\\[\n\\lambda_N = \\frac{1}{N} \\sum_{k=0}^{N-1} \\ln\\bigl|f'(x_k)\\bigr|\n= \\frac{1}{N} \\sum_{k=0}^{N-1} \\ln\\bigl|4\\,(1 - 2x_k)\\bigr|.\n\\]\nAl aumentar \\(N\\), \\(\\lambda_N \\to \\lambda\\).\n\n\n11.7.4 4. Ejemplo numérico sencillo (\\(N=5\\))\nTomemos \\(x_0 = 0.3\\) y \\(\\delta_0\\) muy pequeño. Calculamos sucesivamente:\n\n\n\n\\(n\\)\n\\(x_n\\)\n\\(|f'(x_n)|\\)\n\\(\\ln|f'(x_n)|\\)\n\n\n\n\n0\n0.3000\n\\(|4(1 - 0.6)| = 1.6\\)\n\\(0.470\\)\n\n\n1\n0.8400\n\\(|4(1 - 1.68)| = 2.72\\)\n\\(1.001\\)\n\n\n2\n0.5376\n\\(|4(1 - 1.0752)| = 0.3008\\)\n\\(-1.200\\)\n\n\n3\n0.9953\n\\(|4(1 - 1.9906)| = 3.9626\\)\n\\(1.377\\)\n\n\n4\n0.0186\n\\(|4(1 - 0.0372)| = 3.8512\\)\n\\(1.348\\)\n\n\n\nSumamos los logaritmos:\n\\[\n\\sum_{k=0}^{4} \\ln|f'(x_k)| = 0.470 + 1.001 - 1.200 + 1.377 + 1.348 = 2.996.\n\\]\nY calculamos\n\\[\n\\lambda_5 = \\frac{2.996}{5} = 0.599.\n\\]\n\n\n11.7.5 5. Tendencia y valor real\nCon más iteraciones \\(N\\), el promedio \\(\\lambda_N\\) sube y se acerca a\n\\[\n\\lambda = \\ln 2 \\approx 0.6931,\n\\]\nque es el valor exacto para \\(r=4\\).\n\nConclusión:\nMediante multiplicaciones sencillas y sumas de logaritmos en un número finito de pasos, vemos cómo \\(\\lambda_N\\) evoluciona hacia \\(\\ln 2\\), evitando así cálculos de integrales y usando solo aritmética elemental y logaritmos.",
+    "crumbs": [
+      "Introducción al Caos a través de la Función Logística",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Efecto mariposa</span>"
     ]
   }
 ]

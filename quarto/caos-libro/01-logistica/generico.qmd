@@ -1,0 +1,69 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Término genérico del mapa logístico
+
+En las sucesiones aritméticas y geométricas es fácil expresar el termino enésimo de la sucesión en función del primer término de la misma. Veamos:
+
+Término general de la sucesión aritmética
+
+  $$a_n = a_1 + (n-1)d$$
+  donde:
+  - $a_1$ es el primer término.
+  - $d$ es la diferencia común.
+  - $n$ es la posición del término.
+
+Término general de la sucesión geométrica
+
+  $$a_n = a_1 \cdot r^{\,n-1}$$
+  donde:
+  - $a_1$ es el primer término.
+  - $r$ es la razón común.
+  - $n$ es la posición del término.
+
+¿Podemos hacer lo mismo con el mapa logístico?. Hagamos las primeras iteraciones.
+
+$$
+x_1 = r\,x_0\,(1 - x_0)
+$$
+
+
+$$
+x_2 = r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)
+$$
+
+
+$$
+x_3 = r^3\,x_0\,(1 - x_0)\,
+\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
+\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)
+$$
+
+
+$$
+x_4 = r^4\,x_0\,(1 - x_0)\,
+\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
+\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,
+\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)
+$$
+
+
+$$
+\begin{aligned}
+x_5 =\;& r^5\,x_0\,(1 - x_0)\,
+\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
+\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\\
+&\times\;\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\\
+&\times\;\bigl(1 - r^4\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\bigr)
+\end{aligned}
+$$
+
+Como podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente $x_0$ y de $r$, pero a medida que iteramos, la expresión se vuelve muy complicada. A pesar de todo, hay que destacar que la función es **puramente determinista**. Es decir, se podría formular el valor de la iteración enésima en función de los valores de $x_0$ y de $r$.  
+
