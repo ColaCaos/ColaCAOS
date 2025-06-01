@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; El Mapa Logístico – Caos: Teoría y Experimentos</title>
+<title>2&nbsp; El Mapa Logístico – Caos: Teoría, Experimentos e impacto en la Meteorología</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +126,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Caos: Teoría y Experimentos</a> 
+      <a href="../">Caos: Teoría, Experimentos e impacto en la Meteorología</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -139,7 +139,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ColaCaos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -230,14 +230,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02-pendulo-doble/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../02-pendulo-doble/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  <a href="../02-pendulo-doble/doble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El Péndulo Doble</span></span></a>
   </div>
 </li>
       </ul>
@@ -254,13 +248,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -277,13 +271,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -300,13 +294,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -415,7 +409,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 <section id="simulación-en-python" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="simulación-en-python"><span class="header-section-number">2.3</span> Simulación en Python</h2>
 <p>Vamos a refrendar lo anteriormente dicho con simulaciones de la función logística. Como veremos a continuación, para valores de <span class="math inline">\(r\)</span> menores de 1, el valor final de <span class="math inline">\(x_n\)</span> tiende a cero.</p>
-<div id="b4c0dc3a" class="cell" data-execution_count="1">
+<div id="b0c4b2c4" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -425,7 +419,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, el valor final de <span class="math inline">\(x_n\)</span> tiende a un punto estable</p>
-<div id="8758abe4" class="cell" data-execution_count="2">
+<div id="60ddeea4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -435,7 +429,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.449, el valor final de <span class="math inline">\(x_n\)</span> tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos.</p>
-<div id="505ac4cb" class="cell" data-execution_count="3">
+<div id="b5e33ce0" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -445,7 +439,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.544, el valor final de <span class="math inline">\(x_n\)</span> tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.</p>
-<div id="53672337" class="cell" data-execution_count="4">
+<div id="c79f52e3" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -455,7 +449,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Y a partir de <span class="math inline">\(r = 3.56995\)</span> no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico</p>
-<div id="7a8592fe" class="cell" data-execution_count="5">
+<div id="b1c8096c" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -872,8 +866,8 @@ x_{n+1} = r\,x_n\,(1 - x_n)
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Caos: Teoría y Experimentos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Caos: Teoría y Experimentos</span></span>
+      <a href="../index.html" class="pagination-link" aria-label="ColaCaos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">ColaCaos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

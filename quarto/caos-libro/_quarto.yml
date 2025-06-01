@@ -3,8 +3,8 @@ project:
   output-dir: ../../docs
 
 book:
-  title: "Caos: Teoría y Experimentos"
-  author: "Alberto"
+  title: "Caos: Teoría, Experimentos e impacto en la Meteorología"
+  author: "Rubén Torre Merino"
   chapters:
     - index.qmd
 
@@ -24,8 +24,7 @@ book:
 
     - part: "El Caos en vivo: El péndulo doble"
       chapters:
-        - 02-pendulo-doble/_index.qmd
-        - 02-pendulo-doble/test.qmd
+        - 02-pendulo-doble/doble.qmd
 
     - part: "La Meteorología y el Caos"
       chapters:

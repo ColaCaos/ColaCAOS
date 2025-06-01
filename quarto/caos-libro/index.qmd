@@ -1,9 +1,13 @@
 ---
-title: "Caos: Teoría y Experimentos"
-format: html
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
 ---
 
-# Bienvenido
+# ColaCaos
 
 Este libro explora el fascinante mundo del caos desde distintos puntos de vista:
 

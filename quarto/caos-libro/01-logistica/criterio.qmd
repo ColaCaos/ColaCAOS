@@ -165,7 +165,7 @@ No existe una regla sencilla $x_{n+1} = f(x_n)$. A diferencia del mapa logístic
    
 Por estas razones, el precio de la bolsa es, en gran medida, un proceso aleatorio que incorpora ruido y reacciones humanas, no un sistema determinista como el mapa logístico.
 
-Volviendo a la pregunta original. ¿es una condición necesaria y suficiente para que una serie sea caótica que su exponente de Lyapunov sea positivo?
+Volviendo a la pregunta original. **¿es una condición necesaria y suficiente para que una serie sea caótica que su exponente de Lyapunov sea positivo?**
 
 De acuerdo a la investigación bibliográfica realizada, un **exponente de Lyapunov mayor** $\lambda_{\max} > 0$ es **condición necesaria** para que un sistema determinista sea caótico, pero **no basta por sí solo** para garantizar caos en sentido completo. 
 
