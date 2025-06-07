@@ -25,6 +25,10 @@ book:
     - part: "El Caos en vivo: El péndulo doble"
       chapters:
         - 02-pendulo-doble/doble.qmd
+        - 02-pendulo-doble/simulaciones.qmd
+        - 02-pendulo-doble/fractal.qmd
+        - 02-pendulo-doble/bifurcacionesPendulo.qmd
+        - 02-pendulo-doble/estadisticas.qmd
 
     - part: "La Meteorología y el Caos"
       chapters:

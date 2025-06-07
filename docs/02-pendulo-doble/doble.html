@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03-meteorologia/_index.html" rel="next">
+<link href="../02-pendulo-doble/simulaciones.html" rel="next">
 <link href="../01-logistica/criterio.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -234,6 +234,30 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El Péndulo Doble</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/simulaciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Sensibilidad a las condiciones iniciales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/fractal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Mapa de Fases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/bifurcacionesPendulo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Bifurcaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-pendulo-doble/estadisticas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Qué podemos predecir</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -248,13 +272,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,13 +295,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -294,13 +318,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -352,9 +376,6 @@ window.Quarto = {
 <li>Podemos pedirle a ChatGPT que nos haga una simulación en Python.</li>
 </ul>
 <p>En este proyecto, he optado por la segunda alternativa, y los resultados han sido espectaculares. Usando uno de los modelos más avanzados de OpenAI, el mini4-high, la códificación resultó directa y sin errores. Copiando el código generado, y ejecutándolo desde mi ordenador pude tener en unos pocos minutos</p>
-<video width="640" controls="">
-<source src="PendulumCajas.mp4" type="video/mp4">
-</video>
 
 
 
@@ -767,8 +788,8 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-meteorologia/_index.html" class="pagination-link" aria-label="1. Introducción al Caos a través de la Función Logística">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../02-pendulo-doble/simulaciones.html" class="pagination-link" aria-label="Sensibilidad a las condiciones iniciales">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Sensibilidad a las condiciones iniciales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

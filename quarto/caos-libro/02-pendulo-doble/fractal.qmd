@@ -1,0 +1,146 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Mapa de Fases
+
+
+Recordemos que durante el estudio de la función logística, el diagrama de bifurcación aparecía una y otra vez cada vez que hacíamos zoom en una zona pequeña de $r$. Veíamos la misma estructura repetida en zonas de $r$ cada vez más pequeñas. ¿Pasará algo similar con el péndulo doble?. Vamos a ir paso a paso.
+
+En primer lugar vamos a simular 36 x 36 péndulos, cada uno de ellos con diferentes condiciones iniciales de los dos brazos. Puesto que cada uno de los ángulos puede tomar 360 grados, vamos a repartirlos en 36 posiciones diferentes cada uno de ellos desde 0,10,20 .. hasta 350 grados. Obviamente, aquí están separados bastante por lo que su evolución va a ser diferente. 
+
+Por lo tanto estamos viendo 1296 péndulos dobles al mismo tiempo! Cada uno en su pequeña celda de 20×20 píxeles, todos organizados en una cuadrícula de 36×36. El resultado es una imagen de 720×720 donde cada cuadradito muestra un péndulo doble distinto, lanzado con ángulos iniciales que varían sistemáticamente en filas y columnas.
+
+Cada celda se trata como un único péndulo doble, con los mismos parámetros que en el caso del abanico de péndulos (masas $m_1=m_2=1$, longitudes $l_1=l_2=1$, gravedad $g=9.81$).
+
+Se dibujan las líneas de los brazos en blanco y los tres puntos de unión en colores rojo, verde y azul para los pivotes, la primera masa y la segunda masa respectivamente.  
+
+Con cada iteración, la simulación avanza y se pinta el estado actualizado, de modo que se ve un baile de péndulos distintos en cada casilla.
+
+
+## Prompt para Generar Este Script con ChatGPT
+
+> **Prompt para la generación del código**  
+> “Quiero un código en Python para mi tarjeta Nvidia y Cuda para simular una **cuadrícula 36×36 de péndulos dobles** en paralelo. Cada celda debe inicializar su péndulo con un ángulo para el primer brazo comprendido entre 0 y 350 grados en pasos de 10 grados, y con un ángulo para el segundo brazo comprendido entre 0 y 350 grados en pasos de 10 grados. Utiliza los siguientes parámetros de simulación para los péndulos ($m_1 = m_2 = 1$, $l_1 = l_2 = 1$, $g = 9.81$ y cero rozamiento).  
+> Dibuja cada péndulo en su propia celda de 20×20 píxeles dentro de una imagen global de 720×720. Dibuja los brazos (longitudes 6 píxeles) en blanco y los pivotes como círculos pequeños en rojo, verde y azul. Muestra la ventana en tiempo real y sal al presionar Esc.”
+
+
+
+Al ver la cuadrícula completa, el lector observa cómo cambia el comportamiento del péndulo doble al variar sus ángulos iniciales en pequeños pasos de 10°. En la esquina superior izquierda $(-180^\circ,-180^\circ)$ el movimiento puede ser muy distinto al de la esquina inferior derecha $(+170^\circ,+170^\circ)$.  
+
+Es un “mapa de fase” visual: cada casilla revela un patrón dinámico único, mostrando cómo la mecánica no lineal responde a distintos puntos de partida. ¿Por qué se llama mapa de fase?. Cuando dibujamos una función senoidal a lo largo del tiempo, vemos un patrón repetido. Si pintamos otro seno al lado, con igual amplitud y frecuencia, pero cambiando el ángulo inicial, veremos el mismo patrón pero desplazado en el tiempo por ese ángulo incial. Estamos por lo tanto en otra "fase" del mismo sistema. Otra forma más cotidiana de verlo es con la Luna: hablamos de fases para referirnos a la iluminación relativa de la Luna por el Sol tal y como lo vemos desde la Tierra. Así tenemos fase creciente, menguante, llena, etc. 
+
+<video width="640" controls>
+  <source src="PendulumCajas.mp4" type="video/mp4">
+</video>
+
+
+Vemos una zona central en la que los péndulos parten de ángulos pequeños. En este caso observamos que el comportamiento es muy similar al de un péndulo simple. Es, por así decirlo, una zona de estabilidad del sistema. Pregunté a ChatGPT por qué se produce esta zona de estabilidad y su respuesta fue la siguiente.
+
+
+### Aproximación de Ángulo Pequeño
+
+En la simulación del péndulo doble, cada péndulo tiene dos ángulos $\theta_1$ y $\theta_2$. Cuando ambos son pequeños, la dinámica se “desacopla” casi como si fueran dos péndulos simples en serie, pero sin generar las fuertes interacciones que provocan el caos. Veamos por qué:
+
+1. Las ecuaciones originales del péndulo doble incluyen términos no lineales muy potentes (producto de $\sin(\theta_1 - 2\,\theta_2)$, $\cos(2\,\delta)$, etc.).  
+2. Si $\theta_1$ y $\theta_2$ permanecen pequeños, esos términos no lineales pierden relevancia: $\sin(\theta_1)\approx \theta_1$, $\sin(\theta_1 - 2\,\theta_2)\approx \theta_1 - 2\,\theta_2$, y $\cos(2\,\delta)\approx 1$.  
+3. Resultado: el sistema casi se comporta como dos péndulos simples que oscilan suavemente y de forma **aproximadamente periódica**. No hay “explosión” de sensibilidad porque las variaciones pequeñas no se amplifican de forma exponencial. Es la zona donde la energía no alcanza para explorar el caos.
+
+En otras palabras, en el centro de la “cuadrícula de fase” hay un área donde las trayectorias son estables, casi previsibles, iguales a las que obtendrías si estudiaras un péndulo simple (o dos acoplados muy débilmente). Observas oscilaciones regulares, de ida y vuelta, sin divergencias drásticas.
+
+### ¿Por Qué Llamarlo “Zona de Estabilidad”?
+
+Cuando hablamos de sistemas dinámicos, llamamos “estable” a aquella región donde las pequeñas perturbaciones no se magnifican con el tiempo. 
+
+Si en el experimento gráfico seleccionas solo las celdas centrales, notarás que los péndulos dobles describen curvas suaves, casi sinusoidales, muy parecidas a las de un péndulo simple. Esa cohesión de trayectorias es lo que define la estabilidad: todas las simulaciones de esa región inicial “viajan juntas”, sin dispersarse.
+
+## Transición hacia el Caos
+
+A medida que nos alejamos del centro (es decir, cuando comienzas a dar a $\theta_1$ o $\theta_2$ valores más grandes, digamos 30°, 40° o más), las ecuaciones no lineales cobran protagonismo. Entonces:
+
+1. Los términos $\sin(\theta)$ ya no son equivalentes a $\theta$.  
+2. Aparecen resonancias internas: la interacción entre el primer y el segundo brazo se hace más intensa.  
+3. Surge la **sensibilidad exponencial**: dos péndulos con diferencias iniciales de solo unos grados comienzan a divergir rápidamente tras pocas oscilaciones.  
+
+Así, justo en el borde de esa zona estable, empieza a nacer el caos: las trayectorias dejan de ser regulares y adquieren formas impredecibles.
+
+Esto nos recuerda a lo que pasaba con la función logística a medida que crecía $r$. Hasta $r=3$ estábamos en una zona muy estable, con un solo valor final. Ahora el parámetro que controla la estabilidad es el ángulo desde el que lanzamos el péndulo. Para ángulos pequeños estamos en zona estable y para ángulos mayores estamos en zonas de caos. En ambos casos, cuando suministramos más "energía" al sistema bien sea en forma de un mayor $r$ o un mayor ángulo inicial el sistema se vuelve caótico. 
+
+## Mapa de fase detallado
+
+Ahora vamos a simular muchísimos más pendulos, para obtener un mapa de fase mas detallado. Para ello ahora la simulación se organiza en una cuadrícula de $720 \times 720$ péndulos. Cada columna $i$ corresponde a un ángulo inicial
+$$
+\theta_1(i) \;=\; -\pi \;+\; i\,\frac{2\pi}{719}, 
+\quad i = 0,1,\dots,719,
+$$
+y cada fila $j$ a un ángulo inicial
+$$
+\theta_2(j) \;=\; -\pi \;+\; j\,\frac{2\pi}{719}, 
+\quad j = 0,1,\dots,719.
+$$
+
+Así, la celda $(i,j)$ arranca con condiciones
+$$
+\theta_1 = \theta_1(i), 
+\qquad
+\theta_2 = \theta_2(j).
+$$
+
+Como cada péndulo es ahora un pixel, ¿cómo podemos visualizar su estado?. Pues recurrimos a un código de colores. Entonces para cada péndulo cogemos los angulos $\theta_1$ y $\theta_2$ en los que se encuentra y hacemos una primera normalización. Para cada péndulo se calculan
+   $$
+     n_1 = \frac{\sin(\theta_1) + 1}{2},
+     \quad
+     n_2 = \frac{\sin(\theta_2) + 1}{2},
+   $$
+   de modo que $n_1,n_2 \in [0,1]$. De esta manera no tenemos valores negativos del estado, es decir su estado va desde 0 hasta 1.
+
+A continuación promediamos, ambos valores $n_1$ y $n_2$ y escalamos al equivalente de 8 bits, es decir 256 valores, $[0,255]$:
+   $$
+     \text{Promedio} = \Bigl(\frac{n_1 + n_2}{2}\Bigr)\times 255.
+   $$
+
+Y por último el código generado por ChatGPT aplica un código de colores al valor promedio resultando en:
+
+azul para valores bajos ($\approx 0$),
+
+verde/amarillo para valores intermedios,
+
+rojo para valores altos ($\approx 255$).
+
+El resultado de la simulación se puede ver en el siguiente vídeo.
+
+<video width="640" controls>
+  <source src="MapaFase.mp4" type="video/mp4">
+</video>
+
+
+Como anticipabamos en la zona central hay estabilidad, y fuera de ella no se ven patrones, sino que aparece una especie de ruido. En estas zonas "ruidosas" lo que tenemos es caos, es decir, el estado del péndulo varía continuamente, y lo que es más importante el estado de cada péndulo es totalmente distinto de los péndulos vecinos, lo que manifiesta de nuevo la extrema sensibilidad a las condiciones iniciales. 
+
+Para ver más detalladamente esta sensibilidad a las condiciones iniciales vamos a hacer zooms en areas alejadas del centro. Se hacen hasta tres zooms consecutivos hasta llegar a una zona rectangular de 0.01 grados x 0.01 grados en las que se simulan los 720x720 péndulos. No importa cuanto nos adentramos en el mapa de fase: no se consigue que los péndulos vecinos vayan a la vez
+
+
+<video width="640" controls>
+  <source src="ZoomSucesivo.mp4" type="video/mp4">
+</video>
+
+
+
+En el siguiente video aparece la misma simulación pero esta vez dejando que corra más el tiempo. En ella se ve que a medida que avanza la simulación la zona central se va reduciendo, y el caos se apodera de más zonas. Hay que tener en cuenta que estamos en un sistema sin rozamiento, y que puede estar corriendo infinitamente. Zonas que al principio parecían estables, se convierten en caóticas, quedando una pequeña porción como estable.
+
+<video width="640" controls>
+  <source src="MapaFaseAcelerado.mp4" type="video/mp4">
+</video>
+
+Se pueden ver aparcer algunas pequeñas "islas" de estabilidad. Hagamos en una de ellas y veamos como avanza la simulación en ella:
+
+<video width="640" controls>
+  <source src="MapaFaseAceleradozoom.mp4" type="video/mp4">
+</video>
+
+Al igual que en el caso del mapa logístico hay pequeñas zonas de estabilidad alejadas del centro, rodeadas de caos. Pero la verdad es que hay que decir que son unos pocos y limitados casos.

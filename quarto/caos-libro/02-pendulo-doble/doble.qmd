@@ -23,7 +23,3 @@ Sin embargo podemos recurrir a la simulación y experimentación real para anali
 
 En este proyecto, he optado por la segunda alternativa, y los resultados han sido espectaculares. Usando uno de los modelos más avanzados de OpenAI, el mini4-high, la códificación resultó directa y sin errores. Copiando el código generado, y ejecutándolo desde mi ordenador pude tener en unos pocos minutos 
 
-<video width="640" controls>
-  <source src="PendulumCajas.mp4" type="video/mp4">
-</video>
-

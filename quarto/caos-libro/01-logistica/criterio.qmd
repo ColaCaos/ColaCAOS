@@ -191,6 +191,98 @@ Entonces, **la probabilidad de que el sistema sea caótico es muy alta**. Varios
 
 Aunque **en teoría** hay que cumplir dos condiciones adicionales, **en la práctica**, sobre todo en áreas aplicadas (física experimental, meteorología, etc.), **una $\lambda_{\max}$ positiva suele considerarse como “casi certeza” de caos** siempre que los cálculos se hayan hecho con series suficientemente largas y con ruido controlado.
 
+
+## Horizonte de predictibilidad
+
+¿Por qué es tan importante el exponente de Lyapunov al hablar de sistemas caóticos?. Para ver su importancia vamos a introducir un término muy importante, el horizonte de predictibilidad.
+
+El **horizonte de predictibilidad** es el tiempo máximo durante el cual podemos hacer predicciones fiables de un sistema caótico, dadas unas condiciones iniciales con cierta incertidumbre. Aunque conozcamos la regla determinista que rige el sistema, la sensibilidad a las condiciones iniciales (medida por el exponente de Lyapunov) impone un límite práctico a nuestra capacidad de predicción.
+
+
+En un sistema caótico, dos trayectorias que empiezan muy cerca divergen de forma **exponencial**. Si la separación inicial entre ellas es $\delta_0$, tras un tiempo $t$ la separación será aproximadamente
+
+$$
+\delta(t) = \delta_0\,e^{\lambda_{\max}\,t},
+$$
+
+donde $\lambda_{\max}$ es el **exponente de Lyapunov máximo**, que mide la rapidez de esa divergencia.
+
+¿Cuándo “fracasa” la predicción?
+
+Definimos un **umbral de error** $\Delta$: cuando la divergencia $\delta(t)$ alcance $\Delta$, consideramos que la predicción ya no es útil. Por ejemplo, si medimos temperatura, $\delta_0$ podría ser la imprecisión inicial y $\Delta$ el error máximo tolerable.
+
+Buscamos el tiempo $T_p$ tal que
+
+$$
+\delta(T_p) = \Delta.
+$$
+
+Para derivar de la fórmula partimos de  
+   $$
+   \delta(T_p) = \delta_0\,e^{\lambda_{\max}T_p} = \Delta
+   $$
+
+Luego despejamos $T_p$:  
+   $$
+   e^{\lambda_{\max}T_p} = \frac{\Delta}{\delta_0}
+   $$
+   $$
+   \lambda_{\max}T_p = \ln\!\Bigl(\tfrac{\Delta}{\delta_0}\Bigr)
+   $$
+   $$
+   \boxed{T_p = \frac{1}{\lambda_{\max}}\,\ln\!\Bigl(\tfrac{\Delta}{\delta_0}\Bigr)}
+   $$
+
+¿Cuál es el significado de cada término?
+
+- **$\lambda_{\max}$**: mayor exponente → predicciones válidas por menos tiempo.  
+- **$\delta_0$**: si reducimos la imprecisión inicial, alargamos $T_p$.  
+- **$\Delta$**: cuanto más tolerante seas al error, más tiempo «aguanta» la predicción.
+- Un sistema con $\lambda_{\max}<0$ tendría, en cambio, un horizonte de predictibilidad infinito, pues los errores se contraen y la predicción mejora con el tiempo.
+
+**Ejemplo práctico:**  
+En la atmósfera se observa a menudo un exponente  
+$$
+\lambda_{\max} \approx 0{,}8\ \text{día}^{-1}.
+$$
+
+Además, la **incertidumbre inicial** realista en modelos y medidas es más alta, por ejemplo  
+$$
+\delta_0 = 10^{-3}\ \text{(°C)},
+$$  
+y mantenemos el **error tolerable**  
+$$
+\Delta = 1\ \text{°C}.
+$$
+
+Entonces,
+
+$$
+T_p
+= \frac{1}{0.8}\,\ln\!\Bigl(\tfrac{1}{10^{-3}}\Bigr)
+=1{,}25 \times \ln(10^3)
+=1{,}25 \times 6{,}91
+\approx 8{,}6\ \text{días}.
+$$
+
+Este cálculo **coincide** con el límite práctico de **7–10 días** que vemos hoy en los pronósticos meteorológicos fiables. El lector puede echar un vistazo al siguiente artículo:
+
+https://www.stratumfive.com/climate/weather-forecasting-and-chaos-theory/
+
+Aquí se habla de un horizonte de predictibilidad para el tiempo de 8 a 10 días. La cuestión es que por lo aprendido en este proyecto, éste límite es una barrera que no vamos a poder superar. Si bien en los últimos 50 años se ha producido un formidable incremento de la precisión con la que hacemos las predicciones, pasando de predicciones fiables a un día a tener buenas predicciones a 5 días, el llegar a batir este límite dos semanas va a ser imposible. 
+
+Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar que el sistema solar tiene un horizonte de prectibilidad de unos 5 millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de que tenemos esa preciosa fórmula de la gravitación universal, que funciona tan bien, su propagación hacia el futuro, cuando tenemos en cuenta los planetas que componen el sistema solar, deja de ser válida a 4 millones de años vista, que en términos cósmicos es poco tiempo. Y es que no solamente tenemos errores iniciales, al no poder tener en cuenta todos los pequeños objetos que vagan por el sistema solar, sino porque el sistema es inherentemente caótico. De hecho, tal y como anticipó Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico, y que presenta un exponente de Lyapunov positivo en determinadas circustancias. 
+
+
+
+
+
+
+
+
+
+
+
 ### Referencias principales
 
 1. Wikipedia. “Chaos theory.”  
