@@ -1,0 +1,247 @@
+
+##LLUVIA
+
+Las dos series coinciden. POr una parte tenemos los datos de AEMTE
+
+https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/#:~:text=AEMET%20ha%20generado%20recientemente%20un,desde%20comienzos%20del%20siglo%20XX
+
+AEMET – Variabilidad de precipitaciones. La precipitación en España muestra fuerte variabilidad interanual y decenal. El valor normal reciente (1991-2020) es ~639 mm
+aemet.es
+, pero con años extremos muy secos (ej. ~84% de lo normal en 2023
+aemet.es
+) y muy húmedos (superávits >120% en años lluviosos). No se aprecia una tendencia significativa a largo plazo, aunque algunas estaciones y regiones indican descensos en las últimas décadas (especialmente en primavera)
+deimosestadistica.com
+.
+
+
+Y por otra parte éstos
+CRU TS4.x (UEA, 2020-2025) – Conjunto climatológico global que provee datos mensuales y anuales desde 1901 hasta 2024 en cada celda de rejilla (0,5°). A partir de esta fuente (versión CRU CY por país) se derivan las medias nacionales aquí mostradas. Los datos originales (temperatura, precipitación, etc.) pueden obtenerse del repositorio del CRU
+crudata.uea.ac.uk
+crudata.uea.ac.uk
+ en formato CSV (“country files” por variable). Por ejemplo, el promedio de precipitación 1991-2020 para España peninsular se sitúa en ~640 mm anuales
+aemet.es
+, coherente con los valores históricos de AEMET.
+Fichero con datos CSV.  https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/
+
+Interpretación: Prácticamente nula variación a largo plazo, confirmando que no hay un descenso ni un aumento significativo de la lluvia anual en España peninsular en este intervalo.
+
+
+¿Qué decían los informes de hace 25 años?
+
+Los informes climatológicos pioneros de hace más de 25 años (por ejemplo, Quereda et al. 2005, UPC/AEMET 2001) coinciden en que:
+
+Precipitaciones
+
+Se anticipaba una reducción del régimen pluviométrico mediterráneo debida al desplazamiento hacia el norte de la célula anticiclónica subtropical (la “alta de Azores”), con menor influencia de borrascas atlánticas y concentración de lluvia en invierno, junto a un descenso en el número de días de lluvia durante primavera y verano.
+
+Esa menor lluvia efectiva, junto al aumento de la evaporación, se traduciría en una reducción de la escorrentía mediterránea de hasta un 33 % respecto a las magnitudes históricas (por ejemplo, en la cuenca de Valencia o Murcia)adminRACO,+4.
+
+Horizonte 2020–2030
+
+Ninguno de aquellos estudios ofrecía cifras detalladas para el periodo 2020–2030, porque los primeros modelos globales (HadCM3/SRES) preveían que la señal de “secarse” no sería estadísticamente significativa frente a la variabilidad natural hasta mediados del siglo XXI.
+
+En cambio, sí proyectaban para 2050 un calentamiento de 1,5–3 °C y cambios pluviométricos claros sólo a partir de entonces. Por tanto, para 2020–2030 se esperaba muy poca variación en el total anual de lluvia (cambios dentro de ±5 %), aunque sí un ligero adelantamiento estacional (más lluvias concentradas en invierno y veranos más secos).
+
+En resumen, aquellos informes coincidían en que España se encaminaría a ser progresivamente más seca, pero que el señalamiento neto de disminución de lluvias sólo emergiría con claridad después de 2030–2040, mientras que en el periodo 2020–2030 los cambios anuales de precipitación quedarían enmascarados por la gran variabilidad interanual tradicional españo
+
+
+
+https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.8785
+
+https://www.nature.com/articles/s41586-024-08576-6
+
+
+##HURACANES
+
+Resumen de tendencias (huracanes/ciclones tropicales):
+Proporción de huracanes muy intensos (Cat. 3–5) en aumento (muy probable)
+ipcc.ch
+wmo.int
+.
+Mayor intensidad de lluvias asociadas: precipitaciones extremas en ciclones crecen ~7%/°C de calentamiento (alta confianza)
+ipcc.ch
+wmo.int
+.
+Frecuencia total de huracanes: sin cambio global claro (confianza baja)
+wmo.int
+.
+Ubicación: tendencia general a intensificarse a latitudes más altas (e.g., Pacífico Noroeste)
+ipcc.ch
+.
+En síntesis, los registros sugieren que los huracanes actuales son, en promedio, más poderosos y lluviosos que antes, aunque no son necesariamente más frecuentes en número global. Las investigaciones atribuyen este patrón al calentamiento global: el aumento de la temperatura del océano potencia la energía de los ciclones, aunque la dinámica atmosférica general limita un aumento en su número
+
+
+igura: Número anual de tormentas tropicales nombradas (por cuenca) en 1990–2021. Los datos globales de IBTrACS muestran que no ha habido un aumento sostenido del total de ciclones tropicales. De hecho, múltiples análisis basados en observaciones históricas concluyen lo contrario: Chand et al. (2022) hallan que el recuento global anual de TCs disminuyó ~13 % en el siglo XX en comparación con el periodo 1850–1900
+nature.com
+ (y cayó ~23 % después de 1950
+nature.com
+). De modo similar, Klotzbach et al. (2022) reportan que tanto el número global de huracanes/tormentas como la energía ciclónica acumulada (ACE) han caído significativamente desde 1990
+eesm.science.energy.gov
+. En contraste, la intensificación rápida de tormentas muestra un claro aumento global: Potvin et al. (2022) detectan un crecimiento estadísticamente significativo en la tasa de intensificación rápida en varias cuencas
+pmc.ncbi.nlm.nih.gov
+, atribuido a condiciones termo-dinámicas más favorables. Finalmente, el índice global de disipación de potencia ciclónica (PDI) no presenta un incremento claro; por ejemplo, Tu et al. (2024) reportan que no hay tendencia apreciable en PDI salvo una caída localizada en el Índico Sur
+nature.com
+. En conjunto, los datos observados indican una reducción en el número global de ciclones tropicales y ACE, acompañado de un aumento en la frecuencia de intensificación rápida
+nature.com
+pmc.ncbi.nlm.nih.gov
+.
+
+
+Tiene razón al señalar que, según los datos del Tropical Meteorology Project de la Universidad Estatal de Colorado (CSU), la frecuencia global de ciclones tropicales ha mostrado una tendencia a la baja en las últimas décadas. Un estudio publicado en Geophysical Research Letters en 2022, que analiza el período 1990–2021, concluye que la cantidad total de huracanes ha disminuido a nivel mundial, al igual que la Energía Ciclónica Acumulada (ACE), una métrica que combina la intensidad, duración y frecuencia de las tormentas tropicales .
+
+Ciclones tropicales globales (huracanes, tifones, etc.) – En contra de la idea común de un aumento indiscriminado de huracanes por el calentamiento global, los datos observacionales no muestran un incremento significativo en el número total de estos ciclones a nivel mundial en las últimas décadas. De hecho, estudios recientes indican que la frecuencia global de huracanes ha disminuido ligeramente desde finales del siglo XX, al igual que la cantidad de energía que generan. Por ejemplo, un estudio de 2022 analizó la actividad de ciclones tropicales de 1990 a 2021 (periodo con observaciones satelitales consistentes) y encontró descensos significativos tanto en el número anual de huracanes como en la Energía Ciclónica Acumulada (ACE) global
+repository.library.noaa.gov
+. La ACE es una métrica integral que combina la intensidad y duración de las tormentas; este mismo estudio señala que la reducción de la ACE implica que “el trópico está produciendo menos energía ciclónica acumulada”, es decir, menos huracanes o menos intensos/duraderos en conjunto
+repository.library.noaa.gov
+. Según los datos históricos de la Universidad Estatal de Colorado (CSU), varias de las últimas temporadas han estado por debajo del promedio: por ejemplo, 2021 y 2022 registraron ACE globales de apenas ~620 y ~560 unidades, de los más bajos desde 1980
+tropical.atmos.colostate.edu
+. En contraste, años de inicios de los 90 (p.ej. 1992) superaron las 1100 unidades
+tropical.atmos.colostate.edu
+, lo que subraya esta tendencia descendente reciente.
+
+
+Refugiados climáticos y desertificación: En 2005, un informe de la ONU (PNUMA/Universidad de la ONU) advirtió que para 2010 podría haber hasta 50 millones de “refugiados ambientales” huyendo de desertificación, aumento del nivel del mar y desastres climáticos. Sin embargo, llegada esa fecha, tales migraciones masivas no ocurrieron. De hecho, la propia ONU se distanció de esa predicción y eliminó el informe de su web, reconociendo que las poblaciones en las supuestas zonas de peligro en realidad habían crecido en vez de desaparecer
+spiegel.de
+spiegel.de
+. Como resumió Der Spiegel en 2011: “las catástrofes ambientales esperadas aún no se han materializado”
+spiegel.de
+. Por ejemplo, se llegó a vaticinar que Tuvalu sería el primer país en desaparecer bajo las aguas, pero sigue existiendo, e incluso algunas islas del Pacífico han aumentado de tamaño por depósitos de coral a pesar del nivel del mar creciente
+spiegel.de
+.
+Deshielo ártico pronosticado prematuramente: Varias declaraciones sugerían que el Océano Ártico quedaría sin hielo en verano mucho antes de lo que ha ocurrido. Un caso citado fue la afirmación del ex-vicepresidente Al Gore en 2009 de que el Polo Norte estaría “completamente libre de hielo en verano para 2013” debido al calentamiento humano
+reuters.com
+. En realidad, Gore estaba parafraseando un estudio científico preliminar y luego se aclaró que había interpretado mal los datos (el propio autor hablaba de una probabilidad del 75% como una estimación hipotética)
+reuters.com
+. En cualquier caso, el verano de 2013 llegó y el Ártico seguía teniendo una cubierta significativa de hielo marino estival – la “predicción” no se cumplió. Incluso una década más tarde, el Ártico no ha perdido todo su hielo en verano (aunque la extensión de hielo sí ha disminuido respecto a décadas pasadas). Esto muestra que algunos pronósticos extremos sobre el Ártico fueron prematuros o exagerados, y de hecho los expertos siguen proyectando un Ártico estival prácticamente libre de hielo pero hacia mediados de siglo, no en la primera década
+climate.gov
+agupubs.onlinelibrary.wiley.com
+.
+Huracanes destructivos menos frecuentes de lo anunciado: Existe la percepción pública de que el cambio climático está intensificando todos los eventos extremos, incluyendo huracanes, y en ocasiones se ha sugerido que habría más huracanes devastadores cada año. Sin embargo, los datos empíricos pintan un cuadro más complejo. Estudios recientes indican que ha disminuido el número total de ciclones tropicales a nivel global durante el último siglo. Por ejemplo, un estudio internacional publicado en Nature Climate Change encontró que la cantidad anual de ciclones tropicales a nivel mundial se redujo alrededor de un 13% durante el siglo XX, a pesar del calentamiento global ocurrido
+tiempo.com
+. Los científicos atribuyen esta sorprendente tendencia en parte a cambios en la circulación atmosférica provocados por el aumento de temperatura de los océanos, que podrían dificultar la formación de tormentas en ciertas regiones
+tiempo.com
+. Si bien en el Atlántico Norte sí se observó un aumento de huracanes en las últimas décadas, se lo relaciona principalmente con la disminución de aerosoles contaminantes (que antes suprimían la actividad ciclónica) más que con un cambio climático antropogénico directo
+tiempo.com
+. En conjunto, no se ha constatado un incremento sostenido en la frecuencia global de huracanes intensos; incluso el IPCC ha señalado con “baja confianza” cualquier tendencia al alza en el número de ciclones tropicales globales en el último siglo. Esto contrasta con ciertas proyecciones alarmistas que esperaban más huracanes destructivos continuamente – de hecho, hasta ahora la frecuencia observada ha estado igual o por debajo de lo pronosticado en algunos escenarios. Es importante matizar que la intensidad de los huracanes sí podría estar aumentando ligeramente (hay indicios de huracanes más fuertes y lluviosos en un clima más cálido), pero en cuanto a número de eventos, la realidad no ha superado los niveles históricos de forma dramática
+tiempo.com
+tiempo.com
+.
+
+
+
+
+## SEQUÏAS
+
+La evidencia observacional no señala un aumento global claro en la frecuencia o intensidad de sequías. En análisis amplios con índices meteorológicos (SPEI) se observa que, sin el forzamiento antropogénico, los déficits hídricos globales habrían tendido a disminuir ligeramente
+nature.com
+. Esto sugiere que la variabilidad natural (oscilaciones ENSO, ciclos multidecádicos, etc.) domina los registros históricos. En la práctica, los datos de precipitación y humedad globales no muestran un empeoramiento consistente del balance hídrico a escala planetaria. Por ejemplo, estudios de “greening” mundial indican que la vegetación terrestre ha aumentado (más evapotranspiración) en las últimas décadas, contrarrestando parcialmente condiciones secas
+earthobservatory.nasa.gov
+. En resumen, no hay una tendencia uniforme al alza de sequías a nivel global en los registros observados; los cambios tienden a ser regionales y fuertemente modulados por la variabilidad climática natural
+nature.com
+.
+
+
+## Inundaciones
+Los registros globales de inundaciones tienden a mostrar un incremento en frecuencia y duración, aunque ligado en gran medida a la variabilidad natural. Según el Dartmouth Flood Observatory (1985–2015), la frecuencia global de inundaciones aumentó notablemente: por ejemplo, las inundaciones de larga duración se han multiplicado (~4 veces) en zonas tropicales desde principios del siglo XXI
+esd.copernicus.org
+. Asimismo, la mediana anual de duración de inundaciones creció significativamente. Sin embargo, los autores señalan que la mayor parte de este aumento puede explicarse por ciclos climáticos multidecadales (AMO, NAO, PDO) que afectan la ocurrencia de tormentas e inundaciones
+esd.copernicus.org
+. En particular, no hay tendencia lineal en las inundaciones breves a escala global
+esd.copernicus.org
+. En síntesis, los datos observacionales indican un incremento reciente en eventos de inundación (especialmente de larga duración)
+esd.copernicus.org
+, pero éste coincide con variaciones naturales conocidas y no constituye un patrón unívoco de empeoramiento climático global
+esd.copernicus.org
+.
+
+
+## PREDICCIONES FALLIDAS
+
+| **Predicción (figura pública, año)**                                                                                                                                                                                                                                                                                | **Fuente y fecha**                                                                                         | **Situación esperada (según la predicción)**                                                                                                                     | **Situación actual (resultado real)**                                                                                                                                                                                                                                                                                     | **Comentario / grado de cumplimiento**                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *“Quedan 10 años para evitar un punto sin retorno”* (Al Gore, 2006) – Si no se reducían drásticamente las emisiones en diez años, el mundo alcanzaría un “punto de no retorno” climático.                                                                                                                           | Declaración de Al Gore en el Festival de Sundance (25-ene-2006), AP.                                       | Para **2016** (10 años después), de no tomarse medidas drásticas, se desencadenarían daños climáticos irreversibles.                                             | No se tomaron medidas “drásticas” en ese plazo y en **2016** el mundo no había entrado en un colapso irreversible; la crisis climática persiste pero el escenario catastrófico inmediato no se materializó.                                                                                                               | **No cumplida.** La fecha límite de 2016 pasó sin que ocurriera el “punto sin retorno” pronosticado; si bien el calentamiento continúa, el desastre irreversible no fue evidente en esa fecha.                                                                                |
+| *“Ártico sin hielo en verano en 5 a 7 años”* (Al Gore, 2009) – Citando nuevos datos científicos, Gore afirmó en 2009 que había un **75% de probabilidad** de que el **Polo Norte quedara sin hielo estival** en cinco a siete años (es decir, para **2014-2016**).                                                  | Discurso de Al Gore en COP15, Copenhague (14-dic-2009).                                                    | **Veranos de 2014-2016**: Océano Ártico prácticamente **libre de hielo** en la temporada de verano.                                                              | Al llegar **2016**, el mínimo de hielo ártico de septiembre fue de \~4,1 millones de km² (lejos de desaparecer por completo). Incluso en 2023, el Ártico mantiene varios millones de km² de hielo en verano (aunque la extensión ha disminuido).                                                                          | **No cumplida.** El hielo marino ártico ha retrocedido significativamente, pero **no desapareció** en los veranos de mitad de la década de 2010 como se sugirió. La predicción resultó exagerada en cuanto al ritmo de deshielo.                                              |
+| *“Quedan 96 meses para salvar al mundo”* (Príncipe Carlos, 2009) – El entonces príncipe de Gales alertó que **en 96 meses** (8 años) habría un *colapso climático y ecológico irreparable* si no se actuaba de inmediato.                                                                                           | Discurso en la Richard Dimbleby Lecture, Londres (09-jul-2009).                                            | **2017**: Sin acciones contundentes, ocurriría un **“colapso irreversible”** del clima y los ecosistemas globales (crisis climática fuera de control).           | En **2017-2018**, el cambio climático seguía siendo un desafío urgente, pero *no se produjo un colapso global irreparable*. Aún en 2025, se sigue instando a reducir emisiones; no hubo un punto de no retorno claro en 2017.                                                                                             | **No cumplida.** La fecha límite de 8 años pasó **sin el colapso inmediato** pronosticado. Si bien los impactos climáticos se han agravado gradualmente, el escenario de catástrofe absoluta en 2017 no se materializó.                                                       |
+| *“El cambio climático acabará con la humanidad si no dejamos los fósiles en 5 años”* (Greta Thunberg, 2018) – La joven activista compartió la advertencia de un científico de que **la humanidad se extinguiría** por el cambio climático si no se dejaban de usar combustibles fósiles en los próximos cinco años. | Tuit de Greta Thunberg (21-jun-2018) citando artículo de *GritPost* (basado en declaraciones científicas). | **2023**: Si continuaba el uso de combustibles fósiles hasta 2023, el cambio climático **“eliminaría a toda la humanidad”** (escenario de extinción humana).     | Entre 2018 y **2023** no se abandonaron los combustibles fósiles (de hecho, las emisiones globales siguieron elevadas), pero **la humanidad no se “extinguió” en 2023**. Persisten efectos graves (evento de +1,2 °C, fenómenos extremos), aunque nada parecido al fin de la especie humana.                              | **No cumplida.** La advertencia fue mucho más allá de lo observado en la realidad; 2023 llegó sin el **“fin de la humanidad”** vaticinado. La propia Thunberg aclaró luego que se refería a una ventana de acción de 5 años, no a una extinción literal.                      |
+| *“Los niños no sabrán qué es la nieve”* (Dr. David Viner, 2000) – En un reportaje ampliamente citado, un científico del CRU dijo que, debido al calentamiento, la **nieve invernal sería algo muy raro** en el Reino Unido “en pocos años”, volviéndose prácticamente cosa del pasado.                              | Artículo de *The Independent* (20-mar-2000), declaraciones de David Viner (Climatic Research Unit).        | **Década de 2010**: Inviernos británicos casi **sin nevadas**; la nieve se convertiría en un evento extremadamente infrecuente, casi desconocido para los niños. | Durante la **década de 2010**, el Reino Unido experimentó varias nevadas destacadas. Por ejemplo, en 2009-2010 cayeron nevadas fuertes generalizadas, y en **2018** la tormenta “Beast from the East” dejó hasta 50 cm de nieve en zonas de Reino Unido. Lejos de desaparecer, la nieve siguió ocurriendo periódicamente. | **No cumplida.** Aunque las temperaturas medias invernales en UK subieron ligeramente, la **nieve no desapareció** en “pocos años”. Niños y adultos británicos volvieron a ver nieve en los inviernos posteriores, contradiciendo la afirmación de que sería algo del pasado. |
+
+
+
+| **Predicción (informe / organismo, año)**                                                                                                                                                                                                                                                                                                                                                                               | **Fuente original**                                                                   | **Situación esperada**                                                                                                                                                                                                                     | **Situación actual (datos observados)**                                                                                                                                                                                                                                                                                                                                                                  | **Comentario / grado de cumplimiento**                                                                                                                                                                                                                                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **“Para el año 2000, naciones enteras podrían desaparecer bajo el agua”** – En 1989, un director de ONU (PNUMA) advirtió que si no se frenaba el calentamiento antes del año 2000, el nivel del mar subiría hasta 3 pies (\~90 cm) causando que **islas y países bajos quedaran sumergidos**.                                                                                                                           | Noel Brown (PNUMA), entrevista AP (30-jun-1989).                                      | **Año 2000**: *“Varias naciones insulares habrán sido borradas del mapa”* por la subida del mar; millones de *“refugiados ecológicos”* escaparían de costas inundadas y cosechas fallidas.                                                 | **2000** llegó sin que ningún país desapareciera bajo el mar. Ej.: Maldivas, citedas como en riesgo, seguían habitadas (en 2023 aún existen, aunque preocupadas por futuros aumentos). El nivel del mar global subió aprox. \~8 cm entre 1989 y 2000 – significativo pero muy por debajo del escenario catastrófico planteado.                                                                           | **No cumplida.** La drástica predicción de 1989 **no se materializó en 2000**. Hubo aumento del nivel del mar y erosión costera, pero **ningún país fue “borrado”**. Esta exageración ha sido señalada como ejemplo de alarmismo fallido.                                                                                                     |
+| **“50 millones de refugiados climáticos para 2010”** – Un informe de 2005 de la ONU vaticinó que hacia 2010 el cambio climático produciría **hasta 50 millones de refugiados ambientales** desplazados por sequías, aumentos del nivel del mar y eventos extremos.                                                                                                                                                      | Programa de la ONU para el Medio Ambiente (UNEP/UNU), 2005.                           | **2010**: Grave crisis migratoria ambiental con decenas de millones de desplazados de islas del Pacífico, Caribe, zonas costeras de Asia, etc., huyendo de inundaciones y desastres climáticos.                                            | Al **2010**, dichas migraciones masivas *no ocurrieron*. Regiones identificadas como vulnerables (islas, delta del Nilo, Caribe) no emitieron oleadas de refugiados climáticos de tal magnitud; de hecho, la población aumentó en varias de esas zonas. La ONU se desmarcó luego de la cifra y **retiró el informe de su web** al no cumplirse la predicción.                                            | **No cumplida.** No se observó para 2010 el éxodo de *“50 millones”* de refugiados climáticos anunciado. El cálculo fue desmentido por la realidad y considerado un error; al no materializarse, quedó como una **profecía fallida** que la propia UNEP reconoció eliminando la mención.                                                      |
+| **“Glaciares del Himalaya desaparecidos en 2035”** – El Cuarto Informe del IPCC (2007) afirmó que los glaciares himalayos *“podrían desaparecer para el año 2035”* de seguir las tendencias de calentamiento, calificando esta desaparición como *“muy probable”*.                                                                                                                                                      | IPCC AR4 (2007), Cap. Asia (WG2).                                                     | **2035**: **Colapso de los glaciares** del Himalaya, afectando ríos como el Ganges, Indo, Brahmaputra – crisis hídrica para cientos de millones en Asia.                                                                                   | A **2025**, los glaciares del Himalaya siguen existiendo en gran medida. Estudios glaciológicos indicaron que era físicamente imposible que se fundieran totalmente en tan corto plazo. De hecho, el IPCC reconoció en 2010 que esta predicción fue un error no fundamentado y la **retractó oficialmente**.                                                                                             | **No cumplida (predicción errónea).** La aseveración de 2007 resultó ser **infundada**; se descubrió que provenía de una cita no revisada. El IPCC corrigió la información. Los glaciares se están reduciendo por el calentamiento, pero **no desaparecerán en 2035**; su deshielo completo tomaría siglos según expertos.                    |
+| **“Reino Unido con clima siberiano para 2020”** – Un informe estratégico encargado por el Pentágono (2004) planteó un escenario de **cambio climático abrupto** donde Europa sufriría un fuerte enfriamiento: *“Gran Bretaña tendrá un clima similar al de Siberia en menos de 20 años”* (hacia 2020). También auguraba inundaciones costeras que **sumergirían ciudades europeas** y conflictos globales por recursos. | Reporte del Pentágono sobre seguridad y clima, filtrado en *The Observer* (feb-2004). | **2020**: Drástico **cambio de circulación oceánica** -> Inviernos británicos congelantes y secos (*“tipo Siberia”*); grandes urbes costeras de Europa anegadas por la subida del mar; caos geopolítico (guerras, hambrunas) por el clima. | Para **2020**, nada de esto se había concretado. Lejos de enfriarse, el Reino Unido tuvo una de sus décadas *más cálidas* registradas (2010-2019) en línea con el calentamiento global, no un enfriamiento súbito. Ninguna gran ciudad europea quedó **“sumergida” en 2020** (aunque aumenta la preocupación por el nivel del mar, las inundaciones costeras serias no han llegado al extremo predicho). | **No cumplida.** El **escenario extremo** contemplado por el informe no se verificó en la fecha dada. Fue un ejercicio hipotético de seguridad, pero sus predicciones de enfriamiento e inundaciones para 2020 resultaron **erradas** – el clima mundial siguió calentándose gradualmente en vez de colapsar de forma abrupta para esa fecha. |
+
+
+Ajuste por sobreestimación de calentamiento (“el hiato 1998-2012”): El Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC) ha admitido que los modelos climáticos no siempre clavaron las tendencias observadas. En su Quinto Informe (IPCC AR5, 2013), señaló que el calentamiento superficial observado entre 1998 y 2012 fue más lento de lo que predijo la mayoría de los modelos para ese periodo. Concretamente, 111 de 114 simulaciones excedían el calentamiento medido, una discrepancia atribuida en parte a variabilidad interna natural no captada por los modelos
+ar5-syr.ipcc.ch
+. El IPCC indicó con franqueza que esta diferencia podía deberse “en grado sustancial” a factores naturales (p.ej. océanos absorbiendo calor, erupciones volcánicas, ciclo solar) y a posibles “sobreestimaciones de la respuesta al forzamiento por gases de invernadero” en algunos modelos
+ar5-syr.ipcc.ch
+. En respuesta, los científicos ajustaron sus evaluaciones: por ejemplo, el IPCC moderó ligeramente sus proyecciones de calentamiento a corto plazo y enfatizó la importancia de mejorar la representación de fenómenos caóticos como El Niño o la variabilidad decadal. Este reconocimiento oficial muestra humildad científica: los modelos son herramientas poderosas pero no infalibles, y se actualizan cuando la realidad muestra desviaciones significativas.
+
+Por un lado, el carácter caótico del sistema climático ofrece una explicación científica fundamental para los errores de predicción. El clima es producto de innumerables variables interconectadas (atmósfera, océanos, criosfera, biosfera) que interactúan de forma no lineal. Pequeñas variaciones o errores en condiciones iniciales pueden amplificarse con el tiempo (efecto mariposa), haciendo que las predicciones detalladas a largo plazo sean intrínsecamente inciertas. De hecho, los modelos matemáticos tienen que simplificar esta complejidad, y “funcionan de manera lineal, mientras el sistema climático es caótico”, como señalaba la Academia de Ciencias de Francia ya en los 90
+aceprensa.com
+. Esto significa que no hay garantía de que el clima real siga al pie de la letra las trayectorias modelizadas, pues pueden intervenir fluctuaciones naturales imprevistas. Un buen ejemplo es la variabilidad interna que explicó el llamado “hiato” del calentamiento: entre ~1998 y 2013 las temperaturas subieron menos de lo proyectado porque fenómenos naturales (ciclos oceánicos, mínimos solares, aerosoles volcánicos) enmascararon temporalmente el forzamiento de CO₂
+ar5-syr.ipcc.ch
+ar5-syr.ipcc.ch
+. Lejos de implicar engaño, este desvío ilustró los límites de predicción en un sistema caótico: el IPCC reconoció que la variabilidad natural “a veces amplifica y a veces contrarresta” la tendencia de fondo, reduciendo la relevancia de las tendencias cortas para evaluar el cambio climático a largo plazo
+ar5-syr.ipcc.ch
+. Asimismo, muchas predicciones fallidas pueden atribuirse a incertidumbres legítimas: por ejemplo, un modelo puede suponer menos lluvia en cierta región (riesgo de desertificación), pero la naturaleza caótica puede traer más lluvia de lo previsto, corrigiendo la sequía (como ha ocurrido en el Sahel africano, que se “reverdeció” en parte contra pronósticos pesimistas). En síntesis, la ciencia del clima enfrenta un desafío gigantesco similar al de otras áreas complejas (economía, epidemiología): predecir un sistema caótico conlleva inevitablemente un marge
+
+
+La academia francesa de las ciencias se mostraba preocupada porque la temperatura estba bajando
+https://www.aceprensa.com/ciencia/alarmas-y-dudas-ecol-gicas/#:~:text=Sobre%20todo%2C%20subsiste%20una%20dificultad,establecer%20un%20modelo%20m%C3%ADnimamente%20fiable
+
+ Los modelos matemáticos funcionan de manera lineal, mientras que el sistema climático es caótico. Es decir, que nada garantiza que sea válido el tratamiento matemático que se da a las cuestiones atmosféricas. La Academia Francesa de las Ciencias afirmó recientemente que los modelos del efecto invernadero que se vienen manejando en los últimos 25 años no son necesariamente representativos de la realidad y, lo que es peor, que en estos momentos nadie sabe establecer un modelo mínimamente fiable.
+
+
+
+ | Predicción (año)                                           | Fuente (contexto)                                           | Lo que se proyectó                                                                                                                                    | Resultado real (cumplimiento)                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **“Nueva Edad de Hielo” inminente (años 1970)**            | Medios de comunicación (p.ej. *Newsweek* 1975)              | Un enfriamiento global severo y posible era glacial en las próximas décadas.                                                                          | **No ocurrido.** Por el contrario, desde los 70 hasta hoy la Tierra se calentó \~0,5-0,7 °C. La mayoría de científicos de la época anticipaban calentamiento, no enfriamiento.                                                                                                                                                                                                 |
+| **Calentamiento global \~+1 °C hacia \~2015-2020**         | Científicos (James Hansen, 1988)                            | Aumento de temperatura global de \~0,6°C entre 1988 y 2015-2020 (escenario de emisiones moderado).                                                    | **Acertado.** El calentamiento observado (\~1988-2017) fue \~+0,6°C, muy cercano a lo proyectado. Las predicciones de Hansen “han resistido el paso del tiempo”.                                                                                                                                                                                                               |
+| **Océano Ártico sin hielo en verano para 2020**            | Científicos y medios (2007-2014)                            | Desaparición total del hielo marino estival del Ártico hacia el año 2020.                                                                             | **No plenamente cumplido.** En 2020 aún quedó \~3,7 millones km² de hielo mínimo. Sin embargo, la tendencia de disminución es pronunciada y se anticipa un Ártico casi libre de hielo estival antes de 2035.                                                                                                                                                                   |
+| **Predicciones de modelos climáticos (varias, 1970-2000)** | Publicaciones científicas (ej. IPCC 1990, modelos diversos) | Calentamiento global de \~0,2-0,3 °C por década desde fines del s. XX, junto con cambios asociados (patrones de lluvia, eventos extremos crecientes). | **En general acertadas.** La tasa real de calentamiento global \~0,2 °C/década concuerda con escenarios intermedios. Algunos modelos antiguos sobrestimaron levemente la rapidez (ej. IPCC 1990 proyectó +1 °C 1970-2016 vs +0,85 °C observado), mientras otros fueron conservadores. En conjunto, las proyecciones han capturado correctamente la tendencia de calentamiento. |
+
+
+Pendulo doble
+La teoría del clima caótico también motivó a científicos como Klaus Hasselmann a desarrollar enfoques estadísticos. Hasselmann en 1976 mostró que, aunque el clima esté impulsado por un sinfín de “pasos aleatorios” (clima diario caótico), se puede modelar la evolución de la media como un camino aleatorio con deriva
+history.aip.org
+. Es decir, el clima puede verse como un borracho que avanza tambaleándose: no podemos predecir cada paso, pero sabemos la dirección general en la que se mueve
+history.aip.org
+. Este hallazgo reconcilió un poco el caos con la predictibilidad: sugirió que sí podemos predecir tendencias estadísticas (la deriva), aunque no los zigzags individuales. En la práctica, esto respalda el porqué los modelos pueden proyectar el clima a un siglo incluso si el tiempo meteorológico a un mes es impredecible
+history.aip.org
+. No obstante, surge un caveat: ¿y si el “borracho climático” tropieza con un escalón (un tipping point)? Entonces ese paseo aleatorio podría saltar de golpe a otro nivel (clima diferente) con poca anticipación.
+
+
+En términos de fiabilidad, las reflexiones de Lorenz invitan a la humildad: el sistema climático es caótico e inmensamente complejo, por lo que siempre habrá un margen de impredecibilidad. Esto no invalida las proyecciones –especialmente en su aspecto más robusto, el calentamiento global debido a forzamientos externos–, pero sí advierte contra una confianza excesiva en detalles finos o cronologías exactas. Reconocer el caos implica que escenarios a 2100 son aproximaciones condicionadas, no destinos garantizados. Por ejemplo, los modelos no pueden predecir la fase de oscilaciones internas (PDO, AMO) dentro de 30 años; si por azar varias de esas oscilaciones se alinean para atenuar o amplificar el calentamiento, la curva observada puede desviarse de la media proyectada durante décadas antes de converger. Este es un mensaje sutil de comunicar: por un lado, la ciencia afirma con alta certeza que si emitimos X CO₂, la temperatura promedio global alrededor de 2080-2100 será Y ± margen; por otro, admite que cómo llegaremos a Y puede no ser una línea recta suave.
+
+Milankovitch Cycles as Triggers, Not the Main Cause
+
+The astronomical cycles (Milankovitch cycles) influence Earth's orbital eccentricity, axial tilt, and precession, altering how solar radiation is distributed over time.
+
+These variations trigger the timing of ice sheet advances and retreats but do not directly drive the full magnitude of climate changes.
+
+Internal Climate Feedbacks Amplify the Change
+
+Once a small cooling or warming is triggered, Earth's internal feedback mechanisms (such as ice-albedo feedback, CO₂ release/absorption by oceans, and atmospheric circulation changes) amplify the effect.
+
+This means that without these internal feedbacks, Milankovitch cycles alone would not be enough to cause major ice ages.
+
+Without an External Trigger, Ice Ages Might Be Unpredictable
+
+The statement “Without the timing set by this external stimulus, the ice cycles might wander without any pattern at all” suggests that if the system were purely chaotic, ice ages might occur at random intervals rather than following a discernible cycle.
+
+This supports the idea that Earth’s climate may have chaotic elements but is still influenced by external constraints (such as orbital changes).
+
+Modern Climate Change is Not Astronomically Driven
+
+This passage reinforces that natural climate variability is guided by external forcings, but modern global warming cannot be attributed to Milankovitch cycles because:
+
+Current warming is occurring much faster than ice age cycles.
+
+The CO₂ levels are now rising due to anthropogenic emissions, not natural feedbacks.
+
+Orbital cycles would currently suggest a gradual cooling trend, not warming.

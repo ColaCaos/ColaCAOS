@@ -27,5 +27,17 @@ Pero, ¿qué pasa si simulo 1000 segundos?. Pues como vemos en la siguiente figu
 
 Esto es lo que pasa en la predicción meteorológica y climática cuando hacemos predicciones a largo plazo. Si bien no podemos saber lo que pasará en un día concreto en un lugar preciso, sí podemos saber su comportamiento con un margen de error razonable. Al igual que con el péndulo doble, en el que podemos predecir la distancia recorrida a los 2000 segundos viendo lo que se ha movido en los primeros 1000 segundos: va a ser aproximadamente el doble sin mucho margen de equivocación.
 
+## Ejemplos en predicción climática
+
+Hay varios ejemplos que ilustran como se aplica este principio a la predicción climática. Sin duda, el ejemplo más ilustrativo es el **Predicción de la temperatura media global**. Para ello se usa un modelo CGM (General Circulation Model), que es un modelo de la Circulación General de la Atmósfera y los Océanos. Con este modelo, aunque no sepamos si lloverá en Madrid el 15 de julio de 2030, podemos proyectar que la temperatura media anual aumente.
+
+Otro ejemplo es el uso de Modelos empíricos combinados con GCMs para estimar la frecuencia de olas de calor o periodos de sequía en un horizonte de 10–30 años.  Aunque la fecha exacta de la próxima ola de calor es impredecible, podemos calcular que su probabilidad anual aumenta de, por ejemplo, un 5 % a un 15 % bajo escenarios de +2 °C de calentamiento global.
+
+La enseñanza clave es que **el clima** funciona como el **comportamiento total a largo plazo** del péndulo doble:  
+- A **corto plazo**, ambos sistemas son caóticos e impredecibles con precisión puntual.  
+- A **largo plazo**, emergen **tendencias medias** y estadísticas que sí podemos estimar y utilizar para planificar políticas, infraestructuras y medidas de adaptación.
+
+Así, la analogía del péndulo doble nos ayuda a entender por qué los modelos climáticos son fiables para predecir promedios y tendencias, aunque jamás podrán garantizar el tiempo puntual de un día concreto dentro de meses o años.
+
 
 
