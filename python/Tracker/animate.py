@@ -46,4 +46,4 @@ def animate_csv(filename):
 
 if __name__ == "__main__":
     # Cambia 'coordenadas_cm1.csv' por el archivo que quieras animar
-    animate_csv('coordenadas_cm3.csv')
+    animate_csv('coordenadas_cmA.csv')

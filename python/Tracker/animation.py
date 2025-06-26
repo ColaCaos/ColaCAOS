@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
 
 # Leer datos
-df = pd.read_csv('coordenadas_cm5.csv')
+df = pd.read_csv('coordenadas_cmD.csv')
 
 plt.style.use('dark_background')
 fig, ax = plt.subplots(figsize=(8,6))
