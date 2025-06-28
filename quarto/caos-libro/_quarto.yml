@@ -32,8 +32,8 @@ book:
 
     - part: "La Meteorología y el Caos"
       chapters:
-        - 03-meteorologia/_index.qmd
-        - 03-meteorologia/test.qmd
+        - 03-meteorologia/meteorologia.qmd
+        - 03-meteorologia/calculolyapunov.qmd
 
     - part: "El Clima y el Caos"
       chapters:

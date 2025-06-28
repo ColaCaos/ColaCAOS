@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Primera bifurcación – Caos: Teoría, Experimentos e impacto en la Meteorología</title>
+<title>18&nbsp; Meteorología y Caos – Caos: Teoría, Experimentos e impacto en la Meteorología</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-logistica/simulacion.html" rel="next">
-<link href="../01-logistica/estable.html" rel="prev">
+<link href="../03-meteorologia/calculolyapunov.html" rel="next">
+<link href="../02-pendulo-doble/estadisticas.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/bifurcaciones.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Primera bifurcación</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html">La Meteorología y el Caos</a></li><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Meteorología y Caos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,7 +189,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-logistica/bifurcaciones.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-logistica/bifurcaciones.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Primera bifurcación</span></span></a>
   </div>
 </li>
@@ -271,7 +271,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-meteorologia/meteorologia.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-meteorologia/meteorologia.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Meteorología y Caos</span></span></a>
   </div>
 </li>
@@ -339,18 +339,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" id="toc-primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" class="nav-link active" data-scroll-target="#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático"><span class="header-section-number">8.1</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span>. Análisis matemático</a></li>
-  <li><a href="#análisis-gráfico" id="toc-análisis-gráfico" class="nav-link" data-scroll-target="#análisis-gráfico"><span class="header-section-number">8.2</span> Análisis gráfico</a></li>
-  <li><a href="#analisis-de-estabilidad-de-la-primera-bifurcación" id="toc-analisis-de-estabilidad-de-la-primera-bifurcación" class="nav-link" data-scroll-target="#analisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">8.3</span> Analisis de estabilidad de la primera bifurcación</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">18.1</span> Introducción</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">Introducción al Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/bifurcaciones.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Primera bifurcación</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html">La Meteorología y el Caos</a></li><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Meteorología y Caos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Primera bifurcación</span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Meteorología y Caos</span></h1>
 </div>
 
 
@@ -367,273 +365,15 @@ window.Quarto = {
 </header>
 
 
-<p>Tal y como vimos en la sección anterior cuando <span class="math inline">\(r &gt; 3\)</span> el valor final de la sucesión logística alterna entre dos valores finales. Vamos a hacer un análisis matématico para explicar por qué pasa ésto.</p>
-<section id="primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático"><span class="header-section-number">8.1</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span>. Análisis matemático</h2>
-<p>En <span class="math inline">\(r = 3\)</span>, la derivada en el punto fijo <span class="math inline">\(x^* = 1 - \frac{1}{r}\)</span> se vuelve <span class="math inline">\(-1\)</span>, lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.</p>
-<p>Surgen dos nuevos puntos <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> que no son puntos fijos, sino puntos de período 2 tales que:</p>
-<p><span class="math display">\[
-f(p) = q, \quad f(q) = p
-\]</span></p>
-<p>Es decir, si al mapa logístico se le alimenta con un valor <span class="math inline">\(p\)</span>, da como resultado un valor <span class="math inline">\(q\)</span>, que al ser metido otra vez en el mapa logístico da el valor <span class="math inline">\(p\)</span> inicial.</p>
-<p>Esto significa que:</p>
-<p><span class="math display">\[
-f(f(p)) = p
-\]</span></p>
-<p>Lo cual implica que <span class="math inline">\(p\)</span> es un punto fijo del mapa iterado <span class="math inline">\(f^2\)</span> (esta notación significa la composicion de una función con sigo misma <span class="math inline">\(f^2()=f \circ f = f(f())\)</span>, no el cuadrado de la función)</p>
-<p>Dado que <span class="math inline">\(f(x) = r x (1 - x)\)</span>, podemos escribir:</p>
-<p><span class="math display">\[
-f(p) = r p (1 - p)
-\]</span></p>
-<p>Entonces:</p>
-<p><span class="math display">\[
-f(f(p)) = r \cdot f(p) \cdot (1 - f(p)) = r \cdot [r p (1 - p)] \cdot \left[1 - r p (1 - p)\right]
-\]</span></p>
-<p>Queremos encontrar los puntos de período 2, así que igualamos:</p>
-<p><span class="math display">\[
-f(f(p)) = p
-\]</span></p>
-<p>Hay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función <span class="math inline">\(f^2()=f \circ f = f(f())\)</span> y la función <span class="math inline">\(y=x\)</span>, y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.</p>
-<p>Sigamos con la resolución analtíca. Para ello, desarrollamos completamente <span class="math inline">\(f(f(p)) = p\)</span>:</p>
-<p><span class="math display">\[
-r^2 p (1 - p)(1 - r p (1 - p)) = p
-\]</span></p>
-<p>Pasando todo al mismo lado:</p>
-<p><span class="math display">\[
-r^2 p (1 - p)(1 - r p (1 - p)) - p = 0
-\]</span></p>
-<p>Factorizamos <span class="math inline">\(p\)</span>:</p>
-<p><span class="math display">\[
-p \left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \right] = 0
-\]</span></p>
-<p>Una de las soluciones es <span class="math inline">\(p = 0\)</span> (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.</p>
-<p>Expandimos el polinomio:</p>
-<p><span class="math display">\[
-f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
-\]</span></p>
-<p>Expandimos paso a paso:</p>
-<ol type="1">
-<li><span class="math inline">\(f(p) = r p (1 - p)\)</span><br>
-</li>
-<li><span class="math inline">\(1 - f(p) = 1 - r p (1 - p)\)</span><br>
-</li>
-<li><span class="math inline">\((1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)\)</span><br>
-</li>
-<li>Multiplicamos todo por <span class="math inline">\(r^2 p\)</span><br>
-</li>
-<li>Resulta en un polinomio de cuarto grado en <span class="math inline">\(p\)</span></li>
-</ol>
-<p>Este polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.</p>
-</section>
-<section id="análisis-gráfico" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="análisis-gráfico"><span class="header-section-number">8.2</span> Análisis gráfico</h2>
-<p>Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con <span class="math inline">\(r=2.9\)</span>. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta <span class="math inline">\(y=x\)</span> en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada <span class="math inline">\(f \circ f\)</span>. La recta <span class="math inline">\(y=x\)</span> solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.</p>
-<div id="c39b2ceb" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bifurcaciones_files/figure-html/cell-2-output-1.png" width="564" height="563" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Y ahora veamos lo que pasa cuando <span class="math inline">\(r=3.2\)</span>. En este caso, la segunda iteración corta con la recta <span class="math inline">\(y=x\)</span> en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.</p>
-<div id="3fb87609" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="bifurcaciones_files/figure-html/cell-3-output-1.png" width="564" height="563" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="analisis-de-estabilidad-de-la-primera-bifurcación" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="analisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">8.3</span> Analisis de estabilidad de la primera bifurcación</h2>
-<p>En primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es<br>
-<span class="math display">\[
-f(x) = rx(1 - x),
-\]</span><br>
-y su iteración doble se define como<br>
-<span class="math display">\[
-f^{(2)}(x) = f\bigl(f(x)\bigr).
-\]</span><br>
-Queremos hallar los valores de <span class="math inline">\(x\)</span> que satisfacen<br>
-<span class="math display">\[
-f^{(2)}(x) = x.
-\]</span></p>
-<section id="expresión-explícita-de-f2x" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="expresión-explícita-de-f2x"><span class="header-section-number">8.3.1</span> Expresión explícita de <span class="math inline">\((f^{(2)}(x))\)</span></h3>
-<p>Primero calculamos<br>
-<span class="math display">\[
-f(x) = r x - r x^2.
-\]</span><br>
-Luego<br>
-<span class="math display">\[
-f\bigl(f(x)\bigr)
-= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
-= r\bigl(r x - r x^2\bigr)\bigl(1 - (r x - r x^2)\bigr)
-\]</span></p>
-<p>Por tanto<br>
-<span class="math display">\[
-   f^{(2)}(x)
-   = r\,(r x - r x^2)\,(1 - r x + r x^2)
-   = r^2\,x\,(1 - x)\,(1 - r x + r x^2)
-   \]</span> En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.</p>
-</section>
-<section id="ecuación-para-los-puntos-periódicos-de-período-1-o-2" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="ecuación-para-los-puntos-periódicos-de-período-1-o-2"><span class="header-section-number">8.3.2</span> Ecuación para los puntos periódicos de período 1 o 2</h3>
-<p>Queremos las soluciones de<br>
-<span class="math display">\[
-f^{(2)}(x) - x = 0.
-\]</span><br>
-Sabemos que las raíces de<br>
-<span class="math display">\[
-f(x) - x = r x (1 - x) - x = 0
-\]</span><br>
-también anulan <span class="math inline">\(f^{(2)}(x) - x\)</span>. Esas raíces son: <span class="math display">\[x = 0\]</span> <span class="math display">\[x = \dfrac{r - 1}{r}\]</span> Para aislar los de periodo 2, dividimos <span class="math inline">\(f^{(2)}(x)-x\)</span> por <span class="math inline">\(f(x)-x\)</span> y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable (<span class="math inline">\(1&lt;r&lt;3\)</span>).</p>
-</section>
-<section id="factorización-y-obtención-de-las-raíces" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="factorización-y-obtención-de-las-raíces"><span class="header-section-number">8.3.3</span> Factorización y obtención de las raíces</h3>
-<p>Los puntos de periodo 2 son raíces de<br>
-<span class="math display">\[
-r^2\,x^2 \;-\; (r^2 + r)\,x \;+\; (r + 1) = 0.
-\]</span><br>
-Llamemos <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:</p>
-<p><span class="math display">\[
-x_1 = \frac{r^2 + r + r\sqrt{(r+1)(r-3)}}{2r^2}
-      = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
-\]</span></p>
-<p><span class="math display">\[
-x_2 = \frac{r^2 + r - r\sqrt{(r+1)(r-3)}}{2r^2}
-      = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
-\]</span></p>
-<p>Obsérvese, que para <span class="math inline">\(r=3\)</span>, no hay dos soluciones, sino una, que coincide con el punto estable (<span class="math inline">\(x=2/3\)</span>). Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso <span class="math inline">\(1&lt;r&lt;3\)</span> . Es decir, cuando estábamos en la región estable <span class="math inline">\(1&lt;r&lt;3\)</span>, el punto de estabilidad final lo daba el cruce que la función logística con la recta <span class="math inline">\(y=x\)</span>, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.</p>
-</section>
-<section id="derivada-de-f-y-criterio-de-estabilidad" class="level3" data-number="8.3.4">
-<h3 data-number="8.3.4" class="anchored" data-anchor-id="derivada-de-f-y-criterio-de-estabilidad"><span class="header-section-number">8.3.4</span> Derivada de <span class="math inline">\(f\)</span> y criterio de estabilidad</h3>
-<p>Supongamos que <span class="math inline">\((x_1,x_2)\)</span> es un ciclo de periodo 2, es decir<br>
-<span class="math display">\[
-f(x_1)=x_2,\qquad f(x_2)=x_1.
-\]</span><br>
-Queremos ver qué pasa si en lugar de empezar exactamente en <span class="math inline">\(x_1\)</span> tomamos un punto “ligeramente” desviado:<br>
-<span class="math display">\[
-x_1 + \delta,
-\]</span><br>
-con <span class="math inline">\(\delta\)</span> muy pequeño.</p>
-<p>Al aplicar <span class="math inline">\(f\)</span> alrededor de <span class="math inline">\(x_1\)</span>, usamos la aproximación lineal:</p>
-<p><span class="math display">\[
-f(x_1 + \delta)
-\approx f(x_1) + f'(x_1)\,\delta
-= x_2 + f'(x_1)\,\delta.
-\]</span></p>
-<p>Así, tras una iteración, nuestro error (desviación) se amplifica o reduce por el factor <span class="math inline">\(f'(x_1)\)</span>.</p>
-<p>Ahora iteramos de nuevo, partiendo de<br>
-<span class="math display">\[
-x_2 + f'(x_1)\,\delta.
-\]</span><br>
-Otra vez linealizamos en torno a <span class="math inline">\(x_2\)</span>:</p>
-<p><span class="math display">\[
-f\bigl(x_2 + f'(x_1)\,\delta\bigr)
-\approx f(x_2) + f'(x_2)\,\bigl(f'(x_1)\,\delta\bigr)
-= x_1 + \bigl[f'(x_2)\,f'(x_1)\bigr]\,\delta.
-\]</span></p>
-<p>Después de dos pasos (una vuelta completa al ciclo de período 2), la desviación original <span class="math inline">\(\delta\)</span> se convierte en</p>
-<p><span class="math display">\[
-\delta_{\rm nuevo} = f'(x_2)\,f'(x_1)\,\delta.
-\]</span></p>
-<p>Por tanto, <strong>el factor que controla la estabilidad</strong> del ciclo de período 2 es precisamente</p>
-<p><span class="math display">\[
-\Lambda = f'(x_1)\,f'(x_2).
-\]</span></p>
-<ul>
-<li>Si <span class="math inline">\(|\Lambda|&lt;1\)</span>, la desviación <span class="math inline">\(\delta\)</span> tiende a cero y el ciclo es <strong>estable</strong>.<br>
-</li>
-<li>Si <span class="math inline">\(|\Lambda|&gt;1\)</span>, la desviación crece y el ciclo es <strong>inestable</strong>.</li>
-</ul>
-<p>Veamos otra forma de calcularlo. Formalmente, la derivada de la composición <span class="math inline">\(f^{(2)}=f\circ f\)</span> se calcula con la regla de la cadena:</p>
-<p><span class="math display">\[
-(f^{(2)})'(x)
-= f'(f(x))\,f'(x).
-\]</span></p>
-<p>Si evaluamos en <span class="math inline">\(x=x_1\)</span>, tenemos:</p>
-<p><span class="math display">\[
-(f^{(2)})'(x_1)
-= f'(f(x_1))\,f'(x_1)
-= f'(x_2)\,f'(x_1),
-\]</span></p>
-<p>que es exactamente el mismo producto que acabamos de entender con el argumento de las dos iteraciones sucesivas.</p>
-<p>Por lo tanto, el ciclo de periodo 2 es estable si<br>
-<span class="math display">\[
-\bigl|f'(x_1)\,f'(x_2)\bigr| &lt; 1.
-\]</span></p>
-<p>Vamos a proceder a evaluar el producto de derivadas en los puntos <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> calculados anteriormente. Recordemos: <span class="math display">\[
-x_1 = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
-\qquad
-x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r},
-\]</span> y <span class="math display">\[
-f'(x) = r\,(1 - 2x).
-\]</span></p>
-<ol type="1">
-<li><p><strong>Derivada en (x_1)</strong><br>
-[</p>
-<span class="math display">\[\begin{aligned}
-f'(x_1)
-&amp;= r\Bigl(1 - 2\,x_1\Bigr)
-= r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
-&amp;= r\Bigl(1 - \frac{r+1 + \sqrt{(r+1)(r-3)}}{r}\Bigr)
-= r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
-&amp;= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
-= -1 \;-\;\sqrt{(r+1)(r-3)}.
-\end{aligned}\]</span>
-<p>]</p></li>
-<li><p><strong>Derivada en (x_2)</strong><br>
-[</p>
-<span class="math display">\[\begin{aligned}
-f'(x_2)
-&amp;= r\Bigl(1 - 2\,x_2\Bigr)
-= r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
-&amp;= r\Bigl(1 - \frac{r+1 - \sqrt{(r+1)(r-3)}}{r}\Bigr)
-= r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
-&amp;= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
-= -1 \;+\;\sqrt{(r+1)(r-3)}.
-\end{aligned}\]</span>
-<p>]</p></li>
-<li><p><strong>Producto de las derivadas</strong><br>
-[</p>
-<span class="math display">\[\begin{aligned}
-f'(x_1)\,f'(x_2)
-&amp;= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
-   \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
-&amp;= (-1)^2 \;-\;\bigl(\sqrt{(r+1)(r-3)}\bigr)^2
-= 1 \;-\;(r+1)(r-3) \\[4pt]
-&amp;= 1 - \bigl(r^2 - 2r - 3\bigr)
-= -\,r^2 + 2r + 4.
-\end{aligned}\]</span>
-<p>]</p></li>
-</ol>
-<p>La bifurcación de periodo 2 a periodo 4 ocurre cuando el producto cruza <span class="math inline">\(-1\)</span> (al graficar la función <span class="math inline">\(f \circ f\)</span> se observa que su derivada se va haciendo negativa en el punto de cruce con <span class="math inline">\(y=x\)</span> a medida que aumentamos <span class="math inline">\(r\)</span> ; por ello no igualamos a +1): <span class="math display">\[
--r^2 + 2r + 4 = -1
-\quad\Longrightarrow\quad
-r^2 - 2r - 5 = 0
-\quad\Longrightarrow\quad
-r = 1 \pm \sqrt{6}.
-\]</span><br>
-Despreciando la solución negativa, tomamos<br>
-<span class="math display">\[
-r_c = 1 + \sqrt{6} \approx 3.44949.
-\]</span></p>
-<p>Por lo tanto, recopilando lo que tenemos hasta ahora:</p>
-<ul>
-<li>Para <span class="math inline">\(0 &lt; r &lt; 1\)</span> la sucesión tiende a cero</li>
-<li>Para <span class="math inline">\(1 &lt; r &lt; 3\)</span> la sucesión tiende a un punto final único</li>
-<li>Para <span class="math inline">\(3 &lt; r &lt; (1 + \sqrt{6})\)</span> tiende a dos puntos que se van alternando</li>
-</ul>
-<p>¿Qué pasará a partir de <span class="math inline">\(r &gt; 1 + \sqrt{6}\)</span> ?. Podríamos repetir el análisis que acabamos de realizar. Sin embargo, resulta muy farragoso matemáticamente, dado que el orden de los polinomios involucrados es muy grande. Por ello, vamos a recurrir a la simulación numérica en la siguiente sección.</p>
+<section id="introducción" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">18.1</span> Introducción</h2>
+<p>A lo largo del proyecto hemos visto la manifestación del caos en modelos matemáticos como el mapa logístico, o en sistemas físicos como el péndulo doble.</p>
+<p>Uno de los retos del proyecto está en ver la manifestación del caos en la meteorología. Para ello vamos a proceder de dos maneras:</p>
+<p>En la primera de ellas haremos una medida indirecta de la influencia del caos en las predicciones meteorologicas. Durante varias semanas hemos recopilado predicciones meteorológicas para Galapagar, y contrastaremos estás predicciones con las observaciones realizadas para esos días. De esta manera veremos cómo divergen a medida que pasa el tiempo las predicciones anteriores. Dado que la atmósfera es un sistema caótico, cualquier pequeña desviación en las condiciones iniciales estimadas se amplifica a medida que van pasando los días debido a la actuación del caos.</p>
+<p>En la segunda haremos una estimación directa de un parámetro que hemos visto que identifica claramente la existencia de caos en un sistema. Se trata del exponente de Lyapunov. Cogeremos variables meteorológicas observadas y estimaremos su exponente de Lyapunov, esperando que sea positivo.</p>
 
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1038,13 +778,13 @@ r_c = 1 + \sqrt{6} \approx 3.44949.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01-logistica/estable.html" class="pagination-link" aria-label="Estabilidad del mapa logístico">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estabilidad del mapa logístico</span></span>
+      <a href="../02-pendulo-doble/estadisticas.html" class="pagination-link" aria-label="Qué podemos predecir">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Qué podemos predecir</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-logistica/simulacion.html" class="pagination-link" aria-label="Bifurcaciones sucesivas">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bifurcaciones sucesivas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-meteorologia/calculolyapunov.html" class="pagination-link" aria-label="Predicitibilidad de datos meteorológicos">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

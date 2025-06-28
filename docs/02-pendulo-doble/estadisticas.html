@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03-meteorologia/_index.html" rel="next">
+<link href="../03-meteorologia/meteorologia.html" rel="next">
 <link href="../02-pendulo-doble/bifurcacionesPendulo.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -271,14 +271,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-meteorologia/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  <a href="../03-meteorologia/meteorologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Meteorología y Caos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-meteorologia/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">test</span></span></a>
+  <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
       </ul>
@@ -334,8 +334,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#ejemplos-en-predicción-climática" id="toc-ejemplos-en-predicción-climática" class="nav-link active" data-scroll-target="#ejemplos-en-predicción-climática"><span class="header-section-number">17.1</span> Ejemplos en predicción climática</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -375,9 +381,18 @@ Figura 1: Distancia recorrida por el extremo del péndulo
 </figcaption>
 </figure>
 <p>Esto es lo que pasa en la predicción meteorológica y climática cuando hacemos predicciones a largo plazo. Si bien no podemos saber lo que pasará en un día concreto en un lugar preciso, sí podemos saber su comportamiento con un margen de error razonable. Al igual que con el péndulo doble, en el que podemos predecir la distancia recorrida a los 2000 segundos viendo lo que se ha movido en los primeros 1000 segundos: va a ser aproximadamente el doble sin mucho margen de equivocación.</p>
+<section id="ejemplos-en-predicción-climática" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="ejemplos-en-predicción-climática"><span class="header-section-number">17.1</span> Ejemplos en predicción climática</h2>
+<p>Hay varios ejemplos que ilustran como se aplica este principio a la predicción climática. Sin duda, el ejemplo más ilustrativo es el <strong>Predicción de la temperatura media global</strong>. Para ello se usa un modelo CGM (General Circulation Model), que es un modelo de la Circulación General de la Atmósfera y los Océanos. Con este modelo, aunque no sepamos si lloverá en Madrid el 15 de julio de 2030, podemos proyectar que la temperatura media anual aumente.</p>
+<p>Otro ejemplo es el uso de Modelos empíricos combinados con GCMs para estimar la frecuencia de olas de calor o periodos de sequía en un horizonte de 10–30 años. Aunque la fecha exacta de la próxima ola de calor es impredecible, podemos calcular que su probabilidad anual aumenta de, por ejemplo, un 5 % a un 15 % bajo escenarios de +2 °C de calentamiento global.</p>
+<p>La enseñanza clave es que <strong>el clima</strong> funciona como el <strong>comportamiento total a largo plazo</strong> del péndulo doble:<br>
+- A <strong>corto plazo</strong>, ambos sistemas son caóticos e impredecibles con precisión puntual.<br>
+- A <strong>largo plazo</strong>, emergen <strong>tendencias medias</strong> y estadísticas que sí podemos estimar y utilizar para planificar políticas, infraestructuras y medidas de adaptación.</p>
+<p>Así, la analogía del péndulo doble nos ayuda a entender por qué los modelos climáticos son fiables para predecir promedios y tendencias, aunque jamás podrán garantizar el tiempo puntual de un día concreto dentro de meses o años.</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -786,8 +801,8 @@ Figura 1: Distancia recorrida por el extremo del péndulo
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03-meteorologia/_index.html" class="pagination-link" aria-label="1. Introducción al Caos a través de la Función Logística">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03-meteorologia/meteorologia.html" class="pagination-link" aria-label="Meteorología y Caos">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Meteorología y Caos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
