@@ -29,6 +29,7 @@ book:
         - 02-pendulo-doble/fractal.qmd
         - 02-pendulo-doble/bifurcacionesPendulo.qmd
         - 02-pendulo-doble/estadisticas.qmd
+        - 02-pendulo-doble/experimentos.qmd
 
     - part: "La Meteorología y el Caos"
       chapters:

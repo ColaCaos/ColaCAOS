@@ -74,5 +74,6 @@ def update(frame):
 
 anim = FuncAnimation(fig, update, frames=n_frames, init_func=init,
                      blit=True, interval=interval_ms, repeat=True)
+anim.save("trayectorias.gif", writer="imagemagick", fps=30)
 
 plt.show()
