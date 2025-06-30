@@ -35,6 +35,7 @@ book:
       chapters:
         - 03-meteorologia/meteorologia.qmd
         - 03-meteorologia/calculolyapunov.qmd
+        - 03-meteorologia/predicciones.qmd
 
     - part: "El Clima y el Caos"
       chapters:

@@ -9,7 +9,7 @@ execute:
 
 # Efecto mariposa
 
-## Sensibilidad a las condiciones iniciales
+## Sensibilidad a las condiciones iniciales {#sec-sensibilidad}
 
 Cuando estamos en la zona estable del mapa logístico, desde cualquier valor de $x_0$ del que partamos, llegaremos siempre hasta el mismo valor final, bien sea el punto fijo que hemos calculado previamente, o cualquiera de los valores de las órbitas periódicas. Por ejemplo, para $r=2.8$ 
 

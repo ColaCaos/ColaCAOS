@@ -287,6 +287,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-meteorologia/predicciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Caos en las predicciones meteorológicas</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -301,13 +307,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-clima/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-clima/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -324,13 +330,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-experimentos/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,19 +385,19 @@ window.Quarto = {
 
 <section id="colacaos" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> ColaCaos</h1>
-<p>Este libro explora el fascinante mundo del caos desde distintos puntos de vista:</p>
-<ul>
-<li><strong>Modelos matemáticos simples</strong>, como la función logística, que nos introducen a las bifurcaciones, atractores y comportamiento impredecible en sistemas deterministas.</li>
-<li><strong>Sistemas físicos reales</strong>, como el péndulo doble, que muestran cómo el caos se manifiesta en el mundo tangible.</li>
-<li><strong>Meteorología y clima</strong>, donde la sensibilidad a condiciones iniciales limita la predictibilidad de los modelos atmosféricos y climáticos.</li>
-<li><strong>Experimentos caseros</strong>, que puedes realizar tú mismo para observar el caos en acción.</li>
-</ul>
-<p>Cada capítulo está dividido en secciones independientes, con gráficos, simulaciones, ecuaciones en LaTeX y referencias a la literatura científica cuando sea relevante.</p>
-<blockquote class="blockquote">
-<p><em>“El aleteo de una mariposa en Brasil puede provocar un tornado en Texas.”</em><br>
-— Edward Lorenz</p>
-</blockquote>
-<p>Comencemos el viaje hacia la comprensión del caos.</p>
+<p>¿Has oído hablar alguna vez de la teoría del caos? Es posible que te suene la famosa idea de que «el aleteo de una mariposa en Brasil puede provocar un huracán en Texas». Esta afirmación es una metáfora del efecto mariposa, un concepto fundamental dentro de la teoría del caos que describe cómo pequeñas variaciones en las condiciones iniciales de un sistema pueden dar lugar a diferencias enormes en su evolución.</p>
+<p>El origen de esta idea se remonta a 1972, cuando el meteorólogo y matemático Edward Lorenz presentó una conferencia titulada «Predictability: Does the Flap of a Butterfly’s Wings in Brazil Set Off a Tornado in Texas?» en la 139ª reunión de la American Association for the Advancement of Science (AAAS). Lorenz, que investigaba modelos meteorológicos, descubrió que pequeñas diferencias en los datos iniciales podían generar predicciones climáticas completamente distintas. Su trabajo sentó las bases de la teoría del caos y revolucionó la comprensión de los sistemas físicos.</p>
+<p>La inspiración para este trabajo me vino de este video de Veritasium.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fDek6cYijxI" frameborder="0" allowfullscreen="">
+</iframe>
+<p>Si tienes tiempo y ganas también te recomiendo este video de PBS. Mucho más largo pero con mayor detalle</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oo7Bhythhtw" frameborder="0" allowfullscreen="">
+</iframe>
+<p>Pero, ¿qué significa realmente el caos? Aunque solemos asociarlo con desorden y aleatoriedad, en matemáticas y física el caos tiene un significado más profundo. Un sistema caótico no es simplemente impredecible, sino que sigue leyes deterministas, pero con una sensibilidad extrema a las condiciones iniciales. Esto significa que, aunque podamos conocer las reglas que rigen su comportamiento, su evolución se vuelve imposible de predecir a largo plazo debido a la amplificación de pequeñas incertidumbres.</p>
+<p>En este blog exploraremos cómo la teoría del caos y en especial sus consecuencias en la predicción del tiempo meteorológico. A través de ejemplos, experimentos y reflexiones, descubriremos cómo el caos no es simplemente desorden, sino una forma compleja de organización que rige muchos aspectos del mundo que nos rodea.</p>
+<p>También abordaremos las implicaciones filosóficas del caos. Si la teoría del caos es correcta, a pesar de estar trabajando con sistemas cuyas ecuaciones son deterministas, no podremos conocer con certeza el estado final del sistema, por mucho que nos empeñemos en conocer con mas precisión las condiciones iniciales del sistema. Esto sugiere una limitación fundamental en muchos aspectos del conocimiento que la humanidad puede tener de su futuro. A pesar de la mejora de los medios técnicos disponibles por la Humanidad, y del avance científico, tenemos una limitación establecida por el Caos, que nos proyecta un Horizonte de Predictibilidad que no podemos pasar. Es un limite similar al de la velocidad de la luz, o al horizonte de sucesos de un agujero negro. Nunca vamos a poder ver más allá del Horizonte de Predictibilidad.</p>
+<p>Por lo tanto, teniendo claras estas limitaciones, ¿Cómo pueden los científicos hacer predicciones sobre el clima de la Tierra a 10, 20 o 100 años vista, si el horizonte de predictibilidad del tiempo meteorológico no es mayor de 2 semanas?</p>
+<p>Para concluir, he de confesar que no me he podido resistir a hacer el juego de palabras fácil con Cola «Caos», así que, la pregunta que intentaré responder, es ¿Puede una persona agitando su taza de Cacao por la mañana provocar un huracán al otro lado del océano a la semana siguiente?</p>
 
 
 

@@ -287,6 +287,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-meteorologia/predicciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Caos en las predicciones meteorológicas</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -301,13 +307,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -324,13 +330,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,11 +385,9 @@ window.Quarto = {
 <section id="experimento" class="level2" data-number="18.2">
 <h2 data-number="18.2" class="anchored" data-anchor-id="experimento"><span class="header-section-number">18.2</span> Experimento</h2>
 <p>En este experimento he comprobado que, en el péndulo doble, los pequeños errores y las desviaciones de las condiciones iniciales se multiplican muy rápidamente, de modo que resulta ser un sistema caótico, aunque sí existen ecuaciones para determinar la posición de cada masa. En primer lugar, he colocado tres pegatinas de colores: la roja en el extremo del segundo péndulo, la verde en el eje que une el primer péndulo con el segundo y la azul en el eje del primer péndulo. A continuación, mediante un programa que desarrollé en Python con la ayuda de ChatGPT y una webcam, he seguido las trayectorias de cada uno de los tres puntos de color, que corresponden a las partes más relevantes del péndulo doble. Para reproducir condiciones iniciales prácticamente idénticas, dejé caer el péndulo siempre desde la vertical —a 90 grados respecto a la posición de equilibrio—, con el segundo péndulo colgando en la misma orientación que el primero, y lo impulsé cada vez de la manera más suave posible, únicamente lo necesario para que comenzara a oscilar y adquiriera la misma velocidad inicial. Repetí este procedimiento varias veces y registré la trayectoria de los tres puntos coloreados con mi programa. Posteriormente, elaboré una animación en la que se muestran las trayectorias del punto rojo —el que presenta comportamiento más caótico— en tiempo más lento que el real, con el fin de apreciar mejor las diferencias entre cada ensayo. En dicha animación puede observarse que, a partir del primer segundo, las trayectorias comienzan a divergir significativamente y, al cabo de unos segundos, resultan completamente distintas.</p>
-<video width="640" controls="">
-<source src="PendulodobleVivo.mp4" type="video/mp4">
-</video>
-<p>Estas son las trayectorias</p>
-<div id="993d983d" class="cell" data-execution_count="1">
+<p>Aquí se ve el péndulo doble en movimiento con las diferentes partes representada con un punto de un color, que es lo que le sirve al programa para determinar las trayectorias. <video width="640" controls=""> <source src="PendulodobleVivo.mp4" type="video/mp4"> </video></p>
+<p>Estas son las trayectorias del punto rojo del péndulo en cinco tiradas desde la misma posición y con la misma velocidad inicial. Se puede apreciar como al principio su taryectoria diverge muy rápidamente, pero al final, cuando ya han perdido mucha velocidad, hacen todos un recorrido muy similar hasta detenerse.</p>
+<div id="5c550e00" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -392,7 +396,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Esta es la animación <img src="trayectorias.gif" class="img-fluid" width="800"></p>
+<p>Esta es la animación que represente la trayectoria que han seguido tres tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya que la trayectoria está ralentizada para que sea más fácil seguir como van divergiendo. <img src="trayectorias.gif" class="img-fluid" width="800"></p>
 
 
 

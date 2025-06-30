@@ -110,7 +110,10 @@ def main():
     print(f"Calibrado: s1={s1:.3f} cm/px, s2={s2:.3f} cm/px")
 
     origin = None
-    MAX_JUMP = 10.0
+    # Umbrales de salto en cm para cada segmento
+    MAX_JUMP_GREEN = 10.0   # cm
+    MAX_JUMP_RED   = 20.0   # cm
+
     prev = {'red':None,'green':None,'blue':None}
     t_start = time.time()
 
@@ -121,41 +124,55 @@ def main():
             cv2.putText(frame, "Tracking lost", (10,30),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,0,255), 2)
         else:
+            # desplazamientos en píxeles
             dx1, dy1 = cg[0]-cb[0], cb[1]-cg[1]
             dx2, dy2 = cr[0]-cg[0], cg[1]-cr[1]
+
+            # convertir a cm
             blue_cm  = (0.0, 0.0)
-            green_cm = (dx1*s1, dy1*s1)
-            red_cm   = (green_cm[0] + dx2*s2,
-                        green_cm[1] + dy2*s2)
+            green_cm = (dx1 * s1, dy1 * s1)
+            red_cm   = (green_cm[0] + dx2 * s2,
+                        green_cm[1] + dy2 * s2)
+
+            # inicializar origen
             if origin is None:
                 origin = blue_cm
+
+            # coordenadas relativas al origen
             rel = {
-                'red':   (red_cm[0]-origin[0],   red_cm[1]-origin[1]),
-                'green': (green_cm[0]-origin[0], green_cm[1]-origin[1]),
-                'blue':  (0.0,                   0.0)
+                'red':   (red_cm[0] - origin[0],   red_cm[1] - origin[1]),
+                'green': (green_cm[0] - origin[0], green_cm[1] - origin[1]),
+                'blue':  (0.0,                     0.0)
             }
-            # filtrar saltos
-            for color in rel:
-                cur = rel[color]
-                p = prev[color]
-                if p is None or np.hypot(cur[0]-p[0], cur[1]-p[1]) < MAX_JUMP:
-                    prev[color] = cur
-                else:
-                    cur = p
-                    prev[color] = p
-                # escribir CSV
-                if color == 'red':
-                    redx, redy = cur
-                elif color == 'green':
-                    grx, gry = cur
-                else:
-                    blx, bly = cur
+
+            # filtrar saltos por color usando umbrales distintos
+            # verde
+            cur_g = rel['green']
+            p_g   = prev['green']
+            if p_g is None or np.hypot(cur_g[0]-p_g[0], cur_g[1]-p_g[1]) < MAX_JUMP_GREEN:
+                prev['green'] = cur_g
+            else:
+                cur_g = p_g
+            # rojo
+            cur_r = rel['red']
+            p_r   = prev['red']
+            if p_r is None or np.hypot(cur_r[0]-p_r[0], cur_r[1]-p_r[1]) < MAX_JUMP_RED:
+                prev['red'] = cur_r
+            else:
+                cur_r = p_r
+
+            # preparar valores para CSV
+            blx, bly   = rel['blue']
+            grx, gry   = cur_g
+            redx, redy = cur_r
+
             writer.writerow([
                 f"{t:.4f}",
                 f"{redx:.3f}", f"{redy:.3f}",
                 f"{grx:.3f}", f"{gry:.3f}",
                 f"{blx:.3f}", f"{bly:.3f}"
             ])
+
             # dibujar pivotes
             for pt, col in zip((cr,cg,cb), ((0,0,255),(0,255,0),(255,0,0))):
                 cv2.circle(frame, pt, 6, col, -1)

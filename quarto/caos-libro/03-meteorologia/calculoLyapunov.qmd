@@ -310,7 +310,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Comparación de la predictibilidad: viento vs temperatura
+### Comparación de la predictibilidad: viento vs temperatura {#sec-lyapunov}
 
 En el caso de la temperatura desestacionalizada, obtuvimos un exponente de Lyapunov  
 $$
