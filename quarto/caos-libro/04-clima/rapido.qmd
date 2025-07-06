@@ -1,0 +1,53 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Cambios Climáticos Rápidos
+
+Tal y como comentamos en la sección anterior, el clima global de la Tierra se puede ver sujeto a cambios abruptos en cortos espacios de tiempo. Esta es una manifestación más de la naturaleza caótica del clima, que hasta los años 50 del pasado siglo, se consideraba que no podría ocurrir. Sin embargo los científicos han encontrado estas variaciones abruptas del clima de la Tierra en los últimos 15.000 años, desde el final de la última glaciación. 
+
+
+| Evento               | Tiempo antes de hoy          | ΔT aproximada         |
+|----------------------|------------------------------|-----------------------|
+| Younger Dryas        | 12 900–11 700 años antes     | +5 °C en < 200 años   |
+| Evento 8.2 k         | ≈ 8 200 años antes           | −3 °C en ≈ 150 años   |
+| Dansgaard–Oeschger   | Ocurrencias cada ≈ 1 500 años| +8–10 °C en décadas–siglos |
+
+
+## Younger Dryas (≈ 12 900–11 700 años antes del presente)
+ Imagina que, al final de la última glaciación, la temperatura sube lentamente y, de pronto, en menos de dos siglos, ¡cae 5 °C! Sería como pasar de un día de primavera suave a un día de invierno extremo en unas pocas generaciones humanas[^1].
+
+- **Duración y magnitud:** Duró aproximadamente 1 200 años y su temperatura media cayó unos 5 °C en el Hemisferio Norte.  
+- **Causa principal:** Un gran volumen de agua dulce del deshielo de la capa Laurentina bloqueó la Corriente del Golfo, reduciendo el transporte de calor al Atlántico Norte.  
+- **Evidencias:**  
+  - **Núcleos de hielo de Groenlandia:** Muestran un marcado descenso en los isótopos de oxígeno ($\delta^{18}O$), indicador de temperaturas más frías.  
+  - **Polen en sedimentos lacustres:** Cambios en las especies arbóreas revelan avance de coníferas sobre caducifolias, típico de climas fríos y secos.  
+- **Impacto ecológico y humano:**  
+  - Reducción de áreas aptas para la caza y recolección.  
+  - Reubicación de grupos humanos en Europa Occidental.
+
+## Evento 8.2 k (≈ 8 200 años antes del presente)
+Tras el Younger Dryas, unos 4 700 años después, otra bajada de ~3 °C en 150 años. Es equivalente a cambiar de clima templado a casi boreal en el tiempo que dura una vida humana[^1].
+
+- **Duración y magnitud:** Descenso de ~3 °C durante unos 150 años.  
+- **Origen:** Desagüe repentino del lago glacial Agassiz–Ojibway en Norteamérica, vertiendo enormes volúmenes de agua dulce en el Atlántico.  
+- **Señales en registros geológicos:**  
+  - **Isótopos de oxígeno en conchas marinas:** Reflejan enfriamiento súbito de las aguas superficiales.  
+  - **Anillos de crecimiento de árboles:** Años con densidad de crecimiento baja, consistentes con condiciones frías y secas.  
+- **Consecuencias:**  
+  - Descenso de niveles de mar locales.  
+  - Cambios en patrones de lluvia, afectando sociedades neolíticas en el Cercano Oriente.
+
+## Conexión común. Puntos de inflexión del clima
+
+Estos eventos destacan la no linealidad del sistema climático y su **sensibilidad extrema a perturbaciones**. Una pequeña alteración en la salinidad u origen de agua dulce puede desencadenar un cambio rápido y global del clima. De hecho este aspecto es 
+
+---
+
+[^1]: AIP History of Physics, "Rapid Climate Change", consultado el 5 de julio de 2025.  
+[^2]: Wikipedia en español, "Dansgaard–Oeschger event", consultado el 5 de julio de 2025.  

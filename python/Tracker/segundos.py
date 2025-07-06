@@ -18,7 +18,7 @@ axes = axes.flatten()
 for ax, t_max in zip(axes, tiempos):
     for i, color in enumerate(neon_colors, start=1):
         # 1) Leemos el CSV y calculamos tiempo relativo
-        df = pd.read_csv(f'coordenadas_cm{i}.csv')
+        df = pd.read_csv(f'coordenadas_cm_ps{i}.csv')
         t0 = df['t_s'].iloc[0]                      # primer instante
         df['t_rel'] = df['t_s'] - t0                # ecuación: t_rel = t_s - t0
 

@@ -39,8 +39,9 @@ book:
 
     - part: "El Clima y el Caos"
       chapters:
-        - 04-clima/_index.qmd
-        - 04-clima/test.qmd
+        - 04-clima/introclima.qmd
+        - 04-clima/atractor.qmd
+        - 04-clima/rapido.qmd
 
     - part: "Mis experimentos con el Caos"
       chapters:

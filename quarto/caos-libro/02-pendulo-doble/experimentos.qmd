@@ -10,12 +10,12 @@ execute:
 # Experimentos 
 
 ## Introducción
-Para observar y realizar experimentos sobre el caos en un sistema físico real, he adquirido un péndulo doble, un dispositivo en el que es posible apreciar el caos con facilidad y en un corto período de tiempo
+Para observar y realizar experimentos sobre el caos en un sistema físico real, he adquirido un péndulo doble, un dispositivo en el que es posible apreciar el caos con facilidad y en un corto período de tiempo.
 
 ## Experimento
 En este experimento he comprobado que, en el péndulo doble, los pequeños errores y las desviaciones de las condiciones iniciales se multiplican muy rápidamente, de modo que resulta ser un sistema caótico, aunque sí existen ecuaciones para determinar la posición de cada masa. En primer lugar, he colocado tres pegatinas de colores: la roja en el extremo del segundo péndulo, la verde en el eje que une el primer péndulo con el segundo y la azul en el eje del primer péndulo.
-A continuación, mediante un programa que desarrollé en Python con la ayuda de ChatGPT y una webcam, he seguido las trayectorias de cada uno de los tres puntos de color, que corresponden a las partes más relevantes del péndulo doble. Para reproducir condiciones iniciales prácticamente idénticas, dejé caer el péndulo siempre desde la vertical —a 90 grados respecto a la posición de equilibrio—, con el segundo péndulo colgando en la misma orientación que el primero, y lo impulsé cada vez de la manera más suave posible, únicamente lo necesario para que comenzara a oscilar y adquiriera la misma velocidad inicial.
-Repetí este procedimiento varias veces y registré la trayectoria de los tres puntos coloreados con mi programa. Posteriormente, elaboré una animación en la que se muestran las trayectorias del punto rojo —el que presenta comportamiento más caótico— en tiempo más lento que el real, con el fin de apreciar mejor las diferencias entre cada ensayo. En dicha animación puede observarse que, a partir del primer segundo, las trayectorias comienzan a divergir significativamente y, al cabo de unos segundos, resultan completamente distintas.
+A continuación, mediante un programa que desarrollé en Python con la ayuda de ChatGPT y una webcam, he seguido las trayectorias de cada uno de los tres puntos de color, que corresponden a las partes más relevantes del péndulo doble. Para reproducir condiciones iniciales prácticamente idénticas, dejé caer el péndulo siempre desde la vertical —a 90 grados respecto a la posición de equilibrio— , con el segundo péndulo colgando en la misma orientación que el primero, y lo impulsé cada vez de la manera más suave posible, únicamente lo necesario para que comenzara a oscilar y adquiriera la misma velocidad inicial.
+Repetí este procedimiento varias veces y registré la trayectoria de los tres puntos coloreados con mi programa. Posteriormente, elaboré una animación en la que se muestran las trayectorias del punto rojo —el que presenta comportamiento más caótico— en tiempo más lento que el real, con el fin de apreciar mejor las diferencias entre cada ensayo. En dicha animación puede observarse que, a partir del primer segundo, las trayectorias comienzan a divergir significativamente y, al cabo de unos segundos, resultan completamente distintas. Lo mismo pasaba en las simulaciones de abanico que vimos en la sección [Simulación](./simulaciones.qmd#sec-abanico)
 
 
 
@@ -64,3 +64,59 @@ plt.show()
 ```
 Esta es la animación que represente la trayectoria que han seguido tres tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya que la trayectoria está ralentizada para que sea más fácil seguir como van divergiendo. 
 ![](trayectorias.gif){width="800px"}
+
+
+## Comparación con el péndulo simple
+
+A continuación vamos a mostrar cinco tiradas del péndulo simple. El péndulo es el mismo que en el caso anterior, lo único que fijamos el pivote central para que no se mueva, por lo que pasamos de tener un péndulo doble a uno simple. Igual que en el caso anterior, seguimos el extremo con el punto rojo. 
+
+Como podemos ver en la siguiente figura, a pesar de lanzarse cada una de las veces desde posiciones ligeramente distintas, las trayectorias son idénticas. 
+
+```{python}
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Configuración de estilo
+plt.style.use('dark_background')
+fig, ax = plt.subplots(figsize=(6.8, 6))
+
+# Colores neón para las 5 corridas
+neon_colors = [
+    '#FF073A',  # rojo
+    '#04D9FF',  # azul
+    '#39FF14',  # verde
+    '#FFF700',  # amarillo
+    '#CC00FF',  # violeta
+]
+
+# Leer y plotear cada archivo sin marcadores
+for i, color in enumerate(neon_colors, start=1):
+    df = pd.read_csv(f'coordenadas_cm_ps{i}.csv')
+    ax.plot(df['red_x_cm'], df['red_y_cm'],
+            color=color, linewidth=1, label=f'Tirada {i}')
+
+# Etiquetas y leyenda
+ax.set_xlabel('X [cm]', color='white')
+ax.set_ylabel('Y [cm]', color='white')
+ax.set_title('Superposición de trayectorias del extremo del péndulo simple', color='white')
+ax.legend(facecolor='black', edgecolor='white', labelcolor='white', loc='upper right')
+ax.grid(color='gray', alpha=0.3)
+ax.tick_params(colors='white')
+
+plt.show()
+
+
+
+```
+
+
+Y si miramos en la animación el ángulo del péndulo en cada una de las trayectorias, vemos de nuevo que en función del tiempo las trayectorias son muy similares.  
+
+![](theta_vs_time.gif){width="800px"}
+
+He hecho este mismo gráfico con los datos de las tiradas del péndulo doble. El contraste con el péndulo doble es mayúsculo. En el péndulo doble no había ni una sola trayectoria idéntica, divergían continuamente. En el péndulo simple se ve como van iguales.
+
+![](theta_vs_time_doble.gif){width="800px"}
+

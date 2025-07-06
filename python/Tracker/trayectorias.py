@@ -17,7 +17,7 @@ neon_colors = [
 
 # Leer y plotear cada archivo sin marcadores
 for i, color in enumerate(neon_colors, start=1):
-    df = pd.read_csv(f'coordenadas_cm{i}.csv')
+    df = pd.read_csv(f'coordenadas_cm_ps{i}.csv')
     ax.plot(df['red_x_cm'], df['red_y_cm'],
             color=color, linewidth=1, label=f'Tirada {i}')
 

@@ -51,7 +51,7 @@ En el código proporcionado, los parámetros físicos de cada péndulo doble los
 
 
 
-## Video con la simulación
+## Video con la simulación {#sec-abanico}
 
 Una vez preparado el código procedía a correrlo y grabar la ventana de salida en un archivo de vídeo que se encuentra a continuación. Hay que tener en cuenta que el código Python generado por ChatGPT, avanza en pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad de pendulos la simulación no llega a ser en tiempo real. Por eso le pedía a ChatGPT que incluyera un texto en la simulación que mostrase el tiempo real durante la simulación. 
 

@@ -111,8 +111,8 @@ def main():
 
     origin = None
     # Umbrales de salto en cm para cada segmento
-    MAX_JUMP_GREEN = 10.0   # cm
-    MAX_JUMP_RED   = 20.0   # cm
+    MAX_JUMP_GREEN = 20.0   # cm
+    MAX_JUMP_RED   = 40.0   # cm
 
     prev = {'red':None,'green':None,'blue':None}
     t_start = time.time()

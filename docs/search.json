@@ -461,8 +461,8 @@
     ]
   },
   {
-    "objectID": "02-pendulo-doble/simulaciones.html#video-con-la-simulación",
-    "href": "02-pendulo-doble/simulaciones.html#video-con-la-simulación",
+    "objectID": "02-pendulo-doble/simulaciones.html#sec-abanico",
+    "href": "02-pendulo-doble/simulaciones.html#sec-abanico",
     "title": "14  Sensibilidad a las condiciones iniciales",
     "section": "14.3 Video con la simulación",
     "text": "14.3 Video con la simulación\nUna vez preparado el código procedía a correrlo y grabar la ventana de salida en un archivo de vídeo que se encuentra a continuación. Hay que tener en cuenta que el código Python generado por ChatGPT, avanza en pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad de pendulos la simulación no llega a ser en tiempo real. Por eso le pedía a ChatGPT que incluyera un texto en la simulación que mostrase el tiempo real durante la simulación.\n\n\n\nEl resultado es sorprendente e hipnotizante. ¿Como puede ser que péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si observamos antentamente el vídeo hasta el segundo 1 de la simulación todos los péndulos van casi al unísono. En el segundo 2, que es cuando llegan al otro extremo, vemos que el “abanico” ya se empieza a abrir. Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya estamos con una divergencia total, y a partir de ahí cada uno va a su bola, !!caos total!!.\nAhora reflexionemos. Péndulos que fueron lanzados con diferencias de milésimas de grado, tienen trayectorias que divergen enormemente tras 5 segundos. ¿Acaso es éste un sistema físico que cuyo comportamiento podamos predecir en la vida real?. Pues yo diría que no.",
@@ -564,7 +564,7 @@
     "href": "02-pendulo-doble/experimentos.html",
     "title": "18  Experimentos",
     "section": "",
-    "text": "18.1 Introducción\nPara observar y realizar experimentos sobre el caos en un sistema físico real, he adquirido un péndulo doble, un dispositivo en el que es posible apreciar el caos con facilidad y en un corto período de tiempo",
+    "text": "18.1 Introducción\nPara observar y realizar experimentos sobre el caos en un sistema físico real, he adquirido un péndulo doble, un dispositivo en el que es posible apreciar el caos con facilidad y en un corto período de tiempo.",
     "crumbs": [
       "El Caos en vivo: El péndulo doble",
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>Experimentos</span>"
@@ -575,7 +575,18 @@
     "href": "02-pendulo-doble/experimentos.html#experimento",
     "title": "18  Experimentos",
     "section": "18.2 Experimento",
-    "text": "18.2 Experimento\nEn este experimento he comprobado que, en el péndulo doble, los pequeños errores y las desviaciones de las condiciones iniciales se multiplican muy rápidamente, de modo que resulta ser un sistema caótico, aunque sí existen ecuaciones para determinar la posición de cada masa. En primer lugar, he colocado tres pegatinas de colores: la roja en el extremo del segundo péndulo, la verde en el eje que une el primer péndulo con el segundo y la azul en el eje del primer péndulo. A continuación, mediante un programa que desarrollé en Python con la ayuda de ChatGPT y una webcam, he seguido las trayectorias de cada uno de los tres puntos de color, que corresponden a las partes más relevantes del péndulo doble. Para reproducir condiciones iniciales prácticamente idénticas, dejé caer el péndulo siempre desde la vertical —a 90 grados respecto a la posición de equilibrio—, con el segundo péndulo colgando en la misma orientación que el primero, y lo impulsé cada vez de la manera más suave posible, únicamente lo necesario para que comenzara a oscilar y adquiriera la misma velocidad inicial. Repetí este procedimiento varias veces y registré la trayectoria de los tres puntos coloreados con mi programa. Posteriormente, elaboré una animación en la que se muestran las trayectorias del punto rojo —el que presenta comportamiento más caótico— en tiempo más lento que el real, con el fin de apreciar mejor las diferencias entre cada ensayo. En dicha animación puede observarse que, a partir del primer segundo, las trayectorias comienzan a divergir significativamente y, al cabo de unos segundos, resultan completamente distintas.\nAquí se ve el péndulo doble en movimiento con las diferentes partes representada con un punto de un color, que es lo que le sirve al programa para determinar las trayectorias.   \nEstas son las trayectorias del punto rojo del péndulo en cinco tiradas desde la misma posición y con la misma velocidad inicial. Se puede apreciar como al principio su taryectoria diverge muy rápidamente, pero al final, cuando ya han perdido mucha velocidad, hacen todos un recorrido muy similar hasta detenerse.\n\n\n\n\n\n\n\n\n\nEsta es la animación que represente la trayectoria que han seguido tres tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya que la trayectoria está ralentizada para que sea más fácil seguir como van divergiendo.",
+    "text": "18.2 Experimento\nEn este experimento he comprobado que, en el péndulo doble, los pequeños errores y las desviaciones de las condiciones iniciales se multiplican muy rápidamente, de modo que resulta ser un sistema caótico, aunque sí existen ecuaciones para determinar la posición de cada masa. En primer lugar, he colocado tres pegatinas de colores: la roja en el extremo del segundo péndulo, la verde en el eje que une el primer péndulo con el segundo y la azul en el eje del primer péndulo. A continuación, mediante un programa que desarrollé en Python con la ayuda de ChatGPT y una webcam, he seguido las trayectorias de cada uno de los tres puntos de color, que corresponden a las partes más relevantes del péndulo doble. Para reproducir condiciones iniciales prácticamente idénticas, dejé caer el péndulo siempre desde la vertical —a 90 grados respecto a la posición de equilibrio— , con el segundo péndulo colgando en la misma orientación que el primero, y lo impulsé cada vez de la manera más suave posible, únicamente lo necesario para que comenzara a oscilar y adquiriera la misma velocidad inicial. Repetí este procedimiento varias veces y registré la trayectoria de los tres puntos coloreados con mi programa. Posteriormente, elaboré una animación en la que se muestran las trayectorias del punto rojo —el que presenta comportamiento más caótico— en tiempo más lento que el real, con el fin de apreciar mejor las diferencias entre cada ensayo. En dicha animación puede observarse que, a partir del primer segundo, las trayectorias comienzan a divergir significativamente y, al cabo de unos segundos, resultan completamente distintas. Lo mismo pasaba en las simulaciones de abanico que vimos en la sección Simulación\nAquí se ve el péndulo doble en movimiento con las diferentes partes representada con un punto de un color, que es lo que le sirve al programa para determinar las trayectorias.   \nEstas son las trayectorias del punto rojo del péndulo en cinco tiradas desde la misma posición y con la misma velocidad inicial. Se puede apreciar como al principio su taryectoria diverge muy rápidamente, pero al final, cuando ya han perdido mucha velocidad, hacen todos un recorrido muy similar hasta detenerse.\n\n\n\n\n\n\n\n\n\nEsta es la animación que represente la trayectoria que han seguido tres tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya que la trayectoria está ralentizada para que sea más fácil seguir como van divergiendo.",
+    "crumbs": [
+      "El Caos en vivo: El péndulo doble",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Experimentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-pendulo-doble/experimentos.html#comparación-con-el-péndulo-simple",
+    "href": "02-pendulo-doble/experimentos.html#comparación-con-el-péndulo-simple",
+    "title": "18  Experimentos",
+    "section": "18.3 Comparación con el péndulo simple",
+    "text": "18.3 Comparación con el péndulo simple\nA continuación vamos a mostrar cinco tiradas del péndulo simple. El péndulo es el mismo que en el caso anterior, lo único que fijamos el pivote central para que no se mueva, por lo que pasamos de tener un péndulo doble a uno simple. Igual que en el caso anterior, seguimos el extremo con el punto rojo.\nComo podemos ver en la siguiente figura, a pesar de lanzarse cada una de las veces desde posiciones ligeramente distintas, las trayectorias son idénticas.\n\n\n\n\n\n\n\n\n\nY si miramos en la animación el ángulo del péndulo en cada una de las trayectorias, vemos de nuevo que en función del tiempo las trayectorias son muy similares.\n\nHe hecho este mismo gráfico con los datos de las tiradas del péndulo doble. El contraste con el péndulo doble es mayúsculo. En el péndulo doble no había ni una sola trayectoria idéntica, divergían continuamente. En el péndulo simple se ve como van iguales.",
     "crumbs": [
       "El Caos en vivo: El péndulo doble",
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>Experimentos</span>"
@@ -681,47 +692,135 @@
     ]
   },
   {
-    "objectID": "04-clima/_index.html",
-    "href": "04-clima/_index.html",
-    "title": "22  1. Introducción al Caos a través de la Función Logística",
+    "objectID": "04-clima/introclima.html",
+    "href": "04-clima/introclima.html",
+    "title": "22  Clima",
     "section": "",
-    "text": "23 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "text": "22.1 Clima y Caos. Historia\nLlegamos a la parte más cualitativa y menos cuantitativa del proyecto, no por ello menos importante. Como bien se manifiesta en los medios de comunicación y en la comunidad científica la predicción del clima es uno los puntos más importantes para la humanidad. Si bien en el capítulo anterior hemos investigado sobre como afecta el caos a la previsión meteorológica ahora vamos a hacer lo mismo con el clima.\nCon el tiempo meteorológico a corto plazo todo el mundo asume que las previsiones meteorológicas dejan de tener validez a los diez días. En este proyecto hemos visto que esto se debe a que la atmósfera es un sistema caótico, muy sensible por lo tanto a las condiciones iniciales.\nCon el clima curiosamente, la sensación general que hay en la sociedad es que puede predecirse. Cada ciertos años el IPCC nos da sus proyecciones sobre el clima para los próximos 100 años, y lo tomamos como válido dado el gran consenso científico en torno a estas proyecciones. ¿Cómo puede ser ésto?. No podemos predecir el tiempo a diez días, pero sí a cien años. A continuación, durante este capítulo, veremos los matices que hay detrás de de todo esto.\nEmpezaremos por ver cuál es la postura oficial del IPCC sobre la predictibilidad del clima. En los glosarios de los informes del IPCC, tanto en el Cuarto Informe de Evaluación (AR4 WG I Annex I) como en el Quinto Informe de Evaluación (AR5 WG II), en la entrada «Predictibilidad», aparece el siguiente texto (recogido del la American Meteorological Society en el año 2000):\n“El conocimiento de los estados actual y anteriores del sistema climático suele ser imperfecto, los modelos que mediante esos conocimientos generan predicciones climáticas son, por consiguiente, también imperfectos, y el sistema climático es inherentemente no lineal y caótico, todo lo cual hace que la predictibilidad del sistema climático sea inherentemente limitada. Incluso aunque se utilicen modelos y observaciones arbitrariamente precisos, existen limitaciones a la predictibilidad de un sistema no lineal como el clima (AMS, 2000).”\nAquí tenemos un reconocimiento implícito de que el clima es un sistema caótico. Por lo que llevamos visto en el proyecto, ya sabemos que predecir sistemas caóticos parece un oximorón. Sin embargo, la ciencia moderna afirma que no es un oxímoron: existen predicciones útiles a corto plazo (deterministas) y a largo plazo (estadísticas o climáticas). La clave está en reconocer el alcance y las limitaciones de cada tipo de predicción.\nEl reconocimiento del clima como sistema caótico nos retrotrae a los momentos en los que se descubrió el caos atmosférico. Fue Edward Lorenz en 1961 quién se dió cuenta de la existencia del caos haciendo unas simulaciones de la atmósfera. Recomiendo la lectura de esta página Lorenz, donde se narra como se produjo el descubrimiento. Tal y como se cuenta en esta página, Lorenz, cuatro años más tarde, en una charla en 1965, afirmó:\n“Climate may or may not be deterministic, We shall probably never know for sure”\nEn este momento, mucha gente empezó a preocuparse porque los cambios climáticos pudiesen venir de forma arbitraria y catastrófica. Reconocer la naturaleza caótitca del clima, implicaba reconocer que pequeñas perturbaciones pudieran cambiar el estado a largo plazo de la atmósfera de un estado a otro.\nSin embargo, durante esta época, también existía una corriente de científicos que creía que a pesar del caos, el clima podía predecirse. El argumento era muy sencillo: a pesar que la atmósfera es caótica todos los años tenemos temporada de huracanes y monzones de forma predecible. Otros aspectos del clima más a largo plazo que también pueden predecirse dentro de unos límites son los ciclos Niño/Niña. Por lo tanto, parece que dentro del caos impera cierto orden.\nTambién relacionado con el caos y el clima, otro descubrimiento que se hizo en las décadas de los 60, 70 y 80 del pasado siglo, fue la evidencia paleoclimática de existencia de cambios muy rápidos del clima. Hasta aquel momento se pensaba que las variaciones del clima eran muy lentas, de miles de años. Pero se encontraron evidencias de cambios rápidos del clima, que podrían estar relacionados con la naturaleza caótica del mismo. En la próxima seccion lo detallo.",
     "crumbs": [
       "El Clima y el Caos",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Clima</span>"
     ]
   },
   {
-    "objectID": "04-clima/test.html",
-    "href": "04-clima/test.html",
-    "title": "23  test",
+    "objectID": "04-clima/atractor.html",
+    "href": "04-clima/atractor.html",
+    "title": "23  Atractores",
     "section": "",
-    "text": "tttttttttttttttttttttttt",
+    "text": "23.1 Definición del clima\nAntes de seguir hablando del clima vamos a ver qué entedemos por el clima. Según la Organización Meteorológica Mundial, el clima se define como la descripción estadística —principalmente la media y la variabilidad— de las variables atmosféricas (temperatura, precipitación, viento, etc.) para un lugar dado durante un periodo de referencia de 30 años, lo cual:\nEn la actualidad existe otra corriente de científicos para los que la definición del clima está mas relacionada con los sistemas caóticos. Para ellos, el clima no es la distribución de observaciones, sino el atractor de un modelo climático perfecto bajo condiciones externas fijas. Pero, ¿qué es un atractor?",
     "crumbs": [
       "El Clima y el Caos",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>test</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Atractores</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/atractor.html#definición-del-clima",
+    "href": "04-clima/atractor.html#definición-del-clima",
+    "title": "23  Atractores",
+    "section": "",
+    "text": "Filtra las variaciones interanuales y anomalías (p. ej. El Niño–Oscilación del Sur).\nPermite identificar tendencias y extremos climáticos a largo plazo.",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Atractores</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/atractor.html#atractor",
+    "href": "04-clima/atractor.html#atractor",
+    "title": "23  Atractores",
+    "section": "23.2 Atractor",
+    "text": "23.2 Atractor\nPara ver lo que es un atractor nos vamos a valer de nuevo de nuestro tan útil mapa logístico.\nVamos a ir a la zona caótica del mapa logístico, con \\(r=3.9\\). Vamos a ver un plot del valor de la sucesión con el tiempo.\n\n\n\n\n\n\n\n\n\nY ahora vamos a hacer lo mismo con números aleatorios que he mandado generar al ordenador con una distribución uniforme entre 0 y 1.\n\n\n\n\n\n\n\n\n\nAparentemente estamos viendo la misma nube de puntos sin ninguna estructura. Pero, ¿qué pasa si representamos \\(x_{n+1}\\) frente a \\(x_n\\) ?. El resultado es una zona de puntos que atrae las distintas iteraciones de nuestra secuencia. !!Nos econtramos ante un atractor!!\n\n\n\n\n\n\n\n\n\nSi hacemos lo mismo con los números aleatorios entre 0 y 1 el resultado es el siguiente.\n\n\n\n\n\n\n\n\n\nNO hay ninguna estructura que atraiga los valores. Estamos ante un conjunto desestructurado de datos.\nVolvamos al atractor del mapa logísitico. Uno podría decir que es lógico lo que vemos, ya que los puntos están definidos por la función logística. De hecho, parece que estamos viendo la función logística. Pero hay un detalle: si miras detalladamente verás huecos en la gráfica.¿Por qué el atractor es distinto de la función logística?\n\nLa ecuación logística\n\\[\nx_{n+1} = r\\,x_n\\,(1 - x_n)\n\\]\nes la regla determinista que asigna cada valor \\(x_n\\) al siguiente.\nEl atractor es el conjunto de pares \\((x_n, x_{n+1})\\) en el espacio de fases donde la dinámica termina estabilizándose tras desechar el transitorio. Aunque la función forma una parábola continua, el atractor sólo ocupa las regiones donde los puntos rebotan de forma caótica y no periódica. Estamos por tanto ante un atractor periódico. ¿ Qué tipos de atractores hay en el mapa logístico?\n\n\nPunto fijo\nTodos los orbitantes convergen a un único punto \\((x^*,x^*)\\). Ejemplo: para \\(0 &lt; r &lt; 1\\), \\(x^* = 0\\).\nCiclo límite\nOscilaciones periódicas entre un conjunto finito de valores (periodo 2, 4, …). Sucede para \\(3 &lt; r &lt; 3.5699\\ldots\\).\nAtractor extraño (caótico)\nLa razón de que el atractor sea “extraño” es que puntos muy próximos en una iteración pueden acabar muy separados en iteraciones posteriores, generando esa mezcla de estabilidad (se quedan en el atractor) y caos (se mueven sin orden aparente), pero siempre dentro de la misma estructura fractal. Para ver la estructura fractal, vamos a hacer zooms sucesivos en \\(r = 3.9\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComo vemos a diferencia de la función logística, el atractor tiene “huecos”, no es continuo en el sentido matemático estricto. Se trata de una constucción extraña. Tras consultarlo a ChatGPT, me confirmó que hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos que un conjunto de la recta es continuo (o conectado) si para cualesquiera \\(a,b\\) en él, todo el intervalo \\([a,b]\\) también está contenido. El atractor fractal no cumple esto: no existe \\(\\delta&gt;0\\) tal que contenga el segmento \\([x_0-\\delta, x_0+\\delta]\\) alrededor de un punto \\(x_0\\). Es decir, todos los puntos tienen huecos alrededor suyos.\nCada valor de \\(r\\) tiene su propio atractor, tal y como se puede ver en la siguiente figura. Como es lógico, dependiendo del valor de crecimiento de la función logística \\(r\\), el sistema terminará en un atractor o en otro.",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Atractores</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/rapido.html",
+    "href": "04-clima/rapido.html",
+    "title": "24  Cambios Climáticos Rápidos",
+    "section": "",
+    "text": "24.1 Younger Dryas (≈ 12 900–11 700 años antes del presente)\nTal y como comentamos en la sección anterior, el clima global de la Tierra se puede ver sujeto a cambios abruptos en cortos espacios de tiempo. Esta es una manifestación más de la naturaleza caótica del clima, que hasta los años 50 del pasado siglo, se consideraba que no podría ocurrir. Sin embargo los científicos han encontrado estas variaciones abruptas del clima de la Tierra en los últimos 15.000 años, desde el final de la última glaciación.\nImagina que, al final de la última glaciación, la temperatura sube lentamente y, de pronto, en menos de dos siglos, ¡cae 5 °C! Sería como pasar de un día de primavera suave a un día de invierno extremo en unas pocas generaciones humanas1.",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Cambios Climáticos Rápidos</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/rapido.html#younger-dryas-12-90011-700-años-antes-del-presente",
+    "href": "04-clima/rapido.html#younger-dryas-12-90011-700-años-antes-del-presente",
+    "title": "24  Cambios Climáticos Rápidos",
+    "section": "",
+    "text": "Duración y magnitud: Duró aproximadamente 1 200 años y su temperatura media cayó unos 5 °C en el Hemisferio Norte.\n\nCausa principal: Un gran volumen de agua dulce del deshielo de la capa Laurentina bloqueó la Corriente del Golfo, reduciendo el transporte de calor al Atlántico Norte.\n\nEvidencias:\n\nNúcleos de hielo de Groenlandia: Muestran un marcado descenso en los isótopos de oxígeno (\\(\\delta^{18}O\\)), indicador de temperaturas más frías.\n\nPolen en sedimentos lacustres: Cambios en las especies arbóreas revelan avance de coníferas sobre caducifolias, típico de climas fríos y secos.\n\n\nImpacto ecológico y humano:\n\nReducción de áreas aptas para la caza y recolección.\n\nReubicación de grupos humanos en Europa Occidental.",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Cambios Climáticos Rápidos</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/rapido.html#evento-8.2-k-8-200-años-antes-del-presente",
+    "href": "04-clima/rapido.html#evento-8.2-k-8-200-años-antes-del-presente",
+    "title": "24  Cambios Climáticos Rápidos",
+    "section": "24.2 Evento 8.2 k (≈ 8 200 años antes del presente)",
+    "text": "24.2 Evento 8.2 k (≈ 8 200 años antes del presente)\nTras el Younger Dryas, unos 4 700 años después, otra bajada de ~3 °C en 150 años. Es equivalente a cambiar de clima templado a casi boreal en el tiempo que dura una vida humana2.\n\nDuración y magnitud: Descenso de ~3 °C durante unos 150 años.\n\nOrigen: Desagüe repentino del lago glacial Agassiz–Ojibway en Norteamérica, vertiendo enormes volúmenes de agua dulce en el Atlántico.\n\nSeñales en registros geológicos:\n\nIsótopos de oxígeno en conchas marinas: Reflejan enfriamiento súbito de las aguas superficiales.\n\nAnillos de crecimiento de árboles: Años con densidad de crecimiento baja, consistentes con condiciones frías y secas.\n\n\nConsecuencias:\n\nDescenso de niveles de mar locales.\n\nCambios en patrones de lluvia, afectando sociedades neolíticas en el Cercano Oriente.",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Cambios Climáticos Rápidos</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/rapido.html#conexión-común.-puntos-de-inflexión-del-clima",
+    "href": "04-clima/rapido.html#conexión-común.-puntos-de-inflexión-del-clima",
+    "title": "24  Cambios Climáticos Rápidos",
+    "section": "24.3 Conexión común. Puntos de inflexión del clima",
+    "text": "24.3 Conexión común. Puntos de inflexión del clima\nEstos eventos destacan la no linealidad del sistema climático y su sensibilidad extrema a perturbaciones. Una pequeña alteración en la salinidad u origen de agua dulce puede desencadenar un cambio rápido y global del clima. De hecho este aspecto es",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Cambios Climáticos Rápidos</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/rapido.html#footnotes",
+    "href": "04-clima/rapido.html#footnotes",
+    "title": "24  Cambios Climáticos Rápidos",
+    "section": "",
+    "text": "AIP History of Physics, “Rapid Climate Change”, consultado el 5 de julio de 2025.↩︎\nAIP History of Physics, “Rapid Climate Change”, consultado el 5 de julio de 2025.↩︎",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Cambios Climáticos Rápidos</span>"
     ]
   },
   {
     "objectID": "05-experimentos/_index.html",
     "href": "05-experimentos/_index.html",
-    "title": "24  1. Introducción al Caos a través de la Función Logística",
+    "title": "25  1. Introducción al Caos a través de la Función Logística",
     "section": "",
-    "text": "25 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
+    "text": "26 1. Introducción al Caos a través de la Función Logística\nAquí va la presentación general de este capítulo…",
     "crumbs": [
       "Mis experimentos con el Caos",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>1. Introducción al Caos a través de la Función Logística</span>"
     ]
   },
   {
     "objectID": "05-experimentos/test.html",
     "href": "05-experimentos/test.html",
-    "title": "25  test",
+    "title": "26  test",
     "section": "",
     "text": "tttttttttttttttttttttttt",
     "crumbs": [
       "Mis experimentos con el Caos",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>test</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>test</span>"
+    ]
+  },
+  {
+    "objectID": "04-clima/atractor.html#otros-atractores",
+    "href": "04-clima/atractor.html#otros-atractores",
+    "title": "23  Atractores",
+    "section": "23.3 Otros atractores",
+    "text": "23.3 Otros atractores\nExisten otros atractores dentro de los sistemas caóticos. Por ejemplo un péndulo doble con rozamiento acaba siempre en la misma posición (con el péndulo parado justo debajo del eje debido a la pérdida de energía); en este caso el atractor es un punto. Existe otro atractor que es mítico, y que no podría dejar pasar en este proyecto, que es el atractor de Lorenz por todo lo que representa en el estudio de sistemas caóticos y el tiempo. Fue el primero que se describió y describe perfectamente como un sistema caótico puede tener dos estados diferenciados. El sistema pasa de un estado a otro por pequeñas perturbaciones, y puede permanecer en uno de los estados durante bastante tiempo hasta que otra perturbación lo saca de ahí y lo lleva hacia el otro estado. Las ecuaciones de Lorenz se hallan totalmente fuera del alcance de lo que puedo entender con mi nivel de matemáticas, pero su funcionamiento resulta fácil de comprender una vez que se muestra la gráfica con el estado del sistema en función del tiempo. Le pedí a ChatGPT que me hiciese una simulación del atractor del Lorenz y este fue el resultado\n\nHaciendo paralelismos con el atractor del mapa logístico, en este caso, en lugar de puntos separados, lo que tenemos son líneas separadas. Es decir, ninguna de las líneas que van trazándose vuelve a pasar por encima de otra. Esto ya lo vimos en las simulaciones y experimentos con el péndulo: ninguna de las trayectorias del péndulo pasa por encima de otra.\n¿Y por qué es relevante desde el punto de vista del clima el atractor de Lorenz?. Porque nos ilustra como un sistema caótico puede alternar entre dos estados, y pasar de uno a otro por pequeñas perturbaciones. Por lo tanto, vemos aquí una explicación, una demostración de lo que esta segunda definición del clima es desde el punto de vista de un sistema caótico. El clima actual, es el estado actual en el que el sistema caótico que conforma el clima está ahora mismo. Y solamente desde la perspectiva de los sistemas caóticos podemos reconocer que el paso de un estado a otro puede deberse a muy pequeñas perturbaciones, o “tipping points”, que nos pueden llevar a un clima totalmente diferente al que tenemos en la actualidad. Obviamente, hay que tener en cuenta que el clima es un sistema caótico con un estado multidimensional, que depende de múltiples variables que conforman este espacio multidimensional.",
+    "crumbs": [
+      "El Clima y el Caos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Atractores</span>"
     ]
   }
 ]
