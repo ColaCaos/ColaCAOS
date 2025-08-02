@@ -3,12 +3,14 @@ project:
   output-dir: ../../docs
 
 book:
-  title: "Caos: Teoría, Experimentos e impacto en la Meteorología"
+  title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
   author: "Rubén Torre Merino"
   chapters:
-    - index.qmd
+    - part: "Introducción"
+      chapters:
+        - index.qmd
 
-    - part: "Introducción al Caos a través de la Función Logística"
+    - part: "El Caos a través de la Función Logística"
       chapters:
         - 01-logistica/mapa-logistico.qmd
         - 01-logistica/cobweb.qmd
