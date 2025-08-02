@@ -34,11 +34,13 @@ El reconocimiento del clima como sistema caótico nos retrotrae a los momentos e
 
  También relacionado con el caos y el clima, otro descubrimiento que se hizo en las décadas de los 60, 70 y 80 del pasado siglo, fue la evidencia paleoclimática de existencia de cambios muy rápidos del clima. Hasta aquel momento se pensaba que las variaciones del clima eran muy lentas, de miles de años. Pero se encontraron evidencias de cambios rápidos del clima, que podrían estar relacionados con la naturaleza caótica del mismo. En la próxima seccion lo detallo. 
 
- ## Como estudiar el clima
+
+## Como estudiar el clima
 
 El estudio del clima resulta extremadamente complejo. Los modelos que usa en la actualidad el IPCC tienen en cuenta la circulación atmosférica y la oceánica. Por limitaciones computacionales, la rejilla de cálculo que se emplea es de alrededor 50 kilómetros en horizontal, y en vertical se divide la atmósfera en 30 u 80 niveles hasta llegar a los 50 kilómetros de altura. De forma similar se procede al modelado de los océanos. Además hay que tener en cuenta que el clima global se ve afectado por mecanismos geólicos (volcanes, movimiento de placas tectónicas), por la vegetación y animales, procesos químicos (ciclos de carbono, aerosoles), impacto humano (emisiones de gas de efecto invernadero, usos agrícolas de suelo, deforestaciones/reforestaciones). La combinación de estos factores da lugar a un sistema muy complejo de estudiar, más aún, teniendo en cuenta las relaciones no lineales de muchos de los parámetros, lo que da lugar a un sistema caótico. Muchos modelos nuevos empiezan a tener en cuenta ya este enfoque multifactorial, pero los requisitos de cómputo para hacer un estudio con mucha resolución superan ampliamente los recursos de computación disponibles. 
 
-Además otro punto de vista que hace falta definir claramente, es, qué se entiende por clima de la Tierra, ya que en no existe un único clima, sino que existen múltiples climas dependiendo de la zona que estudiemos.
+En las dos siguientes secciones analizaremos los cambios que se han producido en el climas en los últimos miles de años, y cómo estos cambios resultan de dificil predicción debido precisamente a la cantidad de factores que entran en juego a la horas de estudiarlos. 
+
 
 
 

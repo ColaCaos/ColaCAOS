@@ -18,7 +18,7 @@ Tal y como comentamos en la sección anterior, el clima global de la Tierra se p
 ## Evento 8.2 k (≈ 8 200 años antes del presente)
 Tras el Younger Dryas, unos 4 700 años después, se produjo otra bajada de ~3 °C que duró 150 años. Es equivalente a cambiar de clima templado a casi boreal en unas pocas generaciones[^1]. De nuevo, el causante fue el desagüe repentino del lago glacial Agassiz–Ojibway en Norteamérica, vertiendo enormes volúmenes de agua dulce en el Atlántico. Se estima que el descenso de temperatura tuvo lugar en menos de 10 años, y que la recuperación fue más gradual, unos 50 años.
 
-# Conexión común. Puntos de inflexión del clima
+## Conexión común. Puntos de inflexión del clima
 
 Estos eventos destacan la no linealidad del sistema climático y su **sensibilidad extrema a perturbaciones**. Una pequeña alteración en la salinidad u origen de agua dulce puede desencadenar un cambio rápido y global del clima. En la actualidad los científicos del clima han identificado varios puntos de inflexión que podrían provocar un cambio brusco del clima, como:
 
@@ -29,7 +29,9 @@ Como dijimos anteriormente, son muchos los factores que intervienen en el clima.
 
 Un ejemplo extremo de punto de inflexión son los ciclos de Milankovitch. Estos ciclos periódicos que marcan los cambios de la excentricidad de la órbita de la Tierra, y la inclinación del eje de la Tierra, han marcado durante los últimos 5 millones de años la llegada y marcha de las glaciaciones. Pero lo interesante, es que estos pequeños cambios en la órbita de la Tierra, por sí solos no son capaces de generar las glaciaciones. Son puntos de inflexión, que provocan una cascada de eventos posterior que amplifican la pequeña perturbación inicial. 
 
+Por lo tanto, vemos como no solamente es necesario tener un buen simulador de la circulación atmosférica/oceánica, sino que también habría que tener en cuenta aspectos geológicos de la Tierra, sus ecosistemas, e incluso posibles perturbaciones cósmicas. 
 
+En la siguiente sección evaluaremos como han funcionado los modelos que se usan para la predicción del clima. Si bien, desde el momento en el que se empezaron a usar estos modelos no ha habido cambios naturales grandes, veremos como se han comportado durante este último siglo en el que el principal forzamiento del clima ha sido la emisión de gases de efecto invernadero por parte del ser humano. 
 
 ---
 

@@ -1,0 +1,46 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Evaluación de las predicciones climáticas
+
+Desde hace décadas y gracias a la existencia de supercomputadores, los científicos del mundo han elaborado simuladores del clima de la Tierra, para poder predecir el clima futuro. El principal motivo ha sido la preocupación de la comunidad internacional sobre los efectos de la emisión de gases de efecto invernadero en el clima. El clima de la Tierra viene calentándose desde hace más de doscientos años, básicamente desde el fin de la pequeña Edad del Hielo, y resulta crucial determinar qué parte del calentamiento actual observado se debe a causas naturales y qué parte se debe a causas humanas. 
+
+Las simulaciones realizadas con estos modelos climáticos en supercomputadores muestran un gran consenso a la hora de determinar que el forzamiento antropogénico es el principal causante del calentamiento actual. ¿Pero qué ocurre con el resto de predicciones que están realizando los modelos?
+
+Recientemente, se ha publicado un artículo en la revista Nature, llamado _The other climate crisis_ (Nature, 26 de marzo de 2025) que aborda la problemática señalada. Según el artículo, el paradigma estándar de la ciencia del clima ha mostrado gran éxito en predecir señales globales de calentamiento. Sin embargo, no ha sido tan exitoso en las predicciones  regionales, por lo surge la necesidad de revisar nuestras suposiciones y paradigmas de estudio del clima. Para profundizar, consulta [The other climate crisis](https://www.nature.com/articles/s41586-025-08680-1). Porque uno cosa es el calentamiento global de la Tierra y otra aspecto diferente son los distintos climas regionales Hace falta definir claramente, es, qué se entiende por clima de la Tierra, ya que en no existe un único clima, sino que existen múltiples climas dependiendo de la zona que estudiemos.
+
+Un ejemplo de las discrepancias de los modelos señaladas por el artículo mencionado son:
+
+- **Precipitación extrema**: los modelos subestiman la intensidad y frecuencia de precipitaciones extremas en África Oriental y el Sudeste de América del Sur, reproduciendo tendencias más débiles que las observadas  
+- **Circulaciones extratropicales**: fallos en capturar la intensificación del chorro polar y ondas de Rossby globales, así como el aumento de bloqueos en latitudes medias   
+- **Olas de calor**: incapacidad de reproducir el rápido incremento de extremos de calor en Europa Occidental, debido a tendencias de circulación omitidas 
+- **Sequedad estival**: déficit en la simulación de la disminución de humedad relativa y aumento de sequías en regiones templadas, como el suroeste de EE.UU.   
+- **Variabilidad interna y teleconexiones**: discrepancias en la Oscilación del Atlántico Norte y el gradiente este-oeste del Pacífico Tropical, afectando proyecciones regionales a largo plazo
+
+![Esquema del sistema](fallos.png){#fig:esquema fig-alt="Diagrama del sistema" width="60%" caption="Figura 1: Arquitectura del sistema."}
+
+
+
+
+## Mejoras necesarias: rejillas más densas y avances computacionales
+
+Para resolver estos problemas, se propone aumentar la resolución espacial de los modelos reduciendo el tamaño de la celda ($\Delta x$). Por ejemplo, si se pasa de una rejilla de 100 km a una de 10 km, la resolución mejora por un factor de 10:
+$$
+\Delta x_{\rm nueva} = \frac{\Delta x_{\rm actual}}{10}.
+$$
+
+Este aumento de resolución permite:
+
+1. **Capturar procesos convectivos y topográficos** con mayor detalle, mejorando la simulación de precipitaciones locales :contentReference[oaicite:7]{index=7}.  
+2. **Reducir errores numéricos** asociados al paso temporal ($\Delta t$), al poder disminuir simultáneamente el tamaño del paso de tiempo para mantener la estabilidad de los esquemas numéricos.  
+3. **Incorporar mecanismos de acoplamiento de escalas** que conectan fenómenos pequeños (turbulencia, nubes) con la circulación general :contentReference[oaicite:8]{index=8}.  
+4. **Emplear técnicas disruptivas**, como modelos de nube resuelta y aprendizaje automático para parametrizaciones subcuadriculares, reduciendo incertidumbres de procesos no resueltos :contentReference[oaicite:9]{index=9}.
+
+Así, al combinar rejillas más densas con paradigmas computacionales innovadores, podemos avanzar hacia una nueva generación de modelos climáticos capaces de reproducir fielmente tanto señales globales como variaciones regionales.
+

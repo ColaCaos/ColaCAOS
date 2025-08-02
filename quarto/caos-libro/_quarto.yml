@@ -44,6 +44,7 @@ book:
         - 04-clima/introclima.qmd
         - 04-clima/atractor.qmd
         - 04-clima/rapido.qmd
+        - 04-clima/evaluacion.qmd
 
     - part: "Mis experimentos con el Caos"
       chapters:
