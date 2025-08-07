@@ -408,7 +408,7 @@ window.Quarto = {
 <section id="sec-sensibilidad" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="sec-sensibilidad"><span class="header-section-number">11.1</span> Sensibilidad a las condiciones iniciales</h2>
 <p>Cuando estamos en la zona estable del mapa logístico, desde cualquier valor de <span class="math inline">\(x_0\)</span> del que partamos, llegaremos siempre hasta el mismo valor final, bien sea el punto fijo que hemos calculado previamente, o cualquiera de los valores de las órbitas periódicas. Por ejemplo, para <span class="math inline">\(r=2.8\)</span></p>
-<div id="7e534b35" class="cell" data-execution_count="1">
+<div id="2021994d" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -418,7 +418,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Y para <span class="math inline">\(r=3.1\)</span>, vemos como también los puntos alcanzados son los mismos para valores próximos de inicio de la sucesión.</p>
-<div id="75fa0043" class="cell" data-execution_count="2">
+<div id="644c08bc" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -429,7 +429,7 @@ window.Quarto = {
 </div>
 <p>En los dos casos anteriores, no parece que la evolución del sistema sea sensible a la condición inicial de partida. Tras unas pocas iteraciones, da igual de donde se parta, que se converge al mismo punto.</p>
 <p>Pero, ¿qué pasa cuando estamos en las zonas caóticas?. Veamos la iteración del mapa logístico para <span class="math inline">\(r=3.69\)</span> partiendo de dos valores muy similares, que solo se separan en <span class="math inline">\(10^{-5}\)</span> unidades.</p>
-<div id="bf13be66" class="cell" data-execution_count="3">
+<div id="eb54945f" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -440,7 +440,7 @@ window.Quarto = {
 </div>
 <p>A la vista del gráfico, vemos como a partir de la iteración 10 empiezan a haber pequeñas diferencias que se van amplificando a medida que avanza la simulación. Aquí vemos que sí que empieza a haber sensibilidad a las condiciones iniciales.</p>
 <p>Probemos con una diferencia de valores iniciales aún mas pequeña, en este caso <span class="math inline">\(10^{-7}\)</span> unidades.</p>
-<div id="65d05888" class="cell" data-execution_count="4">
+<div id="e1c8ebff" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -450,7 +450,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Ahora la separación de ambas simulaciones se produce a partir de la iteración número 30. Vamos con una diferencia aún mas pequeña, ahora <span class="math inline">\(10^{-10}\)</span> unidades.</p>
-<div id="7be9d822" class="cell" data-execution_count="5">
+<div id="00332ca0" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -460,7 +460,7 @@ window.Quarto = {
 </div>
 </div>
 <p>La separación entre ambas curvas empieza a hacerse visible a partir de la iteración 50. ¿Qué pasa si hacemos la diferencia aún más pequeña, en este caso <span class="math inline">\(10^{-15}\)</span> unidades?. Pues como vemos en la siguiente gráfica, a partir de la iteración 85 empezamos a ver la divergencia de ambas sucesiones.</p>
-<div id="b7a2bbec" class="cell" data-execution_count="6">
+<div id="ccd79da7" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -470,8 +470,8 @@ window.Quarto = {
 </div>
 </div>
 <p>¿Qué está pasando aquí?. ¿Cómo puede ser que dos valores iniciales que se diferencian en un valor tan pequeño como <span class="math inline">\(10^{-15}\)</span> unidades den valores tan diferentes tras 100 iteraciones?. Si las unidades fueran metros, estaríamos hablando de una diferencia de un femtómetro. Y aún más importante: si quiero simular un sistema físico como éste en la región caótica, ¿cómo voy a poder medir su condición inicial con tal precisión?. De hecho, parece que la precisión requerida sería infinita. A poco que me equivoque en la estimación de la condición inicial, no voy a poder calcular bien su estado final pasado un número grande de iteraciones. ¿Cómo puede ser si mi sistema es determinista y está regido por una ecuación tan sencilla?. Hemos topado con el caos y el <strong>efecto mariposa</strong>. Y lo inquietante es que este fenómeno se da en sistemas físicos como la meteorología.</p>
-<section id="inestabilidad-de-las-cálculos-numéricos" class="level3" data-number="11.1.1">
-<h3 data-number="11.1.1" class="anchored" data-anchor-id="inestabilidad-de-las-cálculos-numéricos"><span class="header-section-number">11.1.1</span> Inestabilidad de las cálculos numéricos</h3>
+<section id="inestabilidad-de-los-cálculos-numéricos" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="inestabilidad-de-los-cálculos-numéricos"><span class="header-section-number">11.1.1</span> Inestabilidad de los cálculos numéricos</h3>
 <p>Cuando nos encontramos con un sistema físico con alta dependencia a las condiciones iniciales, no solamente tenemos el problema de conocer con total exactitud el estado inicial del sistema, sino que como veremos a continuación los cálculos numéricos que hacemos en nuesto ordenador para estudiar su evolución se vuelven también muy inestables. A continuación pondré un ejemplo sobre lo que acabo de decir.</p>
 <p>Pongamos que quiero simular el mapa logístico tal cual lo he estado haciendo en las secciones anteriores. La fórmula es superconocida (form1):</p>
 <p><span class="math display">\[
@@ -483,7 +483,7 @@ x_{n+1} = r\,x_n - r\,{x_n}^2
 \]</span></p>
 <p>Matemáticamente son equivalentes pero a un computador le estamos diciendo cosas diferentes. * En el primer caso le decimos que reste 1 menos {x_n}, y que a continuación lo multiplique por <span class="math inline">\(r\)</span> y <span class="math inline">\(x_n\)</span>. En total 1 resta y dos multiplicaciones * En el segundo caso le decimos que multiplique por <span class="math inline">\(r\)</span> y <span class="math inline">\(x_n\)</span> por un lado. Por otro lado que que eleve <span class="math inline">\(x_n\)</span> al cuadrado, y que lo multiplique por <span class="math inline">\(r\)</span>. Y al final que reste el primer resultado intermedio menos el segundo. En total 1 resta, 2 multiplicaciones y 1 cuadrado.</p>
 <p>A esto hay que añadir que en un ordenador los números decimales se representan mediante aproximaciones. Por ejemplo, con 32 bits,el número 0.2 se representa como 0.200000003, debido a la precisión finita que dan los 32 bits. Por lo tanto entre el número real y el que representamos, la mayoría de veces va a haber un error. Estos errores se comportarán de manera diferente según los cálculos aritméticos que hagamos con ellos. En el siguiente plot, vemos los errores en un ordenador entre las dos fórmulas al partir del valor <span class="math inline">\(x_0=0.2\)</span> y con un <span class="math inline">\(r=4\)</span>.</p>
-<div id="08afe7bc" class="cell" data-execution_count="7">
+<div id="b105d299" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -494,7 +494,7 @@ x_{n+1} = r\,x_n - r\,{x_n}^2
 </div>
 <p>Vemos como al principio el error es imperceptible, pero a media que avanzamos va creciendo. A partir de la iteración 50 este error se hace ya notable, y desde entonces se puede decir que ambas fórmulas evolucionan de forma totalmente distinta. Por lo tanto, vemos como en un sistema caótico, no sólo las condiciones iniciales determinan el valor final de forma extrema, sino que también cuando simulamos este sistema en una máquina computacional, la forma en la que se representan los números y la forma de las operaciones también influyen de forma muy notable.</p>
 <p>Pero vamos a ir un paso más. Veamos que evolución tienen realmente los errores. Para poder bien los errores al principio y al final, vamos a usar una escala logarítmica en el eje Y. El resultado se muestra a continuación.</p>
-<div id="3f25237f" class="cell" data-execution_count="8">
+<div id="bf02bb85" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -840,7 +840,7 @@ x_{0} = 0.3000
 <section id="cálculo-del-coeficiente-de-lyapunov-para-todo-el-mapa-logístico" class="level3" data-number="11.6.2">
 <h3 data-number="11.6.2" class="anchored" data-anchor-id="cálculo-del-coeficiente-de-lyapunov-para-todo-el-mapa-logístico"><span class="header-section-number">11.6.2</span> Cálculo del coeficiente de Lyapunov para todo el mapa logístico</h3>
 <p>Vamos a aplicar este procedimiento para todos los valores de <span class="math inline">\(r\)</span> en el mapa logístico. Y vamos a ser más precisos; para cada valor de <span class="math inline">\(r\)</span> haremos 1000 iteraciones en lugar de 20, calcularemos la derivada en cada uno de los puntos, y sumaremos sus logaritmos. El resultado es el que se muestra a continuación</p>
-<div id="f72fe6c1" class="cell" data-execution_count="9">
+<div id="dd1d5964" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

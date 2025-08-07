@@ -377,6 +377,7 @@ window.Quarto = {
   <li><a href="#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" id="toc-primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" class="nav-link active" data-scroll-target="#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático"><span class="header-section-number">8.1</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span>. Análisis matemático</a></li>
   <li><a href="#análisis-gráfico" id="toc-análisis-gráfico" class="nav-link" data-scroll-target="#análisis-gráfico"><span class="header-section-number">8.2</span> Análisis gráfico</a></li>
   <li><a href="#analisis-de-estabilidad-de-la-primera-bifurcación" id="toc-analisis-de-estabilidad-de-la-primera-bifurcación" class="nav-link" data-scroll-target="#analisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">8.3</span> Analisis de estabilidad de la primera bifurcación</a></li>
+  <li><a href="#primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2" id="toc-primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2" class="nav-link" data-scroll-target="#primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2"><span class="header-section-number">8.4</span> Primera bifurcación: obtención de los puntos fijos de periodo 1 y 2</a></li>
   </ul>
 </nav>
     </div>
@@ -463,7 +464,7 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 <section id="análisis-gráfico" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="análisis-gráfico"><span class="header-section-number">8.2</span> Análisis gráfico</h2>
 <p>Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con <span class="math inline">\(r=2.9\)</span>. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta <span class="math inline">\(y=x\)</span> en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada <span class="math inline">\(f \circ f\)</span>. La recta <span class="math inline">\(y=x\)</span> solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.</p>
-<div id="d63dcecc" class="cell" data-execution_count="1">
+<div id="103fc816" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -473,7 +474,7 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 </div>
 </div>
 <p>Y ahora veamos lo que pasa cuando <span class="math inline">\(r=3.2\)</span>. En este caso, la segunda iteración corta con la recta <span class="math inline">\(y=x\)</span> en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.</p>
-<div id="e440db5e" class="cell" data-execution_count="2">
+<div id="0b4cb449" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -516,37 +517,194 @@ f\bigl(f(x)\bigr)
    = r^2\,x\,(1 - x)\,(1 - r x + r x^2)
    \]</span> En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.</p>
 </section>
-<section id="ecuación-para-los-puntos-periódicos-de-período-1-o-2" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="ecuación-para-los-puntos-periódicos-de-período-1-o-2"><span class="header-section-number">8.3.2</span> Ecuación para los puntos periódicos de período 1 o 2</h3>
-<p>Queremos las soluciones de<br>
-<span class="math display">\[
-f^{(2)}(x) - x = 0.
-\]</span><br>
-Sabemos que las raíces de<br>
-<span class="math display">\[
-f(x) - x = r x (1 - x) - x = 0
-\]</span><br>
-también anulan <span class="math inline">\(f^{(2)}(x) - x\)</span>. Esas raíces son: <span class="math display">\[x = 0\]</span> <span class="math display">\[x = \dfrac{r - 1}{r}\]</span> Para aislar los de periodo 2, dividimos <span class="math inline">\(f^{(2)}(x)-x\)</span> por <span class="math inline">\(f(x)-x\)</span> y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable (<span class="math inline">\(1&lt;r&lt;3\)</span>).</p>
 </section>
-<section id="factorización-y-obtención-de-las-raíces" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="factorización-y-obtención-de-las-raíces"><span class="header-section-number">8.3.3</span> Factorización y obtención de las raíces</h3>
-<p>Los puntos de periodo 2 son raíces de<br>
+<section id="primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2"><span class="header-section-number">8.4</span> Primera bifurcación: obtención de los puntos fijos de periodo 1 y 2</h2>
+<section id="definición-de-la-función-y-de-su-iterada-doble" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="definición-de-la-función-y-de-su-iterada-doble"><span class="header-section-number">8.4.1</span> Definición de la función y de su iterada doble</h3>
+<p>La <strong>función logística</strong> es<br>
 <span class="math display">\[
-r^2\,x^2 \;-\; (r^2 + r)\,x \;+\; (r + 1) = 0.
+f(x) = r\,x\,(1 - x)\,.
+\]</span></p>
+<p>Su <strong>segunda iterada</strong> (composición consigo misma) se escribe<br>
+<span class="math display">\[
+f^{(2)}(x) = f\bigl(f(x)\bigr)\,.
+\]</span></p>
+<p>Queremos resolver<br>
+<span class="math display">\[
+f^{(2)}(x) - x = 0,
 \]</span><br>
-Llamemos <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:</p>
-<p><span class="math display">\[
-x_1 = \frac{r^2 + r + r\sqrt{(r+1)(r-3)}}{2r^2}
-      = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+que es un polinomio de grado 4 en (x).</p>
+<hr>
+</section>
+<section id="puntos-de-periodo-1-puntos-fijos-de-f" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="puntos-de-periodo-1-puntos-fijos-de-f"><span class="header-section-number">8.4.2</span> Puntos de periodo 1 (puntos fijos de (f))</h3>
+<p>Localizamos los puntos de <strong>periodo 1</strong>, es decir, las raíces de<br>
+<span class="math display">\[
+f(x) - x = r\,x\,(1 - x) - x = 0.
 \]</span></p>
-<p><span class="math display">\[
-x_2 = \frac{r^2 + r - r\sqrt{(r+1)(r-3)}}{2r^2}
-      = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
+<p>Factorizando:<br>
+<span class="math display">\[
+r\,x\,(1 - x) - x
+= x\bigl[r\,(1 - x) - 1\bigr]
+= 0.
 \]</span></p>
+<p>De aquí salen dos soluciones:<br>
+<span class="math display">\[
+x = 0,
+\qquad
+x = \frac{r-1}{r}.
+\]</span></p>
+<hr>
+</section>
+<section id="construcción-del-polinomio-de-grado-4" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="construcción-del-polinomio-de-grado-4"><span class="header-section-number">8.4.3</span> Construcción del polinomio de grado 4</h3>
+<p>Para la segunda iterada:<br>
+<span class="math display">\[
+\begin{aligned}
+f^{(2)}(x)
+&amp;= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
+= r\bigl(r\,x - r\,x^2\bigr)\bigl[1 - (r\,x - r\,x^2)\bigr]\\[6pt]
+&amp;= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2).
+\end{aligned}
+\]</span></p>
+<p>Por tanto,<br>
+<span class="math display">\[
+f^{(2)}(x) - x
+= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2) - x.
+\]</span></p>
+<hr>
+</section>
+<section id="división-polinómica-para-aislar-el-factor-de-periodo-2" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="división-polinómica-para-aislar-el-factor-de-periodo-2"><span class="header-section-number">8.4.4</span> División polinómica para aislar el factor de periodo 2</h3>
+<p>Primero, observemos que si <span class="math display">\[x^*\]</span> es un punto fijo de <span class="math display">\[f\]</span>, es decir, <span class="math display">\[
+f(x^*) - x^* = 0,
+\]</span> entonces <span class="math display">\[
+f^{(2)}(x^*) - x^*
+= f\bigl(f(x^*)\bigr) - x^*
+= f(x^*) - x^*
+= 0.
+\]</span> Por tanto, toda raíz de <span class="math display">\[f(x)-x\]</span> es también raíz de <span class="math display">\[f^{(2)}(x)-x\]</span>, lo que en términos de polinomios equivale a afirmar que <span class="math display">\[
+f^{(2)}(x)-x
+\quad\text{es divisible por}\quad
+f(x)-x.
+\]</span></p>
+<p>Queremos dividir<br>
+<span class="math display">\[
+P(x) \;=\; f^{(2)}(x)-x
+         \;=\; -\,r^3x^4 + 2r^3x^3 - r^2(r+1)x^2 + (r^2-1)x
+\]</span> entre<br>
+<span class="math display">\[
+D(x) \;=\; f(x)-x
+         \;=\; -\,r\,x^2 + (r-1)x.
+\]</span></p>
+<p>Dividimos el término de mayor grado de (P(x)) entre el de (D(x)): <span class="math display">\[
+\frac{-\,r^3x^4}{-\,r\,x^2}
+\;=\;
+r^2x^2.
+\]</span><br>
+Multiplicamos y restamos: <span class="math display">\[
+r^2x^2\cdot D(x)
+= -\,r^3x^4 + r^2(r-1)x^3,
+\]</span> <span class="math display">\[
+P(x)-\bigl(r^2x^2\cdot D(x)\bigr)
+= (r^3+r^2)x^3 \;-\; r^2(r+1)x^2 \;+\;(r^2-1)x.
+\]</span></p>
+<p>Dividimos el nuevo término principal entre el de (D(x)): <span class="math display">\[
+\frac{(r^3+r^2)x^3}{-\,r\,x^2}
+\;=\;
+-\,(r^2+r)x.
+\]</span><br>
+Multiplicamos y restamos: <span class="math display">\[
+-\,(r^2+r)x\cdot D(x)
+= -\,(r^3+r^2)x^3 + (r^3-r)x^2,
+\]</span> <span class="math display">\[
+\bigl[(r^3+r^2)x^3 - r^2(r+1)x^2 + (r^2-1)x\bigr]
+-
+\bigl[-(r^3+r^2)x^3 + (r^3-r)x^2\bigr]
+= -\,(r^2+r)x^2 + (r^2-1)x.
+\]</span></p>
+<p>Dividimos nuevamente: <span class="math display">\[
+\frac{-\,(r^2+r)x^2}{-\,r\,x^2}
+\;=\;
+r+1.
+\]</span><br>
+Multiplicamos y restamos: <span class="math display">\[
+(r+1)\cdot D(x)
+= -\,(r^2+r)x^2 + (r^2-1)x,
+\]</span> <span class="math display">\[
+\bigl[-(r^2+r)x^2 + (r^2-1)x\bigr]
+-
+\bigl[-(r^2+r)x^2 + (r^2-1)x\bigr]
+= 0.
+\]</span></p>
+<p>El cociente es <span class="math display">\[
+Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
+\]</span> y el resto es cero.</p>
+<p>El <strong>cociente</strong> resultante es <span class="math display">\[
+Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
+\]</span> y el resto es cero, tal como queríamos demostrar.</p>
+<section id="paso-1" class="level4" data-number="8.4.4.1">
+<h4 data-number="8.4.4.1" class="anchored" data-anchor-id="paso-1"><span class="header-section-number">8.4.4.1</span> Paso 1</h4>
+<ul>
+<li>Cociente parcial:<br>
+<span class="math display">\[
+\frac{-r^3x^4}{-r\,x^2} = r^2x^2.
+\]</span></li>
+<li>Multiplicamos y restamos → nuevo dividendo.</li>
+</ul>
+</section>
+<section id="paso-2" class="level4" data-number="8.4.4.2">
+<h4 data-number="8.4.4.2" class="anchored" data-anchor-id="paso-2"><span class="header-section-number">8.4.4.2</span> Paso 2</h4>
+<ul>
+<li>Cociente parcial:<br>
+<span class="math display">\[
+\frac{(r^3+r^2)x^3}{-r\,x^2} = -(r^2+r)x.
+\]</span></li>
+<li>Multiplicamos y restamos → nuevo dividendo.</li>
+</ul>
+</section>
+<section id="paso-3" class="level4" data-number="8.4.4.3">
+<h4 data-number="8.4.4.3" class="anchored" data-anchor-id="paso-3"><span class="header-section-number">8.4.4.3</span> Paso 3</h4>
+<ul>
+<li>Cociente parcial:<br>
+<span class="math display">\[
+\frac{-(r^2+r)x^2}{-r\,x^2} = r+1.
+\]</span></li>
+<li>Multiplicamos y restamos → <strong>resto cero</strong>.</li>
+</ul>
+<p><strong>Cociente final</strong>:<br>
+<span class="math display">\[
+Q(x) = r^2x^2 - (r^2+r)x + (r+1).
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="solución-de-las-raíces-de-periodo-2" class="level3" data-number="8.4.5">
+<h3 data-number="8.4.5" class="anchored" data-anchor-id="solución-de-las-raíces-de-periodo-2"><span class="header-section-number">8.4.5</span> Solución de las raíces de periodo 2</h3>
+<p>Resolvemos<br>
+<span class="math display">\[
+r^2x^2 - (r^2+r)x + (r+1) = 0
+\]</span><br>
+con la fórmula cuadrática:</p>
+<p><span class="math display">\[
+x_{1,2}
+= \frac{(r^2+r)\pm\sqrt{(r^2+r)^2 - 4r^2(r+1)}}{2r^2}
+= \frac{r+1\pm\sqrt{(r+1)(r-3)}}{2r}.
+\]</span></p>
+<p>Así:</p>
+<p><span class="math display">\[
+x_1 = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+\qquad
+x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
+\]</span></p>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> En (r=3) el discriminante ((r+1)(r-3)) se anula y ambas raíces confluyen en (x=2/3), coincidiendo con el punto fijo que pierde estabilidad.</p>
+</blockquote>
 <p>Obsérvese, que para <span class="math inline">\(r=3\)</span>, no hay dos soluciones, sino una, que coincide con el punto estable (<span class="math inline">\(x=2/3\)</span>). Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso <span class="math inline">\(1&lt;r&lt;3\)</span> . Es decir, cuando estábamos en la región estable <span class="math inline">\(1&lt;r&lt;3\)</span>, el punto de estabilidad final lo daba el cruce que la función logística con la recta <span class="math inline">\(y=x\)</span>, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.</p>
 </section>
-<section id="derivada-de-f-y-criterio-de-estabilidad" class="level3" data-number="8.3.4">
-<h3 data-number="8.3.4" class="anchored" data-anchor-id="derivada-de-f-y-criterio-de-estabilidad"><span class="header-section-number">8.3.4</span> Derivada de <span class="math inline">\(f\)</span> y criterio de estabilidad</h3>
+<section id="derivada-de-f-y-criterio-de-estabilidad" class="level3" data-number="8.4.6">
+<h3 data-number="8.4.6" class="anchored" data-anchor-id="derivada-de-f-y-criterio-de-estabilidad"><span class="header-section-number">8.4.6</span> Derivada de <span class="math inline">\(f\)</span> y criterio de estabilidad</h3>
 <p>Supongamos que <span class="math inline">\((x_1,x_2)\)</span> es un ciclo de periodo 2, es decir<br>
 <span class="math display">\[
 f(x_1)=x_2,\qquad f(x_2)=x_1.

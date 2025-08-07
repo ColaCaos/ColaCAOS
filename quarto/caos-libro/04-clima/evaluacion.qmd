@@ -15,7 +15,7 @@ Las simulaciones realizadas con estos modelos climáticos en supercomputadores m
 
 Recientemente, se ha publicado un artículo en la revista Nature, llamado _The other climate crisis_ (Nature, 26 de marzo de 2025) que aborda la problemática señalada. Según el artículo, el paradigma estándar de la ciencia del clima ha mostrado gran éxito en predecir señales globales de calentamiento. Sin embargo, no ha sido tan exitoso en las predicciones  regionales, por lo surge la necesidad de revisar nuestras suposiciones y paradigmas de estudio del clima. Para profundizar, consulta [The other climate crisis](https://www.nature.com/articles/s41586-025-08680-1). Porque uno cosa es el calentamiento global de la Tierra y otra aspecto diferente son los distintos climas regionales Hace falta definir claramente, es, qué se entiende por clima de la Tierra, ya que en no existe un único clima, sino que existen múltiples climas dependiendo de la zona que estudiemos.
 
-Un ejemplo de las discrepancias de los modelos señaladas por el artículo mencionado son:
+Un ejemplo de las discrepancias de los modelos señaladas por el artículo mencionado son  <a href="https://mpimet.mpg.de/en/communication/detail-view-news-homepage/regional-climate-signals-pose-new-challenges-for-climate-science" rel="noopener">The other climate crisis</a>:
 
 - **Precipitación extrema**: los modelos subestiman la intensidad y frecuencia de precipitaciones extremas en África Oriental y el Sudeste de América del Sur, reproduciendo tendencias más débiles que las observadas  
 - **Circulaciones extratropicales**: fallos en capturar la intensificación del chorro polar y ondas de Rossby globales, así como el aumento de bloqueos en latitudes medias   
@@ -24,6 +24,15 @@ Un ejemplo de las discrepancias de los modelos señaladas por el artículo menci
 - **Variabilidad interna y teleconexiones**: discrepancias en la Oscilación del Atlántico Norte y el gradiente este-oeste del Pacífico Tropical, afectando proyecciones regionales a largo plazo
 
 ![Esquema del sistema](fallos.png){#fig:esquema fig-alt="Diagrama del sistema" width="60%" caption="Figura 1: Arquitectura del sistema."}
+
+
+## Otros fallos en las predicciones realizadas por los modelos
+
+
+
+
+
+
 
 
 

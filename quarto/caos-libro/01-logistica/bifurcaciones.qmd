@@ -214,38 +214,227 @@ Por tanto
    $$
 En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.
 
-### Ecuación para los puntos periódicos de período 1 o 2
+## Primera bifurcación: obtención de los puntos fijos de periodo 1 y 2
 
-Queremos las soluciones de  
+###  Definición de la función y de su iterada doble
+
+La **función logística** es  
 $$
-f^{(2)}(x) - x = 0.
+f(x) = r\,x\,(1 - x)\,.
+$$
+
+Su **segunda iterada** (composición consigo misma) se escribe  
+$$
+f^{(2)}(x) = f\bigl(f(x)\bigr)\,.
+$$
+
+Queremos resolver  
+$$
+f^{(2)}(x) - x = 0,
 $$  
-Sabemos que las raíces de  
+que es un polinomio de grado 4 en \(x\).
+
+---
+
+###  Puntos de periodo 1 (puntos fijos de \(f\))
+
+Localizamos los puntos de **periodo 1**, es decir, las raíces de  
 $$
-f(x) - x = r x (1 - x) - x = 0
+f(x) - x = r\,x\,(1 - x) - x = 0.
+$$
+
+Factorizando:  
+$$
+r\,x\,(1 - x) - x
+= x\bigl[r\,(1 - x) - 1\bigr]
+= 0.
+$$
+
+De aquí salen dos soluciones:  
+$$
+x = 0,
+\qquad
+x = \frac{r-1}{r}.
+$$
+
+---
+
+### Construcción del polinomio de grado 4
+
+Para la segunda iterada:  
+$$
+\begin{aligned}
+f^{(2)}(x)
+&= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
+= r\bigl(r\,x - r\,x^2\bigr)\bigl[1 - (r\,x - r\,x^2)\bigr]\\[6pt]
+&= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2).
+\end{aligned}
+$$
+
+Por tanto,  
+$$
+f^{(2)}(x) - x
+= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2) - x.
+$$
+
+---
+
+###  División polinómica para aislar el factor de periodo 2
+
+Primero, observemos que si $$x^*$$ es un punto fijo de $$f$$, es decir,
+$$
+f(x^*) - x^* = 0,
+$$
+entonces
+$$
+f^{(2)}(x^*) - x^* 
+= f\bigl(f(x^*)\bigr) - x^* 
+= f(x^*) - x^* 
+= 0.
+$$
+Por tanto, toda raíz de $$f(x)-x$$ es también raíz de $$f^{(2)}(x)-x$$, lo que en términos de polinomios equivale a afirmar que
+$$
+f^{(2)}(x)-x
+\quad\text{es divisible por}\quad
+f(x)-x.
+$$
+
+\subsection*{División polinómica paso a paso}
+
+
+
+Queremos dividir  
+$$
+P(x) \;=\; f^{(2)}(x)-x 
+         \;=\; -\,r^3x^4 + 2r^3x^3 - r^2(r+1)x^2 + (r^2-1)x
+$$
+entre  
+$$
+D(x) \;=\; f(x)-x 
+         \;=\; -\,r\,x^2 + (r-1)x.
+$$
+
+\paragraph{Paso 1.}  
+Dividimos el término de mayor grado de \(P(x)\) entre el de \(D(x)\):
+$$
+\frac{-\,r^3x^4}{-\,r\,x^2}
+\;=\;
+r^2x^2.
 $$  
-también anulan $f^{(2)}(x) - x$. Esas raíces son:
-$$x = 0$$ 
-$$x = \dfrac{r - 1}{r}$$
-Para aislar los de periodo 2, dividimos $f^{(2)}(x)-x$ por $f(x)-x$ y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable ($1<r<3$).
-
-### Factorización y obtención de las raíces
-
-Los puntos de periodo 2 son raíces de  
+Multiplicamos y restamos:
 $$
-r^2\,x^2 \;-\; (r^2 + r)\,x \;+\; (r + 1) = 0.
+r^2x^2\cdot D(x)
+= -\,r^3x^4 + r^2(r-1)x^3,
+$$
+$$
+P(x)-\bigl(r^2x^2\cdot D(x)\bigr)
+= (r^3+r^2)x^3 \;-\; r^2(r+1)x^2 \;+\;(r^2-1)x.
+$$
+
+\paragraph{Paso 2.}  
+Dividimos el nuevo término principal entre el de \(D(x)\):
+$$
+\frac{(r^3+r^2)x^3}{-\,r\,x^2}
+\;=\;
+-\,(r^2+r)x.
 $$  
-Llamemos $x_1$ y $x_2$ a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:
+Multiplicamos y restamos:
+$$
+-\,(r^2+r)x\cdot D(x)
+= -\,(r^3+r^2)x^3 + (r^3-r)x^2,
+$$
+$$
+\bigl[(r^3+r^2)x^3 - r^2(r+1)x^2 + (r^2-1)x\bigr]
+-
+\bigl[-(r^3+r^2)x^3 + (r^3-r)x^2\bigr]
+= -\,(r^2+r)x^2 + (r^2-1)x.
+$$
+
+\paragraph{Paso 3.}  
+Dividimos nuevamente:
+$$
+\frac{-\,(r^2+r)x^2}{-\,r\,x^2}
+\;=\;
+r+1.
+$$  
+Multiplicamos y restamos:
+$$
+(r+1)\cdot D(x)
+= -\,(r^2+r)x^2 + (r^2-1)x,
+$$
+$$
+\bigl[-(r^2+r)x^2 + (r^2-1)x\bigr]
+-
+\bigl[-(r^2+r)x^2 + (r^2-1)x\bigr]
+= 0.
+$$
+
+\paragraph{Resultado.}  
+El cociente es
+$$
+Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
+$$
+y el resto es cero.
+
+
+El **cociente** resultante es
+$$
+Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
+$$
+y el resto es cero, tal como queríamos demostrar.
+
+#### Paso 1
+- Cociente parcial:  
+  $$
+  \frac{-r^3x^4}{-r\,x^2} = r^2x^2.
+  $$
+- Multiplicamos y restamos → nuevo dividendo.
+
+#### Paso 2
+- Cociente parcial:  
+  $$
+  \frac{(r^3+r^2)x^3}{-r\,x^2} = -(r^2+r)x.
+  $$
+- Multiplicamos y restamos → nuevo dividendo.
+
+#### Paso 3
+- Cociente parcial:  
+  $$
+  \frac{-(r^2+r)x^2}{-r\,x^2} = r+1.
+  $$
+- Multiplicamos y restamos → **resto cero**.
+
+**Cociente final**:  
+$$
+Q(x) = r^2x^2 - (r^2+r)x + (r+1).
+$$
+
+---
+
+###  Solución de las raíces de periodo 2
+
+Resolvemos  
+$$
+r^2x^2 - (r^2+r)x + (r+1) = 0
+$$  
+con la fórmula cuadrática:
 
 $$
-x_1 = \frac{r^2 + r + r\sqrt{(r+1)(r-3)}}{2r^2}
-      = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+x_{1,2}
+= \frac{(r^2+r)\pm\sqrt{(r^2+r)^2 - 4r^2(r+1)}}{2r^2}
+= \frac{r+1\pm\sqrt{(r+1)(r-3)}}{2r}.
 $$
 
+Así:
+
 $$
-x_2 = \frac{r^2 + r - r\sqrt{(r+1)(r-3)}}{2r^2}
-      = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
+x_1 = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+\qquad
+x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
 $$
+
+> **Nota:** En \(r=3\) el discriminante \((r+1)(r-3)\) se anula y ambas raíces confluyen en \(x=2/3\), coincidiendo con el punto fijo que pierde estabilidad.
+
 
 Obsérvese, que para $r=3$, no hay dos soluciones, sino una, que coincide con el punto estable ($x=2/3$). 
 Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso $1<r<3$ . Es decir, cuando estábamos en la región estable $1<r<3$, el punto de estabilidad final lo daba el cruce que la función logística con la recta $y=x$, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.
