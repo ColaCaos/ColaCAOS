@@ -304,6 +304,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Caos en las predicciones meteorológicas</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-meteorologia/Aemet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Entrevista con expertos de la AEMET</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -318,25 +324,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/introclima.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clima</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Clima</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/atractor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Atractores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Atractores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/rapido.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Cambios Climáticos Rápidos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Cambios Climáticos Rápidos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-clima/evaluacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Evaluación de las predicciones climáticas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Evaluación de las predicciones climáticas</span></span></a>
   </div>
 </li>
       </ul>
@@ -353,13 +359,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05-experimentos/test.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">test</span></span></a>
   </div>
 </li>
       </ul>
@@ -468,7 +474,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 <section id="simulación-en-python" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="simulación-en-python"><span class="header-section-number">2.3</span> Simulación en Python</h2>
 <p>Vamos a refrendar lo anteriormente dicho con simulaciones de la función logística. Como veremos a continuación, para valores de <span class="math inline">\(r\)</span> menores de 1, el valor final de <span class="math inline">\(x_n\)</span> tiende a cero.</p>
-<div id="39006cff" class="cell" data-execution_count="1">
+<div id="7b1138a4" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -478,7 +484,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, el valor final de <span class="math inline">\(x_n\)</span> tiende a un punto estable</p>
-<div id="60f62edb" class="cell" data-execution_count="2">
+<div id="8ff7ecb5" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -488,7 +494,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.449, el valor final de <span class="math inline">\(x_n\)</span> tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos.</p>
-<div id="98fb7938" class="cell" data-execution_count="3">
+<div id="9bcd2efd" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -498,7 +504,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.544, el valor final de <span class="math inline">\(x_n\)</span> tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.</p>
-<div id="24a70746" class="cell" data-execution_count="4">
+<div id="9b41fbac" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -508,7 +514,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Y a partir de <span class="math inline">\(r = 3.56995\)</span> no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico</p>
-<div id="784f8204" class="cell" data-execution_count="5">
+<div id="5e3cb1a7" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
