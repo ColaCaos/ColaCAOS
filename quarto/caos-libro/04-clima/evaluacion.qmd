@@ -23,12 +23,211 @@ Un ejemplo de las discrepancias de los modelos señaladas por el artículo menci
 - **Sequedad estival**: déficit en la simulación de la disminución de humedad relativa y aumento de sequías en regiones templadas, como el suroeste de EE.UU.   
 - **Variabilidad interna y teleconexiones**: discrepancias en la Oscilación del Atlántico Norte y el gradiente este-oeste del Pacífico Tropical, afectando proyecciones regionales a largo plazo
 
-![Esquema del sistema](fallos.png){#fig:esquema fig-alt="Diagrama del sistema" width="60%" caption="Figura 1: Arquitectura del sistema."}
+![Esquema del sistema](fallos.png){#fig:esquema fig-alt="Diagrama del sistema" width="60%" caption="Fallos regionales en las predicciones climáticas"}
+
+
+## Ejemplo de sensibilidad de los modelos a las condiciones iniciales
+
+Un caso concreto se observó en las simulaciones del modelo climático **CESM2** (Community Earth System Model, versión 2)[CESM2 Large Ensemble Community Project (LENS2)](https://www.cesm.ucar.edu/community-projects/lens2). Los investigadores realizaron más de 300 simulaciones de control preindustrial, todas **idénticas en su configuración física y parámetros**, pero con una minúscula diferencia en el estado inicial de la atmósfera: una perturbación de apenas 
+
+$$
+\Delta T \approx 10^{-14} \; \text{K}
+$$
+
+Esta variación es tan pequeña que está muy por debajo de cualquier precisión instrumental. Sin embargo, tras dejar correr la simulación durante años, las trayectorias climáticas divergieron lo suficiente como para producir **resultados regionales muy diferentes**.
+
+En la mayoría de las ejecuciones, el modelo desarrolló una cobertura de hielo marino **excesiva** en el Mar de Labrador (y en menor medida en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin embargo, una de las simulaciones —llamada *262c*— **no presentó ese exceso de hielo**. 
+
+Esta simulación no era especial en ningún otro aspecto: su temperatura media global, el equilibrio energético y la circulación oceánica estaban dentro de la variabilidad normal del conjunto. La única diferencia real fue la trayectoria caótica que siguió el sistema a partir de esa pequeñísima perturbación inicial.
+
+Este ejemplo ilustra de manera numérica cómo, en sistemas no lineales como el clima, **pequeñas variaciones iniciales pueden llevar a estados regionales muy distintos**, incluso cuando el promedio global parece estable. Es una demostración clara de que la incertidumbre en las condiciones iniciales, por diminuta que sea, puede tener consecuencias sustanciales en las predicciones a escala regional.
+
 
 
 ## Otros fallos en las predicciones realizadas por los modelos
 
+A lo largo de las últimas décadas, voces diversas —científicos, activistas, medios y organismos internacionales— han lanzado advertencias dramáticas sobre el futuro climático. Aquí tienes una selección de predicciones que no se cumplieron, cada una con su fuente como enlace clicable.
 
+---
+
+### Refugiados climáticos y desertificación (2005 → 2010)
+
+**Predicción:** En 2005, el PNUMA y la Universidad de las Naciones Unidas advirtieron que hasta **50 millones de personas podrían convertirse en “refugiados ambientales” para 2010**, huyendo de desertificación, aumento del nivel del mar y desastres climáticos.  
+**Realidad:** Esa migración masiva no ocurrió; la ONU se distanció del pronóstico, retiró el informe, y las zonas señaladas como “críticas” vieron crecimiento poblacional.  
+[Fuente ↗](https://www.theguardian.com/environment/2005/oct/12/naturaldisasters.climatechange1) | [Reporte crítico ↗](https://climate-diplomacy.org/magazine/conflict/un-embarrassed-forecast-climate-refugees)
+
+---
+
+### Deshielo ártico prematuro (2009 → ~2013)
+
+**Predicción:** En 2009, Al Gore, citando modelos científicos, afirmó que había una **probabilidad del 75 % de que el Ártico quedara libre de hielo en verano en cinco a siete años**.  
+**Realidad:** Aunque el hielo ha disminuido, no se ha desvanecido por completo en verano. La afirmación fue una interpretación exagerada de datos científicos.  
+[Fuente ↗](https://www.reuters.com/article/fact-check/al-gore-did-not-predict-ice-caps-melting-by-2013-but-misrepresented-data-idUSL1N2RV0K6) | [Análisis detallado ↗](https://www.politifact.com/factchecks/2023/may/31/alex-epstein/chart-on-arctic-sea-ice-extent-has-no-bearing-on-a/)
+
+---
+
+### Huracanes destructivos menos frecuentes (siglo XX)
+
+**Predicción general:** El cambio climático intensificaría todos los eventos extremos, incluyendo un aumento de huracanes devastadores.  
+**Realidad:** Investigaciones muestran que el número anual de ciclones tropicales a nivel global **disminuyó en alrededor de un 13 % durante el siglo XX**.  
+[Fuente ↗](https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/) | [Estudio original ↗](https://www.nature.com/articles/s41558-022-01388-4)
+
+---
+
+### “Naciones bajo el agua para el 2000” (1989)
+
+**Predicción:** Noel Brown, director del PNUMA, advirtió que "naciones enteras podrían borrarse del mapa por el aumento del nivel del mar si la tendencia de calentamiento no se revierte para el año 2000.”  
+**Realidad:** El nivel del mar subió, pero no llevó a la desaparición de países enteros.  
+[Fuente ↗](https://www.snopes.com/fact-check/nations-vanish-global-warming/) | [Más contexto ↗](https://apnews.com/article/bd45c372caf118ec99964ea547880cd0)
+
+---
+
+### Glaciares del Himalaya desapareciendo en 2035 (2007 → 2035)
+
+**Predicción:** El IPCC afirmó que era **“muy probable” que los glaciares del Himalaya desaparecieran para 2035** si continuaba el calentamiento.  
+**Realidad:** El informe contenía un error sin respaldo científico, posteriormente reconocido y corregido por el propio IPCC.  
+[Fuente ↗](https://skepticalscience.com/ipcc-2035-prediction-himalayan-glaciers.html)
+
+---
+
+### “Humanidad extinta si no dejamos los fósiles en 5 años” (2018 → 2023)
+
+**Predicción:** Greta Thunberg citó un tuit que insinuaba una advertencia de que la humanidad se extinguiría si no se abandonaban los combustibles fósiles en los próximos cinco años.  
+**Realidad:** La cita fue tomada de un artículo que distorsionaba la declaración original de un científico. Thunberg nunca afirmó que la extinción ocurriría en cinco años.  
+[Fuente ↗](https://www.factcheck.org/2023/06/viral-posts-distort-greta-thunberg-tweet-warning-about-climate-change/) | [Más contexto ↗](https://apnews.com/article/fact-check-greta-thunberg-deleted-tweet-675395214080)
+
+---
+
+### “Los niños no sabrán qué es la nieve” (2000)
+
+**Predicción:** El Dr. David Viner afirmó en 2000 que “en pocos años, la nieve invernal se convertirá en algo muy raro” en el Reino Unido y que “los niños no sabrán qué es la nieve.”  
+**Realidad:** Aunque hubo años con poca nevada, no se ha convertido en algo desconocido ni ha desaparecido por completo.  
+[Fuente ↗](https://www.theguardian.com/world/2000/nov/22/weather.uk)
+
+---
+
+### “Quedan 96 meses para salvar al mundo” (2009)
+
+**Predicción:** El Príncipe Carlos advirtió en 2009 que quedaban **80 meses** (aprox. 6–7 años) para evitar un daño climático irreversible.  
+**Realidad:** Como suele suceder, esa fecha pasó sin un colapso climático drástico, aunque el tema sigue vigente.  
+[Fuente ↗](https://www.telegraph.co.uk/news/earth/earthnews/6532598/Prince-Charles-warning-80-month-deadline-for-climate-change.html)
+
+---
+
+### “10 años para evitar un punto sin retorno” (2006)
+
+**Predicción:** Al Gore afirmó en 2006 que había **10 años para evitar un punto de no retorno climático**.  
+**Realidad:** En 2016 no se identificó dicho punto irreversible; el cambio climático, eso sí, se intensificó.  
+[Fuente ↗](https://www.theguardian.com/environment/2006/mar/06/greenpolitics.climatechange)
+
+---
+
+### Mediterráneo sin playas en 2020 (2001)
+
+En febrero de 2001, un reportaje en *El Mundo* presentaba un escenario alarmante para 2020 basado en el último informe de la ONU sobre cambio climático.  
+> *"Ya no queda rastro alguno de muchas de las playas bañadas por el Mediterráneo y del Atlántico..."*  
+> *"En el norte de España el paisaje está salpicado de palmeras..."*  
+> *"Los glaciares alpinos han desaparecido."*  
+> *"Casi 300 islas han ido a parar al fondo del Pacífico..."*  
+> *"Deltas del Rin, Ebro y Guadalquivir ya han desaparecido..."*  
+> *"Algunas enfermedades tropicales, como la malaria o el cólera, han encontrado nuevas víctimas entre nosotros."*  
+> *"El turismo de nieve [...] es hoy escaso..."*  
+> *"1.600 millones de personas en todo el mundo pasan hambre."*  
+**Realidad en 2020:** Ninguna de estas proyecciones extremas se materializó en la escala y plazo anunciados.  
+[Fuente: *El Mundo*, 25/02/2001 ↗](https://www.elmundo.es/cronica/2001/CR280/CR280-13.html)
+
+---
+
+### Países insulares desaparecidos (Maldivas, Tuvalu, Kiribati)
+
+**Predicción:** En 1988 se afirmó que las Maldivas, Tuvalu y Kiribati estarían sumergidos en unas pocas décadas.  
+**Realidad:** En 2025, estas naciones siguen habitadas; Maldivas incluso han expandido infraestructuras costeras.  
+[Fuente ↗](https://www.newyorker.com/magazine/1989/09/11/the-end-of-nature)
+
+---
+
+### Proyecciones del nivel del mar (1983 → 2025)
+
+**Predicción:** Un estudio de 1983 estimó una subida del nivel del mar entre **13 cm (bajo)** y **55 cm (alto)** para 2025.  
+**Realidad:** Hasta 2010, el aumento observado fue inferior a 10 cm, muy por debajo incluso del escenario más conservador.
+
+
+[Fuente estimaciones originales ↗](https://papers.risingsea.net/federal_reports/Ocean_City_Titus_Leatherman_Everts_Kriebel_Dean.pdf) – Se citan valores de 13 cm y 55 cm según distintos supuestos :contentReference[oaicite:2]{index=2}.  
+[Datos observados recientes ↗](https://en.wikipedia.org/wiki/Sea_level_rise) – El aumento global medio desde 1901 hasta 2018 fue de entre **15 y 25 cm**, es decir, mucho más lento de lo que se preveía para 2025 :contentReference[oaicite:3]{index=3}.
+
+---
+
+### Mortalidad por desastres naturales: gran reducción
+
+| Categoría     | Peor década (muertes/año por millón hab.) | Década 2000s | Reducción |
+|---------------|-------------------------------------------|--------------|-----------|
+| Sequías       | 1920s: 235                                 | ~0.1         | ~99.9 %   |
+| Inundaciones  | 1930s: 204                                 | ~1           | ~98 %     |
+| Tormentas     | 1970s: 10                                  | 2–3          | ~75 %     |
+
+**Fuente ↗**: [Our World in Data – Natural Disasters](https://ourworldindata.org/natural-disasters)
+
+---
+
+### Variabilidad natural significativa
+
+
+Un estudio reciente publicado en *Climatic Change* bajo el título **“Robust climate attribution of modern floods needs palaeoflood science”** (26 de marzo de 2025, vol. 178, artículo 71) demuestra que muchos eventos de inundación recientes no son ni únicos ni inusuales en el contexto geológico e histórico :contentReference[oaicite:1]{index=1}.
+
+Este trabajo, liderado por Stephan Harrison y con participación de Gerardo Benito (CSIC), se basa en registros paleoflodísticos bien datados, que abarcan miles de años en el oeste y suroeste de Europa. Contrario a lo que sugieren algunos modelos, demuestra que:
+
+> “La magnitud de las inundaciones fue significativamente mayor antes del siglo XX, a pesar de que la contribución de gases de efecto invernadero de origen humano era insignificante” :contentReference[oaicite:2]{index=2}.
+
+Esto implica que la **variabilidad climática natural** podría ser mucho más amplia de lo que muchos modelos asumen, lo que plantea grandes implicaciones para la planificación de infraestructuras y las políticas de adaptación:
+
+- Muchas inundaciones recientes **no pueden considerarse sin precedentes**, ni siquiera dentro del registro histórico.
+- Esto desafía la evaluación actual del riesgo basado únicamente en documentos instrumentales del siglo XX.
+
+Un artículo de divulgación en *Phys.org* resume bien la relevancia de estos hallazgos, señalando que:
+
+> “Las inundaciones recientes catalogadas como ‘sin precedentes’ pueden estar muy por debajo de las más extremas que ocurrieron en el pasado.” :contentReference[oaicite:3]{index=3}
+
+**Fuente primaria:** *Climatic Change* (2025), “Robust climate attribution of modern floods needs palaeoflood science”.  
+[Leer el artículo completo (Open Access) ↗](https://link.springer.com/article/10.1007/s10584-025-03904-9)
+
+---
+
+
+### Huracanes: datos reales vs percepción pública
+
+Aunque se ha afirmado que los huracanes son más frecuentes y destructivos, los registros globales muestran otra historia. Según datos de la [Colorado State University ↗](https://tropical.atmos.colostate.edu/Realtime/index.php?arch&loc=global), no hay un incremento sostenido en el número total de huracanes a nivel global desde el inicio de los registros modernos.
+
+---
+
+### Precipitación anual en España (1901–2020)
+
+Predicciones mediáticas alertaron sobre una disminución drástica de la lluvia en España.  
+Sin embargo, los datos de [AEMET ↗](https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/#:~:text=AEMET%20ha%20generado%20recientemente%20un,desde%20comienzos%20del%20siglo%20XX) y el conjunto [CRU TS 4.05 ↗](https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/) muestran una tendencia lineal muy suave, con alta variabilidad interanual.
+
+![España](LluviaEspaña.png)
+
+---
+
+### Precipitación en la cuenca mediterránea (1871–2020)
+
+Se ha dicho que el Mediterráneo sufriría una pérdida continua de lluvia. Sin embargo, un análisis publicado en [Nature ↗](https://www.nature.com/articles/s41586-024-08576-6/figures/2) revela que la precipitación se ha mantenido mayormente estable durante los últimos 150 años, aunque con variabilidad multidecadal e interanual.
+
+---
+
+### Tendencias positivas inesperadas
+
+- **Reverdecimiento de tierras áridas:** Gracias al aumento de CO₂, zonas secas han ganado cobertura vegetal.  
+  [Fuente ↗](https://e360.yale.edu/features/greening-drylands-carbon-dioxide-climate-change)  
+- **Descenso global de incendios:** La superficie quemada ha disminuido según datos de la NASA.  
+  [Fuente ↗](https://visibleearth.nasa.gov/images/90493/researchers-detect-a-global-drop-in-fires)
+
+---
+
+### Conclusión
+
+Muchas predicciones climáticas fueron excesivas o impacientes con los plazos; eso no invalida la percepción real del cambio climático, sino que refuerza la necesidad de un enfoque basado en datos, contexto y comunicación cuidadosa.
+
+---
 
 
 

@@ -380,8 +380,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#otros-fallos-en-las-predicciones-realizadas-por-los-modelos" id="toc-otros-fallos-en-las-predicciones-realizadas-por-los-modelos" class="nav-link active" data-scroll-target="#otros-fallos-en-las-predicciones-realizadas-por-los-modelos"><span class="header-section-number">26.1</span> Otros fallos en las predicciones realizadas por los modelos</a></li>
-  <li><a href="#mejoras-necesarias-rejillas-más-densas-y-avances-computacionales" id="toc-mejoras-necesarias-rejillas-más-densas-y-avances-computacionales" class="nav-link" data-scroll-target="#mejoras-necesarias-rejillas-más-densas-y-avances-computacionales"><span class="header-section-number">26.2</span> Mejoras necesarias: rejillas más densas y avances computacionales</a></li>
+  <li><a href="#ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales" id="toc-ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales" class="nav-link active" data-scroll-target="#ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales"><span class="header-section-number">26.1</span> Ejemplo de sensibilidad de los modelos a las condiciones iniciales</a></li>
+  <li><a href="#otros-fallos-en-las-predicciones-realizadas-por-los-modelos" id="toc-otros-fallos-en-las-predicciones-realizadas-por-los-modelos" class="nav-link" data-scroll-target="#otros-fallos-en-las-predicciones-realizadas-por-los-modelos"><span class="header-section-number">26.2</span> Otros fallos en las predicciones realizadas por los modelos</a></li>
+  <li><a href="#mejoras-necesarias-rejillas-más-densas-y-avances-computacionales" id="toc-mejoras-necesarias-rejillas-más-densas-y-avances-computacionales" class="nav-link" data-scroll-target="#mejoras-necesarias-rejillas-más-densas-y-avances-computacionales"><span class="header-section-number">26.3</span> Mejoras necesarias: rejillas más densas y avances computacionales</a></li>
   </ul>
 </nav>
     </div>
@@ -423,15 +424,220 @@ window.Quarto = {
 </ul>
 <div id="fig:esquema" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="fallos.png" class="img-fluid figure-img" style="width:60.0%" data-caption="Figura 1: Arquitectura del sistema." alt="Diagrama del sistema"></p>
+<p><img src="fallos.png" class="img-fluid figure-img" style="width:60.0%" data-caption="Fallos regionales en las predicciones climáticas" alt="Diagrama del sistema"></p>
 <figcaption>Esquema del sistema</figcaption>
 </figure>
 </div>
-<section id="otros-fallos-en-las-predicciones-realizadas-por-los-modelos" class="level2" data-number="26.1">
-<h2 data-number="26.1" class="anchored" data-anchor-id="otros-fallos-en-las-predicciones-realizadas-por-los-modelos"><span class="header-section-number">26.1</span> Otros fallos en las predicciones realizadas por los modelos</h2>
+<section id="ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales"><span class="header-section-number">26.1</span> Ejemplo de sensibilidad de los modelos a las condiciones iniciales</h2>
+<p>Un caso concreto se observó en las simulaciones del modelo climático <strong>CESM2</strong> (Community Earth System Model, versión 2)<a href="https://www.cesm.ucar.edu/community-projects/lens2">CESM2 Large Ensemble Community Project (LENS2)</a>. Los investigadores realizaron más de 300 simulaciones de control preindustrial, todas <strong>idénticas en su configuración física y parámetros</strong>, pero con una minúscula diferencia en el estado inicial de la atmósfera: una perturbación de apenas</p>
+<p><span class="math display">\[
+\Delta T \approx 10^{-14} \; \text{K}
+\]</span></p>
+<p>Esta variación es tan pequeña que está muy por debajo de cualquier precisión instrumental. Sin embargo, tras dejar correr la simulación durante años, las trayectorias climáticas divergieron lo suficiente como para producir <strong>resultados regionales muy diferentes</strong>.</p>
+<p>En la mayoría de las ejecuciones, el modelo desarrolló una cobertura de hielo marino <strong>excesiva</strong> en el Mar de Labrador (y en menor medida en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin embargo, una de las simulaciones —llamada <em>262c</em>— <strong>no presentó ese exceso de hielo</strong>.</p>
+<p>Esta simulación no era especial en ningún otro aspecto: su temperatura media global, el equilibrio energético y la circulación oceánica estaban dentro de la variabilidad normal del conjunto. La única diferencia real fue la trayectoria caótica que siguió el sistema a partir de esa pequeñísima perturbación inicial.</p>
+<p>Este ejemplo ilustra de manera numérica cómo, en sistemas no lineales como el clima, <strong>pequeñas variaciones iniciales pueden llevar a estados regionales muy distintos</strong>, incluso cuando el promedio global parece estable. Es una demostración clara de que la incertidumbre en las condiciones iniciales, por diminuta que sea, puede tener consecuencias sustanciales en las predicciones a escala regional.</p>
 </section>
-<section id="mejoras-necesarias-rejillas-más-densas-y-avances-computacionales" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="mejoras-necesarias-rejillas-más-densas-y-avances-computacionales"><span class="header-section-number">26.2</span> Mejoras necesarias: rejillas más densas y avances computacionales</h2>
+<section id="otros-fallos-en-las-predicciones-realizadas-por-los-modelos" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="otros-fallos-en-las-predicciones-realizadas-por-los-modelos"><span class="header-section-number">26.2</span> Otros fallos en las predicciones realizadas por los modelos</h2>
+<p>A lo largo de las últimas décadas, voces diversas —científicos, activistas, medios y organismos internacionales— han lanzado advertencias dramáticas sobre el futuro climático. Aquí tienes una selección de predicciones que no se cumplieron, cada una con su fuente como enlace clicable.</p>
+<hr>
+<section id="refugiados-climáticos-y-desertificación-2005-2010" class="level3" data-number="26.2.1">
+<h3 data-number="26.2.1" class="anchored" data-anchor-id="refugiados-climáticos-y-desertificación-2005-2010"><span class="header-section-number">26.2.1</span> Refugiados climáticos y desertificación (2005 → 2010)</h3>
+<p><strong>Predicción:</strong> En 2005, el PNUMA y la Universidad de las Naciones Unidas advirtieron que hasta <strong>50 millones de personas podrían convertirse en “refugiados ambientales” para 2010</strong>, huyendo de desertificación, aumento del nivel del mar y desastres climáticos.<br>
+<strong>Realidad:</strong> Esa migración masiva no ocurrió; la ONU se distanció del pronóstico, retiró el informe, y las zonas señaladas como “críticas” vieron crecimiento poblacional.<br>
+<a href="https://www.theguardian.com/environment/2005/oct/12/naturaldisasters.climatechange1">Fuente ↗</a> | <a href="https://climate-diplomacy.org/magazine/conflict/un-embarrassed-forecast-climate-refugees">Reporte crítico ↗</a></p>
+<hr>
+</section>
+<section id="deshielo-ártico-prematuro-2009-2013" class="level3" data-number="26.2.2">
+<h3 data-number="26.2.2" class="anchored" data-anchor-id="deshielo-ártico-prematuro-2009-2013"><span class="header-section-number">26.2.2</span> Deshielo ártico prematuro (2009 → ~2013)</h3>
+<p><strong>Predicción:</strong> En 2009, Al Gore, citando modelos científicos, afirmó que había una <strong>probabilidad del 75 % de que el Ártico quedara libre de hielo en verano en cinco a siete años</strong>.<br>
+<strong>Realidad:</strong> Aunque el hielo ha disminuido, no se ha desvanecido por completo en verano. La afirmación fue una interpretación exagerada de datos científicos.<br>
+<a href="https://www.reuters.com/article/fact-check/al-gore-did-not-predict-ice-caps-melting-by-2013-but-misrepresented-data-idUSL1N2RV0K6">Fuente ↗</a> | <a href="https://www.politifact.com/factchecks/2023/may/31/alex-epstein/chart-on-arctic-sea-ice-extent-has-no-bearing-on-a/">Análisis detallado ↗</a></p>
+<hr>
+</section>
+<section id="huracanes-destructivos-menos-frecuentes-siglo-xx" class="level3" data-number="26.2.3">
+<h3 data-number="26.2.3" class="anchored" data-anchor-id="huracanes-destructivos-menos-frecuentes-siglo-xx"><span class="header-section-number">26.2.3</span> Huracanes destructivos menos frecuentes (siglo XX)</h3>
+<p><strong>Predicción general:</strong> El cambio climático intensificaría todos los eventos extremos, incluyendo un aumento de huracanes devastadores.<br>
+<strong>Realidad:</strong> Investigaciones muestran que el número anual de ciclones tropicales a nivel global <strong>disminuyó en alrededor de un 13 % durante el siglo XX</strong>.<br>
+<a href="https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/">Fuente ↗</a> | <a href="https://www.nature.com/articles/s41558-022-01388-4">Estudio original ↗</a></p>
+<hr>
+</section>
+<section id="naciones-bajo-el-agua-para-el-2000-1989" class="level3" data-number="26.2.4">
+<h3 data-number="26.2.4" class="anchored" data-anchor-id="naciones-bajo-el-agua-para-el-2000-1989"><span class="header-section-number">26.2.4</span> “Naciones bajo el agua para el 2000” (1989)</h3>
+<p><strong>Predicción:</strong> Noel Brown, director del PNUMA, advirtió que “naciones enteras podrían borrarse del mapa por el aumento del nivel del mar si la tendencia de calentamiento no se revierte para el año 2000.”<br>
+<strong>Realidad:</strong> El nivel del mar subió, pero no llevó a la desaparición de países enteros.<br>
+<a href="https://www.snopes.com/fact-check/nations-vanish-global-warming/">Fuente ↗</a> | <a href="https://apnews.com/article/bd45c372caf118ec99964ea547880cd0">Más contexto ↗</a></p>
+<hr>
+</section>
+<section id="glaciares-del-himalaya-desapareciendo-en-2035-2007-2035" class="level3" data-number="26.2.5">
+<h3 data-number="26.2.5" class="anchored" data-anchor-id="glaciares-del-himalaya-desapareciendo-en-2035-2007-2035"><span class="header-section-number">26.2.5</span> Glaciares del Himalaya desapareciendo en 2035 (2007 → 2035)</h3>
+<p><strong>Predicción:</strong> El IPCC afirmó que era <strong>“muy probable” que los glaciares del Himalaya desaparecieran para 2035</strong> si continuaba el calentamiento.<br>
+<strong>Realidad:</strong> El informe contenía un error sin respaldo científico, posteriormente reconocido y corregido por el propio IPCC.<br>
+<a href="https://skepticalscience.com/ipcc-2035-prediction-himalayan-glaciers.html">Fuente ↗</a></p>
+<hr>
+</section>
+<section id="humanidad-extinta-si-no-dejamos-los-fósiles-en-5-años-2018-2023" class="level3" data-number="26.2.6">
+<h3 data-number="26.2.6" class="anchored" data-anchor-id="humanidad-extinta-si-no-dejamos-los-fósiles-en-5-años-2018-2023"><span class="header-section-number">26.2.6</span> “Humanidad extinta si no dejamos los fósiles en 5 años” (2018 → 2023)</h3>
+<p><strong>Predicción:</strong> Greta Thunberg citó un tuit que insinuaba una advertencia de que la humanidad se extinguiría si no se abandonaban los combustibles fósiles en los próximos cinco años.<br>
+<strong>Realidad:</strong> La cita fue tomada de un artículo que distorsionaba la declaración original de un científico. Thunberg nunca afirmó que la extinción ocurriría en cinco años.<br>
+<a href="https://www.factcheck.org/2023/06/viral-posts-distort-greta-thunberg-tweet-warning-about-climate-change/">Fuente ↗</a> | <a href="https://apnews.com/article/fact-check-greta-thunberg-deleted-tweet-675395214080">Más contexto ↗</a></p>
+<hr>
+</section>
+<section id="los-niños-no-sabrán-qué-es-la-nieve-2000" class="level3" data-number="26.2.7">
+<h3 data-number="26.2.7" class="anchored" data-anchor-id="los-niños-no-sabrán-qué-es-la-nieve-2000"><span class="header-section-number">26.2.7</span> “Los niños no sabrán qué es la nieve” (2000)</h3>
+<p><strong>Predicción:</strong> El Dr.&nbsp;David Viner afirmó en 2000 que “en pocos años, la nieve invernal se convertirá en algo muy raro” en el Reino Unido y que “los niños no sabrán qué es la nieve.”<br>
+<strong>Realidad:</strong> Aunque hubo años con poca nevada, no se ha convertido en algo desconocido ni ha desaparecido por completo.<br>
+<a href="https://www.theguardian.com/world/2000/nov/22/weather.uk">Fuente ↗</a></p>
+<hr>
+</section>
+<section id="quedan-96-meses-para-salvar-al-mundo-2009" class="level3" data-number="26.2.8">
+<h3 data-number="26.2.8" class="anchored" data-anchor-id="quedan-96-meses-para-salvar-al-mundo-2009"><span class="header-section-number">26.2.8</span> “Quedan 96 meses para salvar al mundo” (2009)</h3>
+<p><strong>Predicción:</strong> El Príncipe Carlos advirtió en 2009 que quedaban <strong>80 meses</strong> (aprox. 6–7 años) para evitar un daño climático irreversible.<br>
+<strong>Realidad:</strong> Como suele suceder, esa fecha pasó sin un colapso climático drástico, aunque el tema sigue vigente.<br>
+<a href="https://www.telegraph.co.uk/news/earth/earthnews/6532598/Prince-Charles-warning-80-month-deadline-for-climate-change.html">Fuente ↗</a></p>
+<hr>
+</section>
+<section id="años-para-evitar-un-punto-sin-retorno-2006" class="level3" data-number="26.2.9">
+<h3 data-number="26.2.9" class="anchored" data-anchor-id="años-para-evitar-un-punto-sin-retorno-2006"><span class="header-section-number">26.2.9</span> “10 años para evitar un punto sin retorno” (2006)</h3>
+<p><strong>Predicción:</strong> Al Gore afirmó en 2006 que había <strong>10 años para evitar un punto de no retorno climático</strong>.<br>
+<strong>Realidad:</strong> En 2016 no se identificó dicho punto irreversible; el cambio climático, eso sí, se intensificó.<br>
+<a href="https://www.theguardian.com/environment/2006/mar/06/greenpolitics.climatechange">Fuente ↗</a></p>
+<hr>
+</section>
+<section id="mediterráneo-sin-playas-en-2020-2001" class="level3" data-number="26.2.10">
+<h3 data-number="26.2.10" class="anchored" data-anchor-id="mediterráneo-sin-playas-en-2020-2001"><span class="header-section-number">26.2.10</span> Mediterráneo sin playas en 2020 (2001)</h3>
+<p>En febrero de 2001, un reportaje en <em>El Mundo</em> presentaba un escenario alarmante para 2020 basado en el último informe de la ONU sobre cambio climático.<br>
+&gt; <em>“Ya no queda rastro alguno de muchas de las playas bañadas por el Mediterráneo y del Atlántico…”</em><br>
+&gt; <em>“En el norte de España el paisaje está salpicado de palmeras…”</em><br>
+&gt; <em>“Los glaciares alpinos han desaparecido.”</em><br>
+&gt; <em>“Casi 300 islas han ido a parar al fondo del Pacífico…”</em><br>
+&gt; <em>“Deltas del Rin, Ebro y Guadalquivir ya han desaparecido…”</em><br>
+&gt; <em>“Algunas enfermedades tropicales, como la malaria o el cólera, han encontrado nuevas víctimas entre nosotros.”</em><br>
+&gt; <em>“El turismo de nieve […] es hoy escaso…”</em><br>
+&gt; <em>“1.600 millones de personas en todo el mundo pasan hambre.”</em><br>
+<strong>Realidad en 2020:</strong> Ninguna de estas proyecciones extremas se materializó en la escala y plazo anunciados.<br>
+<a href="https://www.elmundo.es/cronica/2001/CR280/CR280-13.html">Fuente: <em>El Mundo</em>, 25/02/2001 ↗</a></p>
+<hr>
+</section>
+<section id="países-insulares-desaparecidos-maldivas-tuvalu-kiribati" class="level3" data-number="26.2.11">
+<h3 data-number="26.2.11" class="anchored" data-anchor-id="países-insulares-desaparecidos-maldivas-tuvalu-kiribati"><span class="header-section-number">26.2.11</span> Países insulares desaparecidos (Maldivas, Tuvalu, Kiribati)</h3>
+<p><strong>Predicción:</strong> En 1988 se afirmó que las Maldivas, Tuvalu y Kiribati estarían sumergidos en unas pocas décadas.<br>
+<strong>Realidad:</strong> En 2025, estas naciones siguen habitadas; Maldivas incluso han expandido infraestructuras costeras.<br>
+<a href="https://www.newyorker.com/magazine/1989/09/11/the-end-of-nature">Fuente ↗</a></p>
+<hr>
+</section>
+<section id="proyecciones-del-nivel-del-mar-1983-2025" class="level3" data-number="26.2.12">
+<h3 data-number="26.2.12" class="anchored" data-anchor-id="proyecciones-del-nivel-del-mar-1983-2025"><span class="header-section-number">26.2.12</span> Proyecciones del nivel del mar (1983 → 2025)</h3>
+<p><strong>Predicción:</strong> Un estudio de 1983 estimó una subida del nivel del mar entre <strong>13 cm (bajo)</strong> y <strong>55 cm (alto)</strong> para 2025.<br>
+<strong>Realidad:</strong> Hasta 2010, el aumento observado fue inferior a 10 cm, muy por debajo incluso del escenario más conservador.</p>
+<p><a href="https://papers.risingsea.net/federal_reports/Ocean_City_Titus_Leatherman_Everts_Kriebel_Dean.pdf">Fuente estimaciones originales ↗</a> – Se citan valores de 13 cm y 55 cm según distintos supuestos :contentReference<span data-index="2">oaicite:2</span>.<br>
+<a href="https://en.wikipedia.org/wiki/Sea_level_rise">Datos observados recientes ↗</a> – El aumento global medio desde 1901 hasta 2018 fue de entre <strong>15 y 25 cm</strong>, es decir, mucho más lento de lo que se preveía para 2025 :contentReference<span data-index="3">oaicite:3</span>.</p>
+<hr>
+</section>
+<section id="mortalidad-por-desastres-naturales-gran-reducción" class="level3" data-number="26.2.13">
+<h3 data-number="26.2.13" class="anchored" data-anchor-id="mortalidad-por-desastres-naturales-gran-reducción"><span class="header-section-number">26.2.13</span> Mortalidad por desastres naturales: gran reducción</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 51%">
+<col style="width: 16%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Categoría</th>
+<th>Peor década (muertes/año por millón hab.)</th>
+<th>Década 2000s</th>
+<th>Reducción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sequías</td>
+<td>1920s: 235</td>
+<td>~0.1</td>
+<td>~99.9 %</td>
+</tr>
+<tr class="even">
+<td>Inundaciones</td>
+<td>1930s: 204</td>
+<td>~1</td>
+<td>~98 %</td>
+</tr>
+<tr class="odd">
+<td>Tormentas</td>
+<td>1970s: 10</td>
+<td>2–3</td>
+<td>~75 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fuente ↗</strong>: <a href="https://ourworldindata.org/natural-disasters">Our World in Data – Natural Disasters</a></p>
+<hr>
+</section>
+<section id="variabilidad-natural-significativa" class="level3" data-number="26.2.14">
+<h3 data-number="26.2.14" class="anchored" data-anchor-id="variabilidad-natural-significativa"><span class="header-section-number">26.2.14</span> Variabilidad natural significativa</h3>
+<p>Un estudio reciente publicado en <em>Climatic Change</em> bajo el título <strong>“Robust climate attribution of modern floods needs palaeoflood science”</strong> (26 de marzo de 2025, vol.&nbsp;178, artículo 71) demuestra que muchos eventos de inundación recientes no son ni únicos ni inusuales en el contexto geológico e histórico :contentReference<span data-index="1">oaicite:1</span>.</p>
+<p>Este trabajo, liderado por Stephan Harrison y con participación de Gerardo Benito (CSIC), se basa en registros paleoflodísticos bien datados, que abarcan miles de años en el oeste y suroeste de Europa. Contrario a lo que sugieren algunos modelos, demuestra que:</p>
+<blockquote class="blockquote">
+<p>“La magnitud de las inundaciones fue significativamente mayor antes del siglo XX, a pesar de que la contribución de gases de efecto invernadero de origen humano era insignificante” :contentReference<span data-index="2">oaicite:2</span>.</p>
+</blockquote>
+<p>Esto implica que la <strong>variabilidad climática natural</strong> podría ser mucho más amplia de lo que muchos modelos asumen, lo que plantea grandes implicaciones para la planificación de infraestructuras y las políticas de adaptación:</p>
+<ul>
+<li>Muchas inundaciones recientes <strong>no pueden considerarse sin precedentes</strong>, ni siquiera dentro del registro histórico.</li>
+<li>Esto desafía la evaluación actual del riesgo basado únicamente en documentos instrumentales del siglo XX.</li>
+</ul>
+<p>Un artículo de divulgación en <em>Phys.org</em> resume bien la relevancia de estos hallazgos, señalando que:</p>
+<blockquote class="blockquote">
+<p>“Las inundaciones recientes catalogadas como ‘sin precedentes’ pueden estar muy por debajo de las más extremas que ocurrieron en el pasado.” :contentReference<span data-index="3">oaicite:3</span></p>
+</blockquote>
+<p><strong>Fuente primaria:</strong> <em>Climatic Change</em> (2025), “Robust climate attribution of modern floods needs palaeoflood science”.<br>
+<a href="https://link.springer.com/article/10.1007/s10584-025-03904-9">Leer el artículo completo (Open Access) ↗</a></p>
+<hr>
+</section>
+<section id="huracanes-datos-reales-vs-percepción-pública" class="level3" data-number="26.2.15">
+<h3 data-number="26.2.15" class="anchored" data-anchor-id="huracanes-datos-reales-vs-percepción-pública"><span class="header-section-number">26.2.15</span> Huracanes: datos reales vs percepción pública</h3>
+<p>Aunque se ha afirmado que los huracanes son más frecuentes y destructivos, los registros globales muestran otra historia. Según datos de la <a href="https://tropical.atmos.colostate.edu/Realtime/index.php?arch&amp;loc=global">Colorado State University ↗</a>, no hay un incremento sostenido en el número total de huracanes a nivel global desde el inicio de los registros modernos.</p>
+<hr>
+</section>
+<section id="precipitación-anual-en-españa-19012020" class="level3" data-number="26.2.16">
+<h3 data-number="26.2.16" class="anchored" data-anchor-id="precipitación-anual-en-españa-19012020"><span class="header-section-number">26.2.16</span> Precipitación anual en España (1901–2020)</h3>
+<p>Predicciones mediáticas alertaron sobre una disminución drástica de la lluvia en España.<br>
+Sin embargo, los datos de <a href="https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/#:~:text=AEMET%20ha%20generado%20recientemente%20un,desde%20comienzos%20del%20siglo%20XX">AEMET ↗</a> y el conjunto <a href="https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/">CRU TS 4.05 ↗</a> muestran una tendencia lineal muy suave, con alta variabilidad interanual.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LluviaEspaña.png" class="img-fluid figure-img"></p>
+<figcaption>España</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="precipitación-en-la-cuenca-mediterránea-18712020" class="level3" data-number="26.2.17">
+<h3 data-number="26.2.17" class="anchored" data-anchor-id="precipitación-en-la-cuenca-mediterránea-18712020"><span class="header-section-number">26.2.17</span> Precipitación en la cuenca mediterránea (1871–2020)</h3>
+<p>Se ha dicho que el Mediterráneo sufriría una pérdida continua de lluvia. Sin embargo, un análisis publicado en <a href="https://www.nature.com/articles/s41586-024-08576-6/figures/2">Nature ↗</a> revela que la precipitación se ha mantenido mayormente estable durante los últimos 150 años, aunque con variabilidad multidecadal e interanual.</p>
+<hr>
+</section>
+<section id="tendencias-positivas-inesperadas" class="level3" data-number="26.2.18">
+<h3 data-number="26.2.18" class="anchored" data-anchor-id="tendencias-positivas-inesperadas"><span class="header-section-number">26.2.18</span> Tendencias positivas inesperadas</h3>
+<ul>
+<li><strong>Reverdecimiento de tierras áridas:</strong> Gracias al aumento de CO₂, zonas secas han ganado cobertura vegetal.<br>
+<a href="https://e360.yale.edu/features/greening-drylands-carbon-dioxide-climate-change">Fuente ↗</a><br>
+</li>
+<li><strong>Descenso global de incendios:</strong> La superficie quemada ha disminuido según datos de la NASA.<br>
+<a href="https://visibleearth.nasa.gov/images/90493/researchers-detect-a-global-drop-in-fires">Fuente ↗</a></li>
+</ul>
+<hr>
+</section>
+<section id="conclusión" class="level3" data-number="26.2.19">
+<h3 data-number="26.2.19" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">26.2.19</span> Conclusión</h3>
+<p>Muchas predicciones climáticas fueron excesivas o impacientes con los plazos; eso no invalida la percepción real del cambio climático, sino que refuerza la necesidad de un enfoque basado en datos, contexto y comunicación cuidadosa.</p>
+<hr>
+</section>
+</section>
+<section id="mejoras-necesarias-rejillas-más-densas-y-avances-computacionales" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="mejoras-necesarias-rejillas-más-densas-y-avances-computacionales"><span class="header-section-number">26.3</span> Mejoras necesarias: rejillas más densas y avances computacionales</h2>
 <p>Para resolver estos problemas, se propone aumentar la resolución espacial de los modelos reduciendo el tamaño de la celda (<span class="math inline">\(\Delta x\)</span>). Por ejemplo, si se pasa de una rejilla de 100 km a una de 10 km, la resolución mejora por un factor de 10: <span class="math display">\[
 \Delta x_{\rm nueva} = \frac{\Delta x_{\rm actual}}{10}.
 \]</span></p>
