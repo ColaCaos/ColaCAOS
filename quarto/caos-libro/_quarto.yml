@@ -53,12 +53,12 @@ book:
         - 05-experimentos/test.qmd
 
 format:
-  #html:
-  #  theme: cosmo
-  #  toc: true            # sidebar jerárquica
-  #  toc-depth: 2         # hasta niveles ## 
-  #  number-sections: true
-  #  math: katex
+  html:
+    theme: cosmo
+    toc: true            # sidebar jerárquica
+    toc-depth: 2         # hasta niveles ## 
+    number-sections: true
+    math: katex
   pdf:
     pdf-engine: xelatex
     keep-tex: true
