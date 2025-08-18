@@ -23,7 +23,7 @@ Un ejemplo de las discrepancias de los modelos señaladas por el artículo menci
 - **Sequedad estival**: déficit en la simulación de la disminución de humedad relativa y aumento de sequías en regiones templadas, como el suroeste de EE.UU.   
 - **Variabilidad interna y teleconexiones**: discrepancias en la Oscilación del Atlántico Norte y el gradiente este-oeste del Pacífico Tropical, afectando proyecciones regionales a largo plazo
 
-![Esquema del sistema](fallos.png){#fig:esquema fig-alt="Diagrama del sistema" width="60%" caption="Fallos regionales en las predicciones climáticas"}
+![Esquema del sistema](fallos.png){#fig:esquema fig-alt="Fallos regionales en las predicciones climáticas" width="60%" caption="Fallos regionales en las predicciones climáticas"}
 
 
 ## Ejemplo de sensibilidad de los modelos a las condiciones iniciales
@@ -305,17 +305,19 @@ Las predicciones realizadas mediante modelos computacionales son muy buenas a la
 
 ## Mejoras necesarias: rejillas más densas y avances computacionales
 
-Para resolver estos problemas, se propone aumentar la resolución espacial de los modelos reduciendo el tamaño de la celda ($\Delta x$). Por ejemplo, si se pasa de una rejilla de 100 km a una de 10 km, la resolución mejora por un factor de 10:
-$$
-\Delta x_{\rm nueva} = \frac{\Delta x_{\rm actual}}{10}.
-$$
+Según, [The other climate crisis](https://www.nature.com/articles/s41586-025-08680-1) para mejorar las predicciones realizadas por los modelos, se propone aumentar la resolución espacial de los modelos reduciendo el tamaño de la celda ($\Delta x$). Este aumento de resolución permite:
 
-Este aumento de resolución permite:
-
-1. **Capturar procesos convectivos y topográficos** con mayor detalle, mejorando la simulación de precipitaciones locales :contentReference[oaicite:7]{index=7}.  
+1. **Capturar procesos convectivos y topográficos** con mayor detalle, mejorando la simulación de precipitaciones locales   
 2. **Reducir errores numéricos** asociados al paso temporal ($\Delta t$), al poder disminuir simultáneamente el tamaño del paso de tiempo para mantener la estabilidad de los esquemas numéricos.  
-3. **Incorporar mecanismos de acoplamiento de escalas** que conectan fenómenos pequeños (turbulencia, nubes) con la circulación general :contentReference[oaicite:8]{index=8}.  
-4. **Emplear técnicas disruptivas**, como modelos de nube resuelta y aprendizaje automático para parametrizaciones subcuadriculares, reduciendo incertidumbres de procesos no resueltos :contentReference[oaicite:9]{index=9}.
+3. **Incorporar mecanismos de acoplamiento de escalas** que conectan fenómenos pequeños (turbulencia, nubes) con la circulación general 
 
 Así, al combinar rejillas más densas con paradigmas computacionales innovadores, podemos avanzar hacia una nueva generación de modelos climáticos capaces de reproducir fielmente tanto señales globales como variaciones regionales.
+
+
+### Mi nota crítica
+
+Tal y como he visto en mis experimentos con la función logística y el péndulo doble, aumentar el tamaño de la rejilla mejorará temporalmente las predicciones. Sin embargo, en los sistemas caóticos los errores se propagan de forma exponencial, por lo que la mejora en la resolución espacial/temporal de los modelos, pronto será "comida" por la propagación del error. 
+
+
+
 
