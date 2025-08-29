@@ -1,7 +1,0 @@
----
-title: "1. Introducción al Caos a través de la Función Logística"
----
-
-# 1. Introducción al Caos a través de la Función Logística
-
-Aquí va la presentación general de este capítulo…

@@ -48,9 +48,9 @@ book:
         - 04-clima/evaluacion.qmd
         - 04-clima/caosclima.qmd
 
-    - part: "Mis experimentos con el Caos"
+    - part: "Mi sistema caótico"
       chapters:
-        - 05-experimentos/_index.qmd
+        - 05-experimentos/intro.qmd
         - 05-experimentos/test.qmd
 
 format:
