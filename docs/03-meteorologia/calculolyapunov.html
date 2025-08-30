@@ -356,7 +356,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Mis experimentos con el Caos</span></a>
+ <span class="menu-text">Mi sistema caótico</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -364,8 +364,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../05-experimentos/_index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">1. Introducción al Caos a través de la Función Logística</span></span></a>
+  <a href="../05-experimentos/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -455,7 +455,7 @@ La dimensión <span class="math inline">\(m\)</span> es el número de valores es
 <section id="exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura" class="level2" data-number="20.2">
 <h2 data-number="20.2" class="anchored" data-anchor-id="exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura"><span class="header-section-number">20.2</span> Exponente de Lyapunov para la serie de valores de temperatura</h2>
 <p>A continuación muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedía ChatGPT que estimase la variación estacional y que la quitase de los datos, dándome la gráfica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo más aleatorio ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el año 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra.</p>
-<div id="d7a1fbc0" class="cell" data-execution_count="1">
+<div id="9785e8c9" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -472,7 +472,7 @@ La dimensión <span class="math inline">\(m\)</span> es el número de valores es
 </div>
 </div>
 <p>Como curiosidad, le pedía a ChatGPT que hiciese una regresión no lineal de orden 2 para ver como ha ido evolucionando la temperatura media en Galapagar desde 1950.</p>
-<div id="55616311" class="cell" data-execution_count="2">
+<div id="1bf8de8a" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -498,7 +498,7 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 <section id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días" class="level3" data-number="20.2.2">
 <h3 data-number="20.2.2" class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días"><span class="header-section-number">20.2.2</span> Amplificación de un error inicial de 0.1 °C tras 15 días</h3>
 <p>Y ahora veamos de formá gráfica cómo se va amplificando el error inicial de 0.1 grados tras quince días.</p>
-<div id="c7e609ab" class="cell" data-execution_count="3">
+<div id="9d94b715" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -513,7 +513,7 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 <section id="exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento" class="level2" data-number="20.3">
 <h2 data-number="20.3" class="anchored" data-anchor-id="exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento"><span class="header-section-number">20.3</span> Exponente de Lyapunov para la serie de velocidad del viento</h2>
 <p>A continuación cargamos y desestacionalizamos los datos de velocidad del viento (1950–presente), mostramos la serie original y la desestacionalizada:</p>
-<div id="6b48e49f" class="cell" data-execution_count="4">
+<div id="24a0f426" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -540,7 +540,7 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 </section>
 <section id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días" class="level3" data-number="20.3.3">
 <h3 data-number="20.3.3" class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días"><span class="header-section-number">20.3.3</span> Amplificación de un error inicial de 1 km/h tras 15 días</h3>
-<div id="bb123bc5" class="cell" data-execution_count="5">
+<div id="e13a95c7" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

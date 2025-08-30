@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Puntos fijos de una función – Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica</title>
+<title>28&nbsp; Introducción – Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01-logistica/analisis.html" rel="next">
-<link href="../01-logistica/cobweb.html" rel="prev">
+<link href="../05-experimentos/test.html" rel="next">
+<link href="../04-clima/caosclima.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">El Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/puntos-fijos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Puntos fijos de una función</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-experimentos/intro.html">Mi sistema caótico</a></li><li class="breadcrumb-item"><a href="../05-experimentos/intro.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -176,7 +176,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01-logistica/puntos-fijos.html" class="sidebar-item-text sidebar-link active">
+  <a href="../01-logistica/puntos-fijos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Puntos fijos de una función</span></span></a>
   </div>
 </li>
@@ -364,7 +364,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../05-experimentos/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-experimentos/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
@@ -381,23 +381,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul class="collapse">
-  <li><a href="#qué-es-un-punto-fijo" id="toc-qué-es-un-punto-fijo" class="nav-link active" data-scroll-target="#qué-es-un-punto-fijo"><span class="header-section-number">4.1</span> ¿Qué es un punto fijo?</a></li>
-  <li><a href="#estudio-formal-de-la-convergencia" id="toc-estudio-formal-de-la-convergencia" class="nav-link" data-scroll-target="#estudio-formal-de-la-convergencia"><span class="header-section-number">4.2</span> Estudio formal de la convergencia</a></li>
-  <li><a href="#ejemplo-fxcosx" id="toc-ejemplo-fxcosx" class="nav-link" data-scroll-target="#ejemplo-fxcosx"><span class="header-section-number">4.3</span> Ejemplo: <span class="math inline">\(f(x)=\cos(x)\)</span></a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01-logistica/mapa-logistico.html">El Caos a través de la Función Logística</a></li><li class="breadcrumb-item"><a href="../01-logistica/puntos-fijos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Puntos fijos de una función</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05-experimentos/intro.html">Mi sistema caótico</a></li><li class="breadcrumb-item"><a href="../05-experimentos/intro.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Puntos fijos de una función</span></h1>
+<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Introducción</span></h1>
 </div>
 
 
@@ -414,60 +406,10 @@ window.Quarto = {
 </header>
 
 
-<section id="qué-es-un-punto-fijo" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="qué-es-un-punto-fijo"><span class="header-section-number">4.1</span> ¿Qué es un punto fijo?</h2>
-<p>Un <strong>punto fijo</strong> de una función <span class="math inline">\(f\)</span> es un valor <span class="math inline">\(x^*\)</span> que satisface <span class="math display">\[x^* = f(x^*)\]</span></p>
-<p>Intuitivamente, si comenzamos en <span class="math inline">\(x^*\)</span> y aplicamos la función, nos quedamos en el mismo punto. En la sección anterior vimos que en el diagram interactivo graficábamos también la función <span class="math inline">\(y=x\)</span>. Si nuestra función $f(x)=x” cruza en algún momento la función <span class="math inline">\(y=x\)</span>, entonces tenemos un punto fijo en nuestra función.</p>
-<p>La pregunta que hay que hacerse, es la siguiente. Si hacemos iteraciones sucesivas de nuestro mapa/función, ¿convergemos a un punto fijo?. Para responder esta cuestión, vamos a hacer uso de la derivada de la función que estamos estudiando.</p>
-</section>
-<section id="estudio-formal-de-la-convergencia" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="estudio-formal-de-la-convergencia"><span class="header-section-number">4.2</span> Estudio formal de la convergencia</h2>
-<p>Para ver si la sucesión <span class="math inline">\(x_n\)</span> converge al punto fijo <span class="math inline">\(x^*\)</span> que define la ecuación <span class="math inline">\(x^* = f(x^*)\)</span>, en primer lugar vamos a definir el <strong>error</strong>: <span class="math display">\[
-e_n = x_n - x^*,
-\]</span> Es decir, <span class="math inline">\(e_n\)</span> es lo que dista el resultado en la iteración <span class="math inline">\(n\)</span> de la sucesión.</p>
-<p>La función <span class="math inline">\(f\)</span> se puede aproximar alrededor de <span class="math inline">\(x^*\)</span> por medio de su derivada primera: <span class="math display">\[
-f(x_n) \approx f(x^*) + f'(x^*)\,(x_n - x^*)
-\]</span></p>
-<p>y usando <span class="math inline">\(f(x^*)=x^*\)</span>, obtenemos <span class="math display">\[
-e_{n+1} \approx x_{n+1} - x^* = f'(x^*)\,e_n
-\]</span></p>
-<p>Si <span class="math inline">\(\lvert f'(x^*)\rvert &lt; 1\)</span>, entonces <span class="math inline">\(\lvert e_{n+1}\rvert &lt; \lvert e_n\rvert\)</span> y por tanto <span class="math inline">\(\lvert e_n\rvert\to0\)</span>, garantizando que <span class="math inline">\(x_n\to x^*\)</span>.</p>
-</section>
-<section id="ejemplo-fxcosx" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="ejemplo-fxcosx"><span class="header-section-number">4.3</span> Ejemplo: <span class="math inline">\(f(x)=\cos(x)\)</span></h2>
-<p>Si algún día te aburres, coge una calculadora y empieza a apretar sucesivas veces la función coseno. Verás que acabarás teniendo en el display de la calculadora el valor 0.739. No es magia. El valor <span class="math inline">\(x^* \approx 0.739085\)</span> es el punto fijo de la función coseno.</p>
-<p>Veamoslo más formalmente. Consideremos la iteración <span class="math display">\[
-x_{n+1} = \cos(x_n), \quad x_0 = 0.
-\]</span></p>
-<p>Los primeros valores son: <span class="math display">\[
-\begin{aligned}
-x_1 &amp;= \cos(0)=1,\\
-x_2 &amp;= \cos(1)\approx0.540302,\\
-x_3 &amp;= \cos(x_2)\approx0.857553,\\
-x_4 &amp;= \cos(x_3)\approx0.654290,\\
-x_5 &amp;= \cos(x_4)\approx0.793480,\\
-x_6 &amp;= \cos(x_5)\approx0.701369,\\
-x_7 &amp;= \cos(x_6)\approx0.763960,\\
-x_8 &amp;= \cos(x_7)\approx0.722102,\\
-x_9 &amp;= \cos(x_8)\approx0.750417,\\
-x_{10} &amp;= \cos(x_9)\approx0.731404,\\
-\end{aligned}
-\]</span></p>
-<p>Vemos que los valores van oscilando, pero rápidamente se aproximan al punto fijo <span class="math display">\[
-x^* \approx 0.739085,
-\]</span> que satisface <span class="math inline">\(x^* = \cos(x^*)\)</span> (la ecuación <span class="math inline">\(x^* = \cos(x^*)\)</span> no tiene solución en forma de fórmula elemental, pues es una ecuación transcendental).</p>
-<p>Además, la derivada en este punto es menor que 1, lo que confirma que es un punto de atracción de la función. <span class="math display">\[
-f'(x) = -\sin(x),
-\quad
-\lvert f'(x^*)\rvert = \lvert\sin(x^*)\rvert &lt; 1,
-\]</span> por lo que la iteración converge a <span class="math inline">\(x^*\)</span>.</p>
-<p>Si vuelves a la sección anterior, verás que para valores de <span class="math inline">\(r\)</span> entre 1 y 3, el mapa logístico converge al punto fijo de la función logísitica. Siempre, independientemente del valor de <span class="math inline">\(x_0\)</span> que elijas.</p>
-<p>Curiosamente, a partir de <span class="math inline">\(r=3\)</span> la derivada de la función logística en el punto de corte con <span class="math inline">\(y=x\)</span> pasa a tener un valor mayor en valor absoluto que 1, por lo que en este momento el punto de corte deja de ser un punto fijo.</p>
-<p>En la siguiente sección, calcularemos formalmente los puntos fijos de la función logística y estudiaremos formalmente como se comporta la sucesión.</p>
+<p>Despues de haber estudiado el coas y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algoodo. El modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual que en los prototipos anteriores solo que esta vez al ser un simulador podía ajustar todos los parametros con mucha más precisión que haciendolo a mano, donde no tengo tanta precisión de todas las medidas. Esta vez, haciéndolo en un simulador si que funcionó todo a la perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue que el simulador me daba la opcion de tener gráficos de las medidas como la velocidad, la velocidad angular o el centro de masas en tiempo real y de luego descargarlos y obtener todos los datos facilmente.</p>
 
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -871,13 +813,13 @@ f'(x) = -\sin(x),
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01-logistica/cobweb.html" class="pagination-link" aria-label="Diagrama de telaraña">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Diagrama de telaraña</span></span>
+      <a href="../04-clima/caosclima.html" class="pagination-link" aria-label="Conclusiones sobre la predictibilidad del clima">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Conclusiones sobre la predictibilidad del clima</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01-logistica/analisis.html" class="pagination-link" aria-label="Estudio formal del mapa logístico">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estudio formal del mapa logístico</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05-experimentos/test.html" class="pagination-link" aria-label="test">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">test</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
