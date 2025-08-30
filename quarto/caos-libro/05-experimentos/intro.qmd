@@ -15,7 +15,7 @@ El modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual 
 
 Esta vez, haciéndolo en un simulador si que funcionó todo a la perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue que el simulador me daba la opcion de tener gráficos de las medidas como la velocidad, la velocidad angular o el centro de masas en tiempo real y de luego descargarlos y obtener todos los datos facilmente.
 
-# Diseño y Funcionamiento
+## Diseño y Funcionamiento
 
 El sistema se basa en una rueda fija que gira siempre eln el mismo eje mediante un chorro de agua que le va cayendo justo encima. Para hacerla girar con el agua tiene puestas cuatro aspas en las que el agua se va acumulando hasta que empieza a girar y se vacian.
 

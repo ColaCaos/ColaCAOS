@@ -81,3 +81,5 @@ format:
       \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
       \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
       \makeatother
+website:
+  favicon: favicon.png
