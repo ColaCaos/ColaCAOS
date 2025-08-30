@@ -381,8 +381,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#diseño-y-funcionamiento" id="toc-diseño-y-funcionamiento" class="nav-link active" data-scroll-target="#diseño-y-funcionamiento"><span class="header-section-number">29</span> Diseño y Funcionamiento</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -406,10 +412,18 @@ window.Quarto = {
 </header>
 
 
-<p>Despues de haber estudiado el coas y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algoodo. El modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual que en los prototipos anteriores solo que esta vez al ser un simulador podía ajustar todos los parametros con mucha más precisión que haciendolo a mano, donde no tengo tanta precisión de todas las medidas. Esta vez, haciéndolo en un simulador si que funcionó todo a la perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue que el simulador me daba la opcion de tener gráficos de las medidas como la velocidad, la velocidad angular o el centro de masas en tiempo real y de luego descargarlos y obtener todos los datos facilmente.</p>
+<p>Despues de haber estudiado el caos y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algoodo.</p>
+<p>El modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual que en los prototipos anteriores solo que esta vez al ser un simulador podía ajustar todos los parametros con mucha más precisión que haciendolo a mano, donde no tengo tanta precisión de todas las medidas.</p>
+<p>Esta vez, haciéndolo en un simulador si que funcionó todo a la perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue que el simulador me daba la opcion de tener gráficos de las medidas como la velocidad, la velocidad angular o el centro de masas en tiempo real y de luego descargarlos y obtener todos los datos facilmente.</p>
+<section id="diseño-y-funcionamiento" class="level1" data-number="29">
+<h1 data-number="29"><span class="header-section-number">29</span> Diseño y Funcionamiento</h1>
+<p>El sistema se basa en una rueda fija que gira siempre eln el mismo eje mediante un chorro de agua que le va cayendo justo encima. Para hacerla girar con el agua tiene puestas cuatro aspas en las que el agua se va acumulando hasta que empieza a girar y se vacian.</p>
+<p>En el interior la rueda esta dividida en cuatro compartimetos por cuatro paredes que van desde el centro hasta las aspas. Dentro de cada compartimento hay una pequeña canica que a medidad que la rueda gira se van moviendo dentro de cada compartimento.</p>
+<p>Estas pequeñas canicas son la parte mas importante de el sistema por son las que hacen que el giro de la rueda sea caótico.</p>
 
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

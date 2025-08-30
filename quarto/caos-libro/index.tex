@@ -4345,10 +4345,11 @@ iniciales}\label{ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-inicia
 Un caso concreto se observó en las simulaciones del modelo climático
 \textbf{CESM2} (Community Earth System Model, versión
 2)\href{https://www.cesm.ucar.edu/community-projects/lens2}{CESM2 Large
-Ensemble Community Project (LENS2)}. Los investigadores realizaron más
-de 300 simulaciones de control preindustrial, todas \textbf{idénticas en
-su configuración física y parámetros}, pero con una minúscula diferencia
-en el estado inicial de la atmósfera: una perturbación de apenas
+Ensemble Community Project (LENS2)}. Los investigadores realizaron 3
+simulaciones iniciales de control preindustrial, todas \textbf{idénticas
+en su configuración física y parámetros}, pero con una minúscula
+diferencia en el estado inicial de la atmósfera: una perturbación de
+apenas
 
 \[
 \Delta T \approx 10^{-14} \; \text{K}
@@ -4359,10 +4360,10 @@ precisión instrumental. Sin embargo, tras dejar correr la simulación
 durante años, las trayectorias climáticas divergieron lo suficiente como
 para producir \textbf{resultados regionales muy diferentes}.
 
-En la mayoría de las ejecuciones, el modelo desarrolló una cobertura de
-hielo marino \textbf{excesiva} en el Mar de Labrador (y en menor medida
-en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin
-embargo, una de las simulaciones ---llamada \emph{262c}--- \textbf{no
+En 2 de las ejecuciones, el modelo desarrolló una cobertura de hielo
+marino \textbf{excesiva} en el Mar de Labrador (y en menor medida en el
+Mar de Ojotsk), comparada con las observaciones por satélite. Sin
+embargo, la tercera simulación ---llamada \emph{262c}--- \textbf{no
 presentó ese exceso de hielo}.
 
 Esta simulación no era especial en ningún otro aspecto: su temperatura
@@ -4419,6 +4420,48 @@ de datos científicos.\\
 ↗} \textbar{}
 \href{https://www.politifact.com/factchecks/2023/may/31/alex-epstein/chart-on-arctic-sea-ice-extent-has-no-bearing-on-a/}{Análisis
 detallado ↗}
+
+\subsection{Ralentización multidecenal del deshielo del Ártico (2005 →
+2024)}\label{ralentizaciuxf3n-multidecenal-del-deshielo-del-uxe1rtico-2005-2024}
+
+\textbf{Predicción:} La literatura previa asumía una \textbf{pérdida
+continuada} del hielo estival y consideraba \textbf{poco probables}
+pausas largas: a 15 años ≈ \textbf{5 \%} y a 20 años ≈ \textbf{1--2 \%}
+en conjuntos CMIP5 (definiendo ``pausa'' como tendencia no negativa en
+septiembre).\\
+\href{https://opensky.ucar.edu/islandora/object/articles\%3A16571}{Swart
+et al.~2015 ↗}
+
+\textbf{Realidad:} El análisis satelital 1979--2024 muestra
+\textbf{ralentización sustancial} y \textbf{ausencia de tendencia
+estadísticamente significativa} en la extensión de septiembre desde
+\textbf{2005}. La ``pausa'' es \textbf{robusta} a varios datos/métricas
+y \textbf{compatible} con variabilidad interna del clima (caos); los
+modelos CMIP5/CMIP6 \textbf{reproducen} episodios así y sugieren que
+podría \textbf{persistir 5--10 años}, con riesgo de
+\textbf{reaceleración} posterior por encima de la media de largo
+plazo.\\
+\href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025GL116175}{England
+et al.~2025 (AGU) ↗} \textbar{}
+\href{https://www.columbia.edu/~lmp/paps/england\%2Betal-GRL-2025.pdf}{PDF
+↗} \textbar{}
+\href{https://www.carbonbrief.org/guest-post-why-the-recent-slowdown-in-arctic-sea-ice-loss-is-only-temporary/}{Resumen
+divulgativo ↗}
+
+En un sistema no lineal y caótico, pequeñas diferencias iniciales pueden
+\textbf{amplificarse} en días-semanas y, a través del acoplamiento
+océano--hielo (memoria, umbrales de convección, realimentación
+hielo--albedo), generar \textbf{regímenes} decenales con pérdida
+\textbf{acelerada} o \textbf{frenada}. La variabilidad interna puede
+\textbf{enmascarar} temporalmente la señal forzada por gases de efecto
+invernadero.
+
+La pausa 2005--2024 encaja con ese marco: no ``niega'' el calentamiento,
+sino que muestra que la \textbf{trayectoria observada} ha caído en un
+escenario poco probable pero \textbf{plausible} del abanico de
+trayectorias del sistema.\\
+\href{https://www.columbia.edu/~lmp/paps/england\%2Betal-GRL-2025.pdf}{England
+et al.~2025 (PDF) ↗}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -5104,7 +5147,10 @@ predictiblidad del clima. Y es que si bien, tenemos asumido que una
 predicción meteorológica a mas de 15 días vista es muy poco fiable, no
 sabemos el escenario temporal de validez de las predicciones climáticas
 actuales (¿sabemos cuál es el exponente de Lyapunov de las variables
-climáticas?).
+climáticas?). Pero a pesar de ello, los medios de comunicación
+transmiten la impresión de que las predicciones que hacen los modelos se
+van a cumplir, y eso genera unas expectativas que al no cumplirse pueden
+generar problemas.
 
 Las predicciones climáticas juegan un papel fundamental en la sociedad
 actual. Condicionan las economías de muchos países y los hábitos de
@@ -5130,7 +5176,7 @@ forzamientos.
 
 \chapter{Introducción}\label{introducciuxf3n-6}
 
-Despues de haber estudiado el coas y su comportamiento tanto en modelos
+Despues de haber estudiado el caos y su comportamiento tanto en modelos
 matemáticos como la función logística y en sistemas físicos como el
 péndulo doble y la predicción meteorológica y climática, me he propuesto
 crear mi propio sitema caótico para poder estudiarlo y hallar sus
@@ -5138,16 +5184,33 @@ similitudes y relaciones con el resto de sitemas caósticos estudiados.
 Para hacer mi sistema caótico primero probé a construirlo con mis
 propias manos pero después de varios prototipos del sistema que no
 conseguí que funcionaran o que tuvieran un coportamiento caótico decidí
-hacerlo en un simulador de física llamado Algoodo. El modelo y el diseño
-para que tuviera un movimiento caótico lo mantuve igual que en los
-prototipos anteriores solo que esta vez al ser un simulador podía
-ajustar todos los parametros con mucha más precisión que haciendolo a
-mano, donde no tengo tanta precisión de todas las medidas. Esta vez,
-haciéndolo en un simulador si que funcionó todo a la perfección. Una
-ventaja que tuve al hacer mi sistema en un simulador fue que el
-simulador me daba la opcion de tener gráficos de las medidas como la
-velocidad, la velocidad angular o el centro de masas en tiempo real y de
-luego descargarlos y obtener todos los datos facilmente.
+hacerlo en un simulador de física llamado Algoodo.
+
+El modelo y el diseño para que tuviera un movimiento caótico lo mantuve
+igual que en los prototipos anteriores solo que esta vez al ser un
+simulador podía ajustar todos los parametros con mucha más precisión que
+haciendolo a mano, donde no tengo tanta precisión de todas las medidas.
+
+Esta vez, haciéndolo en un simulador si que funcionó todo a la
+perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue
+que el simulador me daba la opcion de tener gráficos de las medidas como
+la velocidad, la velocidad angular o el centro de masas en tiempo real y
+de luego descargarlos y obtener todos los datos facilmente.
+
+\chapter{Diseño y Funcionamiento}\label{diseuxf1o-y-funcionamiento}
+
+El sistema se basa en una rueda fija que gira siempre eln el mismo eje
+mediante un chorro de agua que le va cayendo justo encima. Para hacerla
+girar con el agua tiene puestas cuatro aspas en las que el agua se va
+acumulando hasta que empieza a girar y se vacian.
+
+En el interior la rueda esta dividida en cuatro compartimetos por cuatro
+paredes que van desde el centro hasta las aspas. Dentro de cada
+compartimento hay una pequeña canica que a medidad que la rueda gira se
+van moviendo dentro de cada compartimento.
+
+Estas pequeñas canicas son la parte mas importante de el sistema por son
+las que hacen que el giro de la rueda sea caótico.
 
 \chapter{test}\label{test}
 

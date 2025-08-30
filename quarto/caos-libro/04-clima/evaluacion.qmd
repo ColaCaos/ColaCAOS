@@ -28,7 +28,7 @@ Un ejemplo de las discrepancias de los modelos señaladas por el artículo menci
 
 ## Ejemplo de sensibilidad de los modelos a las condiciones iniciales
 
-Un caso concreto se observó en las simulaciones del modelo climático **CESM2** (Community Earth System Model, versión 2)[CESM2 Large Ensemble Community Project (LENS2)](https://www.cesm.ucar.edu/community-projects/lens2). Los investigadores realizaron más de 300 simulaciones de control preindustrial, todas **idénticas en su configuración física y parámetros**, pero con una minúscula diferencia en el estado inicial de la atmósfera: una perturbación de apenas 
+Un caso concreto se observó en las simulaciones del modelo climático **CESM2** (Community Earth System Model, versión 2)[CESM2 Large Ensemble Community Project (LENS2)](https://www.cesm.ucar.edu/community-projects/lens2). Los investigadores realizaron 3 simulaciones iniciales de control preindustrial, todas **idénticas en su configuración física y parámetros**, pero con una minúscula diferencia en el estado inicial de la atmósfera: una perturbación de apenas 
 
 $$
 \Delta T \approx 10^{-14} \; \text{K}
@@ -36,7 +36,7 @@ $$
 
 Esta variación es tan pequeña que está muy por debajo de cualquier precisión instrumental. Sin embargo, tras dejar correr la simulación durante años, las trayectorias climáticas divergieron lo suficiente como para producir **resultados regionales muy diferentes**.
 
-En la mayoría de las ejecuciones, el modelo desarrolló una cobertura de hielo marino **excesiva** en el Mar de Labrador (y en menor medida en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin embargo, una de las simulaciones —llamada *262c*— **no presentó ese exceso de hielo**. 
+En 2 de las ejecuciones, el modelo desarrolló una cobertura de hielo marino **excesiva** en el Mar de Labrador (y en menor medida en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin embargo, la tercera simulación —llamada *262c*— **no presentó ese exceso de hielo**. 
 
 Esta simulación no era especial en ningún otro aspecto: su temperatura media global, el equilibrio energético y la circulación oceánica estaban dentro de la variabilidad normal del conjunto. La única diferencia real fue la trayectoria caótica que siguió el sistema a partir de esa pequeñísima perturbación inicial.
 
@@ -63,6 +63,19 @@ A lo largo de las últimas décadas, voces diversas —científicos, activistas,
 **Predicción:** En 2009, Al Gore, citando modelos científicos, afirmó que había una **probabilidad del 75 % de que el Ártico quedara libre de hielo en verano en cinco a siete años**.  
 **Realidad:** Aunque el hielo ha disminuido, no se ha desvanecido por completo en verano. La afirmación fue una interpretación exagerada de datos científicos.  
 [Fuente ↗](https://www.reuters.com/article/fact-check/al-gore-did-not-predict-ice-caps-melting-by-2013-but-misrepresented-data-idUSL1N2RV0K6) | [Análisis detallado ↗](https://www.politifact.com/factchecks/2023/may/31/alex-epstein/chart-on-arctic-sea-ice-extent-has-no-bearing-on-a/)
+
+### Ralentización multidecenal del deshielo del Ártico (2005 → 2024)
+
+**Predicción:** La literatura previa asumía una **pérdida continuada** del hielo estival y consideraba **poco probables** pausas largas: a 15 años ≈ **5 %** y a 20 años ≈ **1–2 %** en conjuntos CMIP5 (definiendo “pausa” como tendencia no negativa en septiembre).  
+[Swart et al. 2015 ↗](https://opensky.ucar.edu/islandora/object/articles%3A16571)
+
+**Realidad:** El análisis satelital 1979–2024 muestra **ralentización sustancial** y **ausencia de tendencia estadísticamente significativa** en la extensión de septiembre desde **2005**. La “pausa” es **robusta** a varios datos/métricas y **compatible** con variabilidad interna del clima (caos); los modelos CMIP5/CMIP6 **reproducen** episodios así y sugieren que podría **persistir 5–10 años**, con riesgo de **reaceleración** posterior por encima de la media de largo plazo.  
+[England et al. 2025 (AGU) ↗](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025GL116175) | [PDF ↗](https://www.columbia.edu/~lmp/paps/england%2Betal-GRL-2025.pdf) | [Resumen divulgativo ↗](https://www.carbonbrief.org/guest-post-why-the-recent-slowdown-in-arctic-sea-ice-loss-is-only-temporary/)
+
+En un sistema no lineal y caótico, pequeñas diferencias iniciales pueden **amplificarse** en días-semanas y, a través del acoplamiento océano–hielo (memoria, umbrales de convección, realimentación hielo–albedo), generar **regímenes** decenales con pérdida **acelerada** o **frenada**. La variabilidad interna puede **enmascarar** temporalmente la señal forzada por gases de efecto invernadero.  
+
+La pausa 2005–2024 encaja con ese marco: no “niega” el calentamiento, sino que muestra que la **trayectoria observada** ha caído en un escenario poco probable pero **plausible** del abanico de trayectorias del sistema.  
+[England et al. 2025 (PDF) ↗](https://www.columbia.edu/~lmp/paps/england%2Betal-GRL-2025.pdf)
 
 ---
 

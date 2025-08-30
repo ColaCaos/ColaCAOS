@@ -436,12 +436,12 @@ window.Quarto = {
 </div>
 <section id="ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales" class="level2" data-number="26.1">
 <h2 data-number="26.1" class="anchored" data-anchor-id="ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales"><span class="header-section-number">26.1</span> Ejemplo de sensibilidad de los modelos a las condiciones iniciales</h2>
-<p>Un caso concreto se observó en las simulaciones del modelo climático <strong>CESM2</strong> (Community Earth System Model, versión 2)<a href="https://www.cesm.ucar.edu/community-projects/lens2">CESM2 Large Ensemble Community Project (LENS2)</a>. Los investigadores realizaron más de 300 simulaciones de control preindustrial, todas <strong>idénticas en su configuración física y parámetros</strong>, pero con una minúscula diferencia en el estado inicial de la atmósfera: una perturbación de apenas</p>
+<p>Un caso concreto se observó en las simulaciones del modelo climático <strong>CESM2</strong> (Community Earth System Model, versión 2)<a href="https://www.cesm.ucar.edu/community-projects/lens2">CESM2 Large Ensemble Community Project (LENS2)</a>. Los investigadores realizaron 3 simulaciones iniciales de control preindustrial, todas <strong>idénticas en su configuración física y parámetros</strong>, pero con una minúscula diferencia en el estado inicial de la atmósfera: una perturbación de apenas</p>
 <p><span class="math display">\[
 \Delta T \approx 10^{-14} \; \text{K}
 \]</span></p>
 <p>Esta variación es tan pequeña que está muy por debajo de cualquier precisión instrumental. Sin embargo, tras dejar correr la simulación durante años, las trayectorias climáticas divergieron lo suficiente como para producir <strong>resultados regionales muy diferentes</strong>.</p>
-<p>En la mayoría de las ejecuciones, el modelo desarrolló una cobertura de hielo marino <strong>excesiva</strong> en el Mar de Labrador (y en menor medida en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin embargo, una de las simulaciones —llamada <em>262c</em>— <strong>no presentó ese exceso de hielo</strong>.</p>
+<p>En 2 de las ejecuciones, el modelo desarrolló una cobertura de hielo marino <strong>excesiva</strong> en el Mar de Labrador (y en menor medida en el Mar de Ojotsk), comparada con las observaciones por satélite. Sin embargo, la tercera simulación —llamada <em>262c</em>— <strong>no presentó ese exceso de hielo</strong>.</p>
 <p>Esta simulación no era especial en ningún otro aspecto: su temperatura media global, el equilibrio energético y la circulación oceánica estaban dentro de la variabilidad normal del conjunto. La única diferencia real fue la trayectoria caótica que siguió el sistema a partir de esa pequeñísima perturbación inicial.</p>
 <p>Este ejemplo ilustra de manera numérica cómo, en sistemas no lineales como el clima, <strong>pequeñas variaciones iniciales pueden llevar a estados regionales muy distintos</strong>, incluso cuando el promedio global parece estable. Es una demostración clara de que la incertidumbre en las condiciones iniciales, por diminuta que sea, puede tener consecuencias sustanciales en las predicciones a escala regional.</p>
 </section>
@@ -461,59 +461,69 @@ window.Quarto = {
 <p><strong>Predicción:</strong> En 2009, Al Gore, citando modelos científicos, afirmó que había una <strong>probabilidad del 75 % de que el Ártico quedara libre de hielo en verano en cinco a siete años</strong>.<br>
 <strong>Realidad:</strong> Aunque el hielo ha disminuido, no se ha desvanecido por completo en verano. La afirmación fue una interpretación exagerada de datos científicos.<br>
 <a href="https://www.reuters.com/article/fact-check/al-gore-did-not-predict-ice-caps-melting-by-2013-but-misrepresented-data-idUSL1N2RV0K6">Fuente ↗</a> | <a href="https://www.politifact.com/factchecks/2023/may/31/alex-epstein/chart-on-arctic-sea-ice-extent-has-no-bearing-on-a/">Análisis detallado ↗</a></p>
+</section>
+<section id="ralentización-multidecenal-del-deshielo-del-ártico-2005-2024" class="level3" data-number="26.2.3">
+<h3 data-number="26.2.3" class="anchored" data-anchor-id="ralentización-multidecenal-del-deshielo-del-ártico-2005-2024"><span class="header-section-number">26.2.3</span> Ralentización multidecenal del deshielo del Ártico (2005 → 2024)</h3>
+<p><strong>Predicción:</strong> La literatura previa asumía una <strong>pérdida continuada</strong> del hielo estival y consideraba <strong>poco probables</strong> pausas largas: a 15 años ≈ <strong>5 %</strong> y a 20 años ≈ <strong>1–2 %</strong> en conjuntos CMIP5 (definiendo “pausa” como tendencia no negativa en septiembre).<br>
+<a href="https://opensky.ucar.edu/islandora/object/articles%3A16571">Swart et al.&nbsp;2015 ↗</a></p>
+<p><strong>Realidad:</strong> El análisis satelital 1979–2024 muestra <strong>ralentización sustancial</strong> y <strong>ausencia de tendencia estadísticamente significativa</strong> en la extensión de septiembre desde <strong>2005</strong>. La “pausa” es <strong>robusta</strong> a varios datos/métricas y <strong>compatible</strong> con variabilidad interna del clima (caos); los modelos CMIP5/CMIP6 <strong>reproducen</strong> episodios así y sugieren que podría <strong>persistir 5–10 años</strong>, con riesgo de <strong>reaceleración</strong> posterior por encima de la media de largo plazo.<br>
+<a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025GL116175">England et al.&nbsp;2025 (AGU) ↗</a> | <a href="https://www.columbia.edu/~lmp/paps/england%2Betal-GRL-2025.pdf">PDF ↗</a> | <a href="https://www.carbonbrief.org/guest-post-why-the-recent-slowdown-in-arctic-sea-ice-loss-is-only-temporary/">Resumen divulgativo ↗</a></p>
+<p>En un sistema no lineal y caótico, pequeñas diferencias iniciales pueden <strong>amplificarse</strong> en días-semanas y, a través del acoplamiento océano–hielo (memoria, umbrales de convección, realimentación hielo–albedo), generar <strong>regímenes</strong> decenales con pérdida <strong>acelerada</strong> o <strong>frenada</strong>. La variabilidad interna puede <strong>enmascarar</strong> temporalmente la señal forzada por gases de efecto invernadero.</p>
+<p>La pausa 2005–2024 encaja con ese marco: no “niega” el calentamiento, sino que muestra que la <strong>trayectoria observada</strong> ha caído en un escenario poco probable pero <strong>plausible</strong> del abanico de trayectorias del sistema.<br>
+<a href="https://www.columbia.edu/~lmp/paps/england%2Betal-GRL-2025.pdf">England et al.&nbsp;2025 (PDF) ↗</a></p>
 <hr>
 </section>
-<section id="huracanes-destructivos-menos-frecuentes-siglo-xx" class="level3" data-number="26.2.3">
-<h3 data-number="26.2.3" class="anchored" data-anchor-id="huracanes-destructivos-menos-frecuentes-siglo-xx"><span class="header-section-number">26.2.3</span> Huracanes destructivos menos frecuentes (siglo XX)</h3>
+<section id="huracanes-destructivos-menos-frecuentes-siglo-xx" class="level3" data-number="26.2.4">
+<h3 data-number="26.2.4" class="anchored" data-anchor-id="huracanes-destructivos-menos-frecuentes-siglo-xx"><span class="header-section-number">26.2.4</span> Huracanes destructivos menos frecuentes (siglo XX)</h3>
 <p><strong>Predicción general:</strong> El cambio climático intensificaría todos los eventos extremos, incluyendo un aumento de huracanes devastadores.<br>
 <strong>Realidad:</strong> Investigaciones muestran que el número anual de ciclones tropicales a nivel global <strong>disminuyó en alrededor de un 13 % durante el siglo XX</strong>.<br>
 <a href="https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/">Fuente ↗</a> | <a href="https://www.nature.com/articles/s41558-022-01388-4">Estudio original ↗</a></p>
 <hr>
 </section>
-<section id="naciones-bajo-el-agua-para-el-2000-1989" class="level3" data-number="26.2.4">
-<h3 data-number="26.2.4" class="anchored" data-anchor-id="naciones-bajo-el-agua-para-el-2000-1989"><span class="header-section-number">26.2.4</span> “Naciones bajo el agua para el 2000” (1989)</h3>
+<section id="naciones-bajo-el-agua-para-el-2000-1989" class="level3" data-number="26.2.5">
+<h3 data-number="26.2.5" class="anchored" data-anchor-id="naciones-bajo-el-agua-para-el-2000-1989"><span class="header-section-number">26.2.5</span> “Naciones bajo el agua para el 2000” (1989)</h3>
 <p><strong>Predicción:</strong> Noel Brown, director del PNUMA, advirtió que “naciones enteras podrían borrarse del mapa por el aumento del nivel del mar si la tendencia de calentamiento no se revierte para el año 2000.”<br>
 <strong>Realidad:</strong> El nivel del mar subió, pero no llevó a la desaparición de países enteros.<br>
 <a href="https://www.snopes.com/fact-check/nations-vanish-global-warming/">Fuente ↗</a> | <a href="https://apnews.com/article/bd45c372caf118ec99964ea547880cd0">Más contexto ↗</a></p>
 <hr>
 </section>
-<section id="glaciares-del-himalaya-desapareciendo-en-2035-2007-2035" class="level3" data-number="26.2.5">
-<h3 data-number="26.2.5" class="anchored" data-anchor-id="glaciares-del-himalaya-desapareciendo-en-2035-2007-2035"><span class="header-section-number">26.2.5</span> Glaciares del Himalaya desapareciendo en 2035 (2007 → 2035)</h3>
+<section id="glaciares-del-himalaya-desapareciendo-en-2035-2007-2035" class="level3" data-number="26.2.6">
+<h3 data-number="26.2.6" class="anchored" data-anchor-id="glaciares-del-himalaya-desapareciendo-en-2035-2007-2035"><span class="header-section-number">26.2.6</span> Glaciares del Himalaya desapareciendo en 2035 (2007 → 2035)</h3>
 <p><strong>Predicción:</strong> El IPCC afirmó que era <strong>“muy probable” que los glaciares del Himalaya desaparecieran para 2035</strong> si continuaba el calentamiento.<br>
 <strong>Realidad:</strong> El informe contenía un error sin respaldo científico, posteriormente reconocido y corregido por el propio IPCC.<br>
 <a href="https://skepticalscience.com/ipcc-2035-prediction-himalayan-glaciers.html">Fuente ↗</a></p>
 <hr>
 </section>
-<section id="humanidad-extinta-si-no-dejamos-los-fósiles-en-5-años-2018-2023" class="level3" data-number="26.2.6">
-<h3 data-number="26.2.6" class="anchored" data-anchor-id="humanidad-extinta-si-no-dejamos-los-fósiles-en-5-años-2018-2023"><span class="header-section-number">26.2.6</span> “Humanidad extinta si no dejamos los fósiles en 5 años” (2018 → 2023)</h3>
+<section id="humanidad-extinta-si-no-dejamos-los-fósiles-en-5-años-2018-2023" class="level3" data-number="26.2.7">
+<h3 data-number="26.2.7" class="anchored" data-anchor-id="humanidad-extinta-si-no-dejamos-los-fósiles-en-5-años-2018-2023"><span class="header-section-number">26.2.7</span> “Humanidad extinta si no dejamos los fósiles en 5 años” (2018 → 2023)</h3>
 <p><strong>Predicción:</strong> Greta Thunberg citó un tuit que insinuaba una advertencia de que la humanidad se extinguiría si no se abandonaban los combustibles fósiles en los próximos cinco años.<br>
 <strong>Realidad:</strong> La cita fue tomada de un artículo que distorsionaba la declaración original de un científico. Thunberg nunca afirmó que la extinción ocurriría en cinco años.<br>
 <a href="https://www.factcheck.org/2023/06/viral-posts-distort-greta-thunberg-tweet-warning-about-climate-change/">Fuente ↗</a> | <a href="https://apnews.com/article/fact-check-greta-thunberg-deleted-tweet-675395214080">Más contexto ↗</a></p>
 <hr>
 </section>
-<section id="los-niños-no-sabrán-qué-es-la-nieve-2000" class="level3" data-number="26.2.7">
-<h3 data-number="26.2.7" class="anchored" data-anchor-id="los-niños-no-sabrán-qué-es-la-nieve-2000"><span class="header-section-number">26.2.7</span> “Los niños no sabrán qué es la nieve” (2000)</h3>
+<section id="los-niños-no-sabrán-qué-es-la-nieve-2000" class="level3" data-number="26.2.8">
+<h3 data-number="26.2.8" class="anchored" data-anchor-id="los-niños-no-sabrán-qué-es-la-nieve-2000"><span class="header-section-number">26.2.8</span> “Los niños no sabrán qué es la nieve” (2000)</h3>
 <p><strong>Predicción:</strong> El Dr.&nbsp;David Viner afirmó en 2000 que “en pocos años, la nieve invernal se convertirá en algo muy raro” en el Reino Unido y que “los niños no sabrán qué es la nieve.”<br>
 <strong>Realidad:</strong> Aunque hubo años con poca nevada, no se ha convertido en algo desconocido ni ha desaparecido por completo.<br>
 <a href="https://www.theguardian.com/world/2000/nov/22/weather.uk">Fuente ↗</a></p>
 <hr>
 </section>
-<section id="quedan-96-meses-para-salvar-al-mundo-2009" class="level3" data-number="26.2.8">
-<h3 data-number="26.2.8" class="anchored" data-anchor-id="quedan-96-meses-para-salvar-al-mundo-2009"><span class="header-section-number">26.2.8</span> “Quedan 96 meses para salvar al mundo” (2009)</h3>
+<section id="quedan-96-meses-para-salvar-al-mundo-2009" class="level3" data-number="26.2.9">
+<h3 data-number="26.2.9" class="anchored" data-anchor-id="quedan-96-meses-para-salvar-al-mundo-2009"><span class="header-section-number">26.2.9</span> “Quedan 96 meses para salvar al mundo” (2009)</h3>
 <p><strong>Predicción:</strong> El Príncipe Carlos advirtió en 2009 que quedaban <strong>80 meses</strong> (aprox. 6–7 años) para evitar un daño climático irreversible.<br>
 <strong>Realidad:</strong> Como suele suceder, esa fecha pasó sin un colapso climático drástico, aunque el tema sigue vigente.<br>
 <a href="https://www.telegraph.co.uk/news/earth/earthnews/6532598/Prince-Charles-warning-80-month-deadline-for-climate-change.html">Fuente ↗</a></p>
 <hr>
 </section>
-<section id="años-para-evitar-un-punto-sin-retorno-2006" class="level3" data-number="26.2.9">
-<h3 data-number="26.2.9" class="anchored" data-anchor-id="años-para-evitar-un-punto-sin-retorno-2006"><span class="header-section-number">26.2.9</span> “10 años para evitar un punto sin retorno” (2006)</h3>
+<section id="años-para-evitar-un-punto-sin-retorno-2006" class="level3" data-number="26.2.10">
+<h3 data-number="26.2.10" class="anchored" data-anchor-id="años-para-evitar-un-punto-sin-retorno-2006"><span class="header-section-number">26.2.10</span> “10 años para evitar un punto sin retorno” (2006)</h3>
 <p><strong>Predicción:</strong> Al Gore afirmó en 2006 que había <strong>10 años para evitar un punto de no retorno climático</strong>.<br>
 <strong>Realidad:</strong> En 2016 no se identificó dicho punto irreversible; el cambio climático, eso sí, se intensificó.<br>
 <a href="https://www.theguardian.com/environment/2006/mar/06/greenpolitics.climatechange">Fuente ↗</a></p>
 <hr>
 </section>
-<section id="mediterráneo-sin-playas-en-2020-2001" class="level3" data-number="26.2.10">
-<h3 data-number="26.2.10" class="anchored" data-anchor-id="mediterráneo-sin-playas-en-2020-2001"><span class="header-section-number">26.2.10</span> Mediterráneo sin playas en 2020 (2001)</h3>
+<section id="mediterráneo-sin-playas-en-2020-2001" class="level3" data-number="26.2.11">
+<h3 data-number="26.2.11" class="anchored" data-anchor-id="mediterráneo-sin-playas-en-2020-2001"><span class="header-section-number">26.2.11</span> Mediterráneo sin playas en 2020 (2001)</h3>
 <p>En febrero de 2001, un reportaje en <em>El Mundo</em> presentaba un escenario alarmante para 2020 basado en el último informe de la ONU sobre cambio climático.<br>
 &gt; <em>“Ya no queda rastro alguno de muchas de las playas bañadas por el Mediterráneo y del Atlántico…”</em><br>
 &gt; <em>“En el norte de España el paisaje está salpicado de palmeras…”</em><br>
@@ -527,23 +537,23 @@ window.Quarto = {
 <a href="https://www.elmundo.es/cronica/2001/CR280/CR280-13.html">Fuente: <em>El Mundo</em>, 25/02/2001 ↗</a></p>
 <hr>
 </section>
-<section id="países-insulares-desaparecidos-maldivas-tuvalu-kiribati" class="level3" data-number="26.2.11">
-<h3 data-number="26.2.11" class="anchored" data-anchor-id="países-insulares-desaparecidos-maldivas-tuvalu-kiribati"><span class="header-section-number">26.2.11</span> Países insulares desaparecidos (Maldivas, Tuvalu, Kiribati)</h3>
+<section id="países-insulares-desaparecidos-maldivas-tuvalu-kiribati" class="level3" data-number="26.2.12">
+<h3 data-number="26.2.12" class="anchored" data-anchor-id="países-insulares-desaparecidos-maldivas-tuvalu-kiribati"><span class="header-section-number">26.2.12</span> Países insulares desaparecidos (Maldivas, Tuvalu, Kiribati)</h3>
 <p><strong>Predicción:</strong> En 1988 se afirmó que las Maldivas, Tuvalu y Kiribati estarían sumergidos en unas pocas décadas.<br>
 <strong>Realidad:</strong> En 2025, estas naciones siguen habitadas; Maldivas incluso han expandido infraestructuras costeras.<br>
 <a href="https://www.newyorker.com/magazine/1989/09/11/the-end-of-nature">Fuente ↗</a></p>
 <hr>
 </section>
-<section id="proyecciones-del-nivel-del-mar-1983-2025" class="level3" data-number="26.2.12">
-<h3 data-number="26.2.12" class="anchored" data-anchor-id="proyecciones-del-nivel-del-mar-1983-2025"><span class="header-section-number">26.2.12</span> Proyecciones del nivel del mar (1983 → 2025)</h3>
+<section id="proyecciones-del-nivel-del-mar-1983-2025" class="level3" data-number="26.2.13">
+<h3 data-number="26.2.13" class="anchored" data-anchor-id="proyecciones-del-nivel-del-mar-1983-2025"><span class="header-section-number">26.2.13</span> Proyecciones del nivel del mar (1983 → 2025)</h3>
 <p><strong>Predicción:</strong> Un estudio de 1983 estimó una subida del nivel del mar entre <strong>13 cm (bajo)</strong> y <strong>55 cm (alto)</strong> para 2025.<br>
 <strong>Realidad:</strong> Hasta 2010, el aumento observado fue inferior a 10 cm, muy por debajo incluso del escenario más conservador.</p>
 <p><a href="https://papers.risingsea.net/federal_reports/Ocean_City_Titus_Leatherman_Everts_Kriebel_Dean.pdf">Fuente estimaciones originales ↗</a> – Se citan valores de 13 cm y 55 cm según distintos supuestos }.<br>
 <a href="https://en.wikipedia.org/wiki/Sea_level_rise">Datos observados recientes ↗</a> – El aumento global medio desde 1901 hasta 2018 fue de entre <strong>15 y 25 cm</strong>, es decir, mucho más lento de lo que se preveía para 2025.</p>
 <hr>
 </section>
-<section id="mortalidad-por-desastres-naturales-gran-reducción" class="level3" data-number="26.2.13">
-<h3 data-number="26.2.13" class="anchored" data-anchor-id="mortalidad-por-desastres-naturales-gran-reducción"><span class="header-section-number">26.2.13</span> Mortalidad por desastres naturales: gran reducción</h3>
+<section id="mortalidad-por-desastres-naturales-gran-reducción" class="level3" data-number="26.2.14">
+<h3 data-number="26.2.14" class="anchored" data-anchor-id="mortalidad-por-desastres-naturales-gran-reducción"><span class="header-section-number">26.2.14</span> Mortalidad por desastres naturales: gran reducción</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -583,8 +593,8 @@ window.Quarto = {
 <p><strong>Fuente ↗</strong>: <a href="https://ourworldindata.org/natural-disasters">Our World in Data – Natural Disasters</a></p>
 <hr>
 </section>
-<section id="variabilidad-natural-significativa" class="level3" data-number="26.2.14">
-<h3 data-number="26.2.14" class="anchored" data-anchor-id="variabilidad-natural-significativa"><span class="header-section-number">26.2.14</span> Variabilidad natural significativa</h3>
+<section id="variabilidad-natural-significativa" class="level3" data-number="26.2.15">
+<h3 data-number="26.2.15" class="anchored" data-anchor-id="variabilidad-natural-significativa"><span class="header-section-number">26.2.15</span> Variabilidad natural significativa</h3>
 <p>Un estudio reciente publicado en <em>Climatic Change</em> bajo el título <strong>“Robust climate attribution of modern floods needs palaeoflood science”</strong> (26 de marzo de 2025, vol.&nbsp;178, artículo 71) demuestra que muchos eventos de inundación recientes no son ni únicos ni inusuales en el contexto geológico e histórico.</p>
 <p>Este trabajo, liderado por Stephan Harrison y con participación de Gerardo Benito (CSIC), se basa en registros paleoflodísticos bien datados, que abarcan miles de años en el oeste y suroeste de Europa. Contrario a lo que sugieren algunos modelos, demuestra que:</p>
 <blockquote class="blockquote">
@@ -603,13 +613,13 @@ window.Quarto = {
 <a href="https://link.springer.com/article/10.1007/s10584-025-03904-9">Leer el artículo completo (Open Access) ↗</a></p>
 <hr>
 </section>
-<section id="huracanes-datos-reales-vs-percepción-pública" class="level3" data-number="26.2.15">
-<h3 data-number="26.2.15" class="anchored" data-anchor-id="huracanes-datos-reales-vs-percepción-pública"><span class="header-section-number">26.2.15</span> Huracanes: datos reales vs percepción pública</h3>
+<section id="huracanes-datos-reales-vs-percepción-pública" class="level3" data-number="26.2.16">
+<h3 data-number="26.2.16" class="anchored" data-anchor-id="huracanes-datos-reales-vs-percepción-pública"><span class="header-section-number">26.2.16</span> Huracanes: datos reales vs percepción pública</h3>
 <p>Aunque se ha afirmado que los huracanes son más frecuentes y destructivos, los registros globales muestran otra historia. Según datos de la <a href="https://tropical.atmos.colostate.edu/Realtime/index.php?arch&amp;loc=global">Colorado State University ↗</a>, no hay un incremento sostenido en el número total de huracanes a nivel global desde el inicio de los registros modernos.</p>
 <hr>
 </section>
-<section id="precipitación-anual-en-españa-19012020" class="level3" data-number="26.2.16">
-<h3 data-number="26.2.16" class="anchored" data-anchor-id="precipitación-anual-en-españa-19012020"><span class="header-section-number">26.2.16</span> Precipitación anual en España (1901–2020)</h3>
+<section id="precipitación-anual-en-españa-19012020" class="level3" data-number="26.2.17">
+<h3 data-number="26.2.17" class="anchored" data-anchor-id="precipitación-anual-en-españa-19012020"><span class="header-section-number">26.2.17</span> Precipitación anual en España (1901–2020)</h3>
 <p>Predicciones mediáticas alertaron sobre una disminución drástica de la lluvia en España.<br>
 Sin embargo, los datos de <a href="https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/#:~:text=AEMET%20ha%20generado%20recientemente%20un,desde%20comienzos%20del%20siglo%20XX">AEMET ↗</a> y el conjunto <a href="https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/">CRU TS 4.05 ↗</a> muestran una tendencia lineal muy suave, con alta variabilidad interanual.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -620,13 +630,13 @@ Sin embargo, los datos de <a href="https://deimosestadistica.com/registros-clima
 </div>
 <hr>
 </section>
-<section id="precipitación-en-la-cuenca-mediterránea-18712020" class="level3" data-number="26.2.17">
-<h3 data-number="26.2.17" class="anchored" data-anchor-id="precipitación-en-la-cuenca-mediterránea-18712020"><span class="header-section-number">26.2.17</span> Precipitación en la cuenca mediterránea (1871–2020)</h3>
+<section id="precipitación-en-la-cuenca-mediterránea-18712020" class="level3" data-number="26.2.18">
+<h3 data-number="26.2.18" class="anchored" data-anchor-id="precipitación-en-la-cuenca-mediterránea-18712020"><span class="header-section-number">26.2.18</span> Precipitación en la cuenca mediterránea (1871–2020)</h3>
 <p>Se ha dicho que el Mediterráneo sufriría una pérdida continua de lluvia. Sin embargo, un análisis publicado en <a href="https://www.nature.com/articles/s41586-024-08576-6/figures/2">Nature ↗</a> revela que la precipitación se ha mantenido mayormente estable durante los últimos 150 años, aunque con variabilidad multidecadal e interanual.</p>
 <hr>
 </section>
-<section id="ajuste-por-sobreestimación-de-calentamiento-el-hiato-1998-2012" class="level3" data-number="26.2.18">
-<h3 data-number="26.2.18" class="anchored" data-anchor-id="ajuste-por-sobreestimación-de-calentamiento-el-hiato-1998-2012"><span class="header-section-number">26.2.18</span> Ajuste por sobreestimación de calentamiento: el “hiato 1998-2012”</h3>
+<section id="ajuste-por-sobreestimación-de-calentamiento-el-hiato-1998-2012" class="level3" data-number="26.2.19">
+<h3 data-number="26.2.19" class="anchored" data-anchor-id="ajuste-por-sobreestimación-de-calentamiento-el-hiato-1998-2012"><span class="header-section-number">26.2.19</span> Ajuste por sobreestimación de calentamiento: el “hiato 1998-2012”</h3>
 <p>El <strong>Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC)</strong> reconoció que los modelos climáticos no siempre han coincidido exactamente con las tendencias observadas. En su <strong>Quinto Informe (AR5, 2013)</strong> señaló que el <strong>calentamiento superficial observado entre 1998 y 2012</strong> fue más lento de lo que predijo la mayoría de los modelos para ese periodo.</p>
 <p>En concreto, <strong>111 de 114 simulaciones excedieron el calentamiento medido</strong>, lo que generó una discrepancia importante. El propio IPCC atribuyó este desfase a varios factores:</p>
 <ul>
@@ -641,8 +651,8 @@ Sin embargo, los datos de <a href="https://deimosestadistica.com/registros-clima
 <p>Este episodio es un ejemplo de <strong>humildad científica</strong>: los modelos climáticos son <strong>herramientas poderosas, pero no infalibles</strong>. Se perfeccionan constantemente a partir de las diferencias detectadas con la realidad, integrando nuevos datos y corrigiendo posibles sesgos.</p>
 <hr>
 </section>
-<section id="tendencias-positivas-inesperadas" class="level3" data-number="26.2.19">
-<h3 data-number="26.2.19" class="anchored" data-anchor-id="tendencias-positivas-inesperadas"><span class="header-section-number">26.2.19</span> Tendencias positivas inesperadas</h3>
+<section id="tendencias-positivas-inesperadas" class="level3" data-number="26.2.20">
+<h3 data-number="26.2.20" class="anchored" data-anchor-id="tendencias-positivas-inesperadas"><span class="header-section-number">26.2.20</span> Tendencias positivas inesperadas</h3>
 <ul>
 <li><p><strong>Reverdecimiento de tierras áridas</strong><br>
 <strong>Predicciones pasadas:</strong> Durante años se advirtió que el aumento de CO₂ y el calentamiento global provocarían una expansión de la desertificación. El <a href="https://wad.jrc.ec.europa.eu/aridityprojections">World Atlas of Desertification de la Comisión Europea</a> estimaba que los desiertos podrían expandirse entre un 10 % y un 23 % hacia finales de siglo. Asimismo, el <a href="https://www.ipcc.ch/srccl/">informe especial del IPCC sobre cambio climático y tierra</a> señalaba que entre 1980 y 2000 hubo un 9 % de zonas áridas donde la productividad vegetal disminuyó, afectando a cientos de millones de personas.</p>
@@ -653,12 +663,12 @@ Sin embargo, los datos de <a href="https://deimosestadistica.com/registros-clima
 </ul>
 <hr>
 </section>
-<section id="se-cumplió-la-predicción-de-que-españa-acabaría-pareciéndose-al-norte-de-áfrica" class="level3" data-number="26.2.20">
-<h3 data-number="26.2.20" class="anchored" data-anchor-id="se-cumplió-la-predicción-de-que-españa-acabaría-pareciéndose-al-norte-de-áfrica"><span class="header-section-number">26.2.20</span> ¿Se cumplió la predicción de que “España acabaría pareciéndose al norte de África”?</h3>
+<section id="se-cumplió-la-predicción-de-que-españa-acabaría-pareciéndose-al-norte-de-áfrica" class="level3" data-number="26.2.21">
+<h3 data-number="26.2.21" class="anchored" data-anchor-id="se-cumplió-la-predicción-de-que-españa-acabaría-pareciéndose-al-norte-de-áfrica"><span class="header-section-number">26.2.21</span> ¿Se cumplió la predicción de que “España acabaría pareciéndose al norte de África”?</h3>
 <p><strong>Resumen rápido:</strong> En las últimas décadas, España <strong>ha aumentado su superficie de bosque</strong> (definición FAO) y también su <strong>superficie forestal</strong> en sentido amplio (bosque + matorral y otras formaciones). A la vez, existen <strong>señales de mayor aridez y riesgo de desertificación</strong> en zonas concretas. Es decir, la narrativa de “todo el país se convertirá en desierto” <strong>no encaja</strong> con la evolución observada del territorio, aunque sí hay <strong>zonas vulnerables</strong> donde el riesgo es real.</p>
 <hr>
-<section id="qué-se-predijo" class="level4" data-number="26.2.20.1">
-<h4 data-number="26.2.20.1" class="anchored" data-anchor-id="qué-se-predijo"><span class="header-section-number">26.2.20.1</span> ¿Qué se predijo?</h4>
+<section id="qué-se-predijo" class="level4" data-number="26.2.21.1">
+<h4 data-number="26.2.21.1" class="anchored" data-anchor-id="qué-se-predijo"><span class="header-section-number">26.2.21.1</span> ¿Qué se predijo?</h4>
 <ul>
 <li><p><strong>“España puede convertirse en un desierto” (titulares y ONG):</strong><br>
 Medios generalistas y campañas de sensibilización difundieron la idea de que <strong>gran parte del país</strong> estaba “en riesgo de desertificación” o incluso de “convertirse en un desierto”. Por ejemplo, <a href="https://www.rtve.es/noticias/20210617/espana-riesgo-convertirse-desierto-este-siglo/2104605.shtml">RTVE recogió en 2021</a> datos de ONG que hablaban de <strong>más del 75%</strong> del territorio “en riesgo”. También hay abundantes piezas divulgativas y reportajes que usan ese encuadre.</p></li>
@@ -672,8 +682,8 @@ Los informes del <strong>IPCC</strong> describen al Mediterráneo como un <stron
 </blockquote>
 <hr>
 </section>
-<section id="qué-se-ha-observado-en-realidad" class="level4" data-number="26.2.20.2">
-<h4 data-number="26.2.20.2" class="anchored" data-anchor-id="qué-se-ha-observado-en-realidad"><span class="header-section-number">26.2.20.2</span> ¿Qué se ha observado en realidad?</h4>
+<section id="qué-se-ha-observado-en-realidad" class="level4" data-number="26.2.21.2">
+<h4 data-number="26.2.21.2" class="anchored" data-anchor-id="qué-se-ha-observado-en-realidad"><span class="header-section-number">26.2.21.2</span> ¿Qué se ha observado en realidad?</h4>
 <ul>
 <li><p><strong>Aumento del bosque (definición FAO) desde 1990:</strong><br>
 Los datos comparables internacionales (FAO/World Bank) muestran que la <strong>proporción de territorio cubierto por bosque</strong> en España <strong>ha crecido de forma sostenida</strong> desde 1990. Un resumen accesible es <a href="https://www.epdata.es/datos/situacion-bosques-mundo-espana-datos-graficos/330">esta compilación de EPData</a>, que señala un <strong>+33,6% relativo</strong> en la cobertura de bosque (1990–2016). Para series y metodología, ver la <a href="https://www.fao.org/interactive/forest-resources-assessment/2020/es/">Evaluación de Recursos Forestales de la FAO (FRA 2020)</a>.</p></li>
@@ -686,8 +696,8 @@ Artículos de síntesis, como este de <em>El País</em> sobre el “gran avance 
 </ul>
 <hr>
 </section>
-<section id="entonces-eran-predicciones-fallidas" class="level4" data-number="26.2.20.3">
-<h4 data-number="26.2.20.3" class="anchored" data-anchor-id="entonces-eran-predicciones-fallidas"><span class="header-section-number">26.2.20.3</span> ¿Entonces eran “predicciones fallidas”?</h4>
+<section id="entonces-eran-predicciones-fallidas" class="level4" data-number="26.2.21.3">
+<h4 data-number="26.2.21.3" class="anchored" data-anchor-id="entonces-eran-predicciones-fallidas"><span class="header-section-number">26.2.21.3</span> ¿Entonces eran “predicciones fallidas”?</h4>
 <ul>
 <li><strong>Matíz importante:</strong> Los informes científicos <strong>sí</strong> prevén <strong>más aridez y sequías</strong> en el Mediterráneo (España incluida). Eso <strong>no implica</strong> automáticamente que <strong>toda España</strong> vaya a perder bosque o “parecerse al Sahara”. Se puede dar <strong>a la vez</strong>:
 <ul>
@@ -700,8 +710,8 @@ Artículos de síntesis, como este de <em>El País</em> sobre el “gran avance 
 <hr>
 </section>
 </section>
-<section id="conclusión" class="level3" data-number="26.2.21">
-<h3 data-number="26.2.21" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">26.2.21</span> Conclusión</h3>
+<section id="conclusión" class="level3" data-number="26.2.22">
+<h3 data-number="26.2.22" class="anchored" data-anchor-id="conclusión"><span class="header-section-number">26.2.22</span> Conclusión</h3>
 <p>Muchas predicciones climáticas fueron excesivas o impacientes con los plazos; eso no invalida la percepción real del cambio climático, sino que refuerza la necesidad de un enfoque basado en datos, contexto y comunicación cuidadosa.</p>
 <p>Las predicciones realizadas mediante modelos computacionales son muy buenas a la hora de predecir el aumento de temperatura media que la Tierra está experimentando, pero con el resto de parámetros no lo son tanto. Por suerte, las predicciones mas extremas no se están cumpliendo por el momento. No han aumentado las sequías, las inundaciones, el número de huracanes, el nivel del mar no ha aumentado tanto como se había predicho, el ártico sigue teniendo bastante hielo en verano, la cantidad de lluvia en el área mediterránea sigue siendo la misma que hace 100 años, y en países como España el bosque está avanzando.</p>
 <hr>
