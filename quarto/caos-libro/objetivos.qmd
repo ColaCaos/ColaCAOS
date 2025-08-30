@@ -1,0 +1,47 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Objetivos
+
+Los objetivos que me he marcado a la hora de hacer este proyecto se dividen en dos categorías. Por una parte la **investigación científica** de la relación entre el caos y la meteorología/clima, y por otra parte la **adquisición de habilidades digitales** que permitan hacer un proyecto más profesional tanto en su contenido como en la forma
+
+## Objetivos científicos
+
+Los objetivos científicos son los siguientes:
+
+- Entender qué es el caos y "jugar" con sistemas caóticos para ver como se comportan. Para ello usaremos dos "juquetes":
+  - El **mapa logístico**, como juguete matemático. El mapa logístico me permitirá entender lo que es el horizonte de predictibilidad a través del computo del exponente de Lyapunov, y estudiar en el ordenador el efecto mariposa
+  - El **péndulo doble**, como juguete físico. Mediante la simulación y observación real de un péndulo doble, comprenderé mejor en qué se traduce la sensibilidad a las condiciones iniciales en un sistema caótico
+
+- Relacionar los conceptos aprendidos a través del mapa logístico y del péndulo doble con la meteorología y el clima
+
+- Evaluar de forma **cuantitativa** el caos en las predicciones **meteorológicas** a través del horizonte de predictibilidad
+
+- Evaluar de forma **cualitativa** la influencia del caos en las predicciones **climáticas** realizas por los científicos en las décadas anteriores
+
+- **Entrevistar a expertos** en meteorología y clima para conocer la influencia del caos en ambos campos
+
+- Como sugerencia de mi directora de proyecto, **crear un sistema caótico novedoso**.
+
+
+## Adquisición de habilidades digitales
+
+Al plantearme como documentar el proyecto, vi dos opciones: hacerlo de la forma tradicional, es decir una memoria en formato Word, o hacer un proyecto moderno basado en las herramientas digitales actualmente disponibles. Si bien la segunda opción me parecía muy llamativa, al mismo tiempo me resulta muy imponente, dado mi limitado conocimiento de herramientas informáticas. Sin embargo, la aparición de sistemas de inteligencia artificial tan potentes como ChatGPT abre la posibilidad a programar sin necesidad de ser un desarrollador informático. Por ello, me lancé a usar de forma masiva **ChatGPT** para las siguiente tareas:
+
+- Creación de un libro **Quarto** para documentar el proyecto en formato **Markdown**. Este es el formato más común en la actualidad en publicaciones digitales, siendo usado por ejemplo, en los chats de ChatGPT.
+
+- Exportación del libro Quarto a formato **Latex**, para creación de la memoria del proyecto en formato pdf. Latex es el estándar en la creación de artículos científico técnicos de gran calidad visual y estética. 
+
+- Creación de un repositorio en **GitHub** con todos los archivos que he creado en el proyecto, y uso de **GitHub pages** para hacer una publicación digital a modo de página Web del proyecto. De esta manera, he podido publicar vídeos de mis experimentos y simulaciones, y también he dejado algunas herramientas interactivas con las que el lector interesado podrá jugar. De esta manera se contribuye a la mejor **divulgación** del proyecto y sus resultados.
+
+- Programación en **Python** de scripts para hacer simulaciones de sistemas caóticos. Es lo que en la actualidad se denomina **"vibe coding"**: hacer uso del lenguaje natural en modelos de chatGPT para programar. En el proyecto he usado de forma recurrente el modelo **o4-mini-high** de OpenAI (ChatGPT), con muy buenos resultados. Planteaba al modelo el programa que quería hacer, e iteraba los errores y problemas de funcionamiento con el propio modelo
+
+- Hacer investigación en profundidad de las predicciones climáticas realizadas durante las últimas décadas
+
+Por último, he aprendido a usar Algodoo, un simulador de sistemas físicos sencillos, para analizar el comportamiento de mi sistema caótico propuesto

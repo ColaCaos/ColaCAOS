@@ -1091,12 +1091,56 @@
   {
     "objectID": "05-experimentos/intro.html",
     "href": "05-experimentos/intro.html",
-    "title": "28  Introducción",
+    "title": "30  Introducción",
     "section": "",
-    "text": "Despues de haber estudiado el caos y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algoodo.\nEl modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual que en los prototipos anteriores solo que esta vez al ser un simulador podía ajustar todos los parametros con mucha más precisión que haciendolo a mano, donde no tengo tanta precisión de todas las medidas.\nEsta vez, haciéndolo en un simulador si que funcionó todo a la perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue que el simulador me daba la opcion de tener gráficos de las medidas como la velocidad, la velocidad angular o el centro de masas en tiempo real y de luego descargarlos y obtener todos los datos facilmente.\n\n29 Diseño y Funcionamiento\nEl sistema se basa en una rueda fija que gira siempre eln el mismo eje mediante un chorro de agua que le va cayendo justo encima. Para hacerla girar con el agua tiene puestas cuatro aspas en las que el agua se va acumulando hasta que empieza a girar y se vacian.\nEn el interior la rueda esta dividida en cuatro compartimetos por cuatro paredes que van desde el centro hasta las aspas. Dentro de cada compartimento hay una pequeña canica que a medidad que la rueda gira se van moviendo dentro de cada compartimento.\nEstas pequeñas canicas son la parte mas importante de el sistema por son las que hacen que el giro de la rueda sea caótico.",
+    "text": "Despues de haber estudiado el caos y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algoodo.\nEl modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual que en los prototipos anteriores solo que esta vez al ser un simulador podía ajustar todos los parametros con mucha más precisión que haciendolo a mano, donde no tengo tanta precisión de todas las medidas.\nEsta vez, haciéndolo en un simulador si que funcionó todo a la perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue que el simulador me daba la opcion de tener gráficos de las medidas como la velocidad, la velocidad angular o el centro de masas en tiempo real y de luego descargarlos y obtener todos los datos facilmente.\n\n31 Diseño y Funcionamiento\nEl sistema se basa en una rueda fija que gira siempre eln el mismo eje mediante un chorro de agua que le va cayendo justo encima. Para hacerla girar con el agua tiene puestas cuatro aspas en las que el agua se va acumulando hasta que empieza a girar y se vacian.\nEn el interior la rueda esta dividida en cuatro compartimetos por cuatro paredes que van desde el centro hasta las aspas. Dentro de cada compartimento hay una pequeña canica que a medidad que la rueda gira se van moviendo dentro de cada compartimento.\nEstas pequeñas canicas son la parte mas importante de el sistema por son las que hacen que el giro de la rueda sea caótico.",
     "crumbs": [
       "Mi sistema caótico",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Introducción</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "objetivos.html",
+    "href": "objetivos.html",
+    "title": "2  Objetivos",
+    "section": "",
+    "text": "2.1 Objetivos científicos\nLos objetivos que me he marcado a la hora de hacer este proyecto se dividen en dos categorías. Por una parte la investigación científica de la relación entre el caos y la meteorología/clima, y por otra parte la adquisición de habilidades digitales que permitan hacer un proyecto más profesional tanto en su contenido como en la forma\nLos objetivos científicos son los siguientes:",
+    "crumbs": [
+      "Introducción",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
+    ]
+  },
+  {
+    "objectID": "objetivos.html#objetivos-científicos",
+    "href": "objetivos.html#objetivos-científicos",
+    "title": "2  Objetivos",
+    "section": "",
+    "text": "Entender qué es el caos y “jugar” con sistemas caóticos para ver como se comportan. Para ello usaremos dos “juquetes”:\n\nEl mapa logístico, como juguete matemático. El mapa logístico me permitirá entender lo que es el horizonte de predictibilidad a través del computo del exponente de Lyapunov, y estudiar en el ordenador el efecto mariposa\nEl péndulo doble, como juguete físico. Mediante la simulación y observación real de un péndulo doble, comprenderé mejor en qué se traduce la sensibilidad a las condiciones iniciales en un sistema caótcio\n\nRelacionar los conceptos aprendidos a través del mapa logístico y del péndulo doble con la meteorología y el clima\nEvaluar de forma cuantitativa el caos en las predicciones meteorológicas a través del horizonte de predictibilidad\nEvaluar de forma cualitativa la influencia del caos en las predicciones meteorológicas realizas por los científicos en las décadas anteriores\nEntrevistar a expertos en meteorología y clima para conocer la influencia del caos en ambos campos\nComo sugerencia de mi directora de proyecto, crear un sistema caótico novedoso.",
+    "crumbs": [
+      "Introducción",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
+    ]
+  },
+  {
+    "objectID": "objetivos.html#adquísición-de-habilidades-digitales",
+    "href": "objetivos.html#adquísición-de-habilidades-digitales",
+    "title": "2  Objetivos",
+    "section": "2.2 Adquísición de habilidades digitales",
+    "text": "2.2 Adquísición de habilidades digitales\nAl plantearme como documentar el proyecto, vi dos opciones: hacerlo de la forma tradicional, es decir una memoria en formato Word, o hacer un proyecto moderno basado en las herramientas digitales actualmente disponibles. Si bien la segunda opción me parecía muy llamativa, al mismo tiempo me resulta muy imponente, dado mi limitado conocimiento de herramientas informáticas. Sin embargo, la aparición de sistemas de inteligencia artificial tan potentes como ChatGPT abre la posibilidad a programar sin necesidad de ser un desarrollador informático. Por ello, me lancé a usar de forma masiva ChatGPT para las siguiente tareas:\n\nCreación de un libro Quarto para documentar el proyecto en formato Markdown. Este es el formato más común en la actualidad en publicaciones digitales, siendo usado por ejemplo, en los chats de ChatGPT.\nExportación del libro Quarto a formato Latex, para creación de la memoria del proyecto en formato pdf. Latex es el estándar en la creación de artículos científico técnicos de gran calidad visual y estética.\nCreación de un repositorio en GitHub con todos los archivos que he creado en el proyecto, y uso de GitHub pages para hacer una publicación digital a modo de página Web del proyecto. De esta manera, he podido publicar vídeos de mis experimentos y simulaciones, y también he dejado algunas herramientas interactivas con las que el lector interesado podrá jugar.\nProgramación en Python de scripts para hacer simulaciones de sistemas caóticos. Es lo que en la actualidad se denomina “vibe coding”: hacer uso del lenguaje natural en modelos de chatGPT para programar. En el proyecto he usado de forma recurrente el modelo o4-mini-high de OpenAI (ChatGPT), con muy buenos resultados. Planteaba al modelo el programa que quería hacer, e iteraba los errores y problemas de funcionamiento con el propio modelo\nHacer investigación en profundidad de las predicciones climáticas realizadas durante las últimas décadas\n\nPor último, he aprendido a usar Algodoo, un simulador de sistemas físicos sencillos, para analizar el comportamiento de mi sistema caótico propuesto",
+    "crumbs": [
+      "Introducción",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
+    ]
+  },
+  {
+    "objectID": "objetivos.html#adquisición-de-habilidades-digitales",
+    "href": "objetivos.html#adquisición-de-habilidades-digitales",
+    "title": "2  Objetivos",
+    "section": "2.2 Adquisición de habilidades digitales",
+    "text": "2.2 Adquisición de habilidades digitales\nAl plantearme como documentar el proyecto, vi dos opciones: hacerlo de la forma tradicional, es decir una memoria en formato Word, o hacer un proyecto moderno basado en las herramientas digitales actualmente disponibles. Si bien la segunda opción me parecía muy llamativa, al mismo tiempo me resulta muy imponente, dado mi limitado conocimiento de herramientas informáticas. Sin embargo, la aparición de sistemas de inteligencia artificial tan potentes como ChatGPT abre la posibilidad a programar sin necesidad de ser un desarrollador informático. Por ello, me lancé a usar de forma masiva ChatGPT para las siguiente tareas:\n\nCreación de un libro Quarto para documentar el proyecto en formato Markdown. Este es el formato más común en la actualidad en publicaciones digitales, siendo usado por ejemplo, en los chats de ChatGPT.\nExportación del libro Quarto a formato Latex, para creación de la memoria del proyecto en formato pdf. Latex es el estándar en la creación de artículos científico técnicos de gran calidad visual y estética.\nCreación de un repositorio en GitHub con todos los archivos que he creado en el proyecto, y uso de GitHub pages para hacer una publicación digital a modo de página Web del proyecto. De esta manera, he podido publicar vídeos de mis experimentos y simulaciones, y también he dejado algunas herramientas interactivas con las que el lector interesado podrá jugar. De esta manera se contribuye a la mejor divulgación del proyecto y sus resultados.\nProgramación en Python de scripts para hacer simulaciones de sistemas caóticos. Es lo que en la actualidad se denomina “vibe coding”: hacer uso del lenguaje natural en modelos de chatGPT para programar. En el proyecto he usado de forma recurrente el modelo o4-mini-high de OpenAI (ChatGPT), con muy buenos resultados. Planteaba al modelo el programa que quería hacer, e iteraba los errores y problemas de funcionamiento con el propio modelo\nHacer investigación en profundidad de las predicciones climáticas realizadas durante las últimas décadas\n\nPor último, he aprendido a usar Algodoo, un simulador de sistemas físicos sencillos, para analizar el comportamiento de mi sistema caótico propuesto",
+    "crumbs": [
+      "Introducción",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
     ]
   }
 ]

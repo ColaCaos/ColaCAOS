@@ -9,6 +9,8 @@ book:
     - part: "Introducción"
       chapters:
         - index.qmd
+        - objetivos.qmd
+        - resultados.qmd
 
     - part: "El Caos a través de la Función Logística"
       chapters:
