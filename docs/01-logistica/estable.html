@@ -455,7 +455,7 @@ f'(x) = r(1 - 2x).
 <li><strong>En <span class="math inline">\(x^*_2=1-1/r\)</span>:</strong> <span class="math inline">\(f'(x^*_2)=2-r\)</span>. Estable si <span class="math inline">\(\lvert2-r\rvert&lt;1\)</span> → <span class="math inline">\(1 &lt; r &lt; 3\)</span>. Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de <span class="math inline">\(x_0\)</span> que pongan para valores de <span class="math inline">\(r\)</span> entre 1 y 3, siempre se convergerá a un punto que es <span class="math inline">\(x^*_2=1-1/r\)</span> .</li>
 </ul>
 <p>Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo <span class="math inline">\(r/4\)</span>, pero al final se estabilizar en un valor menor que es igual a <span class="math inline">\(x^*_2=1-1/r\)</span> .</p>
-<div id="662defa0" class="cell" data-execution_count="1">
+<div id="09d74d65" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -466,7 +466,7 @@ f'(x) = r(1 - 2x).
 </div>
 <p>Añadamos unos gráficos para verlo mejor.</p>
 <p>En este primero, vemos para un valor de <span class="math inline">\(r=0.99\)</span> como la población va decreciendo iteración tras iteración hasta llegar al punto fijo <span class="math inline">\(x=0\)</span></p>
-<div id="6af74392" class="cell" data-execution_count="2">
+<div id="6c19def5" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -476,7 +476,7 @@ f'(x) = r(1 - 2x).
 </div>
 </div>
 <p>En este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta <span class="math inline">\(y=x\)</span>), a pesar de que el valor de <span class="math inline">\(r\)</span> está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.</p>
-<div id="95ebaf65" class="cell" data-execution_count="3">
+<div id="42bb0349" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -486,7 +486,7 @@ f'(x) = r(1 - 2x).
 </div>
 </div>
 <p>Pero, ¿qué pasa cuando subimos por encima de <span class="math inline">\(r=3\)</span>?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para <span class="math inline">\(r=3.01\)</span>? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento <span class="math inline">\(r\)</span> es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.</p>
-<div id="5c326fcf" class="cell" data-execution_count="4">
+<div id="d98a2810" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -497,10 +497,14 @@ f'(x) = r(1 - 2x).
 </div>
 <p>Aunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para<span class="math inline">\(r\approx3\)</span>. Algunos ejemplos son:</p>
 <ul>
-<li><p>Moscas de la carne (Lucilia cuprina). En los famosos experimentos de Nicholson sobre poblaciones de mosca de la carne en frascos, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones.</p></li>
-<li><p>Escarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron colonias de Tribolium en el laboratorio controlando sólo la tasa de natalidad por suministro de alimento. Se observó un ciclo bienal: una generación con números muy altos y la siguiente bastante más baja, en perfecta alternancia.</p></li>
-<li><p>Daphnia en estanques experimentales. Algunos estudios con pulgas de agua (Daphnia) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta.</p></li>
-<li><p>Peces capelán (Mallotus villosus). En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y un efecto de “sobrepoblación–agotamiento de recursos”.</p></li>
+<li><p><strong>Moscas de la carne (<em>Lucilia cuprina</em>)</strong><br>
+En los famosos experimentos de Nicholson sobre poblaciones de moscas de la carne, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones <a href="https://www.jstor.org/stable/827141?utm_source=chatgpt.com">Nicholson 1954</a>, <a href="https://en.wikipedia.org/wiki/Alexander_John_Nicholson?utm_source=chatgpt.com">Wikipedia</a>.</p></li>
+<li><p><strong>Escarabajos del trigo (<em>Tribolium confusum</em>)</strong><br>
+Gurney y Nisbet cultivaron colonias de <em>Tribolium</em> en el laboratorio controlando solo la tasa de natalidad mediante el suministro de alimento, y se observó un ciclo bienal: una generación con números muy altos seguida de otra bastante más baja, en perfecta alternancia <a href="https://desharnais.sciencecourseware.org/reprints/JAE1987.pdf?utm_source=chatgpt.com">Gurney &amp; Nisbet 1987</a>, <a href="https://ojs.openagrar.de/index.php/JKA/article/view/10631/9697?utm_source=chatgpt.com">Julius Kühn-Archiv</a>.</p></li>
+<li><p><strong>Daphnia en estanques experimentales</strong><br>
+Algunos estudios con pulgas de agua (<em>Daphnia</em>) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta <a href="https://www.ncbi.nlm.nih.gov/books/NBK2042/?utm_source=chatgpt.com">NCBI</a>, <a href="https://www.researchgate.net/publication/31983971_Large-amplitude_cycles_of_Daphnia_and_its_algal_prey_in_enriched_environments?utm_source=chatgpt.com">ResearchGate</a>.</p></li>
+<li><p><strong>Peces capelán (<em>Mallotus villosus</em>)</strong><br>
+En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y su ritmo semélparo: tras desovar mueren, lo que promueve ese patrón de “sobrepoblación–agotamiento de recursos” bienal <a href="https://en.wikipedia.org/wiki/Capelin?utm_source=chatgpt.com">Wikipedia</a>, <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.415?utm_source=chatgpt.com">Wiley</a>.</p></li>
 </ul>
 <p>En todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo</p>
 <p>En el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.</p>

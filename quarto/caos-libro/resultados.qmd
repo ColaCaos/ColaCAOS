@@ -8,3 +8,18 @@ execute:
 ---
 
 # Resultados
+
+A continuación desglosaré las principales aportaciones propias realizadas a lo largo de este proyecto, en términos de resultados científicos, investigaciones llevadas a cabo y código generado.
+
+## Resultados 
+
+
+[Efecto mariposa](../01-logistica/lyapunov.qmd#sec-sensibilidad)       /// {#sec-sensibilidad}
+[Efecto mariposa](../01-logistica/lyapunov.qmd#sec-inestabilidad) 
+[Efecto mariposa](../01-logistica/lyapunov.qmd#sec-exponente)
+
+
+## Código generado
+
+
+

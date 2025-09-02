@@ -9,7 +9,7 @@ execute:
 
 # Introducción
 
-Despues de haber estudiado el caos y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algoodo.
+Despues de haber estudiado el caos y su comportamiento tanto en modelos matemáticos como la función logística y en sistemas físicos como el péndulo doble y la predicción meteorológica y climática, me he propuesto crear mi propio sitema caótico para poder estudiarlo y hallar sus similitudes y relaciones con el resto de sitemas caósticos estudiados. Para hacer mi sistema caótico primero probé a construirlo con mis propias manos pero después de varios prototipos del sistema que no conseguí que funcionaran o que tuvieran un coportamiento caótico decidí hacerlo en un simulador de física llamado Algodoo.
 
 El modelo y el diseño para que tuviera un movimiento caótico lo mantuve igual que en los prototipos anteriores solo que esta vez al ser un simulador podía ajustar todos los parametros con mucha más precisión que haciendolo a mano, donde no tengo tanta precisión de todas las medidas.
 
@@ -22,3 +22,27 @@ El sistema se basa en una rueda fija que gira siempre eln el mismo eje mediante 
 En el interior la rueda esta dividida en cuatro compartimetos por cuatro paredes que van desde el centro hasta las aspas. Dentro de cada compartimento hay una pequeña canica que a medidad que la rueda gira se van moviendo dentro de cada compartimento.
 
 Estas pequeñas canicas son la parte mas importante de el sistema por son las que hacen que el giro de la rueda sea caótico.
+
+Aqum hay dos tablas en las que se muestran las caracteristicas principales de la rueda y de las canicas 
+
+Rueda
+
+| Característica       | Valor     |
+|-----------------------|-----------|
+| Diámetro exterior     | 2.5 m     |
+| Diámetro interior     | 2.0 m     |
+| Grosor                | 25 cm     |
+| Masa                  | 1.207 kg  |
+
+Canicas
+
+| Característica       | Valor  |
+|-----------------------|--------|
+| Diámetro             | 61 mm  |
+| Masa                 | 96 g   |
+
+El tamaño de las cuatro aspas es de 0.5m cada una
+
+![Rueda caótica - Escena completa](Ruedacaotica.png)
+
+![Rueda caótica - Zoom](Captura de pantalla 2025-08-31 184302.png)

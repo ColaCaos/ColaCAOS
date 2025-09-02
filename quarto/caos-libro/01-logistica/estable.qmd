@@ -204,13 +204,18 @@ plt.show()
 ```
 Aunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para$r\approx3$. Algunos ejemplos son:
 
-* Moscas de la carne (Lucilia cuprina). En los famosos experimentos de Nicholson sobre poblaciones de mosca de la carne en frascos, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones.
 
-* Escarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron colonias de Tribolium en el laboratorio controlando sólo la tasa de natalidad por suministro de alimento. Se observó un ciclo bienal: una generación con números muy altos y la siguiente bastante más baja, en perfecta alternancia.
+* **Moscas de la carne (*Lucilia cuprina*)**  
+En los famosos experimentos de Nicholson sobre poblaciones de moscas de la carne, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones [Nicholson 1954](https://www.jstor.org/stable/827141?utm_source=chatgpt.com), [Wikipedia](https://en.wikipedia.org/wiki/Alexander_John_Nicholson?utm_source=chatgpt.com).
 
-* Daphnia en estanques experimentales. Algunos estudios con pulgas de agua (Daphnia) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta.
+* **Escarabajos del trigo (*Tribolium confusum*)**  
+Gurney y Nisbet cultivaron colonias de *Tribolium* en el laboratorio controlando solo la tasa de natalidad mediante el suministro de alimento, y se observó un ciclo bienal: una generación con números muy altos seguida de otra bastante más baja, en perfecta alternancia [Gurney & Nisbet 1987](https://desharnais.sciencecourseware.org/reprints/JAE1987.pdf?utm_source=chatgpt.com), [Julius Kühn-Archiv](https://ojs.openagrar.de/index.php/JKA/article/view/10631/9697?utm_source=chatgpt.com).
 
-* Peces capelán (Mallotus villosus). En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y un efecto de “sobrepoblación–agotamiento de recursos”.
+* **Daphnia en estanques experimentales**  
+Algunos estudios con pulgas de agua (*Daphnia*) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta [NCBI](https://www.ncbi.nlm.nih.gov/books/NBK2042/?utm_source=chatgpt.com), [ResearchGate](https://www.researchgate.net/publication/31983971_Large-amplitude_cycles_of_Daphnia_and_its_algal_prey_in_enriched_environments?utm_source=chatgpt.com).
+
+* **Peces capelán (*Mallotus villosus*)**  
+En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y su ritmo semélparo: tras desovar mueren, lo que promueve ese patrón de “sobrepoblación–agotamiento de recursos” bienal [Wikipedia](https://en.wikipedia.org/wiki/Capelin?utm_source=chatgpt.com), [Wiley](https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.415?utm_source=chatgpt.com).
 
 En todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo
 
