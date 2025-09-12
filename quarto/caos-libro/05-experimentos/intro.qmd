@@ -21,7 +21,6 @@ El sistema se basa en una rueda fija que gira siempre eln el mismo eje mediante 
 
 En el interior la rueda esta dividida en cuatro compartimetos por cuatro paredes que van desde el centro hasta las aspas. Dentro de cada compartimento hay una pequeña canica que a medidad que la rueda gira se van moviendo dentro de cada compartimento.
 
-Estas pequeñas canicas son la parte mas importante de el sistema por son las que hacen que el giro de la rueda sea caótico.
 
 Aqum hay dos tablas en las que se muestran las caracteristicas principales de la rueda y de las canicas 
 

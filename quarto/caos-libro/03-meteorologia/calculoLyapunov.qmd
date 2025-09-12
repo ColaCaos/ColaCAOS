@@ -30,7 +30,7 @@ time,temperature_2m_mean (°C),precipitation_sum (mm),wind_speed_10m_mean (km/h)
 1950-06-14,21.1,0.00,8.0  
 1950-06-15,20.2,0.00,12.8  
 
-En segundo lugar tenemos que saber qué hacer con estos datos. Después de varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre cómo calcular el exponente de Lyapunot en datos meteorologicos. 
+En segundo lugar tenemos que saber qué hacer con estos datos. Después de varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre cómo calcular el exponente de Lyapunov en datos meteorologicos. 
 
 > **Referencia completa:** Özgür E. & Yılmaz M. U. (2022). Using Chaos Theory to Determine Average Prediction Times of Different Meteorological Variables: A Case Study in Sivas. *Int. J. Adv. Eng. Pure Sci.* 34(1):101–106.  
 
