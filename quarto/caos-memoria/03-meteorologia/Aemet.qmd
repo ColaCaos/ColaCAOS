@@ -1,0 +1,45 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Entrevista con expertos de la AEMET
+
+El Jueves 19 de Junio tuve la oportunidad de tener una entrevista con dos meteorólogos de la Agencia Estatal de Meteorología para hacerles algunas preguntas sobre la parte del proyecto donde se estudia el caos en la predicción meteorológica y climática. De esta manera he podido incluir también la opinión de expertos en el tema en este proyecto.
+Aquí están todas las preguntas que hice durante la entrevista y cuáles fueron las respuestas de los expertos:
+
+## ¿Qué condiciones atmosféricas hacen que el sistema sea más caótico y por tanto que sea más difícil llevar a cabo una predicción meteorológica fiable, y cuales lo hacen más fácil?
+
+Las condiciones en las que la atmósfera es más inestable como borrascas o ambientes de tormenta, porque es más difícil establecer unas condiciones iniciales que no tengan mucho error y que sean precisas. Esto hace que el error inicial en las mediciones sea grande y que se propague más rápidamente.
+
+## ¿Existe un horizonte de predictibilidad a partir del cual las predicciones meteorológicas no van a llegar a ser fiables nunca sin importar los avances tecnológicos y en los modelos que se puedan llevar a cabo en el futuro? ¿Cuál consideráis que es el horizonte de predictibilidad actualmente?
+
+Sí, existe un horizonte de predictibilidad en meteorología, y es teórico y práctico al mismo tiempo. Se trata de un límite físico-matemático impuesto por la naturaleza del sistema atmosférico: un sistema caótico y no lineal. Este límite está alrededor de los 20 días y no importa  cuán potentes sean los ordenadores del futuro o lo precisos que sean los sensores, este límite no va a poder superarse.
+
+## ¿Qué avances tecnológicos o metodológicos han mejorado más la capacidad predictiva frente a la naturaleza caótica de la atmósfera?
+
+Los satélites, ya que permiten toar mediciones de las diferentes capas de la atmósfera con más facilidad y de zonas más amplias que los globos meteorológicos, la capacidad computacional de los superordenadores y que se van añadiendo nuevos términos a las ecuaciones que dan más detalle y ayudan a mejorarlas.
+
+## ¿Existe algún parámetro como precipitación, viento, temperatura o humedad que sea más difícil de predecir y más caótico que otro o  por el contrario más fácil de predecir que otro?
+
+Si, los parámetros que son derivados de los demás que se obtienen sabiendo otros como la precipitación o la nubosidad, ya que no salen directamente de las ecuaciones que se utilizan en las predicciones, si no que se obtienen teniendo en cuenta mucho parámetros más simples que si salen de las ecuaciones
+
+## ¿Cómo se tiene en cuenta el error que existe a la hora de hacer las simulaciones de la atmósfera, que vienen dados por el propio límite de los ordenadores en cuanto a precisión en los decimales?
+
+No existe ningún método como tal para reducir o eliminar ese error pero muchas veces no se llega a aprovechar toda la precisión que te permite el ordenador ya que los cálculos llevan mucho tiempo, y muchas veces se necesitan tener terminadas las predicciones rápidamente.
+
+## ¿Existe sensibilidad a las condiciones iniciales en las predicciones climáticas a largo plazo de la misma manera que en la predicción meteorológica, donde acaban dando lugar al caos?
+
+Si existe pero las condiciones iniciales afectan menos ya que las ecuaciones utilizadas se simplifican y se vuelven lineales. Por otra parte el resultado no tiene que ser tan preciso ya que lo que se obtiene es una media. Sin embargo, aunque no sea casi caótico sigue siendo difícil establecer las condiciones iniciales por lo que el error inicial puede acabar propagándose aunque más lentamente que en las predicciones meteorológicas.
+
+## ¿Existe alguna condición o tipo de clima el cual presenta más o menos caos a la hora de realizar predicciones a largo plazo?
+
+Sí que existen algunos climas que son más predecibles que otros a largo plazo. En predicción climática, el caos no desaparece, pero su impacto depende mucho del contexto:Si una región está controlada por forzamientos globales regulares, como El Niño, es menos caótica y más predecible. Si depende del ruido interno de la atmósfera o de factores locales, el caos reina y la predictibilidad climática estacional es baja.
+
+## ¿Es el caos la razón de que algunas de las predicciones climatológicas hechas hace varias décadas no hayan sido muy precisas o incluso algunas hayan llegado a fallar?
+
+Sí puede serlo algunas veces, aunque también influyen muchos factores externos como la actividad humana que no se pueden predecir.

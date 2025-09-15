@@ -1,0 +1,136 @@
+---
+author: "Rubén Torre Merino"
+format:
+  html:
+    self-contained: true
+execute:
+  echo: false
+---
+
+# Diagrama de telaraña 
+
+## Introducción
+En sistemas discretos iterativos, un "diagrama cobweb" o “diagrama de telaraña” es una representación gráfica que ilustra cómo evoluciona la secuencia
+$$
+x_{n+1} = f(x_n)
+$$
+paso a paso. Facilita la visualización de convergencia, ciclos y caos.
+
+## Construcción del diagrama Cobweb
+1. Dibujamos las curvas:
+   * $y = f(x)$
+   * $y = x$  
+2. Partimos de un valor inicial $x_0$ en el eje horizontal.  
+3. Trazamos verticalmente desde $(x_0,0)$ hasta $\bigl(x_0, f(x_0)\bigr)$.  
+4. Desde $\bigl(x_0, f(x_0)\bigr)$ traza horizontalmente hasta la recta $y=x$, llegando a $\bigl(f(x_0), f(x_0)\bigr)$. Este valor es $x_1$.  
+5. Repite el proceso usando $x_1$ para obtener $x_2$, y así sucesivamente.  
+
+Al unir los segmentos verticales y horizontales se forma la “telaraña” que muestra la evolución $x_0 \to x_1 \to x_2 \to \dots$. Así vemos la evolución del sistema.
+
+## ¿Para qué sirve?
+- **Convergencia a punto fijo**: si la telaraña se aproxima a un punto de intersección entre $y=f(x)$ y $y=x$. En la siguiente sección analizaremos el término "punto fijo"
+- **Detección de ciclos**: patrones periódicos (por ejemplo, saltos entre dos puntos indican un ciclo de periodo 2).  
+- **Observación de caos**: en funciones no lineales como el mapa logístico, con ciertos parámetros la telaraña no se estabiliza y refleja sensibilidad a condiciones iniciales.
+
+Aquí dejo un diagrama interactivo, en el que se observan la función logística $y=f(x)=rx(x-1)$, la función  $y = x$, y el diagrama de telaraña. 
+
+El usuario puede jugar con el valor de $r$ y de $x_0$ (el valor inicial de población), y ver la evolución de la población después de 100 iteraciones del mapa logístico. 
+
+```{python}
+import numpy as np
+from bokeh.plotting import figure, show
+from bokeh.models import ColumnDataSource, Slider, CustomJS
+from bokeh.layouts import column, row
+from bokeh.io import output_notebook
+
+# Esto activa la inserción de JS/CSS de Bokeh en el HTML
+output_notebook(hide_banner=True)
+
+# Parámetros iniciales
+r0, x0_0, steps = 3.2, 0.2, 100
+
+def logistic_series(r, x0, steps):
+    xs = np.linspace(0,1,200)
+    ys = r*xs*(1-xs)
+    series = [x0]
+    x = x0
+    for _ in range(steps):
+        x = r*x*(1-x)
+        series.append(x)
+    xc, yc = [series[0]], [series[0]]
+    for val in series[1:]:
+        xc.append(xc[-1]); yc.append(val)
+        xc.append(val);    yc.append(val)
+    return xs, ys, xc, yc, series
+
+# Datos iniciales
+xs, ys, xc, yc, series = logistic_series(r0, x0_0, steps)
+
+# Fuentes de datos
+src_curve    = ColumnDataSource(data=dict(x=xs,      y=ys))
+src_identity = ColumnDataSource(data=dict(x=xs,      y=xs))
+src_cobweb   = ColumnDataSource(data=dict(x=xc,      y=yc))
+src_series   = ColumnDataSource(data=dict(x=list(range(len(series))), y=series))
+
+# Figuras
+p1 = figure(width=400, height=400, title="Cobweb")
+p1.line('x','y', source=src_curve,    legend_label='f(x)')
+p1.line('x','y', source=src_identity, line_dash='dashed', legend_label='y=x')
+p1.line('x','y', source=src_cobweb,   line_color='red', legend_label='Cobweb')
+
+p2 = figure(width=400, height=400, title="Evolución de xₙ")
+p2.line('x','y', source=src_series)
+p2.scatter('x','y', source=src_series, size=6)
+
+# Sliders
+slider_r  = Slider(start=0.5, end=4.0, step=0.05, value=r0,  title="r")
+slider_x0 = Slider(start=0.0, end=1.0, step=0.05, value=x0_0, title="x₀")
+
+# Callback en JS
+callback = CustomJS(args=dict(
+    src_curve=src_curve, src_cobweb=src_cobweb, src_series=src_series,
+    slider_r=slider_r, slider_x0=slider_x0, steps=steps
+), code="""
+  function logistic_series(r, x0, steps) {
+    let xs = [], ys = [];
+    for(let i=0;i<200;i++){
+      let x = i/199;
+      xs.push(x);
+      ys.push(r*x*(1-x));
+    }
+    let series=[x0], x=x0;
+    for(let i=0;i<steps;i++){
+      x = r*x*(1-x);
+      series.push(x);
+    }
+    let xc=[series[0]], yc=[series[0]];
+    for(let i=1;i<series.length;i++){
+      let v = series[i];
+      xc.push(xc[xc.length-1]); yc.push(v);
+      xc.push(v);            yc.push(v);
+    }
+    return {xs, ys, xc, yc, series};
+  }
+  const r = slider_r.value;
+  const x0 = slider_x0.value;
+  const res = logistic_series(r, x0, steps);
+  src_curve.data   = {x: res.xs, y: res.ys};
+  src_cobweb.data  = {x: res.xc, y: res.yc};
+  src_series.data = {x: res.series.map((_,i)=>i), y: res.series};
+  src_curve.change.emit();
+  src_cobweb.change.emit();
+  src_series.change.emit();
+""");
+
+slider_r.js_on_change('value', callback);
+slider_x0.js_on_change('value', callback);
+
+layout = column(
+  row(p1, p2),
+  row(slider_r, slider_x0)
+)
+
+show(layout)
+
+
+```

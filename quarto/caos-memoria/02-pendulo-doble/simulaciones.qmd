@@ -1,0 +1,94 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Sensibilidad a las condiciones iniciales
+
+
+**Autor:** Rubén Torre Merino
+
+---
+
+## Descripción General
+
+En esta entrada se analiza un programa escrito en Python para simular y dibujar $10.000$ péndulos dobles simultáneamente. El objetivo principal de la simulación es mostrar la **sensibilidad a las condiciones iniciales**, un rasgo característico de los sistemas caóticos. Cada péndulo comienza con un ángulo inicial ligeramente distinto para ilustrar cómo pequeñas variaciones pueden dar lugar a comportamientos muy diferentes a lo largo del tiempo. Es decir, como verás en el próximo vídeo los péndulos al ser lanzados paracen estar todos en la misma posición pero a medida que vamos avanzando en la simulación se separan totalmente.
+
+<figure>
+  <img src="PenduloDoble.png" alt="Diagrama del péndulo doble" width="50%">
+  <figcaption>Figura 1: Esquema del doble péndulo</figcaption>
+</figure>
+
+---
+
+## Preparación del Código con ChatGPT
+
+Este código fue **generado mediante ChatGPT**, aprovechando la capacidad del sistema para programar en Python. A continuación, se describe el _prompt_ que dio origen a esta simulación:
+
+> **Prompt sugerido:**  
+> “Genera un código en Python que utilice Python para simular $10000$ péndulos dobles al mismo tiempo. Cada péndulo debe tener la primera pata en la misma posición (170 grados) y la segunda pata con un ángulo inicial también de 170 grados pero ligeramente distinto en cada péndulo, espaciado uniformemente entre 170 y 170.1 grados. El objetivo es visualizar la sensibilidad a las condiciones iniciales superponiendo todos los péndulos en una misma imagen. Dibuja cada péndulo de un color, y muestra la animación en tiempo real. Mi ordenador dispone de una tarjeta gráfica Nvidia y tengo instalado CUDA, así que úsalo para acelerar las simulaciones. No tengas en cuenta la fuerza de rozamiento.”
+
+Tras varias iteraciones de este prompt, al final conseguí un código que se ejecutase. La depuración del código es realemnte fácil de hacer. Cada vez que ChatGPT me daba un código, lo corría en el ordenador mediante el comando "python programa.py", y los errores se los alimentaba de vuelta al ordenador que a su vez me devolvía el código depurado.
+
+En el código proporcionado, los parámetros físicos de cada péndulo doble los ha definido ChatGPT de la siguiente manera:
+
+- **Longitudes de los brazos**  
+  - Longitud del primer brazo: $l_1 = 1.0$ metros  
+  - Longitud del segundo brazo: $l_2 = 1.0$ metros
+
+  En la representación gráfica cada metro es representado a través de 150 píxeles. 
+
+- **Masas de los cuerpos**  
+  - Masa del primer cuerpo: $m_1 = 1.0$  Kg
+  - Masa del segundo cuerpo: $m_2 = 1.0$  Kg
+
+  La gravedad es la terrestre, $9.81 Kg/m^2$. El péndulo simulado es grande, pero lo bueno de hacerlo grande es que va mas lento en tiempo que un péndulo pequeño, por lo que su movimiento se aprecia mejor en la simulación. El péndulo oscila sin parar ya que no hemos puesto ninguna fuerza de rozamiento. 
+
+
+
+## Video con la simulación {#sec-abanico}
+
+Una vez preparado el código procedía a correrlo y grabar la ventana de salida en un archivo de vídeo que se encuentra a continuación. Hay que tener en cuenta que el código Python generado por ChatGPT, avanza en pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad de pendulos la simulación no llega a ser en tiempo real. Por eso le pedía a ChatGPT que incluyera un texto en la simulación que mostrase el tiempo real durante la simulación. 
+
+
+<video width="640" controls>
+  <source src="Pendulumabanico.mp4" type="video/mp4">
+</video>
+
+El resultado es sorprendente e hipnotizante. ¿Como puede ser que péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si observamos antentamente el vídeo hasta el segundo 1 de la simulación todos los péndulos van casi al unísono. En el segundo 2, que es cuando llegan al otro extremo, vemos que el "abanico" ya se empieza a abrir. Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya estamos con una divergencia total, y a partir de ahí cada uno va a su bola, !!caos total!!. 
+
+Ahora reflexionemos. Péndulos que fueron lanzados con diferencias de milésimas de grado, tienen trayectorias que divergen enormemente tras 5 segundos. ¿Acaso es éste un sistema físico que cuyo comportamiento podamos predecir en la vida real?. Pues yo diría que no.
+
+
+## Complemento y Reflexiones
+
+¡Imagínate! Iniciamos todos los péndulos casi de la misma manera, apenas una pequeña de diferencia en el segundo ángulo. Y, sin embargo, a los pocos segundos, el espectáculo visual es un torbellino de colores y líneas que ya no parecen corresponderse entre sí. Fíjate bien: el lector no ve cinco segundos, sino un universo paralelo donde cada péndulo tiene su propia historia, su propio destino. ¿Te das cuenta de lo desconcertante que es?  
+
+### La Belleza del Caos
+
+Tal vez te preguntes: “¿Por qué es tan atractivo ver este desorden?”. La respuesta está en la misma naturaleza de lo impredecible. Cada línea coloreada que se dispersa representa un pequeño “qué pasaría si…”: un escenario distinto construido por una diferencia diminuta en los ángulos iniciales. Cuando miras el vídeo, lo que parece arte abstracto en movimiento es, en realidad, la materialización instantánea de un principio matemático: el caos.  
+
+### Reflexión sobre la Predictibilidad
+
+¿Recuerdas cuando en clases nos decían que la física clásica era determinista? Aquí tenemos una bofetada directa a esa idea: sí, las ecuaciones son exactas y puntuales, pero cualquier medición en la realidad lleva error, desviaciones, incertidumbre. Esas milésimas de grado que apenas vemos en el vídeo se traducen en divergencias drásticas en segundos. Entonces debes preguntarte:  
+- ¿Podríamos predecir con exactitud el comportamiento de un péndulo real si midiera su ángulo con la precisión de un nanómetro?  
+- ¿Sería suficiente?  
+
+La respuesta es que, por muy maravillosa que sea nuestra instrumentación, siempre habrá imperfecciones. Ese desajuste, ese ruido minúsculo, es suficiente para que la simulación sea un recordatorio de que el mundo real—y nuestros modelos—tienen un límite de predictibilidad. No solo eso, como vimos en el capítulo anterior con la función logística, los modelos matemáticos se codifican en un ordenador con una precisión finita, que a su vez introduce errores iteración tras iteración de nuestro código. Por lo tanto, nos enfrentamos a dos problemas en la realidad:
+
+-  No podemos medir con total exactitud el estado inicial de nuestro sistema
+-  No podemos simular los modelos matemáticos con una precisión infinita en un ordenador
+
+
+### ¿Qué Aprendemos como Observadores?
+
+En este punto, quiero que te sientas más que un simple espectador; quiero que te cuestiones tu propia confianza en la previsión de sistemas aparentemente simples. Porque, al fin y al cabo, el péndulo doble no es más que un ejemplo fácil de visualizar, pero el universo real está lleno de sistemas caóticos: el clima, la dinámica de poblaciones, incluso ciertos procesos en la economía. Si un experimento tan básico como el péndulo doble nos muestra esta fragilidad, ¿cómo imaginamos predecir con total certeza fenómenos tan complejos?  
+
+### Reflexión Final: Una Invitación al Asombro
+
+Te invito a que, la próxima vez que veas un pronóstico meteorológico o leas sobre el futuro de los mercados, recuerdes este vídeo de los péndulos. Observa cómo cambia cada línea, cómo el abanico se abre a partir de una diferencia insignificante. Tal vez entonces comprendas que la exploración del caos no es un simple juego visual, sino un recordatorio profundo: hay límites invisibles en nuestra capacidad de anticipar el futuro.  

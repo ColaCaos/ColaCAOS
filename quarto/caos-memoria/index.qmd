@@ -1,0 +1,36 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# ColaCaos
+
+¿Has oído hablar alguna vez de la teoría del caos? Es posible que te suene la famosa idea de que «el aleteo de una mariposa en Brasil puede provocar un huracán en Texas». Esta afirmación es una metáfora del efecto mariposa, un concepto fundamental dentro de la teoría del caos que describe cómo pequeñas variaciones en las condiciones iniciales de un sistema pueden dar lugar a diferencias enormes en su evolución.
+
+El origen de esta idea se remonta a 1972, cuando el meteorólogo y matemático Edward Lorenz presentó una conferencia titulada «Predictability: Does the Flap of a Butterfly’s Wings in Brazil Set Off a Tornado in Texas?» en la 139ª reunión de la American Association for the Advancement of Science (AAAS). Lorenz, que investigaba modelos meteorológicos, descubrió que pequeñas diferencias en los datos iniciales podían generar predicciones climáticas completamente distintas. Su trabajo sentó las bases de la teoría del caos y revolucionó la comprensión de los sistemas físicos.
+
+La inspiración para este trabajo me vino de este video de Veritasium.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fDek6cYijxI" frameborder="0" allowfullscreen></iframe>
+
+Si tienes tiempo y ganas también te recomiendo este video de PBS. Mucho más largo pero con mayor detalle
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oo7Bhythhtw" frameborder="0" allowfullscreen></iframe>
+
+
+
+Pero, ¿qué significa realmente el caos? Aunque solemos asociarlo con desorden y aleatoriedad, en matemáticas y física el caos tiene un significado más profundo. Un sistema caótico no es simplemente impredecible, sino que sigue leyes deterministas, pero con una sensibilidad extrema a las condiciones iniciales. Esto significa que, aunque podamos conocer las reglas que rigen su comportamiento, su evolución se vuelve imposible de predecir a largo plazo debido a la amplificación de pequeñas incertidumbres.
+
+En este blog exploraremos cómo la teoría del caos y en especial sus consecuencias en la predicción del tiempo meteorológico. A través de ejemplos, experimentos y reflexiones, descubriremos cómo el caos no es simplemente desorden, sino una forma compleja de organización que rige muchos aspectos del mundo que nos rodea.
+
+También abordaremos las implicaciones filosóficas del caos. Si la teoría del caos es correcta, a pesar de estar trabajando con sistemas cuyas ecuaciones son deterministas, no podremos conocer con certeza el estado final del sistema, por mucho que nos empeñemos en conocer con mas precisión las condiciones iniciales del sistema. Esto sugiere una limitación fundamental en muchos aspectos del conocimiento que la humanidad puede tener de su futuro. A pesar de la mejora de los medios técnicos disponibles por la Humanidad, y del avance científico, tenemos una limitación establecida por el Caos, que nos proyecta un Horizonte de Predictibilidad que no podemos pasar. Es un limite similar al de la velocidad de la luz, o al horizonte de sucesos de un agujero negro. Nunca vamos a poder ver más allá del Horizonte de Predictibilidad.
+
+Por lo tanto, teniendo claras estas limitaciones, ¿Cómo pueden los científicos hacer predicciones sobre el clima de la Tierra a 10, 20 o 100 años vista, si el horizonte de predictibilidad del tiempo meteorológico no es mayor de 2 semanas?
+
+Para concluir, he de confesar que no me he podido resistir a hacer el juego de palabras fácil con Cola «Caos», así que, la pregunta que intentaré responder, es ¿Puede una persona agitando su taza de Cacao por la mañana provocar un huracán al otro lado del océano a la semana siguiente?
+
+![](colacaos.jpeg){width=60% fig-align="center" fig-alt="ColaCaos"}

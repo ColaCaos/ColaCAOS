@@ -1,0 +1,222 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+# Estabilidad del mapa logístico
+
+## Puntos fijos
+Tal y como habíamos visto anteriormente, un **punto fijo** $x^*$ satisface:
+
+$$
+ f(x^*) = x^*.
+$$
+
+Para encontrar los puntos fijos de la función logística, resolvemos:
+$$
+r\,x\,(1 - x) = x.
+$$
+Llevando todos los términos a un lado:
+$$
+r\,x\,(1 - x) - x = 0
+\quad\Longrightarrow\quad
+x\bigl(r\,(1 - x) - 1\bigr) = 0.
+$$
+De aquí se obtienen dos soluciones:
+$$x_1 = 0$$
+y $x_2$ tal que $r\,(1 - x_2) - 1 = 0$, es decir:
+  $$
+  1 - x_2 = \frac{1}{r}
+  \;\Longrightarrow\;
+  x_2 = 1 - \frac{1}{r}.
+  $$
+
+
+## Evaluación de la derivada en los puntos fijos
+La derivada de la función logística es:
+
+$$
+ f'(x) = r(1 - 2x).
+$$
+
+Y además, de la sección sobre los puntos fijos sabemos que un punto fijo es estable si $\lvert f'(x^*)\rvert < 1$.
+
+* **En $x^*_1=0$:** $f'(0)=r$. Estable si $0 < r < 1$. Es decir, para valores de $r$ comprendidos entre 0 y 1, el valor de $x=0$ es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en $x=0$. Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un $r<1$, veremos que la función lógistica solamente toca a la recta $y=x$ en $x=0$
+* **En $x^*_2=1-1/r$:** $f'(x^*_2)=2-r$. Estable si $\lvert2-r\rvert<1$ → $1 < r < 3$. Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de $x_0$ que pongan para valores de $r$ entre 1 y 3, siempre se convergerá a un punto que es $x^*_2=1-1/r$ .
+
+Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo $r/4$, pero al final se estabilizar en un valor menor que es igual a $x^*_2=1-1/r$ .
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.linspace(1, 3, 500)
+x2_star = 1 - 1/r
+max_func = r/4
+
+plt.figure()
+plt.plot(r, x2_star, label=r'$x_2^* = 1 - \frac{1}{r}$', linewidth=2)
+plt.plot(r, max_func, label=r'$\mathrm{max}\,f(x) = \frac{r}{4}$', linewidth=2)
+plt.xlabel(r'$r$')
+plt.ylabel('Valores')
+plt.title(r'Comparación de $x_2^*$ y $\frac{r}{4}$ en función de $r$')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+Añadamos unos gráficos para verlo mejor. 
+
+En este primero, vemos para un valor de $r=0.99$ como la población va decreciendo iteración tras iteración hasta llegar al punto fijo $x=0$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 0.99
+x0 = 0.5
+n_iter = 50
+
+# Función logística
+def f(x): return r * x * (1 - x)
+
+# Valores de x para la curva
+x_vals = np.linspace(0, 1, 400)
+y_vals = f(x_vals)
+
+# Iteraciones para el cobweb
+x_cobweb = [x0]
+y_cobweb = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_cobweb.append(x)
+    y_cobweb.append(y)
+    x = y
+    x_cobweb.append(x)
+    y_cobweb.append(x)
+
+# Graficar
+plt.figure(figsize=(6,6))
+plt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')
+plt.plot(x_vals, x_vals, '--', label='$y=x$')
+plt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)
+plt.scatter(x0, 0, color='red', zorder=5, label='Inicio')
+plt.title('Cobweb plot para el mapa logístico (r = 0.99)')
+plt.xlabel('$x_n$')
+plt.ylabel('$x_{n+1}$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+En este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta $y=x$), a pesar de que el valor de $r$ está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 2.99
+x0 = 0.01
+n_iter = 200
+
+# Función logística
+def f(x): return r * x * (1 - x)
+
+# Valores de x para la curva
+x_vals = np.linspace(0, 1, 400)
+y_vals = f(x_vals)
+
+# Iteraciones para el cobweb
+x_cobweb = [x0]
+y_cobweb = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_cobweb.append(x)
+    y_cobweb.append(y)
+    x = y
+    x_cobweb.append(x)
+    y_cobweb.append(x)
+
+# Graficar
+plt.figure(figsize=(6,6))
+plt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')
+plt.plot(x_vals, x_vals, '--', label='$y=x$')
+plt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)
+plt.scatter(x0, 0, color='red', zorder=5, label='Inicio')
+plt.title('Cobweb plot para el mapa logístico (r = 2.99) después de 200 iteraciones')
+plt.xlabel('$x_n$')
+plt.ylabel('$x_{n+1}$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+Pero, ¿qué pasa cuando subimos por encima de $r=3$?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para $r=3.01$? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento $r$ es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse. 
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.01
+x0 = 0.2
+n_iter = 2000
+
+# Función logística
+def f(x): return r * x * (1 - x)
+
+# Valores de x para la curva
+x_vals = np.linspace(0, 1, 400)
+y_vals = f(x_vals)
+
+# Iteraciones para el cobweb
+x_cobweb = [x0]
+y_cobweb = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_cobweb.append(x)
+    y_cobweb.append(y)
+    x = y
+    x_cobweb.append(x)
+    y_cobweb.append(x)
+
+# Graficar
+plt.figure(figsize=(6,6))
+plt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')
+plt.plot(x_vals, x_vals, '--', label='$y=x$')
+plt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)
+plt.scatter(x0, 0, color='red', zorder=5, label='Inicio')
+plt.title('Cobweb plot para el mapa logístico (r = 3.01) después de 2000 iteraciones')
+plt.xlabel('$x_n$')
+plt.ylabel('$x_{n+1}$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+Aunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para$r\approx3$. Algunos ejemplos son:
+
+
+* **Moscas de la carne (*Lucilia cuprina*)**  
+En los famosos experimentos de Nicholson sobre poblaciones de moscas de la carne, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones [Nicholson 1954](https://www.jstor.org/stable/827141?utm_source=chatgpt.com), [Wikipedia](https://en.wikipedia.org/wiki/Alexander_John_Nicholson?utm_source=chatgpt.com).
+
+* **Escarabajos del trigo (*Tribolium confusum*)**  
+Gurney y Nisbet cultivaron colonias de *Tribolium* en el laboratorio controlando solo la tasa de natalidad mediante el suministro de alimento, y se observó un ciclo bienal: una generación con números muy altos seguida de otra bastante más baja, en perfecta alternancia [Gurney & Nisbet 1987](https://desharnais.sciencecourseware.org/reprints/JAE1987.pdf?utm_source=chatgpt.com), [Julius Kühn-Archiv](https://ojs.openagrar.de/index.php/JKA/article/view/10631/9697?utm_source=chatgpt.com).
+
+* **Daphnia en estanques experimentales**  
+Algunos estudios con pulgas de agua (*Daphnia*) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta [NCBI](https://www.ncbi.nlm.nih.gov/books/NBK2042/?utm_source=chatgpt.com), [ResearchGate](https://www.researchgate.net/publication/31983971_Large-amplitude_cycles_of_Daphnia_and_its_algal_prey_in_enriched_environments?utm_source=chatgpt.com).
+
+* **Peces capelán (*Mallotus villosus*)**  
+En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y su ritmo semélparo: tras desovar mueren, lo que promueve ese patrón de “sobrepoblación–agotamiento de recursos” bienal [Wikipedia](https://en.wikipedia.org/wiki/Capelin?utm_source=chatgpt.com), [Wiley](https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.415?utm_source=chatgpt.com).
+
+En todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo
+
+En el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.

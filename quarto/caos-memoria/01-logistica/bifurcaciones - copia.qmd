@@ -1,0 +1,957 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Estudio formal del mapa logístico
+En los siguientes apartados vamos a desentrañar desde un punto de vista matemático como se comporta el mapa logístico. Ya hemos visto en los apartados anteriores, vía simulación, que el comportamiento es muy errático dependiendo del valor de $r$. Veamos por qué.
+
+
+## Análisis de la función logística
+Para empezar veremos la función logística y la analizaremos como haríamos con cualquier otra función para ver su forma. Para ello, recurrimos a las técnicas habituales de analisis de funciones.
+
+### Dominio y ceros
+- Por definición, el **Dominio** es: $0 \le x \le 1$  
+- En este dominio los **Ceros** de la función están en:  
+  - $f(0) = r \cdot 0 \cdot (1-0) = 0$  
+  - $f(1) = r \cdot 1 \cdot (1-1) = 0$
+
+### Derivada y monotonía
+Para conocer los máximos y mínimos primero hemos de calcular la derivada,
+
+- Derivada:  
+  $$f'(x) = r(1 - 2x)$$  
+- La derivada tiene una raíz en $x=1/2$, independientemente del valor de $r$. Por lo tanto, el signo de $f'(x)$:  
+  - Si $0 \le x < \tfrac12$, entonces $f'(x) > 0$ ⇒ **creciente**  
+  - Si $x = \tfrac12$, entonces $f'(x) = 0$  
+  - Si $\tfrac12 < x \le 1$, entonces $f'(x) < 0$ ⇒ **decreciente**
+
+De acuerdo al estudio de la derivada, tenemos un punto crítico en $x = \tfrac12$. Puesto que la derivada pasa a ser creciente a decreciente en este punto, tenemos un máximo. La función, pues, tiene un valor máximo:  
+  $$f\bigl(\tfrac12\bigr) = \frac{r}{4}$$
+
+Observar que si $r>4$ entonces el máximo de la función es mayor que 1. Esto no puede darse, ya que la funcíón logística normaliza los recursos máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que no puede ocurrir físicamente), el valor de r siempre se establece por debajo de 4. 
+
+### Concavidad
+- Segunda derivada:  
+  $$f''(x) = -2r$$  
+- Como $r>0$, $f''(x)<0$ en todo el dominio ⇒ **cóncava hacia abajo**
+
+### Rango de la función
+De acuerdo, al estudio anterior, la función es siempre positiva, con valores entre $0$ y $\tfrac{r}{4}$  
+
+Si vamos a la sección con el diagrama de telaraña, veremos efectivamente esta forma de la función. 
+
+### Resumen gráfico
+- Parábola invertida con vértice en $\bigl(\tfrac12,\tfrac{r}{4}\bigr)$  
+- Crece de $x=0$ a $x=\tfrac12$, luego decrece hasta $x=1$
+
+## Término genérico del mapa logístico
+
+En las sucesiones aritméticas y geométricas es fácil expresar el termino enésimo de la sucesión en función del primer término de la misma. Veamos:
+
+Término general de la sucesión aritmética
+
+  $$a_n = a_1 + (n-1)d$$
+  donde:
+  - $a_1$ es el primer término.
+  - $d$ es la diferencia común.
+  - $n$ es la posición del término.
+
+Término general de la sucesión geométrica
+
+  $$a_n = a_1 \cdot r^{\,n-1}$$
+  donde:
+  - $a_1$ es el primer término.
+  - $r$ es la razón común.
+  - $n$ es la posición del término.
+
+¿Podemos hacer lo mismo con el mapa logístico?. Hagamos las primeras iteraciones.
+
+$$
+x_1 = r\,x_0\,(1 - x_0)
+$$
+
+
+$$
+x_2 = r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)
+$$
+
+
+$$
+x_3 = r^3\,x_0\,(1 - x_0)\,
+\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
+\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)
+$$
+
+
+$$
+x_4 = r^4\,x_0\,(1 - x_0)\,
+\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
+\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,
+\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)
+$$
+
+
+$$
+\begin{aligned}
+x_5 =\;& r^5\,x_0\,(1 - x_0)\,
+\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
+\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\\
+&\times\;\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\\
+&\times\;\bigl(1 - r^4\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\bigr)
+\end{aligned}
+$$
+
+Como podemos ver, sí que podemos ir expresando los sucesivos términos en función de solamente $x_0$ y de $r$, pero a medida que iteramos, la expresión se vuelve muy complicada. A pesar de todo, hay que destacar que la función es **puramente determinista**. Es decir, se podría formular el valor de la iteración enésima en función de los valores de $x_0$ y de $r$.  
+
+## Criterio de estabilidad
+
+### Puntos fijos
+Tal y como habíamos visto anteriormente, un **punto fijo** $x^*$ satisface:
+
+$$
+ f(x^*) = x^*.
+$$
+
+Para encontrar los puntos fijos de la función logística, resolvemos:
+$$
+r\,x\,(1 - x) = x.
+$$
+Llevando todos los términos a un lado:
+$$
+r\,x\,(1 - x) - x = 0
+\quad\Longrightarrow\quad
+x\bigl(r\,(1 - x) - 1\bigr) = 0.
+$$
+De aquí se obtienen dos soluciones:
+$$x_1 = 0$$
+y $x_2$ tal que $r\,(1 - x_2) - 1 = 0$, es decir:
+  $$
+  1 - x_2 = \frac{1}{r}
+  \;\Longrightarrow\;
+  x_2 = 1 - \frac{1}{r}.
+  $$
+
+
+### Evaluación de la derivada en los puntos fijos
+La derivada de la función logística es:
+
+$$
+ f'(x) = r(1 - 2x).
+$$
+
+Y además, de la sección sobre los puntos fijos sabemos que un punto fijo es estable si $\lvert f'(x^*)\rvert < 1$.
+
+* **En $x^*_1=0$:** $f'(0)=r$. Estable si $0 < r < 1$. Es decir, para valores de $r$ comprendidos entre 0 y 1, el valor de $x=0$ es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en $x=0$. Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un $r<1$, veremos que la función lógistica solamente toca a la recta $y=x$ en $x=0$
+* **En $x^*_2=1-1/r$:** $f'(x^*_2)=2-r$. Estable si $\lvert2-r\rvert<1$ → $1 < r < 3$. Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de $x_0$ que pongan para valores de $r$ entre 1 y 3, siempre se convergerá a un punto que es $x^*_2=1-1/r$ .
+
+Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo $r/4$, pero al final se estabilizar en un valor menor que es igual a $x^*_2=1-1/r$ .
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.linspace(1, 3, 500)
+x2_star = 1 - 1/r
+max_func = r/4
+
+plt.figure()
+plt.plot(r, x2_star, label=r'$x_2^* = 1 - \frac{1}{r}$', linewidth=2)
+plt.plot(r, max_func, label=r'$\mathrm{max}\,f(x) = \frac{r}{4}$', linewidth=2)
+plt.xlabel(r'$r$')
+plt.ylabel('Valores')
+plt.title(r'Comparación de $x_2^*$ y $\frac{r}{4}$ en función de $r$')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+Añadamos unos gráficos para verlo mejor. 
+
+En este primero, vemos para un valor de $r=0.99$ como la población va decreciendo iteración tras iteración hasta llegar al punto fijo $x=0$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 0.99
+x0 = 0.5
+n_iter = 50
+
+# Función logística
+def f(x): return r * x * (1 - x)
+
+# Valores de x para la curva
+x_vals = np.linspace(0, 1, 400)
+y_vals = f(x_vals)
+
+# Iteraciones para el cobweb
+x_cobweb = [x0]
+y_cobweb = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_cobweb.append(x)
+    y_cobweb.append(y)
+    x = y
+    x_cobweb.append(x)
+    y_cobweb.append(x)
+
+# Graficar
+plt.figure(figsize=(6,6))
+plt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')
+plt.plot(x_vals, x_vals, '--', label='$y=x$')
+plt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)
+plt.scatter(x0, 0, color='red', zorder=5, label='Inicio')
+plt.title('Cobweb plot para el mapa logístico (r = 0.99)')
+plt.xlabel('$x_n$')
+plt.ylabel('$x_{n+1}$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+En este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta $y=x$), a pesar de que el valor de $r$ está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 2.99
+x0 = 0.01
+n_iter = 200
+
+# Función logística
+def f(x): return r * x * (1 - x)
+
+# Valores de x para la curva
+x_vals = np.linspace(0, 1, 400)
+y_vals = f(x_vals)
+
+# Iteraciones para el cobweb
+x_cobweb = [x0]
+y_cobweb = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_cobweb.append(x)
+    y_cobweb.append(y)
+    x = y
+    x_cobweb.append(x)
+    y_cobweb.append(x)
+
+# Graficar
+plt.figure(figsize=(6,6))
+plt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')
+plt.plot(x_vals, x_vals, '--', label='$y=x$')
+plt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)
+plt.scatter(x0, 0, color='red', zorder=5, label='Inicio')
+plt.title('Cobweb plot para el mapa logístico (r = 2.99) después de 200 iteraciones')
+plt.xlabel('$x_n$')
+plt.ylabel('$x_{n+1}$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+Pero, ¿qué pasa cuando subimos por encima de $r=3$?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para $r=3.01$? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento $r$ es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse. 
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.01
+x0 = 0.2
+n_iter = 2000
+
+# Función logística
+def f(x): return r * x * (1 - x)
+
+# Valores de x para la curva
+x_vals = np.linspace(0, 1, 400)
+y_vals = f(x_vals)
+
+# Iteraciones para el cobweb
+x_cobweb = [x0]
+y_cobweb = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_cobweb.append(x)
+    y_cobweb.append(y)
+    x = y
+    x_cobweb.append(x)
+    y_cobweb.append(x)
+
+# Graficar
+plt.figure(figsize=(6,6))
+plt.plot(x_vals, y_vals, label='$f(x)=r x(1-x)$')
+plt.plot(x_vals, x_vals, '--', label='$y=x$')
+plt.plot(x_cobweb, y_cobweb, color='black', linewidth=1)
+plt.scatter(x0, 0, color='red', zorder=5, label='Inicio')
+plt.title('Cobweb plot para el mapa logístico (r = 3.01) después de 2000 iteraciones')
+plt.xlabel('$x_n$')
+plt.ylabel('$x_{n+1}$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+Aunque el mapa logístico es un modelo muy sencillo, en laboratorio y a veces en campo se han visto oscilaciones de “alto-bajo” de periodo 2 parecidas a las predichas para$r\approx3$. Algunos ejemplos son:
+
+* Moscas de la carne (Lucilia cuprina). En los famosos experimentos de Nicholson sobre poblaciones de mosca de la carne en frascos, al mantenerlas en condiciones constantes y con alta fecundidad, la densidad adulta pasaba de un pico alto un año a un valle bajo al siguiente, repitiéndose cada dos generaciones.
+
+* Escarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron colonias de Tribolium en el laboratorio controlando sólo la tasa de natalidad por suministro de alimento. Se observó un ciclo bienal: una generación con números muy altos y la siguiente bastante más baja, en perfecta alternancia.
+
+* Daphnia en estanques experimentales. Algunos estudios con pulgas de agua (Daphnia) en estanques cerrados, variando la concentración de alimento, han mostrado también ciclos aproximados de dos generaciones cuando la tasa de crecimiento es lo bastante alta.
+
+* Peces capelán (Mallotus villosus). En poblaciones silvestres de capelán del Atlántico Norte, los registros de capturas han evidenciado picos de abundancia que tienden a repetirse cada dos años, lo cual coincide con su periodo de madurez y un efecto de “sobrepoblación–agotamiento de recursos”.
+
+En todos estos casos la dinámica de periodo 2 refleja una sobrecorrección: tras un año de “boom” la población agota alimento o espacios de puesta, con lo que la siguiente generación cae muy por debajo de la capacidad de carga, y después se recupera, iniciando de nuevo el ciclo
+
+En el siguiente apartado, analizaremos formalmente lo que ocurre en la primera bifurcación del mapa logístico.
+
+## Primera bifurcación: duplicación de período en $r = 3$
+
+### Análisis matemático
+
+En $r = 3$, la derivada en el punto fijo $x^* = 1 - \frac{1}{r}$ se vuelve $-1$, lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.
+
+Surgen dos nuevos puntos $p$ y $q$ que no son puntos fijos, sino puntos de período 2 tales que:
+
+$$
+f(p) = q, \quad f(q) = p
+$$
+
+Es decir, si al mapa logístico se le alimenta con un valor $p$, da como resultado un valor $q$, que al ser metido otra vez en el mapa logístico da el valor $p$ inicial.
+
+Esto significa que:
+
+$$
+f(f(p)) = p
+$$
+
+Lo cual implica que $p$ es un punto fijo del mapa iterado $f^2$ (esta notación significa la composicion de una función con sigo misma $f^2()=f \circ f = f(f())$, no el cuadrado de la función)
+
+Dado que $f(x) = r x (1 - x)$, podemos escribir:
+
+$$
+f(p) = r p (1 - p)
+$$
+
+Entonces:
+
+$$
+f(f(p)) = r \cdot f(p) \cdot (1 - f(p)) = r \cdot [r p (1 - p)] \cdot \left[1 - r p (1 - p)\right]
+$$
+
+Queremos encontrar los puntos de período 2, así que igualamos:
+
+$$
+f(f(p)) = p
+$$
+
+Hay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función $f^2()=f \circ f = f(f())$ y la función $y=x$, y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.
+
+Sigamos con la resolución analtíca. Para ello, desarrollamos completamente $f(f(p)) = p$:
+
+$$
+r^2 p (1 - p)(1 - r p (1 - p)) = p
+$$
+
+Pasando todo al mismo lado:
+
+$$
+r^2 p (1 - p)(1 - r p (1 - p)) - p = 0
+$$
+
+Factorizamos $p$:
+
+$$
+p \left[ r^2 (1 - p)(1 - r p (1 - p)) - 1 \right] = 0
+$$
+
+Una de las soluciones es $p = 0$ (punto fijo trivial), pero las otras soluciones corresponden a los puntos de período 2.
+
+Expandimos el polinomio:
+
+$$
+f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
+$$
+
+Expandimos paso a paso:
+
+1. $f(p) = r p (1 - p)$  
+2. $1 - f(p) = 1 - r p (1 - p)$  
+3. $(1 - p)(1 - r p (1 - p)) = 1 - p - r p (1 - p) + r p^2 (1 - p)$  
+4. Multiplicamos todo por $r^2 p$  
+5. Resulta en un polinomio de cuarto grado en $p$
+
+Este polinomio tiene hasta 4 raíces reales, de las cuales dos corresponden a los nuevos puntos de período 2. Las otras dos pueden ser los puntos fijos ya conocidos o raíces no relevantes dinámicamente.
+
+### Análisis gráfico 
+
+Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con $r=2.9$. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta $y=x$ en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada $f \circ f$. La recta $y=x$ solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetro y condición inicial
+r = 2.9
+x0 = 0.2
+n_iter = 20
+
+# Definición de funciones
+def f(x): return r * x * (1 - x)
+def f2(x): return f(f(x))
+
+# Dominio
+x_vals = np.linspace(0, 1, 400)
+y_f = f(x_vals)
+y_f2 = f2(x_vals)
+
+# Construcción del cobweb sobre f
+x_coords = [x0]
+y_coords = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_coords.extend([x, y])
+    y_coords.extend([y, y])
+    x = y
+
+# Plot
+plt.figure(figsize=(6, 6))
+plt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')
+plt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')
+plt.plot(x_vals, y_f, color='green', label='$f(x)$')
+plt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')
+plt.scatter([x0], [0], marker='o', color='red', label='$x_0$')
+plt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=2.9$')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+```
+Y ahora veamos lo que pasa cuando $r=3.2$. En este caso, la segunda iteración corta con la recta $y=x$ en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetro y condición inicial
+r = 3.2
+x0 = 0.2
+n_iter = 20
+
+# Definición de funciones
+def f(x): return r * x * (1 - x)
+def f2(x): return f(f(x))
+
+# Dominio
+x_vals = np.linspace(0, 1, 400)
+y_f = f(x_vals)
+y_f2 = f2(x_vals)
+
+# Construcción del cobweb sobre f
+x_coords = [x0]
+y_coords = [0]
+x, y = x0, 0
+for _ in range(n_iter):
+    y = f(x)
+    x_coords.extend([x, y])
+    y_coords.extend([y, y])
+    x = y
+
+# Plot
+plt.figure(figsize=(6, 6))
+plt.plot(x_vals, y_f2, color='blue', label='$f^2(x)$')
+plt.plot(x_vals, x_vals, color='orange', linestyle='--', label='$y = x$')
+plt.plot(x_vals, y_f, color='green', label='$f(x)$')
+plt.plot(x_coords, y_coords, color='red', linewidth=1, label='Órbita (cobweb)')
+plt.scatter([x0], [0], marker='o', color='red', label='$x_0$')
+plt.title('Intersección de $f(x)$, $f^2(x)$ y órbita para $r=3.2$')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+```
+### Analisis de estabilidad de la primera bifurcación
+
+En primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es  
+$$
+f(x) = rx(1 - x),
+$$  
+y su iteración doble se define como  
+$$
+f^{(2)}(x) = f\bigl(f(x)\bigr).
+$$  
+Queremos hallar los valores de $x$ que satisfacen  
+$$
+f^{(2)}(x) = x.
+$$
+
+#### Expresión explícita de $(f^{(2)}(x))$
+
+Primero calculamos  
+$$
+f(x) = r x - r x^2.
+$$  
+Luego  
+$$
+f\bigl(f(x)\bigr)
+= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
+= r\bigl(r x - r x^2\bigr)\bigl(1 - (r x - r x^2)\bigr)
+$$  
+
+Por tanto  
+   $$
+   f^{(2)}(x)
+   = r\,(r x - r x^2)\,(1 - r x + r x^2)
+   = r^2\,x\,(1 - x)\,(1 - r x + r x^2)
+   $$
+En vez de expresar la segunda iteración como un polinomio de grado 4, lo dejamos en función de dos monomios y un binomio.
+
+#### Ecuación para los puntos periódicos de período 1 o 2
+
+Queremos las soluciones de  
+$$
+f^{(2)}(x) - x = 0.
+$$  
+Sabemos que las raíces de  
+$$
+f(x) - x = r x (1 - x) - x = 0
+$$  
+también anulan $f^{(2)}(x) - x$. Esas raíces son:
+$$x = 0$$ 
+$$x = \dfrac{r - 1}{r}$$
+Para aislar los de periodo 2, dividimos $f^{(2)}(x)-x$ por $f(x)-x$ y nos quedamos con el factor cuadrático no trivial. Es decir, nos fijamos en la ecuación cuadrática a la derecha de nuestra ecuación. Esto tiene sentido, puesto que estamos buscando 2 soluciones. El polinomio al ser de grado 4, tiene 4 soluciones, pero las dos primeras son las de la región estable ($1<r<3$).
+
+#### Factorización y obtención de las raíces
+
+Los puntos de periodo 2 son raíces de  
+$$
+r^2\,x^2 \;-\; (r^2 + r)\,x \;+\; (r + 1) = 0.
+$$  
+Llamemos $x_1$ y $x_2$ a esas raíces. Resolviendo la ecuación de segundo grado, tenemos:
+
+$$
+x_1 = \frac{r^2 + r + r\sqrt{(r+1)(r-3)}}{2r^2}
+      = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+$$
+
+$$
+x_2 = \frac{r^2 + r - r\sqrt{(r+1)(r-3)}}{2r^2}
+      = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
+$$
+
+Obsérvese, que para $r=3$, no hay dos soluciones, sino una, que coincide con el punto estable ($x=2/3$). 
+Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso $1<r<3$ . Es decir, cuando estábamos en la región estable $1<r<3$, el punto de estabilidad final lo daba el cruce que la función logística con la recta $y=x$, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.
+
+
+#### Derivada de $f$ y criterio de estabilidad
+
+Supongamos que $(x_1,x_2)$ es un ciclo de periodo 2, es decir  
+$$
+f(x_1)=x_2,\qquad f(x_2)=x_1.
+$$  
+Queremos ver qué pasa si en lugar de empezar exactamente en $x_1$ tomamos un punto “ligeramente” desviado:  
+$$
+x_1 + \delta,
+$$  
+con $\delta$ muy pequeño.
+
+Al aplicar $f$ alrededor de $x_1$, usamos la aproximación lineal:
+
+$$
+f(x_1 + \delta)
+\approx f(x_1) + f'(x_1)\,\delta
+= x_2 + f'(x_1)\,\delta.
+$$
+
+Así, tras una iteración, nuestro error (desviación) se amplifica o reduce por el factor $f'(x_1)$.
+
+Ahora iteramos de nuevo, partiendo de  
+$$
+x_2 + f'(x_1)\,\delta.
+$$  
+Otra vez linealizamos en torno a $x_2$:
+
+$$
+f\bigl(x_2 + f'(x_1)\,\delta\bigr)
+\approx f(x_2) + f'(x_2)\,\bigl(f'(x_1)\,\delta\bigr)
+= x_1 + \bigl[f'(x_2)\,f'(x_1)\bigr]\,\delta.
+$$
+
+Después de dos pasos (una vuelta completa al ciclo de período 2), la desviación original $\delta$ se convierte en
+
+$$
+\delta_{\rm nuevo} = f'(x_2)\,f'(x_1)\,\delta.
+$$
+
+Por tanto, **el factor que controla la estabilidad** del ciclo de período 2 es precisamente
+
+$$
+\Lambda = f'(x_1)\,f'(x_2).
+$$
+
+- Si $|\Lambda|<1$, la desviación $\delta$ tiende a cero y el ciclo es **estable**.  
+- Si $|\Lambda|>1$, la desviación crece y el ciclo es **inestable**.
+
+
+Veamos otra forma de calcularlo. Formalmente, la derivada de la composición $f^{(2)}=f\circ f$ se calcula con la regla de la cadena:
+
+$$
+(f^{(2)})'(x)
+= f'(f(x))\,f'(x).
+$$
+
+Si evaluamos en $x=x_1$, tenemos:
+
+$$
+(f^{(2)})'(x_1)
+= f'(f(x_1))\,f'(x_1)
+= f'(x_2)\,f'(x_1),
+$$
+
+que es exactamente el mismo producto que acabamos de entender con el argumento de las dos iteraciones sucesivas.
+
+
+Por lo tanto, el ciclo de periodo 2 es estable si  
+$$
+\bigl|f'(x_1)\,f'(x_2)\bigr| < 1.
+$$  
+
+
+Vamos a proceder a evaluar el producto de derivadas en los puntos $x_1$ y $x_2$ calculados anteriormente. Recordemos:
+$$
+x_1 = \frac{r+1 + \sqrt{(r+1)(r-3)}}{2r},
+\qquad
+x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r},
+$$
+y
+$$
+f'(x) = r\,(1 - 2x).
+$$
+
+1. **Derivada en \(x_1\)**  
+   \[
+   \begin{aligned}
+   f'(x_1)
+   &= r\Bigl(1 - 2\,x_1\Bigr)
+   = r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
+   &= r\Bigl(1 - \frac{r+1 + \sqrt{(r+1)(r-3)}}{r}\Bigr)
+   = r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
+   &= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
+   = -1 \;-\;\sqrt{(r+1)(r-3)}.
+   \end{aligned}
+   \]
+
+2. **Derivada en \(x_2\)**  
+   \[
+   \begin{aligned}
+   f'(x_2)
+   &= r\Bigl(1 - 2\,x_2\Bigr)
+   = r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
+   &= r\Bigl(1 - \frac{r+1 - \sqrt{(r+1)(r-3)}}{r}\Bigr)
+   = r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
+   &= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
+   = -1 \;+\;\sqrt{(r+1)(r-3)}.
+   \end{aligned}
+   \]
+
+3. **Producto de las derivadas**  
+   \[
+   \begin{aligned}
+   f'(x_1)\,f'(x_2)
+   &= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
+      \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
+   &= (-1)^2 \;-\;\bigl(\sqrt{(r+1)(r-3)}\bigr)^2
+   = 1 \;-\;(r+1)(r-3) \\[4pt]
+   &= 1 - \bigl(r^2 - 2r - 3\bigr)
+   = -\,r^2 + 2r + 4.
+   \end{aligned}
+   \]
+
+
+La bifurcación de periodo 2 a periodo 4 ocurre cuando el producto cruza $-1$ (al graficar la función $f \circ f$ se observa que su derivada se va haciendo negativa en el punto de cruce con $y=x$ a medida que aumentamos $r$ ; por ello no igualamos a +1):
+$$
+-r^2 + 2r + 4 = -1
+\quad\Longrightarrow\quad
+r^2 - 2r - 5 = 0
+\quad\Longrightarrow\quad
+r = 1 \pm \sqrt{6}.
+$$  
+Despreciando la solución negativa, tomamos  
+$$
+r_c = 1 + \sqrt{6} \approx 3.44949.
+$$
+
+Por lo tanto, recopilando lo que tenemos hasta ahora:
+
+- Para $0 < r < 1$ la sucesión tiende a cero
+- Para $1 < r < 3$ la sucesión tiende a un punto final único
+- Para $3 < r < (1 + \sqrt{6})$ tiende a dos puntos que se van alternando  
+
+
+¿Qué pasará a partir de $r > 1 + \sqrt{6}$ ?
+
+## 5. Cálculo de iteraciones
+
+# Código Quarto para el diagrama de bifurcación (valores finales)
+
+```{python}
+
+import warnings
+from bokeh.plotting import figure, show, output_notebook
+from bokeh.models import ColumnDataSource, Spinner, CustomJS
+from bokeh.layouts import column, row
+from bokeh.util.warnings import BokehDeprecationWarning
+import numpy as np
+
+# 1) Silenciar advertencias de deprecación de circle()
+warnings.filterwarnings('ignore', category=BokehDeprecationWarning)
+
+# Para renderizar en el notebook
+output_notebook(hide_banner=True)
+
+# Parámetros iniciales
+r_min0, r_max0, iter0, x0_0 = 2.5, 4.0, 200, 0.5
+n_r, m_y = 201, 400
+
+# Función para calcular datos de bifurcación con x0 variable
+def compute_data(r_min, r_max, iterations, x0):
+    r_vals = np.linspace(r_min, r_max, n_r)
+    r_data, x_data = [], []
+    for r in r_vals:
+        x = x0
+        for _ in range(iterations):
+            x = r * x * (1 - x)
+            r_data.append(r)
+            x_data.append(x)
+    return r_data, x_data
+
+# Datos iniciales
+r_data, x_data = compute_data(r_min0, r_max0, iter0, x0_0)
+source = ColumnDataSource(data=dict(r=r_data, x=x_data))
+
+# Figura
+p = figure(width=800, height=600, title="Diagrama de bifurcación",
+           x_axis_label="r", y_axis_label="x")
+p.circle('r', 'x', source=source, size=1, alpha=0.6)
+
+# Spinners para r_min, r_max, iteraciones y x0
+spinner_rmin = Spinner(title="r mínimo", low=0.0000, high=4.0000,
+                       step=0.0001, value=r_min0, format="0.0000")
+spinner_rmax = Spinner(title="r máximo", low=0.0000, high=4.0000,
+                       step=0.0001, value=r_max0, format="0.0000")
+spinner_iter = Spinner(title="Iteraciones", low=1, high=500,
+                       step=1, value=iter0)
+spinner_x0   = Spinner(title="x₀ inicial", low=0.000, high=1.000,
+                       step=0.001, value=x0_0, format="0.000")
+
+# Callback JS
+callback = CustomJS(args=dict(source=source,
+                              spinner_rmin=spinner_rmin,
+                              spinner_rmax=spinner_rmax,
+                              spinner_iter=spinner_iter,
+                              spinner_x0=spinner_x0,
+                              n_r=n_r),
+                    code="""
+    const rmin = spinner_rmin.value;
+    const rmax = spinner_rmax.value;
+    const iters = spinner_iter.value;
+    const x0    = spinner_x0.value;
+    const n     = n_r;
+    const dx    = (rmax - rmin) / (n - 1);
+    const r_vals = [];
+    for (let i = 0; i < n; i++) {
+        r_vals.push(rmin + i * dx);
+    }
+    const r_data = [];
+    const x_data = [];
+    for (let j = 0; j < n; j++) {
+        let r = r_vals[j];
+        let x = x0;
+        for (let k = 0; k < iters; k++) {
+            x = r * x * (1 - x);
+            r_data.push(r);
+            x_data.push(x);
+        }
+    }
+    source.data = {r: r_data, x: x_data};
+    source.change.emit();
+""")
+
+spinner_rmin.js_on_change('value', callback)
+spinner_rmax.js_on_change('value', callback)
+spinner_iter.js_on_change('value', callback)
+spinner_x0.js_on_change('value', callback)
+
+# Layout y muestra
+layout = column(
+    p,
+    row(spinner_rmin, spinner_rmax, spinner_iter, spinner_x0)
+)
+show(layout)
+
+
+```
+
+
+### 5.1 Condición inicial
+
+Elige $x_0 \in (0,1)$, p.ej. $0.1$, $0.2$, $0.5$.
+
+### 5.2 Procedimiento
+
+```{python}
+# Iteración del mapa logístico
+def iterar_mapa(r, x0, N):
+    x = x0
+    resultados = []
+    for _ in range(N):
+        x = r * x * (1 - x)
+        resultados.append(x)
+    return resultados
+```
+
+Descarta las primeras 100–200 iteraciones (transitorio) antes de analizar el atractor.
+
+## 6. Comportamientos según $r$
+
+| Rango de $r$            | Comportamiento                          |
+| ----------------------- | --------------------------------------- |
+| $0 < r < 1$             | Convergencia a $0$                      |
+| $1 < r < 3$             | Convergencia a $1 - 1/r$                |
+| $3 \le r < 3.449$       | Ciclo de periodo 2                      |
+| $3.449 \le r < 3.544$   | Ciclo de periodo 4                      |
+| $3.544 \le r < 3.56995$ | Ciclos de periodos 8, 16, 32, …         |
+| $3.56995 < r \le 4$     | Régimen caótico con ventanas periódicas |
+
+## 7. Duplicación de periodo y constante de Feigenbaum
+
+Conforme $r$ crece, aparecen bifurcaciones que duplican el periodo:
+
+1. $r_1=3.0$ → periodo 2
+2. $r_2 \approx 3.449$ → periodo 4
+3. $r_3 \approx 3.544$ → periodo 8
+   …
+
+La sucesión $\{r_n\}$ converge a:
+
+$$
+ r_\infty \approx 3.56995.
+$$
+
+Definimos $\Delta r_n = r_n - r_{n-1}$. La razón
+
+$$
+ \lim_{n \to \infty} \frac{\Delta r_{n-1}}{\Delta r_n} = \delta \approx 4.6692\dots
+$$
+
+es la **constante de Feigenbaum**, universal en mapas unimodales.
+
+## 8. Diagrama de bifurcación
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r_values = np.linspace(2.5, 4.0, 1500)
+iterations, last = 1000, 100
+r_plot, x_plot = [], []
+for r in r_values:
+    x = 0.5
+    for _ in range(iterations):
+        x = r * x * (1 - x)
+    for _ in range(last):
+        x = r * x * (1 - x)
+        r_plot.append(r)
+        x_plot.append(x)
+
+plt.figure(figsize=(8,6))
+plt.plot(r_plot, x_plot, '.', markersize=0.5)
+plt.title('Diagrama de bifurcación del mapa logístico')
+plt.xlabel('Parámetro r')
+plt.ylabel('$x_n$ (atractor)')
+plt.show()
+```
+
+## 9. Caos y ventanas periódicas
+
+Cuando el parámetro supera el umbral de acumulación de bifurcaciones
+
+$$
+ r_\infty \approx 3.56995,
+$$
+
+el mapa entra en **un régimen caótico** caracterizado por varias propiedades fundamentales:
+
+1. **Sensibilidad a las condiciones iniciales.**
+
+   * Dos valores iniciales muy cercanos $x_0$ y $x_0+\epsilon$ se separan exponencialmente con el tiempo.
+   * Se define el **exponente de Lyapunov**:
+
+   $$
+   \lambda = \lim_{N\to\infty} \frac{1}{N} \sum_{n=0}^{N-1} \ln\bigl|f'(x_n)\bigr|.
+   $$
+
+   Si $\lambda > 0$, las trayectorias divergen.
+
+2. **Estructura fractal y autosemejanza.**
+
+   * Aun en la región caótica, aparecen **ventanas periódicas** donde se observan ciclos de período fijo (p.ej., ciclo 3 cerca de $r\approx3.828$).
+
+3. **Teorema Li–Yorke.**
+
+   * La existencia de un ciclo de período 3 implica ciclos de **todos** los períodos.
+
+### 9.1 Diagrama detallado para $r > r_\infty$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r_inf = 3.56995
+r_values = np.linspace(r_inf, 4.0, 1200)
+iterations, last = 1000, 200
+r_plot, x_plot = [], []
+for r in r_values:
+    x = 0.5
+    for _ in range(iterations):
+        x = r * x * (1 - x)
+    for _ in range(last):
+        x = r * x * (1 - x)
+        r_plot.append(r)
+        x_plot.append(x)
+
+plt.figure(figsize=(8,6))
+plt.plot(r_plot, x_plot, '.', markersize=0.4)
+plt.title('Detalle del diagrama de bifurcación para r > r_\infty')
+plt.xlabel('Parámetro r')
+plt.ylabel('$x_n$ (atractor)')
+plt.tight_layout()
+plt.show()
+```
+
+## 10. Conclusión y siguientes pasos Conclusión y siguientes pasos
+
+1. Implementa el mapa en Python, R o Excel.
+2. Experimenta con distintos $r$ y $x_0$.
+3. Visualiza cobweb plots y diagramas de bifurcación.
+4. Estudia la constante de Feigenbaum en otros mapas unimodales.
+
+```

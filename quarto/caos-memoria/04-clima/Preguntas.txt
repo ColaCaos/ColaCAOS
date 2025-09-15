@@ -1,0 +1,84 @@
+Pregunta 1: ¿De qué manera la naturaleza caótica de la atmósfera limita la fiabilidad de las predicciones climáticas a largo plazo? (Explorar cómo el “efecto mariposa” influye en las proyecciones para finales de siglo, por ejemplo).
+Pregunta 2: ¿Cuál es la diferencia fundamental entre predecir el tiempo meteorológico a corto plazo y proyectar el clima de aquí a varias décadas? (Que el experto explique el contraste entre pronóstico determinista vs. proyección estadística y el concepto de horizonte de predictibilidad).
+Pregunta 3: ¿Cómo logran los modelos climáticos generar proyecciones útiles si el sistema climático es caótico? (Indagar sobre técnicas como ensambles de simulaciones, escenarios de emisiones y métodos para discernir la señal del ruido de variabilidad interna).
+Pregunta 4: ¿Existe un “horizonte de predictibilidad” también en climatología, más allá del cual las proyecciones se vuelven muy inciertas? (Por ejemplo, ¿qué tan confiables son las predicciones a 100 años vista comparadas con las a 10-20 años, y por qué?).
+Pregunta 5: ¿Cómo incorporan los modelos la variabilidad interna (El Niño, Oscilaciones del Atlántico, etc.) y eventos inesperados como grandes erupciones volcánicas en las proyecciones de futuro? (Que hable sobre la diferencia entre lo predecible forzado y lo aleatorio interno, y si se hacen supuestos o promedios al respecto).
+Pregunta 6: ¿Qué tan importante es poder reproducir climas del pasado para confiar en un modelo climático? (Aquí el experto podría explicar cómo validan los modelos con paleoclima y registros históricos, y por qué eso aumenta la confianza en sus predicciones).
+Pregunta 7: ¿Cuáles son las mayores fuentes de incertidumbre actualmente en los modelos climáticos? (Por ejemplo, ¿provienen más del caos intrínseco, de no conocer las futuras emisiones humanas, o de limitaciones en la representación de procesos físicos como nubes o hielos?).
+Pregunta 8: El término “efecto mariposa” se usa mucho en meteorología; ¿sigue siendo relevante cuando hablamos de proyecciones de cambio climático global? (Buscando que el experto aclare hasta qué punto la sensibilidad a condiciones iniciales importa en las tendencias globales).
+Pregunta 9: ¿Cómo han mejorado los modelos climáticos en las últimas décadas para lidiar con un sistema tan complejo y caótico? (Por ejemplo, aumento de resolución, mejores datos iniciales, mejor física atmosférica/oceánica, computación más potente para muchos ensayos, etc.).
+Pregunta 10: Si bien no podemos predecir la atmósfera con precisión más allá de unos días, ¿qué les da confianza a los climatólogos para afirmar cosas como “a final de siglo el clima será X”? (Una pregunta abierta que resume la aparente paradoja y permite al experto explayarse sobre todo lo anterior: diferencia entre clima y tiempo, validación, física básica, etc.).
+
+
+
+## NIVEL DEL MAR
+rimer Informe de Evaluación (FAR, 1990) del IPCC proyectó para el año 2100 un aumento del nivel medio global de 31 a 110 cm (rango completo), con un valor promedio alrededor de ~66 cm
+blogs.egu.eu
+. Curiosamente, esta primera estimación fue más alta que las que el IPCC daría en las dos décadas siguientes. En el Segundo Informe (1995) y Tercer Informe (TAR, 2001) las proyecciones se redujeron; el TAR estimó un rango de 9 a 88 cm para 2100 bajo distintos escenarios
+realclimate.org
+realclimate.org
+. Posteriormente, el Cuarto Informe (AR4, 2007) presentó un rango más acotado de 18 a 59 cm para 2100
+realclimate.org
+realclimate.org
+, aunque aclarando que no se incluían en esas cifras ciertas incertidumbres relativas al comportamiento futuro de las capas de hielo
+realclimate.org
+. De hecho, el AR4 anotó que podría sumarse ~0,1–0,2 m adicionales si la dinámica del hielo aceleraba la subida
+realclimate.org
+. El Quinto Informe (AR5, 2013) revisó al alza las estimaciones: por ejemplo, para un escenario de altas emisiones (RCP8.5) proyectó hasta ~98 cm hacia 2100
+blogs.egu.eu
+blogs.egu.eu
+. En otras palabras, entre 2007 y 2013 las proyecciones máximas pasaron de ~60 cm a ~90–100 cm
+es.wikipedia.org
+es.wikipedia.org
+. Finalmente, el Sexto Informe (AR6, 2021) mantuvo rangos similares, con valores centrales en torno a ~70–100 cm para 2100 en escenarios de emisiones altas, pero reconociendo colas de distribución más altas: algunos estudios científicos recientes señalan que aumentos de hasta 2 metros para 2100 son físicamente posibles en escenarios extremos de pérdida acelerada de hielo
+es.wikipedia.org
+. En conjunto, las proyecciones históricas han oscilado a medida que mejoraban los modelos: inicialmente altas en 1990, más bajas durante 1995–2007 al excluir procesos inciertos, y nuevamente más altas al incorporarse mejor el potencial deshielo en informes reciente
+
+
+
+TIPPING POINTS
+
+Deshielo acelerado del permafrost ártico
+Inestabilidad de la capa de hielo de la Antártida Occidental
+Pérdida abrupta de la capa de hielo de Groenlandia
+Colapso de la circulación meridional del Atlántico (AMOC)
+
+
+Colapso del Sahara Verde (fin del Período Húmedo Africano): Hace entre 5.000 y 6.000 años, el norte de África sufrió una transformación radical de ecosistema, pasando de ser una región con vegetación, lagos y fauna abundante (un “Sáhara verde”) a las condiciones hiperáridas del desierto actual. Este cambio ocurrió cuando la intensidad del monzón africano disminuyó al cambiar ligeramente la órbita terrestre (disminuyó la insolación estival). Sin embargo, registros de sedimentos en Etiopía y otros lugares muestran que la transición no fue suave: durante cerca de un milenio antes de la desertización final, el clima del norte de África alternó entre períodos extremadamente húmedos y secos – una especie de parpadeo climático – señalando inestabilidad en el sistema monzónico【37†L71-L80】【37†L79-L87】. Finalmente, se cruzó el punto de inflexión donde la retroalimentación vegetación-lluvia colapsó: con menos lluvia, la vegetación murió, y sin vegetación el albedo del suelo aumentó y redujo aún más las precipitaciones, consolidando el estado desértico. Este es considerado el ejemplo más claro de un tipping point climático en la historia reciente de la Tierra【37†L79-L87】. Las consecuencias fueron dramáticas para la biosfera y las poblaciones humanas prehistóricas: desaparición de hábitats, migraciones forzadas hacia el Nilo y otras áreas más húmedas【37†L83-L91】. El Sahara “verde” nos enseña cómo variaciones graduales en la órbita solar condujeron a un cambio altamente no lineal debido a retroalimentaciones suelo-vegetación-atmósfera.
+
+Estos eventos abruptos del pasado demuestran que el sistema climático contiene umbrales sensibles. Incluso sin influencia humana, la Tierra ha mostrado comportamientos caóticos con saltos rápidos de temperatura y régimen climático regional. Importante, nos enseñan que pequeños cambios en el balance de energía (por ejemplo, leves variaciones orbitales o descargas de agua dulce) pudieron desencadenar grandes reorganizaciones climáticas, lo que implica que el clima actual podría también reaccionar de manera inesperada si se fuerzan ciertos límites. En particular, la existencia de estados alternativos (como una circulación oceánica “débil” vs “fuerte” durante la glaciación, o un Sahara verde vs desierto) sugiere que nuestro clima actual podría esconder puntos de quiebre que al sobrepasarse nos lleven a un mundo sustancialmente distinto.
+
+En síntesis, los procesos no lineales pueden invalidar en parte las proyecciones climáticas actuales, especialmente en lo referente al ritmo y distribución de los cambios. Los modelos de hoy ofrecen una imagen “promedio” bajo ciertos supuestos de gradualidad; sin embargo, el clima real podría sorprendernos con saltos abruptos. Esto no significa que los escenarios carezcan de valor –siguen indicando la dirección general del cambio bajo distintas emisiones–, pero deben interpretarse con cautela, considerando riesgos adicionales fuera de sus rangos. De hecho, los propios científicos insisten en la necesidad de desarrollar modelos de nueva generación que incluyan interactivamente estas dinámicas de umbral【44†L635-L643】, para mejorar las predicciones. Mientras tanto, en términos de gestión del riesgo, las posibilidades de cambios bruscos son un argumento a favor de actuar más rápidamente en mitigación y adaptación, dado que esperar señales claras podría ser esperar hasta que ya sea tarde.
+
+
+¿Pero qué implica el caos para las proyecciones climáticas a largo plazo? En principio, los modelos climáticos abordan esto promediando sobre muchas trayectorias caóticas individuales para obtener la tendencia forzada (es decir, “el clima es lo que esperas, el tiempo es lo que obtienes” – se pronostican distribuciones, no eventos individuales
+history.aip.org
+). Aun así, Lorenz mismo advirtió que el sistema climático en su conjunto podría poseer modos caóticos de baja frecuencia, capaces de generar autovariaciones significativas de clima sin necesitar empujes externos. En un discurso en 1965, Lorenz concluyó: “El clima puede o no ser determinista; probablemente nunca lo sabremos con certeza”
+history.aip.org
+, reconociendo la posibilidad teórica de que variaciones climáticas sustanciales fueran intrínsecamente impredecibles. Esta idea llevó a algunos meteorólogos en los años 1970 a plantear una “hipótesis nula pesimista” –que quizás nada es predecible a largo plazo, y el clima vagaría al azar dentro de algún rango
+history.aip.org
+history.aip.org
+. De hecho, en 1974 un comité científico de alto nivel llegó a afirmar que “podríamos muy bien descubrir que el comportamiento del sistema [climático] no es inherentemente predecible”
+history.aip.org
+. Lorenz y colegas especulaban que el clima tiene una tendencia intrínseca a variar difícil de distinguir de un verdadero azar
+history.aip.org
+. En tal caso, buscar causas externas para cada cambio podría ser infructuoso: quizá algunos cambios no tienen causa externa definida sino que emergen del propio “ruido” interno del sistema
+history.aip.org
+.
+
+
+ncertidumbre en los modelos: Dada la amplia gama de sensibilidades climáticas en los modelos CMIP6 (algunos con ECS > 5 °C), ¿cómo se determina la fiabilidad de un modelo? ¿Qué criterios se usan para descartar o atenuar las proyecciones de modelos que podrían estar “exagerando” el calentamiento? En esencia, ¿cómo se maneja la incertidumbre estructural de los modelos al comunicar resultados (ej. el hecho de que distintos modelos proyecten resultados diferentes bajo el mismo escenario)?
+Casos de predicciones fallidas: ¿Podría mencionar ejemplos concretos donde las proyecciones climáticas no acertaron y explicar por qué ocurrió? Por ejemplo, ¿qué aprendió la comunidad científica cuando el hielo ártico disminuyó mucho más rápido de lo previsto por los modelos de hace 15 años
+climatecentral.org
+climatecentral.org
+? ¿O cuándo la llamada “pausa del calentamiento” a principios de siglo sorprendió a muchos? ¿Qué se hizo para corregir esos errores en generaciones posteriores de modelos?
+Distinción señal/ruido y atribución: Dado el carácter caótico del sistema climático, ¿cómo diferencian los científicos entre un cambio atribuible a forzamientos externos y la variabilidad interna natural? Por ejemplo, ¿qué proporción del calentamiento observado podría ser, en teoría, fruto de variaciones internas multidecadales, y cómo lo sabemos? ¿Qué le diría a alguien que sugiere, citando a Lorenz, que el clima puede cambiar “por sí solo” sin causa externa
+history.aip.org
+?
+Umbrales no lineales y escenarios a 2100: Los escenarios estándar asumen cambios graduales, pero si mañana detectáramos señales de que un umbral crítico (digamos el colapso de la circulación oceánica) está próximo, ¿cómo afectaría eso a las proyecciones climáticas? ¿Se tienen planes de contingencia modelística para simular esos eventos de baja probabilidad? En otras palabras, ¿qué tan resilientes son las predicciones a la aparición de fenómenos no lineales no anticipados?
+Caos vs. confianza pública: Si bien los científicos entienden la diferencia entre predicción meteorológica e proyección climática estadística, muchas veces el público oye cifras de temperatura para 2100 con una seguridad que podría malinterpretarse. ¿Cómo se reconcilia la impredecibilidad inherente (caos, variabilidad) con la necesidad de comunicar escenarios claros para la toma de decisiones? ¿Existe un riesgo de sobrecomunicar certeza y luego sufrir una erosión de confianza si la evolución real diverge temporalmente de lo proyectado?
+Mejoras y límites futuros: Por último, mirando hacia adelante, ¿qué avances se esperan para mejorar la fiabilidad de las proyecciones climáticas? ¿Podemos esperar modelos que resuelvan mejor los procesos de nubes o que integren la posibilidad de tipping points de manera probabilística? ¿O siempre habrá un límite duro impuesto por la naturaleza caótica y compleja del sistema que ningún avance computacional podrá eliminar?
+
+
+
+

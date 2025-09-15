@@ -1,0 +1,248 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Atractores
+
+## Definición del clima
+
+Antes de seguir hablando del clima vamos a ver qué entedemos por el clima. Según la Organización Meteorológica Mundial, el clima se define como la descripción estadística —principalmente la media y la variabilidad— de las variables atmosféricas (temperatura, precipitación, viento, etc.) para un lugar dado durante un periodo de referencia de 30 años, lo cual:
+
+- Filtra las variaciones interanuales y anomalías (p. ej. El Niño–Oscilación del Sur).
+
+- Permite identificar tendencias y extremos climáticos a largo plazo.
+
+En la actualidad existe otra corriente de científicos para los que la definición del clima está mas relacionada con los sistemas caóticos. Para ellos, el clima no es la distribución de observaciones, sino el **atractor** de un **modelo climático** perfecto bajo condiciones externas fijas. Pero, ¿qué es un atractor?
+
+## Atractor 
+
+Para ver lo que es un atractor nos vamos a valer de nuevo de nuestro tan útil mapa logístico.
+
+
+Vamos a ir a la zona caótica del mapa logístico, con $r=3.9$. Vamos a ver un plot del valor de la sucesión con el tiempo. 
+
+```{python}
+import matplotlib.pyplot as plt
+
+def logistic_map(r, x):
+    return r * x * (1 - x)
+
+r = 3.9
+iterations = 1000
+transient = 100
+x = 0.5
+xs = []
+
+for i in range(iterations):
+    x = logistic_map(r, x)
+    if i >= transient:
+        xs.append(x)
+
+plt.figure(figsize=(4, 4))
+plt.plot(range(len(xs)), xs)
+plt.xlabel('Iteración (t)')
+plt.ylabel(r'$x_n$')
+plt.title(f'Orbita de la función logística para r={r}')
+plt.show()
+```
+
+Y ahora vamos a hacer lo mismo con números aleatorios que he mandado generar al ordenador con una distribución uniforme entre 0 y 1. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Configuración
+num_samples = 1000
+
+# Generar muestras uniformes
+samples = np.random.rand(num_samples)
+
+# Graficar
+plt.figure(figsize=(4, 4))
+plt.plot(range(num_samples), samples)
+plt.xlabel('Iteración (t)')
+plt.ylabel('Valor ')
+plt.title('Distribución uniforme [0,1] en función del tiempo')
+plt.show()
+```
+Aparentemente estamos viendo la misma nube de puntos sin ninguna estructura. 
+Pero, ¿qué pasa si representamos  $x_{n+1}$ frente a $x_n$ ?. El resultado es una zona de puntos que atrae las distintas iteraciones de nuestra secuencia. !!Nos econtramos ante un  atractor!!
+
+```{python}
+import matplotlib.pyplot as plt
+
+def logistic_map(r, x):
+    return r * x * (1 - x)
+
+r = 3.9
+iterations = 1000
+transient = 100
+x = 0.5
+x_vals = []
+y_vals = []
+
+for i in range(iterations):
+    x_next = logistic_map(r, x)
+    if i >= transient:
+        x_vals.append(x)
+        y_vals.append(x_next)
+    x = x_next
+
+plt.figure(figsize=(4, 4))
+plt.scatter(x_vals, y_vals, s=1)
+plt.xlabel(r"$x_n$")
+plt.ylabel(r"$x_{n+1}$")
+plt.title(r"Diagrama de fase: $x_{n+1}$ vs $x_n$ para $r=3.9$")
+plt.show()
+```
+Si hacemos lo mismo con los números aleatorios entre 0 y 1 el resultado es el siguiente. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Número de muestras
+num_samples = 1000
+
+# Generar una secuencia de números uniformes en [0,1]
+samples = np.random.rand(num_samples)
+
+# Construir los pares (x_n, x_{n+1})
+x_vals = samples[:-1]
+y_vals = samples[1:]
+
+# Dibujar el diagrama de fase (atractor)
+plt.figure(figsize=(4, 4))
+plt.scatter(x_vals, y_vals, s=5, alpha=0.6)
+plt.xlabel(r'$x_n$')
+plt.ylabel(r'$x_{n+1}$')
+plt.title('Diagrama de fase de números uniformes en [0,1]')
+plt.show()
+```
+
+NO hay ninguna estructura que atraiga los valores. Estamos ante un conjunto desestructurado de datos. 
+
+Volvamos al atractor del mapa logísitico. Uno podría decir que es lógico lo que vemos, ya que los puntos están definidos por la función logística. De hecho, parece que estamos viendo la función logística. Pero hay un detalle: si miras detalladamente verás huecos en la gráfica.¿Por qué el atractor es distinto de la función logística?
+
+- La ecuación logística  
+  $$
+  x_{n+1} = r\,x_n\,(1 - x_n)
+  $$  
+  es la regla determinista que asigna cada valor $x_n$ al siguiente.
+- El atractor es el conjunto de pares $(x_n, x_{n+1})$ en el espacio de fases donde la dinámica termina estabilizándose tras desechar el transitorio. Aunque la función forma una parábola continua, el atractor sólo ocupa las regiones donde los puntos rebotan de forma caótica y no periódica. Estamos por tanto ante un atractor periódico.
+¿ Qué tipos de atractores hay en el mapa logístico?
+
+1. **Punto fijo**  
+   Todos los orbitantes convergen a un único punto $(x^*,x^*)$. Ejemplo: para $0 < r < 1$, $x^* = 0$.
+
+2. **Ciclo límite**  
+   Oscilaciones periódicas entre un conjunto finito de valores (periodo 2, 4, …). Sucede para $3 < r < 3.5699\ldots$.
+
+3. **Atractor extraño (caótico)**  
+   La razón de que el atractor sea “extraño” es que puntos muy próximos en una iteración pueden acabar muy separados en iteraciones posteriores, generando esa mezcla de estabilidad (se quedan en el atractor) y caos (se mueven sin orden aparente), pero siempre dentro de la misma estructura fractal. Para ver la estructura fractal, vamos a hacer zooms sucesivos en  $r = 3.9$.  
+
+```{python}
+import matplotlib.pyplot as plt
+
+def logistic_map(r, x):
+    return r * x * (1 - x)
+
+# Configuraciones: (iteraciones, región zoom, título)
+configs = [
+    (2000, None, "Atractor completo con 2 000 iteraciones"),
+    (10000, (0.20, 0.30, 0.62, 0.80), "Zoom nivel 1 con 10 000 iteraciones"),
+    (15000, (0.23, 0.27, 0.68, 0.76), "Zoom nivel 2 con 15 000 iteraciones"),
+    (20000, (0.245, 0.255, 0.72, 0.736), "Zoom nivel 3 con 20 000 iteraciones"),
+    (50000, (0.248, 0.252, 0.728, 0.732), "Zoom nivel 4 con 50 000 iteraciones")
+]
+
+r = 3.9
+transient = 1000
+
+for iterations, zoom, title in configs:
+    x = 0.5
+    x_vals, y_vals = [], []
+    for i in range(iterations):
+        x_next = logistic_map(r, x)
+        if i >= transient:
+            x_vals.append(x)
+            y_vals.append(x_next)
+        x = x_next
+
+    plt.figure(figsize=(4, 4))
+    plt.scatter(x_vals, y_vals, s=0.5)
+    plt.title(title)
+    plt.xlabel(r"$x_n$")
+    plt.ylabel(r"$x_{n+1}$")
+    
+    if zoom:
+        plt.xlim(zoom[0], zoom[1])
+        plt.ylim(zoom[2], zoom[3])
+    
+    plt.tight_layout()
+
+plt.show()
+```
+
+Como vemos a diferencia de la función logística, el atractor tiene "huecos", no es continuo en el sentido matemático estricto. Se trata de una constucción extraña. Tras consultarlo a ChatGPT, me confirmó que hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos que un conjunto de la recta es **continuo** (o **conectado**) si para cualesquiera $a,b$ en él, todo el intervalo $[a,b]$ también está contenido. El atractor fractal **no** cumple esto: no existe $\delta>0$ tal que contenga el segmento $[x_0-\delta, x_0+\delta]$ alrededor de un punto $x_0$. Es decir, todos los puntos tienen huecos alrededor suyos. 
+
+Cada valor de $r$ tiene su propio atractor, tal y como se puede ver en la siguiente figura. Como es lógico, dependiendo del valor de crecimiento de la función logística $r$, el sistema terminará en un atractor o en otro. 
+
+```{python}
+import matplotlib.pyplot as plt
+import matplotlib
+
+def logistic_map(r, x):
+    return r * x * (1 - x)
+
+transient, iterations, x0 = 1000, 5000, 0.5
+r_values = [3.6, 3.65, 3.7, 3.75, 3.8, 3.85, 3.9, 3.92, 3.94, 3.96]
+
+plt.figure(figsize=(6, 6))
+
+# Aquí usamos matplotlib.colormaps para obtener 'tab10'
+cmap = matplotlib.colormaps["tab10"]
+
+for idx, r in enumerate(r_values):
+    x = x0
+    x_vals, y_vals = [], []
+    for i in range(iterations):
+        x_next = logistic_map(r, x)
+        if i >= transient:
+            x_vals.append(x)
+            y_vals.append(x_next)
+        x = x_next
+    plt.scatter(x_vals, y_vals, s=0.5, color=cmap(idx), label=f"r = {r}")
+
+plt.title("Atractores caóticos para distintos valores de r")
+plt.xlabel(r"$x_n$")
+plt.ylabel(r"$x_{n+1}$")
+plt.legend(title="Parámetro r", ncol=2, fontsize='small')
+plt.tight_layout()
+plt.show()
+
+```
+
+
+
+## Otros atractores
+
+Existen otros atractores dentro de los sistemas caóticos. Por ejemplo un péndulo doble con rozamiento acaba siempre en la misma posición (con el péndulo parado justo debajo del eje debido a la pérdida de energía); en este caso el atractor es un punto. Existe otro atractor que es mítico, y que no podría dejar pasar en este proyecto, que es el atractor de Lorenz por todo lo que representa en el estudio de sistemas caóticos y el tiempo. Fue el primero que se describió y describe perfectamente como un sistema caótico puede tener dos estados diferenciados. El sistema pasa de un estado a otro por pequeñas perturbaciones, y puede permanecer en uno de los estados durante bastante tiempo hasta que otra perturbación lo saca de ahí y lo lleva hacia el otro estado. Las ecuaciones de Lorenz se hallan totalmente fuera del alcance de lo que puedo entender con mi nivel de matemáticas, pero su funcionamiento resulta fácil de comprender una vez que se muestra la gráfica con el estado del sistema en función del tiempo. Le pedí a ChatGPT que me hiciese una simulación del atractor del Lorenz y este fue el resultado
+
+
+<img src="lorenz_lines_rainbow_time.gif" alt="Atractor de Lorenz">
+
+Haciendo paralelismos con el atractor del mapa logístico, en este caso, en lugar de puntos separados, lo que tenemos son líneas separadas. Es decir, ninguna de las líneas que van trazándose vuelve a pasar por encima de otra. Esto ya lo vimos en las simulaciones y experimentos con el péndulo: ninguna de las trayectorias del péndulo pasa por encima de otra.
+
+¿Y por qué es relevante desde el punto de vista del clima el atractor de Lorenz?. Porque nos ilustra como un sistema caótico puede alternar entre dos estados, y pasar de uno a otro por pequeñas perturbaciones. Por lo tanto, vemos aquí una explicación, una demostración de lo que esta segunda definición del clima es desde el punto de vista de un sistema caótico. El clima actual, es el estado actual en el que el sistema caótico que conforma el clima está ahora mismo. Y solamente desde la perspectiva de los sistemas caóticos podemos reconocer que el paso de un estado a otro puede deberse a muy pequeñas perturbaciones, o "tipping points", que nos pueden llevar a un clima totalmente diferente al que tenemos en la actualidad. Obviamente, hay que tener en cuenta que el clima es un sistema caótico con un estado multidimensional, que depende de múltiples variables que conforman este espacio multidimensional. Por lo tanto, sin más dilación, veremos en la siguiente sección los últimos cambios que se han producido en el clima y por qué han sido causados.
+
+
+
+

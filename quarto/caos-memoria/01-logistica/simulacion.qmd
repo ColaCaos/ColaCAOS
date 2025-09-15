@@ -1,0 +1,259 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Bifurcaciones sucesivas
+
+En el siguiente diagrama interactivo se muestra el valor final del mapa logístico para distintos valores de la tasa de crecimiento $r$. El usuario puede jugar con los valores de $r$, el valor inicial de $x$ y el número de iteraciones hasta un máximo de 500 iteraciones. 
+
+```{python}
+
+import warnings
+from bokeh.plotting import figure, show, output_notebook
+from bokeh.models import ColumnDataSource, Spinner, CustomJS
+from bokeh.layouts import column, row
+from bokeh.util.warnings import BokehDeprecationWarning
+import numpy as np
+
+# 1) Silenciar advertencias de deprecación de circle()
+warnings.filterwarnings('ignore', category=BokehDeprecationWarning)
+
+# Para renderizar en el notebook
+output_notebook(hide_banner=True)
+
+# Parámetros iniciales
+r_min0, r_max0, iter0, x0_0 = 2.5, 4.0, 200, 0.5
+n_r, m_y = 201, 400
+
+# Función para calcular datos de bifurcación con x0 variable
+def compute_data(r_min, r_max, iterations, x0):
+    r_vals = np.linspace(r_min, r_max, n_r)
+    r_data, x_data = [], []
+    for r in r_vals:
+        x = x0
+        for _ in range(iterations):
+            x = r * x * (1 - x)
+            r_data.append(r)
+            x_data.append(x)
+    return r_data, x_data
+
+# Datos iniciales
+r_data, x_data = compute_data(r_min0, r_max0, iter0, x0_0)
+source = ColumnDataSource(data=dict(r=r_data, x=x_data))
+
+# Figura
+p = figure(width=800, height=600, title="Diagrama de bifurcación",
+           x_axis_label="r", y_axis_label="x")
+p.circle('r', 'x', source=source, size=1, alpha=0.6)
+
+# Spinners para r_min, r_max, iteraciones y x0
+spinner_rmin = Spinner(title="r mínimo", low=0.0000, high=4.0000,
+                       step=0.0001, value=r_min0, format="0.0000")
+spinner_rmax = Spinner(title="r máximo", low=0.0000, high=4.0000,
+                       step=0.0001, value=r_max0, format="0.0000")
+spinner_iter = Spinner(title="Iteraciones", low=1, high=500,
+                       step=1, value=iter0)
+spinner_x0   = Spinner(title="x₀ inicial", low=0.000, high=1.000,
+                       step=0.001, value=x0_0, format="0.000")
+
+# Callback JS
+callback = CustomJS(args=dict(source=source,
+                              spinner_rmin=spinner_rmin,
+                              spinner_rmax=spinner_rmax,
+                              spinner_iter=spinner_iter,
+                              spinner_x0=spinner_x0,
+                              n_r=n_r),
+                    code="""
+    const rmin = spinner_rmin.value;
+    const rmax = spinner_rmax.value;
+    const iters = spinner_iter.value;
+    const x0    = spinner_x0.value;
+    const n     = n_r;
+    const dx    = (rmax - rmin) / (n - 1);
+    const r_vals = [];
+    for (let i = 0; i < n; i++) {
+        r_vals.push(rmin + i * dx);
+    }
+    const r_data = [];
+    const x_data = [];
+    for (let j = 0; j < n; j++) {
+        let r = r_vals[j];
+        let x = x0;
+        for (let k = 0; k < iters; k++) {
+            x = r * x * (1 - x);
+            r_data.push(r);
+            x_data.push(x);
+        }
+    }
+    source.data = {r: r_data, x: x_data};
+    source.change.emit();
+""")
+
+spinner_rmin.js_on_change('value', callback)
+spinner_rmax.js_on_change('value', callback)
+spinner_iter.js_on_change('value', callback)
+spinner_x0.js_on_change('value', callback)
+
+# Layout y muestra
+layout = column(
+    p,
+    row(spinner_rmin, spinner_rmax, spinner_iter, spinner_x0)
+)
+show(layout)
+
+
+```
+
+
+El primer detalle que no pasa desapercibido es ver como los valores máximos y mínimos están constreñidos entre dos curvas perfectamente definidas. En la siguiente gráfica se puede apreciar que el máximo que alcanza para cada valor de $r$ es precisamente $r/4$ tal y como habíamos calculado en la sección en la que hicimos el análisis formal del mapa logístico. Y su valor mínimo es la iteración del valor máximo, es decir $r^2/4(1-r/4)$. Solamente cuando $r=4$ se cubre todo el rango de valores desde 0 hasta 1. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r_values = np.linspace(2, 4, 800)
+n_iterations = 1000
+transient = 200  # descartar las primeras 10 iteraciones
+
+# Cálculo del diagrama de bifurcación
+r_plot = []
+x_plot = []
+for r in r_values:
+    x = 0.5
+    for i in range(n_iterations):
+        x = r * x * (1 - x)
+        if i >= transient:
+            r_plot.append(r)
+            x_plot.append(x)
+
+# Cálculo analítico del máximo y f(f_max)
+f_max = r_values / 4
+f2_max = r_values * f_max * (1 - f_max)
+
+# Plot único
+plt.figure(figsize=(8, 6))
+plt.scatter(r_plot, x_plot, s=0.1, alpha=0.5)
+plt.plot(r_values, f_max, color='red', linestyle='--', label='$f_{max}(r)=\\frac{r}{4}$')
+plt.plot(r_values, f2_max, color='orange', linestyle='--', label='$f(f_{max}(r))$')
+plt.xlabel("Valor de r")
+plt.ylabel("Valores de x")
+plt.title("Diagrama de bifurcación con $f_{max}$ en rojo y $f(f_{max})$ en verde")
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+Sigamos con el análisis visual del gráfico. Conforme $r$ crece, aparecen bifurcaciones que duplican el periodo sucesivamente:
+
+* $r_1=3.0$ → periodo 2. Analizada en la sección anterior.
+* $r_2 \approx 3.449$ → periodo 4. Tal y como vimos en la sección anterior para $r = 1 + \sqrt{6}$, la primera bifurcación deja de ser estable y vemos que aparece una bifurcación adicional, por lo que el valor final del mapa lógístico alterna entre 4 valores finales.
+* $r_3 \approx 3.544$ → periodo 8. Aparece una nueva bifurcación y ahora el valor final del mapa lógístico alterna entre 8 valores finales.
+
+Vamos a hacer un zoom a la zona con $r$ entre 3.4 y 3.6 para ver que pasa con más detalle a partir de $r_3 \approx 3.544$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+r_values = np.linspace(3.4, 3.6, 800)
+n_iterations = 1000
+transient = 10  # skip first 10 iterations
+
+# Lists to collect data for plotting
+r_plot = []
+x_plot = []
+
+# Compute logistic map
+for r in r_values:
+    x = 0.5  # initial condition
+    for i in range(n_iterations):
+        x = r * x * (1 - x)
+        if i >= transient:
+            r_plot.append(r)
+            x_plot.append(x)
+
+# Plotting
+plt.figure(figsize=(8, 6))
+plt.scatter(r_plot, x_plot, s=0.1)
+plt.xlabel("Valor de r")
+plt.ylabel("Valores de x (iteraciones finales)")
+plt.title("Diagrama de bifurcación de la función logística (r entre 3.4 y 3.6)")
+plt.tight_layout()
+plt.show()
+```
+
+Vemos un montón de bifurcaciones (periodo 2, 4, 8, 16). Vamos a hacer un zoom adicional a la zona con $r$ comprendido entre 3.449 y 3.56995.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+r_values = np.linspace(3.449, 3.56995, 800)
+n_iterations = 1000
+transient = 500  # skip first 10 iterations
+
+# Lists to collect data for plotting
+r_plot = []
+x_plot = []
+
+# Compute logistic map
+for r in r_values:
+    x = 0.5  # initial condition
+    for i in range(n_iterations):
+        x = r * x * (1 - x)
+        if i >= transient:
+            r_plot.append(r)
+            x_plot.append(x)
+
+# Plotting
+plt.figure(figsize=(8, 6))
+plt.scatter(r_plot, x_plot, s=0.1)
+plt.xlabel("Valor de r")
+plt.ylabel("Valores de x (iteraciones finales)")
+plt.title("Diagrama de bifurcación de la función logística (r entre 3.449 y 3.56995)")
+plt.tight_layout()
+plt.show()
+```
+
+Vemos ahora mejor las primerasbifurcaciones (periodo 2, 4, 8, 16). Parece que el valor final de la función logística va creando sucesivamente nuevos ciclos, hasta que llegamos a un valor cercano a 3.57 (3.56995 para ser más exactos). A partid de este valor de $r$ dejan de verse claramente oscilaciones periódicas, y pasamos al régimen caótico. Vamos a hacer un zoom adicional a la zona con $r$ comprendido entre 3.56 y 3.575.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+r_values = np.linspace(3.56, 3.575, 800)
+n_iterations = 1000
+transient = 500  # skip first 10 iterations
+
+# Lists to collect data for plotting
+r_plot = []
+x_plot = []
+
+# Compute logistic map
+for r in r_values:
+    x = 0.5  # initial condition
+    for i in range(n_iterations):
+        x = r * x * (1 - x)
+        if i >= transient:
+            r_plot.append(r)
+            x_plot.append(x)
+
+# Plotting
+plt.figure(figsize=(8, 6))
+plt.scatter(r_plot, x_plot, s=0.1)
+plt.xlabel("Valor de r")
+plt.ylabel("Valores de x (iteraciones finales)")
+plt.title("Diagrama de bifurcación de la función logística (r entre 3.56 y 3.575)")
+plt.tight_layout()
+plt.show()
+```

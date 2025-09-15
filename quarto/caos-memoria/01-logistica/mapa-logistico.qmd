@@ -1,0 +1,177 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# El Mapa Logístico
+
+## Introducción
+
+El mapa logístico es una de las ecuaciones en diferencia más clásicas de la teoría del caos:
+
+$$
+x_{n+1} = r\,x_n\,(1 - x_n)
+$$
+
+donde:
+
+- $x_n \in [0,1]$ es la población normalizada.
+- $r$ regula la tasa de crecimiento.
+
+Se le llama "mapa", porque n teoría de sistemas dinámicos, un mapa es simplemente una regla o función que toma un valor (o un punto en el espacio de estados) y lo “mapea” al siguiente valor. Algo similar a una función. El nombre “logístico” procede de la ecuación logística que modela el crecimiento de poblaciones con un límite (“capacidad de carga”). 
+
+Se trata, a grosso modo, de una sucesión en el que el siguiente valor depende del anterior. De este tipo, hemos visto bastantes en el bachillerato, como:
+
+### Sucesión aritmética
+- Definición recursiva: $a_{n+1} = a_n + d$, donde $d$ es la diferencia constante.  
+- Término general: $a_n = a_0 + n\,d$.  
+- Comportamiento: crecimiento o decrecimiento uniforme.
+
+### Sucesión geométrica
+- Definición recursiva: $a_{n+1} = q\,a_n$, donde $q$ es la razón constante.  
+- Término general: $a_n = a_0\,q^n$.  
+- Comportamiento: decae si $|q|<1$, es constante si $|q|=1$, crece o alterna si $|q|>1$.
+
+### Sucesiones lineales de orden superior
+- Ejemplo: Fibonacci  
+  $F_{n+1} = F_n + F_{n-1}$, con $F_0=0,\;F_1=1$.  
+- Tienen fórmula cerrada y crecen de forma suave y predecible.
+
+¿Qué tiene de especial el mapa logístico?. Lo veremos a continuación. Como primera pista, hay que observar que se trata de una ecuación no lineal, lo cual es un factor común de los sistemás caóticos. Una ecuación no lineal es aquella en la que la incógnita:
+
+* Aparece con potencias distintas de uno,
+* O bien se combina consigo misma (productos, potencias),
+* O involucra funciones no lineales (exponenciales, trigonométricas…).
+
+## Relevancia
+
+Su relevancia radica en que, a partir de una ecuación muy elemental, se observa toda la complejidad característica del caos: bifurcaciones, ciclos de periodo en expansión y dependencia sensible a las condiciones iniciales. Además su popularidad se debe a que esta ecuación modela muy bien diversos sistemas físicos como pueden ser:
+
+1. Dinámica de poblaciones
+2. Modelos económicos de oferta y demanda
+3. Reacciones químicas oscilantes
+4. Circuitos con realimentación
+
+El caso más paradigmático de estudio es el primero, es decir, la evolución de la población de animales, plantas o células con el tiempo. ¿Por qué se emplea la función logística para ello?. Porque al principio, la población crece rápidamente pero después debido a la falta de recursos del entorno se suelen producir colapsos poblacionanales. 
+
+
+Para valores de $r$ menor que uno, la población final tiende a cero, lo que resulta lógico, dado que la población inicial no crece. 
+
+Para valores de $r$ entre 1 y 3, la secuencia ${x_n}$ converge a un único valor fijo, que además es estable. 
+
+Pero al aumentar $r$ por encima de 3, llega la primera sorpresa. Primero aparece un ciclo doble (dos valores alternantes), luego ciclos de periodo 4, 8, 16… y así sucesivamente, hasta que el comportamiento se vuelve aparentemente aleatorio, o mejor dicho caótico. A lo largo del proyecto iremos distinguiendo claramente entre el término aleatorio y el término caótico.
+
+## Simulación en Python
+
+Vamos a refrendar lo anteriormente dicho con simulaciones de la función logística. 
+Como veremos a continuación, para valores de $r$ menores de 1, el valor final de $x_n$ tiende a cero.
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r, x0, n = 0.5, 0.2, 100
+x = np.zeros(n)
+x[0] = x0
+for i in range(1, n):
+    x[i] = r * x[i-1] * (1 - x[i-1])
+
+plt.plot(x, marker='o')
+plt.title("Evolución del mapa logístico para $r=0.5$")
+plt.xlabel("Iteración $n$")
+plt.ylabel("xₙ")
+plt.grid(True)
+plt.show()
+```
+
+Para valores de $r$ entre 1 y 3, el valor final de $x_n$ tiende a un punto estable
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r, x0, n = 2.5, 0.2, 100
+x = np.zeros(n)
+x[0] = x0
+for i in range(1, n):
+    x[i] = r * x[i-1] * (1 - x[i-1])
+
+plt.plot(x, marker='o')
+plt.title("Evolución del mapa logístico para $r=2.5$")
+plt.xlabel("Iteración $n$")
+plt.ylabel("xₙ")
+plt.grid(True)
+plt.show()
+```
+
+Para valores de $r$ entre 3 y 3.449, el valor final de $x_n$ tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos. 
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r, x0, n = 3.3, 0.2, 100
+x = np.zeros(n)
+x[0] = x0
+for i in range(1, n):
+    x[i] = r * x[i-1] * (1 - x[i-1])
+
+plt.plot(x, marker='o')
+plt.title("Evolución del mapa logístico para $r=3.3$")
+plt.xlabel("Iteración $n$")
+plt.ylabel("xₙ")
+plt.grid(True)
+plt.show()
+```
+
+Para valores de $r$ entre 3 y 3.544, el valor final de $x_n$ tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r, x0, n = 3.5, 0.2, 100
+x = np.zeros(n)
+x[0] = x0
+for i in range(1, n):
+    x[i] = r * x[i-1] * (1 - x[i-1])
+
+plt.plot(x, marker='o')
+plt.title("Evolución del mapa logístico para $r=3.5$")
+plt.xlabel("Iteración $n$")
+plt.ylabel("xₙ")
+plt.grid(True)
+plt.show()
+```
+
+Y a partir de $r = 3.56995$ no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r, x0, n = 3.6, 0.2, 200
+x = np.zeros(n)
+x[0] = x0
+for i in range(1, n):
+    x[i] = r * x[i-1] * (1 - x[i-1])
+
+plt.plot(x, marker='o')
+plt.title("Evolución del mapa logístico para $r=3.6$")
+plt.xlabel("Iteración $n$")
+plt.ylabel("xₙ")
+plt.grid(True)
+plt.show()
+```
+
+Curioso, ¿verdad?. En la siguiente sección podrás experimentar con diferentes valores de r y diferentes valores iniciales, para ver cuál es el estado final del sistema.
+Después en sucesivas secciones, iremos explicando formalmente con ayuda de las matemáticas por qué ocurre ésto. 

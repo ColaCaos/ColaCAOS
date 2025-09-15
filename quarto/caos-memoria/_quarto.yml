@@ -1,0 +1,80 @@
+project:
+  type: book
+  output-dir: ./_memoria_pdf
+
+website:
+  site-url: https://colacaos.github.io/ColaCAOS
+
+book:
+  title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
+  author: "Rubén Torre Merino"
+  chapters:
+    - index.qmd
+    - objetivos.qmd
+    - resultados.qmd
+
+    # Logística
+    - 01-logistica/mapa-logistico.qmd
+    - 01-logistica/cobweb.qmd
+    - 01-logistica/puntos-fijos.qmd
+    - 01-logistica/analisis.qmd
+    - 01-logistica/generico.qmd
+    - 01-logistica/estable.qmd
+    - 01-logistica/bifurcaciones.qmd
+    - 01-logistica/simulacion.qmd
+    - 01-logistica/Caos.qmd
+    - 01-logistica/lyapunov.qmd
+    - 01-logistica/criterio.qmd
+
+    # Péndulo doble
+    - 02-pendulo-doble/doble.qmd
+    - 02-pendulo-doble/simulaciones.qmd
+    - 02-pendulo-doble/fractal.qmd
+    - 02-pendulo-doble/bifurcacionesPendulo.qmd
+    - 02-pendulo-doble/estadisticas.qmd
+    - 02-pendulo-doble/experimentos.qmd
+
+    # Meteorología
+    - 03-meteorologia/meteorologia.qmd
+    - 03-meteorologia/calculolyapunov.qmd
+    - 03-meteorologia/predicciones.qmd
+    - 03-meteorologia/Aemet.qmd
+
+    # Clima
+    - 04-clima/introclima.qmd
+    - 04-clima/atractor.qmd
+    - 04-clima/rapido.qmd
+    - 04-clima/evaluacion.qmd
+    - 04-clima/caosclima.qmd
+
+    # Experimentos propios
+    - 05-experimentos/intro.qmd
+    - 05-experimentos/funcionamientoCaotico.qmd
+    - 05-experimentos/test.qmd
+
+format:
+  pdf:
+    pdf-engine: xelatex
+    keep-tex: true
+    number-sections: true
+    toc: true
+    toc-depth: 1
+    papersize: a4
+    geometry:
+      - margin=2cm
+    fontsize: 10pt
+    classoption:
+      - open=any         # evita páginas en blanco al iniciar capítulo
+    dpi: 192             # reduce tamaño si usas width en px (p. ej. 800px -> ~4.17")
+    include-in-header: |
+      \usepackage{amsmath}
+      \usepackage{graphicx}
+      \usepackage{scrhack}
+      \usepackage{newunicodechar}
+      \newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+      \newunicodechar{≥}{\ensuremath{\ge}}
+      \newunicodechar{𝛿}{\ensuremath{\delta}}
+      \newunicodechar{𝜃}{\ensuremath{\theta}}
+      \allowdisplaybreaks
+      % Ancho por defecto para imágenes sin 'width=' explícito:
+      \setkeys{Gin}{width=.8\linewidth,height=7cm,keepaspectratio}

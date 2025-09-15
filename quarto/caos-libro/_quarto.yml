@@ -1,6 +1,13 @@
 project:
   type: book
   output-dir: ../../docs
+  resources:
+    - favicon.png 
+    - "**/*.gif"
+
+website:
+  site-url: https://colacaos.github.io/ColaCAOS
+  favicon: favicon.png
 
 book:
   title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
@@ -57,6 +64,7 @@ book:
         - 05-experimentos/test.qmd
 
 
+
 format:
   html:
     theme: cosmo
@@ -73,14 +81,19 @@ format:
     geometry:
       - margin=2.5cm
     fontsize: 11pt
-    header-includes: |
+    include-in-header: |
       \usepackage{amsmath}
+      \usepackage{scrhack}
+      \usepackage{newunicodechar}
+      \newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+      \newunicodechar{≥}{\ensuremath{\ge}}
+      \newunicodechar{𝛿}{\ensuremath{\delta}}
+      \newunicodechar{𝜃}{\ensuremath{\theta}}
+      \allowdisplaybreaks
       \makeatletter
-      \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
-      \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
-      \DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
-      \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
-      \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+      \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}}
+      \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}}
+      \DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}}
+      \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}}
+      \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}}
       \makeatother
-website:
-  favicon: favicon.png

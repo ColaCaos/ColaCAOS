@@ -1,0 +1,43 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Qué podemos predecir
+
+Hasta ahora nos hemos llevado la impresión de que en un sistema caótico no podemos predecir nada. Pero tampoco es así la cosa, y lo vamos a ver con el péndulo doble. Vamos a simular el péndulo doble tirándolo desde $\theta_1=170$ grados y  $\theta_2=170$ grados, posición de partida que sabemos que es caótica. El ángulo  $\theta_2$ lo vamos a variar 20 veces en pasos de 0.0005 grados (en total 1 milésima de grado de variación). Lanzamos esos 20 péndulos, y le pedimos a ChatGPT que en la simulación vaya acumulando la distancia total recorrida por cada péndulo en su extremo. El resultado para los primeros 20 segundos de simulación está en la siguiente figura:
+
+<figure>
+  <img src="Distancia20.png" alt="Diagrama del péndulo doble" width="100%">
+  <figcaption>Figura 1: Distancia recorrida por el extremo del péndulo</figcaption>
+</figure>
+
+Como podemos ver la trayectoria de los 20 péndulos diverge desde el principio en términos de la distancia recorrida, y puesto que estamos hablando de diferencias de 0.5 milésimas de grado entre péndulos, sabemos que el predecir la distancia recorrida con exactitud en la realidad va a ser imposible. Es decir, estamos donde estábamos hasta ahora.
+
+Pero, ¿qué pasa si simulo 1000 segundos?. Pues como vemos en la siguiente figura, el sistema ya no parece tan impredecible. La distancia recorrida va incrementándose prácticamente de forma lineal cuando ampliamos la duración de la simulación. 
+
+<figure>
+  <img src="Distancia1000.png" alt="Diagrama del péndulo doble" width="100%">
+  <figcaption>Figura 1: Distancia recorrida por el extremo del péndulo</figcaption>
+</figure>
+
+Esto es lo que pasa en la predicción meteorológica y climática cuando hacemos predicciones a largo plazo. Si bien no podemos saber lo que pasará en un día concreto en un lugar preciso, sí podemos saber su comportamiento con un margen de error razonable. Al igual que con el péndulo doble, en el que podemos predecir la distancia recorrida a los 2000 segundos viendo lo que se ha movido en los primeros 1000 segundos: va a ser aproximadamente el doble sin mucho margen de equivocación.
+
+## Ejemplos en predicción climática
+
+Hay varios ejemplos que ilustran como se aplica este principio a la predicción climática. Sin duda, el ejemplo más ilustrativo es el **Predicción de la temperatura media global**. Para ello se usa un modelo CGM (General Circulation Model), que es un modelo de la Circulación General de la Atmósfera y los Océanos. Con este modelo, aunque no sepamos si lloverá en Madrid el 15 de julio de 2030, podemos proyectar que la temperatura media anual aumente.
+
+Otro ejemplo es el uso de Modelos empíricos combinados con GCMs para estimar la frecuencia de olas de calor o periodos de sequía en un horizonte de 10–30 años.  Aunque la fecha exacta de la próxima ola de calor es impredecible, podemos calcular que su probabilidad anual aumenta de, por ejemplo, un 5 % a un 15 % bajo escenarios de +2 °C de calentamiento global.
+
+La enseñanza clave es que **el clima** funciona como el **comportamiento total a largo plazo** del péndulo doble:  
+- A **corto plazo**, ambos sistemas son caóticos e impredecibles con precisión puntual.  
+- A **largo plazo**, emergen **tendencias medias** y estadísticas que sí podemos estimar y utilizar para planificar políticas, infraestructuras y medidas de adaptación.
+
+Así, la analogía del péndulo doble nos ayuda a entender por qué los modelos climáticos son fiables para predecir promedios y tendencias, aunque jamás podrán garantizar el tiempo puntual de un día concreto dentro de meses o años.
+
+
+

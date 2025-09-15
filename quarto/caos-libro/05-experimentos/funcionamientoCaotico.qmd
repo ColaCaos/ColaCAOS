@@ -1,0 +1,27 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Simulación y funcionamiento caótico
+
+Una vez construida la rueda en el simulador y despues de haber comprobado que todo funcionaba correctamente empece con las simulaciones del sistema.
+
+Primero corrí la simulación cinco veces durante 180 segundos cada vez y en todas ellas establecí exactamente las mismas condiciones iniciales para todos los parámetros. Estos parámetros son te´´oricamente idénticos todas las veces que he ejcutado la simulación ya que el programa me permite hacer varias copias de un estado del sistema para despues poder correr la simulación varias veces con las mismas exactas condiciones iniciales.
+
+En cada una de las simulaciones use una opción de Algodoo para tener grabados los datos de velocidad angular instantanea de la rueda, de la posición x (en el eje horizontal) del centro de masas de las canicas a lo largo del tiempo y de la posició en y (en el eje vertical) del centro de masas de las canicas.
+
+En este gráfico se uestra la evolución de la velocidad angular de las cinco simulaciones todas empezando desde el mismo punto cad una representada con un color distinto.
+
+![180 segundos de simulación](output (13).png)
+
+Se puede ver como todas empiezan con una velocidad angular de aproximadamente 3 rad/s y rapidamente debido al rozamiento especialmente con el agua que va cayendo todas se frenan al mismo tiempo hasta arededor de los 0.5 rad/s. Hasta este momento sobre el segundo 3 todas las simulaciones van juntas y solo se distingue un línea. Es justo a partir de este momento cuando las simulaciones empiezan a separarse y en solo unos pocos segundos ya va cada una por su lado, e incluso la simulación número 2 pasa a tener velocidad angular negativa, lo que significa que la rueda ha cambiado su sentido de giro.
+
+Vamos a hacer mas zoom en los primeros segundos de simulación para ver como realmente empiezan a divergir las simulaciones.
+
+![5 segundos de simulación](output (16).png)
+

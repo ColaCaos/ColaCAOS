@@ -1,0 +1,261 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Caos en las predicciones meteorológicas
+
+La meteorología es un ejemplo paradigmático de sistema caótico. Edward Lorenz, en su famoso artículo de 1963, demostró que pequeñas perturbaciones en las condiciones iniciales pueden producir divergencias exponenciales en la evolución del sistema atmosférico (Lorenz, 1963). Esta propiedad se cuantifica mediante el **exponente de Lyapunov**, el cual mide la tasa a la que dos trayectorias inicialmente cercanas se separan en el espacio de fases.
+
+Como ya hemos mencionado uno de los retos del proyecto es demostrar que el tiempo es un sistema caótico. En la anterior entrada del proyecto hice un cálculo del exponente de Lyapunov cogiendo medidas reales de variables como la temperatura y el viento, y analizándolas por medio de rutinas hechas por ChatGPT. Los valores resultantes eran lo esperado: un horizonte de predictibilidad de 10 días para la temperatura media diaria.
+
+Ahora vamos a emprender un método indirecto de cálculo. Las diferentes organizaciones meteorológicas realizan todos los días predicciones de hasta 14 días. Puesto que el tiempo es caótico, este caos se tiene que reflejar en el error de las predicciones. A medida que aumenta la distancia con respecto al día actual, el error tiene que aumentar. Este incremento no será lineal sino que será exponencial, de acuerdo a la teoría que ya hemos visto. Si cogemos los errores, y hacemos un logaritmo, podremos hacer una regresión lineal del logaritmo del error, lo que nos dará el exponente de Lyapunov. Así de sencillo. Se trata de una medida indirecta, pero creo que muy sencilla del exponente de Lyapunov. 
+
+
+## Proceso de Recopilación de Datos Mediante el Script de Python
+
+En este punto lo primero que tenemos que hacer es recopilar datos. En este caso en vez de usar open-meteo, usé Visual Crossing (https://www.visualcrossing.com/) , que dispone también de una utilidad gratuita para descargar previsiones meteorológicas. Para ello, pedí a ChatGPT que hiciera un script para coger los datos de Visual Crossing. El script desarrollado tiene dos funciones principales, diseñadas para ir acumulando la información necesaria a lo largo del tiempo:
+
+_a) Registro de Pronósticos ("Forecast")_
+
+Cada día se obtiene un pronóstico para 15 días (el día actual + 14 días de anticipación) a través de la API de Visual Crossing. Para cada parámetro (temperatura, humedad, presión y velocidad del viento), se crea un archivo CSV en el que cada fila contiene:
+
+- **Columna 1:** La fecha de creación del pronóstico (formato americano: M-D-YYYY).
+- **Columnas 2 a 15:** Los valores predichos para 1 día adelante, 2 días adelante, …, hasta 14 días adelante.
+
+Matemáticamente, si denotamos por $F_{\text{param}}(d, n)$ el valor predicho para el parámetro en el día $d+n$ cuando el pronóstico se realizó en el día $d$, la fila correspondiente al pronóstico realizado en la fecha $d$ es:
+
+$$
+\text{Fila}_d = \bigl[ d,\; F_{\text{param}}(d,1),\; F_{\text{param}}(d,2),\; \dots,\; F_{\text{param}}(d,14) \bigr]
+$$
+
+
+_b) Registro Retroactivo ("Retro")_
+
+El propósito de este archivo es reconstruir, para cada día objetivo, la evolución de los pronósticos hechos en días anteriores y compararlos con el valor observado real. Para cada parámetro se crea un archivo CSV en el que cada fila contiene:
+
+- **Columna 1:** La fecha del día objetivo (por ejemplo, ayer, formato M-D-YYYY).
+- **Columna 2:** El valor observado históricamente para ese día.
+- **Columnas 3 a 16:** Los pronósticos para ese mismo día, realizados desde 1 hasta 14 días antes.
+
+En otras palabras, para un día objetivo $d_{\text{target}}$, se recupera el pronóstico realizado en $d_{\text{target}} - n$ (para $n = 1,2,\dots,14$) y se toma el valor predicho correspondiente al $n$-ésimo día. La fila retroactiva es:
+
+$$
+\text{Retro}_d = \bigl[ d_{\text{target}},\; O(d_{\text{target}}),\; F_{\text{param}}(d_{\text{target}}-1,1),\; F_{\text{param}}(d_{\text{target}}-2,2),\; \dots,\; F_{\text{param}}(d_{\text{target}}-14,14) \bigr]
+$$
+
+donde $O(d_{\text{target}})$ es el valor observado real para el parámetro en el día objetivo.
+
+La estructura de los dos ficheros se detalla en la siguiente figura
+
+![](FicheroCSV.png){width="100%"}
+
+Y el procedimiento que hace el script diariamente se detalla a continuación.
+
+
+![](EjecucionDiaria.png){width="100%"}
+
+
+El error de cada pronóstico se define como:
+
+$$
+e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \bigr|
+$$
+
+para $n = 1,2,\dots,14$. Esta serie $\{e(n)\}$ representa cómo varía el error en función del tiempo de anticipación.
+
+## Análisis de Datos y Determinación del Coeficiente de Lyapunov
+
+_a) Enfoque Teórico Clásico_
+
+En un sistema caótico, la separación entre dos trayectorias evoluciona de forma exponencial. Asumiendo que el error en el pronóstico $e(n)$ crece de manera similar, se modela como:
+
+$$
+e(n) = e(0)\, e^{\lambda n}
+$$
+
+Tomando logaritmos:
+
+$$
+\ln e(n) = \ln e(0) + \lambda n
+$$
+
+Por lo tanto, si se realiza un ajuste lineal de $\ln e(n)$ en función de $n$, la pendiente de la recta brinda una estimación empírica de $\lambda$. 
+
+_b) Enfoque Empírico Propuesto_
+
+En este estudio, en lugar de disponer de dos trayectorias infinitesimalmente separadas, se utilizan las diferencias en las predicciones realizadas en distintos días para el mismo objetivo. Cada error $e(n)$ se obtiene como la diferencia entre el pronóstico hecho $n$ días antes y el valor observado:
+
+$$
+e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \bigr|
+$$
+
+La estimación empírica del exponente de Lyapunov se obtiene realizando un ajuste lineal de:
+
+$$
+\ln e(n) = \ln e(0) + \lambda_{\text{emp}} n
+$$
+
+donde $\lambda_{\text{emp}}$ es la pendiente obtenida a partir de la regresión lineal sobre los datos $(n, \ln e(n))$.
+
+ Esto ya lo vimos en la sección [Efecto mariposa](../01-logistica/lyapunov.qmd#sec-sensibilidad). En esa sección vimos como el error iba creciendo exponencialemnte, y al hacer el logaritmo nos quedó una recta cuya pendiente era el exponente de Lyapunov de la función logística para ese valor de $r$. En este caso, veremos que el error de pronóstico crece también exponencialmente, no linealmente, lo que al hacer el logaritmo nos permitirá sacar la pendiente y por tanto el exponente de Lyapunov.
+
+_c) Confrontación con la Fórmula Tradicional_
+
+**Fórmula Tradicional:**
+
+$$
+\lambda = \lim_{t \to \infty} \frac{1}{t} \ln \frac{|\delta x(t)|}{|\delta x(0)|}
+$$
+
+**Fórmula Empírica del Estudio:**
+
+$$
+\lambda_{\text{emp}} \approx \text{slope}\bigl(\ln e(n)\ \text{vs.}\ n\bigr)
+$$
+
+En este caso, $e(n)$ incorpora tanto la sensibilidad a las condiciones iniciales como los errores inherentes del modelo de pronóstico. Además, el análisis se realiza sobre un rango discreto de días (1 a 14), por lo que $\lambda_{\text{emp}}$ debe interpretarse como una aproximación de la tasa de divergencia del error.
+
+## Resultados
+
+Durante los meses de febrero, marzo y abril estuve recopilando las predicciones y los valores observados de temperatura, humedad, viento y presión atmosférica para Galapagar. 
+
+El conjunto de errores para cada día de la predicción se muestran a continuación (cada línea representa un día en el que se realiza la predicción). 
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Paths to the retro CSVs
+files = {
+    'Temperatura (°C)': 'temperatureRetro.csv',
+    'Humedad (%)': 'humidityRetro.csv',
+    'Presión (hPa)': 'pressureRetro.csv',
+    'Viento (km/h)': 'windRetro.csv'
+}
+
+# Plot for each variable: one figure with a line per actual date
+for var_label, file_path in files.items():
+    # Read CSV, no header, first column date, second observed, next 14 forecast columns
+    df = pd.read_csv(file_path, header=None)
+    # Compute absolute errors: forecasts minus observed
+    errors = df.iloc[:, 2:16].sub(df.iloc[:, 1], axis=0)
+    lead_times = range(1, 15)
+    
+    plt.figure(figsize=(6, 6))
+    for idx, row in errors.iterrows():
+        plt.plot(lead_times, row.values, alpha=0.3)
+    plt.xlabel('Días de anticipación')
+    plt.ylabel(f'Error ({var_label.split("(")[-1][:-1]})')  # extrae la unidad
+    plt.title(f'Error {var_label}')
+    plt.xticks(lead_times)
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+```
+
+
+Los errores medios en valor absoluto de predicción en función del número de días anteriores en los que se hizo la predicción se muestran a continuación. Se ve claramente que los errores van aumentando exponencialmente.
+
+```{python}
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+
+# Paths to the retro CSVs
+files = {
+    'Temperatura (°C)': 'temperatureRetro.csv',
+    'Humedad (%)': 'humidityRetro.csv',
+    'Presión (hPa)': 'pressureRetro.csv',
+    'Viento (km/h)': 'windRetro.csv'
+}
+
+# For each variable, read the retro data, compute average error per lead time, and plot
+for var_label, file_path in files.items():
+    # Read CSV: first column date, second observed, next 14 forecast columns
+    df = pd.read_csv(file_path, header=None)
+    observed = df.iloc[:, 1]
+    forecasts = df.iloc[:, 2:16]  # columns 2 to 15 inclusive
+    # Compute absolute errors
+    errors = (forecasts.sub(observed, axis=0)).abs()
+    # Compute mean error for each lead time
+    mean_errors = errors.mean(axis=0)
+    # Prepare x values: lead times 1 to 14
+    lead_times = list(range(1, 15))
+
+    # Plot
+    plt.figure(figsize=(6, 6))
+    plt.plot(lead_times, mean_errors, marker='o')
+    plt.xlabel('Días de anticipación')
+    plt.ylabel(f'Error absoluto ({var_label.split("(")[-1][:-1]})')  # extrae la unidad
+    plt.title(f'Error medio absoluto - {var_label}')
+    plt.grid(True)
+    plt.tight_layout()
+    # Show the plot
+    plt.show()
+
+```
+
+Y ahora le pedimos a ChatGPT que nos calcule el exponente de Lyapunov, y que nos trace de forma superpuesta el error de acuerdo al exponente de Lyapunov. 
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Paths to the retro CSVs
+files = {
+    'Temperatura (°C)': 'temperatureRetro.csv',
+    'Humedad (%)': 'humidityRetro.csv',
+    'Presión (hPa)': 'pressureRetro.csv',
+    'Viento (km/h)': 'windRetro.csv'
+}
+
+# For each variable, read the retro data, compute average error per lead time,
+# estimate Lyapunov exponent via exponential fit, and plot both curves
+for var_label, file_path in files.items():
+    # Read CSV: first column date, second observed, next 14 forecast columns
+    df = pd.read_csv(file_path, header=None)
+    observed = df.iloc[:, 1]
+    forecasts = df.iloc[:, 2:16]
+    
+    # Compute absolute errors and mean error for each lead time
+    errors = (forecasts.sub(observed, axis=0)).abs()
+    mean_errors = errors.mean(axis=0).values
+    lead_times = np.arange(1, len(mean_errors) + 1)
+    
+    # Fit exponential: ln(error) = intercept + lambda * t
+    log_errors = np.log(mean_errors)
+    lambda_exp, intercept = np.polyfit(lead_times, log_errors, 1)
+    
+    # Compute fitted exponential curve
+    fitted_errors = np.exp(intercept + lambda_exp * lead_times)
+    
+    # Plot data and exponential fit
+    plt.figure(figsize=(6, 6))
+    plt.plot(lead_times, mean_errors, marker='o', label='Error medio')
+    plt.plot(lead_times, fitted_errors, marker='x',
+             label=f'Ajuste exp (λ={lambda_exp:.3f})')
+    plt.xlabel('Días de anticipación')
+    plt.ylabel(f'Error absoluto ({var_label.split("(")[-1][:-1]})')  # extrae la unidad
+    plt.title(f'Error medio absoluto - {var_label}')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+```
+
+Los exponentes de Lyapunov salen más pequeños que los calculados mediante las series históricas en la sección anterior [Predictibilidad](./calculolyapunov.qmd#sec-lyapunov). Hay que tener en cuenta que los exponentes en la sección anterior se tomaban sobre la base de 75 años, mientras que aquí tenemos un experimento más limitado, solamente tres meses, por lo que es normal que no cuadren del todo los datos. Sin embargo, tal y como hipotizamos, estamos alredededor de las dos semanas como límite de predictbilidad. 
+
+Además lo que es muy relevante, es ver como el error de predicción crece exponencialmente. Se ponen de manifiesto dos causas: la inexactitud de las condiciones inciales, y la inexactitud de los modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y como esperabamos los errores crecen exponencialmente. 
+
+
+
+## Referencias Bibliográficas
+

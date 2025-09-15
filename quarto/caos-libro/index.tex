@@ -115,14 +115,6 @@
 
 
 \KOMAoption{captions}{tableheading}
-\usepackage{amsmath}
-\makeatletter
-\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
-\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
-\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
-\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
-\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
-\makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -359,6 +351,18 @@ físicos sencillos, para analizar el comportamiento de mi sistema caótico
 propuesto
 
 \chapter{Resultados}\label{resultados}
+
+A continuación desglosaré las principales aportaciones propias
+realizadas a lo largo de este proyecto, en términos de resultados
+científicos, investigaciones llevadas a cabo y código generado.
+
+\section{Resultados}\label{resultados-1}
+
+\hyperref[sec-sensibilidad]{Efecto mariposa} /// \{\#sec-sensibilidad\}
+\hyperref[sec-inestabilidad]{Efecto mariposa}
+\hyperref[sec-exponente]{Efecto mariposa}
+
+\section{Código generado}\label{cuxf3digo-generado}
 
 \part{El Caos a través de la Función Logística}
 
@@ -654,7 +658,7 @@ x_{n+1} = \cos(x_n), \quad x_0 = 0.
 \]
 
 Los primeros valores son: \[
-\begin{aligned}
+\begin{align*}
 x_1 &= \cos(0)=1,\\
 x_2 &= \cos(1)\approx0.540302,\\
 x_3 &= \cos(x_2)\approx0.857553,\\
@@ -665,7 +669,7 @@ x_7 &= \cos(x_6)\approx0.763960,\\
 x_8 &= \cos(x_7)\approx0.722102,\\
 x_9 &= \cos(x_8)\approx0.750417,\\
 x_{10} &= \cos(x_9)\approx0.731404,\\
-\end{aligned}
+\end{align*}
 \]
 
 Vemos que los valores van oscilando, pero rápidamente se aproximan al
@@ -837,13 +841,13 @@ x_4 = r^4\,x_0\,(1 - x_0)\,
 \]
 
 \[
-\begin{aligned}
+\begin{align*}
 x_5 =\;& r^5\,x_0\,(1 - x_0)\,
 \bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
 \bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\\
 &\times\;\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\\
 &\times\;\bigl(1 - r^4\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\bigr)
-\end{aligned}
+\end{align*}
 \]
 
 Como podemos ver, sí que podemos ir expresando los sucesivos términos en
@@ -958,28 +962,42 @@ parecidas a las predichas para\(r\approx3\). Algunos ejemplos son:
 
 \begin{itemize}
 \item
-  Moscas de la carne (Lucilia cuprina). En los famosos experimentos de
-  Nicholson sobre poblaciones de mosca de la carne en frascos, al
-  mantenerlas en condiciones constantes y con alta fecundidad, la
-  densidad adulta pasaba de un pico alto un año a un valle bajo al
-  siguiente, repitiéndose cada dos generaciones.
+  \textbf{Moscas de la carne (\emph{Lucilia cuprina})}\\
+  En los famosos experimentos de Nicholson sobre poblaciones de moscas
+  de la carne, al mantenerlas en condiciones constantes y con alta
+  fecundidad, la densidad adulta pasaba de un pico alto un año a un
+  valle bajo al siguiente, repitiéndose cada dos generaciones
+  \href{https://www.jstor.org/stable/827141?utm_source=chatgpt.com}{Nicholson
+  1954},
+  \href{https://en.wikipedia.org/wiki/Alexander_John_Nicholson?utm_source=chatgpt.com}{Wikipedia}.
 \item
-  Escarabajos del trigo (Tribolium confusum). Gurney y Nisbet cultivaron
-  colonias de Tribolium en el laboratorio controlando sólo la tasa de
-  natalidad por suministro de alimento. Se observó un ciclo bienal: una
-  generación con números muy altos y la siguiente bastante más baja, en
-  perfecta alternancia.
+  \textbf{Escarabajos del trigo (\emph{Tribolium confusum})}\\
+  Gurney y Nisbet cultivaron colonias de \emph{Tribolium} en el
+  laboratorio controlando solo la tasa de natalidad mediante el
+  suministro de alimento, y se observó un ciclo bienal: una generación
+  con números muy altos seguida de otra bastante más baja, en perfecta
+  alternancia
+  \href{https://desharnais.sciencecourseware.org/reprints/JAE1987.pdf?utm_source=chatgpt.com}{Gurney
+  \& Nisbet 1987},
+  \href{https://ojs.openagrar.de/index.php/JKA/article/view/10631/9697?utm_source=chatgpt.com}{Julius
+  Kühn-Archiv}.
 \item
-  Daphnia en estanques experimentales. Algunos estudios con pulgas de
-  agua (Daphnia) en estanques cerrados, variando la concentración de
-  alimento, han mostrado también ciclos aproximados de dos generaciones
-  cuando la tasa de crecimiento es lo bastante alta.
+  \textbf{Daphnia en estanques experimentales}\\
+  Algunos estudios con pulgas de agua (\emph{Daphnia}) en estanques
+  cerrados, variando la concentración de alimento, han mostrado también
+  ciclos aproximados de dos generaciones cuando la tasa de crecimiento
+  es lo bastante alta
+  \href{https://www.ncbi.nlm.nih.gov/books/NBK2042/?utm_source=chatgpt.com}{NCBI},
+  \href{https://www.researchgate.net/publication/31983971_Large-amplitude_cycles_of_Daphnia_and_its_algal_prey_in_enriched_environments?utm_source=chatgpt.com}{ResearchGate}.
 \item
-  Peces capelán (Mallotus villosus). En poblaciones silvestres de
-  capelán del Atlántico Norte, los registros de capturas han evidenciado
-  picos de abundancia que tienden a repetirse cada dos años, lo cual
-  coincide con su periodo de madurez y un efecto de
-  ``sobrepoblación--agotamiento de recursos''.
+  \textbf{Peces capelán (\emph{Mallotus villosus})}\\
+  En poblaciones silvestres de capelán del Atlántico Norte, los
+  registros de capturas han evidenciado picos de abundancia que tienden
+  a repetirse cada dos años, lo cual coincide con su periodo de madurez
+  y su ritmo semélparo: tras desovar mueren, lo que promueve ese patrón
+  de ``sobrepoblación--agotamiento de recursos'' bienal
+  \href{https://en.wikipedia.org/wiki/Capelin?utm_source=chatgpt.com}{Wikipedia},
+  \href{https://onlinelibrary.wiley.com/doi/full/10.1002/edn3.415?utm_source=chatgpt.com}{Wiley}.
 \end{itemize}
 
 En todos estos casos la dinámica de periodo 2 refleja una
@@ -1211,12 +1229,12 @@ x = \frac{r-1}{r}.
 
 Para la segunda iterada:\\
 \[
-\begin{aligned}
+\begin{align*}
 f^{(2)}(x)
 &= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
 = r\bigl(r\,x - r\,x^2\bigr)\bigl[1 - (r\,x - r\,x^2)\bigr]\\[6pt]
 &= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2).
-\end{aligned}
+\end{align*}
 \]
 
 Por tanto,\\
@@ -1503,7 +1521,7 @@ f'(x) = r\,(1 - 2x).
   \textbf{Derivada en (x\_1)}\\
   {[}
 
-  \begin{aligned}
+  \begin{align*}
   f'(x_1)
   &= r\Bigl(1 - 2\,x_1\Bigr)
   = r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
@@ -1511,14 +1529,14 @@ f'(x) = r\,(1 - 2x).
   = r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
   &= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
   = -1 \;-\;\sqrt{(r+1)(r-3)}.
-  \end{aligned}
+  \end{align*}
 
   {]}
 \item
   \textbf{Derivada en (x\_2)}\\
   {[}
 
-  \begin{aligned}
+  \begin{align*}
   f'(x_2)
   &= r\Bigl(1 - 2\,x_2\Bigr)
   = r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
@@ -1526,14 +1544,14 @@ f'(x) = r\,(1 - 2x).
   = r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
   &= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
   = -1 \;+\;\sqrt{(r+1)(r-3)}.
-  \end{aligned}
+  \end{align*}
 
   {]}
 \item
   \textbf{Producto de las derivadas}\\
   {[}
 
-  \begin{aligned}
+  \begin{align*}
   f'(x_1)\,f'(x_2)
   &= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
      \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
@@ -1541,7 +1559,7 @@ f'(x) = r\,(1 - 2x).
   = 1 \;-\;(r+1)(r-3) \\[4pt]
   &= 1 - \bigl(r^2 - 2r - 3\bigr)
   = -\,r^2 + 2r + 4.
-  \end{aligned}
+  \end{align*}
 
   {]}
 \end{enumerate}
@@ -1786,7 +1804,7 @@ por una ecuación tan sencilla?. Hemos topado con el caos y el
 sistemas físicos como la meteorología.
 
 \subsection{Inestabilidad de los cálculos
-numéricos}\label{inestabilidad-de-los-cuxe1lculos-numuxe9ricos}
+numéricos}\label{sec-inestabilidad}
 
 Cuando nos encontramos con un sistema físico con alta dependencia a las
 condiciones iniciales, no solamente tenemos el problema de conocer con
@@ -2111,7 +2129,7 @@ tomamos N iteraciones y aplicamos la siguiente fórmula aproximada
 Al aumentar \(N\), \(\lambda_N\) tenderá a \(\lambda\).
 
 \subsection{\texorpdfstring{Ejemplo numérico sencillo
-(\(N=20\))}{Ejemplo numérico sencillo (N=20)}}\label{ejemplo-numuxe9rico-sencillo-n20}
+(\(N=20\))}{Ejemplo numérico sencillo (N=20)}}\label{sec-exponente}
 
 Vamos a calcular el exponente de Lyapunov para el caso de \(r=4\). Tal y
 como vimos en las simulaciones que hicimos en el primer apartado, con
@@ -2194,12 +2212,12 @@ Cada fila se interpreta así:
 \end{enumerate}
 
 Ahora sumamos todos los logaritmos obtenidos: \[
-\begin{aligned}
+\begin{align*}
 \sum_{k=0}^{19} \ln\lvert f'(x_{k})\rvert \;=\;& 
 0.470 + 1.001 \;-\; 1.201 + 1.375 + 1.340 + 1.193 + 0.360 + 1.090 \;-\; 0.870 + 1.364 \\
 &+ 1.295 + 0.982 \;-\; 0.836 + 1.363 + 1.289 + 0.949 \;-\; 0.415 + 1.330 + 1.148 \;-\; 0.036 \\
 =\;& 13.191.
-\end{aligned}
+\end{align*}
 \] Por último promediamos esta suma, por lo que el exponente de Lyapunov
 aproximado para \(N = 20\) queda como \[
 \lambda_{20} 
@@ -3291,7 +3309,9 @@ Esta es la animación que represente la trayectoria que han seguido tres
 tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya
 que la trayectoria está ralentizada para que sea más fácil seguir como
 van divergiendo.
-\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{02-pendulo-doble/trayectorias.gif}
+
+\href{?var:site-url/02-pendulo-doble/trayectorias.gif}{Ver animación en
+la web}
 
 \section{Comparación con el péndulo
 simple}\label{comparaciuxf3n-con-el-puxe9ndulo-simple}
@@ -3312,14 +3332,16 @@ Y si miramos en la animación el ángulo del péndulo en cada una de las
 trayectorias, vemos de nuevo que en función del tiempo las trayectorias
 son muy similares.
 
-\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{02-pendulo-doble/theta_vs_time.gif}
+\href{?var:site-url/02-pendulo-doble/theta_vs_time.gif}{Ver animación en
+la web}
 
 He hecho este mismo gráfico con los datos de las tiradas del péndulo
 doble. El contraste con el péndulo doble es mayúsculo. En el péndulo
 doble no había ni una sola trayectoria idéntica, divergían
 continuamente. En el péndulo simple se ve como van iguales.
 
-\includegraphics[width=8.33333in,height=\textheight,keepaspectratio]{02-pendulo-doble/theta_vs_time_doble.gif}
+\href{?var:site-url/02-pendulo-doble/theta_vs_time_doble.gif}{Ver
+animación en la web}
 
 \part{La Meteorología y el Caos}
 
@@ -3383,7 +3405,7 @@ time,temperature\_2m\_mean (°C),precipitation\_sum
 
 En segundo lugar tenemos que saber qué hacer con estos datos. Después de
 varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre
-cómo calcular el exponente de Lyapunot en datos meteorologicos.
+cómo calcular el exponente de Lyapunov en datos meteorologicos.
 
 \begin{quote}
 \textbf{Referencia completa:} Özgür E. \& Yılmaz M. U. (2022). Using
@@ -3833,7 +3855,7 @@ el análisis se realiza sobre un rango discreto de días (1 a 14), por lo
 que \(\lambda_{\text{emp}}\) debe interpretarse como una aproximación de
 la tasa de divergencia del error.
 
-\section{Resultados}\label{resultados-1}
+\section{Resultados}\label{resultados-2}
 
 Durante los meses de febrero, marzo y abril estuve recopilando las
 predicciones y los valores observados de temperatura, humedad, viento y
@@ -5312,9 +5334,6 @@ paredes que van desde el centro hasta las aspas. Dentro de cada
 compartimento hay una pequeña canica que a medidad que la rueda gira se
 van moviendo dentro de cada compartimento.
 
-Estas pequeñas canicas son la parte mas importante de el sistema por son
-las que hacen que el giro de la rueda sea caótico.
-
 Aqum hay dos tablas en las que se muestran las caracteristicas
 principales de la rueda y de las canicas
 
@@ -5354,7 +5373,75 @@ El tamaño de las cuatro aspas es de 0.5m cada una
 
 }
 
-\caption{Rueda caótica}
+\caption{Rueda caótica - Escena completa}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/Captura de pantalla 2025-08-31 184302.png}}
+
+}
+
+\caption{Rueda caótica Zoom}
+
+\end{figure}%
+
+\chapter{Simulación y funcionamiento
+caótico}\label{simulaciuxf3n-y-funcionamiento-cauxf3tico}
+
+Una vez construida la rueda en el simulador y despues de haber
+comprobado que todo funcionaba correctamente empece con las simulaciones
+del sistema.
+
+Primero corrí la simulación cinco veces durante 180 segundos cada vez y
+en todas ellas establecí exactamente las mismas condiciones iniciales
+para todos los parámetros. Estos parámetros son te´´oricamente idénticos
+todas las veces que he ejcutado la simulación ya que el programa me
+permite hacer varias copias de un estado del sistema para despues poder
+correr la simulación varias veces con las mismas exactas condiciones
+iniciales.
+
+En cada una de las simulaciones use una opción de Algodoo para tener
+grabados los datos de velocidad angular instantanea de la rueda, de la
+posición x (en el eje horizontal) del centro de masas de las canicas a
+lo largo del tiempo y de la posició en y (en el eje vertical) del centro
+de masas de las canicas.
+
+En este gráfico se uestra la evolución de la velocidad angular de las
+cinco simulaciones todas empezando desde el mismo punto cad una
+representada con un color distinto.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/output (13).png}}
+
+}
+
+\caption{180 segundos de simulación}
+
+\end{figure}%
+
+Se puede ver como todas empiezan con una velocidad angular de
+aproximadamente 3 rad/s y rapidamente debido al rozamiento especialmente
+con el agua que va cayendo todas se frenan al mismo tiempo hasta
+arededor de los 0.5 rad/s. Hasta este momento sobre el segundo 3 todas
+las simulaciones van juntas y solo se distingue un línea. Es justo a
+partir de este momento cuando las simulaciones empiezan a separarse y en
+solo unos pocos segundos ya va cada una por su lado, e incluso la
+simulación número 2 pasa a tener velocidad angular negativa, lo que
+significa que la rueda ha cambiado su sentido de giro.
+
+Vamos a hacer mas zoom en los primeros segundos de simulación para ver
+como realmente empiezan a divergir las simulaciones.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/output (16).png}}
+
+}
+
+\caption{5 segundos de simulación}
 
 \end{figure}%
 

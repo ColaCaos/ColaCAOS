@@ -1,0 +1,20 @@
+---
+title: "Caos: Teoría y Experimentos"
+format: html
+---
+
+# Bienvenido
+
+Este libro explora el fascinante mundo del caos desde distintos puntos de vista:
+
+- **Modelos matemáticos simples**, como la función logística, que nos introducen a las bifurcaciones, atractores y comportamiento impredecible en sistemas deterministas.
+- **Sistemas físicos reales**, como el péndulo doble, que muestran cómo el caos se manifiesta en el mundo tangible.
+- **Meteorología y clima**, donde la sensibilidad a condiciones iniciales limita la predictibilidad de los modelos atmosféricos y climáticos.
+- **Experimentos caseros**, que puedes realizar tú mismo para observar el caos en acción.
+
+Cada capítulo está dividido en secciones independientes, con gráficos, simulaciones, ecuaciones en LaTeX y referencias a la literatura científica cuando sea relevante.
+
+> _“El aleteo de una mariposa en Brasil puede provocar un tornado en Texas.”_  
+> — Edward Lorenz
+
+Comencemos el viaje hacia la comprensión del caos.

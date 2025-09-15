@@ -1,0 +1,360 @@
+﻿---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Predicitibilidad de datos meteorolÃ³gicos
+
+
+El primer paso a la hora de estudiar el caos en el tiempo meteorolÃ³gico es disponer de datos histÃ³ricos de los principales parÃ¡metros del tiempo. Existe una excelente web llamada [OpenMeteo](https://open-meteo.com/en/docs) que proporciona datos histÃ³ricos de observaciones y predicciones para cualquier localidad, y que ademÃ¡s lo hace de forma gratuita en:
+
+https://open-meteo.com/en/docs
+
+PoniÃ©ndome manos a la obra, he descargado los datos histÃ³ricos de Galapagar desde el aÃ±o 1950. La serie histÃ³rica que devuelve la pÃ¡gina web tiene este formato:
+
+latitude,longitude,elevation,utc_offset_seconds,timezone,timezone_abbreviation  
+40.597538,-4.0735474,885.0,7200,Europe/Berlin,GMT+2  
+
+time,temperature_2m_mean (Â°C),precipitation_sum (mm),wind_speed_10m_mean (km/h)  
+1950-06-07,20.7,0.50,13.1  
+1950-06-08,18.4,2.30,14.4  
+1950-06-09,18.6,3.10,10.0  
+1950-06-10,18.6,3.90,7.8  
+1950-06-11,18.8,0.50,11.2  
+1950-06-12,17.0,0.00,9.0  
+1950-06-13,18.9,0.20,7.2  
+1950-06-14,21.1,0.00,8.0  
+1950-06-15,20.2,0.00,12.8  
+
+En segundo lugar tenemos que saber quÃ© hacer con estos datos. DespuÃ©s de varias bÃºsquedas en ChatGPT y google encontrÃ© un artÃ­culo sencillo sobre cÃ³mo calcular el exponente de Lyapunot en datos meteorologicos. 
+
+> **Referencia completa:** Ã–zgÃ¼r E. & YÄ±lmaz M. U. (2022). Using Chaos Theory to Determine Average Prediction Times of Different Meteorological Variables: A Case Study in Sivas. *Int. J. Adv. Eng. Pure Sci.* 34(1):101â€“106.  
+
+
+El artÃ­culo investiga cuÃ¡nto tiempo, en promedio, pueden predecirse fiablemente tres series diarias (temperatura, velocidad del viento y humedad relativa desde el aÃ±o 2006 hasta el 2010 para la estaciÃ³n de Sivas en TurquÃ­a) usando teorÃ­a del caos. 
+Le pasÃ© este artÃ­culo a chatGPT y le pedÃ­ que reprodujese los cÃ¡lculos para mis datos de Galapagar. Una de las preguntas que me lanzÃ³ de vuelta chatGPT es que si querÃ­a usar los valores de los parÃ¡metros $m$ y $\tau$ que usaban en el estudio de la estaciÃ³n turca. PedÃ­ de vuelta a ChatGPT que eran estos valores, pues al parecer jugaban un papel crÃ­tico a la hora de estimar el valor del exponente de Lyapunov.
+
+
+## ExplicaciÃ³n de $\tau$ y $m$
+
+**Retraso $\tau$**  
+El retraso $\tau$ indica cuÃ¡ntos pasos (dÃ­as) â€œsaltamosâ€ entre cada coordenada al calcular el exponente de Lyapunov. En lugar de usar solo $x(t)$, usamos  
+$$
+\bigl(x(t),\,x(t+\tau),\,x(t+2\tau),\dots\bigr).
+$$  
+- Si $\tau$ es muy pequeÃ±o, $x(t)$ y $x(t+\tau)$ estÃ¡n muy correlacionados y aportan informaciÃ³n casi redundante.  
+- Si $\tau$ es muy grande, $x(t)$ y $x(t+\tau)$ pueden ser casi independientes y perder la conexiÃ³n dinÃ¡mica.  
+
+El artÃ­culo turco revela que es Ã³ptimo trabajar con un valor de $\tau$ igual a 3 para la temperatura. Es decir, analizaremos el exponente de Lyapunov de la serie que nos da la temperatura en Galapagar cada tres dÃ­as.
+
+**DimensiÃ³n de embedding $m$**  
+La dimensiÃ³n $m$ es el nÃºmero de valores escalonados que usamos para describir el estado del sistema:  
+$$
+\mathbf X(t)=\bigl(x(t),\,x(t+\tau),\,x(t+2\tau),\dots,x(t+(m-1)\tau)\bigr).
+$$  
+
+Es decir, el estado del sistema en un dÃ­a, no es solamente el valor de la temperatura ese dÃ­a, sino el valor de ese dÃ­a mÃ¡s varios dÃ­as anteriores. Pues bien, lo que necesitamos saber es cual es la dimensiÃ³n Ã³ptima del estado del sistema. Si por ejemplo solo cojo un dÃ­a, habrÃ¡ muchos dÃ­as que sean similares ya que habrÃ¡ muchos casos en los que coincida la temperatura media para ese dÃ­a. Sin embargo esto es engaÃ±oso, ya que no se tiene en cuenta el estado pasado del sistema. No es lo mismo estar en un dÃ­a a 15 grados de temperatura media despuÃ©s de haber pasado una ola de calor, que estÃ¡r a 15 grados despuÃ©s de varios dÃ­as de ola de frÃ­o. De acuerdo al artÃ­culo turco un valor de $m=12$ es Ã³ptimo. 
+
+Con estos valores de $\tau$ y $m$ le pedÃ­ a ChatGPT que me calculase el exponente de Lyapunov de la serie de temperaturas de Galapagar. ChatGPT usa en este caso el mismo algoritmo que para el cÃ¡lculo del exponente de Laypunov de las simulaciones del pÃ©ndulo doble. Se trata de un algoritmo bastante complicado cuya comprensiÃ³n se me escapa. Hay que tener en cuenta que todos estos cÃ¡lculos los realizo a con el modelo 04-mini-high, que tiene una capacidad matemÃ¡tica muy superior a la esperada de un alumno de bachillerato, y que ademÃ¡s es capaz de hacer los cÃ¡lculos en un entorno interno de Python, y de plotear resultados.
+
+## Exponente de Lyapunov para la serie de valores de temperatura
+
+A continuaciÃ³n muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedÃ­a ChatGPT que estimase la variaciÃ³n estacional y que la quitase de los datos, dÃ¡ndome la grÃ¡fica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo mÃ¡s aleatorio ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el aÃ±o 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra. 
+
+```{python}
+import pandas as pd
+import numpy as np
+from numpy.linalg import lstsq
+import matplotlib.pyplot as plt
+
+import pandas as pd
+import numpy as np
+from numpy.linalg import lstsq
+import matplotlib.pyplot as plt
+
+# Cargar y preparar los datos desde 1950
+df = pd.read_csv('Galapagar.csv', skiprows=3, parse_dates=['time'])
+df = df.rename(columns={'temperature_2m_mean (Â°C)': 'temperature'})
+df = df[df['time'] >= '1950-01-01'].reset_index(drop=True)
+df['t'] = (df['time'] - df['time'].iloc[0]).dt.days
+temps = df['temperature'].values
+
+# DesestacionalizaciÃ³n: tendencia lineal y dos armÃ³nicos de Fourier
+P = 365.25
+K = 2
+
+# Ajuste de tendencia lineal
+X_poly = np.vander(df['t'], 2)
+beta_poly, *_ = lstsq(X_poly, temps, rcond=None)
+trend = X_poly.dot(beta_poly)
+
+# Ajuste de componentes estacionales
+X_seasonal = np.column_stack(
+    [np.sin(2*np.pi*k*df['t']/P) for k in range(1, K+1)] +
+    [np.cos(2*np.pi*k*df['t']/P) for k in range(1, K+1)]
+)
+beta_seasonal, *_ = lstsq(X_seasonal, temps - trend, rcond=None)
+seasonal = X_seasonal.dot(beta_seasonal)
+
+# Serie desestacionalizada
+deseasonalized = temps - seasonal
+
+# Plot de la serie original
+plt.figure(figsize=(6, 4))
+plt.plot(df['time'], temps)
+plt.title('Temperatura Original (1950â€“presente)')
+plt.xlabel('Fecha')
+plt.ylabel('Temperatura (Â°C)')
+plt.tight_layout()
+plt.show()
+
+# Plot de la serie desestacionalizada
+plt.figure(figsize=(6, 4))
+plt.plot(df['time'], deseasonalized)
+plt.title('Temperatura Desestacionalizada (1950â€“presente)')
+plt.xlabel('Fecha')
+plt.ylabel('Temperatura (Â°C)')
+plt.tight_layout()
+plt.show()
+
+```
+
+Como curiosidad, le pedÃ­a a ChatGPT que hiciese una regresiÃ³n no lineal de orden 2 para ver como ha ido evolucionando la temperatura media en Galapagar desde 1950. 
+
+```{python}
+import pandas as pd
+import numpy as np
+from numpy.linalg import lstsq
+import matplotlib.pyplot as plt
+
+# Cargar datos
+df = pd.read_csv('Galapagar.csv', skiprows=3, parse_dates=['time'])
+df = df.rename(columns={'temperature_2m_mean (Â°C)': 'temperature'})
+df = df[df['time'] >= '1950-01-01'].reset_index(drop=True)
+df['t'] = (df['time'] - df['time'].iloc[0]).dt.days
+
+# DesestacionalizaciÃ³n (tendencia lineal + 2 armÃ³nicos)
+P = 365.25
+K = 2
+temps = df['temperature'].values
+
+# Tendencia lineal
+X_poly1 = np.vander(df['t'], 2)
+beta_poly1, *_ = lstsq(X_poly1, temps, rcond=None)
+trend = X_poly1.dot(beta_poly1)
+
+# Componente estacional
+X_seasonal = np.column_stack(
+    [np.sin(2*np.pi*k*df['t']/P) for k in range(1, K+1)] +
+    [np.cos(2*np.pi*k*df['t']/P) for k in range(1, K+1)]
+)
+beta_seasonal, *_ = lstsq(X_seasonal, temps - trend, rcond=None)
+seasonal = X_seasonal.dot(beta_seasonal)
+
+# Serie desestacionalizada
+y = temps - seasonal
+
+# Preparar variable independiente en aÃ±os
+years = 1950 + df['t'] / 365.25
+
+# RegresiÃ³n cuadrÃ¡tica
+coeffs = np.polyfit(years, y, deg=2)
+fit_curve = np.polyval(coeffs, years)
+
+# GrÃ¡fico
+plt.figure(figsize=(6, 4))
+plt.plot(df['time'], y, label='Desestacionalizada')
+plt.plot(df['time'], fit_curve, label='Ajuste cuadrÃ¡tico', linewidth=2)
+plt.title('Temperatura desestacionalizada con ajuste cuadrÃ¡tico')
+plt.xlabel('Fecha')
+plt.ylabel('Temperatura (Â°C)')
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+```
+
+La temperatura media desestacionalizada ha subido desde 1950 hasta 2025 aproximadamente $\Delta y = y(2025) - y(1950) \approx 2.23\ ^\circ\mathrm{C}$.  
+La tasa media de incremento es $\displaystyle \frac{2.23\ ^\circ\mathrm{C}}{75\ \mathrm{aÃ±os}} \approx 0.030\ ^\circ\mathrm{C}/\mathrm{aÃ±o}$ (aproximadamente $0.3\ ^\circ\mathrm{C}/\mathrm{dÃ©cada}$). Â¡Casi nada!!!!!
+
+Volvamos al tajo. Ahora le pido a ChatGPT que me haga el cÃ¡lculo del exponente de Lyapunov para estos datos de temperatura, usando el mismo procedimiento y parÃ¡metros que en el artÃ­culo de la estaciÃ³n de TurquÃ­a. El exponente de Lyapunov mÃ¡ximo calculado para la temperatura desestacionalizada es  
+$$
+\lambda_{\max} \approx 0.219\ \mathrm{dÃ­a}^{-1}.
+$$
+
+### Horizonte de predictibilidad
+
+Veamos en quÃ© se traduce esta exponente de Lyapunov. Al ser positivo sabemos que indica que estamos ante un sistema caÃ³tico, y que los errores se amplificarÃ¡n con el tiempo. Veamos cuando multiplicamos por 10 un error inicial de 0.1 grados CentÃ­grados:
+
+$$
+T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
+  = \frac{1}{0.219}\ln(10) \approx 10.5\ \mathrm{dÃ­as}.
+$$
+
+### AmplificaciÃ³n de un error inicial de 0.1 Â°C tras 15 dÃ­as
+
+Y ahora veamos de formÃ¡ grÃ¡fica cÃ³mo se va amplificando el error inicial de 0.1 grados tras quince dÃ­as. 
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ParÃ¡metros
+lambda_max = 0.219    # dÃ­aâ»Â¹
+delta0 = 0.1          # Â°C
+t = np.linspace(0, 15, 151)
+delta = delta0 * np.exp(lambda_max * t)
+
+# GrÃ¡fico
+plt.figure(figsize=(6,4))
+plt.plot(t, delta)
+plt.xlabel('DÃ­as')
+plt.ylabel('Error (Â°C)')
+plt.title('AmplificaciÃ³n de un error inicial de 0.1Â°C ($\lambda=0.219\\,\\mathrm{dÃ­a}^{-1}$)')
+plt.tight_layout()
+plt.show()
+```
+
+Estos valores refuerzan las hipÃ³tesis inciales con las que habÃ­amos especulado. Pasadas dos semanas es muy difÃ­cil tener estimaciones precisas del tiempo meteorolÃ³gico. 
+
+
+
+## Exponente de Lyapunov para la serie de velocidad del viento
+
+A continuaciÃ³n cargamos y desestacionalizamos los datos de velocidad del viento (1950â€“presente), mostramos la serie original y la desestacionalizada:
+
+```{python}
+import pandas as pd
+import numpy as np
+from numpy.linalg import lstsq
+import matplotlib.pyplot as plt
+
+# 1. Cargar y preparar datos de viento desde 1950
+df = pd.read_csv('Galapagar.csv', skiprows=3, parse_dates=['time'])
+df = df.rename(columns={'wind_speed_10m_mean (km/h)': 'wind_speed'})
+df = df[df['time'] >= '1950-01-01'].reset_index(drop=True)
+df['t'] = (df['time'] - df['time'].iloc[0]).dt.days
+wind = df['wind_speed'].values
+
+# 2. DesestacionalizaciÃ³n: tendencia lineal + dos armÃ³nicos de Fourier
+P = 365.25
+K = 2
+
+# Ajuste de tendencia lineal
+X_poly = np.vander(df['t'], 2)
+beta_poly, *_ = lstsq(X_poly, wind, rcond=None)
+trend = X_poly.dot(beta_poly)
+
+# Ajuste de componentes estacionales
+X_seasonal = np.column_stack(
+    [np.sin(2*np.pi*k*df['t']/P) for k in range(1, K+1)] +
+    [np.cos(2*np.pi*k*df['t']/P) for k in range(1, K+1)]
+)
+beta_seasonal, *_ = lstsq(X_seasonal, wind - trend, rcond=None)
+seasonal = X_seasonal.dot(beta_seasonal)
+
+# Series
+deseasonalized = wind - seasonal
+
+# 3. Graficar original vs desestacionalizada
+plt.figure(figsize=(6,4))
+plt.plot(df['time'], wind, label='Original')
+plt.plot(df['time'], deseasonalized, label='Desestacionalizada')
+plt.title('Velocidad del viento (1950â€“presente)')
+plt.xlabel('Fecha')
+plt.ylabel('Velocidad (km/h)')
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+En este caso no hay gran diferencia entre la componente desestacionalizada y sin desestacionalizar. 
+
+### Exponente de Lyapunov
+
+El exponente de Lyapunov mÃ¡ximo calculado para la serie de viento desestacionalizada (usando Wolf, $m=12$, $\tau=3$) es  
+$$
+\lambda_{\max} \approx 0.414\ \mathrm{dÃ­a}^{-1}.
+$$
+
+### Horizonte de predictibilidad
+
+Para un error inicial $\varepsilon = 1\ \mathrm{km/h}$ y un factor de crecimiento 10Ã— ($L/\varepsilon=10$):  
+$$
+T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
+  = \frac{1}{0.414}\ln(10)\approx5.6\ \mathrm{dÃ­as}.
+$$
+
+### AmplificaciÃ³n de un error inicial de 1 km/h tras 15 dÃ­as
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ParÃ¡metros
+lambda_max = 0.414    # dÃ­aâ»Â¹
+delta0 = 1          # km/h
+t = np.linspace(0, 15, 151)
+delta = delta0 * np.exp(lambda_max * t)
+
+plt.figure(figsize=(6,4))
+plt.plot(t, delta)
+plt.xlabel('DÃ­as')
+plt.ylabel('Error (km/h)')
+plt.title('AmplificaciÃ³n de un error inicial de 1 km/h ($\lambda=0.414\\,\\mathrm{dÃ­a}^{-1}$)')
+plt.tight_layout()
+plt.show()
+```
+
+### ComparaciÃ³n de la predictibilidad: viento vs temperatura {#sec-lyapunov}
+
+En el caso de la temperatura desestacionalizada, obtuvimos un exponente de Lyapunov  
+$$
+\lambda_{\max}^{	ext{temp}}\approx0.219\ \mathrm{dÃ­a}^{-1},
+$$  
+lo que da un horizonte de predictibilidad de  
+$$
+T_{	ext{temp}}
+=\frac{1}{0.219}\ln(10)\approx10.5\ \mathrm{dÃ­as}.
+$$
+
+Para la velocidad del viento desestacionalizada hallamos  
+$$
+\lambda_{\max}^{	ext{viento}}\approx0.414\ \mathrm{dÃ­a}^{-1},
+$$  
+y por tanto  
+$$
+T_{	ext{viento}}
+=\frac{1}{0.414}\ln(10)\approx5.6\ \mathrm{dÃ­as}.
+$$
+
+Observamos que  
+$$
+T_{	ext{viento}}\approx\frac{1}{2}\,T_{	ext{temp}}.
+$$  
+Esto significa que **la serie de viento es mÃ¡s caÃ³tica**: su exponente de Lyapunov es casi el doble, y los errores iniciales se amplifican mucho mÃ¡s rÃ¡pido.  
+
+Varias razones explican esta diferencia:
+
+- **Variabilidad a corto plazo**: la velocidad del viento estÃ¡ dominada por fenÃ³menos de escala reducida (frentes, turbulencia, rÃ¡fagas) que inducen cambios bruscos.
+- **Forzamientos estacionales dÃ©biles**: el ciclo anual aporta poca oscilaciÃ³n comparado con la temperatura, por lo que el viento muestra un comportamiento intrÃ­nsecamente mÃ¡s errÃ¡tico.
+
+
+1. **Â¿QuÃ© es un â€œforzamiento estacionalâ€?**  
+   Es la variaciÃ³n periÃ³dica y predecible que se repite cada aÃ±o, debida al cambio de estaciÃ³n (mÃ¡s sol y calor en verano, menos en invierno).
+
+2. **Temperatura vs. viento**  
+   - **Temperatura**: el rango tÃ­pico entre verano e invierno puede ser de $\pm10\ ^\circ\mathrm{C}$ o mÃ¡s. Es decir, el ciclo anual supone una parte muy importante de la variabilidad total.  
+   - **Viento**: la velocidad media cambia solo unos $\pm2\ \mathrm{km/h}$ a lo largo del aÃ±o. Esa â€œseÃ±alâ€ anual es pequeÃ±a comparada con las oscilaciones diarias o las rachas impredecibles.
+
+3. **Efecto al desestacionalizar**  
+   - Al quitar la estacionalidad de la temperatura, reducimos mucho la amplitud de la serie y â€œdejamos verâ€ las fluctuaciones reales.  
+   - Al hacer lo mismo con el viento, casi no cambiamos nada: la mayor parte de la variabilidad ya venÃ­a de eventos de corto plazo, no del ciclo anual.
+
+
+- **Implicaciones prÃ¡cticas**: mientras que las predicciones de temperatura pueden ser Ãºtiles hasta unos 10 dÃ­as, las de viento pierden precisiÃ³n ya a los 5â€“6 dÃ­as, reflejo de su carÃ¡cter mÃ¡s caÃ³tico.
+

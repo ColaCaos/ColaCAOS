@@ -1,0 +1,58 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# Clima
+
+Llegamos a la parte más cualitativa y menos cuantitativa del proyecto, no por ello menos importante. Como bien se manifiesta en los medios de comunicación y en la comunidad científica la predicción del clima es uno los puntos más importantes para la humanidad. Si bien en el capítulo anterior hemos investigado sobre como afecta el caos a la previsión meteorológica ahora vamos a hacer lo mismo con el clima. 
+
+Con el tiempo meteorológico a corto plazo todo el mundo asume que las previsiones meteorológicas dejan de tener validez a los diez días. En este proyecto hemos visto que esto se debe a que la atmósfera es un sistema caótico, muy sensible por lo tanto a las condiciones iniciales. 
+
+Con el clima curiosamente, la sensación general que hay en la sociedad es que puede predecirse. Cada ciertos años el IPCC nos da sus proyecciones sobre el clima para los próximos 100  años, y lo tomamos como válido dado el gran consenso científico en torno a estas proyecciones. ¿Cómo puede ser ésto?. No podemos predecir el tiempo a diez días, pero sí a cien años. A continuación, durante este capítulo, veremos los matices que hay detrás de de todo esto. 
+
+
+## Clima y Caos. Historia
+
+Empezaremos por ver cuál es la postura oficial del IPCC sobre la predictibilidad del clima. En los glosarios de los **informes del IPCC**, tanto en el Cuarto Informe de Evaluación (AR4 WG I Annex I) como en el Quinto Informe de Evaluación (AR5 WG II), en la entrada «Predictibilidad», aparece el siguiente texto (recogido del la American Meteorological Society en el año 2000):
+
+[“El conocimiento de los estados actual y anteriores del sistema climático suele ser imperfecto, los modelos que mediante esos conocimientos generan predicciones climáticas son, por consiguiente, también imperfectos, y el sistema climático es inherentemente no lineal y caótico, todo lo cual hace que la predictibilidad del sistema climático sea inherentemente limitada. Incluso aunque se utilicen modelos y observaciones arbitrariamente precisos, **existen limitaciones a la predictibilidad de un sistema no lineal como el clima** (AMS, 2000).”]{.mark}
+
+Aquí tenemos un reconocimiento implícito de que el clima es un sistema caótico. Por lo que llevamos visto en el proyecto, ya sabemos que predecir sistemas caóticos parece un oximorón. Sin embargo, la ciencia moderna afirma que no es un oxímoron: existen predicciones útiles a corto plazo (deterministas) y a largo plazo (estadísticas o climáticas). La clave está en reconocer el alcance y las limitaciones de cada tipo de predicción. 
+
+El reconocimiento del clima como sistema caótico nos retrotrae a los momentos en los que se descubrió el caos atmosférico. Fue **Edward Lorenz en 1961** quién se dió cuenta de la existencia del caos haciendo unas simulaciones de la atmósfera. Recomiendo la lectura de esta página [Lorenz](https://history.aip.org/climate/chaos.htm), donde se narra como se produjo el descubrimiento. Tal y como se cuenta en esta página, Lorenz, cuatro años más tarde, en una charla en 1965, afirmó:
+ 
+ ["Climate may or may not be deterministic, We shall probably never know for sure"]{.mark}
+
+ En este momento, mucha gente empezó a preocuparse porque los cambios climáticos pudiesen venir de forma arbitraria y catastrófica. Reconocer la naturaleza caótitca del clima, implicaba reconocer que pequeñas perturbaciones pudieran cambiar el estado a largo plazo de la atmósfera de un estado a otro. 
+
+ Sin embargo, durante esta época, también existía una corriente de científicos que creía que a pesar del caos, el clima podía predecirse. El argumento era muy sencillo: a pesar que la atmósfera es caótica todos los años tenemos temporada de huracanes y monzones de forma predecible. Otros aspectos del clima más a largo plazo que también pueden predecirse dentro de unos límites son los ciclos Niño/Niña. Por lo tanto, parece que dentro del caos impera cierto orden.
+
+ También relacionado con el caos y el clima, otro descubrimiento que se hizo en las décadas de los 60, 70 y 80 del pasado siglo, fue la evidencia paleoclimática de existencia de cambios muy rápidos del clima. Hasta aquel momento se pensaba que las variaciones del clima eran muy lentas, de miles de años. Pero se encontraron evidencias de cambios rápidos del clima, que podrían estar relacionados con la naturaleza caótica del mismo. En la próxima seccion lo detallo. 
+
+
+## Como estudiar el clima
+
+El estudio del clima resulta extremadamente complejo. Los modelos que usa en la actualidad el IPCC tienen en cuenta la circulación atmosférica y la oceánica. Por limitaciones computacionales, la rejilla de cálculo que se emplea es de alrededor 50 kilómetros en horizontal, y en vertical se divide la atmósfera en 30 u 80 niveles hasta llegar a los 50 kilómetros de altura. De forma similar se procede al modelado de los océanos. Además hay que tener en cuenta que el clima global se ve afectado por mecanismos geólicos (volcanes, movimiento de placas tectónicas), por la vegetación y animales, procesos químicos (ciclos de carbono, aerosoles), impacto humano (emisiones de gas de efecto invernadero, usos agrícolas de suelo, deforestaciones/reforestaciones). La combinación de estos factores da lugar a un sistema muy complejo de estudiar, más aún, teniendo en cuenta las relaciones no lineales de muchos de los parámetros, lo que da lugar a un sistema caótico. Muchos modelos nuevos empiezan a tener en cuenta ya este enfoque multifactorial, pero los requisitos de cómputo para hacer un estudio con mucha resolución superan ampliamente los recursos de computación disponibles. 
+
+En las dos siguientes secciones analizaremos los cambios que se han producido en el climas en los últimos miles de años, y cómo estos cambios resultan de dificil predicción debido precisamente a la cantidad de factores que entran en juego a la horas de estudiarlos. 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
