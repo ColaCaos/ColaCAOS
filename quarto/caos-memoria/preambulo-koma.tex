@@ -1,0 +1,115 @@
+% ====== COLORES Y TIPOS DE TÍTULO (KOMA nativo) ======
+\usepackage{xcolor}
+\definecolor{Main}{HTML}{0F766E}     % verde azulado
+\definecolor{Accent}{HTML}{2563EB}   % azul acento
+
+% Tipos para cada nivel KOMA
+\setkomafont{part}{\normalfont\bfseries\Huge\color{Main}}
+\setkomafont{chapter}{\normalfont\bfseries\Huge\color{Main}}
+\setkomafont{section}{\normalfont\bfseries\Large\color{Main}}
+\setkomafont{subsection}{\normalfont\bfseries\large\color{Accent}}
+\setkomafont{subsubsection}{\normalfont\bfseries\normalsize\color{Accent}}
+
+% Espaciados de títulos (más seguros con nuestra cabecera)
+\RedeclareSectionCommand[
+  beforeskip=-2.0ex plus -1ex minus -.2ex,
+  afterskip=2.0ex plus .5ex
+]{chapter}
+\RedeclareSectionCommand[
+  beforeskip=-1.5ex plus -.7ex minus -.2ex,
+  afterskip=1.0ex plus .3ex
+]{section}
+\RedeclareSectionCommand[
+  beforeskip=-1.0ex plus -.5ex minus -.2ex,
+  afterskip=.8ex plus .2ex
+]{subsection}
+
+% ====== CABECERA DE CAPÍTULO (franja superior + regla bajo título) ======
+\usepackage{etoolbox} % <— nuevo, para ifstrempty
+
+% ====== CABECERA DE CAPÍTULO (franja superior + regla bajo título) ======
+\usepackage{tikz}
+\newcommand*\ChapterDecor{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[Main] (current page.north west) rectangle ([yshift=-1.2cm]current page.north east);
+  \end{tikzpicture}%
+}
+
+% Mantengo tu formato de número
+%\renewcommand*\chapterformat{{\Large\bfseries\color{Main}\thechapter}\enskip}
+\renewcommand*\chapterformat{%
+  {\fontsize{38}{40}\selectfont\bfseries\color{Main}\thechapter}\enskip
+}
+% Imprime título con o sin número (no número en capítulos * como ToC)
+\renewcommand*\chapterlinesformat[3]{%
+  \ChapterDecor%
+  \vspace*{1.4cm}%
+  {\raggedright
+   {\Huge\bfseries\color{Main}%
+    \ifstrempty{#2}{}{#2\enskip}% #2 vacío => capítulo sin numerar (no imprimir número)
+    #3\par}
+   \vspace{.25cm}
+   {\color{Main}\rule{\textwidth}{1.2pt}}
+  }%
+  \par\vspace{1.2ex}%
+}
+
+
+% ====== ENCABEZADOS Y PIES (KOMA: scrlayer-scrpage) ======
+\usepackage[automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead{\headmark}
+\cfoot{\pagemark}
+\setkomafont{pagehead}{\normalfont\itshape\color{gray!60}}
+\setkomafont{pagenumber}{\normalfont\bfseries\color{gray!70}}
+
+% ====== FIGURAS: ajuste global y enlaces clicables ======
+\usepackage{graphicx}
+\setkeys{Gin}{width=.8\linewidth,height=7cm,keepaspectratio}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Accent,
+  citecolor=Accent,
+  urlcolor=Accent
+}
+
+% ====== PAQUETES DE MATEMÁTICAS ======
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{scrhack}
+%\everydisplay{\tag{\thechapter.\arabic{equation}}\stepcounter{equation}}
+
+% ====== COMPATIBILIDAD con comandos antiguos (\rm, \bf, \it, \tt, \sc) ======
+\makeatletter
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\makeatother
+
+% ====== NUMERACIÓN POR CAPÍTULO ======
+\usepackage{chngcntr}
+\numberwithin{equation}{chapter}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+% ====== REFERENCIAS ======
+\usepackage[nameinlink,capitalise]{cleveref}
+
+% ====== UNICODE ÚTIL EN TEXTO ======
+\usepackage{newunicodechar}
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{𝛿}{\ensuremath{\delta}}
+\newunicodechar{𝜃}{\ensuremath{\theta}}
+
+% ====== ECUACIONES LARGAS ======
+\allowdisplaybreaks
+
+\usepackage{etoolbox}
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
+\renewcommand{\contentsname}{Tabla de contenidos}

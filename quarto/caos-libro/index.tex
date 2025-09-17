@@ -658,7 +658,7 @@ x_{n+1} = \cos(x_n), \quad x_0 = 0.
 \]
 
 Los primeros valores son: \[
-\begin{align*}
+\begin{aligned}
 x_1 &= \cos(0)=1,\\
 x_2 &= \cos(1)\approx0.540302,\\
 x_3 &= \cos(x_2)\approx0.857553,\\
@@ -669,7 +669,7 @@ x_7 &= \cos(x_6)\approx0.763960,\\
 x_8 &= \cos(x_7)\approx0.722102,\\
 x_9 &= \cos(x_8)\approx0.750417,\\
 x_{10} &= \cos(x_9)\approx0.731404,\\
-\end{align*}
+\end{aligned}
 \]
 
 Vemos que los valores van oscilando, pero rápidamente se aproximan al
@@ -841,13 +841,13 @@ x_4 = r^4\,x_0\,(1 - x_0)\,
 \]
 
 \[
-\begin{align*}
+\begin{aligned}
 x_5 =\;& r^5\,x_0\,(1 - x_0)\,
 \bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
 \bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\\
 &\times\;\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\\
 &\times\;\bigl(1 - r^4\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\bigr)
-\end{align*}
+\end{aligned}
 \]
 
 Como podemos ver, sí que podemos ir expresando los sucesivos términos en
@@ -1229,12 +1229,12 @@ x = \frac{r-1}{r}.
 
 Para la segunda iterada:\\
 \[
-\begin{align*}
+\begin{aligned}
 f^{(2)}(x)
 &= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
 = r\bigl(r\,x - r\,x^2\bigr)\bigl[1 - (r\,x - r\,x^2)\bigr]\\[6pt]
 &= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2).
-\end{align*}
+\end{aligned}
 \]
 
 Por tanto,\\
@@ -1521,7 +1521,7 @@ f'(x) = r\,(1 - 2x).
   \textbf{Derivada en (x\_1)}\\
   {[}
 
-  \begin{align*}
+  \begin{aligned}
   f'(x_1)
   &= r\Bigl(1 - 2\,x_1\Bigr)
   = r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
@@ -1529,14 +1529,14 @@ f'(x) = r\,(1 - 2x).
   = r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
   &= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
   = -1 \;-\;\sqrt{(r+1)(r-3)}.
-  \end{align*}
+  \end{aligned}
 
   {]}
 \item
   \textbf{Derivada en (x\_2)}\\
   {[}
 
-  \begin{align*}
+  \begin{aligned}
   f'(x_2)
   &= r\Bigl(1 - 2\,x_2\Bigr)
   = r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
@@ -1544,14 +1544,14 @@ f'(x) = r\,(1 - 2x).
   = r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
   &= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
   = -1 \;+\;\sqrt{(r+1)(r-3)}.
-  \end{align*}
+  \end{aligned}
 
   {]}
 \item
   \textbf{Producto de las derivadas}\\
   {[}
 
-  \begin{align*}
+  \begin{aligned}
   f'(x_1)\,f'(x_2)
   &= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
      \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
@@ -1559,7 +1559,7 @@ f'(x) = r\,(1 - 2x).
   = 1 \;-\;(r+1)(r-3) \\[4pt]
   &= 1 - \bigl(r^2 - 2r - 3\bigr)
   = -\,r^2 + 2r + 4.
-  \end{align*}
+  \end{aligned}
 
   {]}
 \end{enumerate}
@@ -2212,12 +2212,12 @@ Cada fila se interpreta así:
 \end{enumerate}
 
 Ahora sumamos todos los logaritmos obtenidos: \[
-\begin{align*}
+\begin{aligned}
 \sum_{k=0}^{19} \ln\lvert f'(x_{k})\rvert \;=\;& 
 0.470 + 1.001 \;-\; 1.201 + 1.375 + 1.340 + 1.193 + 0.360 + 1.090 \;-\; 0.870 + 1.364 \\
 &+ 1.295 + 0.982 \;-\; 0.836 + 1.363 + 1.289 + 0.949 \;-\; 0.415 + 1.330 + 1.148 \;-\; 0.036 \\
 =\;& 13.191.
-\end{align*}
+\end{aligned}
 \] Por último promediamos esta suma, por lo que el exponente de Lyapunov
 aproximado para \(N = 20\) queda como \[
 \lambda_{20} 
@@ -5430,7 +5430,10 @@ las simulaciones van juntas y solo se distingue un línea. Es justo a
 partir de este momento cuando las simulaciones empiezan a separarse y en
 solo unos pocos segundos ya va cada una por su lado, e incluso la
 simulación número 2 pasa a tener velocidad angular negativa, lo que
-significa que la rueda ha cambiado su sentido de giro.
+significa que la rueda ha cambiado su sentido de giro. Esto lo hace aun
+habien do empeza con una velocidad angular de 3 rad/s y no desde el
+reposo. Esto es una de las muestras de la naturaleza caótica e
+impredecible de este sistema
 
 Vamos a hacer mas zoom en los primeros segundos de simulación para ver
 como realmente empiezan a divergir las simulaciones.
@@ -5444,6 +5447,44 @@ como realmente empiezan a divergir las simulaciones.
 \caption{5 segundos de simulación}
 
 \end{figure}%
+
+Hasta el primer segundo de simulación las velocidades angulares son casi
+las mismas y la diferencia entre ellas es infimas. A partir de ahí vemos
+como poco a poco empiezan a separarse hasta el segundo cinco cuando ya
+llevan velocidades muy distintas y la segunda simulación ya ha cambiado
+de dirección. Esta separación de las distintas velocidades angulares no
+ocurre progresivamente, si no que al principio empiezan a divergir muy
+lentamente y muy poco pero a medida que va avanzando el tiempo de
+simulación lo van haciendo cada vez más rápido, ya que en los sistemas
+caóticos la sensibilidad a las condiciones iniciales hacen que los
+errores se vayan propagando de forma exponencial. Aunque en este
+sistema, al ser una simulación, no debería haber ninguna diferencia
+entre cada simulación en el momento inicial siempre existe una por muy
+pequeña que sea debido a la inexactitud de los ordenadores a partir de
+un número de decimales muy alto y en general a la imprecisión de los
+ordenadores a la hora de realizar todos los cálculos.
+
+\section{Atractor}\label{atractor-1}
+
+Sin embargo, hay un detalle de esta gráfica que no pasa desapercibido.
+Las velocidades angulares de las simulaciones se van separando cada vez
+más rápido, pero llegados a un punto sobre el segundo 7 dejan de
+separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7
+rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que
+estamos ante el atractor de este sistema.Esto significo que el estado de
+el sistema, aunque sea caótico, nunca va a salir de este rano de
+valores. Esto no solo lo presenta este sistema sino que como ya hemos
+visto etá presente en muchos otros sistemas caóticas como la función
+logística o la famosa celula convectiva de Edward Lorenz.
+
+Pero lo mas interesante de este atractor es que cambia entre dos estado
+diferentes, velocidad angualr positiva y negativa. El sistema cambia de
+estado en los llamados ``Tipping Points'' en los cuales cualquier
+pequeña perturbación hace que llegue a cambiar todo el estado del
+sistema, que en este caso es la dirección del giro Esto también lo hace
+de manera totalmente caótica y como se puede ver en las cinco
+simulaciones algunas, en este caso la segundo simulación, tardan mucho
+menos tiempo que otras en hacerlo.
 
 \chapter{test}\label{test}
 
