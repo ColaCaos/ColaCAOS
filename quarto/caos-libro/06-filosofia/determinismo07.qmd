@@ -1,0 +1,32 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad
+
+Como ya hemos visto con ejemplos en las secciones anteriores, si el sistema no es caótico, es muy predecible, conserva la información inicial, pero no se genera novedad. Al contrario, si el sistema es caótico, al introducirle energía externa, diluye o aleatoriza la información inicial y la convierte en nuevas estructuras. Por lo tanto, en base a estas observaciones formulo la siguiente Tesis:
+
+
+* En sistemas estables/no caóticos, el comportamiento es altamente predecible y la información inicial se conserva con poca distorsión; por eso la novedad estructural es limitada.
+
+* En sistemas inestables/caóticos, el aporte de energía y la sensibilidad a perturbaciones dispersan (“diluyen”) la información inicial, abriendo bifurcaciones y creando nuevas estructuras. A cambio, disminuye la predictibilidad detallada más allá de un horizonte de predicción.
+
+El principio heurístico que se deduce es el siguiente:
+
+**"No es posible maximizar simultáneamente la predictibilidad detallada y la creación de novedad en sistemas dinámicos complejos: cuanto más creativa (abierta a nuevas estructuras) es la evolución, menos plenamente predecible es su trayectoria fina, y viceversa"**
+
+
+Por lo tanto, la tan ansiada omnisciencia en un universo creativo como el nuestro es un oxímoron. Podemos determinar patrones, pero no ver los detalles finos, es decir, podemos anticipar patrones (atractores, rangos de comportamiento, escenarios probables) mejor que trayectorias exactas a largo plazo. Cuanto mayor sea el aporte energético, mayor sera el caos, y menor será la predictibilidad, pero al mismo tiempo se aumentarán las posibilidades de creación de nuevas estructuras. 
+
+Un universo capaz de crear nuevas formas no puede ser, al mismo tiempo, totalmente transparente a nuestra predicción. La novedad tiene un precio: nos hace renunciar a una parte de la certeza. Es como si los sistemas que conforman el Universo no se dejasen modelar o simular. 
+
+Por tanto, la creación de nuevas estructuras no puede predecirse matemáticamente (ni con simulaciones por ordenador): surge del propio universo. Es como si la evolución cósmica escapase a nuestra capacidad de predicción. Uno puede hacerse el experimento mental: ¿habría sido posible, en el instante del Big Bang, imaginar o simular que, a partir de un punto de energía infinita, surgiría un planeta como la Tierra, con vida y una civilización avanzada como la nuestra? Del mismo modo, ¿podríamos modelar o simular de antemano la aparición de vida compleja a partir de moléculas sencillas de carbono, hidrógeno, nitrógeno y oxígeno?
+
+En definitiva, podemos plantear que **"la novedad estructural es impredecible en detalle en un sistema caótico"**.
+

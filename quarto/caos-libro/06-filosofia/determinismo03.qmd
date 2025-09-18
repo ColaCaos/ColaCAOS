@@ -1,0 +1,31 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# El demonio de Laplace
+
+El lector avezado podría objetar: “Si el demonio conociera incluso las fluctuaciones, el caos no sería problema. El futuro seguiría escrito en el presente”. Pero aquí está el punto débil de ese argumento:
+
+Las fluctuaciones no son externas al sistema, son inevitables. 
+
+* Hay fluctuaciones cuánticas: el principio de incertidumbre impone límites objetivos, no solo prácticos.
+
+* Hay fluctuaciones térmicas y ambientales: en un universo abierto, no se puede aislar perfectamente un sistema.Ni siquiera un demonio podría eliminar la presencia de ruido, porque forma parte constitutiva de la naturaleza.
+
+El caos amplifica fluctuaciones irreducibles. En sistemas caóticos, el más mínimo cambio conduce a trayectorias divergentes. Aunque el demonio conociera hoy todas las variables, no podría neutralizar las fluctuaciones mañana, porque aparecen en el mismo proceso de evolución del sistema.
+
+El futuro no es un simple “despliegue de lo ya contenido”, sino un proceso creativo donde lo nuevo emerge de la interacción entre inestabilidad e irreversibilidad.
+
+El tiempo, por tanto, no es un guion preescrito, sino un proceso creativo.
+
+En la visión laplaciana, el futuro está “ya dado” en las condiciones iniciales, y no hay margen para la novedad.
+
+En la visión de Prigogine, cualquier escenario futuro es posible pero no necesario: hay abanicos de trayectorias, bifurcaciones reales, elección de caminos.
+
+El demonio de Laplace fracasa porque confunde lo posible con lo determinado.
+

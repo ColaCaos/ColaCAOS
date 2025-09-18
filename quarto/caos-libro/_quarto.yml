@@ -7,7 +7,7 @@ project:
 
 website:
   site-url: https://colacaos.github.io/ColaCAOS
-  favicon: favicon.png
+  favicon: https://colacaos.github.io/ColaCAOS/favicon.png
 
 book:
   title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
@@ -62,6 +62,16 @@ book:
         - 05-experimentos/intro.qmd
         - 05-experimentos/funcionamientoCaotico.qmd
         - 05-experimentos/test.qmd
+    
+    - part: "Determinismo y Caos"
+      chapters:
+        - 06-filosofia/determinismo01.qmd
+        - 06-filosofia/determinismo02.qmd
+        - 06-filosofia/determinismo03.qmd
+        - 06-filosofia/determinismo04.qmd
+        - 06-filosofia/determinismo05.qmd
+        - 06-filosofia/determinismo06.qmd
+        - 06-filosofia/determinismo07.qmd
 
 
 
@@ -72,6 +82,9 @@ format:
     toc-depth: 2         # hasta niveles ## 
     number-sections: true
     math: katex
+    include-in-header:
+      text: |
+        <link rel="icon" type="image/png" href="https://colacaos.github.io/ColaCAOS/favicon.png">
   pdf:
     pdf-engine: xelatex
     keep-tex: true

@@ -69,6 +69,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="icon" type="image/png" href="https://colacaos.github.io/ColaCAOS/favicon.png">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -394,6 +395,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Determinismo y Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">De Laplace a Prigogine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">El papel del caos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">El demonio de Laplace</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Indeterminismo objetivo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">El papel creativo del tiempo (y del caos)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">El clima desde la óptica de Prigogine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -461,7 +515,7 @@ f'(x) = r(1 - 2x).
 <li><strong>En <span class="math inline">\(x^*_2=1-1/r\)</span>:</strong> <span class="math inline">\(f'(x^*_2)=2-r\)</span>. Estable si <span class="math inline">\(\lvert2-r\rvert&lt;1\)</span> → <span class="math inline">\(1 &lt; r &lt; 3\)</span>. Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de <span class="math inline">\(x_0\)</span> que pongan para valores de <span class="math inline">\(r\)</span> entre 1 y 3, siempre se convergerá a un punto que es <span class="math inline">\(x^*_2=1-1/r\)</span> .</li>
 </ul>
 <p>Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo <span class="math inline">\(r/4\)</span>, pero al final se estabilizar en un valor menor que es igual a <span class="math inline">\(x^*_2=1-1/r\)</span> .</p>
-<div id="0c1d0628" class="cell" data-execution_count="1">
+<div id="614b96f0" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -472,7 +526,7 @@ f'(x) = r(1 - 2x).
 </div>
 <p>Añadamos unos gráficos para verlo mejor.</p>
 <p>En este primero, vemos para un valor de <span class="math inline">\(r=0.99\)</span> como la población va decreciendo iteración tras iteración hasta llegar al punto fijo <span class="math inline">\(x=0\)</span></p>
-<div id="c78ef7d7" class="cell" data-execution_count="2">
+<div id="157e95e0" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -482,7 +536,7 @@ f'(x) = r(1 - 2x).
 </div>
 </div>
 <p>En este segundo vemos como efectivamente la sucesión converge al punto fijo (el cruce de la función con la recta <span class="math inline">\(y=x\)</span>), a pesar de que el valor de <span class="math inline">\(r\)</span> está cerca de 3. Pero puesto que sigue siendo menor de 3, el punto fijo actúa como atractor, y después de 200 iteraciones acaba convergiendo.</p>
-<div id="7dc236f7" class="cell" data-execution_count="3">
+<div id="546f76e3" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -492,7 +546,7 @@ f'(x) = r(1 - 2x).
 </div>
 </div>
 <p>Pero, ¿qué pasa cuando subimos por encima de <span class="math inline">\(r=3\)</span>?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para <span class="math inline">\(r=3.01\)</span>? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento <span class="math inline">\(r\)</span> es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse.</p>
-<div id="dd629bb6" class="cell" data-execution_count="4">
+<div id="d891741a" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

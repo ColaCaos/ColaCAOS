@@ -1,0 +1,26 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# Indeterminismo objetivo
+
+El indeterminismo se solía considerar un fenómeno subjetivo, ligado a nuestra ignorancia humana o a la falta de medios para medir con precisión. Según esta visión, el mundo seguiría siendo perfectamente determinista en sí mismo; lo que ocurre es que los humanos no tenemos la capacidad de calcularlo todo.
+
+Prigogine, en cambio, defendió la existencia de un indeterminismo objetivo: un rasgo constitutivo de la naturaleza, no un simple límite de nuestro conocimiento.
+
+¿Por qué?
+
+* Por la irreversibilidad del tiempo. La flecha temporal impide que el futuro sea un espejo del pasado. Los sistemas evolucionan hacia estados más probables, y no existe forma de retroceder ni de “reconstruir” exactamente las condiciones iniciales.
+
+* Por la sensibilidad al caos.En sistemas caóticos, las fluctuaciones inevitables (cuánticas, térmicas, ambientales) se amplifican de forma tal que generan trayectorias distintas. No es solo que no sepamos cuál se dará: es que la naturaleza misma mantiene abiertas varias posibilidades reales.
+
+* Porque el tiempo introduce novedad. El universo no se limita a desplegar lo ya contenido, sino que crea estructuras nuevas a través de inestabilidad, bifurcaciones y procesos disipativos. Lo inesperado forma parte constitutiva de la realidad.
+
+
+El futuro no está escrito: existen abanicos de trayectorias posibles. El tiempo tiene un papel creativo, y lo inesperado es parte de la naturaleza. La incertidumbre es objetiva.
