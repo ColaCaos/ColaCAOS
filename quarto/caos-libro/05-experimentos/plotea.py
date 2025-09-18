@@ -47,19 +47,44 @@ views = [
 ]
 
 out_files = []
-
 def render_view(name, elev, azim):
-    fig = plt.figure(figsize=(8, 6), dpi=150)
+    # 1) figura sin 'tight' (3D no se lleva bien con tight/constrained)
+    fig = plt.figure(figsize=(9, 7), dpi=150)
     ax = fig.add_subplot(111, projection="3d")
-    ax.plot(dfp["x"].to_numpy(), dfp["y"].to_numpy(), dfp["omega"].to_numpy(), linewidth=0.35, alpha=0.95, antialiased=True)
-    ax.set_xlabel("x (posición)")
-    ax.set_ylabel("y (posición)")
-    ax.set_zlabel("ω (velocidad angular)")
-    ax.set_title(f"Diagrama de fases 3D — vista: {name} (elev={elev}°, azim={azim}°)")
+
+    # 2) dibuja
+    ax.plot(dfp["x"].to_numpy(), dfp["y"].to_numpy(), dfp["omega"].to_numpy(),
+            linewidth=0.35, alpha=0.95, antialiased=True)
+
+    ax.set_xlabel("x (posición)", labelpad=12)
+    ax.set_ylabel("y (posición)", labelpad=12)
+
+    # 3) etiqueta Z: sin rotación automática y con más separación
+    ax.zaxis.set_rotate_label(False)
+    ax.set_zlabel("ω (velocidad angular)", rotation=90, labelpad=20)
+
+    ax.set_title(f"Diagrama de fases 3D — vista: {name} (elev={elev}°, azim={azim}°)", pad=10)
+
+    # 4) aspecto cúbico (mismo tamaño visual de ejes)
+    try:
+        ax.set_box_aspect((1, 1, 1))
+    except Exception:
+        pass
+
     ax.view_init(elev=elev, azim=azim)
+
+    # 5) **Reserva margen derecho**: encoge ligeramente el área del eje
+    #    Esto es mucho más fiable que 'tight' con 3D.
+    fig.canvas.draw()  # asegura que el eje tenga posición válida
+    box = ax.get_position()  # [x0, y0, width, height] en coords de figura
+    ax.set_position([box.x0, box.y0, box.width * 0.86, box.height])  # deja ~14% de margen a la derecha
+
+    # 6) Coloca la etiqueta Z dentro del margen (x,y en coords de *ejes*)
+    ax.zaxis.set_label_coords(1.02, 0.5)  # muévela un poco a la derecha (ajusta 1.02→1.06 si fuese necesario)
+
     out_path = f"phase_space_3d_{name}.png"
-    plt.tight_layout()
-    plt.savefig(out_path, bbox_inches="tight")
+    # 7) Guardado SIN bbox_inches="tight" (evita recortes en 3D)
+    plt.savefig(out_path, dpi=150)
     plt.close(fig)
     return out_path
 

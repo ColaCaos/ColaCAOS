@@ -11,6 +11,11 @@ execute:
 
 A continuación desglosaré las principales aportaciones propias realizadas a lo largo de este proyecto, en términos de resultados científicos, investigaciones llevadas a cabo y código generado.
 
+## Aportación de este trabajo.
+
+No pretendo descubrir el caos, sino mostrar de forma operativa y reproducible que la predictibilidad del mundo es limitada y cuantificable. Lo demuestro con: (i) simulaciones donde expresiones algebraicamente equivalentes divergen por aritmética finita, (ii) un experimento físico que contrasta péndulo doble (caótico) con simple (predecible), (iii) un análisis de predicción–observación que estima tasas de crecimiento del error (Lyapunov “operativo”), y (iv) el diseño de un sistema caótico propio. Con ello paso de la idea abstracta a evidencias medibles y a un principio heurístico: más novedad estructural ↔ menos predictibilidad detallada.
+
+
 ## Resultados 
 
 
