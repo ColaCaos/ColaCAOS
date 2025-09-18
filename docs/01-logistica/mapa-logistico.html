@@ -401,59 +401,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Determinismo y Caos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">De Laplace a Prigogine</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">El papel del caos</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">El demonio de Laplace</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Indeterminismo objetivo</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">El papel creativo del tiempo (y del caos)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">El clima desde la óptica de Prigogine</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -558,7 +505,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 <section id="simulación-en-python" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="simulación-en-python"><span class="header-section-number">5.3</span> Simulación en Python</h2>
 <p>Vamos a refrendar lo anteriormente dicho con simulaciones de la función logística. Como veremos a continuación, para valores de <span class="math inline">\(r\)</span> menores de 1, el valor final de <span class="math inline">\(x_n\)</span> tiende a cero.</p>
-<div id="c0e9bac1" class="cell" data-execution_count="1">
+<div id="c1020f70" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -568,7 +515,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, el valor final de <span class="math inline">\(x_n\)</span> tiende a un punto estable</p>
-<div id="ef173612" class="cell" data-execution_count="2">
+<div id="815c28d2" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -578,7 +525,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.449, el valor final de <span class="math inline">\(x_n\)</span> tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos.</p>
-<div id="f892fd2a" class="cell" data-execution_count="3">
+<div id="a86e8443" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -588,7 +535,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.544, el valor final de <span class="math inline">\(x_n\)</span> tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.</p>
-<div id="36845196" class="cell" data-execution_count="4">
+<div id="e6882440" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -598,7 +545,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Y a partir de <span class="math inline">\(r = 3.56995\)</span> no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico</p>
-<div id="37762914" class="cell" data-execution_count="5">
+<div id="2b22124d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

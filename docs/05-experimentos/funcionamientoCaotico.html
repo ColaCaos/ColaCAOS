@@ -401,59 +401,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Determinismo y Caos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">De Laplace a Prigogine</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">El papel del caos</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">El demonio de Laplace</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Indeterminismo objetivo</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">El papel creativo del tiempo (y del caos)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">El clima desde la óptica de Prigogine</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../06-filosofia/determinismo07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -511,8 +458,15 @@ window.Quarto = {
 <p>Hasta el primer segundo de simulación las velocidades angulares son casi las mismas y la diferencia entre ellas es infimas. A partir de ahí vemos como poco a poco empiezan a separarse hasta el segundo cinco cuando ya llevan velocidades muy distintas y la segunda simulación ya ha cambiado de dirección. Esta separación de las distintas velocidades angulares no ocurre progresivamente, si no que al principio empiezan a divergir muy lentamente y muy poco pero a medida que va avanzando el tiempo de simulación lo van haciendo cada vez más rápido, ya que en los sistemas caóticos la sensibilidad a las condiciones iniciales hacen que los errores se vayan propagando de forma exponencial. Aunque en este sistema, al ser una simulación, no debería haber ninguna diferencia entre cada simulación en el momento inicial siempre existe una por muy pequeña que sea debido a la inexactitud de los ordenadores a partir de un número de decimales muy alto y en general a la imprecisión de los ordenadores a la hora de realizar todos los cálculos.</p>
 <section id="atractor" class="level2" data-number="32.1">
 <h2 data-number="32.1" class="anchored" data-anchor-id="atractor"><span class="header-section-number">32.1</span> Atractor</h2>
-<p>Sin embargo, hay un detalle de esta gráfica que no pasa desapercibido. Las velocidades angulares de las simulaciones se van separando cada vez más rápido, pero llegados a un punto sobre el segundo 7 dejan de separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7 rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que estamos ante el atractor de este sistema.Esto significo que el estado de el sistema, aunque sea caótico, nunca va a salir de este rano de valores. Esto no solo lo presenta este sistema sino que como ya hemos visto etá presente en muchos otros sistemas caóticas como la función logística o la famosa celula convectiva de Edward Lorenz.</p>
+<p>Sin embargo, hay un detalle de esta gráfica que no pasa desapercibido. Las velocidades angulares de las simulaciones se van separando cada vez más rápido, pero llegados a un punto sobre el segundo 7 dejan de separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7 rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que estamos ante el atractor de este sistema.Esto significa que el estado de el sistema, aunque sea caótico, nunca va a salir de este rano de valores. Esto no solo lo presenta este sistema sino que como ya hemos visto etá presente en muchos otros sistemas caóticas como la función logística o la famosa celula convectiva de Edward Lorenz.</p>
 <p>Pero lo mas interesante de este atractor es que cambia entre dos estado diferentes, velocidad angualr positiva y negativa. El sistema cambia de estado en los llamados “Tipping Points” en los cuales cualquier pequeña perturbación hace que llegue a cambiar todo el estado del sistema, que en este caso es la dirección del giro Esto también lo hace de manera totalmente caótica y como se puede ver en las cinco simulaciones algunas, en este caso la segundo simulación, tardan mucho menos tiempo que otras en hacerlo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="phase_space_3d_iso_SW.png" class="img-fluid figure-img"></p>
+<figcaption>5 segundos de simulación</figcaption>
+</figure>
+</div>
+<p>En esta grafica se reprsenta el atractor mediante tres ejes distintos que representan la posición vertical del centro de masas de las canicas, la posición horizontal del centro de masas de las canicas y la velocidad angular. El color de la línea representa el paso del tiempo yendo desde el principio en azul hasta al final en rojo.</p>
 
 
 

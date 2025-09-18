@@ -295,34 +295,34 @@ al análisis del péndulo doble, que es uno de los sistemas caóticos por
 antonomasia. Para ello, pedí a ChatGPT que me desarrollase las
 ecuaciones matemáticas que rigen el movimiento del péndulo y que me las
 simulase bajo multitud de estados iniciales diferentes, ligeramente
-separados unos de otros. Los desarrollos fueron codificados por ChatGPT
-en Python y simulados en mi ordenador. Algunas de las simulaciones
-implicaban el lanzamiento en paralelo de miles de péndulos y eran muy
-lentas ejecutadas en la CPU del ordenador, por lo que tuve que recurrir
-a que ChatGPT paralelizase los programas usando las librerías de Python
-para la tarjeta gráfica Nvidia de mi ordenador. Los resultados fueron de
-nuevo sorprendentes, pues empezaron a aparecer estructuras fractales
-dentro de las condiciones iniciales cuando simulaba miles de péndulos a
-la par. No importaba cómo de pequeña era la diferencia de condiciones
-iniciales entre dos péndulos, que al final, con el transcurso del
-tiempo, los péndulos dobles siempre divergían.
+separados unos de otros. Los desarrollos fueron codificados en Python y
+simulados en mi ordenador. Algunas de las simulaciones implicaban el
+lanzamiento en paralelo de miles de péndulos y eran muy lentas
+ejecutadas en la CPU del ordenador, por lo que tuve que recurrir
+mediante ChatGPT a paralelizar los programas usando las librerías de
+Python para la tarjeta gráfica Nvidia de mi ordenador. Los resultados
+fueron de nuevo sorprendentes, pues empezaron a aparecer estructuras
+fractales dentro de las condiciones iniciales cuando simulaba miles de
+péndulos a la par. No importaba cómo de pequeña era la diferencia de
+condiciones iniciales entre dos péndulos, que al final, con el
+transcurso del tiempo, los péndulos dobles siempre divergían.
 
 Una vez terminada la parte de análisis matemático y de simulación de los
-sistemas caóticos, me lancé a comprobar si en verdad este comportamiento
-caótico se daba en la realidad. Compré un péndulo doble, que tenía la
-propiedad de poder bloquear el segundo eje para así transformarse en un
-péndulo simple. Aquí el reto estaba en poder medir con precisión la
-posición de los dos brazos del péndulo mientras se movía a alta
-velocidad. Tras ser aconsejado por ChatGPT, recurrí a una librería de
-visión por ordenador llamada OpenCV. Con la ayuda de ChatGPT realicé un
-programa que, en tiempo real, medía la posición de los brazos del
-péndulo doble y guardaba los datos en un fichero. Gracias a este
+sistemas caóticos, me lancé a comprobar si este comportamiento caótico
+se daba en la realidad. Compré un péndulo doble, que tenía la propiedad
+de poder bloquear el segundo eje para así transformarse en un péndulo
+simple. Aquí el reto estaba en poder medir con precisión la posición de
+los dos brazos del péndulo mientras se movía a alta velocidad. Tras ser
+aconsejado por ChatGPT, recurrí a una librería de visión por ordenador
+llamada OpenCV para, en tiempo real, medir la posición de los brazos del
+péndulo doble y guardar los datos en un fichero. Gracias a este
 programa, pude ver que lanzando el péndulo doble en diferentes
 posiciones iniciales, las trayectorias divergían enormemente tras unos
 breves instantes. Me pregunté si habría algún problema con la forma en
 la que estaba configurado el experimento, así que recurrí a hacer lo
-mismo con el péndulo simple. En este caso, pude constatar, cómo una tras
-otra, las trayectorias eran idénticas en todos los lanzamientos.
+mismo con la configuración de péndulo simple. En este caso, pude
+constatar, cómo una tras otra, las trayectorias eran idénticas en todos
+los lanzamientos.
 
 Un aspecto importante que pude apreciar en el péndulo doble es que si
 bien su posición en un momento dado era imposible de predecir, había
@@ -335,9 +335,9 @@ antemano.
 Llegado a este punto y convencido del comportamiento caótico de sistemas
 aparentemente sencillos, quise ver cómo se manifestaba el caos en
 sistemas más complejos, como es la atmósfera terrestre y la
-meteorología, y también quise ver como lidiaba la ciencia con este
-asunto. Si bien pude encontrar modelos de código abierto con los que
-simular la atmósfera, no disponía la capacidad de cómputo para
+meteorología, y también quise ver como lidiaba la ciencia moderna con
+este asunto. Si bien pude encontrar modelos de código abierto con los
+que simular la atmósfera, no disponía la capacidad de cómputo para
 ejecutarlos. Por ello, y tras investigar el tema, llegué a la conclusión
 de que el mayor error que se da en las predicciones es el debido a la
 imprecisión de la estimación de las condiciones iniciales, no a las
@@ -345,9 +345,9 @@ ecuaciones que rigen los modelos. Entonces, pensé que observando cómo
 diverge la observación real del tiempo de la predicción realizada unos
 días antes por los modelos de las agencias meteorológicas, podría
 cuantificar el crecimiento exponencial del caos debido a la sensibilidad
-a las condiciones iniciales. Creé con ChatGPT un programa, que día tras
-día, se conectaba a una web meteorológica y que me daba las predicciones
-para los siguientes 14 días. Almacené esos datos durante tres meses, y
+a las condiciones iniciales. Creé un programa, que día tras día, se
+conectaba a una web meteorológica y que me daba las predicciones para
+los siguientes 14 días. Almacené esos datos durante tres meses, y
 después los analicé. Pude así ver con datos reales el crecimiento
 exponencial de los errores, y hacer un análisis de regresión para
 calcular el exponente de Lyapunov de las variables meteorológicas
@@ -395,7 +395,7 @@ negativa), de los que se sale de forma totalmente impredecible.
 Llegado este punto, entré en el terreno de la filosofía y me pregunté si
 el caos era un fenómeno indeseable que frustraba nuestro anhelo de
 predecir el futuro. En mi investigación, me encontré con el trabajo del
-premio Nobel Ilya Prigogine, quien demostró que es precisamente el caos
+premio Nobel Ilya Prigogine, quien demostró que es precisamente el caos,
 el fenómeno esencial de la naturaleza para la creación de estructuras
 complejas como la vida. En un Universo sin caos, el demonio de Laplace
 puede actuar a sus anchas, pues la información inicial no se pierde por
@@ -5658,7 +5658,7 @@ Las velocidades angulares de las simulaciones se van separando cada vez
 más rápido, pero llegados a un punto sobre el segundo 7 dejan de
 separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7
 rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que
-estamos ante el atractor de este sistema.Esto significo que el estado de
+estamos ante el atractor de este sistema.Esto significa que el estado de
 el sistema, aunque sea caótico, nunca va a salir de este rano de
 valores. Esto no solo lo presenta este sistema sino que como ya hemos
 visto etá presente en muchos otros sistemas caóticas como la función
@@ -5673,527 +5673,25 @@ de manera totalmente caótica y como se puede ver en las cinco
 simulaciones algunas, en este caso la segundo simulación, tardan mucho
 menos tiempo que otras en hacerlo.
 
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_3d_iso_SW.png}}
+
+}
+
+\caption{5 segundos de simulación}
+
+\end{figure}%
+
+En esta grafica se reprsenta el atractor mediante tres ejes distintos
+que representan la posición vertical del centro de masas de las canicas,
+la posición horizontal del centro de masas de las canicas y la velocidad
+angular. El color de la línea representa el paso del tiempo yendo desde
+el principio en azul hasta al final en rojo.
+
 \chapter{test}\label{test}
 
 tttttttttttttttttttttttt
-
-\part{Determinismo y Caos}
-
-\chapter{De Laplace a Prigogine}\label{de-laplace-a-prigogine}
-
-Hasta este momento en el proyecto hemos percibido el caos como algo
-negativo, un fenómemno no deseado que dificulta nuestra capacidad para
-conocer el futuro de los sistemas físicos. En nuestro modelo del
-Universo, heredado de la física de Newton, Laplace y hasta Einstein,
-todo era determinista y conocer el estado presente permitía predecir el
-futuro indefinidamente. A finales del siglo XX apareción un científico,
-Ilya Prigogine, que cambió esta concepción y que mereció el premio Nobel
-por su trabajo (ver el libro The End of Certainty: Time, Chaos, and The
-New Laws of Nature.
-\href{https://kremesti.com/portfolio/technical_writing/Academic_Research_Papers/End_of_Certainty.htm}{The
-end of Certainty} ). Prigogine afirma que la visión determinista del
-Universo es incompleta, porque ignora la irreversibilidad del tiempo y
-reduce los fenómenos a un esquema demasiado simplificado.
-
-\section{Irreversibilidad del tiempo}\label{irreversibilidad-del-tiempo}
-
-Hay procesos naturales que ``tienen sentido'' en una dirección temporal
-(del pasado al futuro) pero no al revés: el calor fluye de lo caliente a
-lo frío, una taza que se rompe no se recompone sola, el perfume se
-dispersa y no vuelve al frasco. A esto lo llamamos irreversibilidad del
-tiempo o flecha del tiempo.
-
-Muchas ecuaciones fundamentales de la física (las de Newton por ejemplo)
-son reversibles en el tiempo: si grabas una solución y la reproduces al
-revés, sigue siendo una solución válida. Entonces, ¿por qué el mundo
-cotidiano no funciona ``al revés''?. Porque lo que observamos es lo más
-probable: que el desorden aumente y que la energía útil se degrade. A
-eso lo llamamos aumento de entropía (Segunda Ley de la Termodinámica).
-Nadie espera que cuando un hielo se derrite, pasado un tiempo se vuelva
-a congelar. O que cuando esparces perfume en una habitación, el perfume
-vuelva luego solo al frasco.
-
-El determinismo ignora la flecha del tiempo marcada por la entropía. La
-Segunda Ley de la Termodinámica nos dice que en sistemas aislados la
-entropía nunca disminuye. Esto significa que, aunque las ecuaciones
-deterministas permitan un futuro reversible, en la práctica el sistema
-siempre avanza hacia estados más probables, de mayor desorden. Esa
-asimetría no cabe dentro de un universo ``reloj'' que se limita a
-desplegar lo ya contenido. ¿Qué quiere decir ``desplegar lo ya
-contenido''? En la visión clásica y determinista, el universo se concibe
-como un reloj perfectamente mecánico:
-
-\begin{itemize}
-\tightlist
-\item
-  Las leyes de la naturaleza son ecuaciones exactas y simétricas en el
-  tiempo.
-\item
-  Si conocemos el estado presente (posiciones y velocidades de todas las
-  partículas), entonces el pasado y el futuro están ya contenidos en esa
-  información.
-\item
-  El tiempo, en este modelo, no ``crea'' nada: simplemente despliega lo
-  que ya estaba escrito en las condiciones iniciales
-\item
-  El tiempo sería como el puntero de un proyector que recorre un carrete
-  de película ya grabada: no hay sorpresas, solo revelar lo que está
-  ahí.
-\end{itemize}
-
-La irreversibilidad rompe esta imagen sencilla del Universo. Esta
-asimetría temporal no puede reducirse a un simple ``estado contenido en
-las condiciones iniciales'', porque el futuro no es un espejo reversible
-del pasado. El sistema no ``despliega'' algo fijo ya contenido en las
-condiciones iniciales, sino que evoluciona hacia estados más probables,
-siguiendo una dirección de la que no hay retorno.
-
-Por lo tanto, en el Universo real no determinista el pasado y el futuro
-no son intercambiables, no son equivalente. El tiempo introduce
-``novedades'' que no estaban prefiguradas y de las que no podemos volver
-hacia atrás.
-
-La irreversibilidad del tiempo no solo rompe la visión determinista,
-sino que abre la puerta a la creatividad de la naturaleza. El futuro no
-estaba ya escrito en el presente, como sostenía la visión clásica
-determinisita; es el propio paso del tiempo el que introduce
-fluctuaciones y novedades imposibles de predecir por completo. Aquí es
-donde entra en juego el caos.
-
-\chapter{El papel del caos}\label{el-papel-del-caos}
-
-El caos no debe entenderse solo como desorden o azar sin sentido. En
-física, hablamos de caos determinista para describir sistemas regidos
-por leyes precisas pero extremadamente sensibles a las condiciones
-iniciales. En ellos, cualquier mínima perturbación ---un error de
-medida, un ruido ambiental, una fluctuación térmica o incluso
-cuántica--- se amplifica con el tiempo hasta volver imposible una
-predicción a largo plazo.
-
-Este comportamiento caótico conecta directamente con la idea de
-Prigogine:
-
-\begin{itemize}
-\item
-  La irreversibilidad asegura que el tiempo tenga una dirección. El caos
-  añade otra capa: incluso si las ecuaciones fueran simétricas, la
-  sensibilidad exponencial hace imposible ``volver atrás'' en la
-  práctica. Aunque intentaras invertir el tiempo, bastaría un error
-  ínfimo (del tamaño de una milésima, o incluso de fluctuaciones
-  cuánticas inevitables) para que la trayectoria invertida se desviara
-  por completo. Es decir, no puedes reconstruir con exactitud el estado
-  pasado ni repetir la evolución hacia atrás, porque la información
-  inicial se ``disuelve'' en la dinámica caótica.
-\item
-  El caos garantiza que esa dirección no sea una simple proyección
-  mecánica de lo ya contenido, sino un proceso donde las fluctuaciones
-  se amplifican y generan caminos alternativos.
-\item
-  De esa combinación surge la posibilidad de que el tiempo cree
-  estructuras nuevas en lugar de limitarse a repetir lo prefigurado.
-\end{itemize}
-
-Puede haber creación de estructuras sin caos, pero el caos las
-multiplica y las hace mucho más ricas. El caos introduce sensibilidad a
-fluctuaciones y ramificación de trayectorias posibles. Eso significa
-que:
-
-\begin{itemize}
-\item
-  No hay un único patrón de orden, sino muchos caminos posibles.
-\item
-  Lo inesperado se convierte en parte constitutiva del proceso.
-\item
-  El sistema puede explorar configuraciones alternativas, bifurcarse,
-  reorganizarse
-\end{itemize}
-
-Como ejemplo del caos en el clima, tenemos los huracanes. Todo el mundo
-sabe que los huracanes se producen por pequeñas perturbaciones en el
-este del Atlántico que van amplificándose hasta convertirse en huracanes
-al llegar al Caribe. La circulación atmosférica es inevitable, surge de
-la radiación solar que calienta la superficie de la Tierra y pone en
-movimiento al aire. Pero el caos hace que esa circulación atmosférica
-pueda organizarse en patrones distintos: brisa, tormenta, huracán\ldots.
-Los huracanes, lejos de ser un simple desastre, cumplen la función de
-transportar enormes cantidades de energía desde los trópicos hacia
-latitudes más altas, contribuyendo al equilibrio climático global. Sin
-ellos el calor se acumularía más en los trópicos.
-
-\section{La creación de estructuras en sistemas
-caóticos}\label{la-creaciuxf3n-de-estructuras-en-sistemas-cauxf3ticos}
-
-Uno se podría preguntar, ¿por qué se crean nuevas estructuras en un
-sistema caótico, en lugar de ser todo aleatorio y desordenado?. La
-respuesta no es trivial. El caos no es lo mismo que el azar total. Los
-sistemas caóticos siguen leyes precisas (ecuaciones deterministas), pero
-como son muy sensibles a las condiciones iniciales, sus trayectorias se
-vuelven impredecibles a largo plazo. Eso significa que:
-
-\begin{itemize}
-\tightlist
-\item
-  No todo vale. El sistema no explora cualquier posibilidad al azar,
-  sino dentro de un espacio limitado por las leyes físicas.
-\end{itemize}
-
-Ejemplo: una tormenta no puede convertirse en un cuadrado perfecto de
-nubes, pero sí en múltiples formas de remolinos, vórtices y frentes,
-porque eso es lo que permiten las ecuaciones de fluidos.
-
-Los sistemas caóticos tienden a organizarse en torno a atractores:
-conjuntos de estados hacia los que converge la dinámica. Esos atractores
-no son aleatorios, sino estructuras matemáticas que canalizan el
-desorden hacia formas recurrentes. De ahí surgen patrones como los
-pliegues de un río, las espirales de los huracanes o las formas del
-atractor de Lorenz. El atractor es lo que hace que el caos no se pierda
-en el desorden absoluto, sino que genere orden complejo. Este punto es
-fundamental: !! El Caos genera Estructuras !!
-
-Cuando un sistema recibe energía y la disipa (como el clima con la
-radiación solar), la irreversibilidad obliga a esa energía a fluir. Si
-el sistema fuera estable, disiparía la energía de forma simple y
-aburrida. Pero en la inestabilidad y el caos, el flujo de energía se
-reorganiza en estructuras disipativas: corrientes oceánicas, huracanes,
-ecosistemas. Esas estructuras aparecen porque son la manera más eficaz
-de gestionar el desbalance energético. No son azar puro, sino respuestas
-organizadas de la naturaleza a un flujo irreversible de acuerdo a unas
-ecuaciones deterministas.
-
-Y una última pregunta que se podría hacer uno. ¿Puede darse el caos en
-un sistema físico cerrado sin aporte de energía?. La respuesta es no.
-Para que haya un caos sostenido en la naturaleza se necesita un aporte
-externo de energía, porque sin él el sistema tendería al equilibrio y el
-movimiento caótico se apagaría. Es el caso del clima. Gracias a la
-energía recibida del Sol, la atmósfera y los océanos están lejos del
-equilibrio por lo que aparecen estructuras disipativas caóticas:
-vientos, huracanes, corrientes marinas, estaciones, etc. . Si la Tierra
-saliera del sistema solar y no recibiese un aporte externo de energía,
-la temperatura global caería progresivamente hasta un equilibrio con la
-radiación de fondo cósmico (\textasciitilde3 K). No habría gradiente
-térmico que impulsara la circulación atmosférica. Los océanos se
-congelarían y la atmósfera colapsaría en parte sobre la superficie como
-hielo seco (CO₂ sólido). Los sistemas vivos desaparecerían al no tener
-energía externa para sostener su metabolismo. En esa situación, la
-Tierra se volvería un sistema casi cerrado, cerca del equilibrio
-termodinámico. Y en equilibrio, no hay caos sostenido: no habría
-convección, no habría tormentas, no habría vida. Eso sí, sería
-totalmente predecible su futuro.
-
-\chapter{El demonio de Laplace}\label{el-demonio-de-laplace}
-
-El lector avezado podría objetar: ``Si el demonio conociera incluso las
-fluctuaciones, el caos no sería problema. El futuro seguiría escrito en
-el presente''. Pero aquí está el punto débil de ese argumento:
-
-Las fluctuaciones no son externas al sistema, son inevitables.
-
-\begin{itemize}
-\item
-  Hay fluctuaciones cuánticas: el principio de incertidumbre impone
-  límites objetivos, no solo prácticos.
-\item
-  Hay fluctuaciones térmicas y ambientales: en un universo abierto, no
-  se puede aislar perfectamente un sistema.Ni siquiera un demonio podría
-  eliminar la presencia de ruido, porque forma parte constitutiva de la
-  naturaleza.
-\end{itemize}
-
-El caos amplifica fluctuaciones irreducibles. En sistemas caóticos, el
-más mínimo cambio conduce a trayectorias divergentes. Aunque el demonio
-conociera hoy todas las variables, no podría neutralizar las
-fluctuaciones mañana, porque aparecen en el mismo proceso de evolución
-del sistema.
-
-El futuro no es un simple ``despliegue de lo ya contenido'', sino un
-proceso creativo donde lo nuevo emerge de la interacción entre
-inestabilidad e irreversibilidad.
-
-El tiempo, por tanto, no es un guion preescrito, sino un proceso
-creativo.
-
-En la visión laplaciana, el futuro está ``ya dado'' en las condiciones
-iniciales, y no hay margen para la novedad.
-
-En la visión de Prigogine, cualquier escenario futuro es posible pero no
-necesario: hay abanicos de trayectorias, bifurcaciones reales, elección
-de caminos.
-
-El demonio de Laplace fracasa porque confunde lo posible con lo
-determinado.
-
-\chapter{Indeterminismo objetivo}\label{indeterminismo-objetivo}
-
-El indeterminismo se solía considerar un fenómeno subjetivo, ligado a
-nuestra ignorancia humana o a la falta de medios para medir con
-precisión. Según esta visión, el mundo seguiría siendo perfectamente
-determinista en sí mismo; lo que ocurre es que los humanos no tenemos la
-capacidad de calcularlo todo.
-
-Prigogine, en cambio, defendió la existencia de un indeterminismo
-objetivo: un rasgo constitutivo de la naturaleza, no un simple límite de
-nuestro conocimiento.
-
-¿Por qué?
-
-\begin{itemize}
-\item
-  Por la irreversibilidad del tiempo. La flecha temporal impide que el
-  futuro sea un espejo del pasado. Los sistemas evolucionan hacia
-  estados más probables, y no existe forma de retroceder ni de
-  ``reconstruir'' exactamente las condiciones iniciales.
-\item
-  Por la sensibilidad al caos.En sistemas caóticos, las fluctuaciones
-  inevitables (cuánticas, térmicas, ambientales) se amplifican de forma
-  tal que generan trayectorias distintas. No es solo que no sepamos cuál
-  se dará: es que la naturaleza misma mantiene abiertas varias
-  posibilidades reales.
-\item
-  Porque el tiempo introduce novedad. El universo no se limita a
-  desplegar lo ya contenido, sino que crea estructuras nuevas a través
-  de inestabilidad, bifurcaciones y procesos disipativos. Lo inesperado
-  forma parte constitutiva de la realidad.
-\end{itemize}
-
-El futuro no está escrito: existen abanicos de trayectorias posibles. El
-tiempo tiene un papel creativo, y lo inesperado es parte de la
-naturaleza. La incertidumbre es objetiva.
-
-\chapter{El papel creativo del tiempo (y del
-caos)}\label{el-papel-creativo-del-tiempo-y-del-caos}
-
-En la visión clásica, el tiempo era un simple parámetro: un ``reloj''
-que medía cómo los estados del universo se iban desplegando según leyes
-ya escritas. En cambio, en la perspectiva de Prigogine, el tiempo no
-solo mide, sino que produce.
-
-¿Por qué decimos que el tiempo tiene un papel creativo?
-
-El tiempo genera irreversibilidad. Cada instante que pasa deja una
-huella que no se puede borrar: el hielo derretido, el vaso roto, la
-energía disipada. Esta irreversibilidad no se limita a destruir orden,
-también permite que surjan nuevas formas de organización. Ejemplo: las
-estructuras disipativas (celdas de Bénard, tornados, ecosistemas) que
-nacen gracias a los flujos de energía y materia. Sin irreversibilidad,
-no habría emergencia de orden.
-
-El tiempo abre bifurcaciones. En sistemas caóticos e inestables, el
-futuro no está prefijado: pequeñas fluctuaciones se amplifican hasta
-dirigir el sistema hacia trayectorias alternativas. El tiempo, en vez de
-ser un mero despliegue de lo ya contenido, actúa como un proceso de
-selección entre posibilidades. → Es como si cada segundo abriera varias
-puertas; el paso del tiempo consiste en atravesar una de ellas.
-
-El caos amplifica lo inesperado. La inestabilidad convierte lo
-microscópico en macroscópico: una perturbación diminuta (una vibración,
-una molécula más rápida que otra) puede desencadenar un nuevo patrón
-global. Eso hace que el tiempo no solo conserve información, sino que la
-transforme y la expanda en nuevas formas.
-
-En conjunto: el tiempo no es neutral. Es productivo: crea
-configuraciones que antes no existían, favorece la emergencia de
-estructuras y abre caminos alternativos.
-
-\section{¿Por qué la incertidumbre es
-objetiva?}\label{por-quuxe9-la-incertidumbre-es-objetiva}
-
-Prigogine rompe con esto al afirmar que la incertidumbre es objetiva, es
-decir, propia de la naturaleza misma, no solo de nuestra falta de
-conocimiento.
-
-Las razones:
-
-\begin{itemize}
-\item
-  Limitaciones físicas irreducibles. El principio de incertidumbre de
-  Heisenberg impide conocer simultáneamente posición y velocidad de una
-  partícula con precisión infinita. No es una limitación tecnológica,
-  sino un límite fundamental.
-\item
-  Fluctuaciones inevitables. En cualquier sistema hay ruido térmico,
-  cuántico, ambiental. Estas fluctuaciones no pueden eliminarse, forman
-  parte constitutiva de la realidad. Y lo más importante: en sistemas
-  caóticos, se amplifican inevitablemente, por lo que no hay trayectoria
-  única.
-\item
-  Bifurcaciones reales. En ciertos regímenes dinámicos, el sistema llega
-  a puntos donde puede evolucionar hacia diferentes configuraciones
-  posibles. No es que el futuro ``esté escrito y no lo sepamos'': el
-  futuro se decide en el proceso, a partir de fluctuaciones
-  irreducibles.
-\end{itemize}
-
-Esto convierte la incertidumbre en algo inherente a la naturaleza
-
-\chapter{El clima desde la óptica de
-Prigogine}\label{el-clima-desde-la-uxf3ptica-de-prigogine}
-
-El clima de la Tierra es un ejemplo privilegiado de cómo el tiempo y el
-caos tienen un papel creativo.
-
-A primera vista, podríamos imaginar que, con superordenadores cada vez
-más potentes y más datos de satélite, será posible conocer el futuro
-climático con la misma precisión con la que predecimos un eclipse. Esta
-es, de hecho, una herencia de la visión determinista: si medimos lo
-suficiente, podremos anticipar lo que vendrá.
-
-Pero el clima no es un sistema mecánico de relojería, no es un sistema
-determinista. Es un sistema caótico, que recibe energía del exterior (el
-Sol), y por ello encarna las tesis de Prigogine de manera ejemplar:
-
-\begin{itemize}
-\item
-  Irreversibilidad: El clima no puede ``reproducirse al revés''. La
-  energía solar que llega a la Tierra se disipa en forma de calor y
-  radiación hacia el espacio. Ese flujo irreversible impulsa las
-  corrientes oceánicas, la dinámica atmosférica y los ciclos de agua y
-  carbono. No hay marcha atrás: lo que se disipa, no vuelve.
-\item
-  Sensibilidad al caos: El clima está gobernado por leyes físicas
-  precisas, pero cualquier fluctuación pequeña ---una variación en la
-  temperatura del océano, una erupción volcánica, un cambio en la
-  cubierta vegetal, las emisiones de gas de efecto invernadero
-  provocadas por la civilización humana--- puede amplificarse hasta
-  alterar trayectorias globales. Aquí, como en el doble péndulo, la
-  predicción a largo plazo se enfrenta a un horizonte de caos.
-\item
-  Indeterminismo objetivo: No es simplemente que no sepamos lo
-  suficiente. La propia dinámica climática abre abanicos de trayectorias
-  posibles. El sistema se enfrenta a bifurcaciones reales: corrientes
-  oceánicas que pueden reorganizarse, hielos polares que al fundirse
-  cambian el balance energético, ecosistemas que se transforman. El
-  futuro climático no estaba contenido de antemano en el presente; se
-  decide en el proceso
-\item
-  El tiempo como creador de estructuras: El clima no es puro desorden.
-  De la irreversibilidad y el caos emergen patrones organizados:
-  monzones, huracanes, corrientes en chorro, fenómenos como El Niño y La
-  Niña. Son ejemplos de estructuras disipativas, que solo existen
-  gracias al flujo constante de energía. El tiempo y el caos, lejos de
-  ser enemigos, son los arquitectos de esas regularidades.
-\end{itemize}
-
-Desde la óptica de Prigogine, debemos abandonar la ilusión de una
-predicción climática exacta y eterna. Lo que sí es posible es hablar en
-términos de probabilidades, tendencias y escenarios, y comprender el
-clima como un sistema creativo y dinámico en el que las sorpresas son
-inevitables.
-
-El indeterminismo objetivo implica que siempre habrá un límite a lo que
-podemos anticipar. Igual que en el caos determinista de Lorenz, podemos
-conocer bien el patrón global (el atractor), pero no la trayectoria
-exacta (el camino preciso de la atmósfera dentro de ese atractor).
-
-\section{El valor del caos para el clima y la
-vida}\label{el-valor-del-caos-para-el-clima-y-la-vida}
-
-Cuando hablamos del caos en el clima, solemos subrayar su dificultad
-para la predicción. Sin embargo, desde la óptica de Prigogine, el caos
-no es solo un obstáculo: es también una fuente de riqueza y estabilidad
-dinámica para la Tierra y para la vida.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  El caos genera variabilidad climática. Sin caos, el clima sería un
-  sistema rígido, condenado a repetir siempre los mismos patrones.
-  Gracias al caos: Surgen fenómenos como El Niño y La Niña, que
-  redistribuyen energía y nutrientes en los océanos.Los regímenes
-  atmosféricos alternan entre fases, evitando que el planeta quede
-  ``atrapado'' en un único estado monótono. Esa variabilidad, aunque
-  difícil de anticipar, contribuye a la resiliencia del sistema
-  terrestre.
-\item
-  El caos favorece la diversidad biológica. Los cambios imprevisibles en
-  el clima han obligado a los seres vivos a adaptarse continuamente, lo
-  que impulsa la evolución: Periodos de enfriamiento y calentamiento han
-  abierto y cerrado corredores ecológicos. Las sequías, glaciaciones y
-  variaciones en los ecosistemas han actuado como motores de selección
-  natural. Sin estas fluctuaciones, la vida probablemente sería mucho
-  menos diversa.
-\item
-  El caos como condición de la creatividad de la vida. La vida misma
-  puede entenderse como un proceso caótico y abierto. Si el universo
-  fuera un reloj determinista, nada realmente nuevo podría aparecer: ni
-  moléculas complejas, ni células, ni conciencia. La química prebiótica
-  en la Tierra primitiva dependió de inestabilidades y fluctuaciones
-  caóticas en reacciones, atmósfera, océanos. Sin caos, no habría
-  evolución, porque no existirían mutaciones ni trayectorias divergentes
-  que permiten la selección natural.
-\end{enumerate}
-
-Por lo tanto, enlazando con el tema central del trabajo de
-investigación, se puede concluir que el caos no es solo un fenómeno
-indeseable con el que nos topamos al estudiar el clima. Se trata de una
-parte esencial del clima, de la naturaleza y del Universo. Sin él, el
-mundo tal y como lo conocemos sería imposible. El caos es intrínseco a
-todo lo que observamos, y es la norma más que la excepción en todos los
-sistemas conocidos. Incluso el cerebro humano es caótico, y su exponente
-de Lyapunov ha podido calcularse (unos 1.5 segundos). Tenemos que ver
-por tanto nuestro entorno como algo evolutivo, no predestinado, en el
-que los seres humanos tienen capacidad de intervención, para bien o para
-mal. La creación y la elección de trayectorias están a nuestro alcance.
-Si el universo es creativo y abierto, también lo son nuestras acciones.
-El futuro no está escrito: lo construimos con nuestras elecciones
-colectivas ¡Elijamos bien!
-
-\chapter{Mi hipótesis final. El Principio de Compromiso Predictibilidad
---
-Creatividad}\label{mi-hipuxf3tesis-final.-el-principio-de-compromiso-predictibilidad-creatividad}
-
-Como ya hemos visto con ejemplos en las secciones anteriores, si el
-sistema no es caótico, es muy predecible, conserva la información
-inicial, pero no se genera novedad. Al contrario, si el sistema es
-caótico, al introducirle energía externa, diluye o aleatoriza la
-información inicial y la convierte en nuevas estructuras. Por lo tanto,
-en base a estas observaciones formulo la siguiente Tesis:
-
-\begin{itemize}
-\item
-  En sistemas estables/no caóticos, el comportamiento es altamente
-  predecible y la información inicial se conserva con poca distorsión;
-  por eso la novedad estructural es limitada.
-\item
-  En sistemas inestables/caóticos, el aporte de energía y la
-  sensibilidad a perturbaciones dispersan (``diluyen'') la información
-  inicial, abriendo bifurcaciones y creando nuevas estructuras. A
-  cambio, disminuye la predictibilidad detallada más allá de un
-  horizonte de predicción.
-\end{itemize}
-
-El principio heurístico que se deduce es el siguiente:
-
-\textbf{``No es posible maximizar simultáneamente la predictibilidad
-detallada y la creación de novedad en sistemas dinámicos complejos:
-cuanto más creativa (abierta a nuevas estructuras) es la evolución,
-menos plenamente predecible es su trayectoria fina, y viceversa''}
-
-Por lo tanto, la tan ansiada omnisciencia en un universo creativo como
-el nuestro es un oxímoron. Podemos determinar patrones, pero no ver los
-detalles finos, es decir, podemos anticipar patrones (atractores, rangos
-de comportamiento, escenarios probables) mejor que trayectorias exactas
-a largo plazo. Cuanto mayor sea el aporte energético, mayor sera el
-caos, y menor será la predictibilidad, pero al mismo tiempo se
-aumentarán las posibilidades de creación de nuevas estructuras.
-
-Un universo capaz de crear nuevas formas no puede ser, al mismo tiempo,
-totalmente transparente a nuestra predicción. La novedad tiene un
-precio: nos hace renunciar a una parte de la certeza. Es como si los
-sistemas que conforman el Universo no se dejasen modelar o simular.
-
-Por tanto, la creación de nuevas estructuras no puede predecirse
-matemáticamente (ni con simulaciones por ordenador): surge del propio
-universo. Es como si la evolución cósmica escapase a nuestra capacidad
-de predicción. Uno puede hacerse el experimento mental: ¿habría sido
-posible, en el instante del Big Bang, imaginar o simular que, a partir
-de un punto de energía infinita, surgiría un planeta como la Tierra, con
-vida y una civilización avanzada como la nuestra? Del mismo modo,
-¿podríamos modelar o simular de antemano la aparición de vida compleja a
-partir de moléculas sencillas de carbono, hidrógeno, nitrógeno y
-oxígeno?
-
-En definitiva, podemos plantear que \textbf{``la novedad estructural es
-impredecible en detalle en un sistema caótico''}.
 
 
 

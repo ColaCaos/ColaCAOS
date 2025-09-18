@@ -64,15 +64,15 @@ book:
         - 05-experimentos/funcionamientoCaotico.qmd
         - 05-experimentos/test.qmd
     
-    - part: "Determinismo y Caos"
-      chapters:
-        - 06-filosofia/determinismo01.qmd
-        - 06-filosofia/determinismo02.qmd
-        - 06-filosofia/determinismo03.qmd
-        - 06-filosofia/determinismo04.qmd
-        - 06-filosofia/determinismo05.qmd
-        - 06-filosofia/determinismo06.qmd
-        - 06-filosofia/determinismo07.qmd
+    #- part: "Determinismo y Caos"
+    #  chapters:
+        #- 06-filosofia/determinismo01.qmd
+        #- 06-filosofia/determinismo02.qmd
+        #- 06-filosofia/determinismo03.qmd
+        #- 06-filosofia/determinismo04.qmd
+        #- 06-filosofia/determinismo05.qmd
+        #- 06-filosofia/determinismo06.qmd
+        #- 06-filosofia/determinismo07.qmd
 
 
 
