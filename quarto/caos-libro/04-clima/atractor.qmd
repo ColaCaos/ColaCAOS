@@ -231,6 +231,44 @@ plt.show()
 ```
 
 
+```{python}
+import matplotlib.pyplot as plt
+import matplotlib
+
+def logistic_map(r, x):
+    return r * x * (1 - x)
+
+transient, iterations, x0 = 1, 5000, 0.5
+r_values = [2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 2.92, 2.94, 2.96]
+
+plt.figure(figsize=(6, 6))
+
+# Aquí usamos matplotlib.colormaps para obtener 'tab10'
+cmap = matplotlib.colormaps["tab10"]
+
+for idx, r in enumerate(r_values):
+    x = x0
+    x_vals, y_vals = [], []
+    for i in range(iterations):
+        x_next = logistic_map(r, x)
+        if i >= transient:
+            x_vals.append(x)
+            y_vals.append(x_next)
+        x = x_next
+    plt.scatter(x_vals, y_vals, s=0.5, color=cmap(idx), label=f"r = {r}")
+
+plt.title("Atractores no caóticos para distintos valores de r")
+plt.xlabel(r"$x_n$")
+plt.ylabel(r"$x_{n+1}$")
+plt.legend(title="Parámetro r", ncol=2, fontsize='small')
+# Ajustar ejes de 0 a 1
+plt.xlim(0, 1)
+plt.ylim(0, 1)
+plt.tight_layout()
+plt.show()
+
+```
+
 
 ## Otros atractores
 

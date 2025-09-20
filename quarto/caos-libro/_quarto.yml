@@ -64,15 +64,16 @@ book:
         - 05-experimentos/funcionamientoCaotico.qmd
         - 05-experimentos/test.qmd
     
-    #- part: "Determinismo y Caos"
-    #  chapters:
-        #- 06-filosofia/determinismo01.qmd
-        #- 06-filosofia/determinismo02.qmd
-        #- 06-filosofia/determinismo03.qmd
-        #- 06-filosofia/determinismo04.qmd
-        #- 06-filosofia/determinismo05.qmd
-        #- 06-filosofia/determinismo06.qmd
-        #- 06-filosofia/determinismo07.qmd
+    - part: "Determinismo y Caos"
+      chapters:
+        - 06-filosofia/determinismo01.qmd
+        - 06-filosofia/determinismo02.qmd
+        - 06-filosofia/determinismo03.qmd
+        - 06-filosofia/determinismo04.qmd
+        - 06-filosofia/determinismo05.qmd
+        - 06-filosofia/determinismo06.qmd
+        - 06-filosofia/determinismo07.qmd
+        - 06-filosofia/determinismo08.qmd
 
 
 
@@ -82,32 +83,15 @@ format:
     toc: true            # sidebar jerárquica
     toc-depth: 2         # hasta niveles ## 
     number-sections: true
+    number-depth: 2
     math: katex
+    fig-cap-location: bottom
+    fig-numbering: true
     include-in-header:
       text: |
         <link rel="icon" type="image/png" href="https://colacaos.github.io/ColaCAOS/favicon.png">
-  pdf:
-    pdf-engine: xelatex
-    keep-tex: true
-    toc: true
-    number-sections: true
-    papersize: a4
-    geometry:
-      - margin=2.5cm
-    fontsize: 11pt
-    include-in-header: |
-      \usepackage{amsmath}
-      \usepackage{scrhack}
-      \usepackage{newunicodechar}
-      \newunicodechar{⇒}{\ensuremath{\Rightarrow}}
-      \newunicodechar{≥}{\ensuremath{\ge}}
-      \newunicodechar{𝛿}{\ensuremath{\delta}}
-      \newunicodechar{𝜃}{\ensuremath{\theta}}
-      \allowdisplaybreaks
-      \makeatletter
-      \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}}
-      \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}}
-      \DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}}
-      \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}}
-      \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}}
-      \makeatother
+crossref:
+  labels: all
+  fig-prefix: "Figura"
+  tbl-prefix: "Tabla"
+  eq-prefix: "Ecuación"

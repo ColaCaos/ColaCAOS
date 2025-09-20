@@ -401,6 +401,65 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Determinismo y Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">De Laplace a Prigogine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">El papel del caos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">El demonio de Laplace</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Indeterminismo objetivo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">El papel creativo del tiempo (y del caos)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">El clima desde la óptica de Prigogine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">El Principio de Compromiso Predictibilidad – Creatividad en la práctica.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -480,7 +539,7 @@ La dimensión <span class="math inline">\(m\)</span> es el número de valores es
 <section id="exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura" class="level2" data-number="23.2">
 <h2 data-number="23.2" class="anchored" data-anchor-id="exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura"><span class="header-section-number">23.2</span> Exponente de Lyapunov para la serie de valores de temperatura</h2>
 <p>A continuación muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedía ChatGPT que estimase la variación estacional y que la quitase de los datos, dándome la gráfica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo más aleatorio ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el año 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra.</p>
-<div id="05eee955" class="cell" data-execution_count="1">
+<div id="339c25c5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -497,7 +556,7 @@ La dimensión <span class="math inline">\(m\)</span> es el número de valores es
 </div>
 </div>
 <p>Como curiosidad, le pedía a ChatGPT que hiciese una regresión no lineal de orden 2 para ver como ha ido evolucionando la temperatura media en Galapagar desde 1950.</p>
-<div id="7cb3a1b4" class="cell" data-execution_count="2">
+<div id="2eb40e66" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -512,18 +571,18 @@ La tasa media de incremento es <span class="math inline">\(\displaystyle \frac{2
 <span class="math display">\[
 \lambda_{\max} \approx 0.219\ \mathrm{día}^{-1}.
 \]</span></p>
-<section id="horizonte-de-predictibilidad" class="level3" data-number="23.2.1">
-<h3 data-number="23.2.1" class="anchored" data-anchor-id="horizonte-de-predictibilidad"><span class="header-section-number">23.2.1</span> Horizonte de predictibilidad</h3>
+<section id="horizonte-de-predictibilidad" class="level3">
+<h3 class="anchored" data-anchor-id="horizonte-de-predictibilidad">Horizonte de predictibilidad</h3>
 <p>Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo sabemos que indica que estamos ante un sistema caótico, y que los errores se amplificarán con el tiempo. Veamos cuando multiplicamos por 10 un error inicial de 0.1 grados Centígrados:</p>
 <p><span class="math display">\[
 T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
   = \frac{1}{0.219}\ln(10) \approx 10.5\ \mathrm{días}.
 \]</span></p>
 </section>
-<section id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días" class="level3" data-number="23.2.2">
-<h3 data-number="23.2.2" class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días"><span class="header-section-number">23.2.2</span> Amplificación de un error inicial de 0.1 °C tras 15 días</h3>
+<section id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días" class="level3">
+<h3 class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días">Amplificación de un error inicial de 0.1 °C tras 15 días</h3>
 <p>Y ahora veamos de formá gráfica cómo se va amplificando el error inicial de 0.1 grados tras quince días.</p>
-<div id="57df7d28" class="cell" data-execution_count="3">
+<div id="2381c795" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -538,7 +597,7 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 <section id="exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento" class="level2" data-number="23.3">
 <h2 data-number="23.3" class="anchored" data-anchor-id="exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento"><span class="header-section-number">23.3</span> Exponente de Lyapunov para la serie de velocidad del viento</h2>
 <p>A continuación cargamos y desestacionalizamos los datos de velocidad del viento (1950–presente), mostramos la serie original y la desestacionalizada:</p>
-<div id="08812717" class="cell" data-execution_count="4">
+<div id="2cd34d49" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -548,24 +607,24 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 </div>
 </div>
 <p>En este caso no hay gran diferencia entre la componente desestacionalizada y sin desestacionalizar.</p>
-<section id="exponente-de-lyapunov" class="level3" data-number="23.3.1">
-<h3 data-number="23.3.1" class="anchored" data-anchor-id="exponente-de-lyapunov"><span class="header-section-number">23.3.1</span> Exponente de Lyapunov</h3>
+<section id="exponente-de-lyapunov" class="level3">
+<h3 class="anchored" data-anchor-id="exponente-de-lyapunov">Exponente de Lyapunov</h3>
 <p>El exponente de Lyapunov máximo calculado para la serie de viento desestacionalizada (usando Wolf, <span class="math inline">\(m=12\)</span>, <span class="math inline">\(\tau=3\)</span>) es<br>
 <span class="math display">\[
 \lambda_{\max} \approx 0.414\ \mathrm{día}^{-1}.
 \]</span></p>
 </section>
-<section id="horizonte-de-predictibilidad-1" class="level3" data-number="23.3.2">
-<h3 data-number="23.3.2" class="anchored" data-anchor-id="horizonte-de-predictibilidad-1"><span class="header-section-number">23.3.2</span> Horizonte de predictibilidad</h3>
+<section id="horizonte-de-predictibilidad-1" class="level3">
+<h3 class="anchored" data-anchor-id="horizonte-de-predictibilidad-1">Horizonte de predictibilidad</h3>
 <p>Para un error inicial <span class="math inline">\(\varepsilon = 1\ \mathrm{km/h}\)</span> y un factor de crecimiento 10× (<span class="math inline">\(L/\varepsilon=10\)</span>):<br>
 <span class="math display">\[
 T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
   = \frac{1}{0.414}\ln(10)\approx5.6\ \mathrm{días}.
 \]</span></p>
 </section>
-<section id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días" class="level3" data-number="23.3.3">
-<h3 data-number="23.3.3" class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días"><span class="header-section-number">23.3.3</span> Amplificación de un error inicial de 1 km/h tras 15 días</h3>
-<div id="16d39592" class="cell" data-execution_count="5">
+<section id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días" class="level3">
+<h3 class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días">Amplificación de un error inicial de 1 km/h tras 15 días</h3>
+<div id="8ec21733" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -575,8 +634,8 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 </div>
 </div>
 </section>
-<section id="sec-lyapunov" class="level3" data-number="23.3.4">
-<h3 data-number="23.3.4" class="anchored" data-anchor-id="sec-lyapunov"><span class="header-section-number">23.3.4</span> Comparación de la predictibilidad: viento vs temperatura</h3>
+<section id="sec-lyapunov" class="level3">
+<h3 class="anchored" data-anchor-id="sec-lyapunov">Comparación de la predictibilidad: viento vs temperatura</h3>
 <p>En el caso de la temperatura desestacionalizada, obtuvimos un exponente de Lyapunov<br>
 <span class="math display">\[
 \lambda_{\max}^{\rm temp}\approx0.219\ \mathrm{día}^{-1},

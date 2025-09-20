@@ -401,6 +401,65 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Determinismo y Caos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">De Laplace a Prigogine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">El papel del caos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">El demonio de Laplace</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Indeterminismo objetivo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">El papel creativo del tiempo (y del caos)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">El clima desde la óptica de Prigogine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-filosofia/determinismo08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">El Principio de Compromiso Predictibilidad – Creatividad en la práctica.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -501,7 +560,7 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 <section id="análisis-gráfico" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="análisis-gráfico"><span class="header-section-number">11.2</span> Análisis gráfico</h2>
 <p>Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con <span class="math inline">\(r=2.9\)</span>. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta <span class="math inline">\(y=x\)</span> en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada <span class="math inline">\(f \circ f\)</span>. La recta <span class="math inline">\(y=x\)</span> solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.</p>
-<div id="98caa902" class="cell" data-execution_count="1">
+<div id="d1f48133" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -511,7 +570,7 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 </div>
 </div>
 <p>Y ahora veamos lo que pasa cuando <span class="math inline">\(r=3.2\)</span>. En este caso, la segunda iteración corta con la recta <span class="math inline">\(y=x\)</span> en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.</p>
-<div id="ce181d46" class="cell" data-execution_count="2">
+<div id="28b07dfc" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -535,8 +594,8 @@ Queremos hallar los valores de <span class="math inline">\(x\)</span> que satisf
 <span class="math display">\[
 f^{(2)}(x) = x.
 \]</span></p>
-<section id="expresión-explícita-de-f2x" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="expresión-explícita-de-f2x"><span class="header-section-number">11.3.1</span> Expresión explícita de <span class="math inline">\((f^{(2)}(x))\)</span></h3>
+<section id="expresión-explícita-de-f2x" class="level3">
+<h3 class="anchored" data-anchor-id="expresión-explícita-de-f2x">Expresión explícita de <span class="math inline">\((f^{(2)}(x))\)</span></h3>
 <p>Primero calculamos<br>
 <span class="math display">\[
 f(x) = r x - r x^2.
@@ -557,8 +616,8 @@ f\bigl(f(x)\bigr)
 </section>
 <section id="primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2"><span class="header-section-number">11.4</span> Primera bifurcación: obtención de los puntos fijos de periodo 1 y 2</h2>
-<section id="definición-de-la-función-y-de-su-iterada-doble" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="definición-de-la-función-y-de-su-iterada-doble"><span class="header-section-number">11.4.1</span> Definición de la función y de su iterada doble</h3>
+<section id="definición-de-la-función-y-de-su-iterada-doble" class="level3">
+<h3 class="anchored" data-anchor-id="definición-de-la-función-y-de-su-iterada-doble">Definición de la función y de su iterada doble</h3>
 <p>La <strong>función logística</strong> es<br>
 <span class="math display">\[
 f(x) = r\,x\,(1 - x)\,.
@@ -574,8 +633,8 @@ f^{(2)}(x) - x = 0,
 que es un polinomio de grado 4 en (x).</p>
 <hr>
 </section>
-<section id="puntos-de-periodo-1-puntos-fijos-de-f" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="puntos-de-periodo-1-puntos-fijos-de-f"><span class="header-section-number">11.4.2</span> Puntos de periodo 1 (puntos fijos de (f))</h3>
+<section id="puntos-de-periodo-1-puntos-fijos-de-f" class="level3">
+<h3 class="anchored" data-anchor-id="puntos-de-periodo-1-puntos-fijos-de-f">Puntos de periodo 1 (puntos fijos de (f))</h3>
 <p>Localizamos los puntos de <strong>periodo 1</strong>, es decir, las raíces de<br>
 <span class="math display">\[
 f(x) - x = r\,x\,(1 - x) - x = 0.
@@ -594,8 +653,8 @@ x = \frac{r-1}{r}.
 \]</span></p>
 <hr>
 </section>
-<section id="construcción-del-polinomio-de-grado-4" class="level3" data-number="11.4.3">
-<h3 data-number="11.4.3" class="anchored" data-anchor-id="construcción-del-polinomio-de-grado-4"><span class="header-section-number">11.4.3</span> Construcción del polinomio de grado 4</h3>
+<section id="construcción-del-polinomio-de-grado-4" class="level3">
+<h3 class="anchored" data-anchor-id="construcción-del-polinomio-de-grado-4">Construcción del polinomio de grado 4</h3>
 <p>Para la segunda iterada:<br>
 <span class="math display">\[
 \begin{aligned}
@@ -612,8 +671,8 @@ f^{(2)}(x) - x
 \]</span></p>
 <hr>
 </section>
-<section id="división-polinómica-para-aislar-el-factor-de-periodo-2" class="level3" data-number="11.4.4">
-<h3 data-number="11.4.4" class="anchored" data-anchor-id="división-polinómica-para-aislar-el-factor-de-periodo-2"><span class="header-section-number">11.4.4</span> División polinómica para aislar el factor de periodo 2</h3>
+<section id="división-polinómica-para-aislar-el-factor-de-periodo-2" class="level3">
+<h3 class="anchored" data-anchor-id="división-polinómica-para-aislar-el-factor-de-periodo-2">División polinómica para aislar el factor de periodo 2</h3>
 <p>Primero, observemos que si <span class="math display">\[x^*\]</span> es un punto fijo de <span class="math display">\[f\]</span>, es decir, <span class="math display">\[
 f(x^*) - x^* = 0,
 \]</span> entonces <span class="math display">\[
@@ -681,8 +740,8 @@ Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
 <p>El <strong>cociente</strong> resultante es <span class="math display">\[
 Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
 \]</span> y el resto es cero, tal como queríamos demostrar.</p>
-<section id="paso-1" class="level4" data-number="11.4.4.1">
-<h4 data-number="11.4.4.1" class="anchored" data-anchor-id="paso-1"><span class="header-section-number">11.4.4.1</span> Paso 1</h4>
+<section id="paso-1" class="level4">
+<h4 class="anchored" data-anchor-id="paso-1">Paso 1</h4>
 <ul>
 <li>Cociente parcial:<br>
 <span class="math display">\[
@@ -691,8 +750,8 @@ Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
 <li>Multiplicamos y restamos → nuevo dividendo.</li>
 </ul>
 </section>
-<section id="paso-2" class="level4" data-number="11.4.4.2">
-<h4 data-number="11.4.4.2" class="anchored" data-anchor-id="paso-2"><span class="header-section-number">11.4.4.2</span> Paso 2</h4>
+<section id="paso-2" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2">Paso 2</h4>
 <ul>
 <li>Cociente parcial:<br>
 <span class="math display">\[
@@ -701,8 +760,8 @@ Q(x) \;=\; r^2x^2 \;-\;(r^2+r)x \;+\;(r+1),
 <li>Multiplicamos y restamos → nuevo dividendo.</li>
 </ul>
 </section>
-<section id="paso-3" class="level4" data-number="11.4.4.3">
-<h4 data-number="11.4.4.3" class="anchored" data-anchor-id="paso-3"><span class="header-section-number">11.4.4.3</span> Paso 3</h4>
+<section id="paso-3" class="level4">
+<h4 class="anchored" data-anchor-id="paso-3">Paso 3</h4>
 <ul>
 <li>Cociente parcial:<br>
 <span class="math display">\[
@@ -717,8 +776,8 @@ Q(x) = r^2x^2 - (r^2+r)x + (r+1).
 <hr>
 </section>
 </section>
-<section id="solución-de-las-raíces-de-periodo-2" class="level3" data-number="11.4.5">
-<h3 data-number="11.4.5" class="anchored" data-anchor-id="solución-de-las-raíces-de-periodo-2"><span class="header-section-number">11.4.5</span> Solución de las raíces de periodo 2</h3>
+<section id="solución-de-las-raíces-de-periodo-2" class="level3">
+<h3 class="anchored" data-anchor-id="solución-de-las-raíces-de-periodo-2">Solución de las raíces de periodo 2</h3>
 <p>Resolvemos<br>
 <span class="math display">\[
 r^2x^2 - (r^2+r)x + (r+1) = 0
@@ -740,8 +799,8 @@ x_2 = \frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}.
 </blockquote>
 <p>Obsérvese, que para <span class="math inline">\(r=3\)</span>, no hay dos soluciones, sino una, que coincide con el punto estable (<span class="math inline">\(x=2/3\)</span>). Ahora que tenemos la fórmula de los puntos finales, vamos a ver si estos dos puntos finales son estables. Para ello haremos lo mismo que para el caso <span class="math inline">\(1&lt;r&lt;3\)</span> . Es decir, cuando estábamos en la región estable <span class="math inline">\(1&lt;r&lt;3\)</span>, el punto de estabilidad final lo daba el cruce que la función logística con la recta <span class="math inline">\(y=x\)</span>, imponiendo la condición adicional de que el valor absoluto de la derivada en ese cruce sea menor que 1. Ahora, haremos lo mismo, pero imponiendo la condición adicional sobre la derivada de la segunda iteración de la función.</p>
 </section>
-<section id="derivada-de-f-y-criterio-de-estabilidad" class="level3" data-number="11.4.6">
-<h3 data-number="11.4.6" class="anchored" data-anchor-id="derivada-de-f-y-criterio-de-estabilidad"><span class="header-section-number">11.4.6</span> Derivada de <span class="math inline">\(f\)</span> y criterio de estabilidad</h3>
+<section id="derivada-de-f-y-criterio-de-estabilidad" class="level3">
+<h3 class="anchored" data-anchor-id="derivada-de-f-y-criterio-de-estabilidad">Derivada de <span class="math inline">\(f\)</span> y criterio de estabilidad</h3>
 <p>Supongamos que <span class="math inline">\((x_1,x_2)\)</span> es un ciclo de periodo 2, es decir<br>
 <span class="math display">\[
 f(x_1)=x_2,\qquad f(x_2)=x_1.

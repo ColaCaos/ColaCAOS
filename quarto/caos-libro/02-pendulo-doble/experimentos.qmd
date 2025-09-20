@@ -26,6 +26,7 @@ Aquí se ve el péndulo doble en movimiento con las diferentes partes representa
 
 Estas son las trayectorias del punto rojo del péndulo en cinco tiradas desde la misma posición y con la misma velocidad inicial.
 Se puede apreciar como al principio su taryectoria diverge muy rápidamente, pero al final, cuando ya han perdido mucha velocidad, hacen todos un recorrido muy similar hasta detenerse.
+
 ```{python}
 import pandas as pd
 import matplotlib.pyplot as plt
