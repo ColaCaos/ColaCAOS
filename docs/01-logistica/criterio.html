@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -496,8 +496,8 @@ window.Quarto = {
 </header>
 
 
-<p>En la siguiente gráfica vemos lo que hemos ido contanto pormenorizadamente en la sección anterior. Cada vez que el sistema está en una zona no caótica, el exponente de Lyapunov es negativo.</p>
-<div id="755d47b6" class="cell" data-execution_count="1">
+<p>En la siguiente gráfica vemos lo que hemos ido contando pormenorizadamente en la sección anterior. Cada vez que el sistema está en una zona no caótica, el exponente de Lyapunov es negativo.</p>
+<div id="0a9e30d1" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -507,7 +507,7 @@ window.Quarto = {
 </div>
 </div>
 <p>De hecho, si hacemos zoom en la zona donde aparece el caos, vemos que en las ventanas de periodicidad el exponente de Lyapunov se vuelve negativo.</p>
-<div id="78a6851a" class="cell" data-execution_count="2">
+<div id="7807a46b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -527,7 +527,7 @@ window.Quarto = {
 <li><strong>Se ve impredecible a largo plazo</strong>: aunque la regla sea determinista, al crecer las diferencias “desordenadas” parece un comportamiento aleatorio.</li>
 </ol>
 <p>Por ejemplo, ir anotando los números que salen directamente de una ruleta no es una serie caótica, ya que no hay ninguna regla para saber <span class="math inline">\(x_{n+1}\)</span> si conoces <span class="math inline">\(x_n\)</span> exactamente. Eso a pesar de ser impredecible a largo plazo. Es muy importante hacer notar, que un sistema caótico tiene unas reglas deterministas muy claras. En este caso <strong>no se puede calcular ningún exponente de Lyapunov</strong> porque no hay función <span class="math inline">\(f\)</span> continua o diferenciable que escriba <span class="math inline">\(x_{n+1} = f(x_n)\)</span>. Si intentáramos “forzar” un cálculo, estaríamos midiendo ruido y obtendríamos resultados sin sentido práctico: un “valor de <span class="math inline">\(\lambda\)</span>” aquí no nos dice nada sobre determinismo o caos, sino solo sobre la aleatoriedad de los datos.</p>
-<p>Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A todo el mundo le parece que predecir el valor de una acción a lo largo del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como fuciona la bolsa. El precio de una acción o de un índice bursátil depende de decenas de variables:<br>
+<p>Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A todo el mundo le parece que predecir el valor de una acción a lo largo del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como funciona la bolsa. El precio de una acción o de un índice bursátil depende de decenas de variables:<br>
 • Resultados financieros de las empresas.<br>
 • Noticias económicas o políticas.<br>
 • Sentimiento de los inversores y rumores.<br>
@@ -613,7 +613,7 @@ T_p
 <p>Este cálculo <strong>coincide</strong> con el límite práctico de <strong>7–10 días</strong> que vemos hoy en los pronósticos meteorológicos fiables. El lector puede echar un vistazo al siguiente artículo:</p>
 <p>https://www.stratumfive.com/climate/weather-forecasting-and-chaos-theory/</p>
 <p>Aquí se habla de un horizonte de predictibilidad para el tiempo de 8 a 10 días. La cuestión es que por lo aprendido en este proyecto, éste límite es una barrera que no vamos a poder superar. Si bien en los últimos 50 años se ha producido un formidable incremento de la precisión con la que hacemos las predicciones, pasando de predicciones fiables a un día a tener buenas predicciones a 5 días, el llegar a batir este límite dos semanas va a ser imposible.</p>
-<p>Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar que el sistema solar tiene un horizonte de prectibilidad de unos 5 millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de que tenemos esa preciosa fórmula de la gravitación universal, que funciona tan bien, su propagación hacia el futuro, cuando tenemos en cuenta los planetas que componen el sistema solar, deja de ser válida a 4 millones de años vista, que en términos cósmicos es poco tiempo. Y es que no solamente tenemos errores iniciales, al no poder tener en cuenta todos los pequeños objetos que vagan por el sistema solar, sino porque el sistema es inherentemente caótico. De hecho, tal y como anticipó Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico, y que presenta un exponente de Lyapunov positivo en determinadas circustancias.</p>
+<p>Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar que el sistema solar tiene un horizonte de predictibilidad de unos 5 millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de que tenemos esa preciosa fórmula de la gravitación universal, que funciona tan bien, su propagación hacia el futuro, cuando tenemos en cuenta los planetas que componen el sistema solar, deja de ser válida a 4 millones de años vista, que en términos cósmicos es poco tiempo. Y es que no solamente tenemos errores iniciales, al no poder tener en cuenta todos los pequeños objetos que vagan por el sistema solar, sino porque el sistema es inherentemente caótico. De hecho, tal y como anticipó Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico, y que presenta un exponente de Lyapunov positivo en determinadas circunstancias.</p>
 <section id="referencias-principales" class="level3">
 <h3 class="anchored" data-anchor-id="referencias-principales">Referencias principales</h3>
 <ol type="1">

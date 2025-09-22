@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -539,7 +539,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </li>
 <li>Tienen fórmula cerrada y crecen de forma suave y predecible.</li>
 </ul>
-<p>¿Qué tiene de especial el mapa logístico?. Lo veremos a continuación. Como primera pista, hay que observar que se trata de una ecuación no lineal, lo cual es un factor común de los sistemás caóticos. Una ecuación no lineal es aquella en la que la incógnita:</p>
+<p>¿Qué tiene de especial el mapa logístico?. Lo veremos a continuación. Como primera pista, hay que observar que se trata de una ecuación no lineal, lo cual es un factor común de los sistemas caóticos. Una ecuación no lineal es aquella en la que la incógnita:</p>
 <ul>
 <li>Aparece con potencias distintas de uno,</li>
 <li>O bien se combina consigo misma (productos, potencias),</li>
@@ -556,7 +556,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 <li>Reacciones químicas oscilantes</li>
 <li>Circuitos con realimentación</li>
 </ol>
-<p>El caso más paradigmático de estudio es el primero, es decir, la evolución de la población de animales, plantas o células con el tiempo. ¿Por qué se emplea la función logística para ello?. Porque al principio, la población crece rápidamente pero después debido a la falta de recursos del entorno se suelen producir colapsos poblacionanales.</p>
+<p>El caso más paradigmático de estudio es el primero, es decir, la evolución de la población de animales, plantas o células con el tiempo. ¿Por qué se emplea la función logística para ello?. Porque al principio, la población crece rápidamente pero después debido a la falta de recursos del entorno se suelen producir colapsos poblacionales.</p>
 <p>Para valores de <span class="math inline">\(r\)</span> menor que uno, la población final tiende a cero, lo que resulta lógico, dado que la población inicial no crece.</p>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, la secuencia <span class="math inline">\({x_n}\)</span> converge a un único valor fijo, que además es estable.</p>
 <p>Pero al aumentar <span class="math inline">\(r\)</span> por encima de 3, llega la primera sorpresa. Primero aparece un ciclo doble (dos valores alternantes), luego ciclos de periodo 4, 8, 16… y así sucesivamente, hasta que el comportamiento se vuelve aparentemente aleatorio, o mejor dicho caótico. A lo largo del proyecto iremos distinguiendo claramente entre el término aleatorio y el término caótico.</p>
@@ -564,7 +564,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 <section id="simulación-en-python" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="simulación-en-python"><span class="header-section-number">5.3</span> Simulación en Python</h2>
 <p>Vamos a refrendar lo anteriormente dicho con simulaciones de la función logística. Como veremos a continuación, para valores de <span class="math inline">\(r\)</span> menores de 1, el valor final de <span class="math inline">\(x_n\)</span> tiende a cero.</p>
-<div id="65c28574" class="cell" data-execution_count="1">
+<div id="0be33130" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -574,7 +574,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 1 y 3, el valor final de <span class="math inline">\(x_n\)</span> tiende a un punto estable</p>
-<div id="a326ab98" class="cell" data-execution_count="2">
+<div id="3a918184" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -584,7 +584,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.449, el valor final de <span class="math inline">\(x_n\)</span> tiende a dos puntos estables. Es decir, la población tiene un número de elementos alternantes, que se podría deber a la escasez/abundancia periódica de recursos.</p>
-<div id="8cb0d8d1" class="cell" data-execution_count="3">
+<div id="baa84a14" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -594,7 +594,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Para valores de <span class="math inline">\(r\)</span> entre 3 y 3.544, el valor final de <span class="math inline">\(x_n\)</span> tiende a cuatro puntos estables. Es curioso ver como la población final alterna entre 4 números distintos de individuos.</p>
-<div id="0cea1f87" class="cell" data-execution_count="4">
+<div id="bd8b1a89" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -604,7 +604,7 @@ x_{n+1} = r\,x_n\,(1 - x_n)
 </div>
 </div>
 <p>Y a partir de <span class="math inline">\(r = 3.56995\)</span> no hay ningún punto estable. Se dice que el sistema en este punto se convierte en caótico</p>
-<div id="b23d6d8e" class="cell" data-execution_count="5">
+<div id="1442cb9d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

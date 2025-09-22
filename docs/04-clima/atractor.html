@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -500,18 +500,18 @@ window.Quarto = {
 
 <section id="definición-del-clima" class="level2" data-number="27.1">
 <h2 data-number="27.1" class="anchored" data-anchor-id="definición-del-clima"><span class="header-section-number">27.1</span> Definición del clima</h2>
-<p>Antes de seguir hablando del clima vamos a ver qué entedemos por el clima. Según la Organización Meteorológica Mundial, el clima se define como la descripción estadística —principalmente la media y la variabilidad— de las variables atmosféricas (temperatura, precipitación, viento, etc.) para un lugar dado durante un periodo de referencia de 30 años, lo cual:</p>
+<p>Antes de seguir hablando del clima vamos a ver qué entendemos por el clima. Según la Organización Meteorológica Mundial, el clima se define como la descripción estadística —principalmente la media y la variabilidad— de las variables atmosféricas (temperatura, precipitación, viento, etc.) para un lugar dado durante un periodo de referencia de 30 años, lo cual:</p>
 <ul>
 <li><p>Filtra las variaciones interanuales y anomalías (p.&nbsp;ej. El Niño–Oscilación del Sur).</p></li>
 <li><p>Permite identificar tendencias y extremos climáticos a largo plazo.</p></li>
 </ul>
-<p>En la actualidad existe otra corriente de científicos para los que la definición del clima está mas relacionada con los sistemas caóticos. Para ellos, el clima no es la distribución de observaciones, sino el <strong>atractor</strong> de un <strong>modelo climático</strong> perfecto bajo condiciones externas fijas. Pero, ¿qué es un atractor?</p>
+<p>En la actualidad existe otra corriente de científicos para los que la definición del clima está más relacionada con los sistemas caóticos. Para ellos, el clima no es la distribución de observaciones, sino el <strong>atractor</strong> de un <strong>modelo climático</strong> perfecto bajo condiciones externas fijas. Pero, ¿qué es un atractor?</p>
 </section>
 <section id="atractor" class="level2" data-number="27.2">
 <h2 data-number="27.2" class="anchored" data-anchor-id="atractor"><span class="header-section-number">27.2</span> Atractor</h2>
 <p>Para ver lo que es un atractor nos vamos a valer de nuevo de nuestro tan útil mapa logístico.</p>
 <p>Vamos a ir a la zona caótica del mapa logístico, con <span class="math inline">\(r=3.9\)</span>. Vamos a ver un plot del valor de la sucesión con el tiempo.</p>
-<div id="ee0f2606" class="cell" data-execution_count="1">
+<div id="817e03fb" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -521,7 +521,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Y ahora vamos a hacer lo mismo con números aleatorios que he mandado generar al ordenador con una distribución uniforme entre 0 y 1.</p>
-<div id="003a4d1a" class="cell" data-execution_count="2">
+<div id="b8a3deae" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -530,8 +530,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Aparentemente estamos viendo la misma nube de puntos sin ninguna estructura. Pero, ¿qué pasa si representamos <span class="math inline">\(x_{n+1}\)</span> frente a <span class="math inline">\(x_n\)</span> ?. El resultado es una zona de puntos que atrae las distintas iteraciones de nuestra secuencia. !!Nos econtramos ante un atractor!!</p>
-<div id="ef5ac91a" class="cell" data-execution_count="3">
+<p>Aparentemente estamos viendo la misma nube de puntos sin ninguna estructura. Pero, ¿qué pasa si representamos <span class="math inline">\(x_{n+1}\)</span> frente a <span class="math inline">\(x_n\)</span> ?. El resultado es una zona de puntos que atrae las distintas iteraciones de nuestra secuencia. !!Nos encontramos ante un atractor!!</p>
+<div id="88c3fc00" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -541,7 +541,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Si hacemos lo mismo con los números aleatorios entre 0 y 1 el resultado es el siguiente.</p>
-<div id="2b647ba9" class="cell" data-execution_count="4">
+<div id="9e2a4ecd" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -550,15 +550,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>NO hay ninguna estructura que atraiga los valores. Estamos ante un conjunto desestructurado de datos.</p>
-<p>Volvamos al atractor del mapa logísitico. Uno podría decir que es lógico lo que vemos, ya que los puntos están definidos por la función logística. De hecho, parece que estamos viendo la función logística. Pero hay un detalle: si miras detalladamente verás huecos en la gráfica.¿Por qué el atractor es distinto de la función logística?</p>
+<p>No hay ninguna estructura que atraiga los valores. Estamos ante un conjunto desestructurado de datos.</p>
+<p>Volvamos al atractor del mapa logístico. Uno podría decir que es lógico lo que vemos, ya que los puntos están definidos por la función logística. De hecho, parece que estamos viendo la función logística. Pero hay un detalle: si miras detalladamente verás huecos en la gráfica. ¿Por qué el atractor es distinto de la función logística?</p>
 <ul>
 <li>La ecuación logística<br>
 <span class="math display">\[
 x_{n+1} = r\,x_n\,(1 - x_n)
 \]</span><br>
 es la regla determinista que asigna cada valor <span class="math inline">\(x_n\)</span> al siguiente.</li>
-<li>El atractor es el conjunto de pares <span class="math inline">\((x_n, x_{n+1})\)</span> en el espacio de fases donde la dinámica termina estabilizándose tras desechar el transitorio. Aunque la función forma una parábola continua, el atractor sólo ocupa las regiones donde los puntos rebotan de forma caótica y no periódica. Estamos por tanto ante un atractor periódico. ¿ Qué tipos de atractores hay en el mapa logístico?</li>
+<li>El atractor es el conjunto de pares <span class="math inline">\((x_n, x_{n+1})\)</span> en el espacio de fases donde la dinámica termina estabilizándose tras desechar el transitorio. Aunque la función forma una parábola continua, el atractor sólo ocupa las regiones donde los puntos rebotan de forma caótica y no periódica. Estamos, por tanto, ante un atractor periódico. ¿ Qué tipos de atractores hay en el mapa logístico?</li>
 </ul>
 <ol type="1">
 <li><p><strong>Punto fijo</strong><br>
@@ -568,7 +568,7 @@ Oscilaciones periódicas entre un conjunto finito de valores (periodo 2, 4, …)
 <li><p><strong>Atractor extraño (caótico)</strong><br>
 La razón de que el atractor sea “extraño” es que puntos muy próximos en una iteración pueden acabar muy separados en iteraciones posteriores, generando esa mezcla de estabilidad (se quedan en el atractor) y caos (se mueven sin orden aparente), pero siempre dentro de la misma estructura fractal. Para ver la estructura fractal, vamos a hacer zooms sucesivos en <span class="math inline">\(r = 3.9\)</span>.</p></li>
 </ol>
-<div id="e3a8d6cc" class="cell" data-execution_count="5">
+<div id="17e6faf9" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -605,9 +605,9 @@ La razón de que el atractor sea “extraño” es que puntos muy próximos en u
 </div>
 </div>
 </div>
-<p>Como vemos a diferencia de la función logística, el atractor tiene “huecos”, no es continuo en el sentido matemático estricto. Se trata de una constucción extraña. Tras consultarlo a ChatGPT, me confirmó que hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos que un conjunto de la recta es <strong>continuo</strong> (o <strong>conectado</strong>) si para cualesquiera <span class="math inline">\(a,b\)</span> en él, todo el intervalo <span class="math inline">\([a,b]\)</span> también está contenido. El atractor fractal <strong>no</strong> cumple esto: no existe <span class="math inline">\(\delta&gt;0\)</span> tal que contenga el segmento <span class="math inline">\([x_0-\delta, x_0+\delta]\)</span> alrededor de un punto <span class="math inline">\(x_0\)</span>. Es decir, todos los puntos tienen huecos alrededor suyos.</p>
+<p>Como vemos a diferencia de la función logística, el atractor tiene “huecos”, no es continuo en el sentido matemático estricto. Se trata de una construcción extraña. Tras consultarlo a ChatGPT, me confirmó que hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos que un conjunto de la recta es <strong>continuo</strong> (o <strong>conectado</strong>) si para cualesquiera <span class="math inline">\(a,b\)</span> en él, todo el intervalo <span class="math inline">\([a,b]\)</span> también está contenido. El atractor fractal <strong>no</strong> cumple esto: no existe <span class="math inline">\(\delta&gt;0\)</span> tal que contenga el segmento <span class="math inline">\([x_0-\delta, x_0+\delta]\)</span> alrededor de un punto <span class="math inline">\(x_0\)</span>. Es decir, todos los puntos tienen huecos alrededor suyos.</p>
 <p>Cada valor de <span class="math inline">\(r\)</span> tiene su propio atractor, tal y como se puede ver en la siguiente figura. Como es lógico, dependiendo del valor de crecimiento de la función logística <span class="math inline">\(r\)</span>, el sistema terminará en un atractor o en otro.</p>
-<div id="2862efc3" class="cell" data-execution_count="6">
+<div id="3099ee00" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -616,7 +616,7 @@ La razón de que el atractor sea “extraño” es que puntos muy próximos en u
 </div>
 </div>
 </div>
-<div id="0f6e9e92" class="cell" data-execution_count="7">
+<div id="6cc47e69" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

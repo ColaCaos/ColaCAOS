@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -575,7 +575,7 @@ e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \b
 <h2 data-number="24.3" class="anchored" data-anchor-id="resultados"><span class="header-section-number">24.3</span> Resultados</h2>
 <p>Durante los meses de febrero, marzo y abril estuve recopilando las predicciones y los valores observados de temperatura, humedad, viento y presión atmosférica para Galapagar.</p>
 <p>El conjunto de errores para cada día de la predicción se muestran a continuación (cada línea representa un día en el que se realiza la predicción).</p>
-<div id="3d7baa96" class="cell" data-execution_count="1">
+<div id="a45d9890" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -606,7 +606,7 @@ e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \b
 </div>
 </div>
 <p>Los errores medios en valor absoluto de predicción en función del número de días anteriores en los que se hizo la predicción se muestran a continuación. Se ve claramente que los errores van aumentando exponencialmente.</p>
-<div id="270b4df0" class="cell" data-execution_count="2">
+<div id="9693cf3c" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -637,7 +637,7 @@ e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \b
 </div>
 </div>
 <p>Y ahora le pedimos a ChatGPT que nos calcule el exponente de Lyapunov, y que nos trace de forma superpuesta el error de acuerdo al exponente de Lyapunov.</p>
-<div id="b84d301c" class="cell" data-execution_count="3">
+<div id="58265f60" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -667,8 +667,8 @@ e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \b
 </div>
 </div>
 </div>
-<p>Los exponentes de Lyapunov salen más pequeños que los calculados mediante las series históricas en la sección anterior <a href="../03-meteorologia/calculolyapunov.html#sec-lyapunov">Predictibilidad</a>. Hay que tener en cuenta que los exponentes en la sección anterior se tomaban sobre la base de 75 años, mientras que aquí tenemos un experimento más limitado, solamente tres meses, por lo que es normal que no cuadren del todo los datos. Sin embargo, tal y como hipotizamos, estamos alredededor de las dos semanas como límite de predictbilidad.</p>
-<p>Además lo que es muy relevante, es ver como el error de predicción crece exponencialmente. Se ponen de manifiesto dos causas: la inexactitud de las condiciones inciales, y la inexactitud de los modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y como esperabamos los errores crecen exponencialmente.</p>
+<p>Los exponentes de Lyapunov salen más pequeños que los calculados mediante las series históricas en la sección anterior <a href="../03-meteorologia/calculolyapunov.html#sec-lyapunov">Predictibilidad</a>. Hay que tener en cuenta que los exponentes en la sección anterior se tomaban sobre la base de 75 años, mientras que aquí tenemos un experimento más limitado, solamente tres meses, por lo que es normal que no cuadren del todo los datos. Sin embargo, tal y como hipotizamos, estamos alrededor de las dos semanas como límite de predictibilidad.</p>
+<p>Además, lo que es muy relevante, es ver como el error de predicción crece exponencialmente. Se ponen de manifiesto dos causas: la inexactitud de las condiciones iniciales, y la inexactitud de los modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y como esperábamos los errores crecen exponencialmente.</p>
 </section>
 <section id="referencias-bibliográficas" class="level2" data-number="24.4">
 <h2 data-number="24.4" class="anchored" data-anchor-id="referencias-bibliográficas"><span class="header-section-number">24.4</span> Referencias Bibliográficas</h2>
@@ -1079,8 +1079,8 @@ e(n) = \bigl| F_{\text{param}}(d_{\text{target}}-n, n) - O(d_{\text{target}}) \b
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../03-meteorologia/calculolyapunov.html" class="pagination-link" aria-label="Predicitibilidad de datos meteorológicos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span>
+      <a href="../03-meteorologia/calculolyapunov.html" class="pagination-link" aria-label="Predictibilidad de datos meteorológicos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -496,7 +496,7 @@ window.Quarto = {
 </header>
 
 
-<p>¿Qué mas paralelismos podemos encontrar en el doble péndulo al compararlo con el mapa logístico?. Vamos a hacer un nuevo ejercicio. En este caso vamos a simular la diagonal del mapa de fases anterior, es decir, vamos a coger los valores de <span class="math inline">\(\theta_1\)</span> y de $_2&amp; y los vamos a variar desde -180 hasta 180 grados simultáneamente por medio de una sola variable de control. Puesto que el péndulo doble no tiende hasta un valor final, yaque está continuamente moviendose al ser sin rozamiento, vamos a registrar el valor máximo en cada oscilación, y lo vamos a plotear para cada valor del ángulo incial. Veamos el resultado:</p>
+<p>¿Qué más paralelismos podemos encontrar en el doble péndulo al compararlo con el mapa logístico?. Vamos a hacer un nuevo ejercicio. En este caso vamos a simular la diagonal del mapa de fases anterior, es decir, vamos a coger los valores de <span class="math inline">\(\theta_1\)</span> y de $_2&amp; y los vamos a variar desde -180 hasta 180 grados simultáneamente por medio de una sola variable de control. Puesto que el péndulo doble no tiende hasta un valor final, ya que está continuamente moviéndose al ser sin rozamiento, vamos a registrar el valor máximo en cada oscilación, y lo vamos a plotear para cada valor del ángulo inicial. Veamos el resultado:</p>
 <figure class="figure">
 <img src="BifurcacionesDoble.png" alt="Diagrama del péndulo doble" width="100%" class="figure-img">
 <figcaption>
@@ -510,14 +510,14 @@ Figura 1: Bifurcaciones en el doble péndulo
 Figura 1: Bifurcaciones en el doble péndulo
 </figcaption>
 </figure>
-<p>A partir de los 43 grados, el diagram se abre en dos ramas perfectamente distinguibles, que se vuelven a juntar a partir de los 57 grados. Curiosamente en torno a 64 grados , tenemos un único punto, por lo que el sistemas podríamos decir que se comporta igual que un péndulo simple. De 64 grados hasta casi los 80 seguimos con las ramificaciones/bifurcaciones. Y a partir de los 80 grados tenemos el caos absoluto.</p>
+<p>A partir de los 43 grados, el diagrama se abre en dos ramas perfectamente distinguibles, que se vuelven a juntar a partir de los 57 grados. Curiosamente en torno a 64 grados, tenemos un único punto, por lo que el sistema podríamos decir que se comporta igual que un péndulo simple. De 64 grados hasta casi los 80 seguimos con las ramificaciones/bifurcaciones. Y a partir de los 80 grados tenemos el caos absoluto.</p>
 <figure class="figure">
 <img src="BifurcacionesDobleZona2.png" alt="Diagrama del péndulo doble" width="100%" class="figure-img">
 <figcaption>
 Figura 1: Bifurcaciones en el doble péndulo
 </figcaption>
 </figure>
-<p>Visto lo visto, me pregunté lo siguiente. ¿Cuál será el exponente de Lyapunov en cada una de las zonas?. Si bien yo no sabía como calcularlo, pues a diferencia de la función logística no tengo una expresión para ir calculando la derivada, le lancé la pregunta a ChatGPT. Al parecer existe un algorimo llamado de “método de Benettin” que permite calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en mi ordenador. El resultado fue el siguiente:</p>
+<p>Visto lo visto, me pregunté lo siguiente. ¿Cuál será el exponente de Lyapunov en cada una de las zonas?. Si bien yo no sabía como calcularlo, pues a diferencia de la función logística no tengo una expresión para ir calculando la derivada, le lancé la pregunta a ChatGPT. Al parecer existe un algoritmo llamado de “método de Benettin” que permite calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en mi ordenador. El resultado fue el siguiente:</p>
 <figure class="figure">
 <img src="Lyapunov.png" alt="Exponente de Lyapuno para el péndulo doble" width="100%" class="figure-img">
 <figcaption>
@@ -527,9 +527,9 @@ Figura 1: Exponente de Lyapuno para el péndulo doble
 <p>Al igual que con la función logística el exponente es prácticamente cero hasta los 80 grados. A partir de ahí sube abruptamente hasta valores de más de uno, lo que nos confirma que estamos en una zona caótica.</p>
 <section id="zonas-estables-y-caóticas-en-la-atmósfera" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="zonas-estables-y-caóticas-en-la-atmósfera"><span class="header-section-number">19.1</span> Zonas estables y caóticas en la atmósfera</h2>
-<p>Vamos a extender los paralelismos. Ya hemos visto como dos sistemas tienen comportamientos parecidos en cuanto a su comportamiento caótico. Vemos que aparecen bifurcaciones, zonas estables, zonas caóticas, etc…</p>
+<p>Vamos a extender los paralelismos. Ya hemos visto como dos sistemas tienen comportamientos parecidos en cuanto a su comportamiento caótico. Vemos que aparecen bifurcaciones, zonas estables, zonas caóticas, etc..</p>
 <p>En meteorología también distinguimos <strong>regímenes estables</strong>, <strong>transiciones</strong> y <strong>comportamiento caótico</strong>, de modo que el horizonte de predictibilidad varía según el nivel de caos.</p>
-<p>Así tenemos zonas de estabilidad atmósferica en determinadas regiones del planeta, que vienen dadas por lo general por estas situaciones como los <strong>Bloqueos atmosféricos</strong>: grandes áreas de alta presión que pueden persistir días o semanas, desviando borrascas y estabilizando el tiempo.</p>
+<p>Así tenemos zonas de estabilidad atmosférica en determinadas regiones del planeta, que vienen dadas por lo general por estas situaciones como los <strong>Bloqueos atmosféricos</strong>: grandes áreas de alta presión que pueden persistir días o semanas, desviando borrascas y estabilizando el tiempo.</p>
 <p>En España es el típico anticiclón de las Azores, que cuando se sitúa en las Azores provoca que no entren las borrascas en la península, situación que puede llegar a durar varias semanas, y en el que el tiempo es muy estable.</p>
 <p>En estos casos las pequeñas perturbaciones no se amplifican rápidamente y la predicción puede ser fiable hasta <strong>8–10 días</strong> o más.</p>
 <blockquote class="blockquote">

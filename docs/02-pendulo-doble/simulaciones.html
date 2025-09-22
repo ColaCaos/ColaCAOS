@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -472,7 +472,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#descripción-general" id="toc-descripción-general" class="nav-link active" data-scroll-target="#descripción-general"><span class="header-section-number">17.1</span> Descripción General</a></li>
   <li><a href="#preparación-del-código-con-chatgpt" id="toc-preparación-del-código-con-chatgpt" class="nav-link" data-scroll-target="#preparación-del-código-con-chatgpt"><span class="header-section-number">17.2</span> Preparación del Código con ChatGPT</a></li>
-  <li><a href="#sec-abanico" id="toc-sec-abanico" class="nav-link" data-scroll-target="#sec-abanico"><span class="header-section-number">17.3</span> Video con la simulación</a></li>
+  <li><a href="#sec-abanico" id="toc-sec-abanico" class="nav-link" data-scroll-target="#sec-abanico"><span class="header-section-number">17.3</span> Vídeo con la simulación</a></li>
   <li><a href="#complemento-y-reflexiones" id="toc-complemento-y-reflexiones" class="nav-link" data-scroll-target="#complemento-y-reflexiones"><span class="header-section-number">17.4</span> Complemento y Reflexiones</a></li>
   </ul>
 </nav>
@@ -503,7 +503,7 @@ window.Quarto = {
 <hr>
 <section id="descripción-general" class="level2" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="descripción-general"><span class="header-section-number">17.1</span> Descripción General</h2>
-<p>En esta entrada se analiza un programa escrito en Python para simular y dibujar <span class="math inline">\(10.000\)</span> péndulos dobles simultáneamente. El objetivo principal de la simulación es mostrar la <strong>sensibilidad a las condiciones iniciales</strong>, un rasgo característico de los sistemas caóticos. Cada péndulo comienza con un ángulo inicial ligeramente distinto para ilustrar cómo pequeñas variaciones pueden dar lugar a comportamientos muy diferentes a lo largo del tiempo. Es decir, como verás en el próximo vídeo los péndulos al ser lanzados paracen estar todos en la misma posición pero a medida que vamos avanzando en la simulación se separan totalmente.</p>
+<p>En esta entrada se analiza un programa escrito en Python para simular y dibujar <span class="math inline">\(10.000\)</span> péndulos dobles simultáneamente. El objetivo principal de la simulación es mostrar la <strong>sensibilidad a las condiciones iniciales</strong>, un rasgo característico de los sistemas caóticos. Cada péndulo comienza con un ángulo inicial ligeramente distinto para ilustrar cómo pequeñas variaciones pueden dar lugar a comportamientos muy diferentes a lo largo del tiempo. Es decir, como verás en el próximo vídeo los péndulos al ser lanzados parecen estar todos en la misma posición, pero a medida que vamos avanzando en la simulación se separan totalmente.</p>
 <figure class="figure">
 <img src="PenduloDoble.png" alt="Diagrama del péndulo doble" width="50%" class="figure-img">
 <figcaption>
@@ -519,7 +519,7 @@ Figura 1: Esquema del doble péndulo
 <p><strong>Prompt sugerido:</strong><br>
 “Genera un código en Python que utilice Python para simular <span class="math inline">\(10000\)</span> péndulos dobles al mismo tiempo. Cada péndulo debe tener la primera pata en la misma posición (170 grados) y la segunda pata con un ángulo inicial también de 170 grados pero ligeramente distinto en cada péndulo, espaciado uniformemente entre 170 y 170.1 grados. El objetivo es visualizar la sensibilidad a las condiciones iniciales superponiendo todos los péndulos en una misma imagen. Dibuja cada péndulo de un color, y muestra la animación en tiempo real. Mi ordenador dispone de una tarjeta gráfica Nvidia y tengo instalado CUDA, así que úsalo para acelerar las simulaciones. No tengas en cuenta la fuerza de rozamiento.”</p>
 </blockquote>
-<p>Tras varias iteraciones de este prompt, al final conseguí un código que se ejecutase. La depuración del código es realemnte fácil de hacer. Cada vez que ChatGPT me daba un código, lo corría en el ordenador mediante el comando “python programa.py”, y los errores se los alimentaba de vuelta al ordenador que a su vez me devolvía el código depurado.</p>
+<p>Tras varias iteraciones de este prompt, al final conseguí un código que se ejecutase. La depuración del código es realmente fácil de hacer. Cada vez que ChatGPT me daba un código, lo corría en el ordenador mediante el comando “python programa.py”, y los errores se los alimentaba de vuelta al ordenador que a su vez me devolvía el código depurado.</p>
 <p>En el código proporcionado, los parámetros físicos de cada péndulo doble los ha definido ChatGPT de la siguiente manera:</p>
 <ul>
 <li><p><strong>Longitudes de los brazos</strong></p>
@@ -538,12 +538,12 @@ Figura 1: Esquema del doble péndulo
 </ul>
 </section>
 <section id="sec-abanico" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="sec-abanico"><span class="header-section-number">17.3</span> Video con la simulación</h2>
-<p>Una vez preparado el código procedía a correrlo y grabar la ventana de salida en un archivo de vídeo que se encuentra a continuación. Hay que tener en cuenta que el código Python generado por ChatGPT, avanza en pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad de pendulos la simulación no llega a ser en tiempo real. Por eso le pedía a ChatGPT que incluyera un texto en la simulación que mostrase el tiempo real durante la simulación.</p>
+<h2 data-number="17.3" class="anchored" data-anchor-id="sec-abanico"><span class="header-section-number">17.3</span> Vídeo con la simulación</h2>
+<p>Una vez preparado el código procedía a correrlo y grabar la ventana de salida en un archivo de vídeo que se encuentra a continuación. Hay que tener en cuenta que el código Python generado por ChatGPT, avanza en pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad de péndulos la simulación no llega a ser en tiempo real. Por eso le pedía a ChatGPT que incluyera un texto en la simulación que mostrase el tiempo real durante la simulación.</p>
 <video width="640" controls="">
 <source src="Pendulumabanico.mp4" type="video/mp4">
 </video>
-<p>El resultado es sorprendente e hipnotizante. ¿Como puede ser que péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si observamos antentamente el vídeo hasta el segundo 1 de la simulación todos los péndulos van casi al unísono. En el segundo 2, que es cuando llegan al otro extremo, vemos que el “abanico” ya se empieza a abrir. Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya estamos con una divergencia total, y a partir de ahí cada uno va a su bola, !!caos total!!.</p>
+<p>El resultado es sorprendente e hipnotizante. ¿Como puede ser que péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si observamos atentamente el vídeo hasta el segundo 1 de la simulación todos los péndulos van casi al unísono. En el segundo 2, que es cuando llegan al otro extremo, vemos que el “abanico” ya se empieza a abrir. Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya estamos con una divergencia total, y a partir de ahí cada uno va a su bola, !!caos total!!.</p>
 <p>Ahora reflexionemos. Péndulos que fueron lanzados con diferencias de milésimas de grado, tienen trayectorias que divergen enormemente tras 5 segundos. ¿Acaso es éste un sistema físico que cuyo comportamiento podamos predecir en la vida real?. Pues yo diría que no.</p>
 </section>
 <section id="complemento-y-reflexiones" class="level2" data-number="17.4">

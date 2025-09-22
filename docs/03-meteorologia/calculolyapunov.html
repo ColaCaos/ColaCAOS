@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>23&nbsp; Predicitibilidad de datos meteorológicos – Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica</title>
+<title>23&nbsp; Predictibilidad de datos meteorológicos – Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html">La Meteorología y el Caos</a></li><li class="breadcrumb-item"><a href="../03-meteorologia/calculolyapunov.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html">La Meteorología y el Caos</a></li><li class="breadcrumb-item"><a href="../03-meteorologia/calculolyapunov.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -479,9 +479,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html">La Meteorología y el Caos</a></li><li class="breadcrumb-item"><a href="../03-meteorologia/calculolyapunov.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03-meteorologia/meteorologia.html">La Meteorología y el Caos</a></li><li class="breadcrumb-item"><a href="../03-meteorologia/calculolyapunov.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></h1>
 </div>
 
 
@@ -513,7 +513,7 @@ window.Quarto = {
 1950-06-13,18.9,0.20,7.2<br>
 1950-06-14,21.1,0.00,8.0<br>
 1950-06-15,20.2,0.00,12.8</p>
-<p>En segundo lugar tenemos que saber qué hacer con estos datos. Después de varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre cómo calcular el exponente de Lyapunov en datos meteorologicos.</p>
+<p>En segundo lugar, tenemos que saber qué hacer con estos datos. Después de varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre cómo calcular el exponente de Lyapunov en datos meteorologicos.</p>
 <blockquote class="blockquote">
 <p><strong>Referencia completa:</strong> Özgür E. &amp; Yılmaz M. U. (2022). Using Chaos Theory to Determine Average Prediction Times of Different Meteorological Variables: A Case Study in Sivas. <em>Int. J. Adv. Eng. Pure Sci.</em> 34(1):101–106.</p>
 </blockquote>
@@ -533,13 +533,13 @@ La dimensión <span class="math inline">\(m\)</span> es el número de valores es
 <span class="math display">\[
 \mathbf X(t)=\bigl(x(t),\,x(t+\tau),\,x(t+2\tau),\dots,x(t+(m-1)\tau)\bigr).
 \]</span></p>
-<p>Es decir, el estado del sistema en un día, no es solamente el valor de la temperatura ese día, sino el valor de ese día más varios días anteriores. Pues bien, lo que necesitamos saber es cual es la dimensión óptima del estado del sistema. Si por ejemplo solo cojo un día, habrá muchos días que sean similares ya que habrá muchos casos en los que coincida la temperatura media para ese día. Sin embargo esto es engañoso, ya que no se tiene en cuenta el estado pasado del sistema. No es lo mismo estar en un día a 15 grados de temperatura media después de haber pasado una ola de calor, que estár a 15 grados después de varios días de ola de frío. De acuerdo al artículo turco un valor de <span class="math inline">\(m=12\)</span> es óptimo.</p>
+<p>Es decir, el estado del sistema en un día, no es solamente el valor de la temperatura ese día, sino el valor de ese día más varios días anteriores. Pues bien, lo que necesitamos saber es cual es la dimensión óptima del estado del sistema. Si por ejemplo solo cojo un día, habrá muchos días que sean similares ya que habrá muchos casos en los que coincida la temperatura media para ese día. Sin embargo, esto es engañoso, ya que no se tiene en cuenta el estado pasado del sistema. No es lo mismo estar en un día a 15 grados de temperatura media después de haber pasado una ola de calor, que estar a 15 grados después de varios días de ola de frío. De acuerdo al artículo turco un valor de <span class="math inline">\(m=12\)</span> es óptimo.</p>
 <p>Con estos valores de <span class="math inline">\(\tau\)</span> y <span class="math inline">\(m\)</span> le pedí a ChatGPT que me calculase el exponente de Lyapunov de la serie de temperaturas de Galapagar. ChatGPT usa en este caso el mismo algoritmo que para el cálculo del exponente de Laypunov de las simulaciones del péndulo doble. Se trata de un algoritmo bastante complicado cuya comprensión se me escapa. Hay que tener en cuenta que todos estos cálculos los realizo a con el modelo 04-mini-high, que tiene una capacidad matemática muy superior a la esperada de un alumno de bachillerato, y que además es capaz de hacer los cálculos en un entorno interno de Python, y de plotear resultados.</p>
 </section>
 <section id="exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura" class="level2" data-number="23.2">
 <h2 data-number="23.2" class="anchored" data-anchor-id="exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura"><span class="header-section-number">23.2</span> Exponente de Lyapunov para la serie de valores de temperatura</h2>
-<p>A continuación muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedía ChatGPT que estimase la variación estacional y que la quitase de los datos, dándome la gráfica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo más aleatorio ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el año 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra.</p>
-<div id="339c25c5" class="cell" data-execution_count="1">
+<p>A continuación muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedía ChatGPT que estimase la variación estacional y que la quitase de los datos, dándome la gráfica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo más aleatorio, ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el año 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra.</p>
+<div id="d54d5215" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -556,7 +556,7 @@ La dimensión <span class="math inline">\(m\)</span> es el número de valores es
 </div>
 </div>
 <p>Como curiosidad, le pedía a ChatGPT que hiciese una regresión no lineal de orden 2 para ver como ha ido evolucionando la temperatura media en Galapagar desde 1950.</p>
-<div id="2eb40e66" class="cell" data-execution_count="2">
+<div id="38e3fde4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -573,7 +573,7 @@ La tasa media de incremento es <span class="math inline">\(\displaystyle \frac{2
 \]</span></p>
 <section id="horizonte-de-predictibilidad" class="level3">
 <h3 class="anchored" data-anchor-id="horizonte-de-predictibilidad">Horizonte de predictibilidad</h3>
-<p>Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo sabemos que indica que estamos ante un sistema caótico, y que los errores se amplificarán con el tiempo. Veamos cuando multiplicamos por 10 un error inicial de 0.1 grados Centígrados:</p>
+<p>Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo sabemos que indica que estamos ante un sistema caótico, y que los errores se amplificarán con el tiempo. Veamos cuando multiplicamos por 10 un error inicial de 0.1 grados centígrados:</p>
 <p><span class="math display">\[
 T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
   = \frac{1}{0.219}\ln(10) \approx 10.5\ \mathrm{días}.
@@ -581,8 +581,8 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 </section>
 <section id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días" class="level3">
 <h3 class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-0.1-c-tras-15-días">Amplificación de un error inicial de 0.1 °C tras 15 días</h3>
-<p>Y ahora veamos de formá gráfica cómo se va amplificando el error inicial de 0.1 grados tras quince días.</p>
-<div id="2381c795" class="cell" data-execution_count="3">
+<p>Y ahora veamos de forma gráfica cómo se va amplificando el error inicial de 0.1 grados tras quince días.</p>
+<div id="3ee1b9d0" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -591,13 +591,13 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 </div>
 </div>
 </div>
-<p>Estos valores refuerzan las hipótesis inciales con las que habíamos especulado. Pasadas dos semanas es muy difícil tener estimaciones precisas del tiempo meteorológico.</p>
+<p>Estos valores refuerzan las hipótesis iniciales con las que habíamos especulado. Pasadas dos semanas es muy difícil tener estimaciones precisas del tiempo meteorológico.</p>
 </section>
 </section>
 <section id="exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento" class="level2" data-number="23.3">
 <h2 data-number="23.3" class="anchored" data-anchor-id="exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento"><span class="header-section-number">23.3</span> Exponente de Lyapunov para la serie de velocidad del viento</h2>
 <p>A continuación cargamos y desestacionalizamos los datos de velocidad del viento (1950–presente), mostramos la serie original y la desestacionalizada:</p>
-<div id="2cd34d49" class="cell" data-execution_count="4">
+<div id="e46d4891" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -624,7 +624,7 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 </section>
 <section id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días" class="level3">
 <h3 class="anchored" data-anchor-id="amplificación-de-un-error-inicial-de-1-kmh-tras-15-días">Amplificación de un error inicial de 1 km/h tras 15 días</h3>
-<div id="8ec21733" class="cell" data-execution_count="5">
+<div id="3518fdbe" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

@@ -314,7 +314,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-meteorologia/calculolyapunov.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predicitibilidad de datos meteorológicos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Predictibilidad de datos meteorológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -472,7 +472,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" id="toc-primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" class="nav-link active" data-scroll-target="#primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático"><span class="header-section-number">11.1</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span>. Análisis matemático</a></li>
   <li><a href="#análisis-gráfico" id="toc-análisis-gráfico" class="nav-link" data-scroll-target="#análisis-gráfico"><span class="header-section-number">11.2</span> Análisis gráfico</a></li>
-  <li><a href="#analisis-de-estabilidad-de-la-primera-bifurcación" id="toc-analisis-de-estabilidad-de-la-primera-bifurcación" class="nav-link" data-scroll-target="#analisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">11.3</span> Analisis de estabilidad de la primera bifurcación</a></li>
+  <li><a href="#análisis-de-estabilidad-de-la-primera-bifurcación" id="toc-análisis-de-estabilidad-de-la-primera-bifurcación" class="nav-link" data-scroll-target="#análisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">11.3</span> Análisis de estabilidad de la primera bifurcación</a></li>
   <li><a href="#primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2" id="toc-primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2" class="nav-link" data-scroll-target="#primera-bifurcación-obtención-de-los-puntos-fijos-de-periodo-1-y-2"><span class="header-section-number">11.4</span> Primera bifurcación: obtención de los puntos fijos de periodo 1 y 2</a></li>
   </ul>
 </nav>
@@ -499,7 +499,7 @@ window.Quarto = {
 </header>
 
 
-<p>Tal y como vimos en la sección anterior cuando <span class="math inline">\(r &gt; 3\)</span> el valor final de la sucesión logística alterna entre dos valores finales. Vamos a hacer un análisis matématico para explicar por qué pasa ésto.</p>
+<p>Tal y como vimos en la sección anterior cuando <span class="math inline">\(r &gt; 3\)</span> el valor final de la sucesión logística alterna entre dos valores finales. Vamos a hacer un análisis matemático para explicar por qué pasa ésto.</p>
 <section id="primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="primera-bifurcación-duplicación-de-período-en-r-3.-análisis-matemático"><span class="header-section-number">11.1</span> Primera bifurcación: duplicación de período en <span class="math inline">\(r = 3\)</span>. Análisis matemático</h2>
 <p>En <span class="math inline">\(r = 3\)</span>, la derivada en el punto fijo <span class="math inline">\(x^* = 1 - \frac{1}{r}\)</span> se vuelve <span class="math inline">\(-1\)</span>, lo cual genera una órbita de período 2, tal y como hemos visto en el apartado anterior.</p>
@@ -512,7 +512,7 @@ f(p) = q, \quad f(q) = p
 <p><span class="math display">\[
 f(f(p)) = p
 \]</span></p>
-<p>Lo cual implica que <span class="math inline">\(p\)</span> es un punto fijo del mapa iterado <span class="math inline">\(f^2\)</span> (esta notación significa la composicion de una función con sigo misma <span class="math inline">\(f^2()=f \circ f = f(f())\)</span>, no el cuadrado de la función)</p>
+<p>Lo cual implica que <span class="math inline">\(p\)</span> es un punto fijo del mapa iterado <span class="math inline">\(f^2\)</span> (esta notación significa la composición de una función con sigo misma <span class="math inline">\(f^2()=f \circ f = f(f())\)</span>, no el cuadrado de la función)</p>
 <p>Dado que <span class="math inline">\(f(x) = r x (1 - x)\)</span>, podemos escribir:</p>
 <p><span class="math display">\[
 f(p) = r p (1 - p)
@@ -526,7 +526,7 @@ f(f(p)) = r \cdot f(p) \cdot (1 - f(p)) = r \cdot [r p (1 - p)] \cdot \left[1 - 
 f(f(p)) = p
 \]</span></p>
 <p>Hay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función <span class="math inline">\(f^2()=f \circ f = f(f())\)</span> y la función <span class="math inline">\(y=x\)</span>, y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.</p>
-<p>Sigamos con la resolución analtíca. Para ello, desarrollamos completamente <span class="math inline">\(f(f(p)) = p\)</span>:</p>
+<p>Sigamos con la resolución analítica. Para ello, desarrollamos completamente <span class="math inline">\(f(f(p)) = p\)</span>:</p>
 <p><span class="math display">\[
 r^2 p (1 - p)(1 - r p (1 - p)) = p
 \]</span></p>
@@ -560,7 +560,7 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 <section id="análisis-gráfico" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="análisis-gráfico"><span class="header-section-number">11.2</span> Análisis gráfico</h2>
 <p>Vamos a proceder al análisis gráfico. Para empezar vamos a poner un mapa logístico con <span class="math inline">\(r=2.9\)</span>. Sabemos que para este valor la sucesión converge a un punto. Esto lo vemos porque la función logística corta con la recta <span class="math inline">\(y=x\)</span> en un punto cuya pendiente en valor absoluto es menor que 1, y porque además en ese punto corta también la segunda iterada <span class="math inline">\(f \circ f\)</span>. La recta <span class="math inline">\(y=x\)</span> solo corta en un punto a la segunda iterada, por lo tanto no hay alternancia entre dos puntos.</p>
-<div id="d1f48133" class="cell" data-execution_count="1">
+<div id="c4d60546" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -570,7 +570,7 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 </div>
 </div>
 <p>Y ahora veamos lo que pasa cuando <span class="math inline">\(r=3.2\)</span>. En este caso, la segunda iteración corta con la recta <span class="math inline">\(y=x\)</span> en dos puntos. Tal y como vemos en el diagrama de telaraña son estos dos puntos entre los que oscila el valor final del mapa logístico.</p>
-<div id="28b07dfc" class="cell" data-execution_count="2">
+<div id="b41ccab0" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -580,8 +580,8 @@ f(f(p)) = r^2 p (1 - p)(1 - r p (1 - p)) = p
 </div>
 </div>
 </section>
-<section id="analisis-de-estabilidad-de-la-primera-bifurcación" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="analisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">11.3</span> Analisis de estabilidad de la primera bifurcación</h2>
+<section id="análisis-de-estabilidad-de-la-primera-bifurcación" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="análisis-de-estabilidad-de-la-primera-bifurcación"><span class="header-section-number">11.3</span> Análisis de estabilidad de la primera bifurcación</h2>
 <p>En primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es<br>
 <span class="math display">\[
 f(x) = rx(1 - x),
