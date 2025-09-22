@@ -10,7 +10,7 @@ execute:
 
 # Término genérico del mapa logístico
 
-En las sucesiones aritméticas y geométricas es fácil expresar el termino enésimo de la sucesión en función del primer término de la misma. Veamos:
+En las sucesiones aritméticas y geométricas es fácil expresar el término enésimo de la sucesión en función del primer término de la misma. Veamos:
 
 Término general de la sucesión aritmética
 

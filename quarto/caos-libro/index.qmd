@@ -13,7 +13,7 @@ execute:
 
 El origen de esta idea se remonta a 1972, cuando el meteorólogo y matemático Edward Lorenz presentó una conferencia titulada «Predictability: Does the Flap of a Butterfly’s Wings in Brazil Set Off a Tornado in Texas?» en la 139ª reunión de la American Association for the Advancement of Science (AAAS). Lorenz, que investigaba modelos meteorológicos, descubrió que pequeñas diferencias en los datos iniciales podían generar predicciones climáticas completamente distintas. Su trabajo sentó las bases de la teoría del caos y revolucionó la comprensión de los sistemas físicos.
 
-La inspiración para este trabajo me vino de este video de Veritasium.
+La inspiración para este trabajo me vino de este vídeo de Veritasium.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fDek6cYijxI" frameborder="0" allowfullscreen></iframe>
 
@@ -27,7 +27,7 @@ Pero, ¿qué significa realmente el caos? Aunque solemos asociarlo con desorden 
 
 En este blog exploraremos cómo la teoría del caos y en especial sus consecuencias en la predicción del tiempo meteorológico. A través de ejemplos, experimentos y reflexiones, descubriremos cómo el caos no es simplemente desorden, sino una forma compleja de organización que rige muchos aspectos del mundo que nos rodea.
 
-También abordaremos las implicaciones filosóficas del caos. Si la teoría del caos es correcta, a pesar de estar trabajando con sistemas cuyas ecuaciones son deterministas, no podremos conocer con certeza el estado final del sistema, por mucho que nos empeñemos en conocer con mas precisión las condiciones iniciales del sistema. Esto sugiere una limitación fundamental en muchos aspectos del conocimiento que la humanidad puede tener de su futuro. A pesar de la mejora de los medios técnicos disponibles por la Humanidad, y del avance científico, tenemos una limitación establecida por el Caos, que nos proyecta un Horizonte de Predictibilidad que no podemos pasar. Es un limite similar al de la velocidad de la luz, o al horizonte de sucesos de un agujero negro. Nunca vamos a poder ver más allá del Horizonte de Predictibilidad.
+También abordaremos las implicaciones filosóficas del caos. Si la teoría del caos es correcta, a pesar de estar trabajando con sistemas cuyas ecuaciones son deterministas, no podremos conocer con certeza el estado final del sistema, por mucho que nos empeñemos en conocer con más precisión las condiciones iniciales del sistema. Esto sugiere una limitación fundamental en muchos aspectos del conocimiento que la humanidad puede tener de su futuro. A pesar de la mejora de los medios técnicos disponibles por la Humanidad, y del avance científico, tenemos una limitación establecida por el Caos, que nos proyecta un Horizonte de Predictibilidad que no podemos pasar. Es un límite similar al de la velocidad de la luz, o al horizonte de sucesos de un agujero negro. Nunca vamos a poder ver más allá del Horizonte de Predictibilidad.
 
 Por lo tanto, teniendo claras estas limitaciones, ¿Cómo pueden los científicos hacer predicciones sobre el clima de la Tierra a 10, 20 o 100 años vista, si el horizonte de predictibilidad del tiempo meteorológico no es mayor de 2 semanas?
 

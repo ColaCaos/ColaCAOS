@@ -12,13 +12,13 @@ execute:
 
 ## Definición del clima
 
-Antes de seguir hablando del clima vamos a ver qué entedemos por el clima. Según la Organización Meteorológica Mundial, el clima se define como la descripción estadística —principalmente la media y la variabilidad— de las variables atmosféricas (temperatura, precipitación, viento, etc.) para un lugar dado durante un periodo de referencia de 30 años, lo cual:
+Antes de seguir hablando del clima vamos a ver qué entendemos por el clima. Según la Organización Meteorológica Mundial, el clima se define como la descripción estadística —principalmente la media y la variabilidad— de las variables atmosféricas (temperatura, precipitación, viento, etc.) para un lugar dado durante un periodo de referencia de 30 años, lo cual:
 
 - Filtra las variaciones interanuales y anomalías (p. ej. El Niño–Oscilación del Sur).
 
 - Permite identificar tendencias y extremos climáticos a largo plazo.
 
-En la actualidad existe otra corriente de científicos para los que la definición del clima está mas relacionada con los sistemas caóticos. Para ellos, el clima no es la distribución de observaciones, sino el **atractor** de un **modelo climático** perfecto bajo condiciones externas fijas. Pero, ¿qué es un atractor?
+En la actualidad existe otra corriente de científicos para los que la definición del clima está más relacionada con los sistemas caóticos. Para ellos, el clima no es la distribución de observaciones, sino el **atractor** de un **modelo climático** perfecto bajo condiciones externas fijas. Pero, ¿qué es un atractor?
 
 ## Atractor 
 
@@ -73,7 +73,7 @@ plt.title('Distribución uniforme [0,1] en función del tiempo')
 plt.show()
 ```
 Aparentemente estamos viendo la misma nube de puntos sin ninguna estructura. 
-Pero, ¿qué pasa si representamos  $x_{n+1}$ frente a $x_n$ ?. El resultado es una zona de puntos que atrae las distintas iteraciones de nuestra secuencia. !!Nos econtramos ante un  atractor!!
+Pero, ¿qué pasa si representamos  $x_{n+1}$ frente a $x_n$ ?. El resultado es una zona de puntos que atrae las distintas iteraciones de nuestra secuencia. !!Nos encontramos ante un atractor!!
 
 ```{python}
 import matplotlib.pyplot as plt
@@ -127,16 +127,16 @@ plt.title('Diagrama de fase de números uniformes en [0,1]')
 plt.show()
 ```
 
-NO hay ninguna estructura que atraiga los valores. Estamos ante un conjunto desestructurado de datos. 
+No hay ninguna estructura que atraiga los valores. Estamos ante un conjunto desestructurado de datos. 
 
-Volvamos al atractor del mapa logísitico. Uno podría decir que es lógico lo que vemos, ya que los puntos están definidos por la función logística. De hecho, parece que estamos viendo la función logística. Pero hay un detalle: si miras detalladamente verás huecos en la gráfica.¿Por qué el atractor es distinto de la función logística?
+Volvamos al atractor del mapa logístico. Uno podría decir que es lógico lo que vemos, ya que los puntos están definidos por la función logística. De hecho, parece que estamos viendo la función logística. Pero hay un detalle: si miras detalladamente verás huecos en la gráfica. ¿Por qué el atractor es distinto de la función logística?
 
 - La ecuación logística  
   $$
   x_{n+1} = r\,x_n\,(1 - x_n)
   $$  
   es la regla determinista que asigna cada valor $x_n$ al siguiente.
-- El atractor es el conjunto de pares $(x_n, x_{n+1})$ en el espacio de fases donde la dinámica termina estabilizándose tras desechar el transitorio. Aunque la función forma una parábola continua, el atractor sólo ocupa las regiones donde los puntos rebotan de forma caótica y no periódica. Estamos por tanto ante un atractor periódico.
+- El atractor es el conjunto de pares $(x_n, x_{n+1})$ en el espacio de fases donde la dinámica termina estabilizándose tras desechar el transitorio. Aunque la función forma una parábola continua, el atractor sólo ocupa las regiones donde los puntos rebotan de forma caótica y no periódica. Estamos, por tanto, ante un atractor periódico.
 ¿ Qué tipos de atractores hay en el mapa logístico?
 
 1. **Punto fijo**  
@@ -191,7 +191,7 @@ for iterations, zoom, title in configs:
 plt.show()
 ```
 
-Como vemos a diferencia de la función logística, el atractor tiene "huecos", no es continuo en el sentido matemático estricto. Se trata de una constucción extraña. Tras consultarlo a ChatGPT, me confirmó que hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos que un conjunto de la recta es **continuo** (o **conectado**) si para cualesquiera $a,b$ en él, todo el intervalo $[a,b]$ también está contenido. El atractor fractal **no** cumple esto: no existe $\delta>0$ tal que contenga el segmento $[x_0-\delta, x_0+\delta]$ alrededor de un punto $x_0$. Es decir, todos los puntos tienen huecos alrededor suyos. 
+Como vemos a diferencia de la función logística, el atractor tiene "huecos", no es continuo en el sentido matemático estricto. Se trata de una construcción extraña. Tras consultarlo a ChatGPT, me confirmó que hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos que un conjunto de la recta es **continuo** (o **conectado**) si para cualesquiera $a,b$ en él, todo el intervalo $[a,b]$ también está contenido. El atractor fractal **no** cumple esto: no existe $\delta>0$ tal que contenga el segmento $[x_0-\delta, x_0+\delta]$ alrededor de un punto $x_0$. Es decir, todos los puntos tienen huecos alrededor suyos. 
 
 Cada valor de $r$ tiene su propio atractor, tal y como se puede ver en la siguiente figura. Como es lógico, dependiendo del valor de crecimiento de la función logística $r$, el sistema terminará en un atractor o en otro. 
 

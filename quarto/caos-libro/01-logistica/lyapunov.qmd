@@ -188,7 +188,7 @@ plt.show()
 
 ### Inestabilidad de los cálculos numéricos  {#sec-inestabilidad}
 
-Cuando nos encontramos con un sistema físico con alta dependencia a las condiciones iniciales, no solamente tenemos el problema de conocer con total exactitud el estado inicial del sistema, sino que como veremos a continuación los cálculos numéricos que hacemos en nuesto ordenador para estudiar su evolución se vuelven también muy inestables. A continuación pondré un ejemplo sobre lo que acabo de decir.
+Cuando nos encontramos con un sistema físico con alta dependencia a las condiciones iniciales, no solamente tenemos el problema de conocer con total exactitud el estado inicial del sistema, sino que como veremos a continuación los cálculos numéricos que hacemos en nuestro ordenador para estudiar su evolución se vuelven también muy inestables. A continuación pondré un ejemplo sobre lo que acabo de decir.
 
 Pongamos que quiero simular el mapa logístico tal cual lo he estado haciendo en las secciones anteriores. La fórmula es superconocida (form1):
 
@@ -327,7 +327,7 @@ Curioso, ¿verdad?. El error se va multiplicando por 2 en cada iteración. Por 2
 
 ## Cálculo matemático de la amplificación de desviaciones iniciales
 
-A continación daremos una explicación matemática a este fenómeno que estamos observando. 
+A continuación daremos una explicación matemática a este fenómeno que estamos observando. 
 
 Imagina que quieres predecir el tiempo atmosférico. Nunca conoces la temperatura, presión o humedad con absoluta precisión: siempre hay un error mínimo en la medición. Si ese error crece muy despacio, podrías predecir con confianza varios días por delante. Pero si crece muy rápido, tu predicción se vuelve inútil en muy poco tiempo.  
 
@@ -465,7 +465,7 @@ $$
 
 Este factor $\lambda$ es lo que crece de media el error en cada iteración en mi sistema. LO que crece de forma logarítmica. Lo que crece realmente en magnitud en cada iteración es $e^\lambda$
 
-- Si $\lambda>0$, el error crece con cada iteracion, puesto que el número $e$ elevado a un valor positivo siempre da un número mayor que 1. Puesto que multiplico mi error por un número mayor que 1, el error va creciendo iteración tras iteración ($e^\lambda$$e^\lambda$$e^\lambda$......=$(e^\lambda)^n$=$a^n$ con $a>1$) . Crece por lo tanto **exponencialmente**, y el sistema es **caótico** (muy sensible a la precisión inicial). 
+- Si $\lambda>0$, el error crece con cada iteración, puesto que el número $e$ elevado a un valor positivo siempre da un número mayor que 1. Puesto que multiplico mi error por un número mayor que 1, el error va creciendo iteración tras iteración ($e^\lambda$$e^\lambda$$e^\lambda$......=$(e^\lambda)^n$=$a^n$ con $a>1$) . Crece por lo tanto **exponencialmente**, y el sistema es **caótico** (muy sensible a la precisión inicial). 
 - Si $\lambda<0$, el error **se atenúa** y las trayectorias convergen (sistema estable).La argumentación es justa la contraria del caso anterior. El número $e$ elevado a un valor negativo siempre da un número menor que 1.
 - Si $\lambda=0$, estamos en un caso límite de inestabilidad neutra.
 
@@ -669,7 +669,7 @@ Que en valor absoluto es 1, y por lo tanto al igual que el caso con $r=1$, el ex
 
 Para **$3 < r < r_2 \approx 3.4495$**  sabemos que existe un ciclo estable de periodo 2. $\lambda(r)$ en este rango vuelve a ser negativo, porque aunque ya no convergemos a un punto fijo, sí converge a un ciclo de periodo 2. En el límite $r \to r_2$, $\lambda(r)$ se acerca nuevamente a 0, pues se produce la segunda bifurcación hacia un ciclo de periodo 4.
 
-En todos los ciclos restantes hasta $r_\infty \approx 3.5699456\dots$* tenemos el mismo comportamiento, valores negativos en las zonas de los ciclos y acercandose a cero cuando cambiamos de periodo.
+En todos los ciclos restantes hasta $r_\infty \approx 3.5699456\dots$* tenemos el mismo comportamiento, valores negativos en las zonas de los ciclos y acercándose a cero cuando cambiamos de periodo.
 
 Para $r_\infty < r \le 4$** vemos que en la mayoría de estos $r$ en los que sabemos que el sistema es caótico se cumple que $\lambda(r) > 0$. Sin embargo, dentro de este intervalo caótico aparecen “ventanas” periódicas (por ejemplo, cerca de $r\approx 3.8284$, donde hay un ciclo de periodo 3). En esas ventanas periódicas $\lambda(r)$ vuelve a ser negativo. Justo en el borde de cada ventana periódica (bifurcaciones dentro del caos) se tiene $\lambda(r)=0$. En la vecindad de $r = 4$, el valor promedio exacto es $\lambda(4) = \ln 2 \approx 0.6931$ tal y como habíamos visto.
 

@@ -15,7 +15,7 @@ Las fluctuaciones no son externas al sistema, son inevitables.
 
 * Hay fluctuaciones cuánticas: el principio de incertidumbre impone límites objetivos, no solo prácticos.
 
-* Hay fluctuaciones térmicas y ambientales: en un universo abierto, no se puede aislar perfectamente un sistema.Ni siquiera un demonio podría eliminar la presencia de ruido, porque forma parte constitutiva de la naturaleza.
+* Hay fluctuaciones térmicas y ambientales: en un universo abierto, no se puede aislar perfectamente un sistema. Ni siquiera un demonio podría eliminar la presencia de ruido, porque forma parte constitutiva de la naturaleza.
 
 El caos amplifica fluctuaciones irreducibles. En sistemas caóticos, el más mínimo cambio conduce a trayectorias divergentes. Aunque el demonio conociera hoy todas las variables, no podría neutralizar las fluctuaciones mañana, porque aparecen en el mismo proceso de evolución del sistema.
 

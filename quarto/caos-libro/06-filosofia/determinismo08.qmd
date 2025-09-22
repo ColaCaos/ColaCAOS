@@ -28,7 +28,7 @@ Empecemos por el péndulo. En su versión simple (un solo brazo), el péndulo es
 :::
 
 
-Veamos que pasa con el mapa logístico. Pues se vuelve a ver lo mismo, en la zona caótica el número de estados explorados es pequeño, mientras que en la caótica muy alto. Hay que tener en cuenta que además en el caso caótico, cada uno de los atractores que vemos es un fractal con infinitos puntos. En cambio en la zona no caótica el número de puntos es finito, pues el mapa logístico acaba terminando en un punto fijo.
+Veamos que pasa con el mapa logístico. Pues se vuelve a ver lo mismo, en la zona caótica el número de estados explorados es pequeño, mientras que en la caótica muy alto. Hay que tener en cuenta que además en el caso caótico, cada uno de los atractores que vemos es un fractal con infinitos puntos. En cambio, en la zona no caótica el número de puntos es finito, pues el mapa logístico acaba terminando en un punto fijo.
 
 :::{.columns}
 
@@ -42,7 +42,7 @@ Veamos que pasa con el mapa logístico. Pues se vuelve a ver lo mismo, en la zon
 
 :::
 
-Por último, analicemos el comportamiento en el caso de la rueda caótica. Cuando quitamos las canicas, la rueda gira siempre en el mismo sentido. Por lo tanto el nivel de incertidumbre se ve reducido; siempre podemos saber para qué lado gira la rueda. Cuando añadimos las canicas, el sistema se vuelve impredecible en cuando a su sentido de giro. De ahí que aparezca el segundo lado del atractor. El sistema explora por lo tanto más estados. 
+Por último, analicemos el comportamiento en el caso de la rueda caótica. Cuando quitamos las canicas, la rueda gira siempre en el mismo sentido. Por lo tanto, el nivel de incertidumbre se ve reducido; siempre podemos saber para qué lado gira la rueda. Cuando añadimos las canicas, el sistema se vuelve impredecible en cuando a su sentido de giro. De ahí que aparezca el segundo lado del atractor. El sistema explora, por lo tanto, más estados. 
 
 :::{.columns}
 

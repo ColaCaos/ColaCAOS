@@ -14,7 +14,7 @@ A lo largo del proyecto hemos visto la manifestación del caos en modelos matem�
 
 Uno de los retos del proyecto está en ver la manifestación del caos en la meteorología. Para ello vamos a proceder de dos maneras:
 
-En la primera de ellas haremos una medida indirecta de la influencia del caos en las predicciones meteorologicas. Durante varias semanas hemos recopilado predicciones meteorológicas para Galapagar, y contrastaremos estás predicciones con las observaciones realizadas para esos días. De esta manera veremos cómo divergen a medida que pasa el tiempo las predicciones anteriores. Dado que la atmósfera es un sistema caótico, cualquier pequeña desviación en las condiciones iniciales estimadas se amplifica a medida que van pasando los días debido a la actuación del caos.
+En la primera de ellas haremos una medida indirecta de la influencia del caos en las predicciones meteorológicas. Durante varias semanas hemos recopilado predicciones meteorológicas para Galapagar, y contrastaremos estás predicciones con las observaciones realizadas para esos días. De esta manera veremos cómo divergen a medida que pasa el tiempo las predicciones anteriores. Dado que la atmósfera es un sistema caótico, cualquier pequeña desviación en las condiciones iniciales estimadas se amplifica a medida que van pasando los días debido a la actuación del caos.
 
 En la segunda haremos una estimación directa de un parámetro que hemos visto que identifica claramente la existencia de caos en un sistema. Se trata del exponente de Lyapunov. Cogeremos variables meteorológicas observadas y estimaremos su exponente de Lyapunov, esperando que sea positivo. 
 

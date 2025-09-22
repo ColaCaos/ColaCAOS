@@ -10,7 +10,7 @@ execute:
 
 ## Bifurcaciones
 
-¿Qué mas paralelismos podemos encontrar en el doble péndulo al compararlo con el mapa logístico?. Vamos a hacer un nuevo ejercicio. En este caso vamos a simular la diagonal del mapa de fases anterior, es decir, vamos a coger los valores de $\theta_1$ y de $\theta_2& y los vamos a variar desde -180 hasta 180 grados simultáneamente por medio de una sola variable de control. Puesto que el péndulo doble no tiende hasta un valor final, yaque está continuamente moviendose al ser sin rozamiento, vamos a registrar el valor máximo en cada oscilación, y lo vamos a plotear para cada valor del ángulo incial. Veamos el resultado:
+¿Qué más paralelismos podemos encontrar en el doble péndulo al compararlo con el mapa logístico?. Vamos a hacer un nuevo ejercicio. En este caso vamos a simular la diagonal del mapa de fases anterior, es decir, vamos a coger los valores de $\theta_1$ y de $\theta_2& y los vamos a variar desde -180 hasta 180 grados simultáneamente por medio de una sola variable de control. Puesto que el péndulo doble no tiende hasta un valor final, ya que está continuamente moviéndose al ser sin rozamiento, vamos a registrar el valor máximo en cada oscilación, y lo vamos a plotear para cada valor del ángulo inicial. Veamos el resultado:
 
 <figure>
   <img src="BifurcacionesDoble.png" alt="Diagrama del péndulo doble" width="100%">
@@ -24,14 +24,14 @@ Vemos tres zonas diferenciadas. La primera de ella de 0 hasta 40 grados. En esta
   <figcaption>Figura 1: Bifurcaciones en el doble péndulo</figcaption>
 </figure>
 
-A partir de los 43 grados, el diagram se abre en dos ramas perfectamente distinguibles, que se vuelven a juntar a partir de los 57 grados. Curiosamente en torno a 64 grados , tenemos un único punto, por lo que el sistemas podríamos decir que se comporta igual que un péndulo simple. De 64 grados hasta casi los 80 seguimos con las ramificaciones/bifurcaciones. Y a partir de los 80 grados tenemos el caos absoluto. 
+A partir de los 43 grados, el diagrama se abre en dos ramas perfectamente distinguibles, que se vuelven a juntar a partir de los 57 grados. Curiosamente en torno a 64 grados, tenemos un único punto, por lo que el sistema podríamos decir que se comporta igual que un péndulo simple. De 64 grados hasta casi los 80 seguimos con las ramificaciones/bifurcaciones. Y a partir de los 80 grados tenemos el caos absoluto. 
 
 <figure>
   <img src="BifurcacionesDobleZona2.png" alt="Diagrama del péndulo doble" width="100%">
   <figcaption>Figura 1: Bifurcaciones en el doble péndulo</figcaption>
 </figure>
 
-Visto lo visto, me pregunté lo siguiente. ¿Cuál será el exponente de Lyapunov en cada una de las zonas?. Si bien yo no sabía como calcularlo, pues a diferencia de la función logística no tengo una expresión para ir calculando la derivada, le lancé la pregunta a ChatGPT. Al parecer existe un algorimo llamado de "método de Benettin" que permite calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en mi ordenador. El resultado fue el siguiente:
+Visto lo visto, me pregunté lo siguiente. ¿Cuál será el exponente de Lyapunov en cada una de las zonas?. Si bien yo no sabía como calcularlo, pues a diferencia de la función logística no tengo una expresión para ir calculando la derivada, le lancé la pregunta a ChatGPT. Al parecer existe un algoritmo llamado de "método de Benettin" que permite calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en mi ordenador. El resultado fue el siguiente:
 
 
 <figure>
@@ -43,11 +43,11 @@ Al igual que con la función logística el exponente es prácticamente cero hast
 
 ## Zonas estables y caóticas en la atmósfera
 
-Vamos a extender los paralelismos. Ya hemos visto como dos sistemas tienen comportamientos parecidos en cuanto a su comportamiento caótico. Vemos que aparecen bifurcaciones, zonas estables, zonas caóticas, etc...
+Vamos a extender los paralelismos. Ya hemos visto como dos sistemas tienen comportamientos parecidos en cuanto a su comportamiento caótico. Vemos que aparecen bifurcaciones, zonas estables, zonas caóticas, etc..
 
 En meteorología también distinguimos **regímenes estables**, **transiciones** y **comportamiento caótico**, de modo que el horizonte de predictibilidad varía según el nivel de caos.
 
-Así tenemos zonas de estabilidad atmósferica en determinadas regiones del planeta, que vienen dadas por lo general por estas situaciones como los **Bloqueos atmosféricos**: grandes áreas de alta presión que pueden persistir días o semanas, desviando borrascas y estabilizando el tiempo. 
+Así tenemos zonas de estabilidad atmosférica en determinadas regiones del planeta, que vienen dadas por lo general por estas situaciones como los **Bloqueos atmosféricos**: grandes áreas de alta presión que pueden persistir días o semanas, desviando borrascas y estabilizando el tiempo. 
 
 En España es el típico anticiclón de las Azores, que cuando se sitúa en las Azores provoca que no entren las borrascas en la península, situación que puede llegar a durar varias semanas, y en el que el tiempo es muy estable.  
 

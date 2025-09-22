@@ -19,13 +19,13 @@ Repetí este procedimiento varias veces y registré la trayectoria de los tres p
 
 
 
-Aquí se ve el péndulo doble en movimiento con las diferentes partes representada con un punto de un color, que es lo que le sirve al programa para determinar las trayectorias.
+Aquí se ve el péndulo doble en movimiento con las diferentes partes representadas con un punto de un color, que es lo que le sirve al programa para determinar las trayectorias.
 <video width="640" controls>
   <source src="PendulodobleVivo.mp4" type="video/mp4">
 </video>
 
 Estas son las trayectorias del punto rojo del péndulo en cinco tiradas desde la misma posición y con la misma velocidad inicial.
-Se puede apreciar como al principio su taryectoria diverge muy rápidamente, pero al final, cuando ya han perdido mucha velocidad, hacen todos un recorrido muy similar hasta detenerse.
+Se puede apreciar como al principio su trayectoria diverge muy rápidamente, pero al final, cuando ya han perdido mucha velocidad, hacen todos un recorrido muy similar hasta detenerse.
 
 ```{python}
 import pandas as pd

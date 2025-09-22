@@ -7,7 +7,7 @@ execute:
   echo: false
 ---
 
-# Predicitibilidad de datos meteorológicos
+# Predictibilidad de datos meteorológicos
 
 
 El primer paso a la hora de estudiar el caos en el tiempo meteorológico es disponer de datos históricos de los principales parámetros del tiempo. Existe una excelente web llamada [OpenMeteo](https://open-meteo.com/en/docs) que proporciona datos históricos de observaciones y predicciones para cualquier localidad, y que además lo hace de forma gratuita en:
@@ -30,7 +30,7 @@ time,temperature_2m_mean (°C),precipitation_sum (mm),wind_speed_10m_mean (km/h)
 1950-06-14,21.1,0.00,8.0  
 1950-06-15,20.2,0.00,12.8  
 
-En segundo lugar tenemos que saber qué hacer con estos datos. Después de varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre cómo calcular el exponente de Lyapunov en datos meteorologicos. 
+En segundo lugar, tenemos que saber qué hacer con estos datos. Después de varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre cómo calcular el exponente de Lyapunov en datos meteorologicos. 
 
 > **Referencia completa:** Özgür E. & Yılmaz M. U. (2022). Using Chaos Theory to Determine Average Prediction Times of Different Meteorological Variables: A Case Study in Sivas. *Int. J. Adv. Eng. Pure Sci.* 34(1):101–106.  
 
@@ -57,13 +57,13 @@ $$
 \mathbf X(t)=\bigl(x(t),\,x(t+\tau),\,x(t+2\tau),\dots,x(t+(m-1)\tau)\bigr).
 $$  
 
-Es decir, el estado del sistema en un día, no es solamente el valor de la temperatura ese día, sino el valor de ese día más varios días anteriores. Pues bien, lo que necesitamos saber es cual es la dimensión óptima del estado del sistema. Si por ejemplo solo cojo un día, habrá muchos días que sean similares ya que habrá muchos casos en los que coincida la temperatura media para ese día. Sin embargo esto es engañoso, ya que no se tiene en cuenta el estado pasado del sistema. No es lo mismo estar en un día a 15 grados de temperatura media después de haber pasado una ola de calor, que estár a 15 grados después de varios días de ola de frío. De acuerdo al artículo turco un valor de $m=12$ es óptimo. 
+Es decir, el estado del sistema en un día, no es solamente el valor de la temperatura ese día, sino el valor de ese día más varios días anteriores. Pues bien, lo que necesitamos saber es cual es la dimensión óptima del estado del sistema. Si por ejemplo solo cojo un día, habrá muchos días que sean similares ya que habrá muchos casos en los que coincida la temperatura media para ese día. Sin embargo, esto es engañoso, ya que no se tiene en cuenta el estado pasado del sistema. No es lo mismo estar en un día a 15 grados de temperatura media después de haber pasado una ola de calor, que estar a 15 grados después de varios días de ola de frío. De acuerdo al artículo turco un valor de $m=12$ es óptimo. 
 
 Con estos valores de $\tau$ y $m$ le pedí a ChatGPT que me calculase el exponente de Lyapunov de la serie de temperaturas de Galapagar. ChatGPT usa en este caso el mismo algoritmo que para el cálculo del exponente de Laypunov de las simulaciones del péndulo doble. Se trata de un algoritmo bastante complicado cuya comprensión se me escapa. Hay que tener en cuenta que todos estos cálculos los realizo a con el modelo 04-mini-high, que tiene una capacidad matemática muy superior a la esperada de un alumno de bachillerato, y que además es capaz de hacer los cálculos en un entorno interno de Python, y de plotear resultados.
 
 ## Exponente de Lyapunov para la serie de valores de temperatura
 
-A continuación muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedía ChatGPT que estimase la variación estacional y que la quitase de los datos, dándome la gráfica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo más aleatorio ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el año 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra. 
+A continuación muestro todos los valores de temperatura que hemos sacado de la web open-meteo. Obviamente en la serie original vemos que hay un componente estacional muy fuerte. Le pedía ChatGPT que estimase la variación estacional y que la quitase de los datos, dándome la gráfica de temperatura desestacionalizada. En ella se ven las variaciones de temperatura como algo más aleatorio, ya que hemos quitado las componentes estacionales. No obstante se ve una ligera subida de temperaturas desde el año 1950 hasta el presente, coincidente con el aumento de temperaturas observado a nivel global en la Tierra. 
 
 ```{python}
 import pandas as pd
@@ -188,7 +188,7 @@ $$
 
 ### Horizonte de predictibilidad
 
-Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo sabemos que indica que estamos ante un sistema caótico, y que los errores se amplificarán con el tiempo. Veamos cuando multiplicamos por 10 un error inicial de 0.1 grados Centígrados:
+Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo sabemos que indica que estamos ante un sistema caótico, y que los errores se amplificarán con el tiempo. Veamos cuando multiplicamos por 10 un error inicial de 0.1 grados centígrados:
 
 $$
 T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
@@ -197,7 +197,7 @@ $$
 
 ### Amplificación de un error inicial de 0.1 °C tras 15 días
 
-Y ahora veamos de formá gráfica cómo se va amplificando el error inicial de 0.1 grados tras quince días. 
+Y ahora veamos de forma gráfica cómo se va amplificando el error inicial de 0.1 grados tras quince días. 
 
 ```{python}
 import numpy as np
@@ -219,7 +219,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Estos valores refuerzan las hipótesis inciales con las que habíamos especulado. Pasadas dos semanas es muy difícil tener estimaciones precisas del tiempo meteorológico. 
+Estos valores refuerzan las hipótesis iniciales con las que habíamos especulado. Pasadas dos semanas es muy difícil tener estimaciones precisas del tiempo meteorológico. 
 
 
 

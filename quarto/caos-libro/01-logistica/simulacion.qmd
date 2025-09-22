@@ -224,7 +224,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Vemos ahora mejor las primerasbifurcaciones (periodo 2, 4, 8, 16). Parece que el valor final de la función logística va creando sucesivamente nuevos ciclos, hasta que llegamos a un valor cercano a 3.57 (3.56995 para ser más exactos). A partid de este valor de $r$ dejan de verse claramente oscilaciones periódicas, y pasamos al régimen caótico. Vamos a hacer un zoom adicional a la zona con $r$ comprendido entre 3.56 y 3.575.
+Vemos ahora mejor las primeras bifurcaciones (periodo 2, 4, 8, 16). Parece que el valor final de la función logística va creando sucesivamente nuevos ciclos, hasta que llegamos a un valor cercano a 3.57 (3.56995 para ser más exactos). A partid de este valor de $r$ dejan de verse claramente oscilaciones periódicas, y pasamos al régimen caótico. Vamos a hacer un zoom adicional a la zona con $r$ comprendido entre 3.56 y 3.575.
 
 ```{python}
 import numpy as np

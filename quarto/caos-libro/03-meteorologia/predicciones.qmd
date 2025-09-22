@@ -251,9 +251,9 @@ for var_label, file_path in files.items():
     plt.show()
 ```
 
-Los exponentes de Lyapunov salen más pequeños que los calculados mediante las series históricas en la sección anterior [Predictibilidad](./calculolyapunov.qmd#sec-lyapunov). Hay que tener en cuenta que los exponentes en la sección anterior se tomaban sobre la base de 75 años, mientras que aquí tenemos un experimento más limitado, solamente tres meses, por lo que es normal que no cuadren del todo los datos. Sin embargo, tal y como hipotizamos, estamos alredededor de las dos semanas como límite de predictbilidad. 
+Los exponentes de Lyapunov salen más pequeños que los calculados mediante las series históricas en la sección anterior [Predictibilidad](./calculolyapunov.qmd#sec-lyapunov). Hay que tener en cuenta que los exponentes en la sección anterior se tomaban sobre la base de 75 años, mientras que aquí tenemos un experimento más limitado, solamente tres meses, por lo que es normal que no cuadren del todo los datos. Sin embargo, tal y como hipotizamos, estamos alrededor de las dos semanas como límite de predictibilidad. 
 
-Además lo que es muy relevante, es ver como el error de predicción crece exponencialmente. Se ponen de manifiesto dos causas: la inexactitud de las condiciones inciales, y la inexactitud de los modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y como esperabamos los errores crecen exponencialmente. 
+Además, lo que es muy relevante, es ver como el error de predicción crece exponencialmente. Se ponen de manifiesto dos causas: la inexactitud de las condiciones iniciales, y la inexactitud de los modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y como esperábamos los errores crecen exponencialmente. 
 
 
 
