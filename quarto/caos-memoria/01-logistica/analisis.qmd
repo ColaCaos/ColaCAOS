@@ -10,7 +10,7 @@ execute:
 # Estudio formal del mapa logístico
 En los siguientes apartados vamos a desentrañar desde un punto de vista matemático como se comporta el mapa logístico. Ya hemos visto en los apartados anteriores, vía simulación, que el comportamiento es muy errático dependiendo del valor de $r$. Veamos por qué.
 
-Para empezar veremos la función logística y la analizaremos como haríamos con cualquier otra función para ver su forma. Para ello, recurrimos a las técnicas habituales de analisis de funciones.
+Para empezar veremos la función logística y la analizaremos como haríamos con cualquier otra función para ver su forma. Para ello, recurrimos a las técnicas habituales de análisis de funciones.
 
 ## Dominio y ceros
 - Por definición, el **Dominio** es: $0 \le x \le 1$  
@@ -31,7 +31,7 @@ Para conocer los máximos y mínimos primero hemos de calcular la derivada,
 De acuerdo al estudio de la derivada, tenemos un punto crítico en $x = \tfrac12$. Puesto que la derivada pasa a ser creciente a decreciente en este punto, tenemos un máximo. La función, pues, tiene un valor máximo:  
   $$f\bigl(\tfrac12\bigr) = \frac{r}{4}$$
 
-Observar que si $r>4$ entonces el máximo de la función es mayor que 1. Esto no puede darse, ya que la funcíón logística normaliza los recursos máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que no puede ocurrir físicamente), el valor de r siempre se establece por debajo de 4. 
+Observar que si $r>4$ entonces el máximo de la función es mayor que 1. Esto no puede darse, ya que la función logística normaliza los recursos máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que no puede ocurrir físicamente), el valor de r siempre se establece por debajo de 4. 
 
 ## Concavidad
 - Segunda derivada:  

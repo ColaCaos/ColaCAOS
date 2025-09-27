@@ -46,7 +46,7 @@ Este ejemplo ilustra de manera numérica cómo, en sistemas no lineales como el 
 
 ## Otros fallos en las predicciones realizadas por los modelos
 
-A lo largo de las últimas décadas, voces diversas —científicos, activistas, medios y organismos internacionales— han lanzado advertencias dramáticas sobre el futuro climático. Aquí tienes una selección de predicciones que no se cumplieron, cada una con su fuente como enlace clicable.
+A lo largo de las últimas décadas, voces diversas —científicos, activistas, medios y organismos internacionales— han lanzado advertencias dramáticas sobre el futuro climático. Aquí tienes una selección de predicciones que no se cumplieron, cada una con su enlace web correspondiente.
 
 ---
 
@@ -187,7 +187,7 @@ En febrero de 2001, un reportaje en *El Mundo* presentaba un escenario alarmante
 
 Un estudio reciente publicado en *Climatic Change* bajo el título **“Robust climate attribution of modern floods needs palaeoflood science”** (26 de marzo de 2025, vol. 178, artículo 71) demuestra que muchos eventos de inundación recientes no son ni únicos ni inusuales en el contexto geológico e histórico.
 
-Este trabajo, liderado por Stephan Harrison y con participación de Gerardo Benito (CSIC), se basa en registros paleoflodísticos bien datados, que abarcan miles de años en el oeste y suroeste de Europa. Contrario a lo que sugieren algunos modelos, demuestra que:
+Este trabajo, liderado por Stephan Harrison y con participación de Gerardo Benito (CSIC), se basa en registros bien datados, que abarcan miles de años en el oeste y suroeste de Europa. Contrario a lo que sugieren algunos modelos, demuestra que:
 
 > “La magnitud de las inundaciones fue significativamente mayor antes del siglo XX, a pesar de que la contribución de gases de efecto invernadero de origen humano era insignificante”.
 
@@ -299,7 +299,7 @@ Este episodio es un ejemplo de **humildad científica**: los modelos climáticos
 
 #### ¿Entonces eran “predicciones fallidas”?
 
-- **Matíz importante:** Los informes científicos **sí** prevén **más aridez y sequías** en el Mediterráneo (España incluida). Eso **no implica** automáticamente que **toda España** vaya a perder bosque o “parecerse al Sahara”. Se puede dar **a la vez**:  
+- **Matiz importante:** Los informes científicos **sí** prevén **más aridez y sequías** en el Mediterráneo (España incluida). Eso **no implica** automáticamente que **toda España** vaya a perder bosque o “parecerse al Sahara”. Se puede dar **a la vez**:  
   - **Más estrés hídrico** y **más sequías** en zonas vulnerables.  
   - **Más superficie forestal o arbolada** a escala país por **cambios en el uso del suelo**, políticas forestales, y regeneración natural.
 

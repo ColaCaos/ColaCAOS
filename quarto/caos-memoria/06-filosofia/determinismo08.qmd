@@ -1,0 +1,57 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+
+# El Principio de Compromiso Predictibilidad – Creatividad en la práctica.
+
+Por último, intentaré cerrar el círculo en este proyecto de investigación viendo si se cumple el principio propuesto en la sección anterior, en los sistemas que he estudiado. Para ello, vamos a ver como se comportan cada uno de los sistemas en su configuración caótica y no caótica. 
+
+Empecemos por el péndulo. En su versión simple (un solo brazo), el péndulo es totalmente predecible, pero como se puede ver en la figura con el espacio de fase, el número de estados explorados es pequeño. En cambio, el péndulo doble es impredecible, pero explora prácticamente todo el espacio de fase disponible. En el péndulo doble, la novedad es alta.
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+![Péndulo simple](simple.png){fig-alt="Péndulo simple" fig-cap="Péndulo simple"}
+:::
+
+::: {.column width="50%"}
+![Péndulo doble](doble.png){fig-alt="Péndulo doble" fig-cap="Péndulo doble"}
+:::
+
+:::
+
+
+Veamos que pasa con el mapa logístico. Pues se vuelve a ver lo mismo, en la zona caótica el número de estados explorados es pequeño, mientras que en la caótica muy alto. Hay que tener en cuenta que además en el caso caótico, cada uno de los atractores que vemos es un fractal con infinitos puntos. En cambio, en la zona no caótica el número de puntos es finito, pues el mapa logístico acaba terminando en un punto fijo.
+
+:::{.columns}
+
+::: {.column width="50%"}
+![Mapa logístico en zona no caótica](logisticanocaos.png){fig-alt="Mapa logístico en zona no caótica" fig-cap="Mapa logístico en zona no caótica"}
+:::
+
+::: {.column width="50%"}
+![Mapa logístico en zona caótica](logisticacaos.png){fig-alt="Mapa logístico en zona caótica" fig-cap="Mapa logístico en zona caótica"}
+:::
+
+:::
+
+Por último, analicemos el comportamiento en el caso de la rueda caótica. Cuando quitamos las canicas, la rueda gira siempre en el mismo sentido. Por lo tanto, el nivel de incertidumbre se ve reducido; siempre podemos saber para qué lado gira la rueda. Cuando añadimos las canicas, el sistema se vuelve impredecible en cuando a su sentido de giro. De ahí que aparezca el segundo lado del atractor. El sistema explora, por lo tanto, más estados. 
+
+:::{.columns}
+
+::: {.column width="50%"}
+![Rueda caótica sin canicas](ruedanocaos.png){fig-alt="Rueda caótica sin canicas" fig-cap="Rueda caótica sin canicas"}
+:::
+
+::: {.column width="50%"}
+![Rueda caótica con canicas](ruedacaos.png){fig-alt="Rueda caótica con canicas" fig-cap="Rueda caótica con canicas"}
+:::
+
+:::

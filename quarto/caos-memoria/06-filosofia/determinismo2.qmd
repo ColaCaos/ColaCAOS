@@ -195,7 +195,5 @@ Por tanto, la creación de nuevas estructuras no puede predecirse matemáticamen
 
 En definitiva, podemos plantear que "la novedad estructural es impredecible en detalle en un sistema caótico".
 
-### Aplicación del Principo de Predictibilidad-Creatividad al clima
 
-A continuación aplicaremos este principio al Clima de la Tierra. Si aplicamos más energía al sistema, via efecto invernadero por la emisión de gases de efecto invernadero, entonces el sistema se volverá más impredecible. Ahora bien, hay que tener en cuenta que la predictibilidad se separa dos niveles. A gran escala y largo plazo, la señal forzada refuerza patrones y tendencias (más calor medio, nivel del mar al alza): esa parte se vuelve más previsible. En cambio, a escala regional y subestacional, el mismo forzamiento activa inestabilidades, acorta el horizonte de predicción y favorece bifurcaciones, de modo que la trayectoria fina (cuándo/dónde exactos) es menos previsible. Este doble efecto es coherente con el Principio Predictibilidad–Creatividad: la creatividad crece y la precisión en el detalle decrece, aunque las tendencias se vuelvan más nítidas. En última instancia, si el forzamiento externo es muy acusado, se pueden cruzar umbrales (tipping points) que generen nuevas estructuras totalmente impredecibles a priori. 
 

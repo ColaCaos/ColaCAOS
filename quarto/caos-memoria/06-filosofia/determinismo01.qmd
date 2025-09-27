@@ -1,0 +1,30 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+# De Laplace a Prigogine
+
+Hasta este momento en el proyecto hemos percibido el caos como algo negativo, un fenómeno no deseado que dificulta nuestra capacidad para conocer el futuro de los sistemas físicos. En nuestro modelo del Universo, heredado de la física de Newton, Laplace y hasta Einstein, todo era determinista y conocer el estado presente permitía predecir el futuro indefinidamente. A finales del siglo XX apareció un científico, Ilya Prigogine, que cambió esta concepción y que mereció el premio Nobel por su trabajo (ver el libro The End of Certainty: Time, Chaos, and The New Laws of Nature. [The end of Certainty](https://kremesti.com/portfolio/technical_writing/Academic_Research_Papers/End_of_Certainty.htm) ). Prigogine afirma que la visión determinista del Universo es incompleta, porque ignora la irreversibilidad del tiempo y reduce los fenómenos a un esquema demasiado simplificado.
+
+## Irreversibilidad del tiempo
+
+Hay procesos naturales que “tienen sentido” en una dirección temporal (del pasado al futuro) pero no al revés: el calor fluye de lo caliente a lo frío, una taza que se rompe no se recompone sola, el perfume se dispersa y no vuelve al frasco. A esto lo llamamos irreversibilidad del tiempo o flecha del tiempo.
+
+Muchas ecuaciones fundamentales de la física (las de Newton por ejemplo) son reversibles en el tiempo: si grabas una solución y la reproduces al revés, sigue siendo una solución válida. Entonces, ¿por qué el mundo cotidiano no funciona “al revés”?. Porque lo que observamos es lo más probable: que el desorden aumente y que la energía útil se degrade. A eso lo llamamos aumento de entropía (Segunda Ley de la Termodinámica). Nadie espera que cuando un hielo se derrite, pasado un tiempo se vuelva a congelar. O que cuando esparces perfume en una habitación, el perfume vuelva luego solo al frasco. 
+
+El determinismo ignora la flecha del tiempo marcada por la entropía. La Segunda Ley de la Termodinámica nos dice que en sistemas aislados la entropía nunca disminuye. Esto significa que, aunque las ecuaciones deterministas permitan un futuro reversible, en la práctica el sistema siempre avanza hacia estados más probables, de mayor desorden. Esa asimetría no cabe dentro de un universo “reloj” que se limita a desplegar lo ya contenido. ¿Qué quiere decir "desplegar lo ya contenido"? En la visión clásica y determinista, el universo se concibe como un reloj perfectamente mecánico:
+
+* Las leyes de la naturaleza son ecuaciones exactas y simétricas en el tiempo.
+* Si conocemos el estado presente (posiciones y velocidades de todas las partículas), entonces el pasado y el futuro están ya contenidos en esa información.
+* El tiempo, en este modelo, no “crea” nada: simplemente despliega lo que ya estaba escrito en las condiciones iniciales
+* El tiempo sería como el puntero de un proyector que recorre un carrete de película ya grabada: no hay sorpresas, solo revelar lo que está ahí.
+
+La irreversibilidad rompe esta imagen sencilla del Universo. Esta asimetría temporal no puede reducirse a un simple “estado contenido en las condiciones iniciales”, porque el futuro no es un espejo reversible del pasado. El sistema no “despliega” algo fijo ya contenido en las condiciones iniciales, sino que evoluciona hacia estados más probables, siguiendo una dirección de la que no hay retorno.
+
+Por lo tanto, en el Universo real no determinista el pasado y el futuro no son intercambiables, no son equivalente. El tiempo introduce "novedades" que no estaban prefiguradas y de las que no podemos volver hacia atrás.
+
+La irreversibilidad del tiempo no solo rompe la visión determinista, sino que abre la puerta a la creatividad de la naturaleza. El futuro no estaba ya escrito en el presente, como sostenía la visión clásica determinista; es el propio paso del tiempo el que introduce fluctuaciones y novedades imposibles de predecir por completo. Aquí es donde entra en juego el caos.

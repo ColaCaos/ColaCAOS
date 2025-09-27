@@ -8,7 +8,7 @@ execute:
 ---
 
 # Primera bifurcación 
-Tal y como vimos en la sección anterior cuando $r > 3$ el valor final de la sucesión logística alterna entre dos valores finales. Vamos a hacer un análisis matématico para explicar por qué pasa ésto.
+Tal y como vimos en la sección anterior cuando $r > 3$ el valor final de la sucesión logística alterna entre dos valores finales. Vamos a hacer un análisis matemático para explicar por qué pasa ésto.
 
 ## Primera bifurcación: duplicación de período en $r = 3$. Análisis matemático
 
@@ -28,7 +28,7 @@ $$
 f(f(p)) = p
 $$
 
-Lo cual implica que $p$ es un punto fijo del mapa iterado $f^2$ (esta notación significa la composicion de una función con sigo misma $f^2()=f \circ f = f(f())$, no el cuadrado de la función)
+Lo cual implica que $p$ es un punto fijo del mapa iterado $f^2$ (esta notación significa la composición de una función con sigo misma $f^2()=f \circ f = f(f())$, no el cuadrado de la función)
 
 Dado que $f(x) = r x (1 - x)$, podemos escribir:
 
@@ -50,7 +50,7 @@ $$
 
 Hay que observar, que la resolución gráfica es sencilla. Simplemente hay que dibujar la función $f^2()=f \circ f = f(f())$ y la función $y=x$, y encontrar los cruces de ambas. Se cortarán en dos puntos, que serán los puntos entre los que alternará el mapa logístico.
 
-Sigamos con la resolución analtíca. Para ello, desarrollamos completamente $f(f(p)) = p$:
+Sigamos con la resolución analítica. Para ello, desarrollamos completamente $f(f(p)) = p$:
 
 $$
 r^2 p (1 - p)(1 - r p (1 - p)) = p
@@ -178,7 +178,7 @@ plt.tight_layout()
 plt.show()
 
 ```
-## Analisis de estabilidad de la primera bifurcación
+## Análisis de estabilidad de la primera bifurcación
 
 En primer lugar, vamos a calcular de nuevo de forma analítica precisa los puntos en los que se produce la oscilación. La función logística es  
 $$

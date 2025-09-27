@@ -71,7 +71,7 @@ Ahora reflexionemos. Péndulos que fueron lanzados con diferencias de milésimas
 
 ### La Belleza del Caos
 
-Tal vez te preguntes: “¿Por qué es tan atractivo ver este desorden?”. La respuesta está en la misma naturaleza de lo impredecible. Cada línea coloreada que se dispersa representa un pequeño “qué pasaría si…”: un escenario distinto construido por una diferencia diminuta en los ángulos iniciales. Cuando miras el vídeo, lo que parece arte abstracto en movimiento es, en realidad, la materialización instantánea de un principio matemático: el caos.  
+Tal vez te preguntes: “¿Por qué es tan atractivo ver este desorden?”. La respuesta está en la misma naturaleza de lo impredecible. Cada línea coloreada que se dispersa representa un pequeño “qué pasaría si…”: un escenario distinto construido por una diferencia diminuta en los ángulos iniciales. En la sección "Determinismo y Caos" del proyecto, veremos que es precisamente esta exploración de escenarios lo que convierte al caos en el principal motor de introducción de novedad en nuestro universo.  
 
 ### Reflexión sobre la Predictibilidad
 
@@ -79,16 +79,8 @@ Tal vez te preguntes: “¿Por qué es tan atractivo ver este desorden?”. La r
 - ¿Podríamos predecir con exactitud el comportamiento de un péndulo real si midiera su ángulo con la precisión de un nanómetro?  
 - ¿Sería suficiente?  
 
-La respuesta es que, por muy maravillosa que sea nuestra instrumentación, siempre habrá imperfecciones. Ese desajuste, ese ruido minúsculo, es suficiente para que la simulación sea un recordatorio de que el mundo real—y nuestros modelos—tienen un límite de predictibilidad. No solo eso, como vimos en el capítulo anterior con la función logística, los modelos matemáticos se codifican en un ordenador con una precisión finita, que a su vez introduce errores iteración tras iteración de nuestro código. Por lo tanto, nos enfrentamos a dos problemas en la realidad:
+La respuesta es que, por muy maravillosa que sea nuestra instrumentación, siempre habrá imperfecciones. Ese desajuste, es suficiente para que la simulación sea un recordatorio de que el mundo real—y nuestros modelos—tienen un límite de predictibilidad. No solo eso, como vimos en el capítulo anterior con la función logística, los modelos matemáticos se codifican en un ordenador con una precisión finita, que a su vez introduce errores iteración tras iteración de nuestro código. Por lo tanto, nos enfrentamos a dos problemas en la realidad:
 
 -  No podemos medir con total exactitud el estado inicial de nuestro sistema
 -  No podemos simular los modelos matemáticos con una precisión infinita en un ordenador
 
-
-### ¿Qué Aprendemos como Observadores?
-
-En este punto, quiero que te sientas más que un simple espectador; quiero que te cuestiones tu propia confianza en la previsión de sistemas aparentemente simples. Porque, al fin y al cabo, el péndulo doble no es más que un ejemplo fácil de visualizar, pero el universo real está lleno de sistemas caóticos: el clima, la dinámica de poblaciones, incluso ciertos procesos en la economía. Si un experimento tan básico como el péndulo doble nos muestra esta fragilidad, ¿cómo imaginamos predecir con total certeza fenómenos tan complejos?  
-
-### Reflexión Final: Una Invitación al Asombro
-
-Te invito a que, la próxima vez que veas un pronóstico meteorológico o leas sobre el futuro de los mercados, recuerdes este vídeo de los péndulos. Observa cómo cambia cada línea, cómo el abanico se abre a partir de una diferencia insignificante. Tal vez entonces comprendas que la exploración del caos no es un simple juego visual, sino un recordatorio profundo: hay límites invisibles en nuestra capacidad de anticipar el futuro.  

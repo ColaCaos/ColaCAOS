@@ -8,49 +8,68 @@ website:
 book:
   title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
   author: "Rubén Torre Merino"
+
   chapters:
-    - index.qmd
-    - objetivos.qmd
-    - resultados.qmd
+    - part: "Introducción"
+      chapters:
+        - intro.qmd
+        - index.qmd
+        - objetivos.qmd
+        - resultados.qmd
 
-    # Logística
-    - 01-logistica/mapa-logistico.qmd
-    - 01-logistica/cobweb.qmd
-    - 01-logistica/puntos-fijos.qmd
-    - 01-logistica/analisis.qmd
-    - 01-logistica/generico.qmd
-    - 01-logistica/estable.qmd
-    - 01-logistica/bifurcaciones.qmd
-    - 01-logistica/simulacion.qmd
-    - 01-logistica/Caos.qmd
-    - 01-logistica/lyapunov.qmd
-    - 01-logistica/criterio.qmd
+    - part: "El Caos a través de la Función Logística"
+      chapters:
+        - 01-logistica/mapa-logistico.qmd
+        - 01-logistica/cobweb.qmd
+        - 01-logistica/puntos-fijos.qmd
+        - 01-logistica/analisis.qmd
+        - 01-logistica/generico.qmd
+        - 01-logistica/estable.qmd
+        - 01-logistica/bifurcaciones.qmd
+        - 01-logistica/simulacion.qmd
+        - 01-logistica/Caos.qmd
+        - 01-logistica/lyapunov.qmd
+        - 01-logistica/criterio.qmd
 
-    # Péndulo doble
-    - 02-pendulo-doble/doble.qmd
-    - 02-pendulo-doble/simulaciones.qmd
-    - 02-pendulo-doble/fractal.qmd
-    - 02-pendulo-doble/bifurcacionesPendulo.qmd
-    - 02-pendulo-doble/estadisticas.qmd
-    - 02-pendulo-doble/experimentos.qmd
+    - part: "El Caos en vivo: El péndulo doble"
+      chapters:
+        - 02-pendulo-doble/doble.qmd
+        - 02-pendulo-doble/simulaciones.qmd
+        - 02-pendulo-doble/fractal.qmd
+        - 02-pendulo-doble/bifurcacionesPendulo.qmd
+        - 02-pendulo-doble/estadisticas.qmd
+        - 02-pendulo-doble/experimentos.qmd
 
-    # Meteorología
-    - 03-meteorologia/meteorologia.qmd
-    - 03-meteorologia/calculolyapunov.qmd
-    - 03-meteorologia/predicciones.qmd
-    - 03-meteorologia/Aemet.qmd
+    - part: "La Meteorología y el Caos"
+      chapters:
+        - 03-meteorologia/meteorologia.qmd
+        - 03-meteorologia/calculolyapunov.qmd
+        - 03-meteorologia/predicciones.qmd
+        - 03-meteorologia/Aemet.qmd
 
-    # Clima
-    - 04-clima/introclima.qmd
-    - 04-clima/atractor.qmd
-    - 04-clima/rapido.qmd
-    - 04-clima/evaluacion.qmd
-    - 04-clima/caosclima.qmd
+    - part: "El Clima y el Caos"
+      chapters:
+        - 04-clima/introclima.qmd
+        - 04-clima/atractor.qmd
+        - 04-clima/rapido.qmd
+        - 04-clima/evaluacion.qmd
+        - 04-clima/caosclima.qmd
 
-    # Experimentos propios
-    - 05-experimentos/intro.qmd
-    - 05-experimentos/funcionamientoCaotico.qmd
-    - 05-experimentos/test.qmd
+    - part: "Mi sistema caótico"
+      chapters:
+        - 05-experimentos/intro.qmd
+        - 05-experimentos/funcionamientoCaotico.qmd
+    
+    - part: "Determinismo y Caos"
+      chapters:
+        - 06-filosofia/determinismo01.qmd
+        - 06-filosofia/determinismo02.qmd
+        - 06-filosofia/determinismo03.qmd
+        - 06-filosofia/determinismo04.qmd
+        - 06-filosofia/determinismo05.qmd
+        - 06-filosofia/determinismo06.qmd
+        - 06-filosofia/determinismo07.qmd
+        - 06-filosofia/determinismo08.qmd
 
 format:
   pdf:

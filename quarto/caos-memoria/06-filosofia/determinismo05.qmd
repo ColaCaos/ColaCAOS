@@ -1,0 +1,39 @@
+---
+format:
+  html:
+    math: katex
+execute:
+  enabled: true
+  echo: false
+---
+
+# El papel creativo del tiempo (y del caos)
+
+En la visión clásica, el tiempo era un simple parámetro: un “reloj” que medía cómo los estados del universo se iban desplegando según leyes ya escritas. En cambio, en la perspectiva de Prigogine, el tiempo no solo mide, sino que produce.
+
+¿Por qué decimos que el tiempo tiene un papel creativo?
+
+El tiempo genera irreversibilidad.
+Cada instante que pasa deja una huella que no se puede borrar: el hielo derretido, el vaso roto, la energía disipada. Esta irreversibilidad no se limita a destruir orden, también permite que surjan nuevas formas de organización. Ejemplo: las estructuras disipativas (celdas de Bénard, tornados, ecosistemas) que nacen gracias a los flujos de energía y materia. Sin irreversibilidad, no habría emergencia de orden.
+
+El tiempo abre bifurcaciones.
+En sistemas caóticos e inestables, el futuro no está prefijado: pequeñas fluctuaciones se amplifican hasta dirigir el sistema hacia trayectorias alternativas. El tiempo, en vez de ser un mero despliegue de lo ya contenido, actúa como un proceso de selección entre posibilidades.
+→ Es como si cada segundo abriera varias puertas; el paso del tiempo consiste en atravesar una de ellas.
+
+El caos amplifica lo inesperado.
+La inestabilidad convierte lo microscópico en macroscópico: una perturbación diminuta (una vibración, una molécula más rápida que otra) puede desencadenar un nuevo patrón global. Eso hace que el tiempo no solo conserve información, sino que la transforme y la expanda en nuevas formas.
+
+En conjunto: el tiempo no es neutral. Es productivo: crea configuraciones que antes no existían, favorece la emergencia de estructuras y abre caminos alternativos.
+
+## ¿Por qué la incertidumbre es objetiva?
+Prigogine rompe con esto al afirmar que la incertidumbre es objetiva, es decir, propia de la naturaleza misma, no solo de nuestra falta de conocimiento.
+
+Las razones:
+
+* Limitaciones físicas irreducibles. El principio de incertidumbre de Heisenberg impide conocer simultáneamente posición y velocidad de una partícula con precisión infinita. No es una limitación tecnológica, sino un límite fundamental.
+
+* Fluctuaciones inevitables. En cualquier sistema hay ruido térmico, cuántico, ambiental. Estas fluctuaciones no pueden eliminarse, forman parte constitutiva de la realidad. Y lo más importante: en sistemas caóticos, se amplifican inevitablemente, por lo que no hay trayectoria única.
+
+* Bifurcaciones reales. En ciertos regímenes dinámicos, el sistema llega a puntos donde puede evolucionar hacia diferentes configuraciones posibles. No es que el futuro “esté escrito y no lo sepamos”: el futuro se decide en el proceso, a partir de fluctuaciones irreducibles.
+
+Esto convierte la incertidumbre en algo inherente a la naturaleza

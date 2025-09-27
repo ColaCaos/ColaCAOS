@@ -7,7 +7,7 @@ execute:
   echo: false
 ---
 
-# Predicitibilidad de datos meteorolÃ³gicos
+# Predictibilidad de datos meteorológicos
 
 
 El primer paso a la hora de estudiar el caos en el tiempo meteorolÃ³gico es disponer de datos histÃ³ricos de los principales parÃ¡metros del tiempo. Existe una excelente web llamada [OpenMeteo](https://open-meteo.com/en/docs) que proporciona datos histÃ³ricos de observaciones y predicciones para cualquier localidad, y que ademÃ¡s lo hace de forma gratuita en:

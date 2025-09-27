@@ -13,7 +13,7 @@ execute:
 
 Un **punto fijo** de una función $f$ es un valor $x^*$ que satisface $$x^* = f(x^*)$$
 
-Intuitivamente, si comenzamos en $x^*$ y aplicamos la función, nos quedamos en el mismo punto. En la sección anterior vimos que en el diagram interactivo graficábamos también la función $y=x$. Si nuestra función $f(x)=x" cruza en algún momento la función $y=x$, entonces tenemos un punto fijo en nuestra función. 
+Intuitivamente, si comenzamos en $x^*$ y aplicamos la función, nos quedamos en el mismo punto. En la sección anterior vimos que en el diagrama interactivo graficábamos también la función $y=x$. Si nuestra función $f(x)=x" cruza en algún momento la función $y=x$, entonces tenemos un punto fijo en nuestra función. 
 
 La pregunta que hay que hacerse, es la siguiente. Si hacemos iteraciones sucesivas de nuestro mapa/función, ¿convergemos a un punto fijo?. Para responder esta cuestión, vamos a hacer uso de la derivada de la función que estamos estudiando.
 

@@ -9,11 +9,11 @@ execute:
 
 # Caos
 
-Como dijimos en la seccíón anterior, a partir de $r_\infty \approx 3.56995$, el mapa logístico entra en un **régimen caótico**. Para $r < r_\infty$, aparecían sucesivas bifurcaciones de periodo $1 \to 2 \to 4 \to 8 \to \cdots$.
+Como dijimos en la sección anterior, a partir de $r_\infty \approx 3.56995$, el mapa logístico entra en un **régimen caótico**. Para $r < r_\infty$, aparecían sucesivas bifurcaciones de periodo $1 \to 2 \to 4 \to 8 \to \cdots$.
 En $r = r_\infty$, esas bifurcaciones se acumulan y ya no hay ciclos periódicos finitos: el valor final se vuelve errático. Sin embargo a medida que vamos observando el mapa aparecen comportamientos extraños.
 
 ## División en bandas
-Justo tras $r_\infty$, la zona caótica se **parte en dos bandas** disjuntas: en el diagrama de bifurcación aparecen dos hileras de puntos con un hueco entre ellas.
+Justo tras $r_\infty$, la zona caótica se **parte en dos bandas** distintas: en el diagrama de bifurcación aparecen dos hileras de puntos con un hueco entre ellas.
 
 ```{python}
 import numpy as np
@@ -121,7 +121,7 @@ bifurcation(3.82, 3.843)
 ## Repetición infinita
 Las ventanas de periodicidad están **infinitamente repetidas**: en cada fragmento de la región caótica, por pequeño que sea, habrá alguna ventana donde emerja un ciclo estable.
 
-Así vemos como enre 3.73 y 3.76 aparecen un ciclo de período 5.
+Así vemos como entre 3.73 y 3.76 aparecen un ciclo de período 5.
 
 ```{python}
 import numpy as np

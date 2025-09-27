@@ -232,9 +232,6 @@
 \renewcommand{\contentsname}{Tabla de contenidos}
 \KOMAoption{captions}{tableheading}
 \makeatletter
-\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
-\makeatother
-\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
@@ -323,8 +320,6 @@ predicción meteorológica}
 \tableofcontents
 }
 
-\bookmarksetup{startatroot}
-
 \chapter{ColaCaos}\label{colacaos}
 
 ¿Has oído hablar alguna vez de la teoría del caos? Es posible que te
@@ -344,7 +339,7 @@ iniciales podían generar predicciones climáticas completamente
 distintas. Su trabajo sentó las bases de la teoría del caos y
 revolucionó la comprensión de los sistemas físicos.
 
-La inspiración para este trabajo me vino de este video de Veritasium.
+La inspiración para este trabajo me vino de este vídeo de Veritasium.
 
 Si tienes tiempo y ganas también te recomiendo este video de PBS. Mucho
 más largo pero con mayor detalle
@@ -367,13 +362,13 @@ muchos aspectos del mundo que nos rodea.
 También abordaremos las implicaciones filosóficas del caos. Si la teoría
 del caos es correcta, a pesar de estar trabajando con sistemas cuyas
 ecuaciones son deterministas, no podremos conocer con certeza el estado
-final del sistema, por mucho que nos empeñemos en conocer con mas
+final del sistema, por mucho que nos empeñemos en conocer con más
 precisión las condiciones iniciales del sistema. Esto sugiere una
 limitación fundamental en muchos aspectos del conocimiento que la
 humanidad puede tener de su futuro. A pesar de la mejora de los medios
 técnicos disponibles por la Humanidad, y del avance científico, tenemos
 una limitación establecida por el Caos, que nos proyecta un Horizonte de
-Predictibilidad que no podemos pasar. Es un limite similar al de la
+Predictibilidad que no podemos pasar. Es un límite similar al de la
 velocidad de la luz, o al horizonte de sucesos de un agujero negro.
 Nunca vamos a poder ver más allá del Horizonte de Predictibilidad.
 
@@ -388,11 +383,182 @@ intentaré responder, es ¿Puede una persona agitando su taza de Cacao por
 la mañana provocar un huracán al otro lado del océano a la semana
 siguiente?
 
-\begin{center}
-\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{colacaos.jpeg}
-\end{center}
+\pandocbounded{\includegraphics[keepaspectratio]{colacaos.jpeg}}
 
-\bookmarksetup{startatroot}
+\part{Introducción}
+
+\chapter{Resumen del Proyecto de
+Investigación}\label{resumen-del-proyecto-de-investigaciuxf3n}
+
+Desde tiempos inmemoriales el ser humano ha ansiado conocer el futuro.
+En la antigüedad, las culturas anteriores al desarrollo de la ciencia
+recurrían a la magia, oráculos y al esoterismo para tratar de predecir
+el futuro. Con la llegada del método científico, la Humanidad pudo
+conocer las leyes físicas que rigen el Universo para así poder predecir
+el comportamiento de muchos fenómenos naturales. La mecánica de Newton
+permitió calcular trayectorias de planetas y cometas con gran precisión;
+la termodinámica y la química explicaron reacciones y transformaciones
+de la materia; la biología comenzó a anticipar procesos vitales como la
+herencia genética.
+
+Durante siglos, esta idea de que si conocemos las leyes y las
+condiciones iniciales podemos anticipar el futuro fue dominante en la
+ciencia. Sin embargo, a mediados del siglo XX surgió un descubrimiento
+sorprendente: incluso en sistemas gobernados por leyes deterministas,
+pequeñas variaciones en los datos iniciales podían producir resultados
+totalmente distintos.
+
+Este fenómeno recibió el nombre de caos, y cambió para siempre nuestra
+concepción de la predicción. Podíamos conocer las leyes que rigen el
+Universo, pero la capacidad de conocer el futuro era limitada.
+
+Para poder comprender el alcance del caos sobre la capacidad de
+predicción recurrí en primer lugar a analizar el fenómeno en el
+ordenador. Y es que es el ordenador el medio por el cual realizamos
+cálculos complejos basados en modelos matemáticos de la realidad que nos
+rodea. Como campo de experimentación escogí el mapa logístico, por ser
+una sucesión sencilla que presenta un comportamiento caótico muy
+complejo. Realicé varios experimentos, entre ellos uno muy impactante,
+que fue codificar el mapa logístico de dos maneras diferentes, como
+\(x_{n+1} = r\,x_n\,(1 - x_n)\) y como
+\(x_{n+1} = r\,x_n - r\,{x_n}^2\). Al cabo de pocas iteraciones comprobé
+cómo los resultados de ambas fórmulas divergían enormemente debido a la
+precisión finita de almacenaje de los números en el ordenador.
+
+Ante estos resultados tan desconcertantes, me pregunté si el caos
+también se da de forma tan fácil en sistemas físicos. Entonces recurrí
+al análisis del péndulo doble, que es uno de los sistemas caóticos por
+antonomasia. Para ello, pedí a ChatGPT que me desarrollase las
+ecuaciones matemáticas que rigen el movimiento del péndulo y que me las
+simulase bajo multitud de estados iniciales diferentes, ligeramente
+separados unos de otros. Los desarrollos fueron codificados en Python y
+simulados en mi ordenador. Algunas de las simulaciones implicaban el
+lanzamiento en paralelo de miles de péndulos y eran muy lentas
+ejecutadas en la CPU del ordenador, por lo que tuve que recurrir
+mediante ChatGPT a paralelizar los programas usando las librerías de
+Python para la tarjeta gráfica Nvidia de mi ordenador. Los resultados
+fueron de nuevo sorprendentes, pues empezaron a aparecer estructuras
+fractales dentro de las condiciones iniciales cuando simulaba miles de
+péndulos a la par. No importaba cómo de pequeña era la diferencia de
+condiciones iniciales entre dos péndulos, que al final, con el
+transcurso del tiempo, los péndulos dobles siempre divergían.
+
+Una vez terminada la parte de análisis matemático y de simulación de los
+sistemas caóticos, me lancé a comprobar si este comportamiento caótico
+se daba en la realidad. Compré un péndulo doble, que tenía la propiedad
+de poder bloquear el segundo eje para así transformarse en un péndulo
+simple. Aquí el reto estaba en poder medir con precisión la posición de
+los dos brazos del péndulo mientras se movía a alta velocidad. Tras ser
+aconsejado por ChatGPT, recurrí a una librería de visión por ordenador
+llamada OpenCV para, en tiempo real, medir la posición de los brazos del
+péndulo doble y guardar los datos en un fichero. Gracias a este
+programa, pude ver que lanzando el péndulo doble en diferentes
+posiciones iniciales, las trayectorias divergían enormemente tras unos
+breves instantes. Me pregunté si habría algún problema con la forma en
+la que estaba configurado el experimento, así que recurrí a hacer lo
+mismo con la configuración de péndulo simple. En este caso, pude
+constatar, cómo una tras otra, las trayectorias eran idénticas en todos
+los lanzamientos.
+
+Un aspecto importante que pude apreciar en el péndulo doble es que si
+bien su posición en un momento dado era imposible de predecir, había
+variables que sí se podían predecir con bastante exactitud, como por
+ejemplo la distancia recorrida por el extremo del péndulo. En todos los
+lanzamientos resultaba muy similar. Es decir, en los sistemas caóticos
+hay ciertos patrones y estadísticas que sí pueden ser estimadas de
+antemano.
+
+Llegado a este punto y convencido del comportamiento caótico de sistemas
+aparentemente sencillos, quise ver cómo se manifestaba el caos en
+sistemas más complejos, como es la atmósfera terrestre y la
+meteorología, y también quise ver como lidiaba la ciencia moderna con
+este asunto. Si bien pude encontrar modelos de código abierto con los
+que simular la atmósfera, no disponía la capacidad de cómputo para
+ejecutarlos. Por ello, y tras investigar el tema, llegué a la conclusión
+de que el mayor error que se da en las predicciones es el debido a la
+imprecisión de la estimación de las condiciones iniciales, no a las
+ecuaciones que rigen los modelos. Entonces, pensé que observando cómo
+diverge la observación real del tiempo de la predicción realizada unos
+días antes por los modelos de las agencias meteorológicas, podría
+cuantificar el crecimiento exponencial del caos debido a la sensibilidad
+a las condiciones iniciales. Creé un programa, que día tras día, se
+conectaba a una web meteorológica y que me daba las predicciones para
+los siguientes 14 días. Almacené esos datos durante tres meses, y
+después los analicé. Pude así ver con datos reales el crecimiento
+exponencial de los errores, y hacer un análisis de regresión para
+calcular el exponente de Lyapunov de las variables meteorológicas
+principales: temperatura, presión, humedad y velocidad del viento.
+Corroboré este procedimiento y pude despejar algunas dudas con técnicos
+de predicción de la AEMET, quienes tuvieron la amabilidad de charlar
+conmigo durante una mañana sobre el impacto del caos en meteorología. A
+la vista de mis resultados y de los datos que me aportaron los técnicos
+de la AEMET, pude determinar cómo el horizonte de predictibilidad de las
+variables meteorológicas no va nunca más allá de los 14 días. Y es una
+barrera muy difícil de superar, pues mientras que nuestras mejoras en la
+toma de datos y el modelado avanzan linealmente, el error caótico
+evoluciona exponencialmente con el tiempo.
+
+Siguiendo con esta dinámica, quise ampliar el análisis de la predicción
+de la atmósfera, estudiando esta vez el comportamiento de los modelos a
+largo plazo, es decir, estudiar la precisión con la que los modelos
+climáticos habían sido capaces de predecir hasta ahora el clima. Realicé
+una investigación de las principales predicciones realizadas hace 20, 30
+años y vi su grado de cumplimiento en la actualidad. Si bien la
+principal variable, la temperatura media de la Tierra, había sido
+predicha con precisión, a nivel regional había algunas discrepancias
+entre las observaciones y las predicciones. A mi juicio, se repetía la
+premisa que aprecié en el péndulo doble: en los sistemas caóticos se
+pueden estimar algunas variables, patrones y estructuras, pero resulta
+muy difícil poder predecir el detalle del comportamiento en el futuro. Y
+este último punto resulta muy importante, puesto que un enfoque prudente
+refuerza la necesidad de proteger los ecosistemas y reducir las
+emisiones de gases de efecto invernadero, dado que el resultado
+detallado de nuestras acciones es incierto. No deberíamos especular con
+el impacto de nuestras acciones en un sistema que no somos capaces de
+predecir correctamente.
+
+Tras analizar sistemas caóticos en el ordenador, la naturaleza y en los
+modelos climáticos, quise dar un paso más y preguntarme si sería capaz
+de crear yo mismo un sistema caótico artificial. No se trataba ya de
+estudiar únicamente ejemplos existentes, sino de experimentar con la
+posibilidad de generar caos en un entorno controlado. Opté por utilizar
+el simulador físico Algodoo, donde diseñé una rueda movida por la caída
+de agua y convertida en caótica por la acción de canicas sueltas en su
+interior. Pude ver cómo el atractor surgido de este sistema era muy
+similar al de Lorenz, con dos estados (velocidad angular positiva y
+negativa), de los que se sale de forma totalmente impredecible.
+
+Llegado este punto, entré en el terreno de la filosofía y me pregunté si
+el caos era un fenómeno indeseable que frustraba nuestro anhelo de
+predecir el futuro. En mi investigación, me encontré con el trabajo del
+premio Nobel Ilya Prigogine, quien demostró que es precisamente el caos,
+el fenómeno esencial de la naturaleza para la creación de estructuras
+complejas como la vida. En un Universo sin caos, el demonio de Laplace
+puede actuar a sus anchas, pues la información inicial no se pierde por
+el caos, y así el demonio puede conocer con todo detalle el estado
+pasado, presente y futuro de cualquier sistema. El precio a pagar por
+ello es la ausencia de novedad. Esto me hizo conjeturar el siguiente
+principio heurístico:
+
+``No es posible maximizar simultáneamente la predictibilidad detallada y
+la creación de novedad en sistemas dinámicos complejos: cuanto más
+creativa (abierta a nuevas estructuras) es la evolución, menos
+plenamente predecible es su trayectoria fina, y viceversa''
+
+Por lo tanto, la tan ansiada omnisciencia en un universo creativo como
+el nuestro es un oxímoron. Podemos determinar patrones, pero no ver los
+detalles finos, es decir, podemos anticipar patrones (atractores, rangos
+de comportamiento, escenarios probables) mejor que trayectorias exactas
+a largo plazo. Un universo capaz de crear nuevas formas no puede ser, al
+mismo tiempo, totalmente transparente a nuestra predicción. La novedad
+tiene un precio: nos hace renunciar a una parte de la certeza.
+
+En definitiva, podemos plantear que ``la novedad estructural es
+impredecible en detalle en un sistema caótico''. Y quizá ahí resida el
+misterio más fascinante del universo: que la misma dinámica que limita
+nuestra capacidad de predecir el futuro es la que permite la emergencia
+de la vida, de la complejidad y de la novedad. El caos no es un
+obstáculo al conocimiento, sino el terreno fértil donde nace lo nuevo.
 
 \chapter{Objetivos}\label{objetivos}
 
@@ -409,7 +575,7 @@ Los objetivos científicos son los siguientes:
 \begin{itemize}
 \item
   Entender qué es el caos y ``jugar'' con sistemas caóticos para ver
-  como se comportan. Para ello usaremos dos ``juquetes'':
+  como se comportan. Para ello usaremos dos ``juguetes'':
 
   \begin{itemize}
   \tightlist
@@ -493,27 +659,166 @@ Por último, he aprendido a usar Algodoo, un simulador de sistemas
 físicos sencillos, para analizar el comportamiento de mi sistema caótico
 propuesto
 
-\bookmarksetup{startatroot}
-
 \chapter{Resultados}\label{resultados}
+
+En cuanto a lo aportado por mi trabajo, he de decir que no pretendo
+descubrir el caos, sino \textbf{mostrar de forma operativa y
+reproducible que la predictibilidad del mundo es limitada y
+cuantificable}. Lo demuestro con: (i) simulaciones del mapa logísitico
+que muestran la extrema sensibilidad a las condiciones iniciales, y
+donde expresiones algebraicamente equivalentes divergen por aritmética
+finita, (ii) un experimento físico que contrasta péndulo doble (caótico)
+con simple (predecible), (iii) un análisis de predicción--observación
+que estima tasas de crecimiento del error (Lyapunov ``operativo''), y
+(iv) el diseño de un sistema caótico propio. Con ello paso de la idea
+abstracta a evidencias medibles y a conjeturar un principio heurístico:
+más novedad estructural ↔ menos predictibilidad detallada.
 
 A continuación desglosaré las principales aportaciones propias
 realizadas a lo largo de este proyecto, en términos de resultados
 científicos, investigaciones llevadas a cabo y código generado.
 
-\section{Resultados}\label{resultados-1}
+\section{Principales resultados}\label{principales-resultados}
 
-\hyperref[sec-sensibilidad]{Efecto mariposa} /// \{\#sec-sensibilidad\}
-\hyperref[sec-inestabilidad]{Efecto mariposa}
-\hyperref[sec-exponente]{Efecto mariposa}
+\begin{itemize}
+\item
+  En la sección
+  \href{https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html}{Efecto
+  Mariposa} se muestra la sensibilidad extrema a las condiciones
+  iniciales de un sistema caótico como el mapa logístico (\textbf{efecto
+  mariposa}). No solo eso, sino que se demuestra también la sensibilidad
+  a la precisión finita con la que se hacen los cálculos en un ordenador
+  (\textbf{efecto polilla}). Además se realiza el análisis de regresión
+  de los errores, y se calcula mediante la multiplicación de las
+  derivadas el exponente de Lyapunov. De esta forma, se cuantifica y
+  demuestra la existencia de funciones matemáticas sujetas al caos y no
+  predecibles computacionalmente.
+\item
+  En la sección
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/fractal.html}{Mapa
+  de Fases} se demuestra vía simulación que el péndulo doble es caótico.
+  No se es capaz de encontrar una diferencia de condiciones iniciales lo
+  suficientemente pequeña para que la trayectorias de dos péndulos
+  dobles sea idéntica.
+\item
+  En
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/experimentos.html}{Experimentos}
+  muestro como bajo la misma configuración de trabajo, un péndulo doble
+  se comporta caóticamente mientras que un péndulo simple no.
+\item
+  En
+  \href{https://colacaos.github.io/ColaCAOS/03-meteorologia/predicciones.html}{Caos
+  en las predicciones meteorológicas} se recopilan las predicciones
+  meteorológicas para Galapagar durante tres meses. Dichas predicciones
+  son comparadas con las observaciones reales para calcular los errores
+  de predicción de diversas variables meteorológicas. Asumiendo que el
+  error se debe fundamentalmente a la inexactitud de las condiciones
+  iniciales, se cuantifica el crecimiento exponencial de los errores
+  debido a la dinámica caótica de la atmósfera.
+\item
+  En
+  \href{https://colacaos.github.io/ColaCAOS/04-clima/evaluacion.html}{Evaluación
+  de las predicciones climáticas}, las predicciones climáticas
+  realizadas hace 20-30 años son comparadas con la realidad actual. Se
+  encuentran casos de proyecciones extremas no materializadas
+  (especialmente las predicciones regionales o sobre eventos extremos
+  como huracanes, inundaciones y sequías), y otras que sí se han
+  cumplido (como el aumento de la temperatura). Se demuestra así que
+  estamos lejos de tener una predicción climática fiable, debido
+  fundamentalmente a la naturaleza caótica del clima.
+\item
+  En
+  \href{https://colacaos.github.io/ColaCAOS/05-experimentos/intro.html}{Simulación
+  y funcionamiento caótico} se analiza el comportamiento caótico de un
+  sistema inventando por mí. El atractor resultante es muy parecido al
+  de Lorenz.
+\item
+  Por último, en
+  \href{https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo07.html}{Mi
+  hipótesis final. El Principio de Compromiso Predictibilidad --
+  Creatividad} se conjetura el principio de que el caos borra la
+  información inicial de los sistemas, pero a cambio proporciona novedad
+  no predecible. Este principio es observado en los distintos
+  experimentos realizados en el proyecto y
+  \href{https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo08.html}{El
+  Principio de Compromiso Predictibilidad -- Creatividad en la
+  práctica}.
+\end{itemize}
 
 \section{Código generado}\label{cuxf3digo-generado}
 
-\bookmarksetup{startatroot}
+Este es el listado de los principales programas realizados con la ayuda
+del modelo o4-mini-high de OpenAi.
+
+\begin{itemize}
+\item
+  Diagrama interactivo de telaraña de la función logística.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/cobweb.qmd}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/01-logistica/cobweb.html}{resultado}
+\item
+  Análisis gráfico de las bifurcaciones.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/bifurcaciones.qmd}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/01-logistica/bifurcaciones.html}{resultado}
+\item
+  Diagrama interactivo de bifurcaciones.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/simulacion.qmd}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/01-logistica/simulacion.html}{resultado}
+\item
+  Gráficas que muestran la estructura fractal de las bifurcaciones.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/Caos.qmd}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/01-logistica/Caos.html}{resultado}
+\item
+  Sensibilidad a las condiciones iniciales y a la precisión finita.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/lyapunov.qmd}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html}{resultado}
+\item
+  Abanico de péndulos dobles.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumFan.py}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}{resultado}
+\item
+  Simulación de múltiples péndulos dobles en una rejilla.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumBoxes.py}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulumCajas.mp4}{resultado}
+\item
+  Mapa de fases de múltiples péndulos dobles.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulum720Animation.py}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}{resultado}
+\item
+  Mapa de bifurcaciones y exponente de Lyapunov del péndulo doble.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/PendulumLyapunov.py}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/doble.html}{resultado}
+\item
+  Distancia recorrida por el péndulo doble.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumDistance.py}{Código}
+  y
+  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/estadisticas.html}{resultado}
+\item
+  Programa para seguir en tiempo real el péndulo doble y simple.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/python/Tracker/TrackerRuben.py}{Código}
+\item
+  Programa para recoger la predicción meteorológica para Galapagar para
+  14 días y almacenaje sucesivo.
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/meteoblue/DailyScript.py}{Código}
+\item
+  Mi sistema caótico.
+  \href{https://colacaos.github.io/ColaCAOS/05-experimentos/NuevaRuedaCaoticaSimetricaAnilloConSinCanicasAceroFuenteMejoradaMasAgua_Transfer_Estadio_Inicial_0.phz}{Código
+  de Algodoo listo para simular}
+\end{itemize}
+
+\part{El Caos a través de la Función Logística}
 
 \chapter{El Mapa Logístico}\label{el-mapa-loguxedstico}
 
-\section{Introducción}\label{introducciuxf3n}
+\section{Introducción}\label{introducciuxf3n-1}
 
 El mapa logístico es una de las ecuaciones en diferencia más clásicas de
 la teoría del caos:
@@ -586,7 +891,7 @@ superior}\label{sucesiones-lineales-de-orden-superior}
 
 ¿Qué tiene de especial el mapa logístico?. Lo veremos a continuación.
 Como primera pista, hay que observar que se trata de una ecuación no
-lineal, lo cual es un factor común de los sistemás caóticos. Una
+lineal, lo cual es un factor común de los sistemas caóticos. Una
 ecuación no lineal es aquella en la que la incógnita:
 
 \begin{itemize}
@@ -599,6 +904,9 @@ ecuación no lineal es aquella en la que la incógnita:
   O involucra funciones no lineales (exponenciales,
   trigonométricas\ldots).
 \end{itemize}
+
+El contenido que desarrollaré en las siguientes secciones está basado en
+este curso online sobre el mapa logístico.
 
 \section{Relevancia}\label{relevancia}
 
@@ -625,7 +933,7 @@ El caso más paradigmático de estudio es el primero, es decir, la
 evolución de la población de animales, plantas o células con el tiempo.
 ¿Por qué se emplea la función logística para ello?. Porque al principio,
 la población crece rápidamente pero después debido a la falta de
-recursos del entorno se suelen producir colapsos poblacionanales.
+recursos del entorno se suelen producir colapsos poblacionales.
 
 Para valores de \(r\) menor que uno, la población final tiende a cero,
 lo que resulta lógico, dado que la población inicial no crece.
@@ -676,11 +984,9 @@ diferentes valores de r y diferentes valores iniciales, para ver cuál es
 el estado final del sistema. Después en sucesivas secciones, iremos
 explicando formalmente con ayuda de las matemáticas por qué ocurre ésto.
 
-\bookmarksetup{startatroot}
-
 \chapter{Diagrama de telaraña}\label{diagrama-de-telarauxf1a}
 
-\section{Introducción}\label{introducciuxf3n-1}
+\section{Introducción}\label{introducciuxf3n-2}
 
 En sistemas discretos iterativos, un ``diagrama cobweb'' o ``diagrama de
 telaraña'' es una representación gráfica que ilustra cómo evoluciona la
@@ -752,8 +1058,6 @@ iteraciones del mapa logístico.
 Unable to display output for mime type(s): text/html
 \end{verbatim}
 
-\bookmarksetup{startatroot}
-
 \chapter{Puntos fijos de una
 función}\label{puntos-fijos-de-una-funciuxf3n}
 
@@ -764,7 +1068,7 @@ satisface \[x^* = f(x^*)\]
 
 Intuitivamente, si comenzamos en \(x^*\) y aplicamos la función, nos
 quedamos en el mismo punto. En la sección anterior vimos que en el
-diagram interactivo graficábamos también la función \(y=x\). Si nuestra
+diagrama interactivo graficábamos también la función \(y=x\). Si nuestra
 función \$f(x)=x'' cruza en algún momento la función \(y=x\), entonces
 tenemos un punto fijo en nuestra función.
 
@@ -809,7 +1113,7 @@ x_{n+1} = \cos(x_n), \quad x_0 = 0.
 \]
 
 Los primeros valores son: \[
-\begin{align*}
+\begin{aligned}
 x_1 &= \cos(0)=1,\\
 x_2 &= \cos(1)\approx0.540302,\\
 x_3 &= \cos(x_2)\approx0.857553,\\
@@ -820,7 +1124,7 @@ x_7 &= \cos(x_6)\approx0.763960,\\
 x_8 &= \cos(x_7)\approx0.722102,\\
 x_9 &= \cos(x_8)\approx0.750417,\\
 x_{10} &= \cos(x_9)\approx0.731404,\\
-\end{align*}
+\end{aligned}
 \]
 
 Vemos que los valores van oscilando, pero rápidamente se aproximan al
@@ -850,8 +1154,6 @@ En la siguiente sección, calcularemos formalmente los puntos fijos de la
 función logística y estudiaremos formalmente como se comporta la
 sucesión.
 
-\bookmarksetup{startatroot}
-
 \chapter{Estudio formal del mapa
 logístico}\label{estudio-formal-del-mapa-loguxedstico}
 
@@ -862,7 +1164,7 @@ errático dependiendo del valor de \(r\). Veamos por qué.
 
 Para empezar veremos la función logística y la analizaremos como
 haríamos con cualquier otra función para ver su forma. Para ello,
-recurrimos a las técnicas habituales de analisis de funciones.
+recurrimos a las técnicas habituales de análisis de funciones.
 
 \section{Dominio y ceros}\label{dominio-y-ceros}
 
@@ -916,7 +1218,7 @@ valor máximo:\\
 \[f\bigl(\tfrac12\bigr) = \frac{r}{4}\]
 
 Observar que si \(r>4\) entonces el máximo de la función es mayor que 1.
-Esto no puede darse, ya que la funcíón logística normaliza los recursos
+Esto no puede darse, ya que la función logística normaliza los recursos
 máximos disponibles a 1. Por lo tanto, para que no se excedan (cosa que
 no puede ocurrir físicamente), el valor de r siempre se establece por
 debajo de 4.
@@ -952,12 +1254,10 @@ esta forma de la función.
   Crece de \(x=0\) a \(x=\tfrac12\), luego decrece hasta \(x=1\)
 \end{itemize}
 
-\bookmarksetup{startatroot}
-
 \chapter{Término genérico del mapa
 logístico}\label{tuxe9rmino-genuxe9rico-del-mapa-loguxedstico}
 
-En las sucesiones aritméticas y geométricas es fácil expresar el termino
+En las sucesiones aritméticas y geométricas es fácil expresar el término
 enésimo de la sucesión en función del primer término de la misma.
 Veamos:
 
@@ -1005,13 +1305,13 @@ x_4 = r^4\,x_0\,(1 - x_0)\,
 
 \begin{equation}
 
-\begin{align*}
+\begin{aligned}
 x_5 =\;& r^5\,x_0\,(1 - x_0)\,
 \bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,
 \bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\\
 &\times\;\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\\
 &\times\;\bigl(1 - r^4\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\,\bigl(1 - r^3\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\,\bigl(1 - r^2\,x_0\,(1 - x_0)\,\bigl(1 - r\,x_0\,(1 - x_0)\bigr)\bigr)\bigr)\bigr)
-\end{align*}
+\end{aligned}
 
 \end{equation}
 
@@ -1021,8 +1321,6 @@ expresión se vuelve muy complicada. A pesar de todo, hay que destacar
 que la función es \textbf{puramente determinista}. Es decir, se podría
 formular el valor de la iteración enésima en función de los valores de
 \(x_0\) y de \(r\).
-
-\bookmarksetup{startatroot}
 
 \chapter{Estabilidad del mapa
 logístico}\label{estabilidad-del-mapa-loguxedstico}
@@ -1074,7 +1372,7 @@ es estable si \(\lvert f'(x^*)\rvert < 1\).
   comentamos anteriormente, puesto que la población va decreciendo tras
   cada iteración, acaba convergiendo en \(x=0\). Gráficamente también es
   fácil verlo. Si vamos al diagrama de telaraña, y ponemos un \(r<1\),
-  veremos que la función lógistica solamente toca a la recta \(y=x\) en
+  veremos que la función logística solamente toca a la recta \(y=x\) en
   \(x=0\)
 \item
   \textbf{En \(x^*_2=1-1/r\):} \(f'(x^*_2)=2-r\). Estable si
@@ -1089,10 +1387,10 @@ es estable si \(\lvert f'(x^*)\rvert < 1\).
 Tal y como se muestra en la siguiente figura, a medida que el factor de
 crecimiento de la población crece, el número final de individuos aumenta
 de forma constante. Como vemos, el valor final de población, siempre
-está por debajo del valor máximo de la función logística. Solmente
+está por debajo del valor máximo de la función logística. Solamente
 coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?.
 Que la población puede que en las primeras iteraciones alcance el valor
-máximo \(r/4\), pero al final se estabilizar en un valor menor que es
+máximo \(r/4\), pero al final se estabilizará en un valor menor que es
 igual a \(x^*_2=1-1/r\) .
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-logistica/estable_files/figure-pdf/cell-2-output-1.pdf}}
@@ -1117,7 +1415,7 @@ derivada en el punto fijo ya no es menor en valor absoluto que 1, y por
 lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue
 siendo punto fijo, es decir, si introducimos su valor, la función vuelve
 ahí; pero desde cualquier otro punto, ya no va a converger hacia ese
-valor. En este caso, vemos que para \(r=3.01\)? la sucesión orbita entre
+valor. En este caso, vemos que para \(r=3.01\)? la sucesión órbita entre
 dos puntos. Es decir, la población final alterna entre dos valores
 distintos de individuos. Biológicamente, sucede porque la tasa de
 crecimiento \(r\) es lo bastante alta para que, cuando la población se
@@ -1180,13 +1478,11 @@ nuevo el ciclo
 En el siguiente apartado, analizaremos formalmente lo que ocurre en la
 primera bifurcación del mapa logístico.
 
-\bookmarksetup{startatroot}
-
 \chapter{Primera bifurcación}\label{primera-bifurcaciuxf3n}
 
 Tal y como vimos en la sección anterior cuando \(r > 3\) el valor final
 de la sucesión logística alterna entre dos valores finales. Vamos a
-hacer un análisis matématico para explicar por qué pasa ésto.
+hacer un análisis matemático para explicar por qué pasa ésto.
 
 \section{\texorpdfstring{Primera bifurcación: duplicación de período en
 \(r = 3\). Análisis
@@ -1218,7 +1514,7 @@ f(f(p)) = p
 \end{equation}
 
 Lo cual implica que \(p\) es un punto fijo del mapa iterado \(f^2\)
-(esta notación significa la composicion de una función con sigo misma
+(esta notación significa la composición de una función con sigo misma
 \(f^2()=f \circ f = f(f())\), no el cuadrado de la función)
 
 Dado que \(f(x) = r x (1 - x)\), podemos escribir:
@@ -1250,7 +1546,7 @@ que dibujar la función \(f^2()=f \circ f = f(f())\) y la función
 \(y=x\), y encontrar los cruces de ambas. Se cortarán en dos puntos, que
 serán los puntos entre los que alternará el mapa logístico.
 
-Sigamos con la resolución analtíca. Para ello, desarrollamos
+Sigamos con la resolución analítica. Para ello, desarrollamos
 completamente \(f(f(p)) = p\):
 
 \begin{equation}
@@ -1326,8 +1622,8 @@ valor final del mapa logístico.
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-logistica/bifurcaciones_files/figure-pdf/cell-3-output-1.pdf}}
 
-\section{Analisis de estabilidad de la primera
-bifurcación}\label{analisis-de-estabilidad-de-la-primera-bifurcaciuxf3n}
+\section{Análisis de estabilidad de la primera
+bifurcación}\label{anuxe1lisis-de-estabilidad-de-la-primera-bifurcaciuxf3n}
 
 En primer lugar, vamos a calcular de nuevo de forma analítica precisa
 los puntos en los que se produce la oscilación. La función logística
@@ -1420,12 +1716,12 @@ x = \frac{r-1}{r}.
 
 Para la segunda iterada:\\
 \[
-\begin{align*}
+\begin{aligned}
 f^{(2)}(x)
 &= r\bigl(f(x)\bigr)\bigl(1 - f(x)\bigr)
 = r\bigl(r\,x - r\,x^2\bigr)\bigl[1 - (r\,x - r\,x^2)\bigr]\\[6pt]
 &= r^2\,x\,(1 - x)\,(1 - r\,x + r\,x^2).
-\end{align*}
+\end{aligned}
 \]
 
 Por tanto,\\
@@ -1728,7 +2024,7 @@ f'(x) = r\,(1 - 2x).
   \textbf{Derivada en (x\_1)}\\
   {[}
 
-  \begin{align*}
+  \begin{aligned}
   f'(x_1)
   &= r\Bigl(1 - 2\,x_1\Bigr)
   = r\Bigl(1 - 2\,\frac{r+1 + \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
@@ -1736,14 +2032,14 @@ f'(x) = r\,(1 - 2x).
   = r\Bigl(\frac{r - (r+1 + \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
   &= r\;\frac{-1 - \sqrt{(r+1)(r-3)}}{r}
   = -1 \;-\;\sqrt{(r+1)(r-3)}.
-  \end{align*}
+  \end{aligned}
 
   {]}
 \item
   \textbf{Derivada en (x\_2)}\\
   {[}
 
-  \begin{align*}
+  \begin{aligned}
   f'(x_2)
   &= r\Bigl(1 - 2\,x_2\Bigr)
   = r\Bigl(1 - 2\,\frac{r+1 - \sqrt{(r+1)(r-3)}}{2r}\Bigr) \\[6pt]
@@ -1751,14 +2047,14 @@ f'(x) = r\,(1 - 2x).
   = r\Bigl(\frac{r - (r+1 - \sqrt{(r+1)(r-3)})}{r}\Bigr) \\[6pt]
   &= r\;\frac{-1 + \sqrt{(r+1)(r-3)}}{r}
   = -1 \;+\;\sqrt{(r+1)(r-3)}.
-  \end{align*}
+  \end{aligned}
 
   {]}
 \item
   \textbf{Producto de las derivadas}\\
   {[}
 
-  \begin{align*}
+  \begin{aligned}
   f'(x_1)\,f'(x_2)
   &= \bigl(-1 - \sqrt{(r+1)(r-3)}\bigr)
      \bigl(-1 + \sqrt{(r+1)(r-3)}\bigr) \\[6pt]
@@ -1766,7 +2062,7 @@ f'(x) = r\,(1 - 2x).
   = 1 \;-\;(r+1)(r-3) \\[4pt]
   &= 1 - \bigl(r^2 - 2r - 3\bigr)
   = -\,r^2 + 2r + 4.
-  \end{align*}
+  \end{aligned}
 
   {]}
 \end{enumerate}
@@ -1804,8 +2100,6 @@ análisis que acabamos de realizar. Sin embargo, resulta muy farragoso
 matemáticamente, dado que el orden de los polinomios involucrados es muy
 grande. Por ello, vamos a recurrir a la simulación numérica en la
 siguiente sección.
-
-\bookmarksetup{startatroot}
 
 \chapter{Bifurcaciones sucesivas}\label{bifurcaciones-sucesivas}
 
@@ -1857,7 +2151,7 @@ zoom adicional a la zona con \(r\) comprendido entre 3.449 y 3.56995.
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-logistica/simulacion_files/figure-pdf/cell-5-output-1.pdf}}
 
-Vemos ahora mejor las primerasbifurcaciones (periodo 2, 4, 8, 16).
+Vemos ahora mejor las primeras bifurcaciones (periodo 2, 4, 8, 16).
 Parece que el valor final de la función logística va creando
 sucesivamente nuevos ciclos, hasta que llegamos a un valor cercano a
 3.57 (3.56995 para ser más exactos). A partid de este valor de \(r\)
@@ -1867,11 +2161,9 @@ entre 3.56 y 3.575.
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-logistica/simulacion_files/figure-pdf/cell-6-output-1.pdf}}
 
-\bookmarksetup{startatroot}
-
 \chapter{Caos}\label{caos}
 
-Como dijimos en la seccíón anterior, a partir de
+Como dijimos en la sección anterior, a partir de
 \(r_\infty \approx 3.56995\), el mapa logístico entra en un
 \textbf{régimen caótico}. Para \(r < r_\infty\), aparecían sucesivas
 bifurcaciones de periodo \(1 \to 2 \to 4 \to 8 \to \cdots\). En
@@ -1882,7 +2174,7 @@ medida que vamos observando el mapa aparecen comportamientos extraños.
 \section{División en bandas}\label{divisiuxf3n-en-bandas}
 
 Justo tras \(r_\infty\), la zona caótica se \textbf{parte en dos bandas}
-disjuntas: en el diagrama de bifurcación aparecen dos hileras de puntos
+distintas: en el diagrama de bifurcación aparecen dos hileras de puntos
 con un hueco entre ellas.
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-2-output-1.pdf}}
@@ -1914,7 +2206,7 @@ Las ventanas de periodicidad están \textbf{infinitamente repetidas}: en
 cada fragmento de la región caótica, por pequeño que sea, habrá alguna
 ventana donde emerja un ciclo estable.
 
-Así vemos como enre 3.73 y 3.76 aparecen un ciclo de período 5.
+Así vemos como entre 3.73 y 3.76 aparecen un ciclo de período 5.
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-6-output-1.pdf}}
 
@@ -1947,8 +2239,6 @@ entre 3.7443214444 y 3.744321448 , tras 1.000.000 de iteraciones.
 
 Podemos seguir así infinitamente. Lo que hemos encontrado es una
 \textbf{estructura fractal}.
-
-\bookmarksetup{startatroot}
 
 \chapter{Efecto mariposa}\label{efecto-mariposa}
 
@@ -2022,9 +2312,9 @@ numéricos}\label{sec-inestabilidad}
 Cuando nos encontramos con un sistema físico con alta dependencia a las
 condiciones iniciales, no solamente tenemos el problema de conocer con
 total exactitud el estado inicial del sistema, sino que como veremos a
-continuación los cálculos numéricos que hacemos en nuesto ordenador para
-estudiar su evolución se vuelven también muy inestables. A continuación
-pondré un ejemplo sobre lo que acabo de decir.
+continuación los cálculos numéricos que hacemos en nuestro ordenador
+para estudiar su evolución se vuelven también muy inestables. A
+continuación pondré un ejemplo sobre lo que acabo de decir.
 
 Pongamos que quiero simular el mapa logístico tal cual lo he estado
 haciendo en las secciones anteriores. La fórmula es superconocida
@@ -2111,7 +2401,7 @@ Por 2 exactamente. ¿A qué se debe esto????
 \section{Cálculo matemático de la amplificación de desviaciones
 iniciales}\label{cuxe1lculo-matemuxe1tico-de-la-amplificaciuxf3n-de-desviaciones-iniciales}
 
-A continación daremos una explicación matemática a este fenómeno que
+A continuación daremos una explicación matemática a este fenómeno que
 estamos observando.
 
 Imagina que quieres predecir el tiempo atmosférico. Nunca conoces la
@@ -2298,7 +2588,7 @@ realmente en magnitud en cada iteración es \(e^\lambda\)
 \begin{itemize}
 \tightlist
 \item
-  Si \(\lambda>0\), el error crece con cada iteracion, puesto que el
+  Si \(\lambda>0\), el error crece con cada iteración, puesto que el
   número \(e\) elevado a un valor positivo siempre da un número mayor
   que 1. Puesto que multiplico mi error por un número mayor que 1, el
   error va creciendo iteración tras iteración
@@ -2433,12 +2723,12 @@ Cada fila se interpreta así:
 \end{enumerate}
 
 Ahora sumamos todos los logaritmos obtenidos: \[
-\begin{align*}
+\begin{aligned}
 \sum_{k=0}^{19} \ln\lvert f'(x_{k})\rvert \;=\;& 
 0.470 + 1.001 \;-\; 1.201 + 1.375 + 1.340 + 1.193 + 0.360 + 1.090 \;-\; 0.870 + 1.364 \\
 &+ 1.295 + 0.982 \;-\; 0.836 + 1.363 + 1.289 + 0.949 \;-\; 0.415 + 1.330 + 1.148 \;-\; 0.036 \\
 =\;& 13.191.
-\end{align*}
+\end{aligned}
 \] Por último promediamos esta suma, por lo que el exponente de Lyapunov
 aproximado para \(N = 20\) queda como \[
 \lambda_{20} 
@@ -2447,7 +2737,9 @@ aproximado para \(N = 20\) queda como \[
 \]
 
 Como vemos, el valor \(0.6596\) es muy próximo al teórico \(0.6931\). De
-hecho, \(e^{0.6596}=1.934\) que está muy cerca de \(2\).
+hecho, \(e^{0.6596}=1.934\) que está muy cerca de \(2\). \textbf{Este es
+el mismo valor que obteníamos de la regresión de los errores en la
+sección anterior}
 
 Para \(N = 20\) hemos obtenido \(\lambda_{20} \approx 0.6596\). Si
 continuáramos con más iteraciones, como \(N = 100\) o \(N = 1000\),
@@ -2541,7 +2833,7 @@ ciclo de periodo 4.
 
 En todos los ciclos restantes hasta \(r_\infty \approx 3.5699456\dots\)*
 tenemos el mismo comportamiento, valores negativos en las zonas de los
-ciclos y acercandose a cero cuando cambiamos de periodo.
+ciclos y acercándose a cero cuando cambiamos de periodo.
 
 Para \(r_\infty < r \le 4\)** vemos que en la mayoría de estos \(r\) en
 los que sabemos que el sistema es caótico se cumple que
@@ -2553,12 +2845,10 @@ cada ventana periódica (bifurcaciones dentro del caos) se tiene
 \(\lambda(r)=0\). En la vecindad de \(r = 4\), el valor promedio exacto
 es \(\lambda(4) = \ln 2 \approx 0.6931\) tal y como habíamos visto.
 
-\bookmarksetup{startatroot}
-
 \chapter{El exponente de Lyapunov y el
 caos}\label{el-exponente-de-lyapunov-y-el-caos}
 
-En la siguiente gráfica vemos lo que hemos ido contanto
+En la siguiente gráfica vemos lo que hemos ido contando
 pormenorizadamente en la sección anterior. Cada vez que el sistema está
 en una zona no caótica, el exponente de Lyapunov es negativo.
 
@@ -2615,7 +2905,7 @@ sobre la aleatoriedad de los datos.
 Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A
 todo el mundo le parece que predecir el valor de una acción a lo largo
 del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como
-fuciona la bolsa. El precio de una acción o de un índice bursátil
+funciona la bolsa. El precio de una acción o de un índice bursátil
 depende de decenas de variables:\\
 • Resultados financieros de las empresas.\\
 • Noticias económicas o políticas.\\
@@ -2823,7 +3113,7 @@ un día a tener buenas predicciones a 5 días, el llegar a batir este
 límite dos semanas va a ser imposible.
 
 Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar
-que el sistema solar tiene un horizonte de prectibilidad de unos 5
+que el sistema solar tiene un horizonte de predictibilidad de unos 5
 millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de
 que tenemos esa preciosa fórmula de la gravitación universal, que
 funciona tan bien, su propagación hacia el futuro, cuando tenemos en
@@ -2835,7 +3125,7 @@ el sistema es inherentemente caótico. De hecho, tal y como anticipó
 Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus
 respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico,
 y que presenta un exponente de Lyapunov positivo en determinadas
-circustancias.
+circunstancias.
 
 \subsection{Referencias principales}\label{referencias-principales}
 
@@ -2856,11 +3146,11 @@ circustancias.
   \url{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}
 \end{enumerate}
 
-\bookmarksetup{startatroot}
+\part{El Caos en vivo: El péndulo doble}
 
 \chapter{El Péndulo Doble}\label{el-puxe9ndulo-doble}
 
-\section{Introducción}\label{introducciuxf3n-2}
+\section{Introducción}\label{introducciuxf3n-3}
 
 El péndulo doble es quizás uno de los sistemas físicos más estudiados en
 el ámbito de la teoría del caos. Esto es debido a que tiene unas
@@ -2873,14 +3163,14 @@ allá de unos pocos segundos.
 
 Dicho de otra manera, un péndulo simple, como el que estudió Galileo, es
 un sistema que encaja perfectamente en la mecánica clásica y que se
-comportanta de una forma determinisita, mientras que un pendulo doble
-tiene un comportamiento imposible de predecir tras unos pocos segundos.
-Ambos están regidos por las mismas leyes de la física, y el péndulo
-doble es ligeramente más complejo, pero su comportamiento es totalmente
+comporta de una forma determinista, mientras que un péndulo doble tiene
+un comportamiento imposible de predecir tras unos pocos segundos. Ambos
+están regidos por las mismas leyes de la física, y el péndulo doble es
+ligeramente más complejo, pero su comportamiento es totalmente
 impredecible. Todo ello a pesar de tener unas ecuaciones que describen a
 la perfección su comportamiento.
 
-El análisis matemático de ambos sistemas, el pendulo simple y doble, se
+El análisis matemático de ambos sistemas, el péndulo simple y doble, se
 puede obtener en muchas referencias, por ejemplo en
 \url{https://paginaspersonales.unam.mx/app/webroot/files/4554/Publica_20190605182303.pdf}.
 El análisis matemático del péndulo doble está muy por encima del nivel
@@ -2888,9 +3178,9 @@ de bachillerato.
 
 Sin embargo podemos recurrir a la simulación y experimentación real para
 analizar su comportamiento. Empezaremos por realizar simulaciones y
-comprobar en el ordenador como se comporta el pendulo doble. Pero, ¿no
+comprobar en el ordenador como se comporta el péndulo doble. Pero, ¿no
 resulta muy complicado hacer la simulación de un péndulo doble?. ¿Acaso
-no habría que implementar las ecuaciones del pendulo doble, que resultan
+no habría que implementar las ecuaciones del péndulo doble, que resultan
 realmente complicadas de analizar matemáticamente?. Tenemos dos
 soluciones para ello:
 
@@ -2905,11 +3195,9 @@ soluciones para ello:
 
 En este proyecto, he optado por la segunda alternativa, y los resultados
 han sido espectaculares. Usando uno de los modelos más avanzados de
-OpenAI, el mini4-high, la códificación resultó directa y sin errores.
+OpenAI, el mini4-high, la codificación resultó directa y sin errores.
 Copiando el código generado, y ejecutándolo desde mi ordenador pude
 tener en unos pocos minutos
-
-\bookmarksetup{startatroot}
 
 \chapter{Sensibilidad a las condiciones
 iniciales}\label{sensibilidad-a-las-condiciones-iniciales}
@@ -2927,8 +3215,8 @@ condiciones iniciales}, un rasgo característico de los sistemas
 caóticos. Cada péndulo comienza con un ángulo inicial ligeramente
 distinto para ilustrar cómo pequeñas variaciones pueden dar lugar a
 comportamientos muy diferentes a lo largo del tiempo. Es decir, como
-verás en el próximo vídeo los péndulos al ser lanzados paracen estar
-todos en la misma posición pero a medida que vamos avanzando en la
+verás en el próximo vídeo los péndulos al ser lanzados parecen estar
+todos en la misma posición, pero a medida que vamos avanzando en la
 simulación se separan totalmente.
 
 Figura 1: Esquema del doble péndulo
@@ -2958,7 +3246,7 @@ rozamiento.''
 \end{quote}
 
 Tras varias iteraciones de este prompt, al final conseguí un código que
-se ejecutase. La depuración del código es realemnte fácil de hacer. Cada
+se ejecutase. La depuración del código es realmente fácil de hacer. Cada
 vez que ChatGPT me daba un código, lo corría en el ordenador mediante el
 comando ``python programa.py'', y los errores se los alimentaba de
 vuelta al ordenador que a su vez me devolvía el código depurado.
@@ -2998,19 +3286,19 @@ los ha definido ChatGPT de la siguiente manera:
   ninguna fuerza de rozamiento.
 \end{itemize}
 
-\section{Video con la simulación}\label{sec-abanico}
+\section{Vídeo con la simulación}\label{sec-abanico}
 
 Una vez preparado el código procedía a correrlo y grabar la ventana de
 salida en un archivo de vídeo que se encuentra a continuación. Hay que
 tener en cuenta que el código Python generado por ChatGPT, avanza en
 pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad
-de pendulos la simulación no llega a ser en tiempo real. Por eso le
+de péndulos la simulación no llega a ser en tiempo real. Por eso le
 pedía a ChatGPT que incluyera un texto en la simulación que mostrase el
 tiempo real durante la simulación.
 
 El resultado es sorprendente e hipnotizante. ¿Como puede ser que
 péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si
-observamos antentamente el vídeo hasta el segundo 1 de la simulación
+observamos atentamente el vídeo hasta el segundo 1 de la simulación
 todos los péndulos van casi al unísono. En el segundo 2, que es cuando
 llegan al otro extremo, vemos que el ``abanico'' ya se empieza a abrir.
 Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya
@@ -3038,9 +3326,10 @@ Tal vez te preguntes: ``¿Por qué es tan atractivo ver este desorden?''.
 La respuesta está en la misma naturaleza de lo impredecible. Cada línea
 coloreada que se dispersa representa un pequeño ``qué pasaría
 si\ldots{}'': un escenario distinto construido por una diferencia
-diminuta en los ángulos iniciales. Cuando miras el vídeo, lo que parece
-arte abstracto en movimiento es, en realidad, la materialización
-instantánea de un principio matemático: el caos.
+diminuta en los ángulos iniciales. En la sección ``Determinismo y Caos''
+del proyecto, veremos que es precisamente esta exploración de escenarios
+lo que convierte al caos en el principal motor de introducción de
+novedad en nuestro universo.
 
 \subsection{Reflexión sobre la
 Predictibilidad}\label{reflexiuxf3n-sobre-la-predictibilidad}
@@ -3056,14 +3345,14 @@ si midiera su ángulo con la precisión de un nanómetro?\\
 - ¿Sería suficiente?
 
 La respuesta es que, por muy maravillosa que sea nuestra
-instrumentación, siempre habrá imperfecciones. Ese desajuste, ese ruido
-minúsculo, es suficiente para que la simulación sea un recordatorio de
-que el mundo real---y nuestros modelos---tienen un límite de
-predictibilidad. No solo eso, como vimos en el capítulo anterior con la
-función logística, los modelos matemáticos se codifican en un ordenador
-con una precisión finita, que a su vez introduce errores iteración tras
-iteración de nuestro código. Por lo tanto, nos enfrentamos a dos
-problemas en la realidad:
+instrumentación, siempre habrá imperfecciones. Ese desajuste, es
+suficiente para que la simulación sea un recordatorio de que el mundo
+real---y nuestros modelos---tienen un límite de predictibilidad. No solo
+eso, como vimos en el capítulo anterior con la función logística, los
+modelos matemáticos se codifican en un ordenador con una precisión
+finita, que a su vez introduce errores iteración tras iteración de
+nuestro código. Por lo tanto, nos enfrentamos a dos problemas en la
+realidad:
 
 \begin{itemize}
 \tightlist
@@ -3075,31 +3364,6 @@ problemas en la realidad:
   en un ordenador
 \end{itemize}
 
-\subsection{¿Qué Aprendemos como
-Observadores?}\label{quuxe9-aprendemos-como-observadores}
-
-En este punto, quiero que te sientas más que un simple espectador;
-quiero que te cuestiones tu propia confianza en la previsión de sistemas
-aparentemente simples. Porque, al fin y al cabo, el péndulo doble no es
-más que un ejemplo fácil de visualizar, pero el universo real está lleno
-de sistemas caóticos: el clima, la dinámica de poblaciones, incluso
-ciertos procesos en la economía. Si un experimento tan básico como el
-péndulo doble nos muestra esta fragilidad, ¿cómo imaginamos predecir con
-total certeza fenómenos tan complejos?
-
-\subsection{Reflexión Final: Una Invitación al
-Asombro}\label{reflexiuxf3n-final-una-invitaciuxf3n-al-asombro}
-
-Te invito a que, la próxima vez que veas un pronóstico meteorológico o
-leas sobre el futuro de los mercados, recuerdes este vídeo de los
-péndulos. Observa cómo cambia cada línea, cómo el abanico se abre a
-partir de una diferencia insignificante. Tal vez entonces comprendas que
-la exploración del caos no es un simple juego visual, sino un
-recordatorio profundo: hay límites invisibles en nuestra capacidad de
-anticipar el futuro.
-
-\bookmarksetup{startatroot}
-
 \chapter{Mapa de Fases}\label{mapa-de-fases}
 
 Recordemos que durante el estudio de la función logística, el diagrama
@@ -3108,7 +3372,7 @@ zona pequeña de \(r\). Veíamos la misma estructura repetida en zonas de
 \(r\) cada vez más pequeñas. ¿Pasará algo similar con el péndulo doble?.
 Vamos a ir paso a paso.
 
-En primer lugar vamos a simular 36 x 36 péndulos, cada uno de ellos con
+En primer lugar, vamos a simular 36 x 36 péndulos, cada uno de ellos con
 diferentes condiciones iniciales de los dos brazos. Puesto que cada uno
 de los ángulos puede tomar 360 grados, vamos a repartirlos en 36
 posiciones diferentes cada uno de ellos desde 0,10,20 .. hasta 350
@@ -3164,10 +3428,10 @@ de partida. ¿Por qué se llama mapa de fase?. Cuando dibujamos una
 función senoidal a lo largo del tiempo, vemos un patrón repetido. Si
 pintamos otro seno al lado, con igual amplitud y frecuencia, pero
 cambiando el ángulo inicial, veremos el mismo patrón pero desplazado en
-el tiempo por ese ángulo incial. Estamos por lo tanto en otra ``fase''
-del mismo sistema. Otra forma más cotidiana de verlo es con la Luna:
-hablamos de fases para referirnos a la iluminación relativa de la Luna
-por el Sol tal y como lo vemos desde la Tierra. Así tenemos fase
+el tiempo por ese ángulo inicial. Estamos, por lo tanto, en otra
+``fase'' del mismo sistema. Otra forma más cotidiana de verlo es con la
+Luna: hablamos de fases para referirnos a la iluminación relativa de la
+Luna por el Sol tal y como lo vemos desde la Tierra. Así tenemos fase
 creciente, menguante, llena, etc.
 
 Vemos una zona central en la que los péndulos parten de ángulos
@@ -3257,7 +3521,7 @@ caótico.
 
 \section{Mapa de fase detallado}\label{mapa-de-fase-detallado}
 
-Ahora vamos a simular muchísimos más pendulos, para obtener un mapa de
+Ahora vamos a simular muchísimos más péndulos, para obtener un mapa de
 fase mas detallado. Para ello ahora la simulación se organiza en una
 cuadrícula de \(720 \times 720\) péndulos. Cada columna \(i\)
 corresponde a un ángulo inicial \[
@@ -3274,7 +3538,7 @@ Así, la celda \((i,j)\) arranca con condiciones \[
 \theta_2 = \theta_2(j).
 \]
 
-Como cada péndulo es ahora un pixel, ¿cómo podemos visualizar su
+Como cada péndulo es ahora un píxel, ¿cómo podemos visualizar su
 estado?. Pues recurrimos a un código de colores. Entonces para cada
 péndulo cogemos los angulos \(\theta_1\) y \(\theta_2\) en los que se
 encuentra y hacemos una primera normalización. Para cada péndulo se
@@ -3301,7 +3565,7 @@ rojo para valores altos (\(\approx 255\)).
 
 El resultado de la simulación se puede ver en el siguiente vídeo.
 
-Como anticipabamos en la zona central hay estabilidad, y fuera de ella
+Como anticipábamos, en la zona central hay estabilidad, y fuera de ella
 no se ven patrones, sino que aparece una especie de ruido. En estas
 zonas ``ruidosas'' lo que tenemos es caos, es decir, el estado del
 péndulo varía continuamente, y lo que es más importante el estado de
@@ -3309,13 +3573,13 @@ cada péndulo es totalmente distinto de los péndulos vecinos, lo que
 manifiesta de nuevo la extrema sensibilidad a las condiciones iniciales.
 
 Para ver más detalladamente esta sensibilidad a las condiciones
-iniciales vamos a hacer zooms en areas alejadas del centro. Se hacen
+iniciales vamos a hacer zooms en áreas alejadas del centro. Se hacen
 hasta tres zooms consecutivos hasta llegar a una zona rectangular de
 0.01 grados x 0.01 grados en las que se simulan los 720x720 péndulos. No
 importa cuanto nos adentramos en el mapa de fase: no se consigue que los
 péndulos vecinos vayan a la vez
 
-En el siguiente video aparece la misma simulación pero esta vez dejando
+En el siguiente vídeo aparece la misma simulación, pero esta vez dejando
 que corra más el tiempo. En ella se ve que a medida que avanza la
 simulación la zona central se va reduciendo, y el caos se apodera de más
 zonas. Hay que tener en cuenta que estamos en un sistema sin rozamiento,
@@ -3323,26 +3587,24 @@ y que puede estar corriendo infinitamente. Zonas que al principio
 parecían estables, se convierten en caóticas, quedando una pequeña
 porción como estable.
 
-Se pueden ver aparcer algunas pequeñas ``islas'' de estabilidad. Hagamos
-en una de ellas y veamos como avanza la simulación en ella:
+Se pueden ver aparecer algunas pequeñas ``islas'' de estabilidad.
+Hagamos zoom en una de ellas y veamos como avanza la simulación en ella:
 
 Al igual que en el caso del mapa logístico hay pequeñas zonas de
 estabilidad alejadas del centro, rodeadas de caos. Pero la verdad es que
 hay que decir que son unos pocos y limitados casos.
 
-\bookmarksetup{startatroot}
-
 \chapter{Bifurcaciones}\label{bifurcaciones}
 
-¿Qué mas paralelismos podemos encontrar en el doble péndulo al
+¿Qué más paralelismos podemos encontrar en el doble péndulo al
 compararlo con el mapa logístico?. Vamos a hacer un nuevo ejercicio. En
 este caso vamos a simular la diagonal del mapa de fases anterior, es
 decir, vamos a coger los valores de \(\theta_1\) y de \$\theta\_2\& y
 los vamos a variar desde -180 hasta 180 grados simultáneamente por medio
 de una sola variable de control. Puesto que el péndulo doble no tiende
-hasta un valor final, yaque está continuamente moviendose al ser sin
+hasta un valor final, ya que está continuamente moviéndose al ser sin
 rozamiento, vamos a registrar el valor máximo en cada oscilación, y lo
-vamos a plotear para cada valor del ángulo incial. Veamos el resultado:
+vamos a plotear para cada valor del ángulo inicial. Veamos el resultado:
 
 Figura 1: Bifurcaciones en el doble péndulo
 
@@ -3354,11 +3616,11 @@ comportamiento periódico
 
 Figura 1: Bifurcaciones en el doble péndulo
 
-A partir de los 43 grados, el diagram se abre en dos ramas perfectamente
-distinguibles, que se vuelven a juntar a partir de los 57 grados.
-Curiosamente en torno a 64 grados , tenemos un único punto, por lo que
-el sistemas podríamos decir que se comporta igual que un péndulo simple.
-De 64 grados hasta casi los 80 seguimos con las
+A partir de los 43 grados, el diagrama se abre en dos ramas
+perfectamente distinguibles, que se vuelven a juntar a partir de los 57
+grados. Curiosamente en torno a 64 grados, tenemos un único punto, por
+lo que el sistema podríamos decir que se comporta igual que un péndulo
+simple. De 64 grados hasta casi los 80 seguimos con las
 ramificaciones/bifurcaciones. Y a partir de los 80 grados tenemos el
 caos absoluto.
 
@@ -3368,7 +3630,7 @@ Visto lo visto, me pregunté lo siguiente. ¿Cuál será el exponente de
 Lyapunov en cada una de las zonas?. Si bien yo no sabía como calcularlo,
 pues a diferencia de la función logística no tengo una expresión para ir
 calculando la derivada, le lancé la pregunta a ChatGPT. Al parecer
-existe un algorimo llamado de ``método de Benettin'' que permite
+existe un algoritmo llamado de ``método de Benettin'' que permite
 calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en
 mi ordenador. El resultado fue el siguiente:
 
@@ -3383,14 +3645,13 @@ atmósfera}\label{zonas-estables-y-cauxf3ticas-en-la-atmuxf3sfera}
 
 Vamos a extender los paralelismos. Ya hemos visto como dos sistemas
 tienen comportamientos parecidos en cuanto a su comportamiento caótico.
-Vemos que aparecen bifurcaciones, zonas estables, zonas caóticas,
-etc\ldots{}
+Vemos que aparecen bifurcaciones, zonas estables, zonas caóticas, etc..
 
 En meteorología también distinguimos \textbf{regímenes estables},
 \textbf{transiciones} y \textbf{comportamiento caótico}, de modo que el
 horizonte de predictibilidad varía según el nivel de caos.
 
-Así tenemos zonas de estabilidad atmósferica en determinadas regiones
+Así tenemos zonas de estabilidad atmosférica en determinadas regiones
 del planeta, que vienen dadas por lo general por estas situaciones como
 los \textbf{Bloqueos atmosféricos}: grandes áreas de alta presión que
 pueden persistir días o semanas, desviando borrascas y estabilizando el
@@ -3423,8 +3684,6 @@ También hay zonas de alta actividad caótica que se pueden dar por
 
 Aquí el horizonte de predictibilidad baja a \textbf{1--2 días} o menos,
 pues un error pequeño en humedad o temperatura crece exponencialmente.
-
-\bookmarksetup{startatroot}
 
 \chapter{Qué podemos predecir}\label{quuxe9-podemos-predecir}
 
@@ -3494,11 +3753,9 @@ modelos climáticos son fiables para predecir promedios y tendencias,
 aunque jamás podrán garantizar el tiempo puntual de un día concreto
 dentro de meses o años.
 
-\bookmarksetup{startatroot}
-
 \chapter{Experimentos}\label{experimentos}
 
-\section{Introducción}\label{introducciuxf3n-3}
+\section{Introducción}\label{introducciuxf3n-4}
 
 Para observar y realizar experimentos sobre el caos en un sistema físico
 real, he adquirido un péndulo doble, un dispositivo en el que es posible
@@ -3533,12 +3790,12 @@ distintas. Lo mismo pasaba en las simulaciones de abanico que vimos en
 la sección \hyperref[sec-abanico]{Simulación}
 
 Aquí se ve el péndulo doble en movimiento con las diferentes partes
-representada con un punto de un color, que es lo que le sirve al
+representadas con un punto de un color, que es lo que le sirve al
 programa para determinar las trayectorias.
 
 Estas son las trayectorias del punto rojo del péndulo en cinco tiradas
 desde la misma posición y con la misma velocidad inicial. Se puede
-apreciar como al principio su taryectoria diverge muy rápidamente, pero
+apreciar como al principio su trayectoria diverge muy rápidamente, pero
 al final, cuando ya han perdido mucha velocidad, hacen todos un
 recorrido muy similar hasta detenerse.
 
@@ -3582,11 +3839,11 @@ continuamente. En el péndulo simple se ve como van iguales.
 \href{?var:site-url/02-pendulo-doble/theta_vs_time_doble.gif}{Ver
 animación en la web}
 
-\bookmarksetup{startatroot}
+\part{La Meteorología y el Caos}
 
 \chapter{Meteorología y Caos}\label{meteorologuxeda-y-caos}
 
-\section{Introducción}\label{introducciuxf3n-4}
+\section{Introducción}\label{introducciuxf3n-5}
 
 A lo largo del proyecto hemos visto la manifestación del caos en modelos
 matemáticos como el mapa logístico, o en sistemas físicos como el
@@ -3596,7 +3853,7 @@ Uno de los retos del proyecto está en ver la manifestación del caos en
 la meteorología. Para ello vamos a proceder de dos maneras:
 
 En la primera de ellas haremos una medida indirecta de la influencia del
-caos en las predicciones meteorologicas. Durante varias semanas hemos
+caos en las predicciones meteorológicas. Durante varias semanas hemos
 recopilado predicciones meteorológicas para Galapagar, y contrastaremos
 estás predicciones con las observaciones realizadas para esos días. De
 esta manera veremos cómo divergen a medida que pasa el tiempo las
@@ -3611,10 +3868,8 @@ trata del exponente de Lyapunov. Cogeremos variables meteorológicas
 observadas y estimaremos su exponente de Lyapunov, esperando que sea
 positivo.
 
-\bookmarksetup{startatroot}
-
-\chapter{Predicitibilidad de datos
-meteorológicos}\label{predicitibilidad-de-datos-meteoroluxf3gicos}
+\chapter{Predictibilidad de datos
+meteorológicos}\label{predictibilidad-de-datos-meteoroluxf3gicos}
 
 El primer paso a la hora de estudiar el caos en el tiempo meteorológico
 es disponer de datos históricos de los principales parámetros del
@@ -3644,9 +3899,9 @@ time,temperature\_2m\_mean (°C),precipitation\_sum
 1950-06-14,21.1,0.00,8.0\\
 1950-06-15,20.2,0.00,12.8
 
-En segundo lugar tenemos que saber qué hacer con estos datos. Después de
-varias búsquedas en ChatGPT y google encontré un artículo sencillo sobre
-cómo calcular el exponente de Lyapunov en datos meteorologicos.
+En segundo lugar, tenemos que saber qué hacer con estos datos. Después
+de varias búsquedas en ChatGPT y google encontré un artículo sencillo
+sobre cómo calcular el exponente de Lyapunov en datos meteorologicos.
 
 \begin{quote}
 \textbf{Referencia completa:} Özgür E. \& Yılmaz M. U. (2022). Using
@@ -3698,10 +3953,10 @@ la temperatura ese día, sino el valor de ese día más varios días
 anteriores. Pues bien, lo que necesitamos saber es cual es la dimensión
 óptima del estado del sistema. Si por ejemplo solo cojo un día, habrá
 muchos días que sean similares ya que habrá muchos casos en los que
-coincida la temperatura media para ese día. Sin embargo esto es
+coincida la temperatura media para ese día. Sin embargo, esto es
 engañoso, ya que no se tiene en cuenta el estado pasado del sistema. No
 es lo mismo estar en un día a 15 grados de temperatura media después de
-haber pasado una ola de calor, que estár a 15 grados después de varios
+haber pasado una ola de calor, que estar a 15 grados después de varios
 días de ola de frío. De acuerdo al artículo turco un valor de \(m=12\)
 es óptimo.
 
@@ -3723,10 +3978,10 @@ de la web open-meteo. Obviamente en la serie original vemos que hay un
 componente estacional muy fuerte. Le pedía ChatGPT que estimase la
 variación estacional y que la quitase de los datos, dándome la gráfica
 de temperatura desestacionalizada. En ella se ven las variaciones de
-temperatura como algo más aleatorio ya que hemos quitado las componentes
-estacionales. No obstante se ve una ligera subida de temperaturas desde
-el año 1950 hasta el presente, coincidente con el aumento de
-temperaturas observado a nivel global en la Tierra.
+temperatura como algo más aleatorio, ya que hemos quitado las
+componentes estacionales. No obstante se ve una ligera subida de
+temperaturas desde el año 1950 hasta el presente, coincidente con el
+aumento de temperaturas observado a nivel global en la Tierra.
 
 \pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-2-output-1.pdf}}
 
@@ -3761,7 +4016,7 @@ predictibilidad}\label{horizonte-de-predictibilidad-1}
 Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo
 sabemos que indica que estamos ante un sistema caótico, y que los
 errores se amplificarán con el tiempo. Veamos cuando multiplicamos por
-10 un error inicial de 0.1 grados Centígrados:
+10 un error inicial de 0.1 grados centígrados:
 
 \begin{equation}
 
@@ -3773,12 +4028,12 @@ T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
 \subsection{Amplificación de un error inicial de 0.1 °C tras 15
 días}\label{amplificaciuxf3n-de-un-error-inicial-de-0.1-c-tras-15-duxedas}
 
-Y ahora veamos de formá gráfica cómo se va amplificando el error inicial
+Y ahora veamos de forma gráfica cómo se va amplificando el error inicial
 de 0.1 grados tras quince días.
 
 \pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-4-output-1.pdf}}
 
-Estos valores refuerzan las hipótesis inciales con las que habíamos
+Estos valores refuerzan las hipótesis iniciales con las que habíamos
 especulado. Pasadas dos semanas es muy difícil tener estimaciones
 precisas del tiempo meteorológico.
 
@@ -3907,8 +4162,6 @@ Varias razones explican esta diferencia:
   pierden precisión ya a los 5--6 días, reflejo de su carácter más
   caótico.
 \end{itemize}
-
-\bookmarksetup{startatroot}
 
 \chapter{Caos en las predicciones
 meteorológicas}\label{caos-en-las-predicciones-meteoroluxf3gicas}
@@ -4118,7 +4371,7 @@ el análisis se realiza sobre un rango discreto de días (1 a 14), por lo
 que \(\lambda_{\text{emp}}\) debe interpretarse como una aproximación de
 la tasa de divergencia del error.
 
-\section{Resultados}\label{resultados-2}
+\section{Resultados}\label{resultados-1}
 
 Durante los meses de febrero, marzo y abril estuve recopilando las
 predicciones y los valores observados de temperatura, humedad, viento y
@@ -4167,19 +4420,17 @@ mediante las series históricas en la sección anterior
 los exponentes en la sección anterior se tomaban sobre la base de 75
 años, mientras que aquí tenemos un experimento más limitado, solamente
 tres meses, por lo que es normal que no cuadren del todo los datos. Sin
-embargo, tal y como hipotizamos, estamos alredededor de las dos semanas
-como límite de predictbilidad.
+embargo, tal y como hipotizamos, estamos alrededor de las dos semanas
+como límite de predictibilidad.
 
-Además lo que es muy relevante, es ver como el error de predicción crece
-exponencialmente. Se ponen de manifiesto dos causas: la inexactitud de
-las condiciones inciales, y la inexactitud de los modelos y sus
-cómputos. Puesto que el sistema modelado es caótico, tal y como
-esperabamos los errores crecen exponencialmente.
+Además, lo que es muy relevante, es ver como el error de predicción
+crece exponencialmente. Se ponen de manifiesto dos causas: la
+inexactitud de las condiciones iniciales, y la inexactitud de los
+modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y
+como esperábamos los errores crecen exponencialmente.
 
 \section{Referencias
 Bibliográficas}\label{referencias-bibliogruxe1ficas}
-
-\bookmarksetup{startatroot}
 
 \chapter{Entrevista con expertos de la
 AEMET}\label{entrevista-con-expertos-de-la-aemet}
@@ -4281,7 +4532,7 @@ fallar?}\label{es-el-caos-la-razuxf3n-de-que-algunas-de-las-predicciones-climato
 Sí puede serlo algunas veces, aunque también influyen muchos factores
 externos como la actividad humana que no se pueden predecir.
 
-\bookmarksetup{startatroot}
+\part{El Clima y el Caos}
 
 \chapter{Clima}\label{clima}
 
@@ -4295,7 +4546,8 @@ meteorológica ahora vamos a hacer lo mismo con el clima.
 Con el tiempo meteorológico a corto plazo todo el mundo asume que las
 previsiones meteorológicas dejan de tener validez a los diez días. En
 este proyecto hemos visto que esto se debe a que la atmósfera es un
-sistema caótico, muy sensible por lo tanto a las condiciones iniciales.
+sistema caótico, muy sensible, por lo tanto, a las condiciones
+iniciales.
 
 Con el clima curiosamente, la sensación general que hay en la sociedad
 es que puede predecirse. Cada ciertos años el IPCC nos da sus
@@ -4303,7 +4555,7 @@ proyecciones sobre el clima para los próximos 100 años, y lo tomamos
 como válido dado el gran consenso científico en torno a estas
 proyecciones. ¿Cómo puede ser ésto?. No podemos predecir el tiempo a
 diez días, pero sí a cien años. A continuación, durante este capítulo,
-veremos los matices que hay detrás de de todo esto.
+veremos los matices que hay detrás de todo esto.
 
 \section{Clima y Caos. Historia}\label{clima-y-caos.-historia}
 
@@ -4326,7 +4578,7 @@ limitaciones a la predictibilidad de un sistema no lineal como el clima}
 
 Aquí tenemos un reconocimiento implícito de que el clima es un sistema
 caótico. Por lo que llevamos visto en el proyecto, ya sabemos que
-predecir sistemas caóticos parece un oximorón. Sin embargo, la ciencia
+predecir sistemas caóticos parece un oxímoron. Sin embargo, la ciencia
 moderna afirma que no es un oxímoron: existen predicciones útiles a
 corto plazo (deterministas) y a largo plazo (estadísticas o climáticas).
 La clave está en reconocer el alcance y las limitaciones de cada tipo de
@@ -4334,7 +4586,7 @@ predicción.
 
 El reconocimiento del clima como sistema caótico nos retrotrae a los
 momentos en los que se descubrió el caos atmosférico. Fue \textbf{Edward
-Lorenz en 1961} quién se dió cuenta de la existencia del caos haciendo
+Lorenz en 1961} quién se dio cuenta de la existencia del caos haciendo
 unas simulaciones de la atmósfera. Recomiendo la lectura de esta página
 \href{https://history.aip.org/climate/chaos.htm}{Lorenz}, donde se narra
 como se produjo el descubrimiento. Tal y como se cuenta en esta página,
@@ -4345,17 +4597,17 @@ know for sure''}
 
 En este momento, mucha gente empezó a preocuparse porque los cambios
 climáticos pudiesen venir de forma arbitraria y catastrófica. Reconocer
-la naturaleza caótitca del clima, implicaba reconocer que pequeñas
+la naturaleza caótica del clima, implicaba reconocer que pequeñas
 perturbaciones pudieran cambiar el estado a largo plazo de la atmósfera
 de un estado a otro.
 
 Sin embargo, durante esta época, también existía una corriente de
 científicos que creía que a pesar del caos, el clima podía predecirse.
-El argumento era muy sencillo: a pesar que la atmósfera es caótica todos
-los años tenemos temporada de huracanes y monzones de forma predecible.
-Otros aspectos del clima más a largo plazo que también pueden predecirse
-dentro de unos límites son los ciclos Niño/Niña. Por lo tanto, parece
-que dentro del caos impera cierto orden.
+El argumento era muy sencillo: a pesar de que la atmósfera es caótica
+todos los años tenemos temporada de huracanes y monzones de forma
+predecible. Otros aspectos del clima más a largo plazo que también
+pueden predecirse dentro de unos límites son los ciclos Niño/Niña. Por
+lo tanto, parece que dentro del caos impera cierto orden.
 
 También relacionado con el caos y el clima, otro descubrimiento que se
 hizo en las décadas de los 60, 70 y 80 del pasado siglo, fue la
@@ -4363,7 +4615,7 @@ evidencia paleoclimática de existencia de cambios muy rápidos del clima.
 Hasta aquel momento se pensaba que las variaciones del clima eran muy
 lentas, de miles de años. Pero se encontraron evidencias de cambios
 rápidos del clima, que podrían estar relacionados con la naturaleza
-caótica del mismo. En la próxima seccion lo detallo.
+caótica del mismo. En la próxima sección lo detallo.
 
 \section{Como estudiar el clima}\label{como-estudiar-el-clima}
 
@@ -4374,7 +4626,7 @@ que se emplea es de alrededor 50 kilómetros en horizontal, y en vertical
 se divide la atmósfera en 30 u 80 niveles hasta llegar a los 50
 kilómetros de altura. De forma similar se procede al modelado de los
 océanos. Además hay que tener en cuenta que el clima global se ve
-afectado por mecanismos geólicos (volcanes, movimiento de placas
+afectado por mecanismos geológicos (volcanes, movimiento de placas
 tectónicas), por la vegetación y animales, procesos químicos (ciclos de
 carbono, aerosoles), impacto humano (emisiones de gas de efecto
 invernadero, usos agrícolas de suelo, deforestaciones/reforestaciones).
@@ -4387,17 +4639,15 @@ mucha resolución superan ampliamente los recursos de computación
 disponibles.
 
 En las dos siguientes secciones analizaremos los cambios que se han
-producido en el climas en los últimos miles de años, y cómo estos
-cambios resultan de dificil predicción debido precisamente a la cantidad
-de factores que entran en juego a la horas de estudiarlos.
-
-\bookmarksetup{startatroot}
+producido en el clima en los últimos miles de años, y cómo estos cambios
+resultan de difícil predicción debido precisamente a la cantidad de
+factores que entran en juego a la hora de estudiarlos.
 
 \chapter{Atractores}\label{atractores}
 
 \section{Definición del clima}\label{definiciuxf3n-del-clima}
 
-Antes de seguir hablando del clima vamos a ver qué entedemos por el
+Antes de seguir hablando del clima vamos a ver qué entendemos por el
 clima. Según la Organización Meteorológica Mundial, el clima se define
 como la descripción estadística ---principalmente la media y la
 variabilidad--- de las variables atmosféricas (temperatura,
@@ -4413,7 +4663,7 @@ referencia de 30 años, lo cual:
 \end{itemize}
 
 En la actualidad existe otra corriente de científicos para los que la
-definición del clima está mas relacionada con los sistemas caóticos.
+definición del clima está más relacionada con los sistemas caóticos.
 Para ellos, el clima no es la distribución de observaciones, sino el
 \textbf{atractor} de un \textbf{modelo climático} perfecto bajo
 condiciones externas fijas. Pero, ¿qué es un atractor?
@@ -4436,7 +4686,7 @@ generar al ordenador con una distribución uniforme entre 0 y 1.
 Aparentemente estamos viendo la misma nube de puntos sin ninguna
 estructura. Pero, ¿qué pasa si representamos \(x_{n+1}\) frente a
 \(x_n\) ?. El resultado es una zona de puntos que atrae las distintas
-iteraciones de nuestra secuencia. !!Nos econtramos ante un atractor!!
+iteraciones de nuestra secuencia. !!Nos encontramos ante un atractor!!
 
 \pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-4-output-1.pdf}}
 
@@ -4445,14 +4695,14 @@ es el siguiente.
 
 \pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-5-output-1.pdf}}
 
-NO hay ninguna estructura que atraiga los valores. Estamos ante un
+No hay ninguna estructura que atraiga los valores. Estamos ante un
 conjunto desestructurado de datos.
 
-Volvamos al atractor del mapa logísitico. Uno podría decir que es lógico
+Volvamos al atractor del mapa logístico. Uno podría decir que es lógico
 lo que vemos, ya que los puntos están definidos por la función
 logística. De hecho, parece que estamos viendo la función logística.
-Pero hay un detalle: si miras detalladamente verás huecos en la
-gráfica.¿Por qué el atractor es distinto de la función logística?
+Pero hay un detalle: si miras detalladamente verás huecos en la gráfica.
+¿Por qué el atractor es distinto de la función logística?
 
 \begin{itemize}
 \tightlist
@@ -4467,8 +4717,8 @@ gráfica.¿Por qué el atractor es distinto de la función logística?
   de fases donde la dinámica termina estabilizándose tras desechar el
   transitorio. Aunque la función forma una parábola continua, el
   atractor sólo ocupa las regiones donde los puntos rebotan de forma
-  caótica y no periódica. Estamos por tanto ante un atractor periódico.
-  ¿ Qué tipos de atractores hay en el mapa logístico?
+  caótica y no periódica. Estamos, por tanto, ante un atractor
+  periódico. ¿ Qué tipos de atractores hay en el mapa logístico?
 \end{itemize}
 
 \begin{enumerate}
@@ -4503,7 +4753,7 @@ gráfica.¿Por qué el atractor es distinto de la función logística?
 
 Como vemos a diferencia de la función logística, el atractor tiene
 ``huecos'', no es continuo en el sentido matemático estricto. Se trata
-de una constucción extraña. Tras consultarlo a ChatGPT, me confirmó que
+de una construcción extraña. Tras consultarlo a ChatGPT, me confirmó que
 hay infinitos huecos a cualquier escala. En 1º de Bachillerato decimos
 que un conjunto de la recta es \textbf{continuo} (o \textbf{conectado})
 si para cualesquiera \(a,b\) en él, todo el intervalo \([a,b]\) también
@@ -4518,6 +4768,8 @@ crecimiento de la función logística \(r\), el sistema terminará en un
 atractor o en otro.
 
 \pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-7-output-1.pdf}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-8-output-1.pdf}}
 
 \section{Otros atractores}\label{otros-atractores}
 
@@ -4560,8 +4812,6 @@ clima es un sistema caótico con un estado multidimensional, que depende
 de múltiples variables que conforman este espacio multidimensional. Por
 lo tanto, sin más dilación, veremos en la siguiente sección los últimos
 cambios que se han producido en el clima y por qué han sido causados.
-
-\bookmarksetup{startatroot}
 
 \chapter{Cambios Climáticos
 Rápidos}\label{cambios-climuxe1ticos-ruxe1pidos}
@@ -4661,8 +4911,6 @@ que el principal forzamiento del clima ha sido la emisión de gases de
 efecto invernadero por parte del ser humano.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\bookmarksetup{startatroot}
 
 \chapter{Evaluación de las predicciones
 climáticas}\label{evaluaciuxf3n-de-las-predicciones-climuxe1ticas}
@@ -4783,8 +5031,8 @@ modelos}\label{otros-fallos-en-las-predicciones-realizadas-por-los-modelos}
 A lo largo de las últimas décadas, voces diversas ---científicos,
 activistas, medios y organismos internacionales--- han lanzado
 advertencias dramáticas sobre el futuro climático. Aquí tienes una
-selección de predicciones que no se cumplieron, cada una con su fuente
-como enlace clicable.
+selección de predicciones que no se cumplieron, cada una con su enlace
+web correspondiente.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -5063,9 +5311,9 @@ muchos eventos de inundación recientes no son ni únicos ni inusuales en
 el contexto geológico e histórico.
 
 Este trabajo, liderado por Stephan Harrison y con participación de
-Gerardo Benito (CSIC), se basa en registros paleoflodísticos bien
-datados, que abarcan miles de años en el oeste y suroeste de Europa.
-Contrario a lo que sugieren algunos modelos, demuestra que:
+Gerardo Benito (CSIC), se basa en registros bien datados, que abarcan
+miles de años en el oeste y suroeste de Europa. Contrario a lo que
+sugieren algunos modelos, demuestra que:
 
 \begin{quote}
 ``La magnitud de las inundaciones fue significativamente mayor antes del
@@ -5354,7 +5602,7 @@ fallidas''?}\label{entonces-eran-predicciones-fallidas}
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Matíz importante:} Los informes científicos \textbf{sí} prevén
+  \textbf{Matiz importante:} Los informes científicos \textbf{sí} prevén
   \textbf{más aridez y sequías} en el Mediterráneo (España incluida).
   Eso \textbf{no implica} automáticamente que \textbf{toda España} vaya
   a perder bosque o ``parecerse al Sahara''. Se puede dar \textbf{a la
@@ -5438,8 +5686,6 @@ propagan de forma exponencial, por lo que la mejora en la resolución
 espacial/temporal de los modelos, pronto será ``comida'' por la
 propagación del error.
 
-\bookmarksetup{startatroot}
-
 \chapter{Conclusiones sobre la predictibilidad del
 clima}\label{conclusiones-sobre-la-predictibilidad-del-clima}
 
@@ -5456,7 +5702,7 @@ hacen dudar:
 \tightlist
 \item
   En primer lugar, hay que ver el clima de la Tierra como un sistema
-  caótico extremadamente complejo en el que interactuan a la vez varios
+  caótico extremadamente complejo en el que interactúan a la vez varios
   elementos: atmósfera, océanos, vegetación, animales, seres humanos, el
   Sol, variaciones orbitales de la Tierra, tectónica de placas,
   vulcanismo. El modelado conjunto de todos estos factores con un alto
@@ -5478,9 +5724,9 @@ hacen dudar:
 \end{itemize}
 
 El péndulo doble es un sistema caótico infinitamente más sencillo que el
-clima. Sin embargo, no podemos predecir su trayectoría. La función
+clima. Sin embargo, no podemos predecir su trayectoria. La función
 logística es un modelo matemático caótico en el que conocemos todos sus
-parámetros iniciales, y sin embargo tampoco podemos conocer su estado
+parámetros iniciales, y sin embargo, tampoco podemos conocer su estado
 final debido a los errores provocados por la precisión finita de la
 aritmética de los ordenadores. A la vista de todo ello, ¿podemos ser
 capaces de predecir el clima?.
@@ -5541,9 +5787,9 @@ predicciones que se han ido realizando se ve que salvo en la subida de
 la temperatura media, el resto de predicciones no han estado tan
 acertadas.
 
-Conviene por tanto hacer una revisión crítica y rescatar los postulados
-de muchos científicos de los años 70 que ponían límites a la
-predictiblidad del clima. Y es que si bien, tenemos asumido que una
+Conviene, por tanto, hacer una revisión crítica y rescatar los
+postulados de muchos científicos de los años 70 que ponían límites a la
+predictibilidad del clima. Y es que si bien, tenemos asumido que una
 predicción meteorológica a mas de 15 días vista es muy poco fiable, no
 sabemos el escenario temporal de validez de las predicciones climáticas
 actuales (¿sabemos cuál es el exponente de Lyapunov de las variables
@@ -5572,44 +5818,44 @@ invernadero, porque el resultado detallado de nuestras acciones es
 incierto, pero el riesgo agregado de impactos aumenta con mayores
 forzamientos.
 
-\bookmarksetup{startatroot}
+\part{Mi sistema caótico}
 
-\chapter{Introducción}\label{introducciuxf3n-5}
+\chapter{Introducción}\label{introducciuxf3n-6}
 
-Despues de haber estudiado el caos y su comportamiento tanto en modelos
+Después de haber estudiado el caos y su comportamiento tanto en modelos
 matemáticos como la función logística y en sistemas físicos como el
 péndulo doble y la predicción meteorológica y climática, me he propuesto
-crear mi propio sitema caótico para poder estudiarlo y hallar sus
-similitudes y relaciones con el resto de sitemas caósticos estudiados.
+crear mi propio sistema caótico para poder estudiarlo y hallar sus
+similitudes y relaciones con el resto de sistemas caóticos estudiados.
 Para hacer mi sistema caótico primero probé a construirlo con mis
-propias manos pero después de varios prototipos del sistema que no
-conseguí que funcionaran o que tuvieran un coportamiento caótico decidí
+propias manos, pero después de varios prototipos del sistema que no
+conseguí que funcionaran o que tuvieran un comportamiento caótico decidí
 hacerlo en un simulador de física llamado Algodoo.
 
 El modelo y el diseño para que tuviera un movimiento caótico lo mantuve
-igual que en los prototipos anteriores solo que esta vez al ser un
-simulador podía ajustar todos los parametros con mucha más precisión que
-haciendolo a mano, donde no tengo tanta precisión de todas las medidas.
+igual que en los prototipos anteriores, solo que esta vez al ser un
+simulador podía ajustar todos los parámetros con mucha más precisión que
+haciéndolo a mano, donde no tengo tanta precisión de todas las medidas.
 
-Esta vez, haciéndolo en un simulador si que funcionó todo a la
+Esta vez, haciéndolo en un simulador sí que funcionó todo a la
 perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue
-que el simulador me daba la opcion de tener gráficos de las medidas como
+que el simulador me daba la opción de tener gráficos de las medidas como
 la velocidad, la velocidad angular o el centro de masas en tiempo real y
-de luego descargarlos y obtener todos los datos facilmente.
+de luego descargarlos y obtener todos los datos fácilmente.
 
 \section{Diseño y Funcionamiento}\label{diseuxf1o-y-funcionamiento}
 
-El sistema se basa en una rueda fija que gira siempre eln el mismo eje
+El sistema se basa en una rueda fija que gira siempre en el mismo eje
 mediante un chorro de agua que le va cayendo justo encima. Para hacerla
 girar con el agua tiene puestas cuatro aspas en las que el agua se va
-acumulando hasta que empieza a girar y se vacian.
+acumulando hasta que empieza a girar y se vacían.
 
-En el interior la rueda esta dividida en cuatro compartimetos por cuatro
+El interior la rueda está dividida en cuatro compartimentos por cuatro
 paredes que van desde el centro hasta las aspas. Dentro de cada
-compartimento hay una pequeña canica que a medidad que la rueda gira se
+compartimento hay una pequeña canica que a medida que la rueda gira se
 van moviendo dentro de cada compartimento.
 
-Aqum hay dos tablas en las que se muestran las caracteristicas
+Aquí hay dos tablas en las que se muestran las características
 principales de la rueda y de las canicas
 
 Rueda
@@ -5642,6 +5888,8 @@ Masa & 96 g \\
 
 El tamaño de las cuatro aspas es de 0.5m cada una
 
+En estas figuras se muestra el sistema diseñado.
+
 \begin{figure}[H]
 
 {\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/Ruedacaotica.png}}
@@ -5662,31 +5910,31 @@ El tamaño de las cuatro aspas es de 0.5m cada una
 
 \end{figure}%
 
-\bookmarksetup{startatroot}
+Y en este vídeo su funcionamiento en Algodoo.
 
 \chapter{Simulación y funcionamiento
 caótico}\label{simulaciuxf3n-y-funcionamiento-cauxf3tico}
 
-Una vez construida la rueda en el simulador y despues de haber
-comprobado que todo funcionaba correctamente empece con las simulaciones
-del sistema.
+Una vez construida la rueda en el simulador y después de haber
+comprobado que todo funcionaba correctamente, empecé con las
+simulaciones del sistema.
 
 Primero corrí la simulación cinco veces durante 180 segundos cada vez y
 en todas ellas establecí exactamente las mismas condiciones iniciales
-para todos los parámetros. Estos parámetros son te´´oricamente idénticos
-todas las veces que he ejcutado la simulación ya que el programa me
-permite hacer varias copias de un estado del sistema para despues poder
+para todos los parámetros. Estos parámetros son teóricamente idénticos
+todas las veces que he ejecutado la simulación ya que el programa me
+permite hacer varias copias de un estado del sistema para después poder
 correr la simulación varias veces con las mismas exactas condiciones
 iniciales.
 
-En cada una de las simulaciones use una opción de Algodoo para tener
-grabados los datos de velocidad angular instantanea de la rueda, de la
+En cada una de las simulaciones usé una opción de Algodoo para tener
+grabados los datos de velocidad angular instantánea de la rueda, de la
 posición x (en el eje horizontal) del centro de masas de las canicas a
-lo largo del tiempo y de la posició en y (en el eje vertical) del centro
-de masas de las canicas.
+lo largo del tiempo y de la posición en y (en el eje vertical) del
+centro de masas de las canicas.
 
-En este gráfico se uestra la evolución de la velocidad angular de las
-cinco simulaciones todas empezando desde el mismo punto cad una
+En este gráfico se muestra la evolución de la velocidad angular de las
+cinco simulaciones todas empezando desde el mismo punto cada una
 representada con un color distinto.
 
 \begin{figure}[H]
@@ -5700,16 +5948,19 @@ representada con un color distinto.
 \end{figure}%
 
 Se puede ver como todas empiezan con una velocidad angular de
-aproximadamente 3 rad/s y rapidamente debido al rozamiento especialmente
-con el agua que va cayendo todas se frenan al mismo tiempo hasta
-arededor de los 0.5 rad/s. Hasta este momento sobre el segundo 3 todas
-las simulaciones van juntas y solo se distingue un línea. Es justo a
-partir de este momento cuando las simulaciones empiezan a separarse y en
-solo unos pocos segundos ya va cada una por su lado, e incluso la
-simulación número 2 pasa a tener velocidad angular negativa, lo que
-significa que la rueda ha cambiado su sentido de giro.
+aproximadamente 3 rad/s y rápidamente debido al rozamiento,
+especialmente con el agua que va cayendo, todas se frenan al mismo
+tiempo hasta alrededor de los 0.5 rad/s. Hasta este momento, sobre el
+segundo 3, todas las simulaciones van juntas y solo se distingue una
+línea. Es justo a partir de este momento cuando las simulaciones
+empiezan a separarse y en solo unos pocos segundos ya va cada una por su
+lado, e incluso la simulación número 2 pasa a tener velocidad angular
+negativa (lo que significa que la rueda ha cambiado su sentido de giro).
+Esto lo hace aun habiendo empezado con una velocidad angular de 3 rad/s
+y no desde el reposo. Esto es una de las muestras de la naturaleza
+caótica e impredecible de este sistema
 
-Vamos a hacer mas zoom en los primeros segundos de simulación para ver
+Vamos a hacer más zoom en los primeros segundos de simulación para ver
 como realmente empiezan a divergir las simulaciones.
 
 \begin{figure}[H]
@@ -5722,11 +5973,676 @@ como realmente empiezan a divergir las simulaciones.
 
 \end{figure}%
 
-\bookmarksetup{startatroot}
+Hasta el primer segundo de simulación las velocidades angulares son casi
+las mismas y la diferencia entre ellas es ínfima. A partir de ahí vemos
+como poco a poco empiezan a separarse hasta el segundo cinco cuando ya
+llevan velocidades muy distintas y la segunda simulación ya ha cambiado
+de dirección. Esta separación de las distintas velocidades angulares no
+ocurre progresivamente, sino que al principio empiezan a divergir muy
+lentamente y muy poco, pero a medida que va avanzando el tiempo de
+simulación lo van haciendo cada vez más rápido, ya que en los sistemas
+caóticos la sensibilidad a las condiciones iniciales hacen que los
+errores se vayan propagando de forma exponencial. Aunque en este
+sistema, al ser una simulación, no debería haber ninguna diferencia
+entre cada simulación, en el momento inicial siempre existe una por muy
+pequeña que sea debido a la inexactitud de los ordenadores a partir de
+un número de decimales muy alto y en general a la imprecisión de los
+ordenadores a la hora de realizar todos los cálculos.
 
-\chapter{test}\label{test}
+\section{Atractor}\label{atractor-1}
 
-tttttttttttttttttttttttt
+Sin embargo, hay un detalle de esta gráfica que no pasa desapercibido.
+Las velocidades angulares de las simulaciones se van separando cada vez
+más rápido, pero llegados a un punto sobre el segundo 7 dejan de
+separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7
+rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que
+estamos ante el atractor de este sistema. Esto significa que el estado
+de el sistema, aunque sea caótico, nunca va a salir de este rano de
+valores. Esto no solo lo presenta este sistema sino que como ya hemos
+visto está presente en muchos otros sistemas caóticas como la función
+logística o la famosa célula convectiva de Edward Lorenz.
+
+Pero lo más interesante de este a atractor es que cambia entre dos
+estados diferentes, velocidad angular positiva y negativa. El sistema
+cambia de estado en los llamados ``Tipping Points'' en los cuales
+cualquier pequeña perturbación hace que llegue a cambiar todo el estado
+del sistema, que en este caso es la dirección del giro. Esto también lo
+hace de manera totalmente caótica y como se puede ver en las cinco
+simulaciones algunas, en este caso la segunda simulación, tardan mucho
+menos tiempo que otras en hacerlo.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_3d_iso_SW.png}}
+
+}
+
+\caption{Atractor}
+
+\end{figure}%
+
+En esta gráfica se representa el atractor mediante tres ejes distintos
+que representan la posición vertical del centro de masas de las canicas,
+la posición horizontal del centro de masas de las canicas y la velocidad
+angular. El color de la línea representa el paso del tiempo yendo desde
+el principio en azul hasta al final en rojo.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_3d_top.png}}
+
+}
+
+\caption{Vista desde arriba}
+
+\end{figure}%
+
+Esta es otra vista del atractor en la misma simulación, pero esta vez
+visto desde arriba. En esta vista se aprecian perfectamente los dos
+estados que va tomando el sistema y como va cambiando entre cada uno.
+
+Y ahora veámoslo de lado.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_3d_side_Y.png}}
+
+}
+
+\caption{vista lateral del atractor}
+
+\end{figure}%
+
+Pero lo más interesante de este atractor es que es un atractor extraño,
+lo que significa que tiene una estructura fractal. Esto quiere decir que
+si hiciéramos zoom en dos líneas que parecieran tener el mismo
+recorrido, en realidad, no estarían pasando exactamente por los mismos
+valores sino que siempre tendrían una pequeña diferencia. Por muy
+iguales que parezcan dos valores del atractor siempre podríamos hacer
+zoom y descubrir que nunca pasan exactamente por el mismo sitio, es
+decir, la rueda nunca lleva dos veces los mismos valores de velocidad
+angular, posición en X y posición en Y al mismo tiempo.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_lines_rainbow_time.gif}}
+
+}
+
+\caption{Atractor del sistema caótico en acción}
+
+\end{figure}%
+
+\part{Determinismo y Caos}
+
+\chapter{De Laplace a Prigogine}\label{de-laplace-a-prigogine}
+
+Hasta este momento en el proyecto hemos percibido el caos como algo
+negativo, un fenómeno no deseado que dificulta nuestra capacidad para
+conocer el futuro de los sistemas físicos. En nuestro modelo del
+Universo, heredado de la física de Newton, Laplace y hasta Einstein,
+todo era determinista y conocer el estado presente permitía predecir el
+futuro indefinidamente. A finales del siglo XX apareció un científico,
+Ilya Prigogine, que cambió esta concepción y que mereció el premio Nobel
+por su trabajo (ver el libro The End of Certainty: Time, Chaos, and The
+New Laws of Nature.
+\href{https://kremesti.com/portfolio/technical_writing/Academic_Research_Papers/End_of_Certainty.htm}{The
+end of Certainty} ). Prigogine afirma que la visión determinista del
+Universo es incompleta, porque ignora la irreversibilidad del tiempo y
+reduce los fenómenos a un esquema demasiado simplificado.
+
+\section{Irreversibilidad del tiempo}\label{irreversibilidad-del-tiempo}
+
+Hay procesos naturales que ``tienen sentido'' en una dirección temporal
+(del pasado al futuro) pero no al revés: el calor fluye de lo caliente a
+lo frío, una taza que se rompe no se recompone sola, el perfume se
+dispersa y no vuelve al frasco. A esto lo llamamos irreversibilidad del
+tiempo o flecha del tiempo.
+
+Muchas ecuaciones fundamentales de la física (las de Newton por ejemplo)
+son reversibles en el tiempo: si grabas una solución y la reproduces al
+revés, sigue siendo una solución válida. Entonces, ¿por qué el mundo
+cotidiano no funciona ``al revés''?. Porque lo que observamos es lo más
+probable: que el desorden aumente y que la energía útil se degrade. A
+eso lo llamamos aumento de entropía (Segunda Ley de la Termodinámica).
+Nadie espera que cuando un hielo se derrite, pasado un tiempo se vuelva
+a congelar. O que cuando esparces perfume en una habitación, el perfume
+vuelva luego solo al frasco.
+
+El determinismo ignora la flecha del tiempo marcada por la entropía. La
+Segunda Ley de la Termodinámica nos dice que en sistemas aislados la
+entropía nunca disminuye. Esto significa que, aunque las ecuaciones
+deterministas permitan un futuro reversible, en la práctica el sistema
+siempre avanza hacia estados más probables, de mayor desorden. Esa
+asimetría no cabe dentro de un universo ``reloj'' que se limita a
+desplegar lo ya contenido. ¿Qué quiere decir ``desplegar lo ya
+contenido''? En la visión clásica y determinista, el universo se concibe
+como un reloj perfectamente mecánico:
+
+\begin{itemize}
+\tightlist
+\item
+  Las leyes de la naturaleza son ecuaciones exactas y simétricas en el
+  tiempo.
+\item
+  Si conocemos el estado presente (posiciones y velocidades de todas las
+  partículas), entonces el pasado y el futuro están ya contenidos en esa
+  información.
+\item
+  El tiempo, en este modelo, no ``crea'' nada: simplemente despliega lo
+  que ya estaba escrito en las condiciones iniciales
+\item
+  El tiempo sería como el puntero de un proyector que recorre un carrete
+  de película ya grabada: no hay sorpresas, solo revelar lo que está
+  ahí.
+\end{itemize}
+
+La irreversibilidad rompe esta imagen sencilla del Universo. Esta
+asimetría temporal no puede reducirse a un simple ``estado contenido en
+las condiciones iniciales'', porque el futuro no es un espejo reversible
+del pasado. El sistema no ``despliega'' algo fijo ya contenido en las
+condiciones iniciales, sino que evoluciona hacia estados más probables,
+siguiendo una dirección de la que no hay retorno.
+
+Por lo tanto, en el Universo real no determinista el pasado y el futuro
+no son intercambiables, no son equivalente. El tiempo introduce
+``novedades'' que no estaban prefiguradas y de las que no podemos volver
+hacia atrás.
+
+La irreversibilidad del tiempo no solo rompe la visión determinista,
+sino que abre la puerta a la creatividad de la naturaleza. El futuro no
+estaba ya escrito en el presente, como sostenía la visión clásica
+determinista; es el propio paso del tiempo el que introduce
+fluctuaciones y novedades imposibles de predecir por completo. Aquí es
+donde entra en juego el caos.
+
+\chapter{El papel del caos}\label{el-papel-del-caos}
+
+El caos no debe entenderse solo como desorden o azar sin sentido. En
+física, hablamos de caos determinista para describir sistemas regidos
+por leyes precisas pero extremadamente sensibles a las condiciones
+iniciales. En ellos, cualquier mínima perturbación ---un error de
+medida, un ruido ambiental, una fluctuación térmica o incluso
+cuántica--- se amplifica con el tiempo hasta volver imposible una
+predicción a largo plazo.
+
+Este comportamiento caótico conecta directamente con la idea de
+Prigogine:
+
+\begin{itemize}
+\item
+  La irreversibilidad asegura que el tiempo tenga una dirección. El caos
+  añade otra capa: incluso si las ecuaciones fueran simétricas, la
+  sensibilidad exponencial hace imposible ``volver atrás'' en la
+  práctica. Aunque intentaras invertir el tiempo, bastaría un error
+  ínfimo (del tamaño de una milésima, o incluso de fluctuaciones
+  cuánticas inevitables) para que la trayectoria invertida se desviara
+  por completo. Es decir, no puedes reconstruir con exactitud el estado
+  pasado ni repetir la evolución hacia atrás, porque la información
+  inicial se ``disuelve'' en la dinámica caótica.
+\item
+  El caos garantiza que esa dirección no sea una simple proyección
+  mecánica de lo ya contenido, sino un proceso donde las fluctuaciones
+  se amplifican y generan caminos alternativos.
+\item
+  De esa combinación surge la posibilidad de que el tiempo cree
+  estructuras nuevas en lugar de limitarse a repetir lo prefigurado.
+\end{itemize}
+
+Puede haber creación de estructuras sin caos, pero el caos las
+multiplica y las hace mucho más ricas. El caos introduce sensibilidad a
+fluctuaciones y ramificación de trayectorias posibles. Eso significa
+que:
+
+\begin{itemize}
+\item
+  No hay un único patrón de orden, sino muchos caminos posibles.
+\item
+  Lo inesperado se convierte en parte constitutiva del proceso.
+\item
+  El sistema puede explorar configuraciones alternativas, bifurcarse,
+  reorganizarse
+\end{itemize}
+
+Como ejemplo del caos en el clima, tenemos los huracanes. Todo el mundo
+sabe que los huracanes se producen por pequeñas perturbaciones en el
+este del Atlántico que van amplificándose hasta convertirse en huracanes
+al llegar al Caribe. La circulación atmosférica es inevitable, surge de
+la radiación solar que calienta la superficie de la Tierra y pone en
+movimiento al aire. Pero el caos hace que esa circulación atmosférica
+pueda organizarse en patrones distintos: brisa, tormenta, huracán\ldots.
+Los huracanes, lejos de ser un simple desastre, cumplen la función de
+transportar enormes cantidades de energía desde los trópicos hacia
+latitudes más altas, contribuyendo al equilibrio climático global. Sin
+ellos el calor se acumularía más en los trópicos.
+
+\section{La creación de estructuras en sistemas
+caóticos}\label{la-creaciuxf3n-de-estructuras-en-sistemas-cauxf3ticos}
+
+Uno se podría preguntar, ¿por qué se crean nuevas estructuras en un
+sistema caótico, en lugar de ser todo aleatorio y desordenado?. La
+respuesta no es trivial. El caos no es lo mismo que el azar total. Los
+sistemas caóticos siguen leyes precisas (ecuaciones deterministas), pero
+como son muy sensibles a las condiciones iniciales, sus trayectorias se
+vuelven impredecibles a largo plazo. Eso significa que:
+
+\begin{itemize}
+\tightlist
+\item
+  No todo vale. El sistema no explora cualquier posibilidad al azar,
+  sino dentro de un espacio limitado por las leyes físicas.
+\end{itemize}
+
+Ejemplo: una tormenta no puede convertirse en un cuadrado perfecto de
+nubes, pero sí en múltiples formas de remolinos, vórtices y frentes,
+porque eso es lo que permiten las ecuaciones de fluidos.
+
+Los sistemas caóticos tienden a organizarse en torno a atractores:
+conjuntos de estados hacia los que converge la dinámica. Esos atractores
+no son aleatorios, sino estructuras matemáticas que canalizan el
+desorden hacia formas recurrentes. De ahí surgen patrones como los
+pliegues de un río, las espirales de los huracanes o las formas del
+atractor de Lorenz. El atractor es lo que hace que el caos no se pierda
+en el desorden absoluto, sino que genere orden complejo. Este punto es
+fundamental: !! El Caos genera Estructuras !!
+
+Cuando un sistema recibe energía y la disipa (como el clima con la
+radiación solar), la irreversibilidad obliga a esa energía a fluir. Si
+el sistema fuera estable, disiparía la energía de forma simple y
+aburrida. Pero en la inestabilidad y el caos, el flujo de energía se
+reorganiza en estructuras disipativas: corrientes oceánicas, huracanes,
+ecosistemas. Esas estructuras aparecen porque son la manera más eficaz
+de gestionar el desbalance energético. No son azar puro, sino respuestas
+organizadas de la naturaleza a un flujo irreversible de acuerdo a unas
+ecuaciones deterministas.
+
+Y una última pregunta que se podría hacer uno. ¿Puede darse el caos en
+un sistema físico cerrado sin aporte de energía?. La respuesta es no.
+Para que haya un caos sostenido en la naturaleza se necesita un aporte
+externo de energía, porque sin él el sistema tendería al equilibrio y el
+movimiento caótico se apagaría. Es el caso del clima. Gracias a la
+energía recibida del Sol, la atmósfera y los océanos están lejos del
+equilibrio por lo que aparecen estructuras disipativas caóticas:
+vientos, huracanes, corrientes marinas, estaciones, etc. . Si la Tierra
+saliera del sistema solar y no recibiese un aporte externo de energía,
+la temperatura global caería progresivamente hasta un equilibrio con la
+radiación de fondo cósmico (\textasciitilde3 K). En esa situación, la
+Tierra se volvería un sistema casi cerrado, cerca del equilibrio
+termodinámico. Y en equilibrio, no hay caos sostenido: no habría
+convección, no habría tormentas, no habría vida. Eso sí, sería
+totalmente predecible su futuro.
+
+\chapter{El demonio de Laplace}\label{el-demonio-de-laplace}
+
+El lector avezado podría objetar: ``Si el demonio conociera incluso las
+fluctuaciones, el caos no sería problema. El futuro seguiría escrito en
+el presente''. Pero aquí está el punto débil de ese argumento:
+
+Las fluctuaciones no son externas al sistema, son inevitables.
+
+\begin{itemize}
+\item
+  Hay fluctuaciones cuánticas: el principio de incertidumbre impone
+  límites objetivos, no solo prácticos.
+\item
+  Hay fluctuaciones térmicas y ambientales: en un universo abierto, no
+  se puede aislar perfectamente un sistema. Ni siquiera un demonio
+  podría eliminar la presencia de ruido, porque forma parte constitutiva
+  de la naturaleza.
+\end{itemize}
+
+El caos amplifica fluctuaciones irreducibles. En sistemas caóticos, el
+más mínimo cambio conduce a trayectorias divergentes. Aunque el demonio
+conociera hoy todas las variables, no podría neutralizar las
+fluctuaciones mañana, porque aparecen en el mismo proceso de evolución
+del sistema.
+
+En la visión laplaciana, el futuro está ``ya dado'' en las condiciones
+iniciales, y no hay margen para la novedad.
+
+En la visión de Prigogine, cualquier escenario futuro es posible pero no
+necesario: hay abanicos de trayectorias, bifurcaciones reales, elección
+de caminos.
+
+El demonio de Laplace fracasa porque confunde lo posible con lo
+determinado.
+
+\chapter{Indeterminismo objetivo}\label{indeterminismo-objetivo}
+
+El indeterminismo se solía considerar un fenómeno subjetivo, ligado a
+nuestra ignorancia humana o a la falta de medios para medir con
+precisión. Según esta visión, el mundo seguiría siendo perfectamente
+determinista en sí mismo; lo que ocurre es que los humanos no tenemos la
+capacidad de calcularlo todo.
+
+Prigogine, en cambio, defendió la existencia de un indeterminismo
+objetivo: un rasgo constitutivo de la naturaleza, no un simple límite de
+nuestro conocimiento.
+
+¿Por qué?
+
+\begin{itemize}
+\item
+  Por la irreversibilidad del tiempo.
+\item
+  Por la sensibilidad al caos.
+\item
+  Porque el tiempo introduce novedad.
+\end{itemize}
+
+El futuro no está escrito: existen abanicos de trayectorias posibles. El
+tiempo tiene un papel creativo, y lo inesperado es parte de la
+naturaleza. La incertidumbre es objetiva.
+
+\chapter{El papel creativo del tiempo (y del
+caos)}\label{el-papel-creativo-del-tiempo-y-del-caos}
+
+En la visión clásica, el tiempo era un simple parámetro: un ``reloj''
+que medía cómo los estados del universo se iban desplegando según leyes
+ya escritas. En cambio, en la perspectiva de Prigogine, el tiempo no
+solo mide, sino que produce.
+
+¿Por qué decimos que el tiempo tiene un papel creativo?
+
+El tiempo genera irreversibilidad. Cada instante que pasa deja una
+huella que no se puede borrar: el hielo derretido, el vaso roto, la
+energía disipada. Esta irreversibilidad no se limita a destruir orden,
+también permite que surjan nuevas formas de organización. Ejemplo: las
+estructuras disipativas (celdas de Bénard, tornados, ecosistemas) que
+nacen gracias a los flujos de energía y materia. Sin irreversibilidad,
+no habría emergencia de orden.
+
+El tiempo abre bifurcaciones. En sistemas caóticos e inestables, el
+futuro no está prefijado: pequeñas fluctuaciones se amplifican hasta
+dirigir el sistema hacia trayectorias alternativas. El tiempo, en vez de
+ser un mero despliegue de lo ya contenido, actúa como un proceso de
+selección entre posibilidades. → Es como si cada segundo abriera varias
+puertas; el paso del tiempo consiste en atravesar una de ellas.
+
+El caos amplifica lo inesperado. La inestabilidad convierte lo
+microscópico en macroscópico: una perturbación diminuta (una vibración,
+una molécula más rápida que otra) puede desencadenar un nuevo patrón
+global. Eso hace que el tiempo no solo conserve información, sino que la
+transforme y la expanda en nuevas formas.
+
+En conjunto: el tiempo no es neutral. Es productivo: crea
+configuraciones que antes no existían, favorece la emergencia de
+estructuras y abre caminos alternativos.
+
+\section{¿Por qué la incertidumbre es
+objetiva?}\label{por-quuxe9-la-incertidumbre-es-objetiva}
+
+Prigogine rompe con esto al afirmar que la incertidumbre es objetiva, es
+decir, propia de la naturaleza misma, no solo de nuestra falta de
+conocimiento.
+
+Las razones:
+
+\begin{itemize}
+\item
+  Limitaciones físicas irreducibles. El principio de incertidumbre de
+  Heisenberg impide conocer simultáneamente posición y velocidad de una
+  partícula con precisión infinita. No es una limitación tecnológica,
+  sino un límite fundamental.
+\item
+  Fluctuaciones inevitables. En cualquier sistema hay ruido térmico,
+  cuántico, ambiental. Estas fluctuaciones no pueden eliminarse, forman
+  parte constitutiva de la realidad. Y lo más importante: en sistemas
+  caóticos, se amplifican inevitablemente, por lo que no hay trayectoria
+  única.
+\item
+  Bifurcaciones reales. En ciertos regímenes dinámicos, el sistema llega
+  a puntos donde puede evolucionar hacia diferentes configuraciones
+  posibles. No es que el futuro ``esté escrito y no lo sepamos'': el
+  futuro se decide en el proceso, a partir de fluctuaciones
+  irreducibles.
+\end{itemize}
+
+Esto convierte la incertidumbre en algo inherente a la naturaleza
+
+\chapter{El clima desde la óptica de
+Prigogine}\label{el-clima-desde-la-uxf3ptica-de-prigogine}
+
+El clima de la Tierra es un ejemplo privilegiado de cómo el tiempo y el
+caos tienen un papel creativo.
+
+A primera vista, podríamos imaginar que, con superordenadores cada vez
+más potentes y más datos de satélite, será posible conocer el futuro
+climático con la misma precisión con la que predecimos un eclipse.
+
+Pero el clima no es un sistema mecánico de relojería, no es un sistema
+determinista. Es un sistema caótico, que recibe energía del exterior (el
+Sol), y por ello encarna las tesis de Prigogine de manera ejemplar:
+
+\begin{itemize}
+\item
+  Irreversibilidad: El clima no puede ``reproducirse al revés''. La
+  energía solar que llega a la Tierra se disipa en forma de calor y
+  radiación hacia el espacio. Ese flujo irreversible impulsa las
+  corrientes oceánicas, la dinámica atmosférica y los ciclos de agua y
+  carbono. No hay marcha atrás: lo que se disipa, no vuelve.
+\item
+  Sensibilidad al caos: El clima está gobernado por leyes físicas
+  precisas, pero cualquier fluctuación pequeña ---una variación en la
+  temperatura del océano, una erupción volcánica, un cambio en la
+  cubierta vegetal, las emisiones de gas de efecto invernadero
+  provocadas por la civilización humana--- puede amplificarse hasta
+  alterar trayectorias globales. Aquí, como en el doble péndulo, la
+  predicción a largo plazo se enfrenta a un horizonte de caos.
+\item
+  Indeterminismo objetivo: No es simplemente que no sepamos lo
+  suficiente.El indeterminismo objetivo implica que siempre habrá un
+  límite a lo que podemos anticipar. La propia dinámica climática abre
+  abanicos de trayectorias posibles. El sistema se enfrenta a
+  bifurcaciones reales: corrientes oceánicas que pueden reorganizarse,
+  hielos polares que al fundirse cambian el balance energético,
+  ecosistemas que se transforman. El futuro climático no estaba
+  contenido de antemano en el presente; se decide en el proceso
+\item
+  El tiempo como creador de estructuras: El clima no es puro desorden.
+  De la irreversibilidad y el caos emergen patrones organizados:
+  monzones, huracanes, corrientes en chorro, fenómenos como El Niño y La
+  Niña. Son ejemplos de estructuras disipativas, que solo existen
+  gracias al flujo constante de energía. El tiempo y el caos, lejos de
+  ser enemigos, son los arquitectos de esas regularidades.
+\end{itemize}
+
+\section{El valor del caos para el clima y la
+vida}\label{el-valor-del-caos-para-el-clima-y-la-vida}
+
+Cuando hablamos del caos en el clima, solemos subrayar su dificultad
+para la predicción. Sin embargo, desde la óptica de Prigogine, el caos
+no es solo un obstáculo: es también una fuente de riqueza y estabilidad
+dinámica para la Tierra y para la vida.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  El caos genera variabilidad climática. Sin caos, el clima sería un
+  sistema rígido, condenado a repetir siempre los mismos patrones.
+  Gracias al caos: Surgen fenómenos como El Niño y La Niña, que
+  redistribuyen energía y nutrientes en los océanos. Los regímenes
+  atmosféricos alternan entre fases, evitando que el planeta quede
+  ``atrapado'' en un único estado monótono.
+\item
+  El caos favorece la diversidad biológica. Los cambios imprevisibles en
+  el clima han obligado a los seres vivos a adaptarse continuamente, lo
+  que impulsa la evolución: Periodos de enfriamiento y calentamiento han
+  abierto y cerrado corredores ecológicos. Las sequías, glaciaciones y
+  variaciones en los ecosistemas han actuado como motores de selección
+  natural. Sin estas fluctuaciones, la vida probablemente sería mucho
+  menos diversa.
+\item
+  El caos como condición de la creatividad de la vida. La vida misma
+  puede entenderse como un proceso caótico y abierto. Si el universo
+  fuera un reloj determinista, nada realmente nuevo podría aparecer: ni
+  moléculas complejas, ni células, ni conciencia. La química prebiótica
+  en la Tierra primitiva dependió de inestabilidades y fluctuaciones
+  caóticas en reacciones, atmósfera, océanos. Sin caos, no habría
+  evolución, porque no existirían mutaciones ni trayectorias divergentes
+  que permiten la selección natural.
+\end{enumerate}
+
+Por lo tanto, enlazando con el tema central del trabajo de
+investigación, se puede concluir que el caos no es solo un fenómeno
+indeseable con el que nos topamos al estudiar el clima. Se trata de una
+parte esencial del clima, de la naturaleza y del Universo. Sin él, el
+mundo tal y como lo conocemos sería imposible. El caos es intrínseco a
+todo lo que observamos, y es la norma más que la excepción en todos los
+sistemas conocidos. Incluso el cerebro humano es caótico, y su exponente
+de Lyapunov ha podido calcularse (unos 1.5 segundos). Tenemos que ver,
+por tanto, nuestro entorno como algo evolutivo, no predestinado, en el
+que los seres humanos tienen capacidad de intervención, para bien o para
+mal. La creación y la elección de trayectorias están a nuestro alcance.
+Si el universo es creativo y abierto, también lo son nuestras acciones.
+El futuro no está escrito: lo construimos con nuestras elecciones
+colectivas ¡Elijamos bien!
+
+\chapter{Mi hipótesis final. El Principio de Compromiso Predictibilidad
+--
+Creatividad}\label{mi-hipuxf3tesis-final.-el-principio-de-compromiso-predictibilidad-creatividad}
+
+Como ya hemos visto con ejemplos en las secciones anteriores, si el
+sistema no es caótico, es muy predecible, conserva la información
+inicial, pero no se genera novedad. Al contrario, si el sistema es
+caótico, al introducirle energía externa, diluye o aleatoriza la
+información inicial y la convierte en nuevas estructuras. Por lo tanto,
+en base a estas observaciones formulo la siguiente Tesis:
+
+\begin{itemize}
+\item
+  En sistemas estables/no caóticos, el comportamiento es altamente
+  predecible y la información inicial se conserva con poca distorsión;
+  por eso la novedad estructural es limitada.
+\item
+  En sistemas inestables/caóticos, el aporte de energía y la
+  sensibilidad a perturbaciones dispersan (``diluyen'') la información
+  inicial, abriendo bifurcaciones y creando nuevas estructuras. A
+  cambio, disminuye la predictibilidad detallada más allá de un
+  horizonte de predicción.
+\end{itemize}
+
+El principio heurístico que se deduce es el siguiente:
+
+\textbf{``No es posible maximizar simultáneamente la predictibilidad
+detallada y la creación de novedad en sistemas dinámicos complejos:
+cuanto más creativa (abierta a nuevas estructuras) es la evolución,
+menos plenamente predecible es su trayectoria fina, y viceversa''}
+
+Por lo tanto, la tan ansiada omnisciencia en un universo creativo como
+el nuestro es un oxímoron. Podemos determinar patrones, pero no ver los
+detalles finos, es decir, podemos anticipar patrones (atractores, rangos
+de comportamiento, escenarios probables) mejor que trayectorias exactas
+a largo plazo. Cuanto mayor sea el aporte energético, mayor sera el
+caos, y menor será la predictibilidad, pero al mismo tiempo se
+aumentarán las posibilidades de creación de nuevas estructuras. Un
+universo capaz de crear nuevas formas no puede ser, al mismo tiempo,
+totalmente transparente a nuestra predicción.
+
+Por tanto, la creación de nuevas estructuras no puede predecirse
+matemáticamente (ni con simulaciones por ordenador): surge del propio
+universo. Es como si la evolución cósmica escapase a nuestra capacidad
+de predicción. Uno puede hacerse el experimento mental: ¿habría sido
+posible, en el instante del Big Bang, imaginar o simular que, a partir
+de un punto de energía infinita, surgiría un planeta como la Tierra, con
+vida y una civilización avanzada como la nuestra? Del mismo modo,
+¿podríamos modelar o simular de antemano la aparición de vida compleja a
+partir de moléculas sencillas de carbono, hidrógeno, nitrógeno y
+oxígeno?
+
+En definitiva, podemos plantear que \textbf{``la novedad estructural es
+impredecible en detalle en un sistema caótico''}.
+
+\chapter{El Principio de Compromiso Predictibilidad -- Creatividad en la
+práctica.}\label{el-principio-de-compromiso-predictibilidad-creatividad-en-la-pruxe1ctica.}
+
+Por último, intentaré cerrar el círculo en este proyecto de
+investigación viendo si se cumple el principio propuesto en la sección
+anterior, en los sistemas que he estudiado. Para ello, vamos a ver como
+se comportan cada uno de los sistemas en su configuración caótica y no
+caótica.
+
+Empecemos por el péndulo. En su versión simple (un solo brazo), el
+péndulo es totalmente predecible, pero como se puede ver en la figura
+con el espacio de fase, el número de estados explorados es pequeño. En
+cambio, el péndulo doble es impredecible, pero explora prácticamente
+todo el espacio de fase disponible. En el péndulo doble, la novedad es
+alta.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{06-filosofia/simple.png}}
+
+}
+
+\caption{Péndulo simple}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{06-filosofia/doble.png}}
+
+}
+
+\caption{Péndulo doble}
+
+\end{figure}%
+
+Veamos que pasa con el mapa logístico. Pues se vuelve a ver lo mismo, en
+la zona caótica el número de estados explorados es pequeño, mientras que
+en la caótica muy alto. Hay que tener en cuenta que además en el caso
+caótico, cada uno de los atractores que vemos es un fractal con
+infinitos puntos. En cambio, en la zona no caótica el número de puntos
+es finito, pues el mapa logístico acaba terminando en un punto fijo.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{06-filosofia/logisticanocaos.png}}
+
+}
+
+\caption{Mapa logístico en zona no caótica}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{06-filosofia/logisticacaos.png}}
+
+}
+
+\caption{Mapa logístico en zona caótica}
+
+\end{figure}%
+
+Por último, analicemos el comportamiento en el caso de la rueda caótica.
+Cuando quitamos las canicas, la rueda gira siempre en el mismo sentido.
+Por lo tanto, el nivel de incertidumbre se ve reducido; siempre podemos
+saber para qué lado gira la rueda. Cuando añadimos las canicas, el
+sistema se vuelve impredecible en cuando a su sentido de giro. De ahí
+que aparezca el segundo lado del atractor. El sistema explora, por lo
+tanto, más estados.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{06-filosofia/ruedanocaos.png}}
+
+}
+
+\caption{Rueda caótica sin canicas}
+
+\end{figure}%
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{06-filosofia/ruedacaos.png}}
+
+}
+
+\caption{Rueda caótica con canicas}
+
+\end{figure}%
 
 
 

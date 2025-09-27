@@ -47,6 +47,10 @@ Se trata, a grosso modo, de una sucesión en el que el siguiente valor depende d
 * O bien se combina consigo misma (productos, potencias),
 * O involucra funciones no lineales (exponenciales, trigonométricas…).
 
+El contenido que desarrollaré en las siguientes secciones está basado en este curso online sobre el mapa logístico.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PVo1mHnU7WU" frameborder="0" allowfullscreen></iframe>
+
 ## Relevancia
 
 Su relevancia radica en que, a partir de una ecuación muy elemental, se observa toda la complejidad característica del caos: bifurcaciones, ciclos de periodo en expansión y dependencia sensible a las condiciones iniciales. Además su popularidad se debe a que esta ecuación modela muy bien diversos sistemas físicos como pueden ser:

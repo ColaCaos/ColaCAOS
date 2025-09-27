@@ -9,7 +9,7 @@ execute:
 
 # El exponente de Lyapunov y el caos
 
-En la siguiente gráfica vemos lo que hemos ido contanto pormenorizadamente en la sección anterior. Cada vez que el sistema está en una zona no caótica, el exponente de Lyapunov es negativo.
+En la siguiente gráfica vemos lo que hemos ido contando pormenorizadamente en la sección anterior. Cada vez que el sistema está en una zona no caótica, el exponente de Lyapunov es negativo.
 
 ```{python}
 import numpy as np
@@ -152,7 +152,7 @@ Decir que una serie temporal es **caótica** significa, de acuerdo a la teoría 
 
 Por ejemplo, ir anotando los números que salen directamente de una ruleta no es una serie caótica, ya que no hay ninguna regla para saber $x_{n+1}$ si conoces $x_n$ exactamente. Eso a pesar de ser impredecible a largo plazo. Es muy importante hacer notar, que un sistema caótico tiene unas reglas deterministas muy claras.   En este caso **no se puede calcular ningún exponente de Lyapunov** porque no hay función $f$ continua o diferenciable que escriba $x_{n+1} = f(x_n)$. Si intentáramos “forzar” un cálculo, estaríamos midiendo ruido y obtendríamos resultados sin sentido práctico: un “valor de $\lambda$” aquí no nos dice nada sobre determinismo o caos, sino solo sobre la aleatoriedad de los datos.
 
-Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A todo el mundo le parece que predecir el valor de una acción a lo largo del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como fuciona la bolsa. El precio de una acción o de un índice bursátil depende de decenas de variables:  
+Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A todo el mundo le parece que predecir el valor de una acción a lo largo del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como funciona la bolsa. El precio de una acción o de un índice bursátil depende de decenas de variables:  
      • Resultados financieros de las empresas.  
      • Noticias económicas o políticas.  
      • Sentimiento de los inversores y rumores.  
@@ -271,7 +271,7 @@ https://www.stratumfive.com/climate/weather-forecasting-and-chaos-theory/
 
 Aquí se habla de un horizonte de predictibilidad para el tiempo de 8 a 10 días. La cuestión es que por lo aprendido en este proyecto, éste límite es una barrera que no vamos a poder superar. Si bien en los últimos 50 años se ha producido un formidable incremento de la precisión con la que hacemos las predicciones, pasando de predicciones fiables a un día a tener buenas predicciones a 5 días, el llegar a batir este límite dos semanas va a ser imposible. 
 
-Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar que el sistema solar tiene un horizonte de prectibilidad de unos 5 millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de que tenemos esa preciosa fórmula de la gravitación universal, que funciona tan bien, su propagación hacia el futuro, cuando tenemos en cuenta los planetas que componen el sistema solar, deja de ser válida a 4 millones de años vista, que en términos cósmicos es poco tiempo. Y es que no solamente tenemos errores iniciales, al no poder tener en cuenta todos los pequeños objetos que vagan por el sistema solar, sino porque el sistema es inherentemente caótico. De hecho, tal y como anticipó Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico, y que presenta un exponente de Lyapunov positivo en determinadas circustancias. 
+Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar que el sistema solar tiene un horizonte de predictibilidad de unos 5 millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de que tenemos esa preciosa fórmula de la gravitación universal, que funciona tan bien, su propagación hacia el futuro, cuando tenemos en cuenta los planetas que componen el sistema solar, deja de ser válida a 4 millones de años vista, que en términos cósmicos es poco tiempo. Y es que no solamente tenemos errores iniciales, al no poder tener en cuenta todos los pequeños objetos que vagan por el sistema solar, sino porque el sistema es inherentemente caótico. De hecho, tal y como anticipó Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico, y que presenta un exponente de Lyapunov positivo en determinadas circunstancias. 
 
 
 

@@ -44,10 +44,10 @@ $$
 
 Y además, de la sección sobre los puntos fijos sabemos que un punto fijo es estable si $\lvert f'(x^*)\rvert < 1$.
 
-* **En $x^*_1=0$:** $f'(0)=r$. Estable si $0 < r < 1$. Es decir, para valores de $r$ comprendidos entre 0 y 1, el valor de $x=0$ es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en $x=0$. Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un $r<1$, veremos que la función lógistica solamente toca a la recta $y=x$ en $x=0$
+* **En $x^*_1=0$:** $f'(0)=r$. Estable si $0 < r < 1$. Es decir, para valores de $r$ comprendidos entre 0 y 1, el valor de $x=0$ es un punto fijo. Lo que ocurre es bien sencillo. Como ya comentamos anteriormente, puesto que la población va decreciendo tras cada iteración, acaba convergiendo en $x=0$. Gráficamente también es fácil verlo. Si vamos al diagrama de telaraña, y ponemos un $r<1$, veremos que la función logística solamente toca a la recta $y=x$ en $x=0$
 * **En $x^*_2=1-1/r$:** $f'(x^*_2)=2-r$. Estable si $\lvert2-r\rvert<1$ → $1 < r < 3$. Aquí vemos que el mapa logístico converge a un punto, que es el punto fijo. Es lo que habíamos visto ya en las soluciones. De nuevo, animo al lector a probarlo en el diagrama de telaraña interactivo. Con cualquier valor de $x_0$ que pongan para valores de $r$ entre 1 y 3, siempre se convergerá a un punto que es $x^*_2=1-1/r$ .
 
-Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solmente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo $r/4$, pero al final se estabilizar en un valor menor que es igual a $x^*_2=1-1/r$ .
+Tal y como se muestra en la siguiente figura, a medida que el factor de crecimiento de la población crece, el número final de individuos aumenta de forma constante. Como vemos, el valor final de población, siempre está por debajo del valor máximo de la función logística. Solamente coincide el valor final con el máximo en r=2. ¿Qué quiere decir esto?. Que la población puede que en las primeras iteraciones alcance el valor máximo $r/4$, pero al final se estabilizará en un valor menor que es igual a $x^*_2=1-1/r$ .
 
 ```{python}
 import numpy as np
@@ -158,7 +158,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Pero, ¿qué pasa cuando subimos por encima de $r=3$?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para $r=3.01$? la sucesión orbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento $r$ es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse. 
+Pero, ¿qué pasa cuando subimos por encima de $r=3$?. Pues que la derivada en el punto fijo ya no es menor en valor absoluto que 1, y por lo tanto el punto fijo ya no atrae las iteraciones. El punto fijo, sigue siendo punto fijo, es decir, si introducimos su valor, la función vuelve ahí; pero desde cualquier otro punto, ya no va a converger hacia ese valor. En este caso, vemos que para $r=3.01$? la sucesión órbita entre dos puntos. Es decir, la población final alterna entre dos valores distintos de individuos. Biológicamente, sucede porque la tasa de crecimiento $r$ es lo bastante alta para que, cuando la población se acerca a la capacidad máxima del entorno, en la siguiente generación haya un colapso por exceso de competencia (o agotamiento de recursos), y luego vuelva a recuperarse. 
 
 
 ```{python}

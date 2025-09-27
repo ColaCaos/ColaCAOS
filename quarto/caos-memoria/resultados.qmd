@@ -9,17 +9,61 @@ execute:
 
 # Resultados
 
+En cuanto a lo aportado por mi trabajo, he de decir que no pretendo descubrir el caos, sino **mostrar de forma operativa y reproducible que la predictibilidad del mundo es limitada y cuantificable**. Lo demuestro con: (i) simulaciones del mapa logísitico que muestran la extrema sensibilidad a las condiciones iniciales, y donde expresiones algebraicamente equivalentes divergen por aritmética finita, (ii) un experimento físico que contrasta péndulo doble (caótico) con simple (predecible), (iii) un análisis de predicción–observación que estima tasas de crecimiento del error (Lyapunov “operativo”), y (iv) el diseño de un sistema caótico propio. Con ello paso de la idea abstracta a evidencias medibles y a conjeturar un principio heurístico: más novedad estructural ↔ menos predictibilidad detallada.
+
 A continuación desglosaré las principales aportaciones propias realizadas a lo largo de este proyecto, en términos de resultados científicos, investigaciones llevadas a cabo y código generado.
 
-## Resultados 
+## Principales resultados 
+
+- En la sección [Efecto Mariposa](https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html) se muestra la  sensibilidad extrema a las condiciones iniciales de un sistema caótico como el mapa logístico (**efecto mariposa**). No solo eso, sino que se demuestra también la sensibilidad a la precisión finita con la que se hacen los cálculos en un ordenador (**efecto polilla**). Además se realiza el análisis de regresión de los errores, y se calcula mediante la multiplicación de las derivadas el exponente de Lyapunov. De esta forma, se cuantifica y demuestra la existencia de funciones matemáticas sujetas al caos y no predecibles computacionalmente.
+
+- En la sección [Mapa de Fases](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/fractal.html) se demuestra vía simulación que el péndulo doble es caótico. No se es capaz de encontrar una diferencia de condiciones iniciales lo suficientemente pequeña para que la trayectorias de dos péndulos dobles sea idéntica. 
+
+- En [Experimentos](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/experimentos.html) muestro como bajo la misma configuración de trabajo, un péndulo doble se comporta caóticamente mientras que un péndulo simple no. 
+
+- En [Caos en las predicciones meteorológicas](https://colacaos.github.io/ColaCAOS/03-meteorologia/predicciones.html) se recopilan las predicciones meteorológicas para Galapagar durante tres meses. Dichas predicciones son comparadas con las observaciones reales para calcular los errores de predicción de diversas variables meteorológicas. Asumiendo que el error se debe fundamentalmente a la inexactitud de las condiciones iniciales, se cuantifica el crecimiento exponencial de los errores debido a la dinámica caótica de la atmósfera.
+
+- En [Evaluación de las predicciones climáticas](https://colacaos.github.io/ColaCAOS/04-clima/evaluacion.html), las predicciones climáticas realizadas hace 20-30 años son comparadas con la realidad actual. Se encuentran casos de proyecciones extremas no materializadas (especialmente las predicciones regionales o sobre eventos extremos como huracanes, inundaciones y sequías), y otras que sí se han cumplido (como el aumento de la temperatura). Se demuestra así que estamos lejos de tener una predicción climática fiable, debido fundamentalmente a la naturaleza caótica del clima. 
+
+- En [Simulación y funcionamiento caótico](https://colacaos.github.io/ColaCAOS/05-experimentos/intro.html) se analiza el comportamiento caótico de un sistema inventando por mí. El atractor resultante es muy parecido al de Lorenz. 
+
+- Por último, en [Mi hipótesis final. El Principio de Compromiso Predictibilidad – Creatividad](https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo07.html) se conjetura el principio de que el caos borra la información inicial de los sistemas, pero a cambio proporciona novedad no predecible. Este principio es observado en los distintos experimentos realizados en el proyecto y [El Principio de Compromiso Predictibilidad – Creatividad en la práctica](https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo08.html). 
 
 
-[Efecto mariposa](../01-logistica/lyapunov.qmd#sec-sensibilidad)       /// {#sec-sensibilidad}
-[Efecto mariposa](../01-logistica/lyapunov.qmd#sec-inestabilidad) 
-[Efecto mariposa](../01-logistica/lyapunov.qmd#sec-exponente)
+
+## Código generado  
+
+Este es el listado de los principales programas realizados con la ayuda del modelo o4-mini-high de OpenAi. 
+
+* Diagrama interactivo de telaraña de la función logística. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/cobweb.qmd)  y [resultado](https://colacaos.github.io/ColaCAOS/01-logistica/cobweb.html) 
+
+* Análisis gráfico de las bifurcaciones.  [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/bifurcaciones.qmd)  y [resultado](https://colacaos.github.io/ColaCAOS/01-logistica/bifurcaciones.html)
+
+* Diagrama interactivo de bifurcaciones.  [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/simulacion.qmd)  y [resultado](https://colacaos.github.io/ColaCAOS/01-logistica/simulacion.html)
+
+* Gráficas que muestran la estructura fractal de las bifurcaciones. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/Caos.qmd)  y [resultado](https://colacaos.github.io/ColaCAOS/01-logistica/Caos.html)
+
+* Sensibilidad a las condiciones iniciales y a la precisión finita.  [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/lyapunov.qmd)  y [resultado](https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html)
+
+* Abanico de péndulos dobles. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumFan.py)  y [resultado](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4)
+
+* Simulación de múltiples péndulos dobles en una rejilla. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumBoxes.py)  y [resultado](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulumCajas.mp4)
+
+* Mapa de fases de múltiples péndulos dobles. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/pendulum720Animation.py)  y [resultado](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4)
+
+* Mapa de bifurcaciones y exponente de Lyapunov del péndulo doble. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/PendulumLyapunov.py) y [resultado](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/doble.html)
+
+* Distancia recorrida por el péndulo doble. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumDistance.py)  y [resultado](https://colacaos.github.io/ColaCAOS/02-pendulo-doble/estadisticas.html)
+
+* Programa para seguir en tiempo real el péndulo doble y simple. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/python/Tracker/TrackerRuben.py)
+
+* Programa para recoger la predicción meteorológica para Galapagar para 14 días y almacenaje sucesivo. [Código](https://github.com/ColaCaos/ColaCAOS/blob/master/meteoblue/DailyScript.py)
+
+* Mi sistema caótico. [Código de Algodoo listo para simular](https://colacaos.github.io/ColaCAOS/05-experimentos/NuevaRuedaCaoticaSimetricaAnilloConSinCanicasAceroFuenteMejoradaMasAgua_Transfer_Estadio_Inicial_0.phz)  
 
 
-## Código generado
+
+
 
 
 

@@ -559,7 +559,7 @@ $$
 = \frac{13.191}{20} = 0.6596.
 $$
 
-Como vemos, el valor $0.6596$ es muy próximo al teórico $0.6931$. De hecho, $e^{0.6596}=1.934$ que está muy cerca de $2$.
+Como vemos, el valor $0.6596$ es muy próximo al teórico $0.6931$. De hecho, $e^{0.6596}=1.934$ que está muy cerca de $2$. **Este es el mismo valor que obteníamos de la regresión de los errores en la sección anterior**
 
 Para $N = 20$ hemos obtenido $\lambda_{20} \approx 0.6596$. Si continuáramos con más iteraciones, como $N = 100$ o $N = 1000$, veríamos que $\lambda_{N}$ se acerca gradualmente a $0.6931$. Esto muestra que, aunque las primeras iteraciones pueden desviarse, al promediar sobre muchas iteraciones el resultado converge al **valor exacto** del exponente de Lyapunov para $r = 4$.
 

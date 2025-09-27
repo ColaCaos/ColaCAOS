@@ -15,7 +15,7 @@ Los objetivos que me he marcado a la hora de hacer este proyecto se dividen en d
 
 Los objetivos científicos son los siguientes:
 
-- Entender qué es el caos y "jugar" con sistemas caóticos para ver como se comportan. Para ello usaremos dos "juquetes":
+- Entender qué es el caos y "jugar" con sistemas caóticos para ver como se comportan. Para ello usaremos dos "juguetes":
   - El **mapa logístico**, como juguete matemático. El mapa logístico me permitirá entender lo que es el horizonte de predictibilidad a través del computo del exponente de Lyapunov, y estudiar en el ordenador el efecto mariposa
   - El **péndulo doble**, como juguete físico. Mediante la simulación y observación real de un péndulo doble, comprenderé mejor en qué se traduce la sensibilidad a las condiciones iniciales en un sistema caótico
 

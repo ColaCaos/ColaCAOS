@@ -62,7 +62,6 @@ book:
       chapters:
         - 05-experimentos/intro.qmd
         - 05-experimentos/funcionamientoCaotico.qmd
-        - 05-experimentos/test.qmd
     
     - part: "Determinismo y Caos"
       chapters:
