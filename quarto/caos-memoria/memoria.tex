@@ -13,6 +13,9 @@
 \usepackage{xcolor}
 \usepackage[margin=2cm]{geometry}
 \usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage[spanish]{babel}
 \usepackage{mathtools}
 \setcounter{secnumdepth}{5}
 \usepackage{iftex}
@@ -337,7 +340,6 @@ predicción meteorológica}
 \date{}
 \begin{document}
 
-
 \begin{titlepage}
   \centering
   % Imagen de portada (opcional)
@@ -349,14 +351,20 @@ predicción meteorológica}
   y su relación con la predicción meteorológica\par}
 
   \vspace{0.8cm}
-  {\Large\color{gray!60} \textit{Memoria}}\par
+  {\Large\color{gray!90} \textit{Memoria}}\par
 
   \vspace{1.2cm}
   {\Large Rubén Torre Merino}\par
 
   \vfill
+  \href{https://colacaos.github.io/ColaCAOS/}{\includegraphics[height=1.2em]{favicon.png}\hspace{0.3em}\texttt{https://colacaos.github.io/ColaCAOS/}} \\[0.8cm]
+
+
+  \href{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}{\faGithub\hspace{0.3em}\texttt{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}} \\[1cm]
+
   {\large \today}\par
 \end{titlepage}
+
 
 \renewcommand*\contentsname{Índice}
 {
@@ -2185,12 +2193,20 @@ valor final, bien sea el punto fijo que hemos calculado previamente, o
 cualquiera de los valores de las órbitas periódicas. Por ejemplo, para
 \(r=2.8\)
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-2-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-2-output-1.pdf}
+  \caption{Valor final del mapa logístico en zona no caótica}
+\end{figure} 
 
 Y para \(r=3.1\), vemos como también los puntos alcanzados son los
 mismos para valores próximos de inicio de la sucesión.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-3-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-3-output-1.pdf}
+  \caption{Valor final del mapa logístico en zona de primera bifurcación}
+\end{figure} 
 
 En los dos casos anteriores, no parece que la evolución del sistema sea
 sensible a la condición inicial de partida. Tras unas pocas iteraciones,
@@ -2200,7 +2216,11 @@ Pero, ¿qué pasa cuando estamos en las zonas caóticas?. Veamos la
 iteración del mapa logístico para \(r=3.69\) partiendo de dos valores
 muy similares, que solo se separan en \(10^{-5}\) unidades.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-4-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-4-output-1.pdf}
+  \caption{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}
+\end{figure} 
 
 A la vista del gráfico, vemos como a partir de la iteración 10 empiezan
 a haber pequeñas diferencias que se van amplificando a medida que avanza
@@ -2210,13 +2230,22 @@ condiciones iniciales.
 Probemos con una diferencia de valores iniciales aún mas pequeña, en
 este caso \(10^{-7}\) unidades.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-5-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-5-output-1.pdf}
+  \caption{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}
+\end{figure}    
 
 Ahora la separación de ambas simulaciones se produce a partir de la
 iteración número 30. Vamos con una diferencia aún mas pequeña, ahora
 \(10^{-10}\) unidades.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-6-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-6-output-1.pdf}
+  \caption{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}
+\end{figure}  
+
 
 La separación entre ambas curvas empieza a hacerse visible a partir de
 la iteración 50. ¿Qué pasa si hacemos la diferencia aún más pequeña, en
@@ -2224,7 +2253,12 @@ este caso \(10^{-15}\) unidades?. Pues como vemos en la siguiente
 gráfica, a partir de la iteración 85 empezamos a ver la divergencia de
 ambas sucesiones.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-7-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-7-output-1.pdf}
+  \caption{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}
+\end{figure}  
+
 
 ¿Qué está pasando aquí?. ¿Cómo puede ser que dos valores iniciales que
 se diferencian en un valor tan pequeño como \(10^{-15}\) unidades den
@@ -2282,7 +2316,13 @@ manera diferente según los cálculos aritméticos que hagamos con ellos.
 En el siguiente plot, vemos los errores en un ordenador entre las dos
 fórmulas al partir del valor \(x_0=0.2\) y con un \(r=4\).
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-8-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-8-output-1.pdf}
+  \caption{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones}
+\end{figure}  
+
+
 
 Vemos como al principio el error es imperceptible, pero a media que
 avanzamos va creciendo. A partir de la iteración 50 este error se hace
@@ -2299,7 +2339,12 @@ errores. Para poder bien los errores al principio y al final, vamos a
 usar una escala logarítmica en el eje Y. El resultado se muestra a
 continuación.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-9-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-9-output-1.pdf}
+  \caption{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones (escala logarítmica)}
+\end{figure}  
+
 
 ¿Qué es lo que vemos?. Que los errores crecen linealmente dentro de la
 escala logarítmica.
@@ -2594,6 +2639,7 @@ decimales.
   >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1613}}
   >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4677}}
   >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2903}}@{}}
+\caption{Cálculo paso a paso del exponente de Lyapunov para \(r=4\)}\label{tab:lyapunov}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 \(n\)
@@ -2683,7 +2729,12 @@ haremos 1000 iteraciones en lugar de 20, calcularemos la derivada en
 cada uno de los puntos, y sumaremos sus logaritmos. El resultado es el
 que se muestra a continuación
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-10-output-1.pdf}}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/lyapunov_files/figure-pdf/cell-10-output-1.pdf}
+  \caption{Cálculo del coeficiente de Lyapunov para todo el mapa logístico}
+\end{figure} 
 
 Vamos a interpretar esta gráfica, y ver si cuadra con los conocimientos
 previos del mapa logístico.
@@ -2778,13 +2829,24 @@ En la siguiente gráfica vemos lo que hemos ido contando
 pormenorizadamente en la sección anterior. Cada vez que el sistema está
 en una zona no caótica, el exponente de Lyapunov es negativo.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/criterio_files/figure-pdf/cell-2-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/criterio_files/figure-pdf/cell-2-output-1.pdf}}
+  \caption{Diagrama de bifurcación y exponente de Lyapunov en función de $r$}
+\end{figure}
+
 
 De hecho, si hacemos zoom en la zona donde aparece el caos, vemos que en
 las ventanas de periodicidad el exponente de Lyapunov se vuelve
 negativo.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/criterio_files/figure-pdf/cell-3-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio]{01-logistica/criterio_files/figure-pdf/cell-3-output-1.pdf}
+  \caption{Diagrama de bifurcación y exponente de Lyapunov en función de $r$ (zoom)}
+\end{figure}
+
+
 
 La pregunta que debemos hacer es la siguiente, \textbf{¿es el exponente
 de lyapunov un indicador que nos puede decir si una serie temporal que
@@ -3117,14 +3179,11 @@ En este proyecto, he optado por la segunda alternativa, y los resultados
 han sido espectaculares. Usando uno de los modelos más avanzados de
 OpenAI, el mini4-high, la codificación resultó directa y sin errores.
 Copiando el código generado, y ejecutándolo desde mi ordenador pude
-tener en unos pocos minutos
+tener en unos pocos minutos las simulaciones listas para su interpretación.  
 
 \chapter{Sensibilidad a las condiciones
 iniciales}\label{sensibilidad-a-las-condiciones-iniciales}
 
-\textbf{Autor:} Rubén Torre Merino
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Descripción General}\label{descripciuxf3n-general}
 
@@ -3139,7 +3198,11 @@ verás en el próximo vídeo los péndulos al ser lanzados parecen estar
 todos en la misma posición, pero a medida que vamos avanzando en la
 simulación se separan totalmente.
 
-Figura 1: Esquema del doble péndulo
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/PenduloDoble.png}
+  \caption{Esquema del doble péndulo}
+\end{figure}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -3216,6 +3279,8 @@ de péndulos la simulación no llega a ser en tiempo real. Por eso le
 pedía a ChatGPT que incluyera un texto en la simulación que mostrase el
 tiempo real durante la simulación.
 
+El lector interesado puede ver el video en el siguiente link \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}{abanico de 10.000 péndulos}
+
 El resultado es sorprendente e hipnotizante. ¿Como puede ser que
 péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si
 observamos atentamente el vídeo hasta el segundo 1 de la simulación
@@ -3224,6 +3289,12 @@ llegan al otro extremo, vemos que el ``abanico'' ya se empieza a abrir.
 Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya
 estamos con una divergencia total, y a partir de ahí cada uno va a su
 bola, !!caos total!!.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/abanico.png}
+  \caption{Segundo número 5 de la simulación (10.000 pendulos separados inicialmente 10 microgrados)}
+\end{figure}
 
 Ahora reflexionemos. Péndulos que fueron lanzados con diferencias de
 milésimas de grado, tienen trayectorias que divergen enormemente tras 5
@@ -3354,6 +3425,17 @@ Luna: hablamos de fases para referirnos a la iluminación relativa de la
 Luna por el Sol tal y como lo vemos desde la Tierra. Así tenemos fase
 creciente, menguante, llena, etc.
 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/mapafases1.png}
+  \caption{Estado de 36x36 péndulos dobles tras 30 segundos de simulación}
+\end{figure}
+
+
+De nuevo, animo al lector a ver el vídeo completo en \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}{Simulación de 36x36 péndulos dobles}
+
+
 Vemos una zona central en la que los péndulos parten de ángulos
 pequeños. En este caso observamos que el comportamiento es muy similar
 al de un péndulo simple. Es, por así decirlo, una zona de estabilidad
@@ -3483,7 +3565,13 @@ verde/amarillo para valores intermedios,
 
 rojo para valores altos (\(\approx 255\)).
 
-El resultado de la simulación se puede ver en el siguiente vídeo.
+El resultado de la simulación se puede ver en el siguiente vídeo \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}{Mapa de fase detallado}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/mapafases2.png}
+  \caption{Mapa de Fase Detallado de 720x720 péndulos}
+\end{figure}
 
 Como anticipábamos, en la zona central hay estabilidad, y fuera de ella
 no se ven patrones, sino que aparece una especie de ruido. En estas
@@ -3497,9 +3585,9 @@ iniciales vamos a hacer zooms en áreas alejadas del centro. Se hacen
 hasta tres zooms consecutivos hasta llegar a una zona rectangular de
 0.01 grados x 0.01 grados en las que se simulan los 720x720 péndulos. No
 importa cuanto nos adentramos en el mapa de fase: no se consigue que los
-péndulos vecinos vayan a la vez
+péndulos vecinos vayan a la vez. El vídeo detallado está en \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/ZoomSucesivo.mp4}{Zoom Sucesivo}
 
-En el siguiente vídeo aparece la misma simulación, pero esta vez dejando
+En el siguiente vídeo \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFaseAcelerado.mp4}{Zoom Sucesivo ampliado} aparece la misma simulación, pero esta vez dejando
 que corra más el tiempo. En ella se ve que a medida que avanza la
 simulación la zona central se va reduciendo, y el caos se apodera de más
 zonas. Hay que tener en cuenta que estamos en un sistema sin rozamiento,
@@ -3508,7 +3596,7 @@ parecían estables, se convierten en caóticas, quedando una pequeña
 porción como estable.
 
 Se pueden ver aparecer algunas pequeñas ``islas'' de estabilidad.
-Hagamos zoom en una de ellas y veamos como avanza la simulación en ella:
+Hagamos zoom en una de ellas y veamos como avanza la simulación en ella (vídeo en \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFaseAceleradozoom.mp4}{Zoom en islas de estabilidad}) :
 
 Al igual que en el caso del mapa logístico hay pequeñas zonas de
 estabilidad alejadas del centro, rodeadas de caos. Pero la verdad es que
