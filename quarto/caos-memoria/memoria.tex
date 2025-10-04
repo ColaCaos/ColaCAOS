@@ -357,10 +357,20 @@ predicción meteorológica}
   {\Large Rubén Torre Merino}\par
 
   \vfill
-  \href{https://colacaos.github.io/ColaCAOS/}{\includegraphics[height=1.2em]{favicon.png}\hspace{0.3em}\texttt{https://colacaos.github.io/ColaCAOS/}} \\[0.8cm]
+  \begingroup
+  \centering
+  \small
+  \setlength{\baselineskip}{1.1em}
 
+  \href{https://colacaos.github.io/ColaCAOS/}{\includegraphics[height=1.2em]{favicon.png}\hspace{0.3em}\texttt{https://colacaos.github.io/ColaCAOS/}}\\[0.25cm]
 
-  \href{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}{\faGithub\hspace{0.3em}\texttt{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}} \\[1cm]
+  \href{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}{{\textcolor{red}{\raisebox{-0.1ex}{\faFilePdf}}}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}}\\[0.25cm]
+
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}{{\LaTeX}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}}
+  \par
+  \endgroup
+
+  \vspace{1.0cm}
 
   {\large \today}\par
 \end{titlepage}
@@ -838,8 +848,7 @@ En la versión github de este proyecto disponible en \href{https://colacaos.gith
 No he incluido estas secciones en la memoria, pues son de conocimiento general, si bien para mi fueron esenciales su desarrollo para poder comprender el fenómeno del caos a nivel matemático. 
 
 
-Como dijimos en la sección anterior, a partir de
-\(r_\infty \approx 3.56995\), el mapa logístico entra en un
+A partir de \(r_\infty \approx 3.56995\), el mapa logístico entra en un
 \textbf{régimen caótico}. Para \(r < r_\infty\), aparecían sucesivas
 bifurcaciones de periodo \(1 \to 2 \to 4 \to 8 \to \cdots\). En
 \(r = r_\infty\), esas bifurcaciones se acumulan y ya no hay ciclos
@@ -2346,7 +2355,7 @@ verde/amarillo para valores intermedios,
 
 rojo para valores altos (\(\approx 255\)).
 
-El resultado de la simulación se puede ver en el siguiente vídeo \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}{Mapa de fase detallado}.
+El resultado de la simulación se puede ver en el siguiente vídeo \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}.
 
 \begin{figure}[h]
   \centering
@@ -2366,9 +2375,9 @@ iniciales vamos a hacer zooms en áreas alejadas del centro. Se hacen
 hasta tres zooms consecutivos hasta llegar a una zona rectangular de
 0.01 grados x 0.01 grados en las que se simulan los 720x720 péndulos. No
 importa cuanto nos adentramos en el mapa de fase: no se consigue que los
-péndulos vecinos vayan a la vez. El vídeo detallado está en \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/ZoomSucesivo.mp4}{Zoom Sucesivo}
+péndulos vecinos vayan a la vez. El vídeo detallado está en \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/ZoomSucesivo.mp4}
 
-En el siguiente vídeo \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFaseAcelerado.mp4}{Zoom Sucesivo ampliado} aparece la misma simulación, pero esta vez dejando
+En el siguiente vídeo \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFaseAcelerado.mp4} aparece la misma simulación, pero esta vez dejando
 que corra más el tiempo. En ella se ve que a medida que avanza la
 simulación la zona central se va reduciendo, y el caos se apodera de más
 zonas. Hay que tener en cuenta que estamos en un sistema sin rozamiento,
@@ -2377,7 +2386,7 @@ parecían estables, se convierten en caóticas, quedando una pequeña
 porción como estable.
 
 Se pueden ver aparecer algunas pequeñas ``islas'' de estabilidad.
-Hagamos zoom en una de ellas y veamos como avanza la simulación en ella (vídeo en \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFaseAceleradozoom.mp4}{Zoom en islas de estabilidad}) :
+Hagamos zoom en una de ellas y veamos como avanza la simulación en ella (vídeo en \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFaseAceleradozoom.mp4}) :
 
 Al igual que en el caso del mapa logístico hay pequeñas zonas de
 estabilidad alejadas del centro, rodeadas de caos. Pero la verdad es que
@@ -2395,7 +2404,11 @@ hasta un valor final, ya que está continuamente moviéndose al ser sin
 rozamiento, vamos a registrar el valor máximo en cada oscilación, y lo
 vamos a plotear para cada valor del ángulo inicial. Veamos el resultado:
 
-Figura 1: Bifurcaciones en el doble péndulo
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/BifurcacionesDoble.png}
+  \caption{Bifurcaciones en el doble péndulo}
+\end{figure}
 
 Vemos tres zonas diferenciadas. La primera de ella de 0 hasta 40 grados.
 En esta zona el valor de los máximos alterna entre varios puntos, con
@@ -2403,7 +2416,12 @@ muchas ramificaciones o bifurcaciones adicionales que se van expandiendo
 y replegando. En ningún momento podemos hablar de caos, sino de
 comportamiento periódico
 
-Figura 1: Bifurcaciones en el doble péndulo
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/BifurcacionesDobleZona1.png}
+  \caption{Bifurcaciones en el doble péndulo zoom 1}
+\end{figure}
+
 
 A partir de los 43 grados, el diagrama se abre en dos ramas
 perfectamente distinguibles, que se vuelven a juntar a partir de los 57
@@ -2413,7 +2431,13 @@ simple. De 64 grados hasta casi los 80 seguimos con las
 ramificaciones/bifurcaciones. Y a partir de los 80 grados tenemos el
 caos absoluto.
 
-Figura 1: Bifurcaciones en el doble péndulo
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/BifurcacionesDobleZona2.png}
+  \caption{Bifurcaciones en el doble péndulo zoom 2}
+\end{figure}
+
+
 
 Visto lo visto, me pregunté lo siguiente. ¿Cuál será el exponente de
 Lyapunov en cada una de las zonas?. Si bien yo no sabía como calcularlo,
@@ -2423,7 +2447,13 @@ existe un algoritmo llamado de ``método de Benettin'' que permite
 calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en
 mi ordenador. El resultado fue el siguiente:
 
-Figura 1: Exponente de Lyapuno para el péndulo doble
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/Lyapunov.png}
+  \caption{Bifurcaciones en el doble péndulo y exponente de Lyapunov}
+\end{figure}
+
+
 
 Al igual que con la función logística el exponente es prácticamente cero
 hasta los 80 grados. A partir de ahí sube abruptamente hasta valores de
@@ -2487,7 +2517,12 @@ simulación vaya acumulando la distancia total recorrida por cada péndulo
 en su extremo. El resultado para los primeros 20 segundos de simulación
 está en la siguiente figura:
 
-Figura 1: Distancia recorrida por el extremo del péndulo
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/Distancia20.png}
+  \caption{Distancia recorrida por el extremo del péndulo}
+\end{figure}
+
 
 Como podemos ver la trayectoria de los 20 péndulos diverge desde el
 principio en términos de la distancia recorrida, y puesto que estamos
@@ -2501,7 +2536,12 @@ siguiente figura, el sistema ya no parece tan impredecible. La distancia
 recorrida va incrementándose prácticamente de forma lineal cuando
 ampliamos la duración de la simulación.
 
-Figura 1: Distancia recorrida por el extremo del péndulo
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/Distancia1000.png}
+  \caption{Distancia recorrida por el extremo del péndulo tras 1000 segundos}
+\end{figure}
+
 
 Esto es lo que pasa en la predicción meteorológica y climática cuando
 hacemos predicciones a largo plazo. Si bien no podemos saber lo que
@@ -2580,7 +2620,7 @@ la sección \hyperref[sec-abanico]{Simulación}
 
 Aquí se ve el péndulo doble en movimiento con las diferentes partes
 representadas con un punto de un color, que es lo que le sirve al
-programa para determinar las trayectorias.
+programa para determinar las trayectorias \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulodobleVivo.mp4}.
 
 Estas son las trayectorias del punto rojo del péndulo en cinco tiradas
 desde la misma posición y con la misma velocidad inicial. Se puede
@@ -2588,15 +2628,19 @@ apreciar como al principio su trayectoria diverge muy rápidamente, pero
 al final, cuando ya han perdido mucha velocidad, hacen todos un
 recorrido muy similar hasta detenerse.
 
-\pandocbounded{\includegraphics[keepaspectratio]{02-pendulo-doble/experimentos_files/figure-pdf/cell-2-output-1.pdf}}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/experimentos_files/figure-pdf/cell-2-output-1.pdf}
+  \caption{Trayectoria real de 5 tiradas de un péndulo doble}
+\end{figure}
 
 Esta es la animación que represente la trayectoria que han seguido tres
 tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya
 que la trayectoria está ralentizada para que sea más fácil seguir como
-van divergiendo.
+van divergiendo.  \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/trayectorias.gif}
 
-%\href{?var:site-url/02-pendulo-doble/trayectorias.gif}{Ver animación en
-la web}
+
 
 \section{Comparación con el péndulo
 simple}\label{comparaciuxf3n-con-el-puxe9ndulo-simple}
@@ -2611,344 +2655,36 @@ Como podemos ver en la siguiente figura, a pesar de lanzarse cada una de
 las veces desde posiciones ligeramente distintas, las trayectorias son
 idénticas.
 
-\pandocbounded{\includegraphics[keepaspectratio]{02-pendulo-doble/experimentos_files/figure-pdf/cell-3-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/experimentos_files/figure-pdf/cell-3-output-1.pdf}
+  \caption{Trayectoria real de 5 tiradas de un péndulo doble}
+\end{figure}
 
 Y si miramos en la animación el ángulo del péndulo en cada una de las
 trayectorias, vemos de nuevo que en función del tiempo las trayectorias
-son muy similares.
+son muy similares \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/theta_vs_time.gif}.
 
-%\href{?var:site-url/02-pendulo-doble/theta_vs_time.gif}{Ver animación en
-la web}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{02-pendulo-doble/theta_vs_time.png}
+  \caption{Ángulos de 5 tiradas de un péndulo simple}
+\end{figure}
+
 
 He hecho este mismo gráfico con los datos de las tiradas del péndulo
-doble. El contraste con el péndulo doble es mayúsculo. En el péndulo
+doble \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/theta_vs_time_doble.gif}. El contraste con el péndulo doble es mayúsculo. En el péndulo
 doble no había ni una sola trayectoria idéntica, divergían
 continuamente. En el péndulo simple se ve como van iguales.
 
-%\href{?var:site-url/02-pendulo-doble/theta_vs_time_doble.gif}{Ver
-animación en la web}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{02-pendulo-doble/theta_vs_time_doble.png}
+  \caption{Ángulos de 5 tiradas de un péndulo doble}
+\end{figure}
+
 
 \part{La Meteorología y el Caos}
-
-\chapter{Meteorología y Caos}\label{meteorologuxeda-y-caos}
-
-\section{Introducción}\label{introducciuxf3n-5}
-
-A lo largo del proyecto hemos visto la manifestación del caos en modelos
-matemáticos como el mapa logístico, o en sistemas físicos como el
-péndulo doble.
-
-Uno de los retos del proyecto está en ver la manifestación del caos en
-la meteorología. Para ello vamos a proceder de dos maneras:
-
-En la primera de ellas haremos una medida indirecta de la influencia del
-caos en las predicciones meteorológicas. Durante varias semanas hemos
-recopilado predicciones meteorológicas para Galapagar, y contrastaremos
-estás predicciones con las observaciones realizadas para esos días. De
-esta manera veremos cómo divergen a medida que pasa el tiempo las
-predicciones anteriores. Dado que la atmósfera es un sistema caótico,
-cualquier pequeña desviación en las condiciones iniciales estimadas se
-amplifica a medida que van pasando los días debido a la actuación del
-caos.
-
-En la segunda haremos una estimación directa de un parámetro que hemos
-visto que identifica claramente la existencia de caos en un sistema. Se
-trata del exponente de Lyapunov. Cogeremos variables meteorológicas
-observadas y estimaremos su exponente de Lyapunov, esperando que sea
-positivo.
-
-\chapter{Predictibilidad de datos
-meteorológicos}\label{predictibilidad-de-datos-meteoroluxf3gicos}
-
-El primer paso a la hora de estudiar el caos en el tiempo meteorológico
-es disponer de datos históricos de los principales parámetros del
-tiempo. Existe una excelente web llamada
-\href{https://open-meteo.com/en/docs}{OpenMeteo} que proporciona datos
-históricos de observaciones y predicciones para cualquier localidad, y
-que además lo hace de forma gratuita en:
-
-https://open-meteo.com/en/docs
-
-Poniéndome manos a la obra, he descargado los datos históricos de
-Galapagar desde el año 1950. La serie histórica que devuelve la página
-web tiene este formato:
-
-latitude,longitude,elevation,utc\_offset\_seconds,timezone,timezone\_abbreviation\\
-40.597538,-4.0735474,885.0,7200,Europe/Berlin,GMT+2
-
-time,temperature\_2m\_mean (°C),precipitation\_sum
-(mm),wind\_speed\_10m\_mean (km/h)\\
-1950-06-07,20.7,0.50,13.1\\
-1950-06-08,18.4,2.30,14.4\\
-1950-06-09,18.6,3.10,10.0\\
-1950-06-10,18.6,3.90,7.8\\
-1950-06-11,18.8,0.50,11.2\\
-1950-06-12,17.0,0.00,9.0\\
-1950-06-13,18.9,0.20,7.2\\
-1950-06-14,21.1,0.00,8.0\\
-1950-06-15,20.2,0.00,12.8
-
-En segundo lugar, tenemos que saber qué hacer con estos datos. Después
-de varias búsquedas en ChatGPT y google encontré un artículo sencillo
-sobre cómo calcular el exponente de Lyapunov en datos meteorologicos.
-
-\begin{quote}
-\textbf{Referencia completa:} Özgür E. \& Yılmaz M. U. (2022). Using
-Chaos Theory to Determine Average Prediction Times of Different
-Meteorological Variables: A Case Study in Sivas. \emph{Int. J. Adv. Eng.
-Pure Sci.} 34(1):101--106.
-\end{quote}
-
-El artículo investiga cuánto tiempo, en promedio, pueden predecirse
-fiablemente tres series diarias (temperatura, velocidad del viento y
-humedad relativa desde el año 2006 hasta el 2010 para la estación de
-Sivas en Turquía) usando teoría del caos. Le pasé este artículo a
-chatGPT y le pedí que reprodujese los cálculos para mis datos de
-Galapagar. Una de las preguntas que me lanzó de vuelta chatGPT es que si
-quería usar los valores de los parámetros \(m\) y \(\tau\) que usaban en
-el estudio de la estación turca. Pedí de vuelta a ChatGPT que eran estos
-valores, pues al parecer jugaban un papel crítico a la hora de estimar
-el valor del exponente de Lyapunov.
-
-\section{\texorpdfstring{Explicación de \(\tau\) y
-\(m\)}{Explicación de \textbackslash tau y m}}\label{explicaciuxf3n-de-tau-y-m}
-
-\textbf{Retraso \(\tau\)}\\
-El retraso \(\tau\) indica cuántos pasos (días) ``saltamos'' entre cada
-coordenada al calcular el exponente de Lyapunov. En lugar de usar solo
-\(x(t)\), usamos\\
-\[
-\bigl(x(t),\,x(t+\tau),\,x(t+2\tau),\dots\bigr).
-\]\\
-- Si \(\tau\) es muy pequeño, \(x(t)\) y \(x(t+\tau)\) están muy
-correlacionados y aportan información casi redundante.\\
-- Si \(\tau\) es muy grande, \(x(t)\) y \(x(t+\tau)\) pueden ser casi
-independientes y perder la conexión dinámica.
-
-El artículo turco revela que es óptimo trabajar con un valor de \(\tau\)
-igual a 3 para la temperatura. Es decir, analizaremos el exponente de
-Lyapunov de la serie que nos da la temperatura en Galapagar cada tres
-días.
-
-\textbf{Dimensión de embedding \(m\)}\\
-La dimensión \(m\) es el número de valores escalonados que usamos para
-describir el estado del sistema:\\
-\[
-\mathbf X(t)=\bigl(x(t),\,x(t+\tau),\,x(t+2\tau),\dots,x(t+(m-1)\tau)\bigr).
-\]
-
-Es decir, el estado del sistema en un día, no es solamente el valor de
-la temperatura ese día, sino el valor de ese día más varios días
-anteriores. Pues bien, lo que necesitamos saber es cual es la dimensión
-óptima del estado del sistema. Si por ejemplo solo cojo un día, habrá
-muchos días que sean similares ya que habrá muchos casos en los que
-coincida la temperatura media para ese día. Sin embargo, esto es
-engañoso, ya que no se tiene en cuenta el estado pasado del sistema. No
-es lo mismo estar en un día a 15 grados de temperatura media después de
-haber pasado una ola de calor, que estar a 15 grados después de varios
-días de ola de frío. De acuerdo al artículo turco un valor de \(m=12\)
-es óptimo.
-
-Con estos valores de \(\tau\) y \(m\) le pedí a ChatGPT que me calculase
-el exponente de Lyapunov de la serie de temperaturas de Galapagar.
-ChatGPT usa en este caso el mismo algoritmo que para el cálculo del
-exponente de Laypunov de las simulaciones del péndulo doble. Se trata de
-un algoritmo bastante complicado cuya comprensión se me escapa. Hay que
-tener en cuenta que todos estos cálculos los realizo a con el modelo
-04-mini-high, que tiene una capacidad matemática muy superior a la
-esperada de un alumno de bachillerato, y que además es capaz de hacer
-los cálculos en un entorno interno de Python, y de plotear resultados.
-
-\section{Exponente de Lyapunov para la serie de valores de
-temperatura}\label{exponente-de-lyapunov-para-la-serie-de-valores-de-temperatura}
-
-A continuación muestro todos los valores de temperatura que hemos sacado
-de la web open-meteo. Obviamente en la serie original vemos que hay un
-componente estacional muy fuerte. Le pedía ChatGPT que estimase la
-variación estacional y que la quitase de los datos, dándome la gráfica
-de temperatura desestacionalizada. En ella se ven las variaciones de
-temperatura como algo más aleatorio, ya que hemos quitado las
-componentes estacionales. No obstante se ve una ligera subida de
-temperaturas desde el año 1950 hasta el presente, coincidente con el
-aumento de temperaturas observado a nivel global en la Tierra.
-
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-2-output-1.pdf}}
-
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-2-output-2.pdf}}
-
-Como curiosidad, le pedía a ChatGPT que hiciese una regresión no lineal
-de orden 2 para ver como ha ido evolucionando la temperatura media en
-Galapagar desde 1950.
-
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-3-output-1.pdf}}
-
-La temperatura media desestacionalizada ha subido desde 1950 hasta 2025
-aproximadamente
-\(\Delta y = y(2025) - y(1950) \approx 2.23\ ^\circ\mathrm{C}\).\\
-La tasa media de incremento es
-\(\displaystyle \frac{2.23\ ^\circ\mathrm{C}}{75\ \mathrm{años}} \approx 0.030\ ^\circ\mathrm{C}/\mathrm{año}\)
-(aproximadamente \(0.3\ ^\circ\mathrm{C}/\mathrm{década}\)). ¡Casi
-nada!!!!!
-
-Volvamos al tajo. Ahora le pido a ChatGPT que me haga el cálculo del
-exponente de Lyapunov para estos datos de temperatura, usando el mismo
-procedimiento y parámetros que en el artículo de la estación de Turquía.
-El exponente de Lyapunov máximo calculado para la temperatura
-desestacionalizada es\\
-\[
-\lambda_{\max} \approx 0.219\ \mathrm{día}^{-1}.
-\]
-
-\subsection{Horizonte de
-predictibilidad}\label{horizonte-de-predictibilidad-1}
-
-Veamos en qué se traduce esta exponente de Lyapunov. Al ser positivo
-sabemos que indica que estamos ante un sistema caótico, y que los
-errores se amplificarán con el tiempo. Veamos cuando multiplicamos por
-10 un error inicial de 0.1 grados centígrados:
-
-\begin{equation}
-T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
-  = \frac{1}{0.219}\ln(10) \approx 10.5\ \mathrm{días}.
-\end{equation}
-
-\subsection{Amplificación de un error inicial de 0.1 °C tras 15
-días}\label{amplificaciuxf3n-de-un-error-inicial-de-0.1-c-tras-15-duxedas}
-
-Y ahora veamos de forma gráfica cómo se va amplificando el error inicial
-de 0.1 grados tras quince días.
-
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-4-output-1.pdf}}
-
-Estos valores refuerzan las hipótesis iniciales con las que habíamos
-especulado. Pasadas dos semanas es muy difícil tener estimaciones
-precisas del tiempo meteorológico.
-
-\section{Exponente de Lyapunov para la serie de velocidad del
-viento}\label{exponente-de-lyapunov-para-la-serie-de-velocidad-del-viento}
-
-A continuación cargamos y desestacionalizamos los datos de velocidad del
-viento (1950--presente), mostramos la serie original y la
-desestacionalizada:
-
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-5-output-1.pdf}}
-
-En este caso no hay gran diferencia entre la componente
-desestacionalizada y sin desestacionalizar.
-
-\subsection{Exponente de Lyapunov}\label{exponente-de-lyapunov}
-
-El exponente de Lyapunov máximo calculado para la serie de viento
-desestacionalizada (usando Wolf, \(m=12\), \(\tau=3\)) es\\
-\[
-\lambda_{\max} \approx 0.414\ \mathrm{día}^{-1}.
-\]
-
-\subsection{Horizonte de
-predictibilidad}\label{horizonte-de-predictibilidad-2}
-
-Para un error inicial \(\varepsilon = 1\ \mathrm{km/h}\) y un factor de
-crecimiento 10× (\(L/\varepsilon=10\)):\\
-\[
-T = \frac{1}{\lambda_{\max}}\ln\Bigl(\frac{L}{\varepsilon}\Bigr)
-  = \frac{1}{0.414}\ln(10)\approx5.6\ \mathrm{días}.
-\]
-
-\subsection{Amplificación de un error inicial de 1 km/h tras 15
-días}\label{amplificaciuxf3n-de-un-error-inicial-de-1-kmh-tras-15-duxedas}
-
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/calculolyapunov_files/figure-pdf/cell-6-output-1.pdf}}
-
-\subsection{Comparación de la predictibilidad: viento vs
-temperatura}\label{sec-lyapunov}
-
-En el caso de la temperatura desestacionalizada, obtuvimos un exponente
-de Lyapunov\\
-\[
-\lambda_{\max}^{\rm temp}\approx0.219\ \mathrm{día}^{-1},
-\]\\
-lo que da un horizonte de predictibilidad de\\
-\[
-T_{\rm temp}
-=\frac{1}{0.219}\ln(10)\approx10.5\ \mathrm{días}.
-\]
-
-Para la velocidad del viento desestacionalizada hallamos\\
-\[
-\lambda_{\max}^{\rm viento}\approx0.414\ \mathrm{día}^{-1},
-\]\\
-y por tanto\\
-\[
-T_{\rm viento}
-=\frac{1}{0.414}\ln(10)\approx5.6\ \mathrm{días}.
-\]
-
-Observamos que\\
-\[
-T_{\rm viento}\approx\frac{1}{2}\,T_{\rm temp}.
-\]\\
-Esto significa que \textbf{la serie de viento es más caótica}: su
-exponente de Lyapunov es casi el doble, y los errores iniciales se
-amplifican mucho más rápido.
-
-Varias razones explican esta diferencia:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Variabilidad a corto plazo}: la velocidad del viento está
-  dominada por fenómenos de escala reducida (frentes, turbulencia,
-  ráfagas) que inducen cambios bruscos.
-\item
-  \textbf{Forzamientos estacionales débiles}: el ciclo anual aporta poca
-  oscilación comparado con la temperatura, por lo que el viento muestra
-  un comportamiento intrínsecamente más errático.
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{¿Qué es un ``forzamiento estacional''?}\\
-  Es la variación periódica y predecible que se repite cada año, debida
-  al cambio de estación (más sol y calor en verano, menos en invierno).
-\item
-  \textbf{Temperatura vs.~viento}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Temperatura}: el rango típico entre verano e invierno puede
-    ser de \(\pm10\ ^\circ\mathrm{C}\) o más. Es decir, el ciclo anual
-    supone una parte muy importante de la variabilidad total.\\
-  \item
-    \textbf{Viento}: la velocidad media cambia solo unos
-    \(\pm2\ \mathrm{km/h}\) a lo largo del año. Esa ``señal'' anual es
-    pequeña comparada con las oscilaciones diarias o las rachas
-    impredecibles.
-  \end{itemize}
-\item
-  \textbf{Efecto al desestacionalizar}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Al quitar la estacionalidad de la temperatura, reducimos mucho la
-    amplitud de la serie y ``dejamos ver'' las fluctuaciones reales.\\
-  \item
-    Al hacer lo mismo con el viento, casi no cambiamos nada: la mayor
-    parte de la variabilidad ya venía de eventos de corto plazo, no del
-    ciclo anual.
-  \end{itemize}
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Implicaciones prácticas}: mientras que las predicciones de
-  temperatura pueden ser útiles hasta unos 10 días, las de viento
-  pierden precisión ya a los 5--6 días, reflejo de su carácter más
-  caótico.
-\end{itemize}
 
 \chapter{Caos en las predicciones
 meteorológicas}\label{caos-en-las-predicciones-meteoroluxf3gicas}
@@ -2962,14 +2698,13 @@ el cual mide la tasa a la que dos trayectorias inicialmente cercanas se
 separan en el espacio de fases.
 
 Como ya hemos mencionado uno de los retos del proyecto es demostrar que
-el tiempo es un sistema caótico. En la anterior entrada del proyecto
-hice un cálculo del exponente de Lyapunov cogiendo medidas reales de
+el tiempo es un sistema caótico. En la versión digital de esta memoria en github está detallado el cálculo del exponente de Lyapunov cogiendo medidas reales de
 variables como la temperatura y el viento, y analizándolas por medio de
-rutinas hechas por ChatGPT. Los valores resultantes eran lo esperado: un
+rutinas hechas por ChatGPT (ver \url{https://colacaos.github.io/ColaCAOS/03-meteorologia/calculolyapunov.html}). Los valores resultantes son lo esperado: un
 horizonte de predictibilidad de 10 días para la temperatura media
 diaria.
 
-Ahora vamos a emprender un método indirecto de cálculo. Las diferentes
+Ahora vamos a emprender un método indirecto de cálculo desarrollado por mí. Las diferentes
 organizaciones meteorológicas realizan todos los días predicciones de
 hasta 14 días. Puesto que el tiempo es caótico, este caos se tiene que
 reflejar en el error de las predicciones. A medida que aumenta la
@@ -2979,7 +2714,7 @@ teoría que ya hemos visto. Si cogemos los errores, y hacemos un
 logaritmo, podremos hacer una regresión lineal del logaritmo del error,
 lo que nos dará el exponente de Lyapunov. Así de sencillo. Se trata de
 una medida indirecta, pero creo que muy sencilla del exponente de
-Lyapunov.
+Lyapunov. El punto fundamental es asumir que los modelos implementados en los supercomputadores de las agencias meteorológicas son fidedignos a la realidad, y que el error en los pronósticos se debe a los errores de las condiciones iniciales. De esta manera podemos ver como las perturbaciones iniciales se propagan en el tiempo. 
 
 \section{Proceso de Recopilación de Datos Mediante el Script de
 Python}\label{proceso-de-recopilaciuxf3n-de-datos-mediante-el-script-de-python}
@@ -3051,12 +2786,24 @@ parámetro en el día objetivo.
 
 La estructura de los dos ficheros se detalla en la siguiente figura
 
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{03-meteorologia/FicheroCSV.png}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2\textwidth]{03-meteorologia/FicheroCSV.png}
+  \caption{Estructura de los ficheros de observaciones y pronósticos}
+\end{figure}
+
+
 
 Y el procedimiento que hace el script diariamente se detalla a
 continuación.
 
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{03-meteorologia/EjecucionDiaria.png}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2\textwidth]{03-meteorologia/EjecucionDiaria.png}
+  \caption{Procedimiento de recopilación de datos meteorológicos}
+\end{figure}
+
 
 El error de cada pronóstico se define como:
 
@@ -3150,38 +2897,88 @@ El conjunto de errores para cada día de la predicción se muestran a
 continuación (cada línea representa un día en el que se realiza la
 predicción).
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-1.pdf}
+  \caption{Error de temperatura en escala lineal}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-2.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-2.pdf}
+  \caption{Error de humedad en escala lineal}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-3.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-3.pdf}
+  \caption{Error de presión en escala lineal}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-4.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-2-output-4.pdf}
+  \caption{Error de velocidad del viento en escala lineal}
+\end{figure}
 
 Los errores medios en valor absoluto de predicción en función del número
 de días anteriores en los que se hizo la predicción se muestran a
 continuación. Se ve claramente que los errores van aumentando
 exponencialmente.
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-1.pdf}
+  \caption{Error medio absoluto de temperatura en escala lineal}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-2.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-2.pdf}
+  \caption{Error medio absoluto de humedad en escala lineal}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-3.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-3.pdf}
+  \caption{Error medio absoluto de presión en escala lineal}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-4.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-3-output-4.pdf}
+  \caption{Error medio absoluto de velocidad del viento en escala lineal}
+\end{figure}
+
 
 Y ahora le pedimos a ChatGPT que nos calcule el exponente de Lyapunov, y
 que nos trace de forma superpuesta el error de acuerdo al exponente de
 Lyapunov.
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-1.pdf}}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-2.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-1.pdf}
+  \caption{Error medio absoluto de temperatura y ajuste de regresión}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-3.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-2.pdf}
+  \caption{Error medio absoluto de humedad y ajuste de regresión}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-4.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-3.pdf}
+  \caption{Error medio absoluto de presión y ajuste de regresión}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{03-meteorologia/predicciones_files/figure-pdf/cell-4-output-4.pdf}
+  \caption{Error medio absoluto de velocidad del viento y ajuste de regresión}
+\end{figure}
 
 Los exponentes de Lyapunov salen más pequeños que los calculados
 mediante las series históricas en la sección anterior
@@ -3198,8 +2995,6 @@ inexactitud de las condiciones iniciales, y la inexactitud de los
 modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y
 como esperábamos los errores crecen exponencialmente.
 
-\section{Referencias
-Bibliográficas}\label{referencias-bibliogruxe1ficas}
 
 \chapter{Entrevista con expertos de la
 AEMET}\label{entrevista-con-expertos-de-la-aemet}
@@ -3308,7 +3103,7 @@ externos como la actividad humana que no se pueden predecir.
 Llegamos a la parte más cualitativa y menos cuantitativa del proyecto,
 no por ello menos importante. Como bien se manifiesta en los medios de
 comunicación y en la comunidad científica la predicción del clima es uno
-los puntos más importantes para la humanidad. Si bien en el capítulo
+los puntos más importantes para la Humanidad. Si bien en el capítulo
 anterior hemos investigado sobre como afecta el caos a la previsión
 meteorológica ahora vamos a hacer lo mismo con el clima.
 
@@ -3335,7 +3130,9 @@ en el Quinto Informe de Evaluación (AR5 WG II), en la entrada
 «Predictibilidad», aparece el siguiente texto (recogido del la American
 Meteorological Society en el año 2000):
 
-\hl{``El conocimiento de los estados actual y anteriores del sistema
+\begin{quote}
+\itshape
+«El conocimiento de los estados actual y anteriores del sistema
 climático suele ser imperfecto, los modelos que mediante esos
 conocimientos generan predicciones climáticas son, por consiguiente,
 también imperfectos, y el sistema climático es inherentemente no lineal
@@ -3343,7 +3140,8 @@ y caótico, todo lo cual hace que la predictibilidad del sistema
 climático sea inherentemente limitada. Incluso aunque se utilicen
 modelos y observaciones arbitrariamente precisos, \textbf{existen
 limitaciones a la predictibilidad de un sistema no lineal como el clima}
-(AMS, 2000).''}
+(AMS, 2000)»
+\end{quote}
 
 Aquí tenemos un reconocimiento implícito de que el clima es un sistema
 caótico. Por lo que llevamos visto en el proyecto, ya sabemos que
@@ -3357,12 +3155,15 @@ El reconocimiento del clima como sistema caótico nos retrotrae a los
 momentos en los que se descubrió el caos atmosférico. Fue \textbf{Edward
 Lorenz en 1961} quién se dio cuenta de la existencia del caos haciendo
 unas simulaciones de la atmósfera. Recomiendo la lectura de esta página
-\href{https://history.aip.org/climate/chaos.htm}{Lorenz}, donde se narra
+\url{https://history.aip.org/climate/chaos.htm}, donde se narra
 como se produjo el descubrimiento. Tal y como se cuenta en esta página,
 Lorenz, cuatro años más tarde, en una charla en 1965, afirmó:
 
-\hl{``Climate may or may not be deterministic, We shall probably never
-know for sure''}
+\begin{quote}
+\itshape
+«Climate may or may not be deterministic, We shall probably never
+know for sure»
+\end{quote}
 
 En este momento, mucha gente empezó a preocuparse porque los cambios
 climáticos pudiesen venir de forma arbitraria y catastrófica. Reconocer
@@ -3445,24 +3246,43 @@ Para ver lo que es un atractor nos vamos a valer de nuevo de nuestro tan
 Vamos a ir a la zona caótica del mapa logístico, con \(r=3.9\). Vamos a
 ver un plot del valor de la sucesión con el tiempo.
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-2-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-2-output-1.pdf}
+  \caption{Órbita de la función logística para $r=3.9$}
+\end{figure}
+
 
 Y ahora vamos a hacer lo mismo con números aleatorios que he mandado
 generar al ordenador con una distribución uniforme entre 0 y 1.
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-3-output-1.pdf}}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-3-output-1.pdf}
+  \caption{Distribución uniforme en función del tiempo}
+\end{figure}
 
 Aparentemente estamos viendo la misma nube de puntos sin ninguna
 estructura. Pero, ¿qué pasa si representamos \(x_{n+1}\) frente a
 \(x_n\) ?. El resultado es una zona de puntos que atrae las distintas
 iteraciones de nuestra secuencia. !!Nos encontramos ante un atractor!!
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-4-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-4-output-1.pdf}
+  \caption{Diagrama de fase de la función logística para $r=3.9$}
+\end{figure}
+
 
 Si hacemos lo mismo con los números aleatorios entre 0 y 1 el resultado
 es el siguiente.
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-5-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-5-output-1.pdf}
+  \caption{Diagrama de fase de números uniformes entre 0 y 1}
+\end{figure}
 
 No hay ninguna estructura que atraiga los valores. Estamos ante un
 conjunto desestructurado de datos.
@@ -3510,15 +3330,37 @@ Pero hay un detalle: si miras detalladamente verás huecos en la gráfica.
   a hacer zooms sucesivos en \(r = 3.9\).
 \end{enumerate}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-6-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-6-output-1.pdf}
+  \caption{Atractor completo con 2000 iteraciones}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-6-output-2.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-6-output-2.pdf}
+  \caption{Atractor completo con 10000 iteraciones}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-6-output-3.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-6-output-3.pdf}
+  \caption{Atractor completo con 15000 iteraciones}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-6-output-4.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-6-output-4.pdf}
+  \caption{Atractor completo con 20000 iteraciones}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-6-output-5.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-6-output-5.pdf}
+  \caption{Atractor completo con 50000 iteraciones}
+\end{figure}
+
+
 
 Como vemos a diferencia de la función logística, el atractor tiene
 ``huecos'', no es continuo en el sentido matemático estricto. Se trata
@@ -3529,16 +3371,24 @@ si para cualesquiera \(a,b\) en él, todo el intervalo \([a,b]\) también
 está contenido. El atractor fractal \textbf{no} cumple esto: no existe
 \(\delta>0\) tal que contenga el segmento \([x_0-\delta, x_0+\delta]\)
 alrededor de un punto \(x_0\). Es decir, todos los puntos tienen huecos
-alrededor suyos.
+alrededor suyo.
 
 Cada valor de \(r\) tiene su propio atractor, tal y como se puede ver en
 la siguiente figura. Como es lógico, dependiendo del valor de
 crecimiento de la función logística \(r\), el sistema terminará en un
 atractor o en otro.
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-7-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-7-output-1.pdf}
+  \caption{Atractores caóticos para distintos valores de $r$}
+\end{figure}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-clima/atractor_files/figure-pdf/cell-8-output-1.pdf}}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/atractor_files/figure-pdf/cell-8-output-1.pdf}
+  \caption{Atractores no caóticos para distintos valores de $r$}
+\end{figure}
 
 \section{Otros atractores}\label{otros-atractores}
 
@@ -3557,7 +3407,14 @@ se hallan totalmente fuera del alcance de lo que puedo entender con mi
 nivel de matemáticas, pero su funcionamiento resulta fácil de comprender
 una vez que se muestra la gráfica con el estado del sistema en función
 del tiempo. Le pedí a ChatGPT que me hiciese una simulación del atractor
-del Lorenz y este fue el resultado
+del Lorenz y este fue el resultado (ver animación en \url{https://colacaos.github.io/ColaCAOS/04-clima/atractor.html})
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{04-clima/lorenz_lines_rainbow_time.png}
+  \caption{Atractor de Lorenz}
+\end{figure}
+
 
 Haciendo paralelismos con el atractor del mapa logístico, en este caso,
 en lugar de puntos separados, lo que tenemos son líneas separadas. Es
@@ -3707,58 +3564,19 @@ ciencia del clima ha mostrado gran éxito en predecir señales globales de
 calentamiento. Sin embargo, no ha sido tan exitoso en las predicciones
 regionales, por lo surge la necesidad de revisar nuestras suposiciones y
 paradigmas de estudio del clima. Para profundizar, consulta
-\href{https://www.nature.com/articles/s41586-025-08680-1}{The other
-climate crisis}. Porque uno cosa es el calentamiento global de la Tierra
+\url{https://www.nature.com/articles/s41586-025-08680-1}. Porque uno cosa es el calentamiento global de la Tierra
 y otra aspecto diferente son los distintos climas regionales Hace falta
 definir claramente, es, qué se entiende por clima de la Tierra, ya que
 en no existe un único clima, sino que existen múltiples climas
 dependiendo de la zona que estudiemos.
 
-Un ejemplo de las discrepancias de los modelos señaladas por el artículo
-mencionado son The other climate crisis:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Precipitación extrema}: los modelos subestiman la intensidad y
-  frecuencia de precipitaciones extremas en África Oriental y el Sudeste
-  de América del Sur, reproduciendo tendencias más débiles que las
-  observadas\\
-\item
-  \textbf{Circulaciones extratropicales}: fallos en capturar la
-  intensificación del chorro polar y ondas de Rossby globales, así como
-  el aumento de bloqueos en latitudes medias\\
-\item
-  \textbf{Olas de calor}: incapacidad de reproducir el rápido incremento
-  de extremos de calor en Europa Occidental, debido a tendencias de
-  circulación omitidas
-\item
-  \textbf{Sequedad estival}: déficit en la simulación de la disminución
-  de humedad relativa y aumento de sequías en regiones templadas, como
-  el suroeste de EE.UU.\\
-\item
-  \textbf{Variabilidad interna y teleconexiones}: discrepancias en la
-  Oscilación del Atlántico Norte y el gradiente este-oeste del Pacífico
-  Tropical, afectando proyecciones regionales a largo plazo
-\end{itemize}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{04-clima/fallos.png}
-
-}
-
-\caption{Esquema del sistema}
-
-\end{figure}%
 
 \section{Ejemplo de sensibilidad de los modelos a las condiciones
 iniciales}\label{ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-iniciales}
 
-Un caso concreto se observó en las simulaciones del modelo climático
+Antes de empezar a ver el grado de cumplimiento de las predicciones realizadas hace unos años, quisiera destacar la extrema sensibilidad de los modelos a las condiciones iniciales. Un caso concreto se observó en las simulaciones del modelo climático
 \textbf{CESM2} (Community Earth System Model, versión
-2)\href{https://www.cesm.ucar.edu/community-projects/lens2}{CESM2 Large
-Ensemble Community Project (LENS2)}. Los investigadores realizaron 3
+2, \url{https://www.cesm.ucar.edu/community-projects/lens2} ). Los investigadores realizaron 3
 simulaciones iniciales de control preindustrial, todas \textbf{idénticas
 en su configuración física y parámetros}, pero con una minúscula
 diferencia en el estado inicial de la atmósfera: una perturbación de
@@ -3792,607 +3610,167 @@ parece estable. Es una demostración clara de que la incertidumbre en las
 condiciones iniciales, por diminuta que sea, puede tener consecuencias
 sustanciales en las predicciones a escala regional.
 
-\section{Otros fallos en las predicciones realizadas por los
+\section{Fallos en las predicciones realizadas por los
 modelos}\label{otros-fallos-en-las-predicciones-realizadas-por-los-modelos}
 
 A lo largo de las últimas décadas, voces diversas ---científicos,
-activistas, medios y organismos internacionales--- han lanzado
-advertencias dramáticas sobre el futuro climático. Aquí tienes una
+activistas, medios y organismos internacionales--- han emitido predicciones sobre el futuro clima de la Tierra. Aquí tienes una
 selección de predicciones que no se cumplieron, cada una con su enlace
-web correspondiente.
+web correspondiente. Ten en cuenta que las citaciones que se mencionan la "variabilidad interna" del clima, se refieren exactamente a las variaciones del clima debido a la naturaleza caótica del mismo.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{Refugiados climáticos y desertificación (2005 →
-2010)}\label{refugiados-climuxe1ticos-y-desertificaciuxf3n-2005-2010}
+\subsection{El \textit{hiato} de temperaturas (1998–2012)}
 
-\textbf{Predicción:} En 2005, el PNUMA y la Universidad de las Naciones
-Unidas advirtieron que hasta \textbf{50 millones de personas podrían
-convertirse en ``refugiados ambientales'' para 2010}, huyendo de
-desertificación, aumento del nivel del mar y desastres climáticos.\\
-\textbf{Realidad:} Esa migración masiva no ocurrió; la ONU se distanció
-del pronóstico, retiró el informe, y las zonas señaladas como
-``críticas'' vieron crecimiento poblacional.\\
-\href{https://www.theguardian.com/environment/2005/oct/12/naturaldisasters.climatechange1}{Fuente
-↗} \textbar{}
-\href{https://climate-diplomacy.org/magazine/conflict/un-embarrassed-forecast-climate-refugees}{Reporte
-crítico ↗}
+\textbf{Predicción/modelo (cita textual).}
+\emph{“\dots{}111 de 114 simulaciones del CMIP5 muestran una tendencia del calentamiento superficial mayor que la observada durante 1998–2012”.}
+\textbf{Quién y dónde:} IPCC, \textit{AR5 Synthesis Report} (2014), p.~SYR-8.
+\textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\textbf{Realidad observada (datos).}
+Los registros instrumentales muestran que el calentamiento superficial en 1998–2012 fue inferior al que arrojaba la mayor parte del conjunto CMIP5 para esa ventana temporal, una discrepancia que el propio IPCC atribuyó a variabilidad interna, forzamientos naturales (volcanes, ciclo solar) y posibles sobreestimaciones de sensibilidad a forzamientos en algunos modelos.
+\textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}
 
-\subsection{Deshielo ártico prematuro (2009 →
-\textasciitilde2013)}\label{deshielo-uxe1rtico-prematuro-2009-2013}
+\medskip
 
-\textbf{Predicción:} En 2009, Al Gore, citando modelos científicos,
-afirmó que había una \textbf{probabilidad del 75 \% de que el Ártico
-quedara libre de hielo en verano en cinco a siete años}.\\
-\textbf{Realidad:} Aunque el hielo ha disminuido, no se ha desvanecido
-por completo en verano. La afirmación fue una interpretación exagerada
-de datos científicos.\\
-\href{https://www.reuters.com/article/fact-check/al-gore-did-not-predict-ice-caps-melting-by-2013-but-misrepresented-data-idUSL1N2RV0K6}{Fuente
-↗} \textbar{}
-\href{https://www.politifact.com/factchecks/2023/may/31/alex-epstein/chart-on-arctic-sea-ice-extent-has-no-bearing-on-a/}{Análisis
-detallado ↗}
+\subsection{Ralentización del deshielo ártico (2005–2024)}
 
-\subsection{Ralentización multidecenal del deshielo del Ártico (2005 →
-2024)}\label{ralentizaciuxf3n-multidecenal-del-deshielo-del-uxe1rtico-2005-2024}
+\textbf{Predicción previa (cita textual).}
+\emph{“La probabilidad de pausas de varios años en la extensión de hielo marino de septiembre depende de la longitud de la pausa\ldots{}”} (fig.~3, “Probability of a pause\ldots{}”). Se define “pausa” como un intervalo cuya \emph{tendencia lineal de la extensión de hielo marino de septiembre es no negativa}, y se cuantifica su probabilidad en CMIP5. En el experimento Historical--RCP4.5 (1979--2013), la \textbf{probabilidad en función de la duración} (Fig.\,3c) es, aproximadamente:
+\[
+P(L{=}10~\text{años}) \approx 0.3\text{--}0.4,\qquad
+P(L{=}15~\text{años}) \approx 0.10\text{--}0.15,\qquad
+P(L{=}20~\text{años}) \approx 0.05.
+\]
 
-\textbf{Predicción:} La literatura previa asumía una \textbf{pérdida
-continuada} del hielo estival y consideraba \textbf{poco probables}
-pausas largas: a 15 años ≈ \textbf{5 \%} y a 20 años ≈ \textbf{1--2 \%}
-en conjuntos CMIP5 (definiendo ``pausa'' como tendencia no negativa en
-septiembre).\\
-\href{https://opensky.ucar.edu/islandora/object/articles\%3A16571}{Swart
-et al.~2015 ↗}
 
-\textbf{Realidad:} El análisis satelital 1979--2024 muestra
-\textbf{ralentización sustancial} y \textbf{ausencia de tendencia
-estadísticamente significativa} en la extensión de septiembre desde
-\textbf{2005}. La ``pausa'' es \textbf{robusta} a varios datos/métricas
-y \textbf{compatible} con variabilidad interna del clima (caos); los
-modelos CMIP5/CMIP6 \textbf{reproducen} episodios así y sugieren que
-podría \textbf{persistir 5--10 años}, con riesgo de
-\textbf{reaceleración} posterior por encima de la media de largo
-plazo.\\
-\href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025GL116175}{England
-et al.~2025 (AGU) ↗} \textbar{}
-\href{https://www.columbia.edu/~lmp/paps/england\%2Betal-GRL-2025.pdf}{PDF
-↗} \textbar{}
-\href{https://www.carbonbrief.org/guest-post-why-the-recent-slowdown-in-arctic-sea-ice-loss-is-only-temporary/}{Resumen
-divulgativo ↗}
+\textbf{Quién y dónde:} Swart, Fyfe, Hawkins, Kay \& Jahn (2015), \textit{Nature Climate Change}.
+\textbf{URL:} \url{https://www.researchgate.net/profile/Jennifer-Kay-7/publication/276333917_COMMENTARY_Influence_of_internal_variability_on_Arctic_sea-ice_trends/links/5d6738cc299bf11adf298934/COMMENTARY-Influence-of-internal-variability-on-Arctic-sea-ice-trends.pdf}
 
-En un sistema no lineal y caótico, pequeñas diferencias iniciales pueden
-\textbf{amplificarse} en días-semanas y, a través del acoplamiento
-océano--hielo (memoria, umbrales de convección, realimentación
-hielo--albedo), generar \textbf{regímenes} decenales con pérdida
-\textbf{acelerada} o \textbf{frenada}. La variabilidad interna puede
-\textbf{enmascarar} temporalmente la señal forzada por gases de efecto
-invernadero.
+\textbf{Realidad observada (datos).}
+Análisis satelitales recientes muestran \textbf{escasa o nula tendencia} en la extensión mínima de septiembre desde 2005, es decir, una \textbf{ralentización} respecto a décadas anteriores. Este “estancamiento” es compatible con la variabilidad interna y no niega el descenso a largo plazo. La probabilidad de que esto ocurriese fue cuantificada en un cinco por ciento. 
+\textbf{URL (England et al., \textit{GRL} 2025):} \url{https://www.columbia.edu/~lmp/paps/england%2Betal-GRL-2025.pdf}
 
-La pausa 2005--2024 encaja con ese marco: no ``niega'' el calentamiento,
-sino que muestra que la \textbf{trayectoria observada} ha caído en un
-escenario poco probable pero \textbf{plausible} del abanico de
-trayectorias del sistema.\\
-\href{https://www.columbia.edu/~lmp/paps/england\%2Betal-GRL-2025.pdf}{England
-et al.~2025 (PDF) ↗}
+\medskip
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\subsection{Bajada del número global de huracanes (ciclones tropicales)}
 
-\subsection{Huracanes destructivos menos frecuentes (siglo
-XX)}\label{huracanes-destructivos-menos-frecuentes-siglo-xx}
+\textbf{Predicción (cita textual, ONU).}
+\emph{“Climate change is already driving an increase in the \textbf{frequency} and intensity of \dots{} tropical cyclones.”}
+\textbf{Quién y dónde:} John Holmes, Subsecretario General de la ONU para Asuntos Humanitarios (9/10/2007).
+\textbf{URL:} \url{https://www.enn.com/articles/23762}.
 
-\textbf{Predicción general:} El cambio climático intensificaría todos
-los eventos extremos, incluyendo un aumento de huracanes devastadores.\\
-\textbf{Realidad:} Investigaciones muestran que el número anual de
-ciclones tropicales a nivel global \textbf{disminuyó en alrededor de un
-13 \% durante el siglo XX}.\\
-\href{https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/}{Fuente
-↗} \textbar{}
-\href{https://www.nature.com/articles/s41558-022-01388-4}{Estudio
-original ↗}
+\textbf{Realidad observada (datos).}
+La \textbf{frecuencia global} anual de ciclones tropicales \emph{disminuyó} en torno a un \textbf{13\%} durante el siglo XX, según un estudio en \textit{Nature Climate Change} resumido por NOAA Climate.gov.
+\textbf{URLs from NASA and Nature:} \url{https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/}; \url{https://www.nature.com/articles/s41558-022-01388-4}
+El lector puede echar un vistazo a \url{https://tropical.atmos.colostate.edu/Realtime/index.php?arch&loc=global} para ver como no hay una tendencia significativa respecto a los huracanes en los últimos 50 años.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{``Naciones bajo el agua para el 2000''
-(1989)}\label{naciones-bajo-el-agua-para-el-2000-1989}
+\medskip
 
-\textbf{Predicción:} Noel Brown, director del PNUMA, advirtió que
-``naciones enteras podrían borrarse del mapa por el aumento del nivel
-del mar si la tendencia de calentamiento no se revierte para el año
-2000.''\\
-\textbf{Realidad:} El nivel del mar subió, pero no llevó a la
-desaparición de países enteros.\\
-\href{https://www.snopes.com/fact-check/nations-vanish-global-warming/}{Fuente
-↗} \textbar{}
-\href{https://apnews.com/article/bd45c372caf118ec99964ea547880cd0}{Más
-contexto ↗}
+\subsection{Lluvia en la cuenca mediterránea: sin descenso claro}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\textbf{Predicción (difusión pública).}
+Mensajes divulgativos han sugerido un descenso continuado y acusado de la precipitación mediterránea.
 
-\subsection{Glaciares del Himalaya desapareciendo en 2035 (2007 →
-2035)}\label{glaciares-del-himalaya-desapareciendo-en-2035-2007-2035}
+\textbf{Predicción (IPCC AR4, WGI, Cap. 11 — Europa y Mediterráneo, 2007).}
+\emph{“Annual precipitation is very likely to increase in most of northern Europe and decrease in most of the Mediterranean area.”}
+\textbf{URL: IPCC AR4 WGI Ch.11 §11.3 (Europa y Mediterráneo)} \url{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}
 
-\textbf{Predicción:} El IPCC afirmó que era \textbf{``muy probable'' que
-los glaciares del Himalaya desaparecieran para 2035} si continuaba el
-calentamiento.\\
-\textbf{Realidad:} El informe contenía un error sin respaldo científico,
-posteriormente reconocido y corregido por el propio IPCC.\\
-\href{https://skepticalscience.com/ipcc-2035-prediction-himalayan-glaciers.html}{Fuente
-↗}
+\textbf{Predicción (IPCC AR4, WGI, Cap. 11 — Europa y Mediterráneo, 2007).}
+\emph{“The annual number of precipitation days is very likely to decrease in the Mediterranean area. The risk of summer drought is likely to increase in central Europe and in the Mediterranean area.”}
+\textbf{URL: IPCC AR4 WGI Ch.11 §11.3 (Europa y Mediterráneo)} \url{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{``Humanidad extinta si no dejamos los fósiles en 5 años''
-(2018 →
-2023)}\label{humanidad-extinta-si-no-dejamos-los-fuxf3siles-en-5-auxf1os-2018-2023}
+\textbf{Realidad observada (datos).}
+Un análisis basado en estaciones (\(\sim150\) años) concluye que la \textbf{precipitación mediterránea ha permanecido en gran medida estacionaria} a escala secular, con variabilidad interanual y multidecenal.
+\textbf{URL de Nature 2025:} \url{https://www.nature.com/articles/s41586-024-08576-6} — \emph{“\dots{}Mediterranean precipitation has largely remained stationary over the past 150 years\dots{}”}
 
-\textbf{Predicción:} Greta Thunberg citó un tuit que insinuaba una
-advertencia de que la humanidad se extinguiría si no se abandonaban los
-combustibles fósiles en los próximos cinco años.\\
-\textbf{Realidad:} La cita fue tomada de un artículo que distorsionaba
-la declaración original de un científico. Thunberg nunca afirmó que la
-extinción ocurriría en cinco años.\\
-\href{https://www.factcheck.org/2023/06/viral-posts-distort-greta-thunberg-tweet-warning-about-climate-change/}{Fuente
-↗} \textbar{}
-\href{https://apnews.com/article/fact-check-greta-thunberg-deleted-tweet-675395214080}{Más
-contexto ↗}
+\medskip
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\subsection{Lluvia en España: sin tendencia anual significativa (1961–hoy)}
 
-\subsection{``Los niños no sabrán qué es la nieve''
-(2000)}\label{los-niuxf1os-no-sabruxe1n-quuxe9-es-la-nieve-2000}
+\textbf{Predicción (cita textual, PNACC-1, 2006 — Ministerio de Medio Ambiente).}
+\emph{“El cambio climático, con aumento de la temperatura y, en España, \textbf{disminución en general de la precipitación}, causará una reducción de las aportaciones hídricas…”}
+\textbf{URL: Plan Nacional de Adaptación al Cambio Climático (2006)} \url{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/pna_v3_tcm7-12445_tcm30-70393.pdf}
 
-\textbf{Predicción:} El Dr.~David Viner afirmó en 2000 que ``en pocos
-años, la nieve invernal se convertirá en algo muy raro'' en el Reino
-Unido y que ``los niños no sabrán qué es la nieve.''\\
-\textbf{Realidad:} Aunque hubo años con poca nevada, no se ha convertido
-en algo desconocido ni ha desaparecido por completo.\\
-\href{https://www.theguardian.com/world/2000/nov/22/weather.uk}{Fuente
-↗}
+\medskip
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\textbf{Predicción (cita textual, Evaluación Preliminar de Impactos en España, 2005 — MMA).}
+\emph{“\textbf{Bajo el cambio climático es previsible una disminución de la precipitación media}, así como un aumento de la frecuencia de los eventos extremos.”}
+\textbf{URL:Evaluación preliminar de los impactos en España (2005)} \url{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/evaluacion_preliminar_impactos_2005_tcm30-178491.pdf}
 
-\subsection{``Quedan 96 meses para salvar al mundo''
-(2009)}\label{quedan-96-meses-para-salvar-al-mundo-2009}
-
-\textbf{Predicción:} El Príncipe Carlos advirtió en 2009 que quedaban
-\textbf{80 meses} (aprox. 6--7 años) para evitar un daño climático
-irreversible.\\
-\textbf{Realidad:} Como suele suceder, esa fecha pasó sin un colapso
-climático drástico, aunque el tema sigue vigente.\\
-\href{https://www.telegraph.co.uk/news/earth/earthnews/6532598/Prince-Charles-warning-80-month-deadline-for-climate-change.html}{Fuente
-↗}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{``10 años para evitar un punto sin retorno''
-(2006)}\label{auxf1os-para-evitar-un-punto-sin-retorno-2006}
-
-\textbf{Predicción:} Al Gore afirmó en 2006 que había \textbf{10 años
-para evitar un punto de no retorno climático}.\\
-\textbf{Realidad:} En 2016 no se identificó dicho punto irreversible; el
-cambio climático, eso sí, se intensificó.\\
-\href{https://www.theguardian.com/environment/2006/mar/06/greenpolitics.climatechange}{Fuente
-↗}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Mediterráneo sin playas en 2020
-(2001)}\label{mediterruxe1neo-sin-playas-en-2020-2001}
-
-En febrero de 2001, un reportaje en \emph{El Mundo} presentaba un
-escenario alarmante para 2020 basado en el último informe de la ONU
-sobre cambio climático.\\
-\textgreater{} \emph{``Ya no queda rastro alguno de muchas de las playas
-bañadas por el Mediterráneo y del Atlántico\ldots{}''}\\
-\textgreater{} \emph{``En el norte de España el paisaje está salpicado
-de palmeras\ldots{}''}\\
-\textgreater{} \emph{``Los glaciares alpinos han desaparecido.''}\\
-\textgreater{} \emph{``Casi 300 islas han ido a parar al fondo del
-Pacífico\ldots{}''}\\
-\textgreater{} \emph{``Deltas del Rin, Ebro y Guadalquivir ya han
-desaparecido\ldots{}''}\\
-\textgreater{} \emph{``Algunas enfermedades tropicales, como la malaria
-o el cólera, han encontrado nuevas víctimas entre nosotros.''}\\
-\textgreater{} \emph{``El turismo de nieve {[}\ldots{]} es hoy
-escaso\ldots{}''}\\
-\textgreater{} \emph{``1.600 millones de personas en todo el mundo pasan
-hambre.''}\\
-\textbf{Realidad en 2020:} Ninguna de estas proyecciones extremas se
-materializó en la escala y plazo anunciados.\\
-\href{https://www.elmundo.es/cronica/2001/CR280/CR280-13.html}{Fuente:
-\emph{El Mundo}, 25/02/2001 ↗}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Países insulares desaparecidos (Maldivas, Tuvalu,
-Kiribati)}\label{pauxedses-insulares-desaparecidos-maldivas-tuvalu-kiribati}
-
-\textbf{Predicción:} En 1988 se afirmó que las Maldivas, Tuvalu y
-Kiribati estarían sumergidos en unas pocas décadas.\\
-\textbf{Realidad:} En 2025, estas naciones siguen habitadas; Maldivas
-incluso han expandido infraestructuras costeras.\\
-\href{https://www.newyorker.com/magazine/1989/09/11/the-end-of-nature}{Fuente
-↗}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Proyecciones del nivel del mar (1983 →
-2025)}\label{proyecciones-del-nivel-del-mar-1983-2025}
-
-\textbf{Predicción:} Un estudio de 1983 estimó una subida del nivel del
-mar entre \textbf{13 cm (bajo)} y \textbf{55 cm (alto)} para 2025.\\
-\textbf{Realidad:} Hasta 2010, el aumento observado fue inferior a 10
-cm, muy por debajo incluso del escenario más conservador.
-
-\href{https://papers.risingsea.net/federal_reports/Ocean_City_Titus_Leatherman_Everts_Kriebel_Dean.pdf}{Fuente
-estimaciones originales ↗} -- Se citan valores de 13 cm y 55 cm según
-distintos supuestos \}.\\
-\href{https://en.wikipedia.org/wiki/Sea_level_rise}{Datos observados
-recientes ↗} -- El aumento global medio desde 1901 hasta 2018 fue de
-entre \textbf{15 y 25 cm}, es decir, mucho más lento de lo que se
-preveía para 2025.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Mortalidad por desastres naturales: gran
-reducción}\label{mortalidad-por-desastres-naturales-gran-reducciuxf3n}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1807}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.5181}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1687}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1325}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Categoría
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Peor década (muertes/año por millón hab.)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Década 2000s
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Reducción
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Sequías & 1920s: 235 & \textasciitilde0.1 & \textasciitilde99.9 \% \\
-Inundaciones & 1930s: 204 & \textasciitilde1 & \textasciitilde98 \% \\
-Tormentas & 1970s: 10 & 2--3 & \textasciitilde75 \% \\
-\end{longtable}
-
-\textbf{Fuente ↗}:
-\href{https://ourworldindata.org/natural-disasters}{Our World in Data --
-Natural Disasters}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Variabilidad natural
-significativa}\label{variabilidad-natural-significativa}
-
-Un estudio reciente publicado en \emph{Climatic Change} bajo el título
-\textbf{``Robust climate attribution of modern floods needs palaeoflood
-science''} (26 de marzo de 2025, vol.~178, artículo 71) demuestra que
-muchos eventos de inundación recientes no son ni únicos ni inusuales en
-el contexto geológico e histórico.
-
-Este trabajo, liderado por Stephan Harrison y con participación de
-Gerardo Benito (CSIC), se basa en registros bien datados, que abarcan
-miles de años en el oeste y suroeste de Europa. Contrario a lo que
-sugieren algunos modelos, demuestra que:
-
-\begin{quote}
-``La magnitud de las inundaciones fue significativamente mayor antes del
-siglo XX, a pesar de que la contribución de gases de efecto invernadero
-de origen humano era insignificante''.
-\end{quote}
-
-Esto implica que la \textbf{variabilidad climática natural} podría ser
-mucho más amplia de lo que muchos modelos asumen, lo que plantea grandes
-implicaciones para la planificación de infraestructuras y las políticas
-de adaptación:
-
-\begin{itemize}
-\tightlist
-\item
-  Muchas inundaciones recientes \textbf{no pueden considerarse sin
-  precedentes}, ni siquiera dentro del registro histórico.
-\item
-  Esto desafía la evaluación actual del riesgo basado únicamente en
-  documentos instrumentales del siglo XX.
-\end{itemize}
-
-Un artículo de divulgación en \emph{Phys.org} resume bien la relevancia
-de estos hallazgos, señalando que:
-
-\begin{quote}
-``Las inundaciones recientes catalogadas como `sin precedentes' pueden
-estar muy por debajo de las más extremas que ocurrieron en el pasado.''
-\end{quote}
-
-\textbf{Fuente primaria:} \emph{Climatic Change} (2025), ``Robust
-climate attribution of modern floods needs palaeoflood science''.\\
-\href{https://link.springer.com/article/10.1007/s10584-025-03904-9}{Leer
-el artículo completo (Open Access) ↗}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Huracanes: datos reales vs percepción
-pública}\label{huracanes-datos-reales-vs-percepciuxf3n-puxfablica}
-
-Aunque se ha afirmado que los huracanes son más frecuentes y
-destructivos, los registros globales muestran otra historia. Según datos
-de la
-\href{https://tropical.atmos.colostate.edu/Realtime/index.php?arch&loc=global}{Colorado
-State University ↗}, no hay un incremento sostenido en el número total
-de huracanes a nivel global desde el inicio de los registros modernos.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Precipitación anual en España
-(1901--2020)}\label{precipitaciuxf3n-anual-en-espauxf1a-19012020}
-
-Predicciones mediáticas alertaron sobre una disminución drástica de la
-lluvia en España.\\
-Sin embargo, los datos de
-\href{https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/\#:~:text=AEMET\%20ha\%20generado\%20recientemente\%20un,desde\%20comienzos\%20del\%20siglo\%20XX}{AEMET
-↗} y el conjunto
-\href{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/}{CRU TS 4.05
-↗} muestran una tendencia lineal muy suave, con alta variabilidad
+\textbf{Realidad observada (datos oficiales).}
+Los datos de Aemet
+\url{https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/\#:~:text=AEMET\%20ha\%20generado\%20recientemente\%20un,desde\%20comienzos\%20del\%20siglo\%20XX} y el conjunto CRU TS 4.05 \url{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/} muestran una tendencia lineal muy suave, con alta variabilidad
 interanual.
 
 \begin{figure}[H]
-
 {\centering \pandocbounded{\includegraphics[keepaspectratio]{04-clima/LluviaEspaña.png}}
-
 }
-
-\caption{España}
-
+\caption{Precipitación anual en España \href{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/}{CRU TS 4.05↗} }
 \end{figure}%
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{Precipitación en la cuenca mediterránea
-(1871--2020)}\label{precipitaciuxf3n-en-la-cuenca-mediterruxe1nea-18712020}
+\medskip
 
-Se ha dicho que el Mediterráneo sufriría una pérdida continua de lluvia.
-Sin embargo, un análisis publicado en
-\href{https://www.nature.com/articles/s41586-024-08576-6/figures/2}{Nature
-↗} revela que la precipitación se ha mantenido mayormente estable
-durante los últimos 150 años, aunque con variabilidad multidecadal e
-interanual.
+\subsection{Inundaciones: “sin precedentes” vs registros paleohidrológicos}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\textbf{Predicción/narrativa.}
+Con frecuencia se han presentado inundaciones recientes como “sin precedentes” a escala regional.
 
-\subsection{Ajuste por sobreestimación de calentamiento: el ``hiato
-1998-2012''}\label{ajuste-por-sobreestimaciuxf3n-de-calentamiento-el-hiato-1998-2012}
+\textbf{Predicción (cita textual, IPCC AR4 WGII — Summary for Policymakers, 2007).}
+\emph{“Heavy precipitation events, which are very likely to increase in frequency, \textbf{will augment flood risk}.”}
+\textbf{URL:IPCC AR4 WGII SPM} \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}{}
 
-El \textbf{Grupo Intergubernamental de Expertos sobre el Cambio
-Climático (IPCC)} reconoció que los modelos climáticos no siempre han
-coincidido exactamente con las tendencias observadas. En su
-\textbf{Quinto Informe (AR5, 2013)} señaló que el \textbf{calentamiento
-superficial observado entre 1998 y 2012} fue más lento de lo que predijo
-la mayoría de los modelos para ese periodo.
 
-En concreto, \textbf{111 de 114 simulaciones excedieron el calentamiento
-medido}, lo que generó una discrepancia importante. El propio IPCC
-atribuyó este desfase a varios factores:
+\textbf{Realidad observada (datos).}
+Un metaanálisis paleohidrológico (oeste y suroeste de Europa) demuestra que muchas crecidas recientes \textbf{no son únicas} en contexto histórico y que \textbf{magnitudes mayores} ocurrieron \textbf{antes del siglo XX}.
+\textbf{URL (citas textuales): Climatic Change 2025} \url{https://link.springer.com/article/10.1007/s10584-025-03904-9}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Variabilidad interna natural} no captada por los modelos (como
-  la dinámica caótica de los océanos).\\
-\item
-  \textbf{Fenómenos naturales}: absorción de calor oceánica, erupciones
-  volcánicas y cambios en el ciclo solar.\\
-\item
-  \textbf{Sobreestimaciones de la respuesta al forzamiento por gases de
-  efecto invernadero} en algunos modelos.
-\end{itemize}
+\textbf{Panorama global instrumental.}
+De forma coherente, un análisis global de extremos de caudal (1971–2010) no encuentra un aumento consistente mundial en magnitud de crecidas; las tendencias son \textbf{espacialmente heterogéneas}.
+\textbf{URL: Nature, 2020} \url{https://www.nature.com/articles/s41586-019-1831-4}
 
-🔗 \href{https://ar5-syr.ipcc.ch}{IPCC AR5 SYR}
 
-Ante esta evidencia, los científicos ajustaron sus evaluaciones. El IPCC
-\textbf{moderó ligeramente sus proyecciones de calentamiento a corto
-plazo} y subrayó la necesidad de mejorar la representación de fenómenos
-caóticos como \textbf{El Niño} o la \textbf{variabilidad decadal}.
+\subsection{Sequías: lo que decía el IPCC (2001--2007) y lo que realmente ha pasado}
 
-Este episodio es un ejemplo de \textbf{humildad científica}: los modelos
-climáticos son \textbf{herramientas poderosas, pero no infalibles}. Se
-perfeccionan constantemente a partir de las diferencias detectadas con
-la realidad, integrando nuevos datos y corrigiendo posibles sesgos.
+\textbf{Predicción (IPCC, AR4, 2007).}
+\emph{“Drought-affected areas will likely increase in extent. Heavy precipitation events, which are very likely to increase in frequency, will augment flood risk.”}
+\textbf{Fuente: IPCC AR4 WGII} \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}\\
+\emph{“Drought-affected areas are projected to increase in extent, with the potential for adverse impacts \dots{}”}
+\textbf{Fuente:IPCC AR4 Synthesis Report } \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4_syr_full_report.pdf}
+
+\medskip
+
+\textbf{Realidad observada y evaluación posterior.}
+\emph{AR5 (2013):} “There is \textbf{low confidence} in a \textbf{global-scale observed trend in drought}, owing to lack of direct observations, dependencies of inferred trends on the index choice, and difficulties in distinguishing long-term change from decadal variability.”
+\textbf{Fuente:IPCC AR5 WGI, Technical Summary} \url{https://www.ipcc.ch/site/assets/uploads/2018/02/WG1AR5_TS_FINAL.pdf}; \url{https://archive.ipcc.ch/news_and_events/docs/SBSTA-44/Sbsta_drought_poster.pdf}\\
+\emph{SREX (2012):} evaluación especial sobre extremos: evidencia \textbf{insuficiente} para una tendencia global robusta en sequías observadas.
+\textbf{Fuente: IPCC SREX} \url{https://archive.ipcc.ch/pdf/special-reports/srex/SREX_FD_SPM_final.pdf}; \url{https://www.ipcc.ch/site/assets/uploads/2018/03/SREX_Full_Report-1.pdf}.\\
+\emph{Literatura clave:} métodos físicamente consistentes muestran \textbf{“poco cambio en la sequía global en los últimos 60 años”}.
+\textbf{Fuente: Nature, 2012} \url{https://www.nature.com/articles/nature11575}.\\
+
+\medskip
+
+Hace 20--30 años el IPCC proyectaba \textbf{más sequía}, pero las revisiones posteriores concluyen que \textbf{no hay una tendencia global clara y robusta en las observaciones}, debido a limitaciones de datos, a la sensibilidad a cómo se mide la sequía y a la variabilidad decenal. 
+
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{Tendencias positivas
-inesperadas}\label{tendencias-positivas-inesperadas}
+\subsection{Lo que sí se predijo bien - Olas de calor}
 
-\begin{itemize}
-\item
-  \textbf{Reverdecimiento de tierras áridas}\\
-  \textbf{Predicciones pasadas:} Durante años se advirtió que el aumento
-  de CO₂ y el calentamiento global provocarían una expansión de la
-  desertificación. El
-  \href{https://wad.jrc.ec.europa.eu/aridityprojections}{World Atlas of
-  Desertification de la Comisión Europea} estimaba que los desiertos
-  podrían expandirse entre un 10 \% y un 23 \% hacia finales de siglo.
-  Asimismo, el \href{https://www.ipcc.ch/srccl/}{informe especial del
-  IPCC sobre cambio climático y tierra} señalaba que entre 1980 y 2000
-  hubo un 9 \% de zonas áridas donde la productividad vegetal disminuyó,
-  afectando a cientos de millones de personas.
+\textbf{Predicción (IPCC TAR, 2001, SPM).} \emph{“Nearly all land areas very likely to warm more than the global average, with more hot days and heat waves…”} 
+\textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/03/spm.pdf}
 
-  \textbf{Observaciones reales:} Contrariamente, los satélites han
-  mostrado que muchas de esas mismas zonas áridas han experimentado un
-  \textbf{reverdecimiento}. Estudios recientes, como este publicado en
-  \href{https://www.nature.com/articles/s43247-024-01463-y}{Nature
-  Communications Earth \& Environment}, confirman que menos del 4 \% de
-  las tierras áridas presentan tendencia a la desertificación, mientras
-  que la mayoría ha ganado cobertura vegetal gracias al efecto
-  fertilizador del CO₂ y a una mayor eficiencia en el uso del agua por
-  parte de las plantas.
-  \href{https://e360.yale.edu/features/greening-drylands-carbon-dioxide-climate-change}{Fuente
-  ↗}
-\item
-  \textbf{Descenso global de incendios}\\
-  \textbf{Predicciones pasadas:} Numerosos estudios y modelos climáticos
-  sostenían que el cambio climático iba a generar más incendios. Por
-  ejemplo, el
-  \href{https://www.c2es.org/content/wildfires-and-climate-change/}{Center
-  for Climate and Energy Solutions (C2ES)} advertía que con solo 1 °C de
-  aumento global, el área quemada en el oeste de EE.UU. podría
-  multiplicarse por seis. Del mismo modo, revisiones científicas como la
-  de
-  \href{https://fireecology.springeropen.com/articles/10.1186/s42408-023-00200-8}{Fire
-  Ecology} anticipaban temporadas de incendios más largas, con fuegos de
-  mayor tamaño y severidad.
+\textbf{Predicción (IPCC AR4, 2007, Synthesis SPM).} \emph{“It is likely that heat waves have become more frequent over most land areas.”}
+\textbf{URL:} \url{https://www.ipcc.ch/pdf/assessment-report/ar4/syr/ar4_syr_spm.pdf}
 
-  \textbf{Observaciones reales:} Sin embargo, los registros satelitales
-  de la NASA muestran que la \textbf{superficie total quemada en el
-  planeta ha descendido de manera sostenida} en las últimas décadas.
-  Según el propio portal
-  \href{https://visibleearth.nasa.gov/images/90493/researchers-detect-a-global-drop-in-fires}{NASA
-  Visible Earth}, gran parte de este descenso se debe a la reducción de
-  prácticas de quema agrícola en África y Asia, lo que contrasta con la
-  expectativa de un incremento global uniforme en los incendios.
-\end{itemize}
+\textbf{Realidad observada (IPCC AR6, 2021, SPM A.3.1).} \emph{“It is \textbf{virtually certain} that hot extremes (including heatwaves) have become more frequent and more intense across most land regions since the 1950s…”}
+\textbf{URL:} \url{https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{¿Se cumplió la predicción de que ``España acabaría
-pareciéndose al norte de
-África''?}\label{se-cumpliuxf3-la-predicciuxf3n-de-que-espauxf1a-acabaruxeda-pareciuxe9ndose-al-norte-de-uxe1frica}
-
-\textbf{Resumen rápido:} En las últimas décadas, España \textbf{ha
-aumentado su superficie de bosque} (definición FAO) y también su
-\textbf{superficie forestal} en sentido amplio (bosque + matorral y
-otras formaciones). A la vez, existen \textbf{señales de mayor aridez y
-riesgo de desertificación} en zonas concretas. Es decir, la narrativa de
-``todo el país se convertirá en desierto'' \textbf{no encaja} con la
-evolución observada del territorio, aunque sí hay \textbf{zonas
-vulnerables} donde el riesgo es real.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsubsection{¿Qué se predijo?}\label{quuxe9-se-predijo}
-
-\begin{itemize}
-\item
-  \textbf{``España puede convertirse en un desierto'' (titulares y
-  ONG):}\\
-  Medios generalistas y campañas de sensibilización difundieron la idea
-  de que \textbf{gran parte del país} estaba ``en riesgo de
-  desertificación'' o incluso de ``convertirse en un desierto''. Por
-  ejemplo,
-  \href{https://www.rtve.es/noticias/20210617/espana-riesgo-convertirse-desierto-este-siglo/2104605.shtml}{RTVE
-  recogió en 2021} datos de ONG que hablaban de \textbf{más del 75\%}
-  del territorio ``en riesgo''. También hay abundantes piezas
-  divulgativas y reportajes que usan ese encuadre.
-\item
-  \textbf{Estudios que proyectaban clima tipo estepario/desértico para
-  2050 en partes de España:}\\
-  En la última década han circulado notas y coberturas que apuntaban a
-  que áreas como \textbf{Barcelona o Baleares} podrían pasar a un clima
-  ``tipo estepa o casi desértico'' según la clasificación de Köppen, por
-  descensos de lluvia del orden del \textbf{20\%} a mitad de siglo
-  (\href{https://www.euronews.com/green/2024/09/16/barcelona-and-majorca-will-shift-to-a-desert-like-climate-by-2050-new-drought-study-warns}{Euronews,
-  2024}).
-\item
-  \textbf{Advertencias científicas de mayor aridez en el
-  Mediterráneo:}\\
-  Los informes del \textbf{IPCC} describen al Mediterráneo como un
-  \textbf{``punto caliente''} climático donde se \textbf{esperan más
-  sequías} y mayor aridez con el calentamiento
-  (\href{https://www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_CCP4.pdf}{IPCC
-  AR6 WGII, capítulo Mediterráneo};
-  \href{https://www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_CCP3.pdf}{IPCC
-  AR6 WGII, capítulo sobre desiertos y semiáridos}).
-\end{itemize}
-
-\begin{quote}
-Clave didáctica: \emph{``Desertificación''} no significa que ``aparezcan
-dunas'' por todo el país. Es \textbf{degradación de tierras secas}
-(menos productividad, peor suelo), no necesariamente pérdida de árboles
-en todas partes.
-\end{quote}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsubsection{¿Qué se ha observado en
-realidad?}\label{quuxe9-se-ha-observado-en-realidad}
-
-\begin{itemize}
-\item
-  \textbf{Aumento del bosque (definición FAO) desde 1990:}\\
-  Los datos comparables internacionales (FAO/World Bank) muestran que la
-  \textbf{proporción de territorio cubierto por bosque} en España
-  \textbf{ha crecido de forma sostenida} desde 1990. Un resumen
-  accesible es
-  \href{https://www.epdata.es/datos/situacion-bosques-mundo-espana-datos-graficos/330}{esta
-  compilación de EPData}, que señala un \textbf{+33,6\% relativo} en la
-  cobertura de bosque (1990--2016). Para series y metodología, ver la
-  \href{https://www.fao.org/interactive/forest-resources-assessment/2020/es/}{Evaluación
-  de Recursos Forestales de la FAO (FRA 2020)}.
-\item
-  \textbf{Más superficie forestal en sentido amplio (criterio
-  español):}\\
-  Si usamos la definición nacional de \textbf{``superficie forestal''}
-  (bosque + matorral/monte abierto/dehesa, etc.), el total supera
-  \textbf{la mitad del país} según el \textbf{Anuario de Estadística
-  Forestal} del MITECO (ver el
-  \href{https://www.miteco.gob.es/content/dam/miteco/es/biodiversidad/estadisticas/anuario_ef2020_tcm30-559705.pdf}{Anuario
-  2020}).
-\item
-  \textbf{Evidencia cartográfica reciente (2007--2024):}\\
-  El \textbf{Mapa Forestal de España} (MFE 1:25.000) detecta en conjunto
-  un \textbf{incremento neto} de la superficie forestal y, muy
-  relevante, \textbf{transición de matorral a arbolado disperso} en
-  muchas áreas (última actualización del proyecto MFE25 cerrada en
-  2024).
-\item
-  \textbf{Contexto histórico y de uso del suelo:}\\
-  Artículos de síntesis, como este de \emph{El País} sobre el ``gran
-  avance del bosque'' en 100 años, destacan el papel de la
-  \textbf{reforestación}, el \textbf{abandono rural} y la
-  \textbf{transición de usos} en la expansión de masas forestales
-  (\href{https://elpais.com/clima-y-medio-ambiente/2024-09-15/el-gran-avance-del-bosque-en-espana-asi-ha-cambiado-el-paisaje-en-100-anos.html}{El
-  País, 2024}).
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsubsection{¿Entonces eran ``predicciones
-fallidas''?}\label{entonces-eran-predicciones-fallidas}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Matiz importante:} Los informes científicos \textbf{sí} prevén
-  \textbf{más aridez y sequías} en el Mediterráneo (España incluida).
-  Eso \textbf{no implica} automáticamente que \textbf{toda España} vaya
-  a perder bosque o ``parecerse al Sahara''. Se puede dar \textbf{a la
-  vez}:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Más estrés hídrico} y \textbf{más sequías} en zonas
-    vulnerables.\\
-  \item
-    \textbf{Más superficie forestal o arbolada} a escala país por
-    \textbf{cambios en el uso del suelo}, políticas forestales, y
-    regeneración natural.
-  \end{itemize}
-\item
-  \textbf{Dónde falló la narrativa:} Parte del mensaje público
-  simplificó en ``España será un desierto'', cuando los \textbf{datos
-  observados} muestran \textbf{expansión de bosque} a escala nacional en
-  las últimas décadas. Los titulares que equiparan ``riesgo de
-  desertificación'' con ``todo el país se vuelve desierto''
-  \textbf{exageran} el alcance espacial y confunden definiciones.
-\end{itemize}
+\textbf{Contexto reciente (WMO, 2025).} \emph{“2024 fue el año más cálido del registro…”} con episodios de calor récord generalizados.
+\textbf{URL:} \url{https://wmo.int/publication-series/state-of-global-climate-2024}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -4406,20 +3784,15 @@ comunicación cuidadosa.
 Las predicciones realizadas mediante modelos computacionales son muy
 buenas a la hora de predecir el aumento de temperatura media que la
 Tierra está experimentando, pero con el resto de parámetros no lo son
-tanto. Por suerte, las predicciones mas extremas no se están cumpliendo
-por el momento. No han aumentado las sequías, las inundaciones, el
-número de huracanes, el nivel del mar no ha aumentado tanto como se
-había predicho, el ártico sigue teniendo bastante hielo en verano, la
-cantidad de lluvia en el área mediterránea sigue siendo la misma que
-hace 100 años, y en países como España el bosque está avanzando.
+tanto. Por suerte, algunas de las predicciones más extremas no se están cumpliendo
+por el momento. Fuera del calentamiento global de la temperatura, las tendencias globales en sequías, crecidas y frecuencia de ciclones tropicales son heterogéneas o de baja confianza. 
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{Mejoras necesarias: rejillas más densas y avances
-computacionales}\label{mejoras-necesarias-rejillas-muxe1s-densas-y-avances-computacionales}
+\section{Mejoras necesarias para mejorar las predicciones}\label{mejoras-necesarias-rejillas-muxe1s-densas-y-avances-computacionales}
 
-Según, \href{https://www.nature.com/articles/s41586-025-08680-1}{The
-other climate crisis} para mejorar las predicciones realizadas por los
+Según, \url{https://www.nature.com/articles/s41586-025-08680-1} (The
+other climate crisis) para mejorar las predicciones realizadas por los
 modelos, se propone aumentar la resolución espacial de los modelos
 reduciendo el tamaño de la celda (\(\Delta x\)). Este aumento de
 resolución permite:
@@ -4477,15 +3850,15 @@ hacen dudar:
 \item
   El clima, como sistema caótico, alterna entre varios estados
   (atractores), y la entrada o salida de ellos puede darse por pequeñas
-  perturbaciones. ** Hemos visto que en el pasado reciente de la Tierra,
+  perturbaciones. Hemos visto que en el pasado reciente de la Tierra,
   en los últimos 10.000 años ha habido cambios bruscos del clima en
-  cuestión de décadas. ** También hemos visto como perturbaciones
+  cuestión de décadas. También hemos visto como perturbaciones
   infinitesimales en las condiciones iniciales con las que se alimentan
   a los modelos computacionales, pueden dar lugar a resultados
   diferentes a nivel regional.
 \item
   El análisis de las predicciones climáticas realizadas por los modelos
-  hace 30 años revelan que han pecado de catastrofistas, y que salvo en
+  hace 30 años revelan que no se han cumplido exactamente como dijero, y que salvo en
   la predicción del incremento de temperatura media, el resto de
   parámetros no han sido tan bien predichos.
 \end{itemize}
@@ -4506,13 +3879,12 @@ que \emph{``podríamos muy bien descubrir que el comportamiento del
 sistema no es inherentemente predecible''}. Esta formulación aparece
 recogida por el proyecto histórico del American Institute of Physics
 (AIP) en su página
-\href{https://history.aip.org/climate/chaos.htm}{``Chaos in the
-Atmosphere''} (ver la nota 22) y remite al \textbf{informe original} del
+\url{https://history.aip.org/climate/chaos.htm} (ver la nota 22) y remite al \textbf{informe original} del
 \emph{Ad Hoc Panel on the Present Interglacial}, disponible escaneado en
-\href{https://babel.hathitrust.org/cgi/pt?id=uc1.31822000471953}{HathiTrust}.
+\url{https://babel.hathitrust.org/cgi/pt?id=uc1.31822000471953}.
 AIP también documenta que ese informe circuló en materiales del Congreso
-de 1977 sobre el Programa Nacional del Clima, listados en su
-\href{https://history.aip.org/climate/bib.htm}{bibliografía}.
+de 1977 sobre el Programa Nacional del Clima, listados en su bibliografía 
+\url{https://history.aip.org/climate/bib.htm} .
 
 En \textbf{Kutzbach (1976)} ---\emph{The Nature of Climate and Climatic
 Variations}--- se describe el clima como un \textbf{sistema acoplado}
@@ -4521,19 +3893,17 @@ Variations}--- se describe el clima como un \textbf{sistema acoplado}
 límites prácticos a una predicción determinista y detallada a largo
 plazo. Puede leerse el artículo (resumen y PDF) en \textbf{Quaternary
 Research} a través de
-\href{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/66CAC8CC9924C70498DFFD08287437FB/S0033589400035560a.pdf/nature_of_climate_and_climatic_variations1.pdf}{Cambridge
-Core}.
+\url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/66CAC8CC9924C70498DFFD08287437FB/S0033589400035560a.pdf/nature_of_climate_and_climatic_variations1.pdf}.
 
 Antes incluso, \textbf{Stringer (1972)}, en \emph{Foundations of
 Climatology}, ya presentaba el clima como resultado de \textbf{múltiples
 componentes e interacciones complejas}, lo que ayuda a entender por qué
 el pronóstico fino a largo plazo es difícil. Puede consultarse la ficha
 del libro en
-\href{https://books.google.com/books/about/Foundations_of_Climatology_an_Introducti.html?id=_BROwAEACAAJ}{Google
-Books}, así como reseñas y catálogos en
-\href{https://www.nature.com/articles/239472a0}{Nature} y en registros
+\url{https://books.google.com/books/about/Foundations_of_Climatology_an_Introducti.html?id=_BROwAEACAAJ}, así como reseñas y catálogos en
+\url{https://www.nature.com/articles/239472a0} y en registros
 bibliográficos como
-\href{https://discovered.ed.ac.uk/discovery/fulldisplay?adaptor=Local+Search+Engine&context=L&docid=alma99260793502466&lang=en&tab=Everything&vid=44UOE_INST\%3A44UOE_VU2}{WorldCat/Edimburgo}.
+\url{https://discovered.ed.ac.uk/discovery/fulldisplay?adaptor=Local+Search+Engine&context=L&docid=alma99260793502466&lang=en&tab=Everything&vid=44UOE_INST\%3A44UOE_VU2}.
 
 Estos autores y comisiones \textbf{no negaban} que existan regularidades
 (p.~ej., tendencias bajo forzamientos sostenidos), pero \textbf{sí
@@ -4677,7 +4047,8 @@ En estas figuras se muestra el sistema diseñado.
 
 \end{figure}%
 
-Y en este vídeo su funcionamiento en Algodoo.
+Y en este vídeo su funcionamiento en Algodoo \url{https://colacaos.github.io/ColaCAOS/05-experimentos/Algodoo.mp4}
+
 
 \chapter{Simulación y funcionamiento
 caótico}\label{simulaciuxf3n-y-funcionamiento-cauxf3tico}
