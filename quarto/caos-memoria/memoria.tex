@@ -13,9 +13,9 @@
 \usepackage{xcolor}
 \usepackage[margin=2cm]{geometry}
 \usepackage{amsmath,amssymb}
+\usepackage[spanish]{babel}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
-\usepackage[spanish]{babel}
 \usepackage{mathtools}
 \setcounter{secnumdepth}{5}
 \usepackage{iftex}
@@ -241,6 +241,7 @@
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
+
 \AtBeginDocument{%
 \ifdefined\contentsname
   \renewcommand*\contentsname{Table of contents}
@@ -268,6 +269,8 @@
   \newcommand\tablename{Table}
 \fi
 }
+
+
 \@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
@@ -362,9 +365,12 @@ predicción meteorológica}
   \small
   \setlength{\baselineskip}{1.1em}
 
-  \href{https://colacaos.github.io/ColaCAOS/}{\includegraphics[height=1.2em]{favicon.png}\hspace{0.3em}\texttt{https://colacaos.github.io/ColaCAOS/}}\\[0.25cm]
+  % favicon 30% más grande
+  \href{https://colacaos.github.io/ColaCAOS/}{\includegraphics[height=1.56em]{favicon.png}\hspace{0.3em}\texttt{https://colacaos.github.io/ColaCAOS/}}\\[0.25cm]
 
-  \href{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}{{\textcolor{red}{\raisebox{-0.1ex}{\faFilePdf}}}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}}\\[0.25cm]
+  % icono PDF 30% más grande
+  \href{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}{{\textcolor{red}{\raisebox{-0.1ex}{\scalebox{1.3}{\faFilePdf}}}}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}}\\[0.25cm]
+
 
   \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}{{\LaTeX}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}}
   \par
@@ -625,8 +631,8 @@ tareas:
   actualidad en publicaciones digitales, siendo usado por ejemplo, en
   los chats de ChatGPT.
 \item
-  Exportación del libro Quarto a formato \textbf{Latex}, para creación
-  de la memoria del proyecto en formato pdf. Latex es el estándar en la
+  Exportación del libro Quarto a formato \textbf{\LaTeX}, para creación
+  de la memoria del proyecto en formato pdf. \LaTeX es el estándar en la
   creación de artículos científico técnicos de gran calidad estética.
 \item
   Creación de un repositorio en \textbf{GitHub} con todos los archivos
@@ -747,66 +753,66 @@ del modelo o4-mini-high de OpenAi.
 
 \begin{itemize}
 \item
-  Diagrama interactivo de telaraña de la función logística.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/cobweb.qmd}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/01-logistica/cobweb.html}{resultado}
+  Diagrama interactivo de telaraña de la función logística.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/cobweb.qmd}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/01-logistica/cobweb.html}
+
 \item
-  Análisis gráfico de las bifurcaciones.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/bifurcaciones.qmd}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/01-logistica/bifurcaciones.html}{resultado}
+  Análisis gráfico de las bifurcaciones.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/bifurcaciones.qmd}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/01-logistica/bifurcaciones.html}
+
 \item
-  Diagrama interactivo de bifurcaciones.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/simulacion.qmd}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/01-logistica/simulacion.html}{resultado}
+  Diagrama interactivo de bifurcaciones.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/simulacion.qmd}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/01-logistica/simulacion.html}
+
 \item
-  Gráficas que muestran la estructura fractal de las bifurcaciones.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/Caos.qmd}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/01-logistica/Caos.html}{resultado}
+  Gráficas que muestran la estructura fractal de las bifurcaciones.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/Caos.qmd}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/01-logistica/Caos.html}
+
 \item
-  Sensibilidad a las condiciones iniciales y a la precisión finita.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/lyapunov.qmd}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html}{resultado}
+  Sensibilidad a las condiciones iniciales y a la precisión finita.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-libro/01-logistica/lyapunov.qmd}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html}
+
 \item
-  Abanico de péndulos dobles.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumFan.py}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}{resultado}
+  Abanico de péndulos dobles.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumFan.py}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}
+
 \item
-  Simulación de múltiples péndulos dobles en una rejilla.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumBoxes.py}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulumCajas.mp4}{resultado}
+  Simulación de múltiples péndulos dobles en una rejilla.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumBoxes.py}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulumCajas.mp4}
+
 \item
-  Mapa de fases de múltiples péndulos dobles.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulum720Animation.py}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}{resultado}
+  Mapa de fases de múltiples péndulos dobles.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulum720Animation.py}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}
+
 \item
-  Mapa de bifurcaciones y exponente de Lyapunov del péndulo doble.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/PendulumLyapunov.py}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/doble.html}{resultado}
+  Mapa de bifurcaciones y exponente de Lyapunov del péndulo doble.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/PendulumLyapunov.py}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/doble.html}
+
 \item
-  Distancia recorrida por el péndulo doble.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumDistance.py}{Código}
-  y
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/estadisticas.html}{resultado}
+  Distancia recorrida por el péndulo doble.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/pendulumDistance.py}\\
+  Resultado: \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/estadisticas.html}
+
 \item
-  Programa para seguir en tiempo real el péndulo doble y simple.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/python/Tracker/TrackerRuben.py}{Código}
+  Programa para seguir en tiempo real el péndulo doble y simple.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/python/Tracker/TrackerRuben.py}
+
 \item
-  Programa para recoger la predicción meteorológica para Galapagar para
-  14 días y almacenaje sucesivo.
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/meteoblue/DailyScript.py}{Código}
+  Programa para recoger la predicción meteorológica para Galapagar durante 14 días y almacenar los datos sucesivos.\\
+  Código: \url{https://github.com/ColaCaos/ColaCAOS/blob/master/meteoblue/DailyScript.py}
+
 \item
-  Mi sistema caótico.
-  \href{https://colacaos.github.io/ColaCAOS/05-experimentos/NuevaRuedaCaoticaSimetricaAnilloConSinCanicasAceroFuenteMejoradaMasAgua_Transfer_Estadio_Inicial_0.phz}{Código
-  de Algodoo listo para simular}
+  Mi sistema caótico.\\
+  Código de Algodoo listo para simular: \url{https://colacaos.github.io/ColaCAOS/05-experimentos/NuevaRuedaCaoticaSimetricaAnilloConSinCanicasAceroFuenteMejoradaMasAgua_Transfer_Estadio_Inicial_0.phz}
 \end{itemize}
 
 
@@ -1735,8 +1741,7 @@ responses, positive Lyapunov exponents, by themselves, do not always
 indicate `chaos'. Additional information about the system \ldots{} needs
 to be performed to conclusively diagnose `chaos' in most systems.''\\
 Fuente:
-\href{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}{ResearchGate
--- Does positive Lyapunov exponent always mean chaos?}
+\url{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}
 
 Sin embargo, en la \textbf{práctica experimental o de series temporales
 reales}, suele aceptarse que si la estimación de \(\lambda_{\max}\)
@@ -1763,8 +1768,7 @@ positivo} es \textbf{una señal muy confiable de caos determinista}.
 investigate presence of chaotic behavior as well as nonlinear
 characteristics of time series.''\\
 Fuente:
-\href{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}{ScienceDirect
--- Largest Lyapunov Exponent}
+\url{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}
 
 Aunque \textbf{en teoría} hay que cumplir dos condiciones adicionales,
 \textbf{en la práctica}, sobre todo en áreas aplicadas (física
@@ -1990,11 +1994,11 @@ simulación se separan totalmente.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/PenduloDoble.png}
+  \scalebox{0.7}{\includegraphics{02-pendulo-doble/PenduloDoble.png}}
   \caption{Esquema del doble péndulo}
 \end{figure}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
 
 \section{Preparación del Código con
 ChatGPT}\label{preparaciuxf3n-del-cuxf3digo-con-chatgpt}
@@ -2022,7 +2026,7 @@ Tras varias iteraciones de este prompt, al final conseguí un código que
 se ejecutase. La depuración del código es realmente fácil de hacer. Cada
 vez que ChatGPT me daba un código, lo corría en el ordenador mediante el
 comando ``python programa.py'', y los errores se los alimentaba de
-vuelta al ordenador que a su vez me devolvía el código depurado.
+vuelta a ChatGPT que a su vez me devolvía el código depurado.
 
 En el código proporcionado, los parámetros físicos de cada péndulo doble
 los ha definido ChatGPT de la siguiente manera:
@@ -2069,7 +2073,7 @@ de péndulos la simulación no llega a ser en tiempo real. Por eso le
 pedía a ChatGPT que incluyera un texto en la simulación que mostrase el
 tiempo real durante la simulación.
 
-El lector interesado puede ver el video en el siguiente link \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}{abanico de 10.000 péndulos}
+El lector interesado puede ver el video en el siguiente enlace \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}
 
 El resultado es sorprendente e hipnotizante. ¿Como puede ser que
 péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si
@@ -2078,7 +2082,7 @@ todos los péndulos van casi al unísono. En el segundo 2, que es cuando
 llegan al otro extremo, vemos que el ``abanico'' ya se empieza a abrir.
 Y en la bajada que le sigue se desata el caos. Del segundo 2 al tres ya
 estamos con una divergencia total, y a partir de ahí cada uno va a su
-bola, !!caos total!!.
+bola, ¡caos total!.
 
 \begin{figure}[h]
   \centering
@@ -2089,51 +2093,7 @@ bola, !!caos total!!.
 Ahora reflexionemos. Péndulos que fueron lanzados con diferencias de
 milésimas de grado, tienen trayectorias que divergen enormemente tras 5
 segundos. ¿Acaso es éste un sistema físico que cuyo comportamiento
-podamos predecir en la vida real?. Pues yo diría que no.
-
-\section{Complemento y Reflexiones}\label{complemento-y-reflexiones}
-
-¡Imagínate! Iniciamos todos los péndulos casi de la misma manera, apenas
-una pequeña de diferencia en el segundo ángulo. Y, sin embargo, a los
-pocos segundos, el espectáculo visual es un torbellino de colores y
-líneas que ya no parecen corresponderse entre sí. Fíjate bien: el lector
-no ve cinco segundos, sino un universo paralelo donde cada péndulo tiene
-su propia historia, su propio destino. ¿Te das cuenta de lo
-desconcertante que es?
-
-\subsection{La Belleza del Caos}\label{la-belleza-del-caos}
-
-Tal vez te preguntes: ``¿Por qué es tan atractivo ver este desorden?''.
-La respuesta está en la misma naturaleza de lo impredecible. Cada línea
-coloreada que se dispersa representa un pequeño ``qué pasaría
-si\ldots{}'': un escenario distinto construido por una diferencia
-diminuta en los ángulos iniciales. En la sección ``Determinismo y Caos''
-del proyecto, veremos que es precisamente esta exploración de escenarios
-lo que convierte al caos en el principal motor de introducción de
-novedad en nuestro universo.
-
-\subsection{Reflexión sobre la
-Predictibilidad}\label{reflexiuxf3n-sobre-la-predictibilidad}
-
-¿Recuerdas cuando en clases nos decían que la física clásica era
-determinista? Aquí tenemos una bofetada directa a esa idea: sí, las
-ecuaciones son exactas y puntuales, pero cualquier medición en la
-realidad lleva error, desviaciones, incertidumbre. Esas milésimas de
-grado que apenas vemos en el vídeo se traducen en divergencias drásticas
-en segundos. Entonces debes preguntarte:\\
-- ¿Podríamos predecir con exactitud el comportamiento de un péndulo real
-si midiera su ángulo con la precisión de un nanómetro?\\
-- ¿Sería suficiente?
-
-La respuesta es que, por muy maravillosa que sea nuestra
-instrumentación, siempre habrá imperfecciones. Ese desajuste, es
-suficiente para que la simulación sea un recordatorio de que el mundo
-real---y nuestros modelos---tienen un límite de predictibilidad. No solo
-eso, como vimos en el capítulo anterior con la función logística, los
-modelos matemáticos se codifican en un ordenador con una precisión
-finita, que a su vez introduce errores iteración tras iteración de
-nuestro código. Por lo tanto, nos enfrentamos a dos problemas en la
-realidad:
+podamos predecir en la vida real?. Pues yo diría que no. Nos enfrentamos a dos problemas en la realidad:
 
 \begin{itemize}
 \tightlist
@@ -2223,7 +2183,7 @@ creciente, menguante, llena, etc.
 \end{figure}
 
 
-De nuevo, animo al lector a ver el vídeo completo en \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}{Simulación de 36x36 péndulos dobles}
+De nuevo, animo al lector a ver el vídeo completo en \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}
 
 
 Vemos una zona central en la que los péndulos parten de ángulos
@@ -2397,7 +2357,7 @@ hay que decir que son unos pocos y limitados casos.
 ¿Qué más paralelismos podemos encontrar en el doble péndulo al
 compararlo con el mapa logístico?. Vamos a hacer un nuevo ejercicio. En
 este caso vamos a simular la diagonal del mapa de fases anterior, es
-decir, vamos a coger los valores de \(\theta_1\) y de \$\theta\_2\& y
+decir, vamos a coger los valores de \(\theta_1\) y de \(\theta_2\) y
 los vamos a variar desde -180 hasta 180 grados simultáneamente por medio
 de una sola variable de control. Puesto que el péndulo doble no tiende
 hasta un valor final, ya que está continuamente moviéndose al ser sin
@@ -2445,12 +2405,13 @@ pues a diferencia de la función logística no tengo una expresión para ir
 calculando la derivada, le lancé la pregunta a ChatGPT. Al parecer
 existe un algoritmo llamado de ``método de Benettin'' que permite
 calcularlo. ChatGPT lo implementó en un script de Python y lo lancé en
-mi ordenador. El resultado fue el siguiente:
+mi ordenador. El resultado fue el mostrado en la \autoref{fig:BifurcacionesDobleLyapunov}.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\textwidth]{02-pendulo-doble/Lyapunov.png}
   \caption{Bifurcaciones en el doble péndulo y exponente de Lyapunov}
+  \label{fig:BifurcacionesDobleLyapunov}
 \end{figure}
 
 
@@ -2486,7 +2447,7 @@ y la predicción puede ser fiable hasta \textbf{8--10 días} o más.
 
 \begin{quote}
 Más información sobre bloqueos:\\
-https://cazatormentas.com/anticiclones-bloqueo-patron-climatico/
+url{https://cazatormentas.com/anticiclones-bloqueo-patron-climatico/}
 \end{quote}
 
 También hay zonas de alta actividad caótica que se pueden dar por
@@ -2543,7 +2504,7 @@ ampliamos la duración de la simulación.
 \end{figure}
 
 
-Esto es lo que pasa en la predicción meteorológica y climática cuando
+Esto es lo que pasa en la predicción climática cuando
 hacemos predicciones a largo plazo. Si bien no podemos saber lo que
 pasará en un día concreto en un lugar preciso, sí podemos saber su
 comportamiento con un margen de error razonable. Al igual que con el
@@ -2590,13 +2551,11 @@ Para observar y realizar experimentos sobre el caos en un sistema físico
 real, he adquirido un péndulo doble, un dispositivo en el que es posible
 apreciar el caos con facilidad y en un corto período de tiempo.
 
-\section{Experimento}\label{experimento}
-
 En este experimento he comprobado que, en el péndulo doble, los pequeños
 errores y las desviaciones de las condiciones iniciales se multiplican
-muy rápidamente, de modo que resulta ser un sistema caótico, aunque sí
-existen ecuaciones para determinar la posición de cada masa. En primer
-lugar, he colocado tres pegatinas de colores: la roja en el extremo del
+muy rápidamente, de modo que resulta ser un sistema caótico, aunque existan ecuaciones para determinar la posición de cada masa. 
+
+En primer lugar, he colocado tres pegatinas de colores: la roja en el extremo del
 segundo péndulo, la verde en el eje que une el primer péndulo con el
 segundo y la azul en el eje del primer péndulo. A continuación, mediante
 un programa que desarrollé en Python con la ayuda de ChatGPT y una
@@ -2622,7 +2581,14 @@ Aquí se ve el péndulo doble en movimiento con las diferentes partes
 representadas con un punto de un color, que es lo que le sirve al
 programa para determinar las trayectorias \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulodobleVivo.mp4}.
 
-Estas son las trayectorias del punto rojo del péndulo en cinco tiradas
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/DobleReal.png}
+  \caption{Experimento del péndulo doble}
+\end{figure}
+
+
+En \autoref{fig:Trayectorias5} están las trayectorias del punto rojo del péndulo en cinco tiradas
 desde la misma posición y con la misma velocidad inicial. Se puede
 apreciar como al principio su trayectoria diverge muy rápidamente, pero
 al final, cuando ya han perdido mucha velocidad, hacen todos un
@@ -2633,6 +2599,7 @@ recorrido muy similar hasta detenerse.
   \centering
   \includegraphics[width=0.9\textwidth]{02-pendulo-doble/experimentos_files/figure-pdf/cell-2-output-1.pdf}
   \caption{Trayectoria real de 5 tiradas de un péndulo doble}
+  \label{fig:Trayectorias5}
 \end{figure}
 
 Esta es la animación que represente la trayectoria que han seguido tres
@@ -2672,6 +2639,16 @@ son muy similares \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/thet
 \end{figure}
 
 
+Y si hacemos el ajuste de los tiempos iniciales el solape es casi total como se puede ver en la \autoref{fig:Solape}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{02-pendulo-doble/theta_alineadas_sin_wraps.png}
+  \caption{Ángulos de 5 tiradas de un péndulo simple ajustando el tiempo inicial}
+  \label{fig:Solape}
+\end{figure}
+
+
+
 He hecho este mismo gráfico con los datos de las tiradas del péndulo
 doble \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/theta_vs_time_doble.gif}. El contraste con el péndulo doble es mayúsculo. En el péndulo
 doble no había ni una sola trayectoria idéntica, divergían
@@ -2690,9 +2667,9 @@ continuamente. En el péndulo simple se ve como van iguales.
 meteorológicas}\label{caos-en-las-predicciones-meteoroluxf3gicas}
 
 La meteorología es un ejemplo paradigmático de sistema caótico. Edward
-Lorenz, en su famoso artículo de 1963, demostró que pequeñas
+Lorenz, en su famoso artículo de 1963 \url{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}, demostró que pequeñas
 perturbaciones en las condiciones iniciales pueden producir divergencias
-exponenciales en la evolución del sistema atmosférico (Lorenz, 1963).
+exponenciales en la evolución del sistema atmosférico.
 Esta propiedad se cuantifica mediante el \textbf{exponente de Lyapunov},
 el cual mide la tasa a la que dos trayectorias inicialmente cercanas se
 separan en el espacio de fases.
@@ -2786,22 +2763,20 @@ parámetro en el día objetivo.
 
 La estructura de los dos ficheros se detalla en la siguiente figura
 
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=2\textwidth]{03-meteorologia/FicheroCSV.png}
+  \scalebox{1.5}{\includegraphics{03-meteorologia/FicheroCSV.png}}
   \caption{Estructura de los ficheros de observaciones y pronósticos}
 \end{figure}
-
-
 
 Y el procedimiento que hace el script diariamente se detalla a
 continuación.
 
-
 \begin{figure}[h]
   \centering
-  \includegraphics[width=2\textwidth]{03-meteorologia/EjecucionDiaria.png}
-  \caption{Procedimiento de recopilación de datos meteorológicos}
+  \scalebox{1.5}{\includegraphics{03-meteorologia/EjecucionDiaria.png}}
+  \caption{Estructura de los ficheros de observaciones y pronósticos}
 \end{figure}
 
 
@@ -3036,7 +3011,7 @@ sensores, este límite no va a poder superarse.
 capacidad predictiva frente a la naturaleza caótica de la
 atmósfera?}\label{quuxe9-avances-tecnoluxf3gicos-o-metodoluxf3gicos-han-mejorado-muxe1s-la-capacidad-predictiva-frente-a-la-naturaleza-cauxf3tica-de-la-atmuxf3sfera}
 
-Los satélites, ya que permiten toar mediciones de las diferentes capas
+Los satélites, ya que permiten tomar mediciones de las diferentes capas
 de la atmósfera con más facilidad y de zonas más amplias que los globos
 meteorológicos, la capacidad computacional de los superordenadores y que
 se van añadiendo nuevos términos a las ecuaciones que dan más detalle y
@@ -3266,7 +3241,7 @@ generar al ordenador con una distribución uniforme entre 0 y 1.
 Aparentemente estamos viendo la misma nube de puntos sin ninguna
 estructura. Pero, ¿qué pasa si representamos \(x_{n+1}\) frente a
 \(x_n\) ?. El resultado es una zona de puntos que atrae las distintas
-iteraciones de nuestra secuencia. !!Nos encontramos ante un atractor!!
+iteraciones de nuestra secuencia. ¡Nos encontramos ante un atractor!
 
 \begin{figure}[h]
   \centering
@@ -3397,8 +3372,7 @@ péndulo doble con rozamiento acaba siempre en la misma posición (con el
 péndulo parado justo debajo del eje debido a la pérdida de energía); en
 este caso el atractor es un punto. Existe otro atractor que es mítico, y
 que no podría dejar pasar en este proyecto, que es el atractor de Lorenz
-por todo lo que representa en el estudio de sistemas caóticos y el
-tiempo. Fue el primero que se describió y describe perfectamente como un
+por todo lo que representa en el estudio de sistemas caóticos y la meteorología. Fue el primero que se describió y describe perfectamente como un
 sistema caótico puede tener dos estados diferenciados. El sistema pasa
 de un estado a otro por pequeñas perturbaciones, y puede permanecer en
 uno de los estados durante bastante tiempo hasta que otra perturbación
