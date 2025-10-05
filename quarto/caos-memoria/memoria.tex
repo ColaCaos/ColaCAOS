@@ -242,33 +242,7 @@
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 
-\AtBeginDocument{%
-\ifdefined\contentsname
-  \renewcommand*\contentsname{Table of contents}
-\else
-  \newcommand\contentsname{Table of contents}
-\fi
-\ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
-\else
-  \newcommand\listfigurename{List of Figures}
-\fi
-\ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
-\else
-  \newcommand\listtablename{List of Tables}
-\fi
-\ifdefined\figurename
-  \renewcommand*\figurename{Figure}
-\else
-  \newcommand\figurename{Figure}
-\fi
-\ifdefined\tablename
-  \renewcommand*\tablename{Table}
-\else
-  \newcommand\tablename{Table}
-\fi
-}
+
 
 
 \@ifpackageloaded{float}{}{\usepackage{float}}
@@ -3420,7 +3394,7 @@ Tal y como comentamos en la sección anterior, el clima global de la
 Tierra se puede ver sujeto a cambios abruptos en cortos espacios de
 tiempo. Esta es una manifestación más de la naturaleza caótica del
 clima, que hasta los años 50 del pasado siglo, se consideraba que no
-podría ocurrir. Sin embargo los científicos han encontrado estas
+podría ocurrir \url{https://history.aip.org/climate/rapid.htm}. Sin embargo los científicos han encontrado estas
 variaciones abruptas del clima de la Tierra en los últimos 15.000 años,
 desde el final de la última glaciación. Ha habido dos eventos muy
 relevantes que muestran como el clima puede cambiar bruscamente.
@@ -3486,7 +3460,7 @@ ejemplo, en la pequeña edad del hielo, (aproximadamente entre 1300 y
 las temperaturas fueron una mayor actividad volcánica que coincidió con
 un mínimo de actividad solar. Estas dos perturbaciones causaron
 alteraciones en las corrientes oceánicas que habrían amplificado el
-enfriamiento, especialmente en el hemisferio norte. Tener en cuenta este
+enfriamiento, especialmente en el hemisferio norte. Predecir este
 tipo de eventos en un simulador, resulta imposible.
 
 Un ejemplo extremo de punto de inflexión son los ciclos de Milankovitch.
@@ -3536,13 +3510,11 @@ Recientemente, se ha publicado un artículo en la revista Nature, llamado
 la problemática señalada. Según el artículo, el paradigma estándar de la
 ciencia del clima ha mostrado gran éxito en predecir señales globales de
 calentamiento. Sin embargo, no ha sido tan exitoso en las predicciones
-regionales, por lo surge la necesidad de revisar nuestras suposiciones y
+regionales, por lo que surge la necesidad de revisar nuestras suposiciones y
 paradigmas de estudio del clima. Para profundizar, consulta
 \url{https://www.nature.com/articles/s41586-025-08680-1}. Porque uno cosa es el calentamiento global de la Tierra
-y otra aspecto diferente son los distintos climas regionales Hace falta
-definir claramente, es, qué se entiende por clima de la Tierra, ya que
-en no existe un único clima, sino que existen múltiples climas
-dependiendo de la zona que estudiemos.
+y otra aspecto diferente son los distintos climas regionales. Hace falta
+definir claramente qué se entiende por clima de la Tierra, ya que no existe un único clima, sino que existen múltiples climas dependiendo de la zona que estudiemos.
 
 
 \section{Ejemplo de sensibilidad de los modelos a las condiciones
@@ -3589,7 +3561,7 @@ modelos}\label{otros-fallos-en-las-predicciones-realizadas-por-los-modelos}
 
 A lo largo de las últimas décadas, voces diversas ---científicos,
 activistas, medios y organismos internacionales--- han emitido predicciones sobre el futuro clima de la Tierra. Aquí tienes una
-selección de predicciones que no se cumplieron, cada una con su enlace
+selección de predicciones que no se cumplieron exactamente, cada una con su enlace
 web correspondiente. Ten en cuenta que las citaciones que se mencionan la "variabilidad interna" del clima, se refieren exactamente a las variaciones del clima debido a la naturaleza caótica del mismo.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -3730,9 +3702,30 @@ De forma coherente, un análisis global de extremos de caudal (1971–2010) no e
 Hace 20--30 años el IPCC proyectaba \textbf{más sequía}, pero las revisiones posteriores concluyen que \textbf{no hay una tendencia global clara y robusta en las observaciones}, debido a limitaciones de datos, a la sensibilidad a cómo se mide la sequía y a la variabilidad decenal. 
 
 
+\subsection{No cumplimientos de predicciones desvelados en artículos publicados y revisados por pares}
+
+Durante este año, parte de la comunidad científica ha señalado ciertos fallos en los modelos. No solamente está el artículo publicado en Nature \textit{The other climate crisis} (Nature, 2025), sino que también en \textit{Confronting Earth System Model trends with observations} (Science Advances, 2025) \url{https://www.science.org/doi/10.1126/sciadv.adt8035}, en la Tabla 1, nos encontramos con una recopilación extensa de cumplimientos y no cumplimientos. Entre los no cumplimientos destacan:
+
+\begin{itemize}
+  \item \textbf{Pacífico tropical (el “motor” del clima).} 
+  Observado: el gradiente Este–Oeste del Pacífico se ha \emph{reforzado} (más tipo La Niña). 
+  Modelos: tendían a un \emph{debilitamiento}. 
+  \emph{En cristiano:} donde esperábamos más calentamiento en el Este tropical, ha pasado lo contrario.
+  \item \textbf{Océano Austral y hielo marino antártico.}
+  Observado durante décadas: \emph{poco calentamiento} y periodos con \emph{más} hielo de lo previsto. 
+  Modelos: esperaban \emph{calentamiento claro} y \emph{menos} hielo.
+  \item \textbf{Vientos y bloqueos en el Atlántico Norte.}
+  Observado: cambios en chorros y bloqueos (p.\,ej., sobre Groenlandia) \emph{distintos} a lo simulado. 
+  \item \textbf{Humedad en zonas áridas.}
+  Observado: la humedad específica en regiones secas \emph{no sube} como los modelos sugerían. 
+  \emph{Resumen:} el “aire húmedo” real no siempre copia al “aire húmedo” del modelo en sitios secos.
+\end{itemize}
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{Lo que sí se predijo bien - Olas de calor}
+\section{Lo que sí se predijo bien - Olas de calor}
+
+No todo han sido desaciertos, ni mucho menos. Entre otras cosas, sí se predijo de forma precisa el incremento del nivel del mar y, especialmente, el incremento de las olas de calor. 
 
 \textbf{Predicción (IPCC TAR, 2001, SPM).} \emph{“Nearly all land areas very likely to warm more than the global average, with more hot days and heat waves…”} 
 \textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/03/spm.pdf}
@@ -3832,9 +3825,7 @@ hacen dudar:
   diferentes a nivel regional.
 \item
   El análisis de las predicciones climáticas realizadas por los modelos
-  hace 30 años revelan que no se han cumplido exactamente como dijero, y que salvo en
-  la predicción del incremento de temperatura media, el resto de
-  parámetros no han sido tan bien predichos.
+  hace 30 años revelan que no se han cumplido exactamente como dijeron. De hecho los modelos se van revisando y corrigiendo para ajustarlos a las observaciones que se van realizando.
 \end{itemize}
 
 El péndulo doble es un sistema caótico infinitamente más sencillo que el
@@ -3893,10 +3884,7 @@ forzamiento bien caracterizados.
 
 A partir de los años 90, el incremento de la capacidad computacional
 hizo pensar a muchos científicos que tomando promedios de múltiples
-simulaciones se podría dar un escenario futuro plausible. Revisando las
-predicciones que se han ido realizando se ve que salvo en la subida de
-la temperatura media, el resto de predicciones no han estado tan
-acertadas.
+simulaciones se podría dar un escenario futuro plausible. El análisis de las predicciones climáticas realizadas por los modelos hace 30 años se ven algunos desaciertos. 
 
 Conviene, por tanto, hacer una revisión crítica y rescatar los
 postulados de muchos científicos de los años 70 que ponían límites a la
@@ -3920,14 +3908,7 @@ global de temperatura bajo forzamientos conocidos) y dónde persisten
 límites de predictibilidad (por ejemplo, detalles regionales y extremos
 específicos).
 
-Conviene recordar también que el clima puede cambiar de forma no lineal
-y, en ocasiones, abrupta, cuando se superan ciertos umbrales del
-sistema; estos cambios son difíciles de anticipar en el cuándo y el
-dónde con precisión. Este enfoque prudente refuerza la necesidad de
-proteger los ecosistemas y reducir las emisiones de gases de efecto
-invernadero, porque el resultado detallado de nuestras acciones es
-incierto, pero el riesgo agregado de impactos aumenta con mayores
-forzamientos.
+Conviene recordar que superar los umbrales del sistema climático puede activar respuestas no lineales y repentinas. Esta incertidumbre sobre el detalle del futuro de nuestro clima justifica una acción preventiva: proteger ecosistemas y disminuir emisiones. No podemos predecir el desenlace exacto en un sistema caótico, pero sí sabemos que el riesgo acumulado aumenta a medida que forzamos más el sistema.
 
 \part{Mi sistema caótico}
 
@@ -3970,34 +3951,57 @@ Aquí hay dos tablas en las que se muestran las características
 principales de la rueda y de las canicas
 
 Rueda
-
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-Característica & Valor \\
-\midrule\noalign{}
+% --------------------------------------------------
+% Tabla: Rueda
+% --------------------------------------------------
+\begin{longtable}{@{}ll@{}}
+\caption{Características de la rueda}\label{tab:rueda}\\
+\toprule
+Característica & Valor\\
+\midrule
+\endfirsthead
+\toprule
+Característica & Valor\\
+\midrule
 \endhead
-\bottomrule\noalign{}
+\bottomrule
+\endfoot
+\bottomrule
 \endlastfoot
-Diámetro exterior & 2.5 m \\
-Diámetro interior & 2.0 m \\
-Grosor & 25 cm \\
-Masa & 1.207 kg \\
+Diámetro exterior & 2.5 m\\
+Diámetro interior & 2.0 m\\
+Grosor            & 25 cm\\
+Masa              & 1.207 kg\\
+Densidad areal    & 0.6 kg/m\textsuperscript{2}\\
+Material          & madera\\
 \end{longtable}
 
 Canicas
-
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-Característica & Valor \\
-\midrule\noalign{}
+% --------------------------------------------------
+% Tabla: Canicas
+% --------------------------------------------------
+\begin{longtable}{@{}ll@{}}
+\caption{Características de las canicas}\label{tab:canicas}\\
+\toprule
+Característica & Valor\\
+\midrule
+\endfirsthead
+\toprule
+Característica & Valor\\
+\midrule
 \endhead
-\bottomrule\noalign{}
+\bottomrule
+\endfoot
+\bottomrule
 \endlastfoot
-Diámetro & 61 mm \\
-Masa & 96 g \\
+Diámetro        & 61 mm\\
+Masa            & 96 g\\
+Densidad areal  & 7.8 kg/m\textsuperscript{2}\\
+Material        & acero\\
 \end{longtable}
 
-El tamaño de las cuatro aspas es de 0.5m cada una
+
+El tamaño de las cuatro aspas es de 0.5m cada una. Obsérvese que el peso es irreal para una rueda de más de 2 metros de madera, pero en Algodoo la densidad se especifica en Kg por metro cuadrado, no cúbico. ¡Los objetos son planos!. 
 
 En estas figuras se muestra el sistema diseñado.
 
@@ -4109,9 +4113,9 @@ más rápido, pero llegados a un punto sobre el segundo 7 dejan de
 separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7
 rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que
 estamos ante el atractor de este sistema. Esto significa que el estado
-de el sistema, aunque sea caótico, nunca va a salir de este rano de
+de el sistema, aunque sea caótico, nunca va a salir de este rango de
 valores. Esto no solo lo presenta este sistema sino que como ya hemos
-visto está presente en muchos otros sistemas caóticas como la función
+visto está presente en muchos otros sistemas caóticos como la función
 logística o la famosa célula convectiva de Edward Lorenz.
 
 Pero lo más interesante de este a atractor es que cambia entre dos
