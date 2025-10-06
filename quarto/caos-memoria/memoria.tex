@@ -311,6 +311,12 @@
 \makeatother
 
 
+\newcommand{\refweb}[3]{%
+  \href{#1}{#2}\textsuperscript{[\ref{ref:#3}]}%
+}
+\newcommand{\refurl}[2]{%
+  \refweb{#1}{\nolinkurl{#1}}{#2}%
+}
 
 \title{Estudio del Caos en sistemas físicos y su relación con la
 predicción meteorológica}
@@ -368,6 +374,7 @@ predicción meteorológica}
 \tableofcontents
 }
 
+\listoffigures
 
 \part{Introducción}
 
@@ -679,7 +686,7 @@ científicos, investigaciones llevadas a cabo y código generado.
   de Fases} se demuestra vía simulación que el péndulo doble es caótico.
   No se es capaz de encontrar una diferencia de condiciones iniciales lo
   suficientemente pequeña para que la trayectorias de dos péndulos
-  dobles sea idéntica, ni siquiere razonablemente similar. 
+  dobles sea idéntica, ni siquiera razonablemente similar. 
 \item
   En
   \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/experimentos.html}{Experimentos}
@@ -704,7 +711,7 @@ científicos, investigaciones llevadas a cabo y código generado.
   (especialmente las predicciones regionales o sobre eventos extremos
   como huracanes, inundaciones y sequías), y otras que sí se han
   cumplido (como el aumento de la temperatura). Se demuestra así que
-  estamos lejos de tener una predicción climática fiable, debido
+  estamos lejos de tener una predicción climática totalmente exacta, debido
   fundamentalmente a la naturaleza caótica del clima.
 \item
   En
@@ -719,7 +726,7 @@ científicos, investigaciones llevadas a cabo y código generado.
   Creatividad} se conjetura el principio de que el caos borra la
   información inicial de los sistemas, pero a cambio proporciona novedad
   no predecible. Este principio es observado en los distintos
-  experimentos realizados en el proyecto y
+  experimentos realizados en el proyecto
   \href{https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo08.html}{El
   Principio de Compromiso Predictibilidad -- Creatividad en la
   práctica}.
@@ -800,7 +807,7 @@ del modelo o4-mini-high de OpenAi.
 
 \chapter{Caos en la aplicación logística}\label{caos}
 
-En la versión github de este proyecto disponible en \href{https://colacaos.github.io/ColaCAOS/}{https://colacaos.github.io/ColaCAOS/} se encuentra un estudio teórico pormenorizado del mapa logístico. La aplicación logística es una ecuación/sucesión muy sencilla que presenta un comportamiento caótico para ciertos valores de su parámetro de control. Comprender el funcionamiento del mapa logístico es esencial para poder empezar a entender el caos. En github están explicados los detalles matemáticos más relevantes, que el lector ajeno a la materia puede encontrar muy útiles:
+En la versión github de este proyecto disponible en \href{https://colacaos.github.io/ColaCAOS/}{https://colacaos.github.io/ColaCAOS/} se encuentra un estudio teórico pormenorizado del mapa logístico. La aplicación logística es una ecuación/sucesión muy sencilla que presenta un comportamiento caótico para ciertos valores de su parámetro de control. Comprender el funcionamiento del mapa logístico es esencial para poder empezar a entender el caos. Recomiendo al lector hacer echar un vistazo a la siguiente serie de videos sobre la aplicación logística \refweb{https://www.youtube.com/watch?v=PVo1mHnU7WU&t=32s}{Logistic Map, Part 1: Period Doubling Route to Chaos}{web30} y también \refweb{https://www.youtube.com/watch?v=fDek6cYijxI}{Chaos: The Science of the Butterfly Effect}{web0} . En github están explicados los detalles matemáticos más relevantes, que el lector ajeno a la materia puede encontrar muy útiles:
 
 
 \begin{itemize}
@@ -1719,8 +1726,7 @@ explicación larga para el lector interesado se haya aquí:
 responses, positive Lyapunov exponents, by themselves, do not always
 indicate `chaos'. Additional information about the system \ldots{} needs
 to be performed to conclusively diagnose `chaos' in most systems.''\\
-Fuente:
-\url{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}
+Fuente: \refweb{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}{Does a Positive Lyapunov Exponent Always Mean Chaos?}{web34}
 
 Sin embargo, en la \textbf{práctica experimental o de series temporales
 reales}, suele aceptarse que si la estimación de \(\lambda_{\max}\)
@@ -1746,8 +1752,7 @@ positivo} es \textbf{una señal muy confiable de caos determinista}.
 -- ``The Largest Lyapunov Exponent (LLE) has been frequently used to
 investigate presence of chaotic behavior as well as nonlinear
 characteristics of time series.''\\
-Fuente:
-\url{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}
+Fuente: \refweb{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}{Largest Lyapunov Exponent }{web35}
 
 Aunque \textbf{en teoría} hay que cumplir dos condiciones adicionales,
 \textbf{en la práctica}, sobre todo en áreas aplicadas (física
@@ -1855,11 +1860,7 @@ T_p
 
 Este cálculo \textbf{coincide} con el límite práctico de \textbf{7--10
 días} que vemos hoy en los pronósticos meteorológicos fiables. El lector
-puede echar un vistazo al siguiente artículo:
-
-https://www.stratumfive.com/climate/weather-forecasting-and-chaos-theory/
-
-Aquí se habla de un horizonte de predictibilidad para el tiempo de 8 a
+puede echar un vistazo al siguiente artículo \url{https://www.stratumfive.com/climate/weather-forecasting-and-chaos-theory/}. Aquí se habla de un horizonte de predictibilidad para el tiempo de 8 a
 10 días. La cuestión es que por lo aprendido en este proyecto, éste
 límite es una barrera que no vamos a poder superar. Si bien en los
 últimos 50 años se ha producido un formidable incremento de la precisión
@@ -1881,25 +1882,6 @@ Poincare, el movimiento de tres cuerpos en el vacío sujetos a sus
 respectivas fuerzas de atracción gravitatoria, es ya un sistema caótico,
 y que presenta un exponente de Lyapunov positivo en determinadas
 circunstancias.
-
-\subsection{Referencias principales}\label{referencias-principales}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Wikipedia. ``Chaos theory.''\\
-  \url{https://en.wikipedia.org/wiki/Chaos_theory}\strut \\
-\item
-  ResearchGate. ``Does positive Lyapunov exponent always mean chaos?''\\
-  \url{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}\strut \\
-\item
-  Wikipedia. ``Butterfly effect.''\\
-  \url{https://en.wikipedia.org/wiki/Butterfly_effect}\strut \\
-\item
-  ScienceDirect Topics. ``Largest Lyapunov Exponent.''\\
-  \url{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}
-\end{enumerate}
 
 \part{El Caos en vivo: El péndulo doble}
 
@@ -1927,7 +1909,8 @@ la perfección su comportamiento.
 
 El análisis matemático de ambos sistemas, el péndulo simple y doble, se
 puede obtener en muchas referencias, por ejemplo en
-\url{https://paginaspersonales.unam.mx/app/webroot/files/4554/Publica_20190605182303.pdf}.
+ \refweb{https://paginaspersonales.unam.mx/app/webroot/files/4554/Publica_20190605182303.pdf}{El péndulo doble como ejemplo de sistema caótico}{web36}
+
 El análisis matemático del péndulo doble está muy por encima del nivel
 de bachillerato.
 
@@ -2426,7 +2409,7 @@ y la predicción puede ser fiable hasta \textbf{8--10 días} o más.
 
 \begin{quote}
 Más información sobre bloqueos:\\
-url{https://cazatormentas.com/anticiclones-bloqueo-patron-climatico/}
+\url{https://cazatormentas.com/anticiclones-bloqueo-patron-climatico/}
 \end{quote}
 
 También hay zonas de alta actividad caótica que se pueden dar por
@@ -2646,7 +2629,7 @@ continuamente. En el péndulo simple se ve como van iguales.
 meteorológicas}\label{caos-en-las-predicciones-meteoroluxf3gicas}
 
 La meteorología es un ejemplo paradigmático de sistema caótico. Edward
-Lorenz, en su famoso artículo de 1963 \url{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}, demostró que pequeñas
+Lorenz, en su famoso artículo de 1963 \refweb{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}{Deterministic Nonperiodic Flow}{web37}, demostró que pequeñas
 perturbaciones en las condiciones iniciales pueden producir divergencias
 exponenciales en la evolución del sistema atmosférico.
 Esta propiedad se cuantifica mediante el \textbf{exponente de Lyapunov},
@@ -3110,7 +3093,7 @@ momentos en los que se descubrió el caos atmosférico. Fue \textbf{Edward
 Lorenz en 1961} quién se dio cuenta de la existencia del caos haciendo
 unas simulaciones de la atmósfera. Recomiendo la lectura de esta página
 \url{https://history.aip.org/climate/chaos.htm}, donde se narra
-como se produjo el descubrimiento. Tal y como se cuenta en esta página,
+como se produjo el descubrimiento. Tal y como se cuenta en esta página web,
 Lorenz, cuatro años más tarde, en una charla en 1965, afirmó:
 
 \begin{quote}
@@ -3399,7 +3382,7 @@ Tal y como comentamos en la sección anterior, el clima global de la
 Tierra se puede ver sujeto a cambios abruptos en cortos espacios de
 tiempo. Esta es una manifestación más de la naturaleza caótica del
 clima, que hasta los años 50 del pasado siglo, se consideraba que no
-podría ocurrir \url{https://history.aip.org/climate/rapid.htm}. Sin embargo los científicos han encontrado estas
+podría ocurrir (ver \url{https://history.aip.org/climate/rapid.htm}). Sin embargo los científicos han encontrado estas
 variaciones abruptas del clima de la Tierra en los últimos 15.000 años,
 desde el final de la última glaciación. Ha habido dos eventos muy
 relevantes que muestran como el clima puede cambiar bruscamente.
@@ -3410,8 +3393,7 @@ presente)}\label{evento-younger-dryas-12-90011-700-auxf1os-antes-del-presente}
 Imagina que, al final de la última glaciación, la temperatura sube
 lentamente y, de pronto, en menos de dos siglos, ¡cae 5 °C! Sería como
 pasar de un día de primavera suave a un día de invierno extremo en unas
-pocas generaciones humanas\footnote{AIP History of Physics, ``Rapid
-  Climate Change'', consultado el 5 de julio de 2025.}. Esto fue lo que
+pocas generaciones humanas. Esto fue lo que
 pasó hace 12900 años debido a que un gran volumen de agua dulce de
 deshielo de un lago fue vertido en el atlántico norte y bloqueó la
 Corriente del Golfo, reduciendo el transporte de calor al Atlántico
@@ -3425,9 +3407,7 @@ presente)}\label{evento-8.2-k-8-200-auxf1os-antes-del-presente}
 
 Tras el Younger Dryas, unos 4 700 años después, se produjo otra bajada
 de \textasciitilde3 °C que duró 150 años. Es equivalente a cambiar de
-clima templado a casi boreal en unas pocas generaciones\footnote{AIP
-  History of Physics, ``Rapid Climate Change'', consultado el 5 de julio
-  de 2025.}. De nuevo, el causante fue el desagüe repentino del lago
+clima templado a casi boreal en unas pocas generaciones. De nuevo, el causante fue el desagüe repentino del lago
 glacial Agassiz--Ojibway en Norteamérica, vertiendo enormes volúmenes de
 agua dulce en el Atlántico. Se estima que el descenso de temperatura
 tuvo lugar en menos de 10 años, y que la recuperación fue más gradual,
@@ -3491,6 +3471,7 @@ efecto invernadero por parte del ser humano.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
+
 \chapter{Evaluación de las predicciones
 climáticas}\label{evaluaciuxf3n-de-las-predicciones-climuxe1ticas}
 
@@ -3517,7 +3498,7 @@ ciencia del clima ha mostrado gran éxito en predecir señales globales de
 calentamiento. Sin embargo, no ha sido tan exitoso en las predicciones
 regionales, por lo que surge la necesidad de revisar nuestras suposiciones y
 paradigmas de estudio del clima. Para profundizar, consulta
-\url{https://www.nature.com/articles/s41586-025-08680-1}. Porque uno cosa es el calentamiento global de la Tierra
+\refweb{https://www.nature.com/articles/s41586-025-08680-1}{S41586 025 08680 1 — www.nature.com}{web1}. Porque uno cosa es el calentamiento global de la Tierra
 y otra aspecto diferente son los distintos climas regionales. Hace falta
 definir claramente qué se entiende por clima de la Tierra, ya que no existe un único clima, sino que existen múltiples climas dependiendo de la zona que estudiemos.
 
@@ -3527,7 +3508,7 @@ iniciales}\label{ejemplo-de-sensibilidad-de-los-modelos-a-las-condiciones-inicia
 
 Antes de empezar a ver el grado de cumplimiento de las predicciones realizadas hace unos años, quisiera destacar la extrema sensibilidad de los modelos a las condiciones iniciales. Un caso concreto se observó en las simulaciones del modelo climático
 \textbf{CESM2} (Community Earth System Model, versión
-2, \url{https://www.cesm.ucar.edu/community-projects/lens2} ). Los investigadores realizaron 3
+2, \refweb{https://www.cesm.ucar.edu/community-projects/lens2}{Lens2 — www.cesm.ucar.edu}{web2} ). Los investigadores realizaron 3
 simulaciones iniciales de control preindustrial, todas \textbf{idénticas
 en su configuración física y parámetros}, pero con una minúscula
 diferencia en el estado inicial de la atmósfera: una perturbación de
@@ -3576,11 +3557,11 @@ web correspondiente. Ten en cuenta que las citaciones que se mencionan la "varia
 \textbf{Predicción/modelo (cita textual).}
 \emph{“\dots{}111 de 114 simulaciones del CMIP5 muestran una tendencia del calentamiento superficial mayor que la observada durante 1998–2012”.}
 \textbf{Quién y dónde:} IPCC, \textit{AR5 Synthesis Report} (2014), p.~SYR-8.
-\textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}
+\textbf{URL:} \refweb{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}{Syr Ar5 Final Full Wcover — www.ipcc.ch}{web3}
 
 \textbf{Realidad observada (datos).}
 Los registros instrumentales muestran que el calentamiento superficial en 1998–2012 fue inferior al que arrojaba la mayor parte del conjunto CMIP5 para esa ventana temporal, una discrepancia que el propio IPCC atribuyó a variabilidad interna, forzamientos naturales (volcanes, ciclo solar) y posibles sobreestimaciones de sensibilidad a forzamientos en algunos modelos.
-\textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}
+\textbf{URL:} \refweb{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}{Syr Ar5 Final Full Wcover — www.ipcc.ch}{web3}
 
 \medskip
 
@@ -3596,12 +3577,14 @@ P(L{=}20~\text{años}) \approx 0.05.
 
 
 \textbf{Quién y dónde:} Swart, Fyfe, Hawkins, Kay \& Jahn (2015), \textit{Nature Climate Change}.
-\textbf{URL:} \url{https://www.researchgate.net/profile/Jennifer-Kay-7/publication/276333917_COMMENTARY_Influence_of_internal_variability_on_Arctic_sea-ice_trends/links/5d6738cc299bf11adf298934/COMMENTARY-Influence-of-internal-variability-on-Arctic-sea-ice-trends.pdf}
+\textbf{URL:} \refweb{https://www.researchgate.net/profile/Jennifer-Kay-7/publication/276333917_COMMENTARY_Influence_of_internal_variability_on_Arctic_sea-ice_trends/links/5d6738cc299bf11adf298934/COMMENTARY-Influence-of-internal-variability-on-Arctic-sea-ice-trends.pdf}{Commentary Influence of Internal Variability on Arctic Sea Ice Trends — www.researchgat...}{web4}
 
 \textbf{Realidad observada (datos).}
 Análisis satelitales recientes muestran \textbf{escasa o nula tendencia} en la extensión mínima de septiembre desde 2005, es decir, una \textbf{ralentización} respecto a décadas anteriores. Este “estancamiento” es compatible con la variabilidad interna y no niega el descenso a largo plazo. La probabilidad de que esto ocurriese fue cuantificada en un cinco por ciento. 
-\textbf{URL (England et al., \textit{GRL} 2025):} \url{https://www.columbia.edu/~lmp/paps/england%2Betal-GRL-2025.pdf}
-
+\textbf{URL (England et al., \textit{GRL} 2025):}
+\refweb{https://www.columbia.edu/\string~lmp/paps/england\%2Betal-GRL-2025.pdf}
+{England et al., \textit{GRL} 2025 — columbia.edu}
+{web5}
 \medskip
 
 \subsection{Bajada del número global de huracanes (ciclones tropicales)}
@@ -3609,12 +3592,12 @@ Análisis satelitales recientes muestran \textbf{escasa o nula tendencia} en la 
 \textbf{Predicción (cita textual, ONU).}
 \emph{“Climate change is already driving an increase in the \textbf{frequency} and intensity of \dots{} tropical cyclones.”}
 \textbf{Quién y dónde:} John Holmes, Subsecretario General de la ONU para Asuntos Humanitarios (9/10/2007).
-\textbf{URL:} \url{https://www.enn.com/articles/23762}.
+\textbf{URL:} \refweb{https://www.enn.com/articles/23762}{23762 — www.enn.com}{web6}.
 
 \textbf{Realidad observada (datos).}
 La \textbf{frecuencia global} anual de ciclones tropicales \emph{disminuyó} en torno a un \textbf{13\%} durante el siglo XX, según un estudio en \textit{Nature Climate Change} resumido por NOAA Climate.gov.
-\textbf{URLs from NASA and Nature:} \url{https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/}; \url{https://www.nature.com/articles/s41558-022-01388-4}
-El lector puede echar un vistazo a \url{https://tropical.atmos.colostate.edu/Realtime/index.php?arch&loc=global} para ver como no hay una tendencia significativa respecto a los huracanes en los últimos 50 años.
+\textbf{URLs from NASA and Nature:} \refweb{https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/}{Research Global Warming Contributed Decline Tropical Cyclones 20th Century — www.climat...}{web7}; \refweb{https://www.nature.com/articles/s41558-022-01388-4}{S41558 022 01388 4 — www.nature.com}{web8}
+El lector puede echar un vistazo a \refweb{https://tropical.atmos.colostate.edu/Realtime/index.php?arch\&loc=global}{Realtime Index — tropical.atmos.colostate.edu}{web9} para ver como no hay una tendencia significativa respecto a los huracanes en los últimos 50 años.
 
 
 \medskip
@@ -3626,16 +3609,16 @@ Mensajes divulgativos han sugerido un descenso continuado y acusado de la precip
 
 \textbf{Predicción (IPCC AR4, WGI, Cap. 11 — Europa y Mediterráneo, 2007).}
 \emph{“Annual precipitation is very likely to increase in most of northern Europe and decrease in most of the Mediterranean area.”}
-\textbf{URL: IPCC AR4 WGI Ch.11 §11.3 (Europa y Mediterráneo)} \url{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}
+\textbf{URL: IPCC AR4 WGI Ch.11 §11.3 (Europa y Mediterráneo)} \refweb{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}{Ch11s11 3 — archive.ipcc.ch}{web10}
 
 \textbf{Predicción (IPCC AR4, WGI, Cap. 11 — Europa y Mediterráneo, 2007).}
 \emph{“The annual number of precipitation days is very likely to decrease in the Mediterranean area. The risk of summer drought is likely to increase in central Europe and in the Mediterranean area.”}
-\textbf{URL: IPCC AR4 WGI Ch.11 §11.3 (Europa y Mediterráneo)} \url{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}
+\textbf{URL: IPCC AR4 WGI Ch.11 §11.3 (Europa y Mediterráneo)} \refweb{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}{Ch11s11 3 — archive.ipcc.ch}{web10}
 
 
 \textbf{Realidad observada (datos).}
 Un análisis basado en estaciones (\(\sim150\) años) concluye que la \textbf{precipitación mediterránea ha permanecido en gran medida estacionaria} a escala secular, con variabilidad interanual y multidecenal.
-\textbf{URL de Nature 2025:} \url{https://www.nature.com/articles/s41586-024-08576-6} — \emph{“\dots{}Mediterranean precipitation has largely remained stationary over the past 150 years\dots{}”}
+\textbf{URL de Nature 2025:} \refweb{https://www.nature.com/articles/s41586-024-08576-6}{S41586 024 08576 6 — www.nature.com}{web11} — \emph{“\dots{}Mediterranean precipitation has largely remained stationary over the past 150 years\dots{}”}
 
 \medskip
 
@@ -3643,17 +3626,17 @@ Un análisis basado en estaciones (\(\sim150\) años) concluye que la \textbf{pr
 
 \textbf{Predicción (cita textual, PNACC-1, 2006 — Ministerio de Medio Ambiente).}
 \emph{“El cambio climático, con aumento de la temperatura y, en España, \textbf{disminución en general de la precipitación}, causará una reducción de las aportaciones hídricas…”}
-\textbf{URL: Plan Nacional de Adaptación al Cambio Climático (2006)} \url{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/pna_v3_tcm7-12445_tcm30-70393.pdf}
+\textbf{URL: Plan Nacional de Adaptación al Cambio Climático (2006)} \refweb{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/pna_v3_tcm7-12445_tcm30-70393.pdf}{Pna v3 Tcm7 12445 Tcm30 70393 — www.miteco.gob.es}{web12}
 
 \medskip
 
 \textbf{Predicción (cita textual, Evaluación Preliminar de Impactos en España, 2005 — MMA).}
 \emph{“\textbf{Bajo el cambio climático es previsible una disminución de la precipitación media}, así como un aumento de la frecuencia de los eventos extremos.”}
-\textbf{URL:Evaluación preliminar de los impactos en España (2005)} \url{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/evaluacion_preliminar_impactos_2005_tcm30-178491.pdf}
+\textbf{URL:Evaluación preliminar de los impactos en España (2005)} \refweb{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/evaluacion_preliminar_impactos_2005_tcm30-178491.pdf}{Evaluacion Preliminar Impactos 2005 Tcm30 178491 — www.miteco.gob.es}{web13}
 
 \textbf{Realidad observada (datos oficiales).}
 Los datos de Aemet
-\url{https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/\#:~:text=AEMET\%20ha\%20generado\%20recientemente\%20un,desde\%20comienzos\%20del\%20siglo\%20XX} y el conjunto CRU TS 4.05 \url{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/} muestran una tendencia lineal muy suave, con alta variabilidad
+\refweb{https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/\textbackslash{}\#:\string~:text=AEMET\textbackslash{}\%20ha\textbackslash{}\%20generado\textbackslash{}\%20recientemente\textbackslash{}\%20un,desde\textbackslash{}\%20comienzos\textbackslash{}\%20del\textbackslash{}\%20siglo\textbackslash{}\%20XX}{\ — deimosestadistica.com}{web14} y el conjunto CRU TS 4.05 \refweb{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/}{Cru ts 4.05 — crudata.uea.ac.uk}{web15} muestran una tendencia lineal muy suave, con alta variabilidad
 interanual.
 
 \begin{figure}[H]
@@ -3672,35 +3655,35 @@ Con frecuencia se han presentado inundaciones recientes como “sin precedentes�
 
 \textbf{Predicción (cita textual, IPCC AR4 WGII — Summary for Policymakers, 2007).}
 \emph{“Heavy precipitation events, which are very likely to increase in frequency, \textbf{will augment flood risk}.”}
-\textbf{URL:IPCC AR4 WGII SPM} \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}{}
+\textbf{URL:IPCC AR4 WGII SPM} \refweb{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}{Ar4 Wg2 Spm 1 — www.ipcc.ch}{web16}{}
 
 
 \textbf{Realidad observada (datos).}
 Un metaanálisis paleohidrológico (oeste y suroeste de Europa) demuestra que muchas crecidas recientes \textbf{no son únicas} en contexto histórico y que \textbf{magnitudes mayores} ocurrieron \textbf{antes del siglo XX}.
-\textbf{URL (citas textuales): Climatic Change 2025} \url{https://link.springer.com/article/10.1007/s10584-025-03904-9}
+\textbf{URL (citas textuales): Climatic Change 2025} \refweb{https://link.springer.com/article/10.1007/s10584-025-03904-9}{S10584 025 03904 9 — link.springer.com}{web17}
 
 \textbf{Panorama global instrumental.}
 De forma coherente, un análisis global de extremos de caudal (1971–2010) no encuentra un aumento consistente mundial en magnitud de crecidas; las tendencias son \textbf{espacialmente heterogéneas}.
-\textbf{URL: Nature, 2020} \url{https://www.nature.com/articles/s41586-019-1831-4}
+\textbf{URL: Nature, 2020} \refweb{https://www.nature.com/articles/s41586-019-1831-4}{S41586 019 1831 4 — www.nature.com}{web18}
 
 
 \subsection{Sequías: lo que decía el IPCC (2001--2007) y lo que realmente ha pasado}
 
 \textbf{Predicción (IPCC, AR4, 2007).}
 \emph{“Drought-affected areas will likely increase in extent. Heavy precipitation events, which are very likely to increase in frequency, will augment flood risk.”}
-\textbf{Fuente: IPCC AR4 WGII} \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}\\
+\textbf{Fuente: IPCC AR4 WGII} \refweb{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}{Ar4 Wg2 Spm 1 — www.ipcc.ch}{web16}\\
 \emph{“Drought-affected areas are projected to increase in extent, with the potential for adverse impacts \dots{}”}
-\textbf{Fuente:IPCC AR4 Synthesis Report } \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4_syr_full_report.pdf}
+\textbf{Fuente:IPCC AR4 Synthesis Report } \refweb{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4_syr_full_report.pdf}{Ar4 Syr Full Report — www.ipcc.ch}{web19}
 
 \medskip
 
 \textbf{Realidad observada y evaluación posterior.}
 \emph{AR5 (2013):} “There is \textbf{low confidence} in a \textbf{global-scale observed trend in drought}, owing to lack of direct observations, dependencies of inferred trends on the index choice, and difficulties in distinguishing long-term change from decadal variability.”
-\textbf{Fuente:IPCC AR5 WGI, Technical Summary} \url{https://www.ipcc.ch/site/assets/uploads/2018/02/WG1AR5_TS_FINAL.pdf}; \url{https://archive.ipcc.ch/news_and_events/docs/SBSTA-44/Sbsta_drought_poster.pdf}\\
+\textbf{Fuente:IPCC AR5 WGI, Technical Summary} \refweb{https://www.ipcc.ch/site/assets/uploads/2018/02/WG1AR5_TS_FINAL.pdf}{Wg1ar5 ts Final — www.ipcc.ch}{web20}; \refweb{https://archive.ipcc.ch/news_and_events/docs/SBSTA-44/Sbsta_drought_poster.pdf}{Sbsta Drought Poster — archive.ipcc.ch}{web21}\\
 \emph{SREX (2012):} evaluación especial sobre extremos: evidencia \textbf{insuficiente} para una tendencia global robusta en sequías observadas.
-\textbf{Fuente: IPCC SREX} \url{https://archive.ipcc.ch/pdf/special-reports/srex/SREX_FD_SPM_final.pdf}; \url{https://www.ipcc.ch/site/assets/uploads/2018/03/SREX_Full_Report-1.pdf}.\\
+\textbf{Fuente: IPCC SREX} \refweb{https://archive.ipcc.ch/pdf/special-reports/srex/SREX_FD_SPM_final.pdf}{Srex fd Spm Final — archive.ipcc.ch}{web22}; \refweb{https://www.ipcc.ch/site/assets/uploads/2018/03/SREX_Full_Report-1.pdf}{Srex Full Report 1 — www.ipcc.ch}{web23}.\\
 \emph{Literatura clave:} métodos físicamente consistentes muestran \textbf{“poco cambio en la sequía global en los últimos 60 años”}.
-\textbf{Fuente: Nature, 2012} \url{https://www.nature.com/articles/nature11575}.\\
+\textbf{Fuente: Nature, 2012} \refweb{https://www.nature.com/articles/nature11575}{Nature11575 — www.nature.com}{web24}.\\
 
 \medskip
 
@@ -3709,7 +3692,7 @@ Hace 20--30 años el IPCC proyectaba \textbf{más sequía}, pero las revisiones 
 
 \subsection{No cumplimientos de predicciones desvelados en artículos publicados y revisados por pares}
 
-Durante este año, parte de la comunidad científica ha señalado ciertos fallos en los modelos. No solamente está el artículo publicado en Nature \textit{The other climate crisis} (Nature, 2025), sino que también en \textit{Confronting Earth System Model trends with observations} (Science Advances, 2025) \url{https://www.science.org/doi/10.1126/sciadv.adt8035}, en la Tabla 1, nos encontramos con una recopilación extensa de cumplimientos y no cumplimientos. Entre los no cumplimientos destacan:
+Durante este año, parte de la comunidad científica ha señalado ciertos fallos en los modelos. No solamente está el artículo publicado en Nature \textit{The other climate crisis} (Nature, 2025), sino que también en \textit{Confronting Earth System Model trends with observations} (Science Advances, 2025) \refweb{https://www.science.org/doi/10.1126/sciadv.adt8035}{Sciadv.adt8035 — www.science.org}{web25}, en la Tabla 1, nos encontramos con una recopilación extensa de cumplimientos y no cumplimientos. Entre los no cumplimientos destacan:
 
 \begin{itemize}
   \item \textbf{Pacífico tropical (el “motor” del clima).} 
@@ -3733,16 +3716,16 @@ Durante este año, parte de la comunidad científica ha señalado ciertos fallos
 No todo han sido desaciertos, ni mucho menos. Entre otras cosas, sí se predijo de forma precisa el incremento del nivel del mar y, especialmente, el incremento de las olas de calor. 
 
 \textbf{Predicción (IPCC TAR, 2001, SPM).} \emph{“Nearly all land areas very likely to warm more than the global average, with more hot days and heat waves…”} 
-\textbf{URL:} \url{https://www.ipcc.ch/site/assets/uploads/2018/03/spm.pdf}
+\textbf{URL:} \refweb{https://www.ipcc.ch/site/assets/uploads/2018/03/spm.pdf}{Spm — www.ipcc.ch}{web26}
 
 \textbf{Predicción (IPCC AR4, 2007, Synthesis SPM).} \emph{“It is likely that heat waves have become more frequent over most land areas.”}
-\textbf{URL:} \url{https://www.ipcc.ch/pdf/assessment-report/ar4/syr/ar4_syr_spm.pdf}
+\textbf{URL:} \refweb{https://www.ipcc.ch/pdf/assessment-report/ar4/syr/ar4_syr_spm.pdf}{Ar4 Syr Spm — www.ipcc.ch}{web27}
 
 \textbf{Realidad observada (IPCC AR6, 2021, SPM A.3.1).} \emph{“It is \textbf{virtually certain} that hot extremes (including heatwaves) have become more frequent and more intense across most land regions since the 1950s…”}
-\textbf{URL:} \url{https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/}
+\textbf{URL:} \refweb{https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/}{Summary For Policymakers — www.ipcc.ch}{web28}
 
 \textbf{Contexto reciente (WMO, 2025).} \emph{“2024 fue el año más cálido del registro…”} con episodios de calor récord generalizados.
-\textbf{URL:} \url{https://wmo.int/publication-series/state-of-global-climate-2024}
+\textbf{URL:} \refweb{https://wmo.int/publication-series/state-of-global-climate-2024}{State of Global Climate 2024 — wmo.int}{web29}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -3763,7 +3746,7 @@ por el momento. Fuera del calentamiento global de la temperatura, las tendencias
 
 \section{Mejoras necesarias para mejorar las predicciones}\label{mejoras-necesarias-rejillas-muxe1s-densas-y-avances-computacionales}
 
-Según, \url{https://www.nature.com/articles/s41586-025-08680-1} (The
+Según, \refweb{https://www.nature.com/articles/s41586-025-08680-1}{S41586 025 08680 1 — www.nature.com}{web1} (The
 other climate crisis) para mejorar las predicciones realizadas por los
 modelos, se propone aumentar la resolución espacial de los modelos
 reduciendo el tamaño de la celda (\(\Delta x\)). Este aumento de
@@ -3797,6 +3780,7 @@ las predicciones. Sin embargo, en los sistemas caóticos los errores se
 propagan de forma exponencial, por lo que la mejora en la resolución
 espacial/temporal de los modelos, pronto será ``comida'' por la
 propagación del error.
+
 
 \chapter{Conclusiones sobre la predictibilidad del
 clima}\label{conclusiones-sobre-la-predictibilidad-del-clima}
@@ -4606,14 +4590,7 @@ indeseable con el que nos topamos al estudiar el clima. Se trata de una
 parte esencial del clima, de la naturaleza y del Universo. Sin él, el
 mundo tal y como lo conocemos sería imposible. El caos es intrínseco a
 todo lo que observamos, y es la norma más que la excepción en todos los
-sistemas conocidos. Incluso el cerebro humano es caótico, y su exponente
-de Lyapunov ha podido calcularse (unos 1.5 segundos). Tenemos que ver,
-por tanto, nuestro entorno como algo evolutivo, no predestinado, en el
-que los seres humanos tienen capacidad de intervención, para bien o para
-mal. La creación y la elección de trayectorias están a nuestro alcance.
-Si el universo es creativo y abierto, también lo son nuestras acciones.
-El futuro no está escrito: lo construimos con nuestras elecciones
-colectivas ¡Elijamos bien!
+sistemas conocidos.
 
 \chapter{Mi hipótesis final. El Principio de Compromiso Predictibilidad
 --
@@ -4761,6 +4738,134 @@ tanto, más estados.
 
 \end{figure}%
 
+
+
+
+\chapter*{Bibliografía}
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\begin{enumerate}
+
+
+  \item \label{ref:web0}\href{https://www.youtube.com/watch?v=fDek6cYijxI}{\textbf{Chaos: The Science of the Butterfly Effect.}} Veritasium (YouTube).  
+  \url{https://www.youtube.com/watch?v=fDek6cYijxI}
+
+  \item \label{ref:web1}\href{https://www.nature.com/articles/s41586-025-08680-1}{\textbf{The Other Climate Crisis.}} \textit{Nature}, 2025.  
+  \url{https://www.nature.com/articles/s41586-025-08680-1}
+
+  \item \label{ref:web2}\href{https://www.cesm.ucar.edu/community-projects/lens2}{\textbf{LENS2: Large Ensemble Project.}} CESM / UCAR.  
+  \url{https://www.cesm.ucar.edu/community-projects/lens2}
+
+  \item \label{ref:web3}\href{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}{\textbf{IPCC Synthesis Report — AR5 Full Cover.}} IPCC.  
+  \url{https://www.ipcc.ch/site/assets/uploads/2018/05/SYR_AR5_FINAL_full_wcover.pdf}
+
+  \item \label{ref:web4}\href{https://www.researchgate.net/profile/Jennifer-Kay-7/publication/276333917_COMMENTARY_Influence_of_internal_variability_on_Arctic_sea-ice_trends/links/5d6738cc299bf11adf298934/COMMENTARY-Influence-of-internal-variability-on-Arctic-sea-ice-trends.pdf}{\textbf{Influence of Internal Variability on Arctic Sea-Ice Trends.}} *Commentary paper*.  
+  \url{https://www.researchgate.net/.../COMMENTARY-Influence-of-internal-variability-on-Arctic-sea-ice-trends.pdf}
+
+  \item \label{ref:web5}\href{https://www.columbia.edu/\string~lmp/paps/england\%2Betal-GRL-2025.pdf}{\textbf{England et al. (2025), GRL.}}  
+  \url{https://www.columbia.edu/~lmp/paps/england+etal-GRL-2025.pdf}
+
+  \item \label{ref:web6}\href{https://www.enn.com/articles/23762}{\textbf{Climate Change Increasing Storm Frequency, UN Warns.}} *ENN*, 2007.  
+  \url{https://www.enn.com/articles/23762}
+
+  \item \label{ref:web7}\href{https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/}{\textbf{Study: Warming Contributed to Decline in Tropical Cyclones, 20th Century.}} NOAA *Climate.gov*.  
+  \url{https://www.climate.gov/news-features/feed/research-global-warming-contributed-decline-tropical-cyclones-20th-century/}
+
+  \item \label{ref:web8}\href{https://www.nature.com/articles/s41558-022-01388-4}{\textbf{Declining Tropical Cyclone Frequency Under Global Warming.}} *Nature Climate Change*, 2022.  
+  \url{https://www.nature.com/articles/s41558-022-01388-4}
+
+  \item \label{ref:web9}\href{https://tropical.atmos.colostate.edu/Realtime/index.php?arch\&loc=global}{\textbf{Realtime Tropical Cyclone Index.}} Colorado State University.  
+  \url{https://tropical.atmos.colostate.edu/Realtime/index.php?arch&loc=global}
+
+  \item \label{ref:web10}\href{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}{\textbf{AR4 WG1 Chapter 11: Regional Projections.}} IPCC AR4.  
+  \url{https://archive.ipcc.ch/publications_and_data/ar4/wg1/en/ch11s11-3.html}
+
+  \item \label{ref:web11}\href{https://www.nature.com/articles/s41586-024-08576-6}{\textbf{Advances in Earth Systems Science, 2024.}} *Nature*, 2024.  
+  \url{https://www.nature.com/articles/s41586-024-08576-6}
+
+  \item \label{ref:web12}\href{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/pna_v3_tcm7-12445_tcm30-70393.pdf}{\textbf{Plan Nacional de Adaptación al Cambio Climático v3.}} MITECO, España.  
+  \url{https://www.miteco.gob.es/.../pna_v3_tcm7-12445_tcm30-70393.pdf}
+
+  \item \label{ref:web13}\href{https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/impactos-vulnerabilidad-y-adaptacion/evaluacion_preliminar_impactos_2005_tcm30-178491.pdf}{\textbf{Evaluación Preliminar de Impactos 2005.}} MITECO, España.  
+  \url{https://www.miteco.gob.es/.../evaluacion_preliminar_impactos_2005_tcm30-178491.pdf}
+
+  \item \label{ref:web14}\href{https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/}{\textbf{Registros Climáticos de España Basados en la Estadística.}} Deimos Estadística.  
+  \url{https://deimosestadistica.com/registros-climaticos-espana-basados-la-estadistica/}
+
+  \item \label{ref:web15}\href{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/}{\textbf{CRU TS 4.05 Climate Data.}} Climate Research Unit, UEA.  
+  \url{https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/}
+
+  \item \label{ref:web16}\href{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}{\textbf{AR4 WG2 Summary for Policymakers.}} IPCC.  
+  \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg2-spm-1.pdf}
+
+  \item \label{ref:web17}\href{https://link.springer.com/article/10.1007/s10584-025-03904-9}{\textbf{Projected Impacts Under Climate Change.}} *Springer*, 2025.  
+  \url{https://link.springer.com/article/10.1007/s10584-025-03904-9}
+
+  \item \label{ref:web18}\href{https://www.nature.com/articles/s41586-019-1831-4}{\textbf{Earth Systems Advances.}} *Nature*, 2019.  
+  \url{https://www.nature.com/articles/s41586-019-1831-4}
+
+  \item \label{ref:web19}\href{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4_syr_full_report.pdf}{\textbf{IPCC AR4 Synthesis Report (Full).}} IPCC.  
+  \url{https://www.ipcc.ch/site/assets/uploads/2018/02/ar4_syr_full_report.pdf}
+
+  \item \label{ref:web20}\href{https://www.ipcc.ch/site/assets/uploads/2018/02/WG1AR5_TS_FINAL.pdf}{\textbf{IPCC AR5 Technical Summary Final.}} IPCC.  
+  \url{https://www.ipcc.ch/site/assets/uploads/2018/02/WG1AR5_TS_FINAL.pdf}
+
+  \item \label{ref:web21}\href{https://archive.ipcc.ch/news_and_events/docs/SBSTA-44/Sbsta_drought_poster.pdf}{\textbf{SBSTA-44 Drought Poster.}} IPCC archive.  
+  \url{https://archive.ipcc.ch/news_and_events/docs/SBSTA-44/Sbsta_drought_poster.pdf}
+
+  \item \label{ref:web22}\href{https://archive.ipcc.ch/pdf/special-reports/srex/SREX_FD_SPM_final.pdf}{\textbf{SREX Report — Summary for Policymakers.}} IPCC.  
+  \url{https://archive.ipcc.ch/pdf/special-reports/srex/SREX_FD_SPM_final.pdf}
+
+  \item \label{ref:web23}\href{https://www.ipcc.ch/site/assets/uploads/2018/03/SREX_Full_Report-1.pdf}{\textbf{SREX Full Report.}} IPCC.  
+  \url{https://www.ipcc.ch/site/assets/uploads/2018/03/SREX_Full_Report-1.pdf}
+
+  \item \label{ref:web24}\href{https://www.nature.com/articles/nature11575}{\textbf{Nature Article 11575.}} *Nature*.  
+  \url{https://www.nature.com/articles/nature11575}
+
+  \item \label{ref:web25}\href{https://www.science.org/doi/10.1126/sciadv.adt8035}{\textbf{Revisiting Climate Model Accuracy Over 30 Years.}} *Science Advances*, 2025.  
+  \url{https://www.science.org/doi/10.1126/sciadv.adt8035}
+
+  \item \label{ref:web26}\href{https://www.ipcc.ch/site/assets/uploads/2018/03/spm.pdf}{\textbf{Special Report Summary for Policymakers.}} IPCC.  
+  \url{https://www.ipcc.ch/site/assets/uploads/2018/03/spm.pdf}
+
+  \item \label{ref:web27}\href{https://www.ipcc.ch/pdf/assessment-report/ar4/syr/ar4_syr_spm.pdf}{\textbf{AR4 Synthesis & SPM.}} IPCC.  
+  \url{https://www.ipcc.ch/pdf/assessment-report/ar4/syr/ar4_syr_spm.pdf}
+
+  \item \label{ref:web28}\href{https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/}{\textbf{AR6 Summary for Policymakers.}} IPCC.  
+  \url{https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/}
+
+  \item \label{ref:web29}\href{https://wmo.int/publication-series/state-of-global-climate-2024}{\textbf{State of Global Climate 2024.}} WMO.  
+  \url{https://wmo.int/publication-series/state-of-global-climate-2024}
+
+  \item \label{ref:web30}\href{https://www.youtube.com/watch?v=PVo1mHnU7WU}{\textbf{Logistic Map, Part 1: Period Doubling Route to Chaos.}} Dr. Shane Ross (YouTube).  
+  \url{https://www.youtube.com/watch?v=PVo1mHnU7WU}
+
+  \item \label{ref:web31}\href{https://www.youtube.com/watch?v=2nEBSyMsQE8}{\textbf{Logistic Map, Part 2: Bifurcation Diagram and Self-Similarity.}} Dr. Shane Ross (YouTube).  
+  \url{https://www.youtube.com/watch?v=2nEBSyMsQE8}
+
+  \item \label{ref:web32}\href{https://www.youtube.com/watch?v=Rc57NR-DkyI}{\textbf{Logistic Map, Part 3: Bifurcation Point Analysis | Bottlenecks in Maps, Intermittency, Chaos.}} Dr. Shane Ross (YouTube).  
+  \url{https://www.youtube.com/watch?v=Rc57NR-DkyI}
+
+  \item \label{ref:web33}\href{https://www.youtube.com/watch?v=x_lJYJYCXBM}{\textbf{Fixed Point Iteration: Examples, Analysis, and the Banach Fixed Point Theorem}} (YouTube).  
+  \url{https://www.youtube.com/watch?v=x_lJYJYCXBM}
+
+
+  \item \label{ref:web34}\href{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}{\textbf{Does a Positive Lyapunov Exponent Always Mean Chaos?}} ResearchGate (foro de discusión).  
+\url{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}
+
+\item \label{ref:web35}\href{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}{\textbf{Largest Lyapunov Exponent (Engineering Context).}} ScienceDirect Topics (Elsevier).  
+\url{https://www.sciencedirect.com/topics/engineering/largest-lyapunov-exponent}
+
+\item \label{ref:web36}\href{https://paginaspersonales.unam.mx/app/webroot/files/4554/Publica_20190605182303.pdf}{\textbf{El péndulo doble como ejemplo de sistema caótico.}} Óscar Morales López & Ricardo Yáñez-Valdez, Facultad de Ingeniería (UNAM).  
+\url{https://paginaspersonales.unam.mx/app/webroot/files/4554/Publica_20190605182303.pdf}
+
+\item \label{ref:web37}\href{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}{\textbf{Deterministic Nonperiodic Flow.}} E. N. Lorenz, \textit{Journal of the Atmospheric Sciences}, 1963.  
+\url{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}
+
+
+
+
+\end{enumerate}
 
 
 
