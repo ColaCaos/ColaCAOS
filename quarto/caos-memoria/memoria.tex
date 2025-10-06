@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 \usepackage{fontawesome5}
 \usepackage{mathtools}
+\usepackage{qrcode} 
 \setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
@@ -317,9 +318,10 @@ predicción meteorológica}
 \date{}
 \begin{document}
 
+
 \begin{titlepage}
   \centering
-  % Imagen de portada (opcional)
+  % Imagen de portada
   \vspace*{2cm}
   \includegraphics[width=\textwidth]{cover.jpg}\par
   \vspace{1.2cm}
@@ -345,13 +347,16 @@ predicción meteorológica}
   % icono PDF 30% más grande
   \href{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}{{\textcolor{red}{\raisebox{-0.1ex}{\scalebox{1.3}{\faFilePdf}}}}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}}\\[0.25cm]
 
+  % enlace al código fuente
+  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}{{\LaTeX}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}}\\[0.6cm]
 
-  \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}{{\LaTeX}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}}
+  % --- Código QR con enlace principal ---
+  \qrcode[height=2.6cm]{https://colacaos.github.io/ColaCAOS/}\\[0.2cm]
+  {\footnotesize Escanea para acceder a la versión digital}
   \par
   \endgroup
 
   \vspace{1.0cm}
-
   {\large \today}\par
 \end{titlepage}
 
