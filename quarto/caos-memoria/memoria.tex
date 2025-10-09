@@ -298,7 +298,8 @@
 
 % (Opcional) Centrar también el texto de los pies de figura
 \captionsetup{justification=centering,singlelinecheck=false}
-
+\captionsetup{list=true}
+\captionsetup[figure]{list=true}
 
 % --- Asegurar gráficos y escalado por defecto ---
 \usepackage{graphicx}
@@ -369,12 +370,11 @@ predicción meteorológica}
 
 \renewcommand*\contentsname{Índice}
 {
-\hypersetup{linkcolor=}
+%\hypersetup{linkcolor=}
 \setcounter{tocdepth}{0}
 \tableofcontents
 }
 
-\listoffigures
 
 \part{Introducción}
 
@@ -855,7 +855,7 @@ con un hueco entre ellas.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-2-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-2-output-1.pdf}
   \caption{Partición en dos bandas de la zona caótica (i)}
 \end{figure}    
 
@@ -865,7 +865,7 @@ del caos.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-3-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-3-output-1.pdf}
   \caption{Partición en dos bandas de la zona caótica (ii)}
 \end{figure}
 
@@ -878,7 +878,7 @@ estable de periodo \(k\) (por ejemplo, un ciclo de orden 3 alrededor de
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-4-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-4-output-1.pdf}
   \caption{Islas periódicas en la zona caótica}
 \end{figure}
 
@@ -890,7 +890,7 @@ caótica. Vemos como el caos da paso de nuevo a las órbitas periódicas
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-5-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-5-output-1.pdf}
   \caption{Islas periódicas en la zona caótica (zoom)}
 \end{figure}
 
@@ -902,11 +902,10 @@ ventana donde emerja un ciclo estable.
 
 Así vemos como entre 3.73 y 3.76 aparecen un ciclo de período 5.
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-6-output-1.pdf}}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-6-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-6-output-1.pdf}
   \caption{Ciclo de período 5 entre 3.73 y 3.76}
 \end{figure}
 
@@ -917,7 +916,7 @@ iteraciones.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-7-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-7-output-1.pdf}
   \caption{Réplica del diagrama de bifurcación original}
 \end{figure}
 
@@ -928,7 +927,7 @@ podemos encontrar el ciclo de periodo 5 de nuevo, en los valores de
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-8-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-8-output-1.pdf}
   \caption{Réplica del ciclo de período 5 entre 3.74431 y 3.74433}
 \end{figure}
 
@@ -942,7 +941,7 @@ requerido 100.000 iteraciones
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-9-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-9-output-1.pdf}
   \caption{Réplica del ciclo de período 5 entre 3.74432144 y 3.744321455}
 \end{figure}
 
@@ -954,7 +953,7 @@ entre 3.7443214444 y 3.744321448 , tras 1.000.000 de iteraciones.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-10-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-10-output-1.pdf}
   \caption{Réplica del diagrama de bifurcación original entre 3.7443214444 y 3.744321448 }
 \end{figure}
 
@@ -1613,7 +1612,7 @@ en una zona no caótica, el exponente de Lyapunov es negativo.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio]{01-logistica/criterio_files/figure-pdf/cell-2-output-1.pdf}}
+  \includegraphics[keepaspectratio]{01-logistica/criterio_files/figure-pdf/cell-2-output-1.pdf}
   \caption{Diagrama de bifurcación y exponente de Lyapunov en función de $r$}
 \end{figure}
 
@@ -3828,36 +3827,12 @@ capaces de predecir el clima?.
 \section{Mirada histórica: lo que ya se decía en los años 70 sobre la
 predictibilidad}\label{mirada-histuxf3rica-lo-que-ya-se-decuxeda-en-los-auxf1os-70-sobre-la-predictibilidad}
 
-Ya en 1974, un \textbf{panel federal de alto nivel en EE. UU.} advirtió
-que \emph{``podríamos muy bien descubrir que el comportamiento del
-sistema no es inherentemente predecible''}. Esta formulación aparece
-recogida por el proyecto histórico del American Institute of Physics
-(AIP) en su página
-\url{https://history.aip.org/climate/chaos.htm} (ver la nota 22) y remite al \textbf{informe original} del
-\emph{Ad Hoc Panel on the Present Interglacial}, disponible escaneado en
-\url{https://babel.hathitrust.org/cgi/pt?id=uc1.31822000471953}.
-AIP también documenta que ese informe circuló en materiales del Congreso
-de 1977 sobre el Programa Nacional del Clima, listados en su bibliografía 
-\url{https://history.aip.org/climate/bib.htm} .
+Ya en 1974, un \textbf{panel federal de alto nivel en EE. UU.}\textsuperscript{\ref{ref:web44}} advirtió que \emph{“podríamos muy bien descubrir que el comportamiento del sistema no es inherentemente predecible”}. Esta formulación aparece recogida por el proyecto histórico del \textbf{American Institute of Physics (AIP)}\textsuperscript{\ref{ref:web45}} y remite al \textbf{informe original} del \emph{Ad Hoc Panel on the Present Interglacial}\textsuperscript{\ref{ref:web46}}, donde puede consultarse el documento escaneado. AIP también documenta que ese informe circuló en materiales del Congreso de 1977 sobre el Programa Nacional del Clima, listados en su bibliografía.
 
-En \textbf{Kutzbach (1976)} ---\emph{The Nature of Climate and Climatic
-Variations}--- se describe el clima como un \textbf{sistema acoplado}
-(atmósfera-océanos-criósfera-litosfera-biosfera) capaz de
-\textbf{fluctuar en múltiples escalas temporales}, lo que introduce
-límites prácticos a una predicción determinista y detallada a largo
-plazo. Puede leerse el artículo (resumen y PDF) en \textbf{Quaternary
-Research} a través de
-\url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/66CAC8CC9924C70498DFFD08287437FB/S0033589400035560a.pdf/nature_of_climate_and_climatic_variations1.pdf}.
+En \textbf{Kutzbach (1976)}\textsuperscript{\ref{ref:web40}} —\emph{The Nature of Climate and Climatic Variations}— se describe el clima como un \textbf{sistema acoplado} (atmósfera–océanos–criósfera–litosfera–biosfera) capaz de \textbf{fluctuar en múltiples escalas temporales}, lo que introduce límites prácticos a una predicción determinista y detallada a largo plazo.  
 
-Antes incluso, \textbf{Stringer (1972)}, en \emph{Foundations of
-Climatology}, ya presentaba el clima como resultado de \textbf{múltiples
-componentes e interacciones complejas}, lo que ayuda a entender por qué
-el pronóstico fino a largo plazo es difícil. Puede consultarse la ficha
-del libro en
-\url{https://books.google.com/books/about/Foundations_of_Climatology_an_Introducti.html?id=_BROwAEACAAJ}, así como reseñas y catálogos en
-\url{https://www.nature.com/articles/239472a0} y en registros
-bibliográficos como
-\url{https://discovered.ed.ac.uk/discovery/fulldisplay?adaptor=Local+Search+Engine&context=L&docid=alma99260793502466&lang=en&tab=Everything&vid=44UOE_INST\%3A44UOE_VU2}.
+Antes incluso, \textbf{Stringer (1972)}\textsuperscript{\ref{ref:web41},\ref{ref:web42},\ref{ref:web43}}, en \emph{Foundations of Climatology}, ya presentaba el clima como resultado de \textbf{múltiples componentes e interacciones complejas}, lo que ayuda a entender por qué el pronóstico fino a largo plazo es difícil.
+
 
 Estos autores y comisiones \textbf{no negaban} que existan regularidades
 (p.~ej., tendencias bajo forzamientos sostenidos), pero \textbf{sí
@@ -4741,6 +4716,113 @@ tanto, más estados.
 
 
 
+% ===============================
+% Índice de figuras (manual)
+% Generado a partir de memoria.lof
+% ===============================
+\chapter*{Índice de figuras}
+\addcontentsline{toc}{section}{Índice de figuras}
+
+\begingroup
+\parindent=0pt
+\setlength{\parskip}{0.35em}
+\newcommand{\figline}[3]{\noindent\textbf{#1}\;#2\dotfill\ #3\par}
+
+\figline{4.1}{Partición en dos bandas de la zona caótica (i)}{14}
+\figline{4.2}{Partición en dos bandas de la zona caótica (ii)}{14}
+\figline{4.3}{Islas periódicas en la zona caótica}{15}
+\figline{4.4}{Islas periódicas en la zona caótica (zoom)}{15}
+\figline{4.5}{Ciclo de período 5 entre 3.73 y 3.76}{16}
+\figline{4.6}{Réplica del diagrama de bifurcación original}{16}
+\figline{4.7}{Réplica del ciclo de período 5 entre 3.74431 y 3.74433}{16}
+\figline{4.8}{Réplica del ciclo de período 5 entre 3.74432144 y 3.744321455}{17}
+\figline{4.9}{Réplica del diagrama de bifurcación original entre 3.7443214444 y 3.744321448}{17}
+
+\figline{5.1}{Valor final del mapa logístico en zona no caótica}{18}
+\figline{5.2}{Valor final del mapa logístico en zona de primera bifurcación}{18}
+\figline{5.3}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{19}
+\figline{5.4}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{19}
+\figline{5.5}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{20}
+\figline{5.6}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{20}
+\figline{5.7}{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones}{21}
+\figline{5.8}{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones (escala logarítmica)}{21}
+\figline{5.9}{Cálculo del coeficiente de Lyapunov para todo el mapa logístico}{26}
+
+\figline{6.1}{Diagrama de bifurcación y exponente de Lyapunov en función de $r$}{28}
+\figline{6.2}{Diagrama de bifurcación y exponente de Lyapunov en función de $r$ (zoom)}{28}
+
+\figline{8.1}{Esquema del doble péndulo}{34}
+\figline{8.2}{Segundo número 5 de la simulación (10.000 péndulos separados inicialmente 10 microgrados)}{35}
+
+\figline{9.1}{Estado de 36x36 péndulos dobles tras 30 segundos de simulación}{37}
+\figline{9.2}{Mapa de Fase Detallado de 720x720 péndulos}{39}
+
+\figline{10.1}{Bifurcaciones en el doble péndulo}{40}
+\figline{10.2}{Bifurcaciones en el doble péndulo zoom 1}{41}
+\figline{10.3}{Bifurcaciones en el doble péndulo zoom 2}{41}
+\figline{10.4}{Bifurcaciones en el doble péndulo y exponente de Lyapunov}{42}
+
+\figline{11.1}{Distancia recorrida por el extremo del péndulo}{43}
+\figline{11.2}{Distancia recorrida por el extremo del péndulo tras 1000 segundos}{44}
+
+\figline{12.1}{Experimento del péndulo doble}{45}
+\figline{12.2}{Trayectoria real de 5 tiradas de un péndulo doble}{46}
+\figline{12.3}{Trayectoria real de 5 tiradas de un péndulo doble}{46}
+\figline{12.4}{Ángulos de 5 tiradas de un péndulo simple}{47}
+\figline{12.5}{Ángulos de 5 tiradas de un péndulo simple ajustando el tiempo inicial}{47}
+\figline{12.6}{Ángulos de 5 tiradas de un péndulo doble}{48}
+
+\figline{13.1}{Estructura de los ficheros de observaciones y pronósticos}{51}
+\figline{13.2}{Estructura de los ficheros de observaciones y pronósticos}{52}
+\figline{13.3}{Error de temperatura en escala lineal}{53}
+\figline{13.4}{Error de humedad en escala lineal}{53}
+\figline{13.5}{Error de presión en escala lineal}{54}
+\figline{13.6}{Error de velocidad del viento en escala lineal}{54}
+\figline{13.7}{Error medio absoluto de temperatura en escala lineal}{55}
+\figline{13.8}{Error medio absoluto de humedad en escala lineal}{55}
+\figline{13.9}{Error medio absoluto de presión en escala lineal}{55}
+\figline{13.10}{Error medio absoluto de velocidad del viento en escala lineal}{56}
+\figline{13.11}{Error medio absoluto de temperatura y ajuste de regresión}{56}
+\figline{13.12}{Error medio absoluto de humedad y ajuste de regresión}{56}
+\figline{13.13}{Error medio absoluto de presión y ajuste de regresión}{57}
+\figline{13.14}{Error medio absoluto de velocidad del viento y ajuste de regresión}{57}
+
+\figline{16.1}{Órbita de la función logística para $r=3.9$}{63}
+\figline{16.2}{Distribución uniforme en función del tiempo}{64}
+\figline{16.3}{Diagrama de fase de la función logística para $r=3.9$}{64}
+\figline{16.4}{Diagrama de fase de números uniformes entre 0 y 1}{65}
+\figline{16.5}{Atractor completo con 2000 iteraciones}{65}
+\figline{16.6}{Atractor completo con 10000 iteraciones}{66}
+\figline{16.7}{Atractor completo con 15000 iteraciones}{66}
+\figline{16.8}{Atractor completo con 20000 iteraciones}{67}
+\figline{16.9}{Atractor completo con 50000 iteraciones}{67}
+\figline{16.10}{Atractores caóticos para distintos valores de $r$}{68}
+\figline{16.11}{Atractores no caóticos para distintos valores de $r$}{68}
+\figline{16.12}{Atractor de Lorenz}{68}
+
+\figline{18.1}{Precipitación anual en España (CRU TS 4.05)}{73}
+
+\figline{20.1}{Rueda caótica - Escena completa}{80}
+\figline{20.2}{Rueda caótica Zoom}{80}
+
+\figline{21.1}{180 segundos de simulación}{81}
+\figline{21.2}{5 segundos de simulación}{82}
+\figline{21.3}{Atractor}{83}
+\figline{21.4}{Vista desde arriba}{83}
+\figline{21.5}{Vista lateral del atractor}{84}
+
+\figline{27.1}{Péndulo simple}{94}
+\figline{27.2}{Péndulo doble}{95}
+\figline{27.3}{Mapa logístico en zona no caótica}{95}
+\figline{27.4}{Mapa logístico en zona caótica}{96}
+\figline{27.5}{Rueda caótica sin canicas}{96}
+\figline{27.6}{Rueda caótica con canicas}{97}
+
+\endgroup
+
+
+
+
 \chapter*{Bibliografía}
 \addcontentsline{toc}{chapter}{Bibliografía}
 
@@ -4863,6 +4945,27 @@ tanto, más estados.
 \url{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}
 
 
+
+\item \label{ref:web40}\href{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/66CAC8CC9924C70498DFFD08287437FB/S0033589400035560a.pdf/nature_of_climate_and_climatic_variations1.pdf}{\textbf{The Nature of Climate and Climatic Variations (PDF).}} J. E. Kutzbach, \textit{Quaternary Research}, Vol. 6, Issue 3, 1976.  
+\url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/66CAC8CC9924C70498DFFD08287437FB/S0033589400035560a.pdf/nature_of_climate_and_climatic_variations1.pdf}
+
+\item \label{ref:web41}\href{https://books.google.com/books/about/Foundations_of_Climatology_an_Introducti.html?id=_BROwAEACAAJ}{\textbf{Foundations of Climatology: An Introduction to Physical, Biogeographical and Synoptic Climatology.}} W. Stringer, \textit{Edward Arnold Publishers}, 1972.  
+\url{https://books.google.com/books/about/Foundations_of_Climatology_an_Introducti.html?id=_BROwAEACAAJ}
+
+\item \label{ref:web42}\href{https://www.nature.com/articles/239472a0}{\textbf{Review of “Foundations of Climatology”.}} Publicado en \textit{Nature}, Vol. 239, 1972.  
+\url{https://www.nature.com/articles/239472a0}
+
+\item \label{ref:web43}\href{https://discovered.ed.ac.uk/discovery/fulldisplay?adaptor=Local+Search+Engine&context=L&docid=alma99260793502466&lang=en&tab=Everything&vid=44UOE_INST%3A44UOE_VU2}{\textbf{Bibliographic record for “Foundations of Climatology”.}} University of Edinburgh Library Catalogue, 1972.  
+\url{https://discovered.ed.ac.uk/discovery/fulldisplay?adaptor=Local+Search+Engine&context=L&docid=alma99260793502466&lang=en&tab=Everything&vid=44UOE_INST%3A44UOE_VU2}
+
+\item \label{ref:web44}\href{https://babel.hathitrust.org/cgi/pt?id=uc1.31822000471953}{\textbf{Ad Hoc Panel on the Present Interglacial.}} Federal Council for Science and Technology, Committee on Atmospheric Sciences, U.S. Government, 1974.  
+\url{https://babel.hathitrust.org/cgi/pt?id=uc1.31822000471953}
+
+\item \label{ref:web45}\href{https://history.aip.org/climate/chaos.htm}{\textbf{The Discovery of Global Warming — Chaos and Climate.}} American Institute of Physics (AIP), Historical Project.  
+\url{https://history.aip.org/climate/chaos.htm}
+
+\item \label{ref:web46}\href{https://history.aip.org/climate/bib.htm}{\textbf{Bibliography on the U.S. National Climate Program.}} American Institute of Physics (AIP), Historical Documentation, 1977.  
+\url{https://history.aip.org/climate/bib.htm}
 
 
 \end{enumerate}
