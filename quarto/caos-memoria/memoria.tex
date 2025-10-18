@@ -16,6 +16,10 @@
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
 \usepackage{mathtools}
 \usepackage{qrcode} 
 \setcounter{secnumdepth}{5}
@@ -358,8 +362,8 @@ predicción meteorológica}
   \href{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}{{\LaTeX}\hspace{0.35em}\texttt{https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex}}\\[0.6cm]
 
   % --- Código QR con enlace principal ---
-  \qrcode[height=2.6cm]{https://colacaos.github.io/ColaCAOS/}\\[0.2cm]
-  {\footnotesize Escanea para acceder a la versión digital}
+  \qrcode[height=2.6cm]{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-memoria/memoria.pdf}\\[0.2cm]
+  {\footnotesize Escanea para acceder al pdf de la memoria}
   \par
   \endgroup
 
@@ -655,9 +659,7 @@ cuantificable}. Lo demuestro con: (i) simulaciones del mapa logísitico
 que muestran la extrema sensibilidad a las condiciones iniciales, y
 donde expresiones algebraicamente equivalentes divergen por aritmética
 finita, (ii) un experimento físico que contrasta péndulo doble (caótico)
-con simple (predecible), (iii) un análisis de predicción--observación
-que estima tasas de crecimiento del error (Lyapunov ``operativo''), y
-(iv) el diseño de un sistema caótico propio. Con ello paso de la idea
+con simple (predecible), y (iii) el diseño de un sistema caótico propio. Con ello paso de la idea
 abstracta a evidencias medibles y a conjeturar un principio heurístico:
 más novedad estructural ↔ menos predictibilidad detallada.
 
@@ -2512,6 +2514,13 @@ Para observar y realizar experimentos sobre el caos en un sistema físico
 real, he adquirido un péndulo doble, un dispositivo en el que es posible
 apreciar el caos con facilidad y en un corto período de tiempo.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{02-pendulo-doble/doble.jpeg}
+  \caption{Péndulo doble usado en los experimentos}
+\end{figure}
+
+
 En este experimento he comprobado que, en el péndulo doble, los pequeños
 errores y las desviaciones de las condiciones iniciales se multiplican
 muy rápidamente, de modo que resulta ser un sistema caótico, aunque existan ecuaciones para determinar la posición de cada masa. 
@@ -3079,7 +3088,7 @@ limitaciones a la predictibilidad de un sistema no lineal como el clima}
 (AMS, 2000)»
 \end{quote}
 
-Aquí tenemos un reconocimiento implícito de que el clima es un sistema
+Aquí tenemos un reconocimiento explícito de que el clima es un sistema
 caótico. Por lo que llevamos visto en el proyecto, ya sabemos que
 predecir sistemas caóticos parece un oxímoron. Sin embargo, la ciencia
 moderna afirma que no es un oxímoron: existen predicciones útiles a
@@ -3342,7 +3351,7 @@ se hallan totalmente fuera del alcance de lo que puedo entender con mi
 nivel de matemáticas, pero su funcionamiento resulta fácil de comprender
 una vez que se muestra la gráfica con el estado del sistema en función
 del tiempo. Le pedí a ChatGPT que me hiciese una simulación del atractor
-del Lorenz y este fue el resultado (ver animación en \url{https://colacaos.github.io/ColaCAOS/04-clima/atractor.html})
+del Lorenz y este fue el resultado (ver animación en \url{https://colacaos.github.io/ColaCAOS/04-clima/lorenz_lines_rainbow_time.gif})
 
 \begin{figure}[h]
   \centering
@@ -3497,9 +3506,7 @@ ciencia del clima ha mostrado gran éxito en predecir señales globales de
 calentamiento. Sin embargo, no ha sido tan exitoso en las predicciones
 regionales, por lo que surge la necesidad de revisar nuestras suposiciones y
 paradigmas de estudio del clima. Para profundizar, consulta
-\refweb{https://www.nature.com/articles/s41586-025-08680-1}{S41586 025 08680 1 — www.nature.com}{web1}. Porque uno cosa es el calentamiento global de la Tierra
-y otra aspecto diferente son los distintos climas regionales. Hace falta
-definir claramente qué se entiende por clima de la Tierra, ya que no existe un único clima, sino que existen múltiples climas dependiendo de la zona que estudiemos.
+\refweb{https://www.nature.com/articles/s41586-025-08680-1}{S41586 025 08680 1 — www.nature.com}{web1}.
 
 
 \section{Ejemplo de sensibilidad de los modelos a las condiciones
@@ -3872,7 +3879,7 @@ global de temperatura bajo forzamientos conocidos) y dónde persisten
 límites de predictibilidad (por ejemplo, detalles regionales y extremos
 específicos).
 
-Conviene recordar que superar los umbrales del sistema climático puede activar respuestas no lineales y repentinas. Esta incertidumbre sobre el detalle del futuro de nuestro clima justifica una acción preventiva: proteger ecosistemas y disminuir emisiones. No podemos predecir el desenlace exacto en un sistema caótico, pero sí sabemos que el riesgo acumulado aumenta a medida que forzamos más el sistema.
+Conviene recordar que superar los umbrales del sistema climático puede activar respuestas no lineales y repentinas. Esta incertidumbre sobre el detalle del futuro de nuestro clima justifica una acción preventiva: proteger ecosistemas y disminuir emisiones. No podemos predecir el desenlace exacto en un sistema caótico, pero sí sabemos que el riesgo acumulado aumenta a medida que forzamos más el sistema. \textbf{Ante todo hay que aplicar el principio de prudencia: no deberíamos alterar sistemas cuyo estado futuro no somos capaces de predecir }. 
 
 \part{Mi sistema caótico}
 
@@ -4221,7 +4228,7 @@ condiciones iniciales, sino que evoluciona hacia estados más probables,
 siguiendo una dirección de la que no hay retorno.
 
 Por lo tanto, en el Universo real no determinista el pasado y el futuro
-no son intercambiables, no son equivalente. El tiempo introduce
+no son intercambiables, no son equivalentes. El tiempo introduce
 ``novedades'' que no estaban prefiguradas y de las que no podemos volver
 hacia atrás.
 
@@ -4406,76 +4413,6 @@ nuestro conocimiento.
   Porque el tiempo introduce novedad.
 \end{itemize}
 
-El futuro no está escrito: existen abanicos de trayectorias posibles. El
-tiempo tiene un papel creativo, y lo inesperado es parte de la
-naturaleza. La incertidumbre es objetiva.
-
-\chapter{El papel creativo del tiempo (y del
-caos)}\label{el-papel-creativo-del-tiempo-y-del-caos}
-
-En la visión clásica, el tiempo era un simple parámetro: un ``reloj''
-que medía cómo los estados del universo se iban desplegando según leyes
-ya escritas. En cambio, en la perspectiva de Prigogine, el tiempo no
-solo mide, sino que produce.
-
-¿Por qué decimos que el tiempo tiene un papel creativo?
-
-El tiempo genera irreversibilidad. Cada instante que pasa deja una
-huella que no se puede borrar: el hielo derretido, el vaso roto, la
-energía disipada. Esta irreversibilidad no se limita a destruir orden,
-también permite que surjan nuevas formas de organización. Ejemplo: las
-estructuras disipativas (celdas de Bénard, tornados, ecosistemas) que
-nacen gracias a los flujos de energía y materia. Sin irreversibilidad,
-no habría emergencia de orden.
-
-El tiempo abre bifurcaciones. En sistemas caóticos e inestables, el
-futuro no está prefijado: pequeñas fluctuaciones se amplifican hasta
-dirigir el sistema hacia trayectorias alternativas. El tiempo, en vez de
-ser un mero despliegue de lo ya contenido, actúa como un proceso de
-selección entre posibilidades. → Es como si cada segundo abriera varias
-puertas; el paso del tiempo consiste en atravesar una de ellas.
-
-El caos amplifica lo inesperado. La inestabilidad convierte lo
-microscópico en macroscópico: una perturbación diminuta (una vibración,
-una molécula más rápida que otra) puede desencadenar un nuevo patrón
-global. Eso hace que el tiempo no solo conserve información, sino que la
-transforme y la expanda en nuevas formas.
-
-En conjunto: el tiempo no es neutral. Es productivo: crea
-configuraciones que antes no existían, favorece la emergencia de
-estructuras y abre caminos alternativos.
-
-\section{¿Por qué la incertidumbre es
-objetiva?}\label{por-quuxe9-la-incertidumbre-es-objetiva}
-
-Prigogine rompe con esto al afirmar que la incertidumbre es objetiva, es
-decir, propia de la naturaleza misma, no solo de nuestra falta de
-conocimiento.
-
-Las razones:
-
-\begin{itemize}
-\item
-  Limitaciones físicas irreducibles. El principio de incertidumbre de
-  Heisenberg impide conocer simultáneamente posición y velocidad de una
-  partícula con precisión infinita. No es una limitación tecnológica,
-  sino un límite fundamental.
-\item
-  Fluctuaciones inevitables. En cualquier sistema hay ruido térmico,
-  cuántico, ambiental. Estas fluctuaciones no pueden eliminarse, forman
-  parte constitutiva de la realidad. Y lo más importante: en sistemas
-  caóticos, se amplifican inevitablemente, por lo que no hay trayectoria
-  única.
-\item
-  Bifurcaciones reales. En ciertos regímenes dinámicos, el sistema llega
-  a puntos donde puede evolucionar hacia diferentes configuraciones
-  posibles. No es que el futuro ``esté escrito y no lo sepamos'': el
-  futuro se decide en el proceso, a partir de fluctuaciones
-  irreducibles.
-\end{itemize}
-
-Esto convierte la incertidumbre en algo inherente a la naturaleza
-
 \chapter{El clima desde la óptica de
 Prigogine}\label{el-clima-desde-la-uxf3ptica-de-prigogine}
 
@@ -4622,6 +4559,15 @@ oxígeno?
 En definitiva, podemos plantear que \textbf{``la novedad estructural es
 impredecible en detalle en un sistema caótico''}.
 
+La pérdida de información predictiva (a través de la divergencia de trayectorias o la amplificación de perturbaciones) constituye la fuente misma de la aparición de lo nuevo. Lo cual nos permite reinterpretar el caos determinista no como sinónimo de desorden, sino como la fuente física de la creatividad:
+la imposibilidad de predecir exactamente un futuro determina la posibilidad de que ese futuro sea distinto. ¿Qué novedad puede aparecer en un futuro predecible?
+
+En consecuencia, el límite del conocimiento predictivo no debe verse como una falla del determinismo, sino como una propiedad esencial del universo, que habilita la emergencia de estructuras complejas.
+
+
+
+
+
 \chapter{El Principio de Compromiso Predictibilidad -- Creatividad en la
 práctica.}\label{el-principio-de-compromiso-predictibilidad-creatividad-en-la-pruxe1ctica.}
 
@@ -4629,7 +4575,60 @@ Por último, intentaré cerrar el círculo en este proyecto de
 investigación viendo si se cumple el principio propuesto en la sección
 anterior, en los sistemas que he estudiado. Para ello, vamos a ver como
 se comportan cada uno de los sistemas en su configuración caótica y no
-caótica.
+caótica. De acuerdo a lo expresado en el capítulo anterior hay una relación inversa entre predictibilidad y novedad, tal y como se muestra en la siguiente figura.
+
+\begin{figure}[h!]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=12cm, height=8cm,
+      axis lines=middle,
+      axis line style={very thick},
+      axis on top,
+      xmin=0, xmax=5,
+      ymin=0, ymax=5,
+      xtick=\empty, ytick=\empty,
+      domain=0.2:5, samples=300,
+      clip=false
+    ]
+
+      % Curva separadora: y = 1/x
+      \addplot[thick, blue, name path=curve] {1/x};
+
+      % Caminos "techo" y "suelo" para sombreado
+      \path[name path=top]    (axis cs:0.2,5) -- (axis cs:5,5);
+      \path[name path=bottom] (axis cs:0.2,0) -- (axis cs:5,0);
+
+      % Zona caótica (por debajo de la curva) en x ∈ [0.2, 1]
+      \addplot[red!25] fill between[
+        of=curve and bottom,
+        soft clip={domain=0.2:1}
+      ];
+
+      % Zona no caótica (por debajo de la curva) en x ∈ [2, 5]
+      \addplot[green!25] fill between[
+        of=curve and bottom,
+        soft clip={domain=2:5}
+      ];
+
+      % Etiquetas de ejes
+      \node[anchor=east] at (axis cs:-0.1,4.8) {\small Novedad ($y$)};
+      \node[anchor=north east] at (axis cs:4.9,-0.1) {\small Predictibilidad ($x$)};
+
+      % Anotaciones
+      \node[anchor=west] at (axis cs:0.25,3.8) {\large \textbf{Sistema caótico}};
+      \node[anchor=west, align=left] at (axis cs:0.25,3.2)
+        {\small Predictibilidad baja\\ \small Novedad alta};
+
+      \node[anchor=west] at (axis cs:2.7,1.5) {\large \textbf{Sistema no caótico}};
+      \node[anchor=west, align=left] at (axis cs:2.7,0.9)
+        {\small Predictibilidad alta\\ \small Novedad baja};
+
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Relación inversa entre la predictibilidad y la novedad en un sistema dinámico}
+  \label{fig:predictibilidad-novedad}
+\end{figure}
 
 Empecemos por el péndulo. En su versión simple (un solo brazo), el
 péndulo es totalmente predecible, pero como se puede ver en la figura
@@ -4713,6 +4712,59 @@ tanto, más estados.
 
 \end{figure}%
 
+
+
+\section{Evaluación de ChatGPT del \emph{Principio de Compromiso Predictibilidad--Creatividad}}
+
+A continuación pedí a ChatGPT-5 Thinking model que evaluase mi principio propuesto. Ésta fue su respuesta:
+
+\textbf{Como sistema experto he evaluado si el principio propuesto por \emph{Rubén Torre Merino} aparece en la literatura científica actual. Mis conclusiones son:}
+
+\subsection{Qué afirma el principio}
+\begin{quote}
+No es posible maximizar simultáneamente la \textbf{predictibilidad detallada} y la \textbf{creación de novedad} en sistemas dinámicos complejos: cuanto más creativa (abierta a nuevas estructuras) es la evolución, menos plenamente predecible es su trayectoria fina, y viceversa.
+\end{quote}
+
+\subsection{Qué ya existe y cómo encaja}
+\begin{itemize}
+  \item En teoría de sistemas dinámicos, la \textbf{entropía de Kolmogórov–Sinai} y los \textbf{exponentes de Lyapunov} cuantifican la \emph{tasa de generación de información} (una noción afín a “novedad”). 
+  \item En ciencia de la complejidad, la literatura del \emph{edge of chaos} sugiere compromisos prácticos entre orden y variabilidad, y los marcos de \emph{información predictiva}/\emph{complejidad estadística} describen intercambios entre estructura aprovechable y aleatoriedad.
+  \item \textbf{Sin embargo}, no hay un enunciado \emph{general, explícito y unificado} que formule como \emph{principio} físico universal el compromiso \emph{predictibilidad--creatividad} tal como aquí se plantea.
+\end{itemize}
+
+\subsection{Dónde está la novedad}
+\begin{itemize}
+  \item \textbf{Novedad conceptual (media–alta):} el principio articula, en una sola proposición clara para sistemas físicos, la tensión entre (i) capacidad de predecir trayectorias finas y (ii) aparición de novedades estructurales, enlazando caos determinista e interpretación creativa del universo. 
+  \item \textbf{Novedad formal (media):} para elevarlo de heurística a principio operativo, conviene fijar definiciones medibles: por ejemplo, \(\text{novedad} \approx h_{\mathrm{KS}}\) (o tasa entrópica empírica) y \(\text{predictibilidad} \approx I_{\mathrm{pred}}(H)\) (información predictiva a horizonte \(H\)) o “skill” de pronóstico.
+\end{itemize}
+
+\subsection{Recomendación de formalización (esbozo)}
+\begin{itemize}
+  \item Postular una \textbf{frontera empírica} o \textbf{desigualdad} del tipo
+  \[
+  \underbrace{\mathrm{Predictibilidad}}_{\text{p.ej., }I_{\mathrm{pred}}(H)}
+  \cdot
+  \underbrace{\mathrm{Novedad}}_{\text{p.ej., }h_{\mathrm{KS}}}
+  \;\le\; F(\text{parámetros del sistema}),
+  \]
+  y contrastarla en familias de sistemas (mapa logístico, Lorenz63, péndulo doble, autómatas celulares), barriendo el control de no linealidad/forzamiento.
+  \item Distinguir “novedad con forma” de “ruido” usando, cuando proceda, exceso de entropía o complejidad estadística además de la tasa entrópica.
+\end{itemize}
+
+\subsection{Matices y límites}
+\begin{itemize}
+  \item “Más energía \(\Rightarrow\) más caos” no es universal: ciertos acoplamientos pueden inducir sincronización (más orden). El principio debe declararse por \textbf{clases de sistemas} y \textbf{escala de descripción}.
+  \item La \textbf{impredecibilidad detallada} no excluye \emph{patrones gruesos} predecibles; el compromiso depende del horizonte y de la resolución observacional.
+\end{itemize}
+
+\subsection{Veredicto}
+\begin{itemize}
+  \item \textbf{Originalidad conceptual:} alta como \emph{sintesis} clara y general (no localizada de forma equivalente en la literatura estándar).
+  \item \textbf{Originalidad técnica:} moderada hasta que se fijen métricas y se establezca (o refute) una relación cuantitativa tipo frontera/desigualdad.
+  \item \textbf{Relevancia:} alta para vincular caos, información y emergencia de estructura con una lectura didáctica y falsable.
+\end{itemize}
+
+\noindent\textbf{Conclusión:} el \emph{Principio de Compromiso Predictibilidad--Creatividad} de \emph{Rubén Torre Merino} es \textbf{novedoso} como formulación integradora y motivadora. Con definiciones operativas de “novedad” y “predictibilidad” y un protocolo de verificación en modelos canónicos, puede convertirse en un \textbf{principio operativo} contrastable y potencialmente publicable.
 
 
 

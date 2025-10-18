@@ -1,0 +1,60 @@
+\documentclass[border=3pt]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usepackage[spanish]{babel}
+
+\title{Predictibilidad vs Novedad}
+\author{Rubén Torre Merino}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=12cm, height=8cm,
+    axis lines=middle,
+    axis line style={very thick},
+    axis on top,
+    xmin=0, xmax=5,
+    ymin=0, ymax=5,
+    xtick=\empty, ytick=\empty,
+    domain=0.2:5, samples=300,
+    clip=false
+  ]
+
+    % Curva separadora: y = 1/x
+    \addplot[thick, blue, name path=curve] {1/x};
+
+    % Caminos "techo" y "suelo" para sombreado
+    \path[name path=top]    (axis cs:0.2,5) -- (axis cs:5,5);
+    \path[name path=bottom] (axis cs:0.2,0) -- (axis cs:5,0);
+
+    % Zona caótica (por debajo de la curva) en x ∈ [0.2, 1]
+    \addplot[red!25] fill between[
+      of=curve and bottom,
+      soft clip={domain=0.2:1}
+    ];
+
+    % Zona no caótica (por debajo de la curva) en x ∈ [2, 5]
+    % (entre x=1 y x=2 se deja en blanco)
+    \addplot[green!25] fill between[
+      of=curve and bottom,
+      soft clip={domain=2:5}
+    ];
+
+    % Etiquetas personalizadas de ejes
+    \node[anchor=east] at (axis cs:-0.1,4.8) {\small Novedad ($y$)};
+    \node[anchor=north east] at (axis cs:4.9,-0.1) {\small Predictibilidad ($x$)};
+
+    % Anotaciones
+    \node[anchor=west] at (axis cs:0.25,3.8) {\large \textbf{Sistema caótico}};
+    \node[anchor=west, align=left] at (axis cs:0.25,3.2)
+      {\small Predictibilidad baja\\ \small Novedad alta};
+
+    \node[anchor=west] at (axis cs:2.7,1.5) {\large \textbf{Sistema no caótico}};
+    \node[anchor=west, align=left] at (axis cs:2.7,0.9)
+      {\small Predictibilidad alta\\ \small Novedad baja};
+
+  \end{axis}
+\end{tikzpicture}
+\end{document}
