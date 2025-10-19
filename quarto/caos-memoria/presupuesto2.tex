@@ -1,0 +1,183 @@
+% !TEX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % Si compilas con XeLaTeX/LuaLaTeX, comenta esta línea
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{lmodern} % Fuente con buen soporte T1
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl}    % Romper URLs largas
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+
+% Relajar cortes de línea para evitar overfull hboxes por URLs
+\sloppy
+\emergencystretch=1em
+
+\title{Sección didáctica: Principio \emph{predictibilidad--novedad} en sistemas caóticos}
+\author{Alberto}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1.\;Por qué merece la pena formularlo}
+Creemos que esta idea puede aportar a la comunidad: en caos se dice que pequeñas diferencias iniciales crecen rápido y limitan la predicción. Pero en clase queda difuso \emph{cuánto} podemos predecir y \emph{cuánta novedad} (información nueva) se crea en cada paso. Por eso queremos \textbf{formular matemáticamente} un principio que relacione \emph{predictibilidad} con \emph{novedad}.
+
+Para explicarlo usaremos nuestro \textbf{juguete favorito} en el estudio del caos: la \textbf{función logística}
+\[
+x_{n+1}=r\,x_n(1-x_n),\qquad \text{y trabajaremos en el caso } r=4,
+\]
+que es caótico en todo \([0,1]\) y tiene propiedades exactas conocidas (es un caso de libro).\footnote{Entrada \emph{Logistic map}, secc.\ ``When $r=4$'' y ``Topological conjugate mapping''. \url{https://en.wikipedia.org/wiki/Logistic_map}}
+
+\section*{2.\;Tiempo de predictibilidad: lo que ya sabíamos}
+Si el error inicial es $\varepsilon$ (precisión con que conocemos el estado) y dejamos de considerar útil la predicción cuando el error supera $\Delta$ (umbral de utilidad), el crecimiento exponencial del error lleva a la fórmula operativa
+\[
+\boxed{\,T_p(\varepsilon,\Delta)=\frac{1}{\lambda}\,\ln\!\frac{\Delta}{\varepsilon}\,}
+\]
+donde $\lambda$ es el \textbf{exponente de Lyapunov}. El inverso $1/\lambda$ se conoce como \emph{tiempo de Lyapunov} (marca la escala temporal de la pérdida de predictibilidad).\footnote{Sobre Lyapunov y predictibilidad, v.\ gr., \emph{ChaosBook}, capítulo de Lyapunov. \url{https://chaosbook.org/chapters/Lyapunov.pdf}}
+
+\section*{3.\;Qué nos falta: medir la ``novedad''}
+Lanzamos la pregunta a ChatGPT: ¿cómo medir matemáticamente la creación de novedad? La sugerencia fue usar la \textbf{entropía por paso} (entropía de Kolmogórov--Sinai, $h_{\mathrm{KS}}$), que cuantifica cuánta información nueva genera el sistema en cada iteración. En muchos sistemas bien comportados (medida natural), $h_{\mathrm{KS}}$ coincide con la suma de los exponentes de Lyapunov positivos (fórmula de Pesin); en mapas unidimensionales expansivos como los que veremos, vale $h_{\mathrm{KS}}=\lambda$.
+
+En el \textbf{caso logístico $r=4$} ocurre algo especialmente limpio: está (semi)conjugado al \emph{mapa tent} de pendiente $2$ y al \emph{bit-shift}/doblado $x\mapsto 2x \bmod 1$. Eso significa que cada iteración libera exactamente $1$ bit de novedad, y por tanto
+\[
+\boxed{\,h_{\mathrm{KS}}=\lambda=\ln 2\ \text{(nats/iter)}\,}.
+\]
+Así, en la logística ($r=4$) el \textbf{principio predictibilidad--novedad} se cumple al 100\%:
+\[
+\boxed{\,h_{\mathrm{KS}}\,T_p(\varepsilon,\Delta)=\ln\!\frac{\Delta}{\varepsilon}\,}.
+\]
+Lectura: más novedad por paso ($h$ grande) implica menos tiempo útil de predicción ($T_p$ pequeño), con una constante que solo depende de $\varepsilon$ (precisión inicial) y $\Delta$ (tolerancia).\footnote{Conjugación logística $r=4$ con tent ($s=2$) y con el doblado/bit-shift; y $\lambda=h_{\mathrm{KS}}=\ln 2$. Apuntes introductorios: Phys 221A (UCSD). \url{https://courses.physics.ucsd.edu/2017/Spring/physics221a/Phys_221A_Lecture_4-5.pdf}}
+
+\section*{4.\;Otros sistemas donde \emph{ChatGPT} enumeró fórmulas explícitas}
+Le pedimos a ChatGPT más sistemas de libro donde haya fórmulas claras de entropía y, por tanto, del tiempo de predictibilidad. La \textbf{enumeración} que nos dio fue:
+
+\begin{itemize}
+  \item \textbf{Doblado/Bernoulli shift} $T(x)=2x \bmod 1$\\
+  Entropía y Lyapunov: $h_{\mathrm{KS}}=\lambda=\ln 2$. \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln 2}\ln\dfrac{\Delta}{\varepsilon}$.%
+  \footnote{Notas de curso con cálculo de entropía del doblado; ejemplo canónico. \url{https://people.maths.bris.ac.uk/~ip13935/dyn/CorinnaII.pdf}}
+  
+  \item \textbf{Mapa tent (carpa)} de pendiente $s\in(1,2]$\\
+  Entropía/Lyapunov: $h_{\mathrm{KS}}=\lambda=\ln s$. \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln s}\ln\dfrac{\Delta}{\varepsilon}$.%
+  \footnote{Derivación elemental: $|T'|=s$ casi en todas partes $\Rightarrow \lambda=\int \ln|T'|=\ln s$. Apuntes: Phys 221A (UCSD). \url{https://courses.physics.ucsd.edu/2017/Spring/physics221a/Phys_221A_Lecture_4-5.pdf}}
+
+  \item \textbf{Mapa del panadero (Baker)} (versión binaria; estiramiento $b$)\\
+  Entropía KS: $h_{\mathrm{KS}}=\ln 2$ (o, en general, $\ln b$). \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln 2}\ln\dfrac{\Delta}{\varepsilon}$ (o $\dfrac{1}{\ln b}\ln\dfrac{\Delta}{\varepsilon}$).%
+  \footnote{Apuntes con el cálculo directo de $h_{\mathrm{KS}}$ para Baker. \url{https://courses.physics.ucsd.edu/2017/Winter/physics200b/LECTURES/CH02_MAPS.pdf}}
+
+  \item \textbf{Gato de Arnold} (automorfismo toral hiperbólico)\\
+  Entropía KS: $\,h_{\mathrm{KS}}=\ln \sigma_{+}$, con $\sigma_{+}$ el autovalor inestable de la matriz. \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln\sigma_{+}}\ln\dfrac{\Delta}{\varepsilon}$.%
+  \footnote{Ficha y notas sobre el cat map; para la matriz estándar $\sigma_{+}=(3+\sqrt{5})/2$. \url{https://mathworld.wolfram.com/ArnoldsCatMap.html}}
+\end{itemize}
+
+\section*{5.\;Qué pasa con la información en un sistema caótico}
+En un sistema caótico partimos de un \textbf{estado inicial}; tras avanzar, tenemos un \textbf{estado final + novedad}. A diferencia de un sistema no caótico, no podemos reconstruir el pasado a partir del presente: en mapas no invertibles (como la logística) varios pasados llevan al mismo presente; en sistemas disipativos, volúmenes se ``aplastan'' hacia atractores; y con resolución finita la información observable del pasado se diluye por el estirar--plegar.
+
+\section*{6.\;Cómo escribirlo de forma sencilla: el ``presupuesto''}
+Preguntamos a ChatGPT cómo poner esto en una fórmula simple. La propuesta (didáctica) es el siguiente \textbf{balance} a resolución finita:
+\[
+\underbrace{I_{\varepsilon}(X_0;X_t)}_{\text{información del pasado que aún queda}}
+\;+\;
+\underbrace{h_{\mu}\,t}_{\text{novedad acumulada (nats)}}
+\;\approx\;
+\underbrace{H_{\varepsilon}(X_0)}_{\text{información inicial a resolución }\varepsilon}.
+\]
+Aquí $H_{\varepsilon}(X)$ es la entropía de Shannon del estado \emph{cuantizado} a celdas de tamaño $\varepsilon$; $I_{\varepsilon}(X_0;X_t)$ es la \emph{información mutua} entre pasado y presente a esa misma resolución; y $h_\mu$ es la \emph{entropía por paso} (novedad por iteración).\footnote{Definiciones intro: entropía e información mutua (Wikipedia); romper URLs: paquete \texttt{xurl}. \url{https://en.wikipedia.org/wiki/Entropy_(information_theory)} \; \url{https://en.wikipedia.org/wiki/Mutual_information} \; \url{https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url}}
+
+Cuando $I_{\varepsilon}$ cae a cero, se agota la predictibilidad y recuperamos el horizonte:
+\[
+h_{\mu}\,T_p(\varepsilon,\Delta)\;\approx\;\ln\!\frac{\Delta}{\varepsilon}.
+\]
+
+\section*{7.\;Prueba escolar perfecta en la logística $r=4$: se cumple \emph{exacto}}
+Usamos cuantización binaria ($\varepsilon=2^{-k}$): conocer $X_0$ a esa resolución equivale a conocer los \emph{primeros $k$ bits}. Como la logística $r=4$ es (semi)conjugada al \emph{bit-shift} (y al tent con pendiente $2$), cada iteración \emph{expulsa} el bit más significativo del pasado e \emph{introduce} un bit nuevo (novedad). Por tanto:
+\[
+\boxed{\,H_{\varepsilon}(X_0)=k\ln 2\,},\qquad
+\boxed{\,I_{\varepsilon}(X_0;X_t)=\max\{k-t,0\}\,\ln 2\,},\qquad
+\boxed{\,h_{\mu}\,t=t\ln 2\,}.
+\]
+\textbf{Suma paso a paso (para $0\le t\le k$)}:
+\[
+I_{\varepsilon}(X_0;X_t)+h_{\mu}t
+=(k-t)\ln 2+t\ln 2
+=\boxed{\,k\ln 2\,}
+=\boxed{\,H_{\varepsilon}(X_0)\,}.
+\]
+Exacto. Para $t\ge k$, $I_{\varepsilon}=0$: hemos agotado los $k$ bits iniciales. Si fijamos un umbral $\Delta=2^{-m}$ (``me vale mientras conserve $m$ bits''), el horizonte es
+\[
+T_p(\varepsilon,\Delta)=k-m,\qquad
+h_{\mu}T_p=\ln 2\,(k-m)=\ln\!\frac{2^{-m}}{2^{-k}}=\ln\!\frac{\Delta}{\varepsilon}.
+\]
+(En tent/doblado $h_{\mathrm{KS}}=\lambda=\ln 2$ y la dinámica es literalmente un desplazamiento de bits.)\footnote{Notas Phys 221A sobre tent y $2x\bmod 1$ con $h_{\mathrm{KS}}=\ln 2$. \url{https://courses.physics.ucsd.edu/2017/Spring/physics221a/Phys_221A_Lecture_4-5.pdf}}
+
+\section*{Ejemplo extendido: el termómetro y el horizonte de predictibilidad}
+
+\subsection*{Planteamiento base}
+Medimos temperatura con un termómetro de resolución inicial $\varepsilon$ (por ejemplo, $0{,}1\,^{\circ}\mathrm{C}$).
+Consideramos que la predicción deja de ser útil cuando el error supera un umbral $\Delta$ (por ejemplo, $1{,}0\,^{\circ}\mathrm{C}$).
+Si el error crece aproximadamente de forma exponencial, $\varepsilon(t)=\varepsilon\,e^{\lambda t}$, el \textbf{tiempo de predictibilidad} cumple
+\[
+T_p(\varepsilon,\Delta)=\frac{1}{\lambda}\,\ln\!\frac{\Delta}{\varepsilon}.
+\]
+Aquí $\lambda$ es el \emph{exponente de Lyapunov} (tasa a la que divergencias pequeñas se amplifican); su inverso $T_{\lambda}=1/\lambda$ es el \emph{tiempo de Lyapunov} o \emph{e-folding time}.\footnote{Definiciones y uso: Wikipedia, ``Lyapunov exponent'' y ``Lyapunov time''; ChaosBook (cap. Lyapunov). En esas fuentes se explica que $T_{\lambda}$ es el tiempo en el que el error se multiplica por $e$, y que también se usan doblajes (factor 2) o "décuplos" (factor 10) como escalas informativas. \url{https://en.wikipedia.org/wiki/Lyapunov_exponent} \; \url{https://en.wikipedia.org/wiki/Lyapunov_time} \; \url{https://chaosbook.org/chapters/Lyapunov.pdf}}
+
+
+\section*{Caso A: $\Delta=10~^\circ\mathrm{C}$ y $T_p=14$ d\'ias}
+
+\paragraph{Derivaci\'on breve.}
+Del balance did\'actico $I_\varepsilon+h_\mu t \approx H_\varepsilon$ y usando
+$h_\mu \approx \tfrac{1}{T_p}\ln(\Delta/\varepsilon)$ y $H_\varepsilon \approx \ln(\Delta/\varepsilon)$,
+obtenemos a tiempo $t=d$ (en d\'ias):
+\[
+I_d \;\approx\; \ln\!\frac{\Delta}{\varepsilon}\,\Big(1-\frac{d}{T_p}\Big).
+\]
+Con $\Delta=10$ y, para fijar ideas, $\varepsilon=1$, resulta $H_\varepsilon=\ln 10=2{,}3026$ nats
+y $h_\mu=\tfrac{\ln 10}{T_p}=\tfrac{2{,}3026}{14}\approx 0{,}16447$ nats/d\'ia.
+
+\paragraph{Tabla (d\'ia a d\'ia).}
+Columnas: \emph{Informaci\'on del pasado que queda} ($I_d$), \emph{Novedad generada} ($h_\mu d$) y
+\emph{Informaci\'on total} ($I_d+h_\mu d = H_\varepsilon$). Valores en nats, redondeo a 4 decimales.
+
+\begin{center}
+\begin{tabular}{rccc}
+\toprule
+D\'ia $d$ & $I_d$ & Novedad generada $h_\mu d$ & Informaci\'on total $H_\varepsilon$ \\
+\midrule
+0  & 2.3026 & 0.0000 & 2.3026 \\
+1  & 2.1381 & 0.1645 & 2.3026 \\
+2  & 1.9736 & 0.3289 & 2.3026 \\
+3  & 1.8092 & 0.4934 & 2.3026 \\
+4  & 1.6447 & 0.6579 & 2.3026 \\
+5  & 1.4802 & 0.8224 & 2.3026 \\
+6  & 1.3158 & 0.9868 & 2.3026 \\
+7  & 1.1513 & 1.1513 & 2.3026 \\
+8  & 0.9868 & 1.3158 & 2.3026 \\
+9  & 0.8224 & 1.4802 & 2.3026 \\
+10 & 0.6579 & 1.6447 & 2.3026 \\
+11 & 0.4934 & 1.8092 & 2.3026 \\
+12 & 0.3289 & 1.9736 & 2.3026 \\
+13 & 0.1645 & 2.1381 & 2.3026 \\
+14 & 0.0000 & 2.3026 & 2.3026 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\emph{Lectura:} la informaci\'on del pasado $I_d$ desciende linealmente desde $\ln 10$ hasta $0$ en 14 d\'ias,
+mientras que la \emph{novedad acumulada} crece al ritmo constante $h_\mu=\ln(10)/14$ nats/d\'ia. La suma
+se mantiene constante e igual a $H_\varepsilon=\ln 10$.
+
+\bigskip\hrule\bigskip
+
+\section*{Notas técnicas útiles (LaTeX)}
+Para evitar ``Missing character'' con comillas “ ”, usa comillas LaTeX: ``texto''. Para URLs largas, el paquete \texttt{xurl} permite partir enlaces en cualquier punto; también ayuda \texttt{\string\sloppy}.\footnote{Comillas correctas en LaTeX: John D. Cook, ``Top four LaTeX mistakes''. \url{https://www.johndcook.com/blog/2010/02/15/top-latex-mistakes/}. \; Partir URLs con \texttt{xurl}: \url{https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url}; guía práctica: \url{https://www.baeldung.com/cs/latex-show-url}.}
+
+\end{document}

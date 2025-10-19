@@ -15,6 +15,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
+\usepackage{tcolorbox}
 \usepackage{fontawesome5}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -329,21 +330,25 @@ predicción meteorológica}
 \date{}
 \begin{document}
 
-
 \begin{titlepage}
   \centering
-  % Imagen de portada
-  \vspace*{2cm}
+  % --- Logo del Instituto ---
+  \vspace*{-1cm}
+  \includegraphics[width=4cm]{ies.jpeg}\par
+  \vspace{0cm}
+
+  % --- Imagen de portada principal ---
   \includegraphics[width=\textwidth]{cover.jpg}\par
   \vspace{1.2cm}
 
+  % --- Título ---
   {\Huge\bfseries\color{Main} Estudio del Caos en sistemas físicos\\[2mm]
   y su relación con la predicción meteorológica\par}
 
   \vspace{0.8cm}
   {\Large\color{gray!90} \textit{Memoria}}\par
 
-  \vspace{1.2cm}
+  \vspace{0.5cm}
   {\Large Rubén Torre Merino}\par
 
   \vfill
@@ -367,7 +372,7 @@ predicción meteorológica}
   \par
   \endgroup
 
-  \vspace{1.0cm}
+  \vspace{0.5cm}
   {\large \today}\par
 \end{titlepage}
 
@@ -603,16 +608,7 @@ Los objetivos científicos son los siguientes:
 \section{Adquisición de habilidades
 digitales}\label{adquisiciuxf3n-de-habilidades-digitales}
 
-Al plantearme como documentar el proyecto, vi dos opciones: hacerlo de
-la forma tradicional, es decir una memoria en formato Word, o hacer un
-proyecto moderno basado en las herramientas digitales actualmente
-disponibles. Si bien la segunda opción me parecía muy llamativa, al
-mismo tiempo me resulta muy imponente, dado mi limitado conocimiento de
-herramientas informáticas. Sin embargo, la aparición de sistemas de
-inteligencia artificial tan potentes como ChatGPT abre la posibilidad a
-programar sin necesidad de ser un desarrollador informático. Por ello,
-me lancé a usar de forma masiva \textbf{ChatGPT} para las siguiente
-tareas:
+La adquisición de habilidades digitales es fundamental en los tiempos actuales. Con la llegada de sistemas como Inteligencia Artificial, las barreras de entrada para usar programas y herramientas software se ven reducidas enormemente. Durante el desarrollo del proyecto he tenido acceso al modelo GPTo4-mini-high y al GPT5-Thinking, que he usado de forma masiva para las siguientes tareas:
 
 \begin{itemize}
 \item
@@ -642,8 +638,7 @@ tareas:
   resultados. Planteaba al modelo el programa que quería hacer, e
   iteraba los errores y problemas de funcionamiento con el propio modelo
 \item
-  Hacer investigación en profundidad de las predicciones climáticas
-  realizadas durante las últimas décadas
+  Ayudarme sobre todo en la parte matemática a formular teorías e hipótesis, tal y como he hecho en los capítulos \nameref{pcpc} y \nameref{pcpcp2}
 \end{itemize}
 
 Por último, he aprendido a usar Algodoo, un simulador de sistemas
@@ -655,7 +650,7 @@ propuesto
 En cuanto a lo aportado por mi trabajo, he de decir que no pretendo
 descubrir el caos, sino \textbf{mostrar de forma operativa y
 reproducible que la predictibilidad del mundo es limitada y
-cuantificable}. Lo demuestro con: (i) simulaciones del mapa logísitico
+cuantificable}. Lo demuestro con: (i) simulaciones del mapa logístico
 que muestran la extrema sensibilidad a las condiciones iniciales, y
 donde expresiones algebraicamente equivalentes divergen por aritmética
 finita, (ii) un experimento físico que contrasta péndulo doble (caótico)
@@ -671,9 +666,7 @@ científicos, investigaciones llevadas a cabo y código generado.
 
 \begin{itemize}
 \item
-  En la sección
-  \href{https://colacaos.github.io/ColaCAOS/01-logistica/lyapunov.html}{Efecto
-  Mariposa} se muestra la sensibilidad extrema a las condiciones
+  En el capítulo \nameref{efecto-mariposa} se muestra la sensibilidad extrema a las condiciones
   iniciales de un sistema caótico como el mapa logístico (\textbf{efecto
   mariposa}). No solo eso, sino que se demuestra también la sensibilidad
   a la precisión finita con la que se hacen los cálculos en un ordenador
@@ -683,21 +676,16 @@ científicos, investigaciones llevadas a cabo y código generado.
   demuestra la existencia de funciones matemáticas sujetas al caos y no
   predecibles computacionalmente.
 \item
-  En la sección
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/fractal.html}{Mapa
-  de Fases} se demuestra vía simulación que el péndulo doble es caótico.
+  En la el capítulo \nameref{mapa-de-fases} se demuestra vía simulación que el péndulo doble es caótico.
   No se es capaz de encontrar una diferencia de condiciones iniciales lo
   suficientemente pequeña para que la trayectorias de dos péndulos
   dobles sea idéntica, ni siquiera razonablemente similar. 
 \item
-  En
-  \href{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/experimentos.html}{Experimentos}
-  muestro como bajo la misma configuración de trabajo, un péndulo doble
+  En \nameref{experimentos}
+  muestro experimentalmente como bajo la misma configuración de trabajo, un péndulo doble
   se comporta caóticamente mientras que un péndulo simple no.
 \item
-  En
-  \href{https://colacaos.github.io/ColaCAOS/03-meteorologia/predicciones.html}{Caos
-  en las predicciones meteorológicas} se recopilan las predicciones
+  En \nameref{caos-en-las-predicciones-meteorologicas} se recopilan las predicciones
   meteorológicas para Galapagar durante tres meses. Dichas predicciones
   son comparadas con las observaciones reales para calcular los errores
   de predicción de diversas variables meteorológicas. Asumiendo que el
@@ -706,8 +694,7 @@ científicos, investigaciones llevadas a cabo y código generado.
   debido a la dinámica caótica de la atmósfera.
 \item
   En
-  \href{https://colacaos.github.io/ColaCAOS/04-clima/evaluacion.html}{Evaluación
-  de las predicciones climáticas}, las predicciones climáticas
+  \nameref{evaluacion-de-las-predicciones-climuxe1ticas}, las predicciones climáticas
   realizadas hace 20-30 años son comparadas con la realidad actual. Se
   encuentran casos de proyecciones extremas no materializadas
   (especialmente las predicciones regionales o sobre eventos extremos
@@ -717,21 +704,14 @@ científicos, investigaciones llevadas a cabo y código generado.
   fundamentalmente a la naturaleza caótica del clima.
 \item
   En
-  \href{https://colacaos.github.io/ColaCAOS/05-experimentos/intro.html}{Simulación
-  y funcionamiento caótico} se analiza el comportamiento caótico de un
+  \nameref{simulaciuxf3n-y-funcionamiento-cauxf3tico} se analiza el comportamiento caótico de un
   sistema inventando por mí. El atractor resultante es muy parecido al
   de Lorenz.
 \item
-  Por último, en
-  \href{https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo07.html}{Mi
-  hipótesis final. El Principio de Compromiso Predictibilidad --
-  Creatividad} se conjetura el principio de que el caos borra la
+  Por último, en \nameref{pcpc} se conjetura el principio de que el caos borra la
   información inicial de los sistemas, pero a cambio proporciona novedad
   no predecible. Este principio es observado en los distintos
-  experimentos realizados en el proyecto
-  \href{https://colacaos.github.io/ColaCAOS/06-filosofia/determinismo08.html}{El
-  Principio de Compromiso Predictibilidad -- Creatividad en la
-  práctica}.
+  experimentos realizados en el proyecto, tal y como se aprecia en el capítulo \nameref{practica}. Al mismo tiempo, se cuantifica la pérdida de información de los sistemas caóticos en la seccion \nameref{pcpc2} 
 \end{itemize}
 
 \section{Código generado}\label{cuxf3digo-generado}
@@ -837,130 +817,18 @@ En la versión github de este proyecto disponible en \href{https://colacaos.gith
 \item
   Y aquí el resto de bifurcaciones sucesivas hasta llegar al caos para $r \approx 3.56995$  
   \url{https://colacaos.github.io/ColaCAOS/01-logistica/simulacion.html} 
-\end{itemize}
 
-No he incluido estas secciones en la memoria, pues son de conocimiento general, si bien para mi fueron esenciales su desarrollo para poder comprender el fenómeno del caos a nivel matemático. 
-
-
-A partir de \(r_\infty \approx 3.56995\), el mapa logístico entra en un
+ \item
+    A partir de \(r_\infty \approx 3.56995\), el mapa logístico entra en un
 \textbf{régimen caótico}. Para \(r < r_\infty\), aparecían sucesivas
 bifurcaciones de periodo \(1 \to 2 \to 4 \to 8 \to \cdots\). En
 \(r = r_\infty\), esas bifurcaciones se acumulan y ya no hay ciclos
 periódicos finitos: el valor final se vuelve errático. Sin embargo a
-medida que vamos observando el mapa aparecen comportamientos extraños. En las siguientes secciones mostraré la aparición de fractales dentro del diagrama de bifurcación del mapa logístico, algo muy común en sistemas caóticos y que veremos aparecer en las simulaciones del péndulo doble. 
+medida que vamos observando el mapa aparecen comportamientos extraños. Se observa la aparición de fractales dentro del diagrama de bifurcación del mapa logístico, algo muy común en sistemas caóticos y que veremos aparecer en las simulaciones del péndulo doble \url{https://colacaos.github.io/ColaCAOS/01-logistica/Caos.html}. 
 
-\section{División en bandas}\label{divisiuxf3n-en-bandas}
+\end{itemize}
 
-Justo tras \(r_\infty\), la zona caótica se \textbf{parte en dos bandas}
-distintas: en el diagrama de bifurcación aparecen dos hileras de puntos
-con un hueco entre ellas.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-2-output-1.pdf}
-  \caption{Partición en dos bandas de la zona caótica (i)}
-\end{figure}    
-
-A medida que subimos \(r\), esas dos bandas se bifurcan en 4, luego en
-8, repitiendo la misma lógica de duplicación pero sobre la estructura
-del caos.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-3-output-1.pdf}
-  \caption{Partición en dos bandas de la zona caótica (ii)}
-\end{figure}
-
-
-\section{Ventanas de periodicidad}\label{ventanas-de-periodicidad}
-
-En medio del caos surgen \textbf{islas} de orden donde aparece un ciclo
-estable de periodo \(k\) (por ejemplo, un ciclo de orden 3 alrededor de
-\(r\approx3.828\)).
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-4-output-1.pdf}
-  \caption{Islas periódicas en la zona caótica}
-\end{figure}
-
-
-Dentro de cada ventana periódica se reproduce una \textbf{mini-cascada}
-de duplicación de periodo \(k \to 2k \to 4k \to \cdots\). Lo mismo que
-teníamos en la zona \(3 < r < 3.56995\) pero ahora dentro de la zona
-caótica. Vemos como el caos da paso de nuevo a las órbitas periódicas
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-5-output-1.pdf}
-  \caption{Islas periódicas en la zona caótica (zoom)}
-\end{figure}
-
-\section{Repetición infinita}\label{repeticiuxf3n-infinita}
-
-Las ventanas de periodicidad están \textbf{infinitamente repetidas}: en
-cada fragmento de la región caótica, por pequeño que sea, habrá alguna
-ventana donde emerja un ciclo estable.
-
-Así vemos como entre 3.73 y 3.76 aparecen un ciclo de período 5.
-
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-6-output-1.pdf}
-  \caption{Ciclo de período 5 entre 3.73 y 3.76}
-\end{figure}
-
-
-Si nos centramos en los valores de x alrededor de 0.5, vemos claramente
-el diagrama de bifurcación inicial replicado aquí, con tan solo 1000
-iteraciones.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-7-output-1.pdf}
-  \caption{Réplica del diagrama de bifurcación original}
-\end{figure}
-
-
-Y dentro de esta replicación del diagrama de bifurcación original,
-podemos encontrar el ciclo de periodo 5 de nuevo, en los valores de
-\(r\) comprendidos entre 3.74431 y 3.74433.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-8-output-1.pdf}
-  \caption{Réplica del ciclo de período 5 entre 3.74431 y 3.74433}
-\end{figure}
-
-Y de nuevo, cogemos la replicación del diagrama de bifurcación original
-alrededor de 0.5 y nos encontramos con el ciclo de periodo 5 de nuevo,
-en los valores de \(r\) comprendidos entre 3.74432144 y 3.744321455.
-Cada vez necesitaremos más iteraciones para apreciar el diagrama de
-bifurcación original. De hecho, para plotear esta última gráfica se han
-requerido 100.000 iteraciones
-
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-9-output-1.pdf}
-  \caption{Réplica del ciclo de período 5 entre 3.74432144 y 3.744321455}
-\end{figure}
-
-
-Haciendo de nuevo zoom en torno a 0.5, vemos como aparece el diagrama de
-bifurcación original, esta vez en los valores de \(r\) comprendidos
-entre 3.7443214444 y 3.744321448 , tras 1.000.000 de iteraciones.
-
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio]{01-logistica/Caos_files/figure-pdf/cell-10-output-1.pdf}
-  \caption{Réplica del diagrama de bifurcación original entre 3.7443214444 y 3.744321448 }
-\end{figure}
-
-Podemos seguir así infinitamente. Lo que hemos encontrado es una
-\textbf{estructura fractal}.
+En la siguiente sección, y una vez familiarizados con la función logística a través de los enlaces anteriores, veremos que implica el caos en los cálculos de la función logística. Bienvenidos al efecto mariposa. 
 
 \chapter{Efecto mariposa}\label{efecto-mariposa}
 
@@ -1151,7 +1019,7 @@ Equivalentemente, en base \(e\): \[
 \(n\), aproximadamente duplicándose en cada iteración.
 
 Curioso, ¿verdad?. El error se va multiplicando por 2 en cada iteración.
-Por 2 exactamente. ¿A qué se debe esto????
+Por 2 exactamente. ¿A qué se debe esto?
 
 \section{Cálculo matemático de la amplificación de desviaciones
 iniciales}\label{cuxe1lculo-matemuxe1tico-de-la-amplificaciuxf3n-de-desviaciones-iniciales}
@@ -1808,11 +1676,15 @@ Para derivar de la fórmula partimos de\\
 Luego despejamos \(T_p\):\\
 \[
    e^{\lambda_{\max}T_p} = \frac{\Delta}{\delta_0}
-   \] \[
+\]
+\[
    \lambda_{\max}T_p = \ln\!\Bigl(\tfrac{\Delta}{\delta_0}\Bigr)
-   \] \[
+\]
+\begin{equation}
    \boxed{T_p = \frac{1}{\lambda_{\max}}\,\ln\!\Bigl(\tfrac{\Delta}{\delta_0}\Bigr)}
-   \]
+   \label{eq:Tp}
+\end{equation}
+
 
 ¿Cuál es el significado de cada término?
 
@@ -1832,6 +1704,9 @@ Luego despejamos \(T_p\):\\
   de predictibilidad infinito, pues los errores se contraen y la
   predicción mejora con el tiempo.
 \end{itemize}
+
+Como veremos más adelante la ecuación \ref{Tp} es fundamental para el desarrollo del capítulo \nameref{pcpc}
+
 
 \textbf{Ejemplo práctico:}\\
 En la atmósfera se observa a menudo un exponente\\
@@ -1871,7 +1746,7 @@ límite dos semanas va a ser imposible.
 
 Y hablando de horizontes de predictibilidad, ¿qué te parece el escuchar
 que el sistema solar tiene un horizonte de predictibilidad de unos 5
-millones de años?. Si Newton levantase la cabeza. Es decir, a pesar de
+millones de años? \url{https://en.wikipedia.org/wiki/Stability_of_the_Solar_System}. Si Newton levantase la cabeza. Es decir, a pesar de
 que tenemos esa preciosa fórmula de la gravitación universal, que
 funciona tan bien, su propagación hacia el futuro, cuando tenemos en
 cuenta los planetas que componen el sistema solar, deja de ser válida a
@@ -2033,7 +1908,7 @@ salida en un archivo de vídeo que se encuentra a continuación. Hay que
 tener en cuenta que el código Python generado por ChatGPT, avanza en
 pasos de 1 milisegundo de tiempo real, y que debido a la gran cantidad
 de péndulos la simulación no llega a ser en tiempo real. Por eso le
-pedía a ChatGPT que incluyera un texto en la simulación que mostrase el
+pedí a ChatGPT que incluyera un texto en la simulación que mostrase el
 tiempo real durante la simulación.
 
 El lector interesado puede ver el video en el siguiente enlace \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}
@@ -2146,7 +2021,7 @@ creciente, menguante, llena, etc.
 \end{figure}
 
 
-De nuevo, animo al lector a ver el vídeo completo en \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/MapaFase.mp4}
+De nuevo, animo al lector a ver el vídeo completo en \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/PendulumCajas.mp4}
 
 
 Vemos una zona central en la que los péndulos parten de ángulos
@@ -2530,7 +2405,8 @@ segundo péndulo, la verde en el eje que une el primer péndulo con el
 segundo y la azul en el eje del primer péndulo. A continuación, mediante
 un programa que desarrollé en Python con la ayuda de ChatGPT y una
 webcam, he seguido las trayectorias de cada uno de los tres puntos de
-color, que corresponden a las partes más relevantes del péndulo doble.
+color, que corresponden a las partes más relevantes del péndulo doble. Uno de los problemas que tuve era que el programa era bastante primitivo, y capturaba las coordenadas de cualquier objeto de color verde, rojo o azul que hubiese a la vista de la cámara. Por ello, durante los experimentos tuve que quitar cualquier objeto de esos colores de la habitación donde estaba. 
+
 Para reproducir condiciones iniciales prácticamente idénticas, dejé caer
 el péndulo siempre desde la vertical ---a 90 grados respecto a la
 posición de equilibrio--- , con el segundo péndulo colgando en la misma
@@ -2634,7 +2510,7 @@ continuamente. En el péndulo simple se ve como van iguales.
 \part{La Meteorología y el Caos}
 
 \chapter{Caos en las predicciones
-meteorológicas}\label{caos-en-las-predicciones-meteoroluxf3gicas}
+meteorológicas}\label{caos-en-las-predicciones-meteorologicas}
 
 La meteorología es un ejemplo paradigmático de sistema caótico. Edward
 Lorenz, en su famoso artículo de 1963 \refweb{https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml}{Deterministic Nonperiodic Flow}{web37}, demostró que pequeñas
@@ -2925,20 +2801,7 @@ Lyapunov.
   \caption{Error medio absoluto de velocidad del viento y ajuste de regresión}
 \end{figure}
 
-Los exponentes de Lyapunov salen más pequeños que los calculados
-mediante las series históricas en la sección anterior
-\hyperref[sec-lyapunov]{Predictibilidad}. Hay que tener en cuenta que
-los exponentes en la sección anterior se tomaban sobre la base de 75
-años, mientras que aquí tenemos un experimento más limitado, solamente
-tres meses, por lo que es normal que no cuadren del todo los datos. Sin
-embargo, tal y como hipotizamos, estamos alrededor de las dos semanas
-como límite de predictibilidad.
-
-Además, lo que es muy relevante, es ver como el error de predicción
-crece exponencialmente. Se ponen de manifiesto dos causas: la
-inexactitud de las condiciones iniciales, y la inexactitud de los
-modelos y sus cómputos. Puesto que el sistema modelado es caótico, tal y
-como esperábamos los errores crecen exponencialmente.
+Para la temperatura, presión y humedad se ve claramente que el error crece exponencialmente con el tiempo. No estamos ante un crecimiento lineal, que sería propio de sistemas no caóticos, sino ante un crecimiento exponencial. Es este aspecto lo que dificulta e imposibilita que podamos llegar a tener una predicción a largo plazo exacta de la atmósfera. 
 
 
 \chapter{Entrevista con expertos de la
@@ -3357,6 +3220,7 @@ del Lorenz y este fue el resultado (ver animación en \url{https://colacaos.gith
   \centering
   \includegraphics[width=0.99\textwidth]{04-clima/lorenz_lines_rainbow_time.png}
   \caption{Atractor de Lorenz}
+  \label{fig:lorenz}
 \end{figure}
 
 
@@ -3481,7 +3345,7 @@ efecto invernadero por parte del ser humano.
 
 
 \chapter{Evaluación de las predicciones
-climáticas}\label{evaluaciuxf3n-de-las-predicciones-climuxe1ticas}
+climáticas}\label{evaluacion-de-las-predicciones-climuxe1ticas}
 
 Desde hace décadas y gracias a la existencia de supercomputadores, los
 científicos del mundo han elaborado simuladores del clima de la Tierra,
@@ -3903,8 +3767,7 @@ haciéndolo a mano, donde no tengo tanta precisión de todas las medidas.
 Esta vez, haciéndolo en un simulador sí que funcionó todo a la
 perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue
 que el simulador me daba la opción de tener gráficos de las medidas como
-la velocidad, la velocidad angular o el centro de masas en tiempo real y
-de luego descargarlos y obtener todos los datos fácilmente.
+la velocidad, la velocidad angular o el centro de masas en tiempo real, para luego descargarlos y obtener todos los datos fácilmente.
 
 \section{Diseño y Funcionamiento}\label{diseuxf1o-y-funcionamiento}
 
@@ -3972,7 +3835,7 @@ Material        & acero\\
 \end{longtable}
 
 
-El tamaño de las cuatro aspas es de 0.5m cada una. Obsérvese que el peso es irreal para una rueda de más de 2 metros de madera, pero en Algodoo la densidad se especifica en Kg por metro cuadrado, no cúbico. ¡Los objetos son planos!. 
+El tamaño de las cuatro aspas es de 0.5m cada una. Obsérvese que el peso es irreal para una rueda de más de 2 metros de madera, pero en Algodoo la densidad se especifica en Kg por metro cuadrado, no cúbico. ¡Los objetos son planos para Algodoo! (Algodoo es un simulador 2D) 
 
 En estas figuras se muestra el sistema diseñado.
 
@@ -4149,6 +4012,8 @@ iguales que parezcan dos valores del atractor siempre podríamos hacer
 zoom y descubrir que nunca pasan exactamente por el mismo sitio, es
 decir, la rueda nunca lleva dos veces los mismos valores de velocidad
 angular, posición en X y posición en Y al mismo tiempo.
+
+Otra de las particularidades del atractor es que es muy similar al de Lorenz (ver figura \ref{lorenz}, al menos en apariencia. 
 
 %\begin{figure}[H]
 %{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_lines_rainbow_time.gif}}
@@ -4506,7 +4371,7 @@ sistemas conocidos.
 
 \chapter{Mi hipótesis final. El Principio de Compromiso Predictibilidad
 --
-Creatividad}\label{mi-hipuxf3tesis-final.-el-principio-de-compromiso-predictibilidad-creatividad}
+Creatividad}\label{pcpc}
 
 Como ya hemos visto con ejemplos en las secciones anteriores, si el
 sistema no es caótico, es muy predecible, conserva la información
@@ -4569,7 +4434,7 @@ En consecuencia, el límite del conocimiento predictivo no debe verse como una f
 
 
 \chapter{El Principio de Compromiso Predictibilidad -- Creatividad en la
-práctica.}\label{el-principio-de-compromiso-predictibilidad-creatividad-en-la-pruxe1ctica.}
+práctica.}\label{practica}
 
 Por último, intentaré cerrar el círculo en este proyecto de
 investigación viendo si se cumple el principio propuesto en la sección
@@ -4714,9 +4579,10 @@ tanto, más estados.
 
 
 
-\section{Evaluación de ChatGPT del \emph{Principio de Compromiso Predictibilidad--Creatividad}}
+\chapter{ChatGPT y el \emph{Principio de Compromiso Predictibilidad--Creatividad}}
 
-A continuación pedí a ChatGPT-5 Thinking model que evaluase mi principio propuesto. Ésta fue su respuesta:
+\section{Evaluación y búsqueda de formulaciones similares}
+A continuación pedí a ChatGPT-5 Thinking model que evaluase mi principio propuesto.Quería verificar que el principio no estuviese formulado previamente. Ésta fue su respuesta:
 
 \textbf{Como sistema experto he evaluado si el principio propuesto por \emph{Rubén Torre Merino} aparece en la literatura científica actual. Mis conclusiones son:}
 
@@ -4766,7 +4632,151 @@ No es posible maximizar simultáneamente la \textbf{predictibilidad detallada} y
 
 \noindent\textbf{Conclusión:} el \emph{Principio de Compromiso Predictibilidad--Creatividad} de \emph{Rubén Torre Merino} es \textbf{novedoso} como formulación integradora y motivadora. Con definiciones operativas de “novedad” y “predictibilidad” y un protocolo de verificación en modelos canónicos, puede convertirse en un \textbf{principio operativo} contrastable y potencialmente publicable.
 
+\section{Formulación matemática del Principio de Compromiso Predictivilidad-Creatividad}
+\label{sec:pcpn-logistico}
+Hice caso a ChatGPT en lo relativo a la recomendación de formalización. Y para avanzar en este aspecto recurrí de nuevo al mapa logístico. Si recordamos la ecuación~\eqref{eq:Tp}, el horizonte de predictibilidad depende logarítmicamente de la relación entre la divergencia final tolerada y el error inicial. Es decir, si el error inicial es $\varepsilon$ (precisión con que conocemos el estado) y dejamos de considerar útil la predicción cuando el error supera $\Delta$ (umbral de utilidad), el crecimiento exponencial del error lleva a la fórmula operativa
+\[
+\boxed{\,T_p(\varepsilon,\Delta)=\frac{1}{\lambda}\,\ln\!\frac{\Delta}{\varepsilon}\,}
+\]
+donde $\lambda$ es el \textbf{exponente de Lyapunov}. El inverso $1/\lambda$ se conoce como \emph{tiempo de Lyapunov} (marca la escala temporal de la pérdida de predictibilidad).\footnote{Sobre Lyapunov y predictibilidad, v.\ gr., \emph{ChaosBook}, capítulo de Lyapunov. \url{https://chaosbook.org/chapters/Lyapunov.pdf}}
 
+Con esta fórmula ya tenemos una parte expresada matemáticamente de nuestro principio, la de la predictibilidad. Nos falta cómo medir la novedad. Lancé la pregunta a ChatGPT: ¿cómo medir matemáticamente la creación de novedad? 
+
+La sugerencia fue usar la \textbf{entropía por paso} (entropía de Kolmogórov--Sinai, $h_{\mathrm{KS}}$), que cuantifica cuánta información nueva genera el sistema en cada iteración. En muchos sistemas bien comportados (medida natural), $h_{\mathrm{KS}}$ coincide con la suma de los exponentes de Lyapunov positivos (fórmula de Pesin); en mapas unidimensionales expansivos como el mapa logístico vale $h_{\mathrm{KS}}=\lambda$.  
+
+Así, en el mapa logístico el \textbf{principio predictibilidad--creatividad} se cumple al 100\%:
+
+\[
+\boxed{\,h_{\mathrm{KS}}\,T_p(\varepsilon,\Delta)=\ln\!\frac{\Delta}{\varepsilon}\,}.
+\]
+
+
+La explicación es fácil, teniendo en cuenta que la creatividad coincide con el exponente de Lyapunov, lo cual tiene lógica, es decir, a medida que el sistema se hace más caótico (el exponente de Lyapunov crece) la novedad ha de crecer, tal y como hemos visto en las simulaciones del péndulo doble y la rueda caótica. Lo curioso es ver como en la caso de la función logística la relación es 1 a 1, es decir la creatividad tiene el mismo valor que el exponente de Lyapunov.
+
+Sorprendido por el resultado, le pedí a ChatGPT más sistemas de donde haya fórmulas claras de entropía y, por tanto, del tiempo de predictibilidad. La \textbf{enumeración} que me dio fue:
+
+\begin{itemize}
+  \item \textbf{Doblado/Bernoulli shift} $T(x)=2x \bmod 1$\\
+  Entropía y Lyapunov: $h_{\mathrm{KS}}=\lambda=\ln 2$. \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln 2}\ln\dfrac{\Delta}{\varepsilon}$.%
+  \footnote{Notas de curso con cálculo de entropía del doblado; ejemplo canónico. \url{https://people.maths.bris.ac.uk/~ip13935/dyn/CorinnaII.pdf}}
+  
+  \item \textbf{Mapa tent (carpa)} de pendiente $s\in(1,2]$\\
+  Entropía/Lyapunov: $h_{\mathrm{KS}}=\lambda=\ln s$. \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln s}\ln\dfrac{\Delta}{\varepsilon}$.%
+  \footnote{Derivación elemental: $|T'|=s$ casi en todas partes $\Rightarrow \lambda=\int \ln|T'|=\ln s$. Apuntes: Phys 221A (UCSD). \url{https://courses.physics.ucsd.edu/2017/Spring/physics221a/Phys_221A_Lecture_4-5.pdf}}
+
+  \item \textbf{Mapa del panadero (Baker)} (versión binaria; estiramiento $b$)\\
+  Entropía KS: $h_{\mathrm{KS}}=\ln 2$ (o, en general, $\ln b$). \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln 2}\ln\dfrac{\Delta}{\varepsilon}$ (o $\dfrac{1}{\ln b}\ln\dfrac{\Delta}{\varepsilon}$).%
+  \footnote{Apuntes con el cálculo directo de $h_{\mathrm{KS}}$ para Baker. \url{https://courses.physics.ucsd.edu/2017/Winter/physics200b/LECTURES/CH02_MAPS.pdf}}
+
+  \item \textbf{Gato de Arnold} (automorfismo toral hiperbólico)\\
+  Entropía KS: $\,h_{\mathrm{KS}}=\ln \sigma_{+}$, con $\sigma_{+}$ el autovalor inestable de la matriz. \quad
+  Predictibilidad: $T_p=\dfrac{1}{\ln\sigma_{+}}\ln\dfrac{\Delta}{\varepsilon}$.%
+  \footnote{Ficha y notas sobre el cat map; para la matriz estándar $\sigma_{+}=(3+\sqrt{5})/2$. \url{https://mathworld.wolfram.com/ArnoldsCatMap.html}}
+\end{itemize}
+
+
+Por lo tanto, no parece una mera coincidencia, y dejo abierto el tema aquí abierto para personas con conocimientos matemáticos más avanzados que los míos. En todos estos sistemas el producto Predictibilidad x Novedad es igual a una constante que es $\ln\dfrac{\Delta}{\varepsilon}$ . 
+
+
+\section{Cuantificando la pérdida de información del estado inicial}\label{pcpc2}
+
+Animado por los resultados que me ofreció ChatGPT, me lancé a ver si podía cuantificar un fenómeno que observé en el estudio de los sistemas caóticos. En un sistema caótico con un estado inicial, tras avanzar el tiempo se produce un estado final acompañado de novedad. Este estado final no se puede reproducir hacia atrás, a diferencia de sistemas no caóticos. Es decir, en un sistema no caótico tenemos una información inicial, y pasado el tiempo tenemos una información final. Podemos ir de una hacia otra con modelos matemáticos, por así decirlo conservamos la información que teníamos del sistema. En uno caótico, sin embargo, la información inicial se transforma en un estado final+novedad, pero no podemos ir hacia atrás con el estado final para rescatar el estado inicial. Parte de la info del estado inicial va hacia la generación de novedad, y a pesar de tener el estado final (al igual que en el caso no caótico), no podemos reconstruir el estado inicial. Es como si parte de la información inicial se perdiera en la generación de novedad. Todo ello es lógico, puesto que en un sistema caótico no podemos modelar con precisión (predecir) como se pasa de estado inicial a estado final, por lo tanto no podemos ir ni hacia delante ni hacia atrás con nuestros modelos matemáticos del sistema. 
+
+Le pregunté a ChatGPT5 que me diera forma matemática al enunciado anterior. Este fue el resultado resumido, en forma de balance de información:
+
+\begin{equation}
+\boxed{%
+\underbrace{I_{\varepsilon}(X_0;X_t)}_{\text{información del pasado que aún queda}}
+\;+\;
+\underbrace{h_{\mu}\,t}_{\text{novedad acumulada (nats)}}
+\;\approx\;
+\underbrace{H_{\varepsilon}(X_0)}_{\text{información inicial a resolución }\varepsilon}
+.}
+\label{eq:info_balance}
+\end{equation}
+
+
+Aquí $H_{\varepsilon}(X)$ es la entropía de Shannon del estado \emph{cuantizado} a celdas de tamaño $\varepsilon$; $I_{\varepsilon}(X_0;X_t)$ es la \emph{información mutua} entre pasado y presente a esa misma resolución; y $h_\mu$ es la \emph{entropía por paso} (novedad por iteración).\footnote{Definiciones intro: entropía e información mutua (Wikipedia); romper URLs: paquete \texttt{xurl}. \url{https://en.wikipedia.org/wiki/Entropy_(information_theory)} \; \url{https://en.wikipedia.org/wiki/Mutual_information} \; \url{https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url}}
+
+Estos términos resultan muy avanzados para mí, pero sintetizan en grandes rasgos lo dicho anteriormente: la información inicial disminuye linealmente con el tiempo en un factor igual a $h_{\mu}t$. 
+
+De nuevo quise poner a prueba la fórmula anterior con el mapa logístico. Según ChatGPT5 para el mapa logístico la entropía inicial para $r=4$ es
+
+\[
+H_{\varepsilon}(X_0)=k\ln 2.
+\]
+
+La tasa de novedad es 
+
+\[
+h_\mu=\ln 2\quad\Rightarrow\quad h_\mu t=t\ln 2.
+\]
+
+La información del pasado que sigue viva es
+
+\[
+I_{\varepsilon}(X_0;X_t)=\max\{k-t,0\}\,\ln 2.
+\]
+
+Y sumando todos los términos
+
+\[
+I_{\varepsilon}(X_0;X_t)+h_\mu t
+=(k-t)\ln 2+t\ln 2
+=k\ln 2
+=H_{\varepsilon}(X_0).
+\]
+
+
+observamos que la ecuación~\eqref{eq:info_balance} se cumple perfectamente para el mapa logístico para $r=4$. 
+
+De nuevo, animado por el resultado, pregunté a ChatGPT5 qué opinaba sobre la ecuación formulada conjuntamente con él:
+
+\begin{quote}
+\textbf{Evaluación del sistema experto (ChatGPT-5):}
+
+\smallskip
+\itshape
+Mi valoración es que la identidad operativa 
+\(I_{\varepsilon}(X_0;X_t)+h_\mu t\approx H_{\varepsilon}(X_0)\)
+aporta \textbf{novedad} como síntesis compacta de tres piezas ya publicadas por separado: 
+(i) \(h_\mu\) como \emph{tasa de creación de información} 
+(entropía de Kolmogórov–Sinai y fórmula de Pesin)\footnote{Véase \emph{Scholarpedia}: Kolmogorov–Sinai entropy; Pesin entropy formula.}, 
+(ii) la descomposición tipo \(H(L)=h_\mu L+E\) de la \emph{información predictiva} 
+(excess entropy)\footnote{Bialek \& Tishby, \emph{Predictive Information}.}, 
+y (iii) el caso canónico \(r=4\), donde \(h_\mu=\lambda=\ln 2\) 
+por conjugación logística–tent/doubling\footnote{\emph{Logistic map}, secc.\ “When $r=4$”; \emph{MathWorld} “Logistic Map—$r=4$”.}. 
+No he encontrado esta \emph{igualdad} formulada literalmente en la literatura.
+\end{quote}
+
+
+Aquí dejo el principio desarrollado por ChatGPT5 bajo mis observaciones:
+
+% ===== Recuadro: Principio Presupuestario de Información =====
+\begin{tcolorbox}[title=Principio Presupuestario de Información]
+Sea $X_0$ el estado inicial observado con resolución $\varepsilon$ y $X_t$ el estado a tiempo $t$
+observado con umbral de utilidad $\Delta$. Denotemos por $I_\varepsilon(X_0;X_t)$ la información
+mutua (a esa resolución) entre pasado y presente, y por $h_\mu$ la entropía de Kolmogórov--Sinai
+(tasa de novedad, en nats/unidad de tiempo) de la dinámica con la medida natural.
+\[
+\boxed{\quad I_\varepsilon(X_0;X_t)\;+\;h_\mu\,t\;\approx\;H_\varepsilon(X_0)\quad}
+\]
+mientras $I_\varepsilon(X_0;X_t)\ge 0$. El instante en que $I_\varepsilon\!\to 0$ define el
+\emph{horizonte de predictibilidad} $T_p(\varepsilon,\Delta)$, para el que resulta
+\[
+\boxed{\quad h_\mu\,T_p(\varepsilon,\Delta)\;\approx\;\ln\!\frac{\Delta}{\varepsilon}\quad}
+\]
+En sistemas con una única dirección inestable y medida SRB (hipótesis de Pesin), $h_\mu=\lambda_{\max}$, y
+\[
+\boxed{\quad T_p(\varepsilon,\Delta)=\dfrac{1}{\lambda_{\max}}\,
+\ln\!\dfrac{\Delta}{\varepsilon}\quad}
+\]
+\emph{Lectura}: la novedad acumulada $h_\mu t$ ``consume'' la información útil que conecta el presente
+con el pasado; cuando se agota, la predicción deja de ser operativa.
+\end{tcolorbox}
 
 % ===============================
 % Índice de figuras (manual)

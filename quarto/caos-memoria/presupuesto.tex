@@ -1,0 +1,124 @@
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit}
+
+\title{Principio Presupuestario de Información, Entropía (KS) y Predictibilidad}
+\author{ }
+\date{ }
+
+\tcbset{colback=white,colframe=black!60,arc=2mm,boxrule=0.6pt}
+
+\begin{document}
+\maketitle
+
+\section*{Idea general}
+En sistemas caóticos, las trayectorias cercanas se separan (en promedio) de forma exponencial al ritmo del
+\emph{exponente de Lyapunov} $\lambda_{\max}$. Si observamos el estado inicial con resolución $\varepsilon$ y consideramos
+que la predicción deja de ser útil cuando el error supera un umbral $\Delta$, el \emph{horizonte de predictibilidad}
+(o \emph{tiempo de Lyapunov}) satisface la relación operativa
+\[
+T_p(\varepsilon,\Delta)=\frac{1}{\lambda_{\max}}\,
+\ln\!\frac{\Delta}{\varepsilon}\,.
+\]
+Cuando la medida natural del sistema es de tipo SRB (hipótesis de Pesin), la \emph{entropía de Kolmogórov--Sinai}
+$h_\mu$ coincide con la suma de los exponentes positivos, y en sistemas con una única dirección inestable
+$h_\mu=\lambda_{\max}$.
+
+\bigskip
+
+% ===== Recuadro: Principio Presupuestario de Información =====
+\begin{tcolorbox}[title=Principio Presupuestario de Información]
+Sea $X_0$ el estado inicial observado con resolución $\varepsilon$ y $X_t$ el estado a tiempo $t$
+observado con umbral de utilidad $\Delta$. Denotemos por $I_\varepsilon(X_0;X_t)$ la información
+mutua (a esa resolución) entre pasado y presente, y por $h_\mu$ la entropía de Kolmogórov--Sinai
+(tasa de novedad, en nats/unidad de tiempo) de la dinámica con la medida natural.
+\[
+\boxed{\quad I_\varepsilon(X_0;X_t)\;+\;h_\mu\,t\;\approx\;H_\varepsilon(X_0)\quad}
+\]
+mientras $I_\varepsilon(X_0;X_t)\ge 0$. El instante en que $I_\varepsilon\!\to 0$ define el
+\emph{horizonte de predictibilidad} $T_p(\varepsilon,\Delta)$, para el que resulta
+\[
+\boxed{\quad h_\mu\,T_p(\varepsilon,\Delta)\;\approx\;\ln\!\frac{\Delta}{\varepsilon}\quad}
+\]
+En sistemas con una única dirección inestable y medida SRB (hipótesis de Pesin), $h_\mu=\lambda_{\max}$, y
+\[
+\boxed{\quad T_p(\varepsilon,\Delta)=\dfrac{1}{\lambda_{\max}}\,
+\ln\!\dfrac{\Delta}{\varepsilon}\quad}
+\]
+\emph{Lectura}: la novedad acumulada $h_\mu t$ ``consume'' la información útil que conecta el presente
+con el pasado; cuando se agota, la predicción deja de ser operativa.
+\end{tcolorbox}
+
+\bigskip
+
+\section*{Esquema: flujo de información y (no) invertibilidad}
+\begin{center}
+\begin{tikzpicture}[>=Latex, node distance=12mm, font=\small]
+  % Nodos principales
+  \node[draw, rounded corners, inner sep=3pt] (X0) {$X_0$ (resolución $\varepsilon$)};
+  \node[draw, rounded corners, right=35mm of X0, inner sep=3pt] (Xt) {$X_t$ (umbral $\Delta$)};
+  \node[draw, rounded corners, below=12mm of Xt, inner sep=3pt, align=center] (Novelty)
+       {Novedad acumulada\\ $h_\mu\,t$ (nats)};
+
+  % Flechas directas
+  \draw[->] (X0) -- node[above]{dinámica $f^t$} (Xt);
+  \draw[->] (X0.east) .. controls ($(X0)!0.5!(Xt)+(0,-1)$) .. node[below]{mezcla / estirar--plegar} (Novelty.west);
+  \draw[->] (Novelty) -- (Xt);
+
+  % Caja: causas de irreversibilidad operativa
+  \node[draw, dashed, rounded corners, fit={(6.9,-2.0) (11.0,1.8)}, inner sep=2mm] (box) {};
+  \node[anchor=north west] at (box.north west) {Por qué no invertimos $X_t \mapsto X_0$};
+  \node[align=left, anchor=north west] at ($(box.north west)+(0.3,-0.5)$) {
+    1) No invertibilidad (muchas$\to$una): p.ej.\ mapa logístico.\\
+    2) Disipación/atractores: contracción de volumen (SRB).\\
+    3) Coarse-graining: resolución finita $\Rightarrow$ aumento de entropía observacional.
+  };
+
+  % Flecha de “intento de invertir”
+  \draw[->, red!70] (Xt.west) .. controls ($(Xt)!0.5!(X0)+(0,1)$) ..
+    node[above, sloped]{\textcolor{red!70}{inversión inestable / ambigua}} (X0.east);
+
+  % Presupuesto
+  \node[below=16mm of Novelty, align=center] (budget)
+     {$I_\varepsilon(X_0;X_t) + h_\mu t \approx H_\varepsilon(X_0)$\\
+      $\Rightarrow\quad T_p \approx \dfrac{1}{h_\mu}\ln\!\dfrac{\Delta}{\varepsilon}$};
+\end{tikzpicture}
+\end{center}
+
+\bigskip
+
+\section*{Tabla de ejemplos con fórmulas explícitas}
+En los siguientes sistemas (hiperbólicos/expansivos con la medida natural), $h_\mu=\lambda$ y
+conocemos $\lambda$ en forma cerrada:
+\begin{center}
+\begin{tabular}{@{} l l l @{}}
+\toprule
+\textbf{Sistema} & \textbf{Definición/parámetro} & \textbf{Fórmulas}\\
+\midrule
+Duplicación (Bernoulli) & $x_{n+1}=2x_n \bmod 1$ &
+$\lambda=\ln 2,\quad T_p=\dfrac{1}{\ln 2}\ln\!\dfrac{\Delta}{\varepsilon}$\\[4pt]
+Tent (carpa) & pendiente $s\in(1,2]$ &
+$\lambda=\ln s,\quad T_p=\dfrac{1}{\ln s}\ln\!\dfrac{\Delta}{\varepsilon}$\\[4pt]
+Baker (panadero) & factor de estiramiento $b$ &
+$\lambda=\ln b,\quad T_p=\dfrac{1}{\ln b}\ln\!\dfrac{\Delta}{\varepsilon}$\\[4pt]
+Gato de Arnold (toral) & $A=\begin{psmallmatrix}2&1\\[1pt]1&1\end{psmallmatrix}$ &
+$\lambda=\ln\sigma_{+},\;\sigma_{+}=\tfrac{3+\sqrt5}{2},\quad
+T_p=\dfrac{1}{\ln \sigma_{+}}\,\ln\!\dfrac{\Delta}{\varepsilon}$\\[6pt]
+Logístico (caso patrón) & $x_{n+1}=4x_n(1-x_n)$ &
+$\lambda=\ln 2,\quad T_p=\dfrac{1}{\ln 2}\ln\!\dfrac{\Delta}{\varepsilon}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}
