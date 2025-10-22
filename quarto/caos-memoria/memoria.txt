@@ -447,13 +447,13 @@ los dos brazos del péndulo mientras se movía a alta velocidad. Tras ser
 aconsejado por ChatGPT, recurrí a una librería de visión por ordenador
 llamada OpenCV para, en tiempo real, medir la posición de los brazos del
 péndulo doble y guardar los datos en un fichero. Gracias a este
-programa, pude ver que lanzando el péndulo doble en prácticamente la misma
-posición inicial varias veces, las trayectorias divergían enormemente tras unos
+programa, pude ver que lanzando el péndulo doble en diferentes
+posiciones iniciales, las trayectorias divergían enormemente tras unos
 breves instantes. Me pregunté si habría algún problema con la forma en
 la que estaba configurado el experimento, así que recurrí a hacer lo
 mismo con la configuración de péndulo simple. En este caso, pude
 constatar, cómo una tras otra, las trayectorias eran idénticas en todos
-los lanzamientos. Me había topado de lleno con el caos en vivo.
+los lanzamientos.
 
 Un aspecto importante que pude apreciar en el péndulo doble es que si
 bien su posición en un momento dado era imposible de predecir, había
@@ -467,7 +467,9 @@ Llegado a este punto y convencido del comportamiento caótico de sistemas
 aparentemente sencillos, quise ver cómo se manifestaba el caos en
 sistemas más complejos, como es la atmósfera terrestre y la
 meteorología, y también quise ver como lidiaba la ciencia moderna con
-este asunto. Por ello, y tras investigar el tema, llegué a la conclusión
+este asunto. Si bien pude encontrar modelos de código abierto con los
+que simular la atmósfera, no disponía la capacidad de cómputo para
+ejecutarlos. Por ello, y tras investigar el tema, llegué a la conclusión
 de que el mayor error que se da en las predicciones es el debido a la
 imprecisión de la estimación de las condiciones iniciales, no a las
 ecuaciones que rigen los modelos. Entonces, pensé que observando cómo
@@ -636,7 +638,7 @@ La adquisición de habilidades digitales es fundamental en los tiempos actuales.
   resultados. Planteaba al modelo el programa que quería hacer, e
   iteraba los errores y problemas de funcionamiento con el propio modelo
 \item
-  Ayudarme sobre todo en la parte matemática a formular teorías e hipótesis, tal y como he hecho en los capítulos \nameref{pcpc} y \nameref{pcpc2}
+  Ayudarme sobre todo en la parte matemática a formular teorías e hipótesis, tal y como he hecho en los capítulos \nameref{pcpc} y \nameref{pcpcp2}
 \end{itemize}
 
 Por último, he aprendido a usar Algodoo, un simulador de sistemas
@@ -709,7 +711,7 @@ científicos, investigaciones llevadas a cabo y código generado.
   Por último, en \nameref{pcpc} se conjetura el principio de que el caos borra la
   información inicial de los sistemas, pero a cambio proporciona novedad
   no predecible. Este principio es observado en los distintos
-  experimentos realizados en el proyecto, tal y como se aprecia en el capítulo \nameref{practica}. Al mismo tiempo, se cuantifica la pérdida de información de los sistemas caóticos en la sección \nameref{pcpc2} 
+  experimentos realizados en el proyecto, tal y como se aprecia en el capítulo \nameref{practica}. Al mismo tiempo, se cuantifica la pérdida de información de los sistemas caóticos en la seccion \nameref{pcpc2} 
 \end{itemize}
 
 \section{Código generado}\label{cuxf3digo-generado}
@@ -1033,7 +1035,7 @@ rápido, tu predicción se vuelve inútil en muy poco tiempo.
 
 En los siguientes párrafos, veremos un concepto matemático muy útil en el
 estudio del caos: el \textbf{exponente de Lyapunov}, que llamaremos
-\(\lambda\) y que cuantifica la tasa de crecimiento de estos errores. Este concepto será fundamental en el estudio de sistemas físicos como el péndulo doble y la atmósfera. Nos permitirá saber de forma fácil el grado de ''caoticidad'' de un sistema. 
+\(\lambda\) y que cuantifica la tasa de crecimiento de estos errores. Este concepto será fundamental en el estudio de sistemas físicos como el péndulo doble y la atmósfera. Nos permitirá saber de forma fácil el grado de "caoticidad" de un sistema. 
 
 \subsection{Error inicial}\label{error-inicial}
 
@@ -1499,7 +1501,15 @@ negativo.
 
 La pregunta que debemos hacer es la siguiente, \textbf{¿es el exponente
 de lyapunov un indicador que nos puede decir si una serie temporal que
-estamos observando es caótica?} Decir que una serie temporal es \textbf{caótica} significa, de acuerdo a la teoría del caos, que ha de cumplir tres condiciones:
+estamos observando es caótica?} Una serie temporal es simplemente una
+lista de valores que varían con el tiempo, como por ejemplo la
+temperatura diaria de una ciudad: \(T_0, T_1, T_2, \dots\).
+
+Llamamos a esos valores \(x_0, x_1, x_2, \dots\) y cada subíndice indica
+la ``etapa'' o ``momento'' en que lo medimos.
+
+Decir que una serie temporal es \textbf{caótica} significa, de acuerdo a
+la teoría del caos, que ha de cumplir tres condiciones:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1531,6 +1541,29 @@ obtendríamos resultados sin sentido práctico: un ``valor de
 \(\lambda\)'' aquí no nos dice nada sobre determinismo o caos, sino solo
 sobre la aleatoriedad de los datos.
 
+Otro ejemplo de sistemas que no cumple estas premisas es la bolsa. A
+todo el mundo le parece que predecir el valor de una acción a lo largo
+del tiempo es muy complejo, pero ¿es caótico?. Para ello veremos como
+funciona la bolsa. El precio de una acción o de un índice bursátil
+depende de decenas de variables:\\
+• Resultados financieros de las empresas.\\
+• Noticias económicas o políticas.\\
+• Sentimiento de los inversores y rumores.\\
+• Tipos de interés, inflación, datos macroeconómicos.\\
+• Eventos inesperados (crisis, pandemias, etc.).
+
+Cada día (o incluso cada minuto) entran al mercado miles de órdenes de
+compra y venta, influidas por estas variables.
+
+No existe una regla sencilla \(x_{n+1} = f(x_n)\). A diferencia del mapa
+logístico, donde si conocemos \(x_n\) y el parámetro \(r\) podemos
+calcular \(x_{n+1} = r\,x_n\,(1 - x_n)\), en la bolsa no hay una función
+sencilla y fija que relacione el precio de hoy con el de mañana.
+
+Por estas razones, el precio de la bolsa es, en gran medida, un proceso
+aleatorio que incorpora ruido y reacciones humanas, no un sistema
+determinista como el mapa logístico.
+
 Volviendo a la pregunta original. \textbf{¿es una condición necesaria y
 suficiente para que una serie sea caótica que su exponente de Lyapunov
 sea positivo?}
@@ -1554,7 +1587,7 @@ es condición necesaria} para hablar de caos determinista
 
 Aunque \(\lambda_{\max} > 0\) garantiza sensibilidad exponencial, para
 que un sistema sea considerado caótico \textbf{en el sentido matemático
-completo}, también se requiere cumplir otras condiciones mas específicas,
+completo} también se requiere cumplir otras condiciones mas específicas,
 que no citaré en este texto por estar muy por encima de mi nivel. La
 explicación larga para el lector interesado se haya aquí:
 
@@ -1564,7 +1597,8 @@ indicate `chaos'. Additional information about the system \ldots{} needs
 to be performed to conclusively diagnose `chaos' in most systems.''\\
 Fuente: \refweb{https://www.researchgate.net/post/Does-positive-Lyapunov-exponent-always-mean-chaos}{Does a Positive Lyapunov Exponent Always Mean Chaos?}{web34}
 
-Sin embargo, en la \textbf{práctica experimental}, suele aceptarse que si la estimación de \(\lambda_{\max}\)
+Sin embargo, en la \textbf{práctica experimental o de series temporales
+reales}, suele aceptarse que si la estimación de \(\lambda_{\max}\)
 resulta positiva y se ha verificado que:
 
 \begin{itemize}
@@ -1671,7 +1705,7 @@ Luego despejamos \(T_p\):\\
   predicción mejora con el tiempo.
 \end{itemize}
 
-Como veremos más adelante la ecuación \eqref{eq:Tp} es fundamental para el desarrollo del capítulo \nameref{pcpc}
+Como veremos más adelante la ecuación \ref{Tp} es fundamental para el desarrollo del capítulo \nameref{pcpc}
 
 
 \textbf{Ejemplo práctico:}\\
@@ -1877,7 +1911,7 @@ de péndulos la simulación no llega a ser en tiempo real. Por eso le
 pedí a ChatGPT que incluyera un texto en la simulación que mostrase el
 tiempo real durante la simulación.
 
-El lector interesado puede ver el vídeo de la simulación en el siguiente enlace \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}
+El lector interesado puede ver el video en el siguiente enlace \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/Pendulumabanico.mp4}
 
 El resultado es sorprendente e hipnotizante. ¿Como puede ser que
 péndulos que se lanzan tan cercanos diverjan tan rápidamente?. Si
@@ -1994,7 +2028,7 @@ Vemos una zona central en la que los péndulos parten de ángulos
 pequeños. En este caso observamos que el comportamiento es muy similar
 al de un péndulo simple. Es, por así decirlo, una zona de estabilidad
 del sistema. Pregunté a ChatGPT por qué se produce esta zona de
-estabilidad y su respuesta fue la que se muestra en la siguiente subsección.
+estabilidad y su respuesta fue la siguiente.
 
 \subsection{Aproximación de Ángulo
 Pequeño}\label{aproximaciuxf3n-de-uxe1ngulo-pequeuxf1o}
@@ -2414,13 +2448,12 @@ recorrido muy similar hasta detenerse.
   \label{fig:Trayectorias5}
 \end{figure}
 
-Esta es la animación que representa la trayectoria que han seguido las cinco
+Esta es la animación que represente la trayectoria que han seguido tres
 tiradas. El tiempo que aparece es el tiempo que ha pasado realmente, ya
 que la trayectoria está ralentizada para que sea más fácil seguir como
 van divergiendo.  \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/trayectorias.gif}
 
 
-En este momento me pregunté si había algo mal hecho en mi experimento que provocaba que las trayectorias divergiesen tanto. Entonces pensé que la mejor forma de comprobarlo era repitiendo el experimento en configuración de pendulo simple, con todo lo demás exactamente igual.
 
 \section{Comparación con el péndulo
 simple}\label{comparaciuxf3n-con-el-puxe9ndulo-simple}
@@ -2433,7 +2466,7 @@ extremo con el punto rojo.
 
 Como podemos ver en la siguiente figura, a pesar de lanzarse cada una de
 las veces desde posiciones ligeramente distintas, las trayectorias son
-idénticas, yo diriía que exactamente idénticas.
+idénticas.
 
 \begin{figure}[h]
   \centering
@@ -2465,21 +2498,13 @@ Y si hacemos el ajuste de los tiempos iniciales el solape es casi total como se 
 He hecho este mismo gráfico con los datos de las tiradas del péndulo
 doble \url{https://colacaos.github.io/ColaCAOS/02-pendulo-doble/theta_vs_time_doble.gif}. El contraste con el péndulo doble es mayúsculo. En el péndulo
 doble no había ni una sola trayectoria idéntica, divergían
-continuamente. En el péndulo simple se ve como van iguales. La configuración del experimento en ambos casos es idéntica. Nos hemos encontrado de lleno con el caos. Cambiando la configuración geométrica del péndulo, que pasa de simple a doble, lo hace totalmente impredecible. 
-
-Para el lector interesado los ficheros de datos tomados con el programa de Python están en el siguiente directorio en GitHub \url{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-libro/02-pendulo-doble}. Los ficheros del péndulo doble tienen la siguiente nomenclatura 
-(\texttt{coordenadas\_cmX.csv}, donde X va de 1 a 5). 
-Los ficheros del péndulo simple tienen la siguiente nomenclatura 
-(\texttt{coordenadas\_cm\_psX.csv}, donde X va de 1 a 5).
-
+continuamente. En el péndulo simple se ve como van iguales.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.99\textwidth]{02-pendulo-doble/theta_vs_time_doble.png}
   \caption{Ángulos de 5 tiradas de un péndulo doble}
 \end{figure}
-
-
 
 
 \part{La Meteorología y el Caos}
@@ -2512,14 +2537,14 @@ teoría que ya hemos visto. Si cogemos los errores, y hacemos un
 logaritmo, podremos hacer una regresión lineal del logaritmo del error,
 lo que nos dará el exponente de Lyapunov. Así de sencillo. Se trata de
 una medida indirecta, pero creo que muy sencilla del exponente de
-Lyapunov. El punto fundamental es asumir que los modelos implementados en los supercomputadores de las agencias meteorológicas son fidedignos a la realidad, y que el error en los pronósticos se debe a los errores de las condiciones iniciales. De esta manera podemos ver como las perturbaciones iniciales se propagan en el tiempo. Obviamente asumo que los modelos de las agencias tienen ciertos errores, pero presupongo que el error mayoritario a largo plazo proviene del caos, que es lo que intento medir. 
+Lyapunov. El punto fundamental es asumir que los modelos implementados en los supercomputadores de las agencias meteorológicas son fidedignos a la realidad, y que el error en los pronósticos se debe a los errores de las condiciones iniciales. De esta manera podemos ver como las perturbaciones iniciales se propagan en el tiempo. 
 
 \section{Proceso de Recopilación de Datos Mediante el Script de
 Python}\label{proceso-de-recopilaciuxf3n-de-datos-mediante-el-script-de-python}
 
 En este punto lo primero que tenemos que hacer es recopilar datos. En
-este caso usé Visual Crossing
-(https://www.visualcrossing.com/) , que dispone de una utilidad
+este caso en vez de usar open-meteo, usé Visual Crossing
+(https://www.visualcrossing.com/) , que dispone también de una utilidad
 gratuita para descargar previsiones meteorológicas. Para ello, pedí a
 ChatGPT que hiciera un script para coger los datos de Visual Crossing.
 El script desarrollado tiene dos funciones principales, diseñadas para
@@ -2687,7 +2712,7 @@ la tasa de divergencia del error.
 
 Durante los meses de febrero, marzo y abril estuve recopilando las
 predicciones y los valores observados de temperatura, humedad, viento y
-presión atmosférica para Galapagar. Los ficheros ``Retro'' y ``Forecast''  para cada una de las variables se encuentra en el siguiente directorio de GitHub \url{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-libro/03-meteorologia}
+presión atmosférica para Galapagar.
 
 El conjunto de errores para cada día de la predicción se muestran a
 continuación (cada línea representa un día en el que se realiza la
@@ -2783,7 +2808,7 @@ Para la temperatura, presión y humedad se ve claramente que el error crece expo
 AEMET}\label{entrevista-con-expertos-de-la-aemet}
 
 El Jueves 19 de Junio tuve la oportunidad de tener una entrevista con
-dos meteorólogos de la Agencia Estatal de Meteorología, que tuvieron la amabilidad de recibirme para hacerles
+dos meteorólogos de la Agencia Estatal de Meteorología para hacerles
 algunas preguntas sobre la parte del proyecto donde se estudia el caos
 en la predicción meteorológica y climática. De esta manera he podido
 incluir también la opinión de expertos en el tema en este proyecto. Aquí
@@ -2841,7 +2866,7 @@ las simulaciones de la atmósfera, que vienen dados por el propio límite
 de los ordenadores en cuanto a precisión en los
 decimales?}\label{cuxf3mo-se-tiene-en-cuenta-el-error-que-existe-a-la-hora-de-hacer-las-simulaciones-de-la-atmuxf3sfera-que-vienen-dados-por-el-propio-luxedmite-de-los-ordenadores-en-cuanto-a-precisiuxf3n-en-los-decimales}
 
-No existe ningún método como tal para reducir o eliminar ese error, pero
+No existe ningún método como tal para reducir o eliminar ese error pero
 muchas veces no se llega a aprovechar toda la precisión que te permite
 el ordenador ya que los cálculos llevan mucho tiempo, y muchas veces se
 necesitan tener terminadas las predicciones rápidamente.
@@ -2851,12 +2876,12 @@ predicciones climáticas a largo plazo de la misma manera que en la
 predicción meteorológica, donde acaban dando lugar al
 caos?}\label{existe-sensibilidad-a-las-condiciones-iniciales-en-las-predicciones-climuxe1ticas-a-largo-plazo-de-la-misma-manera-que-en-la-predicciuxf3n-meteoroluxf3gica-donde-acaban-dando-lugar-al-caos}
 
-Sí existe, pero las condiciones iniciales afectan menos ya que las
+Si existe pero las condiciones iniciales afectan menos ya que las
 ecuaciones utilizadas se simplifican y se vuelven lineales. Por otra
-parte, el resultado no tiene que ser tan preciso ya que lo que se obtiene
+parte el resultado no tiene que ser tan preciso ya que lo que se obtiene
 es una media. Sin embargo, aunque no sea casi caótico sigue siendo
-difícil establecer las condiciones iniciales, por lo que el error inicial
-puede acabar propagándose, aunque más lentamente que en las predicciones
+difícil establecer las condiciones iniciales por lo que el error inicial
+puede acabar propagándose aunque más lentamente que en las predicciones
 meteorológicas.
 
 \section{¿Existe alguna condición o tipo de clima el cual presenta más o
@@ -2956,7 +2981,7 @@ de un estado a otro.
 
 Sin embargo, durante esta época, también existía una corriente de
 científicos que creía que a pesar del caos, el clima podía predecirse.
-El argumento era muy sencillo: a pesar de que la atmósfera es caótica,
+El argumento era muy sencillo: a pesar de que la atmósfera es caótica
 todos los años tenemos temporada de huracanes y monzones de forma
 predecible. Otros aspectos del clima más a largo plazo que también
 pueden predecirse dentro de unos límites son los ciclos Niño/Niña. Por
@@ -3295,6 +3320,29 @@ alteraciones en las corrientes oceánicas que habrían amplificado el
 enfriamiento, especialmente en el hemisferio norte. Predecir este
 tipo de eventos en un simulador, resulta imposible.
 
+Un ejemplo extremo de punto de inflexión son los ciclos de Milankovitch.
+Estos ciclos periódicos que marcan los cambios de la excentricidad de la
+órbita de la Tierra, y la inclinación del eje de la Tierra, han marcado
+durante los últimos 5 millones de años la llegada y marcha de las
+glaciaciones. Pero lo interesante, es que estos pequeños cambios en la
+órbita de la Tierra, por sí solos no son capaces de generar las
+glaciaciones. Son puntos de inflexión, que provocan una cascada de
+eventos posterior que amplifican la pequeña perturbación inicial.
+
+Por lo tanto, vemos como no solamente es necesario tener un buen
+simulador de la circulación atmosférica/oceánica, sino que también
+habría que tener en cuenta aspectos geológicos de la Tierra, sus
+ecosistemas, e incluso posibles perturbaciones cósmicas.
+
+En la siguiente sección evaluaremos como han funcionado los modelos que
+se usan para la predicción del clima. Si bien, desde el momento en el
+que se empezaron a usar estos modelos no ha habido cambios naturales
+grandes, veremos como se han comportado durante este último siglo en el
+que el principal forzamiento del clima ha sido la emisión de gases de
+efecto invernadero por parte del ser humano.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
 
 \chapter{Evaluación de las predicciones
 climáticas}\label{evaluacion-de-las-predicciones-climuxe1ticas}
@@ -3370,10 +3418,9 @@ modelos}\label{otros-fallos-en-las-predicciones-realizadas-por-los-modelos}
 A lo largo de las últimas décadas, voces diversas ---científicos,
 activistas, medios y organismos internacionales--- han emitido predicciones sobre el futuro clima de la Tierra. Aquí tienes una
 selección de predicciones que no se cumplieron exactamente, cada una con su enlace
-web correspondiente. Todas ellas han sido extraídas de ChatGPT-4 en su modo ''Deep Research´´. Básicamente, para cada una de las variables pedí a ChatGPT que hiciera una investigación exhaustiva de las predicciones realizadas hace 20-30 años, y lo comparasen con la actualidad.
+web correspondiente. Ten en cuenta que las citaciones que se mencionan la "variabilidad interna" del clima, se refieren exactamente a las variaciones del clima debido a la naturaleza caótica del mismo.
 
-Ten en cuenta que las citaciones que se mencionan la ´´variabilidad interna´´ del clima, se refieren exactamente a las variaciones del clima debido a la naturaleza caótica del mismo.
-
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{El \textit{hiato} de temperaturas (1998–2012)}
 
@@ -3598,7 +3645,8 @@ variaciones regionales.
 \subsection{Mi nota crítica}\label{mi-nota-cruxedtica}
 
 Tal y como he visto en mis experimentos con la función logística y el
-péndulo doble, aumentar el tamaño de la rejilla incrementará modestamente el horizonte de predictibilidad. Sin embargo, en los sistemas caóticos los errores se
+péndulo doble, aumentar el tamaño de la rejilla mejorará temporalmente
+las predicciones. Sin embargo, en los sistemas caóticos los errores se
 propagan de forma exponencial, por lo que la mejora en la resolución
 espacial/temporal de los modelos, pronto será ``comida'' por la
 propagación del error.
@@ -3626,7 +3674,8 @@ hacen dudar:
   vulcanismo. El modelado conjunto de todos estos factores con un alto
   nivel de detalle es ahora mismo inviable.
 \item
-  El clima, como sistema caótico, alterna entre varios estados, y la entrada o salida de ellos puede darse por pequeñas
+  El clima, como sistema caótico, alterna entre varios estados
+  (atractores), y la entrada o salida de ellos puede darse por pequeñas
   perturbaciones. Hemos visto que en el pasado reciente de la Tierra,
   en los últimos 10.000 años ha habido cambios bruscos del clima en
   cuestión de décadas. También hemos visto como perturbaciones
@@ -3670,7 +3719,7 @@ forzamiento bien caracterizados.
 
 A partir de los años 90, el incremento de la capacidad computacional
 hizo pensar a muchos científicos que tomando promedios de múltiples
-simulaciones se podría dar un escenario futuro plausible. Tras el análisis de las predicciones climáticas realizadas por los modelos hace 30 años, se ven algunos desaciertos. 
+simulaciones se podría dar un escenario futuro plausible. El análisis de las predicciones climáticas realizadas por los modelos hace 30 años se ven algunos desaciertos. 
 
 Conviene, por tanto, hacer una revisión crítica y rescatar los
 postulados de muchos científicos de los años 70 que ponían límites a la
@@ -3686,7 +3735,7 @@ generar problemas.
 Las predicciones climáticas juegan un papel fundamental en la sociedad
 actual. Condicionan las economías de muchos países y los hábitos de
 consumo de muchas personas. Es fundamental tener una visión clara del
-futuro y adoptar medidas sensatas que no sean ni excesivas, ni demasiado
+futuro y adoptar medidas sensatas que no sean ni excesivas ni demasiado
 laxas. Para ello resulta imprescindible seguir avanzando en la
 modelización y, a la vez, comunicar las incertidumbres con claridad:
 reconocer lo que los modelos capturan bien (por ejemplo, la tendencia
@@ -3707,13 +3756,13 @@ crear mi propio sistema caótico para poder estudiarlo y hallar sus
 similitudes y relaciones con el resto de sistemas caóticos estudiados.
 Para hacer mi sistema caótico primero probé a construirlo con mis
 propias manos, pero después de varios prototipos del sistema que no
-conseguí que funcionaran, o que tuvieran un comportamiento caótico, decidí
+conseguí que funcionaran o que tuvieran un comportamiento caótico decidí
 hacerlo en un simulador de física llamado Algodoo.
 
 El modelo y el diseño para que tuviera un movimiento caótico lo mantuve
 igual que en los prototipos anteriores, solo que esta vez al ser un
 simulador podía ajustar todos los parámetros con mucha más precisión que
-haciéndolo a mano, donde no tengo tanta precisión en todas las medidas.
+haciéndolo a mano, donde no tengo tanta precisión de todas las medidas.
 
 Esta vez, haciéndolo en un simulador sí que funcionó todo a la
 perfección. Una ventaja que tuve al hacer mi sistema en un simulador fue
@@ -3823,10 +3872,10 @@ simulaciones del sistema.
 Primero corrí la simulación cinco veces durante 180 segundos cada vez y
 en todas ellas establecí exactamente las mismas condiciones iniciales
 para todos los parámetros. Estos parámetros son teóricamente idénticos
-todas las veces que he ejecutado la simulación, ya que el programa me
-permite hacer varias copias de un estado del sistema, para después poder
+todas las veces que he ejecutado la simulación ya que el programa me
+permite hacer varias copias de un estado del sistema para después poder
 correr la simulación varias veces con las mismas exactas condiciones
-iniciales. Los ficheros con los resultados de las simulaciones se encuentran en el siguiente directorio de Github: \url{https://github.com/ColaCaos/ColaCAOS/tree/master/quarto/caos-libro/05-experimentos/} (aquí veras varios subdirectorios llamados Simulación0, Simulación1, .., Simulación4).
+iniciales.
 
 En cada una de las simulaciones usé una opción de Algodoo para tener
 grabados los datos de velocidad angular instantánea de la rueda, de la
@@ -3886,31 +3935,31 @@ caóticos la sensibilidad a las condiciones iniciales hacen que los
 errores se vayan propagando de forma exponencial. Aunque en este
 sistema, al ser una simulación, no debería haber ninguna diferencia
 entre cada simulación, en el momento inicial siempre existe una por muy
-pequeña que sea, debido a la inexactitud de los ordenadores a partir de
-un número de decimales muy alto, y en general a la precisión finita de los
-ordenadores a la hora de realizar todos los cálculos. 
+pequeña que sea debido a la inexactitud de los ordenadores a partir de
+un número de decimales muy alto y en general a la imprecisión de los
+ordenadores a la hora de realizar todos los cálculos.
 
 \section{Atractor}\label{atractor-1}
 
 Sin embargo, hay un detalle de esta gráfica que no pasa desapercibido.
 Las velocidades angulares de las simulaciones se van separando cada vez
-más rápido, pero llegados a un punto sobre el segundo 7, dejan de
+más rápido, pero llegados a un punto sobre el segundo 7 dejan de
 separarse más y se quedan siempre en un rango entre los 0.2 a los 0.7
 rad/s o los -0.2 y los -0.7 rad/s. Esto no es casualidad sino que
 estamos ante el atractor de este sistema. Esto significa que el estado
 de el sistema, aunque sea caótico, nunca va a salir de este rango de
-valores. Esto no sólo lo presenta este sistema, sino que como ya hemos
+valores. Esto no solo lo presenta este sistema sino que como ya hemos
 visto está presente en muchos otros sistemas caóticos como la función
 logística o la famosa célula convectiva de Edward Lorenz.
 
 Pero lo más interesante de este a atractor es que cambia entre dos
 estados diferentes, velocidad angular positiva y negativa. El sistema
-cambia de estado en los llamados ``Tipping Points'', en los cuales
+cambia de estado en los llamados ``Tipping Points'' en los cuales
 cualquier pequeña perturbación hace que llegue a cambiar todo el estado
 del sistema, que en este caso es la dirección del giro. Esto también lo
 hace de manera totalmente caótica y como se puede ver en las cinco
 simulaciones algunas, en este caso la segunda simulación, tardan mucho
-menos tiempo que otras en hacerlo. El motivo por el que cambia de giro es una desalineación del movimiento de las canicas con el sentido de la rotación de la rueda. Hay momentos en el que la rueda parece pararse, y si justamente en uno de esos momentos, las canicas golpean las paredes de la rueda con suficiente fuerza en sentido contrario al giro, entonces se produce el cambio de sentido de rotación. Las canicas son el fenómeno perturbador que hace que la rueda cambie de giro. 
+menos tiempo que otras en hacerlo.
 
 \begin{figure}[H]
 
@@ -3925,8 +3974,8 @@ menos tiempo que otras en hacerlo. El motivo por el que cambia de giro es una de
 En esta gráfica se representa el atractor mediante tres ejes distintos
 que representan la posición vertical del centro de masas de las canicas,
 la posición horizontal del centro de masas de las canicas y la velocidad
-angular. El color de la línea representa el paso del tiempo, yendo desde
-el principio en azul, hasta al final en rojo.
+angular. El color de la línea representa el paso del tiempo yendo desde
+el principio en azul hasta al final en rojo.
 
 \begin{figure}[H]
 
@@ -3940,7 +3989,7 @@ el principio en azul, hasta al final en rojo.
 
 Esta es otra vista del atractor en la misma simulación, pero esta vez
 visto desde arriba. En esta vista se aprecian perfectamente los dos
-estados que va tomando el sistema, y como va cambiando entre cada uno.
+estados que va tomando el sistema y como va cambiando entre cada uno.
 
 Y ahora veámoslo de lado.
 
@@ -3962,11 +4011,15 @@ valores sino que siempre tendrían una pequeña diferencia. Por muy
 iguales que parezcan dos valores del atractor siempre podríamos hacer
 zoom y descubrir que nunca pasan exactamente por el mismo sitio, es
 decir, la rueda nunca lleva dos veces los mismos valores de velocidad
-angular, posición en X y posición en Y en distintos tiempos.
+angular, posición en X y posición en Y al mismo tiempo.
 
-Otra de las particularidades del atractor es que es muy similar al de Lorenz (ver figura \ref{fig:lorenz}), al menos en apariencia. Es decir, hay dos estados que se alternan de forma caótica. En un instante determinado, resulta imposible de predecir en qué sentido de giro se va a encontrar el sistema. 
+Otra de las particularidades del atractor es que es muy similar al de Lorenz (ver figura \ref{lorenz}, al menos en apariencia. 
 
-
+%\begin{figure}[H]
+%{\centering \pandocbounded{\includegraphics[keepaspectratio]{05-experimentos/phase_space_lines_rainbow_time.gif}}
+%}
+%\caption{Atractor del sistema caótico en acción}
+%\end{figure}%
 
 \part{Determinismo y Caos}
 
@@ -4374,7 +4427,7 @@ impredecible en detalle en un sistema caótico''}.
 La pérdida de información predictiva (a través de la divergencia de trayectorias o la amplificación de perturbaciones) constituye la fuente misma de la aparición de lo nuevo. Lo cual nos permite reinterpretar el caos determinista no como sinónimo de desorden, sino como la fuente física de la creatividad:
 la imposibilidad de predecir exactamente un futuro determina la posibilidad de que ese futuro sea distinto. ¿Qué novedad puede aparecer en un futuro predecible?
 
-En consecuencia, el límite del conocimiento predictivo no debe verse como una falla del determinismo, sino como una propiedad esencial del universo, que habilita la emergencia de estructuras complejas nuevas.
+En consecuencia, el límite del conocimiento predictivo no debe verse como una falla del determinismo, sino como una propiedad esencial del universo, que habilita la emergencia de estructuras complejas.
 
 
 
@@ -4529,7 +4582,7 @@ tanto, más estados.
 \chapter{ChatGPT y el \emph{Principio de Compromiso Predictibilidad--Creatividad}}
 
 \section{Evaluación y búsqueda de formulaciones similares}
-A continuación pedí a ChatGPT-5 Thinking model que evaluase mi principio propuesto.Quería verificar que el principio no estuviese formulado previamente o que fuera un disparate. Ésta fue su respuesta:
+A continuación pedí a ChatGPT-5 Thinking model que evaluase mi principio propuesto.Quería verificar que el principio no estuviese formulado previamente. Ésta fue su respuesta:
 
 \textbf{Como sistema experto he evaluado si el principio propuesto por \emph{Rubén Torre Merino} aparece en la literatura científica actual. Mis conclusiones son:}
 
@@ -4630,7 +4683,7 @@ Por lo tanto, no parece una mera coincidencia, y dejo abierto el tema aquí abie
 
 \section{Cuantificando la pérdida de información del estado inicial}\label{pcpc2}
 
-Animado por los resultados que me ofreció ChatGPT, me lancé a ver si podía cuantificar un fenómeno que observé en el estudio de los sistemas caóticos. En un sistema caótico con un estado inicial, tras avanzar el tiempo se produce un estado final acompañado de novedad. Este estado final no se puede reproducir hacia atrás, a diferencia de sistemas no caóticos. Es decir, en un sistema no caótico tenemos una información inicial, y pasado el tiempo tenemos una información final. Podemos ir de una hacia otra con modelos matemáticos, por así decirlo, conservamos la información que teníamos del sistema. En uno caótico, sin embargo, la información inicial se transforma en un estado final+novedad, pero no podemos ir hacia atrás con el estado final para rescatar el estado inicial. Parte de la info del estado inicial va hacia la generación de novedad, y a pesar de tener el estado final (al igual que en el caso no caótico), no podemos reconstruir el estado inicial. Es como si parte de la información inicial se perdiera en la generación de novedad. Todo ello es lógico, puesto que en un sistema caótico no podemos modelar con precisión (predecir) como se pasa de estado inicial a estado final, por lo tanto no podemos ir ni hacia delante ni hacia atrás con nuestros modelos matemáticos del sistema. 
+Animado por los resultados que me ofreció ChatGPT, me lancé a ver si podía cuantificar un fenómeno que observé en el estudio de los sistemas caóticos. En un sistema caótico con un estado inicial, tras avanzar el tiempo se produce un estado final acompañado de novedad. Este estado final no se puede reproducir hacia atrás, a diferencia de sistemas no caóticos. Es decir, en un sistema no caótico tenemos una información inicial, y pasado el tiempo tenemos una información final. Podemos ir de una hacia otra con modelos matemáticos, por así decirlo conservamos la información que teníamos del sistema. En uno caótico, sin embargo, la información inicial se transforma en un estado final+novedad, pero no podemos ir hacia atrás con el estado final para rescatar el estado inicial. Parte de la info del estado inicial va hacia la generación de novedad, y a pesar de tener el estado final (al igual que en el caso no caótico), no podemos reconstruir el estado inicial. Es como si parte de la información inicial se perdiera en la generación de novedad. Todo ello es lógico, puesto que en un sistema caótico no podemos modelar con precisión (predecir) como se pasa de estado inicial a estado final, por lo tanto no podemos ir ni hacia delante ni hacia atrás con nuestros modelos matemáticos del sistema. 
 
 Le pregunté a ChatGPT5 que me diera forma matemática al enunciado anterior. Este fue el resultado resumido, en forma de balance de información:
 
@@ -4656,7 +4709,7 @@ De nuevo quise poner a prueba la fórmula anterior con el mapa logístico. Segú
 H_{\varepsilon}(X_0)=k\ln 2.
 \]
 
-donde $k$ es el número de bits de precisión con el que conoces el estado inicia. La tasa de novedad es 
+La tasa de novedad es 
 
 \[
 h_\mu=\ln 2\quad\Rightarrow\quad h_\mu t=t\ln 2.
