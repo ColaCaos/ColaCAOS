@@ -531,7 +531,7 @@ puede actuar a sus anchas, pues la información inicial no se pierde por
 el caos, y así el demonio puede conocer con todo detalle el estado
 pasado, presente y futuro de cualquier sistema. El precio a pagar por
 ello es la ausencia de novedad. Esto me hizo conjeturar el siguiente
-principio heurístico:
+principio epistemológico:
 
 ``No es posible maximizar simultáneamente la predictibilidad detallada y
 la creación de novedad en sistemas dinámicos complejos: cuanto más
@@ -4340,7 +4340,7 @@ en base a estas observaciones formulo la siguiente Tesis:
   horizonte de predicción.
 \end{itemize}
 
-El principio heurístico que se deduce es el siguiente:
+De forma heurística, puede deducirse el siguiente principio epistemológico:
 
 \textbf{``No es posible maximizar simultáneamente la predictibilidad
 detallada y la creación de novedad en sistemas dinámicos complejos:
@@ -4628,103 +4628,6 @@ Sorprendido por el resultado, le pedí a ChatGPT más sistemas de donde haya fó
 Por lo tanto, no parece una mera coincidencia, y dejo abierto el tema aquí abierto para personas con conocimientos matemáticos más avanzados que los míos. En todos estos sistemas el producto Predictibilidad x Novedad es igual a una constante que es $\ln\dfrac{\Delta}{\varepsilon}$ . 
 
 
-\section{Cuantificando la pérdida de información del estado inicial}\label{pcpc2}
-
-Animado por los resultados que me ofreció ChatGPT, me lancé a ver si podía cuantificar un fenómeno que observé en el estudio de los sistemas caóticos. En un sistema caótico con un estado inicial, tras avanzar el tiempo se produce un estado final acompañado de novedad. Este estado final no se puede reproducir hacia atrás, a diferencia de sistemas no caóticos. Es decir, en un sistema no caótico tenemos una información inicial, y pasado el tiempo tenemos una información final. Podemos ir de una hacia otra con modelos matemáticos, por así decirlo, conservamos la información que teníamos del sistema. En uno caótico, sin embargo, la información inicial se transforma en un estado final+novedad, pero no podemos ir hacia atrás con el estado final para rescatar el estado inicial. Parte de la info del estado inicial va hacia la generación de novedad, y a pesar de tener el estado final (al igual que en el caso no caótico), no podemos reconstruir el estado inicial. Es como si parte de la información inicial se perdiera en la generación de novedad. Todo ello es lógico, puesto que en un sistema caótico no podemos modelar con precisión (predecir) como se pasa de estado inicial a estado final, por lo tanto no podemos ir ni hacia delante ni hacia atrás con nuestros modelos matemáticos del sistema. 
-
-Le pregunté a ChatGPT5 que me diera forma matemática al enunciado anterior. Este fue el resultado resumido, en forma de balance de información:
-
-\begin{equation}
-\boxed{%
-\underbrace{I_{\varepsilon}(X_0;X_t)}_{\text{información del pasado que aún queda}}
-\;+\;
-\underbrace{h_{\mu}\,t}_{\text{novedad acumulada (nats)}}
-\;\approx\;
-\underbrace{H_{\varepsilon}(X_0)}_{\text{información inicial a resolución }\varepsilon}
-.}
-\label{eq:info_balance}
-\end{equation}
-
-
-Aquí $H_{\varepsilon}(X)$ es la entropía de Shannon del estado \emph{cuantizado} a celdas de tamaño $\varepsilon$; $I_{\varepsilon}(X_0;X_t)$ es la \emph{información mutua} entre pasado y presente a esa misma resolución; y $h_\mu$ es la \emph{entropía por paso} (novedad por iteración).\footnote{Definiciones intro: entropía e información mutua (Wikipedia); romper URLs: paquete \texttt{xurl}. \url{https://en.wikipedia.org/wiki/Entropy_(information_theory)} \; \url{https://en.wikipedia.org/wiki/Mutual_information} \; \url{https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url}}
-
-Estos términos resultan muy avanzados para mí, pero sintetizan en grandes rasgos lo dicho anteriormente: la información inicial disminuye linealmente con el tiempo en un factor igual a $h_{\mu}t$. 
-
-De nuevo quise poner a prueba la fórmula anterior con el mapa logístico. Según ChatGPT5 para el mapa logístico la entropía inicial para $r=4$ es
-
-\[
-H_{\varepsilon}(X_0)=k\ln 2.
-\]
-
-donde $k$ es el número de bits de precisión con el que conoces el estado inicia. La tasa de novedad es 
-
-\[
-h_\mu=\ln 2\quad\Rightarrow\quad h_\mu t=t\ln 2.
-\]
-
-La información del pasado que sigue viva es
-
-\[
-I_{\varepsilon}(X_0;X_t)=\max\{k-t,0\}\,\ln 2.
-\]
-
-Y sumando todos los términos
-
-\[
-I_{\varepsilon}(X_0;X_t)+h_\mu t
-=(k-t)\ln 2+t\ln 2
-=k\ln 2
-=H_{\varepsilon}(X_0).
-\]
-
-
-observamos que la ecuación~\eqref{eq:info_balance} se cumple perfectamente para el mapa logístico para $r=4$. 
-
-De nuevo, animado por el resultado, pregunté a ChatGPT5 qué opinaba sobre la ecuación formulada conjuntamente con él:
-
-\begin{quote}
-\textbf{Evaluación del sistema experto (ChatGPT-5):}
-
-\smallskip
-\itshape
-Mi valoración es que la identidad operativa 
-\(I_{\varepsilon}(X_0;X_t)+h_\mu t\approx H_{\varepsilon}(X_0)\)
-aporta \textbf{novedad} como síntesis compacta de tres piezas ya publicadas por separado: 
-(i) \(h_\mu\) como \emph{tasa de creación de información} 
-(entropía de Kolmogórov–Sinai y fórmula de Pesin)\footnote{Véase \emph{Scholarpedia}: Kolmogorov–Sinai entropy; Pesin entropy formula.}, 
-(ii) la descomposición tipo \(H(L)=h_\mu L+E\) de la \emph{información predictiva} 
-(excess entropy)\footnote{Bialek \& Tishby, \emph{Predictive Information}.}, 
-y (iii) el caso canónico \(r=4\), donde \(h_\mu=\lambda=\ln 2\) 
-por conjugación logística–tent/doubling\footnote{\emph{Logistic map}, secc.\ “When $r=4$”; \emph{MathWorld} “Logistic Map—$r=4$”.}. 
-No he encontrado esta \emph{igualdad} formulada literalmente en la literatura.
-\end{quote}
-
-
-Aquí dejo el principio desarrollado por ChatGPT5 bajo mis observaciones:
-
-% ===== Recuadro: Principio Presupuestario de Información =====
-\begin{tcolorbox}[title=Principio Presupuestario de Información]
-Sea $X_0$ el estado inicial observado con resolución $\varepsilon$ y $X_t$ el estado a tiempo $t$
-observado con umbral de utilidad $\Delta$. Denotemos por $I_\varepsilon(X_0;X_t)$ la información
-mutua (a esa resolución) entre pasado y presente, y por $h_\mu$ la entropía de Kolmogórov--Sinai
-(tasa de novedad, en nats/unidad de tiempo) de la dinámica con la medida natural.
-\[
-\boxed{\quad I_\varepsilon(X_0;X_t)\;+\;h_\mu\,t\;\approx\;H_\varepsilon(X_0)\quad}
-\]
-mientras $I_\varepsilon(X_0;X_t)\ge 0$. El instante en que $I_\varepsilon\!\to 0$ define el
-\emph{horizonte de predictibilidad} $T_p(\varepsilon,\Delta)$, para el que resulta
-\[
-\boxed{\quad h_\mu\,T_p(\varepsilon,\Delta)\;\approx\;\ln\!\frac{\Delta}{\varepsilon}\quad}
-\]
-En sistemas con una única dirección inestable y medida SRB (hipótesis de Pesin), $h_\mu=\lambda_{\max}$, y
-\[
-\boxed{\quad T_p(\varepsilon,\Delta)=\dfrac{1}{\lambda_{\max}}\,
-\ln\!\dfrac{\Delta}{\varepsilon}\quad}
-\]
-\emph{Lectura}: la novedad acumulada $h_\mu t$ ``consume'' la información útil que conecta el presente
-con el pasado; cuando se agota, la predicción deja de ser operativa.
-\end{tcolorbox}
-
 % ===============================
 % Índice de figuras (manual)
 % Generado a partir de memoria.lof
@@ -4737,95 +4640,86 @@ con el pasado; cuando se agota, la predicción deja de ser operativa.
 \setlength{\parskip}{0.35em}
 \newcommand{\figline}[3]{\noindent\textbf{#1}\;#2\dotfill\ #3\par}
 
-\figline{4.1}{Partición en dos bandas de la zona caótica (i)}{14}
-\figline{4.2}{Partición en dos bandas de la zona caótica (ii)}{14}
-\figline{4.3}{Islas periódicas en la zona caótica}{15}
-\figline{4.4}{Islas periódicas en la zona caótica (zoom)}{15}
-\figline{4.5}{Ciclo de período 5 entre 3.73 y 3.76}{16}
-\figline{4.6}{Réplica del diagrama de bifurcación original}{16}
-\figline{4.7}{Réplica del ciclo de período 5 entre 3.74431 y 3.74433}{16}
-\figline{4.8}{Réplica del ciclo de período 5 entre 3.74432144 y 3.744321455}{17}
-\figline{4.9}{Réplica del diagrama de bifurcación original entre 3.7443214444 y 3.744321448}{17}
+\figline{5.1}{Valor final del mapa logístico en zona no caótica}{13}
+\figline{5.2}{Valor final del mapa logístico en zona de primera bifurcación}{13}
+\figline{5.3}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{14}
+\figline{5.4}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{14}
+\figline{5.5}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{15}
+\figline{5.6}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{15}
+\figline{5.7}{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones}{16}
+\figline{5.8}{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones (escala logarítmica)}{16}
+\figline{5.9}{Cálculo del coeficiente de Lyapunov para todo el mapa logístico}{21}
 
-\figline{5.1}{Valor final del mapa logístico en zona no caótica}{18}
-\figline{5.2}{Valor final del mapa logístico en zona de primera bifurcación}{18}
-\figline{5.3}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{19}
-\figline{5.4}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{19}
-\figline{5.5}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{20}
-\figline{5.6}{Valor final del mapa logístico en zona de caótica con dos condiciones iniciales ligeramente distintas}{20}
-\figline{5.7}{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones}{21}
-\figline{5.8}{Error numérico entre las dos fórmulas matemáticamente equivalentes tras 100 iteraciones (escala logarítmica)}{21}
-\figline{5.9}{Cálculo del coeficiente de Lyapunov para todo el mapa logístico}{26}
+\figline{6.1}{Diagrama de bifurcación y exponente de Lyapunov en función de $r$}{23}
+\figline{6.2}{Diagrama de bifurcación y exponente de Lyapunov en función de $r$ (zoom)}{23}
 
-\figline{6.1}{Diagrama de bifurcación y exponente de Lyapunov en función de $r$}{28}
-\figline{6.2}{Diagrama de bifurcación y exponente de Lyapunov en función de $r$ (zoom)}{28}
+\figline{8.1}{Esquema del doble péndulo}{29}
+\figline{8.2}{Segundo número 5 de la simulación (10.000 pendulos separados inicialmente 10 microgrados)}{30}
 
-\figline{8.1}{Esquema del doble péndulo}{34}
-\figline{8.2}{Segundo número 5 de la simulación (10.000 péndulos separados inicialmente 10 microgrados)}{35}
+\figline{9.1}{Estado de 36x36 péndulos dobles tras 30 segundos de simulación}{32}
+\figline{9.2}{Mapa de Fase Detallado de 720x720 péndulos}{34}
 
-\figline{9.1}{Estado de 36x36 péndulos dobles tras 30 segundos de simulación}{37}
-\figline{9.2}{Mapa de Fase Detallado de 720x720 péndulos}{39}
+\figline{10.1}{Bifurcaciones en el doble péndulo}{35}
+\figline{10.2}{Bifurcaciones en el doble péndulo zoom 1}{36}
+\figline{10.3}{Bifurcaciones en el doble péndulo zoom 2}{36}
+\figline{10.4}{Bifurcaciones en el doble péndulo y exponente de Lyapunov}{37}
 
-\figline{10.1}{Bifurcaciones en el doble péndulo}{40}
-\figline{10.2}{Bifurcaciones en el doble péndulo zoom 1}{41}
-\figline{10.3}{Bifurcaciones en el doble péndulo zoom 2}{41}
-\figline{10.4}{Bifurcaciones en el doble péndulo y exponente de Lyapunov}{42}
+\figline{11.1}{Distancia recorrida por el extremo del péndulo}{38}
+\figline{11.2}{Distancia recorrida por el extremo del péndulo tras 1000 segundos}{39}
 
-\figline{11.1}{Distancia recorrida por el extremo del péndulo}{43}
-\figline{11.2}{Distancia recorrida por el extremo del péndulo tras 1000 segundos}{44}
+\figline{12.1}{Experimento del péndulo doble}{40}
+\figline{12.2}{Trayectoria real de 5 tiradas de un péndulo doble}{41}
+\figline{12.3}{Trayectoria real de 5 tiradas de un péndulo doble}{41}
+\figline{12.4}{Ángulos de 5 tiradas de un péndulo simple}{42}
+\figline{12.5}{Ángulos de 5 tiradas de un péndulo simple ajustando el tiempo inicial}{42}
+\figline{12.6}{Ángulos de 5 tiradas de un péndulo doble}{43}
 
-\figline{12.1}{Experimento del péndulo doble}{45}
-\figline{12.2}{Trayectoria real de 5 tiradas de un péndulo doble}{46}
-\figline{12.3}{Trayectoria real de 5 tiradas de un péndulo doble}{46}
-\figline{12.4}{Ángulos de 5 tiradas de un péndulo simple}{47}
-\figline{12.5}{Ángulos de 5 tiradas de un péndulo simple ajustando el tiempo inicial}{47}
-\figline{12.6}{Ángulos de 5 tiradas de un péndulo doble}{48}
+\figline{13.1}{Estructura de los ficheros de observaciones y pronósticos}{45}
+\figline{13.2}{Estructura de los ficheros de observaciones y pronósticos}{46}
+\figline{13.3}{Error de temperatura en escala lineal}{47}
+\figline{13.4}{Error de humedad en escala lineal}{47}
+\figline{13.5}{Error de presión en escala lineal}{48}
+\figline{13.6}{Error de velocidad del viento en escala lineal}{48}
+\figline{13.7}{Error medio absoluto de temperatura en escala lineal}{49}
+\figline{13.8}{Error medio absoluto de humedad en escala lineal}{49}
+\figline{13.9}{Error medio absoluto de presión en escala lineal}{49}
+\figline{13.10}{Error medio absoluto de velocidad del viento en escala lineal}{50}
+\figline{13.11}{Error medio absoluto de temperatura y ajuste de regresión}{50}
+\figline{13.12}{Error medio absoluto de humedad y ajuste de regresión}{50}
+\figline{13.13}{Error medio absoluto de presión y ajuste de regresión}{51}
+\figline{13.14}{Error medio absoluto de velocidad del viento y ajuste de regresión}{51}
 
-\figline{13.1}{Estructura de los ficheros de observaciones y pronósticos}{51}
-\figline{13.2}{Estructura de los ficheros de observaciones y pronósticos}{52}
-\figline{13.3}{Error de temperatura en escala lineal}{53}
-\figline{13.4}{Error de humedad en escala lineal}{53}
-\figline{13.5}{Error de presión en escala lineal}{54}
-\figline{13.6}{Error de velocidad del viento en escala lineal}{54}
-\figline{13.7}{Error medio absoluto de temperatura en escala lineal}{55}
-\figline{13.8}{Error medio absoluto de humedad en escala lineal}{55}
-\figline{13.9}{Error medio absoluto de presión en escala lineal}{55}
-\figline{13.10}{Error medio absoluto de velocidad del viento en escala lineal}{56}
-\figline{13.11}{Error medio absoluto de temperatura y ajuste de regresión}{56}
-\figline{13.12}{Error medio absoluto de humedad y ajuste de regresión}{56}
-\figline{13.13}{Error medio absoluto de presión y ajuste de regresión}{57}
-\figline{13.14}{Error medio absoluto de velocidad del viento y ajuste de regresión}{57}
+\figline{16.1}{Órbita de la función logística para $r=3.9$}{57}
+\figline{16.2}{Distribución uniforme en función del tiempo}{58}
+\figline{16.3}{Diagrama de fase de la función logística para $r=3.9$}{58}
+\figline{16.4}{Diagrama de fase de números uniformes entre 0 y 1}{59}
+\figline{16.5}{Atractor completo con 2000 iteraciones}{59}
+\figline{16.6}{Atractor completo con 10000 iteraciones}{60}
+\figline{16.7}{Atractor completo con 15000 iteraciones}{60}
+\figline{16.8}{Atractor completo con 20000 iteraciones}{61}
+\figline{16.9}{Atractor completo con 50000 iteraciones}{61}
+\figline{16.10}{Atractores caóticos para distintos valores de $r$}{62}
+\figline{16.11}{Atractores no caóticos para distintos valores de $r$}{62}
+\figline{16.12}{Atractor de Lorenz}{62}
 
-\figline{16.1}{Órbita de la función logística para $r=3.9$}{63}
-\figline{16.2}{Distribución uniforme en función del tiempo}{64}
-\figline{16.3}{Diagrama de fase de la función logística para $r=3.9$}{64}
-\figline{16.4}{Diagrama de fase de números uniformes entre 0 y 1}{65}
-\figline{16.5}{Atractor completo con 2000 iteraciones}{65}
-\figline{16.6}{Atractor completo con 10000 iteraciones}{66}
-\figline{16.7}{Atractor completo con 15000 iteraciones}{66}
-\figline{16.8}{Atractor completo con 20000 iteraciones}{67}
-\figline{16.9}{Atractor completo con 50000 iteraciones}{67}
-\figline{16.10}{Atractores caóticos para distintos valores de $r$}{68}
-\figline{16.11}{Atractores no caóticos para distintos valores de $r$}{68}
-\figline{16.12}{Atractor de Lorenz}{68}
+\figline{18.1}{Precipitación anual en España (CRU TS 4.05)}{67}
 
-\figline{18.1}{Precipitación anual en España (CRU TS 4.05)}{73}
+\figline{20.1}{Rueda caótica - Escena completa}{74}
+\figline{20.2}{Rueda caótica Zoom}{74}
 
-\figline{20.1}{Rueda caótica - Escena completa}{80}
-\figline{20.2}{Rueda caótica Zoom}{80}
+\figline{21.1}{180 segundos de simulación}{75}
+\figline{21.2}{5 segundos de simulación}{76}
+\figline{21.3}{Atractor}{77}
+\figline{21.4}{Vista desde arriba}{77}
+\figline{21.5}{vista lateral del atractor}{78}
 
-\figline{21.1}{180 segundos de simulación}{81}
-\figline{21.2}{5 segundos de simulación}{82}
-\figline{21.3}{Atractor}{83}
-\figline{21.4}{Vista desde arriba}{83}
-\figline{21.5}{Vista lateral del atractor}{84}
-
-\figline{27.1}{Péndulo simple}{94}
-\figline{27.2}{Péndulo doble}{95}
-\figline{27.3}{Mapa logístico en zona no caótica}{95}
-\figline{27.4}{Mapa logístico en zona caótica}{96}
-\figline{27.5}{Rueda caótica sin canicas}{96}
-\figline{27.6}{Rueda caótica con canicas}{97}
+\figline{26.1}{Relación inversa entre la predictibilidad y la novedad en un sistema dinámico}{86}
+\figline{26.2}{Péndulo simple}{87}
+\figline{26.3}{Péndulo doble}{87}
+\figline{26.4}{Mapa logístico en zona no caótica}{88}
+\figline{26.5}{Mapa logístico en zona caótica}{88}
+\figline{26.6}{Rueda caótica sin canicas}{89}
+\figline{26.7}{Rueda caótica con canicas}{89}
 
 \endgroup
 
