@@ -1,0 +1,85 @@
+---
+title: "Caos • Presentación"
+subtitle: "Demos interactivas y visualizaciones"
+author: "Rubén Torre Merino"
+date: today
+format:
+  revealjs: {}
+  pptx: {}
+---
+
+## Portada {.title-slide}
+
+# Caos: dinámica, sensibilidad e información
+<div class="subtitle">Demos interactivas + clips cortos</div>
+
+---
+
+## Agenda
+
+- Motivación y contexto
+- Mapa logístico (demo)
+- Sistemas mecánicos: péndulo doble (vídeo)
+- Conclusiones y preguntas
+
+---
+
+## Demo: Mapa logístico (iframe local)
+
+> Recomendado: copia la demo dentro de `demos/` para no depender de la red.
+
+<iframe src="demos/cobweb.html" width="100%" height="620" style="border:0"></iframe>
+
+<div class="footer-note">Si no hay conexión / bloqueo de iframes: lleva un vídeo corto como respaldo.</div>
+
+---
+
+## Respaldo de la demo (vídeo corto)
+
+<video src="videos/cobweb_demo.mp4"
+       controls muted playsinline preload="metadata"
+       style="max-width:100%"></video>
+
+---
+
+## Péndulo doble (clip ilustrativo)
+
+<video src="videos/pendulo.mp4"
+       poster="img/pendulo_poster.png"
+       controls muted playsinline preload="metadata"
+       style="max-width:100%"></video>
+
+---
+
+## Dos columnas de ejemplo
+
+<div class="columns">
+<div>
+
+### Ideas clave
+- Sensibilidad a condiciones iniciales
+- Creación/destrucción de atractores
+- Tasas de separación exponencial
+
+</div>
+<div>
+
+### Ilustración
+![Atractor ejemplo](img/atractor.png){width=100%}
+
+</div>
+</div>
+
+---
+
+## Código (opcional; oculto por defecto)
+
+::: {.callout-note}
+Si necesitas mostrar código en alguna slide, activa `echo: true` a nivel de bloque.
+:::
+
+```{python}
+#| echo: true
+import math
+xs = [math.sin(i/10) for i in range(100)]
+len(xs)

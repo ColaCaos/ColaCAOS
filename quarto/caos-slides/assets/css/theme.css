@@ -1,0 +1,127 @@
+/* ============================================================
+   Theme: ProfessionalLight  —  Autor: Rubén Torre Merino
+   Estilo: claro, minimalista, técnico
+   ============================================================ */
+
+$font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$font-mono: "JetBrains Mono", Consolas, Menlo, monospace;
+
+/* Paleta */
+$bg: #f9f9fb;
+$fg: #1b1f24;
+$muted: #555c66;
+$accent: #0072c6;      /* azul institucional */
+$accent-soft: #e6f2fa; /* fondo de acento leve */
+$code-bg: #f1f3f5;
+$border: #d6d8dc;
+
+/* Reveal.js core variables */
+:root {
+  --r-background-color: #{$bg};
+  --r-main-color: #{$fg};
+  --r-heading-color: #{$fg};
+  --r-link-color: #{$accent};
+  --r-link-color-hover: #004e92;
+  --r-selection-background-color: #cfe6ff;
+  --r-selection-color: #{$fg};
+  --r-main-font: #{$font-sans};
+  --r-code-font: #{$font-mono};
+}
+
+/* Fondo limpio con sutil trama */
+.reveal {
+  background: #{$bg} url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='1' fill='%23dcdfe4'/%3E%3C/svg%3E") repeat;
+  background-size: 200px 200px;
+  color: var(--r-main-color);
+  font-family: var(--r-main-font);
+  letter-spacing: 0.1px;
+}
+
+/* Títulos */
+.reveal h1, .reveal h2, .reveal h3 {
+  color: #0b1929;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+  margin-bottom: 0.6em;
+}
+.reveal h1 { font-size: 2.5rem; border-bottom: 2px solid $accent; padding-bottom: 0.3rem; }
+.reveal h2 { font-size: 1.8rem; color: #103a5d; }
+.reveal h3 { font-size: 1.4rem; color: #2f4f6e; }
+
+/* Texto y listas */
+.reveal p { color: $fg; font-size: 1.05rem; line-height: 1.45; }
+.reveal li { margin-bottom: 0.35em; }
+
+/* Enlaces */
+.reveal a { color: $accent; text-decoration: none; }
+.reveal a:hover { text-decoration: underline; }
+
+/* Código */
+.reveal pre code {
+  background: $code-bg;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+.reveal code { font-family: $font-mono; color: #0d3a66; }
+
+/* Bloques destacados (notas, citas) */
+.reveal blockquote {
+  border-left: 4px solid $accent;
+  background: $accent-soft;
+  color: #0b1929;
+  padding: 0.7em 1.2em;
+  border-radius: 6px;
+  font-style: italic;
+}
+
+/* Tablas */
+.reveal table {
+  border-collapse: collapse;
+  border: 1px solid $border;
+  border-radius: 6px;
+  width: 100%;
+}
+.reveal th, .reveal td {
+  border: 1px solid $border;
+  padding: 8px 12px;
+}
+.reveal th {
+  background: $accent-soft;
+  color: #0b1929;
+  font-weight: 600;
+}
+
+/* Imágenes y vídeos */
+.reveal section img, .reveal section video {
+  border: 1px solid $border;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: white;
+}
+
+/* Dos columnas */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+@media (max-width: 1000px) {
+  .columns { grid-template-columns: 1fr; }
+}
+
+/* Pie de slide */
+.footer-note {
+  color: $muted;
+  font-size: 0.85rem;
+  margin-top: 1.2rem;
+  text-align: right;
+}
+
+/* Progreso azul fino */
+.reveal .progress span {
+  background: $accent;
+  height: 4px;
+}
