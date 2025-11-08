@@ -1,49 +1,36 @@
 project:
   type: default
-  # La salida irá a la carpeta del sitio web que ya publicas en GitHub Pages
   output-dir: ../../docs/slides
 
+lang: es
+link-citations: true
+
 execute:
-  freeze: auto   # cachea resultados de celdas para builds rápidos
-  echo: false    # oculta código por defecto (puedes reactivarlo por slide)
+  freeze: auto
+  echo: false
   warning: false
   message: false
 
 format:
   revealjs:
-    # Opciones Reveal.js
+    title-slide: false
+    theme: [default]
     slide-number: true
-    controls: true
-    progress: true
-    hash: true
-    center: false
     transition: fade
+    center: false
     width: 1400
     height: 800
     margin: 0.06
-    # Estilo propio (compila SCSS -> CSS con Quarto automáticamente)
-    theme: [default]
     css: ["assets/css/theme.css"]
-    background-image: "img/fondo.png"
-    background-size: cover
-    background-position: right center
-    background-opacity: 0.5   # opcional: ajuste de transparencia (0–1)
-    toc: false
-    code-fold: false
-    code-line-numbers: false
-    embed-resources: true   # HTML autónomo (excepto vídeos)
+    embed-resources: true
   pptx:
-    # Para PPTX; si tienes una plantilla corporativa, indícala aquí:
-    # reference-doc: assets/pptx/custom.pptx
     keep-relative-images: true
 
-# Recursos estáticos que se copiarán al output tal cual
 resources:
   - assets/**
   - demos/**
   - videos/**
   - img/**
 
-# Metadatos comunes (puedes redefinirlos en cada .qmd)
 metadata-files:
   - assets/meta/common.yml
