@@ -31,11 +31,11 @@ self-contained: false
 - Caos en la Meteorología y el Clima
 - Determinismo y Caos
 
-<div style="
+<div class="fragment" style="
   margin-top: 1.8rem;
-  margin-left: auto;              /* empuja el bloque hacia la derecha */
-  width: fit-content;             /* ancho ajustado al contenido */
-  max-width: 60%;                 /* evita que se haga enorme */
+  margin-left: auto;
+  width: fit-content;
+  max-width: 60%;
   padding: 0.9rem 1.2rem;
   border: 1.5px solid #c8cdd4;
   border-radius: 12px;
@@ -43,8 +43,8 @@ self-contained: false
   line-height: 1.6;
   text-align: left;
 ">
-
 <div style="font-weight:600; margin-bottom:0.5rem;">Recursos Web del Proyecto</div>
+
 
 ![](img/favicon.png){height=22 style="vertical-align:middle; margin-right:8px;"} [https://colacaos.github.io/ColaCAOS/](https://colacaos.github.io/ColaCAOS/)  
 ![](img/icon-pdf.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf)  
@@ -54,8 +54,12 @@ self-contained: false
 
 
 ---
-## Cobweb interactivo (Mapa Logístico)
+## El Mapa Logístico
 
 ::: {.panel}
 <iframe src="cobweb.html" style="width:100%; height:650px; border:0;"></iframe>
 :::
+
+$$
+x_{n+1} = r\,x_n(1 - x_n),\qquad x_n\in[0,1],\; r\in[0,4].
+$$
