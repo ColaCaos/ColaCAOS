@@ -1,6 +1,6 @@
 ---
 title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
-subtitle: "¿Es el Universo predecible?"
+subtitle: "¿Es el Universo predecible en detalle?"
 author: "Rubén Torre Merino"
 date: today
 title-slide-attributes:
@@ -26,22 +26,52 @@ format:
 
 ## Agenda {background-color="#0A3D91" data-background-transition="slide"}
 
-- Motivación y contexto
-- Caos en los cálculos matemáticos
-- Caos en sistemas físicos sencillos
-- Caos en la Meteorología y el Clima
-- Determinismo y Caos
+- Introducción. Motivación y contexto
+- Caos en las matemáticas
+- Simulando el caos en sistemas físicos
+- Caos en sistemas reales: experimentos y observaciones
+- Caos atmosférico
+- Determinismo y caos
+- Conclusiones
 
 
 # Parte 1 · Motivación y contexto {background-color="#8A004E" data-background-transition="slide"}
 
-## ¿Por qué estudiar el caos? {background-color="#8A004E"}
+## ¿Podemos predecir el futuro con ecuaciones matemáticas y ordenadores ? {background-color="#8A004E"}
 
-Contenido de la primera diapositiva de la Parte 1.
+## {background-color="#8A004E"}
 
----
+Asumimos que, si tenemos las ecuaciones 📘 de un sistema y sus condiciones iniciales 🎯, ya está todo hecho.
 
-## Ejemplos cotidianos de caos {background-color="#8A004E"}
+## {background-color="#8A004E"}
+
+Que un modelo matemático exacto 📐 basta para anticipar el comportamiento de un sistema.
+
+## {background-color="#8A004E"}
+
+Que todo lo que necesitamos son supercomputadores más potentes 🖥️⚡ para los sistemas más grandes.
+
+## {background-color="#8A004E"}
+
+Pero esta idea es equivocada ❌.
+
+## {background-color="#8A004E"}
+
+En sistemas caóticos 🌀, a pesar de tener las ecuaciones que los rigen, un error microscópico inicial 🪶 puede destrozar cualquier predicción a medio plazo ⏳, incluso en sistemas muy sencillos.
+
+## {background-color="#8A004E"}
+
+Fuera de las simulaciones, en la realidad 🌍, dos estados casi idénticos hoy 🔍 pueden ser muy diferentes dentro de poco tiempo ⏲️.
+
+## {background-color="#8A004E"}
+
+La naturaleza 🌿, a través del caos 💥, nos revela algo incómodo ⚠️🧠:
+
+## {background-color="#8A004E"}
+
+Incluso cuando conocemos las leyes físicas ⚛️ que gobiernan nuestro Universo 🌌, el estado futuro puede ser impredecible 🌀.
+
+## Estudio progresivo del caos {background-color="#8A004E"}
 
 Contenido de la segunda diapositiva de la Parte 1.
 
@@ -80,9 +110,103 @@ Contenido de la segunda diapositiva de la Parte 1.
 <iframe src="cobweb.html" style="width:100%; height:650px; border:0;"></iframe>
 :::
 
+## Sensibilidad extrema a las condiciones iniciales {background-color="#145A32"}
 
 
-# Parte 3 · Caos en sistemas físicos sencillos {background-color="#8E1126" data-background-transition="slide"}
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+r = 3.69
+x0_values = np.linspace(0.2, 0.200000000000001, 2)
+
+n_iter = 100
+
+# Graficar series temporales
+plt.figure()
+for x0 in x0_values:
+    x = np.zeros(n_iter + 1)
+    x[0] = x0
+    for i in range(n_iter):
+        x[i+1] = r * x[i] * (1 - x[i])
+    plt.plot(range(n_iter + 1), x)
+
+plt.xlabel('Iteración $n$')
+plt.ylabel('$x_n$')
+plt.title('Series temporales del mapa logístico ($r=3.69$)')
+plt.legend([f'$x_0={v:.15g}$' for v in x0_values], loc='best', fontsize='small')
+plt.show()
+
+```
+Efecto Mariposa
+
+
+## Inestabilidad de los cálculos numéricos {background-color="#145A32"}
+
+:::: {.columns}
+
+::: {.column width="55%"}
+![](img/errornumerico.png){width=80%}  
+:::
+
+::: {.column width="45%"}
+  
+
+### Fórmula 1  
+$$x_{n+1} = 4\,x_n(1 - x_n)$$
+
+### Fórmula 2  
+$$x_{n+1} = 4\,x_n - 4\,x_n^{2}$$
+
+:::
+
+:::: 
+
+## Inestabilidad de los cálculos numéricos {background-color="#145A32"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](img/errornumerico2.png){width=80%}  
+:::
+
+::: {.column width="50%"}
+
+###   Ajuste de regresión del error
+$$\log_{10}(\mathrm{error}_n)\approx 0.303\,n + C$$
+
+### Sin logaritmos 
+$$\mathrm{error}_n \approx A\,e^{0.698\,n}\approx A\,(2.01)^n$$
+
+### Exponente de Lyapunov $\lambda$
+$$\delta_n \approx \delta_0\, e^{\lambda n}$$
+:::
+
+:::: 
+
+## El exponente de Lyapunov {background-color="#145A32"}
+
+$$
+\ln\bigl(\delta_n/\delta_0\bigr)
+= \ln\Bigl(\prod_{k=0}^{n-1} f'(x_k)\Bigr)
+= \sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+$$
+
+$$
+   \boxed{T_p = \frac{1}{\lambda_{\max}}\,\ln\!\Bigl(\tfrac{\Delta}{\delta_0}\Bigr)}
+   \label{eq:Tp}
+$$
+
+Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sistema es caótico
+
+## Conclusiones y Reflexiones {background-color="#145A32"}
+
+- ⚡ Una mínima variación en los valores iniciales —incluso tan pequeña que ningún ordenador puede representarla ✨— termina creciendo hasta alterar por completo el resultado 🌀.  
+- 🤔¿Es este comportamiento exclusivo del ámbito matemático 📐, o se da también en los sistemas físicos 🌍?
+
+
+# Parte 3 · Caos en simulaciones de sistemas físicos sencillos {background-color="#8E1126" data-background-transition="slide"}
 
 ## Simulación del péndulo doble {background-color="#8E1126"}
 
@@ -216,6 +340,11 @@ Contenido de la segunda diapositiva de la Parte 1.
 
 Contenido de la segunda diapositiva de la Parte 3.
 
+# Parte 4 · Caos en la realidad {background-color="#3A5F7E" data-background-transition="slide"}
+
+## Simulación del péndulo doble {background-color="#3A5F7E"}
+
+
 
 # Parte 4 · Caos en la Meteorología y el Clima {background-color="#022c22" data-background-transition="slide"}
 
@@ -231,9 +360,9 @@ Contenido de la segunda diapositiva de la Parte 4.
 
 
 
-# Parte 5 · Determinismo y Caos {background-color="#CC5600" data-background-transition="slide"}
+# Parte 5 · Determinismo y Caos {background-color="#C1473A" data-background-transition="slide"}
 
-## ¿Es el Universo predecible? {background-color="#CC5600"}
+## ¿Es el Universo predecible? {background-color="#C1473A"}
 
 Contenido de la primera diapositiva de la Parte 5.
 

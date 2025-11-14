@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.30">
 
   <meta name="author" content="Rubén Torre Merino">
-  <meta name="dcterms.date" content="2025-11-14">
+  <meta name="dcterms.date" content="2025-11-15">
   <title>Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -130,7 +130,7 @@
 
 <section id="title-slide" data-background-color="#0A3D91" class="quarto-title-block center">
   <h1 class="title">Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica</h1>
-  <p class="subtitle">¿Es el Universo predecible?</p>
+  <p class="subtitle">¿Es el Universo predecible en detalle?</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -140,16 +140,18 @@ Rubén Torre Merino
 </div>
 </div>
 
-  <p class="date">2025-11-14</p>
+  <p class="date">2025-11-15</p>
 </section>
 <section id="agenda" class="slide level2 center" data-background-color="#0A3D91" data-background-transition="slide">
 <h2>Agenda</h2>
 <ul>
-<li>Motivación y contexto</li>
-<li>Caos en los cálculos matemáticos</li>
-<li>Caos en sistemas físicos sencillos</li>
-<li>Caos en la Meteorología y el Clima</li>
-<li>Determinismo y Caos</li>
+<li>Introducción. Motivación y contexto</li>
+<li>Caos en las matemáticas</li>
+<li>Simulando el caos en sistemas físicos</li>
+<li>Caos en sistemas reales: experimentos y observaciones</li>
+<li>Caos atmosférico</li>
+<li>Determinismo y caos</li>
+<li>Conclusiones</li>
 </ul>
 </section>
 <section>
@@ -157,12 +159,43 @@ Rubén Torre Merino
 <h1>Parte 1 · Motivación y contexto</h1>
 
 </section>
-<section id="por-qué-estudiar-el-caos" class="slide level2 center" data-background-color="#8A004E">
-<h2>¿Por qué estudiar el caos?</h2>
-<p>Contenido de la primera diapositiva de la Parte 1.</p>
+<section id="podemos-predecir-el-futuro-con-ecuaciones-matemáticas-y-ordenadores" class="slide level2 center" data-background-color="#8A004E">
+<h2>¿Podemos predecir el futuro con ecuaciones matemáticas y ordenadores ?</h2>
 </section>
-<section id="ejemplos-cotidianos-de-caos" class="slide level2 center" data-background-color="#8A004E">
-<h2>Ejemplos cotidianos de caos</h2>
+<section id="section" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>Asumimos que, si tenemos las ecuaciones 📘 de un sistema y sus condiciones iniciales 🎯, ya está todo hecho.</p>
+</section>
+<section id="section-1" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>Que un modelo matemático exacto 📐 basta para anticipar el comportamiento de un sistema.</p>
+</section>
+<section id="section-2" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>Que todo lo que necesitamos son supercomputadores más potentes 🖥️⚡ para los sistemas más grandes.</p>
+</section>
+<section id="section-3" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>Pero esta idea es equivocada ❌.</p>
+</section>
+<section id="section-4" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>En sistemas caóticos 🌀, a pesar de tener las ecuaciones que los rigen, un error microscópico inicial 🪶 puede destrozar cualquier predicción a medio plazo ⏳, incluso en sistemas muy sencillos.</p>
+</section>
+<section id="section-5" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>Fuera de las simulaciones, en la realidad 🌍, dos estados casi idénticos hoy 🔍 pueden ser muy diferentes dentro de poco tiempo ⏲️.</p>
+</section>
+<section id="section-6" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>La naturaleza 🌿, a través del caos 💥, nos revela algo incómodo ⚠️🧠:</p>
+</section>
+<section id="section-7" class="slide level2 center" data-background-color="#8A004E">
+<h2></h2>
+<p>Incluso cuando conocemos las leyes físicas ⚛️ que gobiernan nuestro Universo 🌌, el estado futuro puede ser impredecible 🌀.</p>
+</section>
+<section id="estudio-progresivo-del-caos" class="slide level2 center" data-background-color="#8A004E">
+<h2>Estudio progresivo del caos</h2>
 <p>Contenido de la segunda diapositiva de la Parte 1.</p>
 </section></section>
 <section>
@@ -199,10 +232,70 @@ Rubén Torre Merino
 <iframe src="cobweb.html" style="width:100%; height:650px; border:0;">
 </iframe>
 </div>
+</section>
+<section id="sensibilidad-extrema-a-las-condiciones-iniciales" class="slide level2 center" data-background-color="#145A32">
+<h2>Sensibilidad extrema a las condiciones iniciales</h2>
+<div id="0fa746d8" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-2-output-1.png" width="812" height="451"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Efecto Mariposa</p>
+</section>
+<section id="inestabilidad-de-los-cálculos-numéricos" class="slide level2 center" data-background-color="#145A32">
+<h2>Inestabilidad de los cálculos numéricos</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="img/errornumerico.png" style="width:80.0%"></p>
+</div><div class="column" style="width:45%;">
+<h3 id="fórmula-1">Fórmula 1</h3>
+<p><span class="math display">\[x_{n+1} = 4\,x_n(1 - x_n)\]</span></p>
+<h3 id="fórmula-2">Fórmula 2</h3>
+<p><span class="math display">\[x_{n+1} = 4\,x_n - 4\,x_n^{2}\]</span></p>
+</div></div>
+</section>
+<section id="inestabilidad-de-los-cálculos-numéricos-1" class="slide level2 center" data-background-color="#145A32">
+<h2>Inestabilidad de los cálculos numéricos</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/errornumerico2.png" style="width:80.0%"></p>
+</div><div class="column" style="width:50%;">
+<h3 id="ajuste-de-regresión-del-error">Ajuste de regresión del error</h3>
+<p><span class="math display">\[\log_{10}(\mathrm{error}_n)\approx 0.303\,n + C\]</span></p>
+<h3 id="sin-logaritmos">Sin logaritmos</h3>
+<p><span class="math display">\[\mathrm{error}_n \approx A\,e^{0.698\,n}\approx A\,(2.01)^n\]</span></p>
+<h3 id="exponente-de-lyapunov-lambda">Exponente de Lyapunov <span class="math inline">\(\lambda\)</span></h3>
+<p><span class="math display">\[\delta_n \approx \delta_0\, e^{\lambda n}\]</span></p>
+</div></div>
+</section>
+<section id="el-exponente-de-lyapunov" class="slide level2 center" data-background-color="#145A32">
+<h2>El exponente de Lyapunov</h2>
+<p><span class="math display">\[
+\ln\bigl(\delta_n/\delta_0\bigr)
+= \ln\Bigl(\prod_{k=0}^{n-1} f'(x_k)\Bigr)
+= \sum_{k=0}^{n-1}\ln\bigl|f'(x_k)\bigr|.
+\]</span></p>
+<p><span class="math display">\[
+   \boxed{T_p = \frac{1}{\lambda_{\max}}\,\ln\!\Bigl(\tfrac{\Delta}{\delta_0}\Bigr)}
+   \label{eq:Tp}
+\]</span></p>
+<p>Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sistema es caótico</p>
+</section>
+<section id="conclusiones-y-reflexiones" class="slide level2 center" data-background-color="#145A32">
+<h2>Conclusiones y Reflexiones</h2>
+<ul>
+<li>⚡ Una mínima variación en los valores iniciales —incluso tan pequeña que ningún ordenador puede representarla ✨— termina creciendo hasta alterar por completo el resultado 🌀.<br>
+</li>
+<li>🤔¿Es este comportamiento exclusivo del ámbito matemático 📐, o se da también en los sistemas físicos 🌍?</li>
+</ul>
 </section></section>
 <section>
-<section id="parte-3-caos-en-sistemas-físicos-sencillos" class="title-slide slide level1 center" data-background-color="#8E1126" data-background-transition="slide">
-<h1>Parte 3 · Caos en sistemas físicos sencillos</h1>
+<section id="parte-3-caos-en-simulaciones-de-sistemas-físicos-sencillos" class="title-slide slide level1 center" data-background-color="#8E1126" data-background-transition="slide">
+<h1>Parte 3 · Caos en simulaciones de sistemas físicos sencillos</h1>
 
 </section>
 <section id="simulación-del-péndulo-doble" class="slide level2 center" data-background-color="#8E1126">
@@ -283,6 +376,14 @@ Por cada zoom seleccionado, se simulan 720x720 péndulos dentro de los ángulos 
 <p>Contenido de la segunda diapositiva de la Parte 3.</p>
 </section></section>
 <section>
+<section id="parte-4-caos-en-la-realidad" class="title-slide slide level1 center" data-background-color="#3A5F7E" data-background-transition="slide">
+<h1>Parte 4 · Caos en la realidad</h1>
+
+</section>
+<section id="simulación-del-péndulo-doble-4" class="slide level2 center" data-background-color="#3A5F7E">
+<h2>Simulación del péndulo doble</h2>
+</section></section>
+<section>
 <section id="parte-4-caos-en-la-meteorología-y-el-clima" class="title-slide slide level1 center" data-background-color="#022c22" data-background-transition="slide">
 <h1>Parte 4 · Caos en la Meteorología y el Clima</h1>
 
@@ -296,11 +397,11 @@ Por cada zoom seleccionado, se simulan 720x720 péndulos dentro de los ángulos 
 <p>Contenido de la segunda diapositiva de la Parte 4.</p>
 </section></section>
 <section>
-<section id="parte-5-determinismo-y-caos" class="title-slide slide level1 center" data-background-color="#CC5600" data-background-transition="slide">
+<section id="parte-5-determinismo-y-caos" class="title-slide slide level1 center" data-background-color="#C1473A" data-background-transition="slide">
 <h1>Parte 5 · Determinismo y Caos</h1>
 
 </section>
-<section id="es-el-universo-predecible" class="slide level2 center" data-background-color="#CC5600">
+<section id="es-el-universo-predecible" class="slide level2 center" data-background-color="#C1473A">
 <h2>¿Es el Universo predecible?</h2>
 <p>Contenido de la primera diapositiva de la Parte 5.</p>
 </section></section>
