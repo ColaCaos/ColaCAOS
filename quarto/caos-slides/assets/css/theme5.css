@@ -1,0 +1,297 @@
+/* ============================================================
+   Theme: ChaosDark  —  Autor: Rubén Torre Merino
+   Estilo: oscuro, técnico, enfocado en código
+   Archivo: theme.css (para Quarto + Reveal.js)
+   ============================================================ */
+
+/* Fuentes similares a la demo: sans moderna + mono para código */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap");
+
+/* ---------- Variables CSS ---------- */
+:root {
+  --bg: #020617;              /* fondo general muy oscuro (azul casi negro) */
+  --fg: #e5e7eb;              /* texto principal gris muy claro */
+  --muted: #9ca3af;           /* texto secundario */
+  --accent: #38bdf8;          /* cian para enlaces y acentos */
+  --accent-soft: rgba(56,189,248,0.15);
+  --code-bg: #020617;
+  --border: #1f2937;
+
+  --font-sans: "Fira Sans", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", sans-serif;
+  --font-mono: "Fira Code", "JetBrains Mono", Consolas, Menlo, monospace;
+
+  /* Reveal.js core variables */
+  --r-background-color: var(--bg);
+  --r-main-color: var(--fg);
+  --r-heading-color: #f9fafb;
+  --r-link-color: var(--accent);
+  --r-link-color-hover: #7dd3fc;
+  --r-selection-background-color: #0ea5e9;
+  --r-selection-color: #0b1120;
+  --r-main-font: var(--font-sans);
+  --r-code-font: var(--font-mono);
+}
+
+/* ---------- Fondo y tipografía base ---------- */
+.reveal {
+  background:
+    radial-gradient(circle at top left, #0f172a 0, #020617 55%, #000000 100%);
+  color: var(--r-main-color);
+  font-family: var(--r-main-font);
+  letter-spacing: 0.1px;
+}
+
+/* Tamaño base del lienzo */
+.reveal .slides {
+  font-size: 32px !important;
+}
+
+/* Texto y listas */
+.reveal p {
+  color: var(--fg);
+  font-size: 1.18rem;
+  line-height: 1.55;
+}
+.reveal li {
+  margin-bottom: 0.35em;
+}
+
+/* ---------- Títulos ---------- */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin-bottom: 0.6em;
+  text-transform: none;
+  text-shadow: 0 0 16px rgba(0,0,0,0.65);
+  color: #f9fafb;
+}
+
+.reveal h1 {
+  font-size: 3.6rem !important;
+  border-bottom: 2px solid rgba(148,163,184,0.5);
+  padding-bottom: 0.3rem;
+}
+
+.reveal h2 {
+  font-size: 3.0rem !important;
+  color: #e5e7eb;
+}
+
+.reveal h3 {
+  font-size: 2.1rem !important;
+  color: #e5e7eb;
+}
+
+/* ---------- Enlaces ---------- */
+.reveal a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.reveal a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+/* ---------- Código ---------- */
+.reveal pre code {
+  background: #020617;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1.05rem;
+  font-family: var(--font-mono);
+  box-shadow: 0 0 24px rgba(15,23,42,0.9);
+}
+
+.reveal code {
+  font-family: var(--font-mono);
+  color: #e0f2fe;
+}
+
+/* ---------- Bloques destacados (citas / notas) ---------- */
+.reveal blockquote {
+  border-left: 4px solid var(--accent);
+  background: rgba(15,23,42,0.9);
+  color: #e5e7eb;
+  padding: 0.7em 1.2em;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+/* ---------- Tablas ---------- */
+.reveal table {
+  border-collapse: collapse;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1.05rem;
+  color: var(--fg);
+}
+.reveal th,
+.reveal td {
+  border: 1px solid #1f2937;
+  padding: 8px 12px;
+}
+.reveal th {
+  background: #020617;
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+/* ---------- Imágenes y vídeos ---------- */
+.reveal section img,
+.reveal section video {
+  border: 1px solid #111827;
+  border-radius: 12px;
+  box-shadow: 0 0 24px rgba(0,0,0,0.85);
+  background: #020617;
+}
+
+/* ---------- Disposición en dos columnas ---------- */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+@media (max-width: 1000px) {
+  .columns { grid-template-columns: 1fr; }
+}
+
+/* ---------- Pie de slide ---------- */
+.footer-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 1.2rem;
+  text-align: right;
+}
+
+/* ---------- Barra de progreso ---------- */
+.reveal .progress span {
+  background: var(--accent);
+  height: 4px;
+}
+
+/* ---------- Tamaño de ecuaciones (MathJax/KaTeX) ---------- */
+.reveal .slides .mjx-chtml,
+.reveal .slides .mjx-chtml .mjx-math,
+.reveal .slides .MathJax_SVG,
+.reveal .slides .MathJax,
+.reveal .slides .katex,
+.reveal .slides .katex .katex-html,
+.reveal .slides .math,
+.reveal .slides .math-display {
+  font-size: 50px !important;
+  line-height: 1.05 !important;
+  transform: none !important;
+  transform-origin: center top !important;
+}
+
+.reveal .slides span.mjx-inline,
+.reveal .slides .mjx-chtml > .mjx-math,
+.reveal .slides .katex .katex-math {
+  font-size: 50px !important;
+}
+
+/* Clase utilitaria para ecuaciones grandes explícitas */
+.big-equation {
+  font-size: 50px !important;
+  line-height: 1.05 !important;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Ajustes responsivos ---------- */
+@media (max-width: 1280px) {
+  .reveal .slides { font-size: 28px !important; }
+  .reveal p { font-size: 1.08rem; }
+  .reveal h1 { font-size: 2.8rem !important; }
+  .reveal h2 { font-size: 2.3rem !important; }
+  .reveal h3 { font-size: 1.7rem !important; }
+}
+
+/* ---------- Panel y utilidades ---------- */
+.panel {
+  border: 1.5px solid #1f2937;
+  border-radius: 12px;
+  background: rgba(15,23,42,0.95);
+  padding: 0.9rem 1.2rem;
+}
+
+.right-fit {
+  margin-left: auto;
+  width: fit-content;
+  max-width: 65%;
+}
+
+/* ===== Slides de introducción de parte ===== */
+.part-intro {
+  color: #ffffff !important;
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.75);
+  background-color: inherit;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.part-intro h1,
+.part-intro h2,
+.part-intro h3 {
+  color: #ffffff !important;
+  font-size: 3.8rem !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+/* Utilidades de centrado */
+.center { text-align: center; }
+.middle { display: flex; align-items: center; justify-content: center; min-height: 75vh; }
+
+/* ===== Ajuste vertical y horizontal de títulos ===== */
+.reveal section h1,
+.reveal section h2,
+.reveal section h3 {
+  margin-top: 0.6rem !important;
+}
+
+/* Centrar títulos cuando son el primer elemento */
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child,
+.reveal .slides section > h3:first-child {
+  text-align: center;
+}
+
+/* ===== Texto blanco en slides con fondo oscuro por parte ===== */
+.reveal section[data-background-color] {
+  color: #e5e7eb !important;
+}
+
+.reveal section[data-background-color] h1,
+.reveal section[data-background-color] h2,
+.reveal section[data-background-color] h3 {
+  color: #f9fafb !important;
+  border-color: rgba(226,232,240,0.4) !important;
+}
+
+.reveal section[data-background-color] a {
+  color: #7dd3fc;
+}
+.reveal section[data-background-color] a:hover {
+  color: #bae6fd;
+}
+
+/* Código en slides de fondo de parte */
+.reveal section[data-background-color] pre code {
+  background: rgba(15,23,42,0.95);
+  border-color: #020617;
+}

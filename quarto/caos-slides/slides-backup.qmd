@@ -1,0 +1,123 @@
+---
+title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
+subtitle: "¿Es el Universo predecible en detalle?"
+author: "Rubén Torre Merino"
+date: today
+output-file: index
+format:
+  revealjs:
+    css: assets/css/theme.css
+    background-image: img/fondo.png
+    background-size: cover
+    background-position: right center
+    background-opacity: 0.5
+    slide-number: true
+    controls: true            # flechas clicables en pantalla
+    controlsLayout: edges     # flechas en los bordes
+    controlsTutorial: true    # muestra pista la primera vez
+    navigationMode: linear
+    width: 1280
+    height: 720
+    margin: 0.04
+    minScale: 0.9
+    maxScale: 2.0
+  pptx: {}
+execute:
+  enabled: true
+  echo: false
+self-contained: false
+---
+
+
+## Índice de la presentación
+
+- Introducción
+- Caos en los cálculos matemáticos
+- Caos en sistemas físicos sencillos
+- Caos en la Meteorología y el Clima
+- Determinismo y Caos
+
+<div class="fragment" style="
+  margin-top: 1.8rem;
+  margin-left: auto;
+  width: fit-content;
+  max-width: 80%;
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid #c8cdd4;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  text-align: left;
+">
+<div style="font-weight:600; margin-bottom:0.0rem;"></div>
+
+
+![](img/favicon.png){height=22 style="vertical-align:middle; margin-right:8px;"} [https://colacaos.github.io/ColaCAOS/](https://colacaos.github.io/ColaCAOS/)  
+![](img/icon-pdf.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf)  
+![](img/icon-latex.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex)
+
+</div>
+
+
+---
+
+## PARTE I · Introducción {.part-intro .center .middle background-color="#003366"}
+
+---
+
+## Estudio progresivo del Caos
+
+---
+
+
+## PARTE II · El Caos en los cálculos matemáticos {.part-intro .center .middle background-color="#003366"}
+
+---
+
+## El Mapa Logístico
+
+<div style="
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+">
+  $$
+  \boxed{x_{n+1} = r\,x_n(1 - x_n)}
+  $$
+  $$
+  x_n \in [0,1],\quad r \in [0,4]
+  $$
+</div>
+
+## El Mapa Logístico
+::: {.panel}
+<iframe src="cobweb.html" style="width:100%; height:650px; border:0;"></iframe>
+:::
+
+
+## PARTE III · El Caos en los sistemas físicos sencillos {.part-intro .center .middle background-color="#003366"}
+
+---
+
+## El péndulo doble
+
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:2rem;        /* empuja ligeramente hacia arriba */
+  height:70vh;            /* altura razonable para centrar sin aplastar */
+">
+  <video
+    src="videos/abanico.mp4"
+    controls
+    playsinline
+    muted
+    style="max-width:75%; height:auto;"
+  ></video>
+</div>

@@ -22,7 +22,8 @@ format:
     height: 800
     margin: 0.06
     css: ["assets/css/theme.css"]
-    embed-resources: true
+    self-contained: false
+
   pptx:
     keep-relative-images: true
 

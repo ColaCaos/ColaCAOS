@@ -3,27 +3,28 @@ title: "Estudio del Caos en sistemas físicos y su relación con la predicción 
 subtitle: "¿Es el Universo predecible?"
 author: "Rubén Torre Merino"
 date: today
+title-slide-attributes:
+  data-background-color: "#0A3D91"
 output-file: index
 format:
   revealjs:
-    background-image: img/fondo.png
-    background-size: cover
-    background-position: right center
-    background-opacity: 0.5
-    slide-number: true
-    controls: true            # flechas clicables en pantalla
-    controlsLayout: edges     # flechas en los bordes
-    controlsTutorial: true    # muestra pista la primera vez
-    navigationMode: linear
-  pptx: {}
-execute:
-  enabled: true
-  echo: false
-self-contained: false
+    self-contained: false
+    theme: dark                # base oscura de reveal
+    css: "assets/css/theme.css"
+    navigation-mode: vertical
+    center: true
+    controls: true
+    controls-layout: bottom-right
+    controls-tutorial: true
+    transition: slide
+    background-transition: convex
+    transition-speed: default
+    slide-number: false      # ⬅️ desactiva los números de página
+
+  pptx: default
 ---
 
-
-## Agenda
+## Agenda {background-color="#0A3D91" data-background-transition="slide"}
 
 - Motivación y contexto
 - Caos en los cálculos matemáticos
@@ -31,35 +32,119 @@ self-contained: false
 - Caos en la Meteorología y el Clima
 - Determinismo y Caos
 
-<div class="fragment" style="
-  margin-top: 1.8rem;
-  margin-left: auto;
-  width: fit-content;
-  max-width: 60%;
-  padding: 0.9rem 1.2rem;
-  border: 1.5px solid #c8cdd4;
-  border-radius: 12px;
-  background-color: rgba(255,255,255,0.85);
-  line-height: 1.6;
-  text-align: left;
-">
-<div style="font-weight:600; margin-bottom:0.5rem;">Recursos Web del Proyecto</div>
 
+# Parte 1 · Motivación y contexto {background-color="#8A004E" data-background-transition="slide"}
 
-![](img/favicon.png){height=22 style="vertical-align:middle; margin-right:8px;"} [https://colacaos.github.io/ColaCAOS/](https://colacaos.github.io/ColaCAOS/)  
-![](img/icon-pdf.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf)  
-![](img/icon-latex.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex)
+## ¿Por qué estudiar el caos? {background-color="#8A004E"}
 
-</div>
-
+Contenido de la primera diapositiva de la Parte 1.
 
 ---
-## El Mapa Logístico
+
+## Ejemplos cotidianos de caos {background-color="#8A004E"}
+
+Contenido de la segunda diapositiva de la Parte 1.
+
+
+# Parte 2 · Caos en los cálculos matemáticos {background-color="#145A32" data-background-transition="slide"}
+
+## El mapa logístico {background-color="#145A32"}
+
+<div style="
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+">
+  $$
+  \color{white}{
+    \boxed{x_{n+1} = r\,x_n(1 - x_n)}
+  }
+  $$
+  $$
+  \color{white}{
+    x_n \in [0,1],\quad r \in [0,4]
+  }
+  $$
+</div>
+
+---
+
+## Diagrama de telaraña {background-color="#145A32"}
 
 ::: {.panel}
 <iframe src="cobweb.html" style="width:100%; height:650px; border:0;"></iframe>
 :::
 
-$$
-x_{n+1} = r\,x_n(1 - x_n),\qquad x_n\in[0,1],\; r\in[0,4].
-$$
+
+
+# Parte 3 · Caos en sistemas físicos sencillos {background-color="#8E1126" data-background-transition="slide"}
+
+## El péndulo doble {background-color="#8E1126"}
+
+
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:2rem;        /* empuja ligeramente hacia arriba */
+  height:70vh;            /* altura razonable para centrar sin aplastar */
+">
+  <video
+    src="videos/abanico.mp4"
+    controls
+    playsinline
+    muted
+    style="max-width:75%; height:auto;"
+  ></video>
+</div>
+
+---
+
+## Movimiento caótico {background-color="#8E1126"}
+
+![](img/theta_vs_time_doble.gif){width=80%}
+
+---
+
+## Otros sistemas caóticos {background-color="#8E1126"}
+
+Contenido de la segunda diapositiva de la Parte 3.
+
+
+# Parte 4 · Caos en la Meteorología y el Clima {background-color="#022c22" data-background-transition="slide"}
+
+## El “efecto mariposa” y Lorenz {background-color="#022c22"}
+
+Contenido de la primera diapositiva de la Parte 4.
+
+---
+
+## Modelos numéricos del tiempo {background-color="#022c22"}
+
+Contenido de la segunda diapositiva de la Parte 4.
+
+
+
+# Parte 5 · Determinismo y Caos {background-color="#CC5600" data-background-transition="slide"}
+
+## ¿Es el Universo predecible? {background-color="#CC5600"}
+
+Contenido de la primera diapositiva de la Parte 5.
+
+
+# Parte 6. Conclusiones {background-color="#5F1A37" data-background-transition="slide"}
+
+## Conclusiones {background-color="#5F1A37"}
+
+Contenido de la segunda diapositiva de la Parte 5.
+
+## Recursos {background-color="#5F1A37" .recursos-slide}
+
+![](img/favicon.png){height=22 style="vertical-align:middle; margin-right:8px;"} [https://colacaos.github.io/ColaCAOS/](https://colacaos.github.io/ColaCAOS/)  
+![](img/icon-pdf.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.pdf)  
+![](img/icon-latex.svg){height=22 style="vertical-align:middle; margin-right:8px;"} [https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex](https://github.com/ColaCaos/ColaCAOS/blob/master/quarto/caos-memoria/memoria.tex)

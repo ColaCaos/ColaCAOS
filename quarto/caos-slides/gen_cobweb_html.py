@@ -7,6 +7,9 @@ from bokeh.models import ColumnDataSource, Slider, CustomJS
 from bokeh.layouts import column, row
 import numpy as np
 
+# Escala global: 0.8 -> 20% más pequeña
+SCALE = 0.7
+
 # Parámetros iniciales
 r0, x0_0, steps = 3.2, 0.2, 100
 
@@ -33,21 +36,28 @@ src_identity = ColumnDataSource(data=dict(x=xs, y=xs))
 src_cobweb   = ColumnDataSource(data=dict(x=xc, y=yc))
 src_series   = ColumnDataSource(data=dict(x=list(range(len(series))), y=series))
 
-# Figuras responsivas: usamos sizing_mode para que se adapten al contenedor
-p1 = figure(title="Cobweb", height=700, sizing_mode="stretch_both", x_range=(0,1), y_range=(0,1))
+# Tamaños base y escalados
+BASE_HEIGHT = 700
+height = int(BASE_HEIGHT * SCALE)
+marker_size = max(1, int(6 * SCALE))
+
+# Figuras responsivas: ancho responsivo, altura fija escalada
+p1 = figure(title="Cobweb", height=height, sizing_mode="stretch_width", x_range=(0,1), y_range=(0,1))
 p1.line('x', 'y', source=src_curve,    legend_label='f(x)')
 p1.line('x', 'y', source=src_identity, line_dash='dashed', legend_label='y=x')
 p1.line('x', 'y', source=src_cobweb,   line_color='red', legend_label='Cobweb')
 p1.toolbar.logo = None  # quitar logo para ganar espacio
+p1.title.text_font_size = f"{int(16 * SCALE)}pt"
 
-p2 = figure(title="Evolución de xₙ", height=700, sizing_mode="stretch_both")
+p2 = figure(title="Evolución de xₙ", height=height, sizing_mode="stretch_width")
 p2.line('x', 'y', source=src_series)
-p2.scatter('x', 'y', source=src_series, size=6)
+p2.scatter('x', 'y', source=src_series, size=marker_size)
 p2.toolbar.logo = None
+p2.title.text_font_size = f"{int(16 * SCALE)}pt"
 
 # Sliders (responsive en anchura)
-slider_r  = Slider(start=0.5, end=4.0, step=0.05, value=r0,  title="r")
-slider_x0 = Slider(start=0.0, end=1.0, step=0.05, value=x0_0, title="x₀")
+slider_r  = Slider(start=0.5, end=4.0, step=0.05, value=r0,  title="r", sizing_mode="stretch_width")
+slider_x0 = Slider(start=0.0, end=1.0, step=0.05, value=x0_0, title="x₀", sizing_mode="stretch_width")
 
 # Callback en JS (mantenerlo igual)
 callback = CustomJS(args=dict(
@@ -88,14 +98,40 @@ callback = CustomJS(args=dict(
 slider_r.js_on_change('value', callback)
 slider_x0.js_on_change('value', callback)
 
-# Layout responsivo: las figuras se estiran para llenar el contenedor del iframe
-plots_row = row(p1, p2, sizing_mode="stretch_both")
+# Layout responsivo: las figuras se estiran en ancho para llenar el contenedor del iframe
+plots_row = row(p1, p2, sizing_mode="stretch_width")
 sliders_row = row(slider_r, slider_x0, sizing_mode="stretch_width")
-layout = column(plots_row, sliders_row, sizing_mode="stretch_both")
+layout = column(plots_row, sliders_row, sizing_mode="stretch_width")
 
 # Generar HTML standalone usando CDN para BokehJS
 html = file_html(layout, CDN, "Cobweb interactivo")
+# CSS para cambiar estilo de los sliders (títulos en blanco y tamaño x2)
+extra_css = """
+<style>
+/* Títulos de los sliders */
+.bk-slider-title {
+    color: white !important;
+    font-size: 2.2em !important;   /* tamaño x2 */
+    font-weight: bold;
+}
+
+/* Valor numérico del slider */
+.bk-input-group label {
+    color: white !important;
+    font-size: 2em !important;
+}
+
+/* Texto general dentro de controles */
+.bk {
+    color: white !important;
+}
+</style>
+"""
+
+# Insertar CSS dentro del HTML generado
+html = extra_css + html
+
 with open("cobweb.html", "w", encoding="utf-8") as f:
     f.write(html)
 
-print("Generado: cobweb.html")
+print("Generado: cobweb.html (figuras reducidas en un 20%)")

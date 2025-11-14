@@ -1,0 +1,411 @@
+/* ============================================================
+   Theme: ProfessionalAccent  —  Autor: Rubén Torre Merino
+   Estilo: claro, técnico, con acentos visuales marcados
+   Archivo: theme.css (para Quarto + Reveal.js)
+   ============================================================ */
+
+/* ---------- Variables CSS ---------- */
+:root {
+  --bg: #ecf3ff;
+  --bg-alt: #e1ecff;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --accent: #0056c9;          /* azul principal */
+  --accent-strong: #003f91;   /* azul más oscuro */
+  --accent-soft: #dbe8ff;     /* azul suave */
+  --accent-soft-2: #f0f4ff;   /* fondo alternativo muy claro */
+  --code-bg: #f3f4f6;
+  --border: #cbd5e1;
+
+  --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, Menlo, monospace;
+
+  /* Reveal.js core variables */
+  --r-background-color: var(--bg);
+  --r-main-color: var(--fg);
+  --r-heading-color: var(--fg);
+  --r-link-color: var(--accent);
+  --r-link-color-hover: #003f91;
+  --r-selection-background-color: #bfdbfe;
+  --r-selection-color: var(--fg);
+  --r-main-font: var(--font-sans);
+  --r-code-font: var(--font-mono);
+}
+
+/* ---------- Fondo general ---------- */
+.reveal {
+  background:
+    radial-gradient(circle at top left, #ffffff 0, var(--bg-alt) 42%, #d9e6ff 100%);
+  color: var(--r-main-color);
+  font-family: var(--r-main-font);
+  letter-spacing: 0.1px;
+}
+
+/* Lienzo de slides */
+.reveal .slides {
+  font-size: 30px !important;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* Cada slide con ligera “banda superior” sugerida por el padding */
+.reveal .slides section {
+  padding: 1.8rem 2.4rem 1.6rem 2.4rem;
+}
+
+/* Slides con fondo oscuro: respetar el fondo definido */
+.reveal .slides section.has-dark-background,
+.reveal.has-dark-background .slides section {
+  padding: 1.8rem 2.4rem 1.6rem 2.4rem;
+}
+
+/* ---------- Slide de título (quarto/reveal suele usar .title-slide) ---------- */
+.title-slide {
+  color: #ffffff !important;
+  text-align: left !important;
+  position: relative;
+  padding-top: 3.5rem !important;
+  padding-left: 2.8rem !important;
+  padding-right: 2.8rem !important;
+}
+
+/* Cinta superior azul */
+.title-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent 48%),
+    radial-gradient(circle at top right, rgba(255,255,255,0.25), transparent 60%);
+  pointer-events: none;
+}
+
+.title-slide h1 {
+  font-size: 3.4rem !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.4rem !important;
+  padding: 0.3rem 0.9rem;
+  display: inline-block;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0043a3, #0073ff);
+  box-shadow: 0 10px 28px rgba(15,23,42,0.45);
+}
+
+.title-slide h2 {
+  font-size: 2.0rem !important;
+  margin-top: 0.6rem !important;
+  margin-bottom: 0.4rem !important;
+  color: #e5f0ff !important;
+}
+
+.title-slide p,
+.title-slide .author,
+.title-slide .date {
+  color: #dde9ff !important;
+  font-size: 1.1rem;
+}
+
+/* ---------- Texto y listas ---------- */
+.reveal p {
+  color: var(--fg);
+  font-size: 1.08rem;
+  line-height: 1.55;
+  margin-bottom: 0.6em;
+}
+
+.reveal li {
+  margin-bottom: 0.3em;
+}
+
+/* Viñetas con “pastilla” de color */
+.reveal ul {
+  list-style: none;
+  padding-left: 0;
+}
+.reveal ul > li {
+  position: relative;
+  padding-left: 1.55rem;
+}
+.reveal ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+}
+
+/* ---------- Títulos ---------- */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: #061429;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+
+/* h1: franja de fondo + línea inferior */
+.reveal h1 {
+  font-size: 3.0rem !important;
+  position: relative;
+  display: inline-block;
+  padding: 0.25rem 0.85rem 0.35rem 0.85rem;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(0,86,201,0.12), rgba(0,86,201,0));
+  border-bottom: 3px solid rgba(0,86,201,0.45);
+}
+
+/* h2: etiqueta resaltada */
+.reveal h2 {
+  font-size: 2.2rem !important;
+  color: var(--accent-strong);
+  margin-top: 0.18rem !important;
+  padding-left: 0.5rem;
+  border-left: 4px solid var(--accent);
+}
+
+/* h3: subtítulo simple */
+.reveal h3 {
+  font-size: 1.7rem !important;
+  color: #1e293b;
+}
+
+/* Ajuste vertical: subir ligeramente los títulos */
+.reveal section h1,
+.reveal section h2,
+.reveal section h3 {
+  margin-top: 0.15rem !important;
+}
+
+/* Títulos sobre fondo oscuro */
+.reveal.has-dark-background h1,
+.reveal.has-dark-background h2,
+.reveal.has-dark-background h3 {
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.65);
+  border-left-color: rgba(255,255,255,0.6);
+  border-bottom-color: rgba(255,255,255,0.6);
+}
+
+/* ---------- Enlaces ---------- */
+.reveal a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 86, 201, 0.45);
+  padding-bottom: 1px;
+}
+.reveal a:hover {
+  border-bottom-color: rgba(0, 86, 201, 0.9);
+}
+
+/* ---------- Código ---------- */
+.reveal pre code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.12);
+}
+.reveal code {
+  font-family: var(--font-mono);
+  color: #0f3a75;
+  background: rgba(226, 232, 240, 0.7);
+  padding: 0.05em 0.25em;
+  border-radius: 4px;
+}
+
+/* ---------- Bloques destacados (citas / notas) ---------- */
+.reveal blockquote {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(
+    90deg,
+    rgba(219, 232, 255, 0.95),
+    rgba(240, 244, 255, 0.95)
+  );
+  color: #071324;
+  padding: 0.7em 1.25em;
+  border-radius: 12px;
+  font-style: italic;
+}
+
+/* ---------- Tablas ---------- */
+.reveal table {
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 100%;
+  font-size: 0.96rem;
+  overflow: hidden;
+}
+
+.reveal th,
+.reveal td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+}
+
+.reveal th {
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent-soft-2));
+  color: #061429;
+  font-weight: 600;
+}
+
+.reveal tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+/* ---------- Imágenes y vídeos ---------- */
+.reveal section img,
+.reveal section video {
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(15,23,42,0.28);
+}
+
+/* ---------- Disposición en dos columnas ---------- */
+.columns {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 22px;
+  align-items: start;
+}
+@media (max-width: 1000px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Pie de slide / notas ---------- */
+.footer-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 1.0rem;
+  text-align: right;
+}
+
+/* ---------- Barra de progreso ---------- */
+.reveal .progress {
+  height: 6px;
+  background: rgba(148, 163, 184, 0.30);
+}
+.reveal .progress span {
+  background: linear-gradient(to right, var(--accent), var(--accent-strong));
+  height: 6px;
+}
+
+/* ---------- Tamaño de ecuaciones (MathJax/KaTeX) ---------- */
+.reveal .slides .mjx-chtml,
+.reveal .slides .mjx-chtml .mjx-math,
+.reveal .slides .MathJax_SVG,
+.reveal .slides .MathJax,
+.reveal .slides .katex,
+.reveal .slides .katex .katex-html,
+.reveal .slides .math,
+.reveal .slides .math-display {
+  font-size: 50px !important;   /* ajustable: 46–56 px */
+  line-height: 1.05 !important;
+  transform: none !important;
+  transform-origin: center top !important;
+}
+.reveal .slides span.mjx-inline,
+.reveal .slides .mjx-chtml > .mjx-math,
+.reveal .slides .katex .katex-math {
+  font-size: 50px !important;
+}
+
+/* Clase utilitaria para ecuaciones especialmente grandes */
+.big-equation {
+  font-size: 50px !important;
+  line-height: 1.05 !important;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Panel para recursos / cajas de contenido ---------- */
+.panel {
+  border: 1.5px solid rgba(0, 86, 201, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 0.9rem 1.2rem;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.16);
+}
+
+/* Alinear un bloque a la derecha con ancho ajustado al contenido */
+.right-fit {
+  margin-left: auto;
+  width: fit-content;
+  max-width: 65%;
+}
+
+/* ---------- Slides de introducción de parte ---------- */
+.part-intro {
+  color: #ffffff !important;
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+  background-color: inherit;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding-top: 30vh !important;
+  text-align: center !important;
+  position: relative;
+}
+
+.part-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(0,67,155,0.85), rgba(0,140,255,0.75)),
+    radial-gradient(circle at bottom left, rgba(0,0,0,0.30), transparent 60%);
+  z-index: -1;
+}
+
+.part-intro h1,
+.part-intro h2,
+.part-intro h3 {
+  color: #ffffff !important;
+  font-size: 3.6rem !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+/* ---------- Utilidades varias ---------- */
+.center {
+  text-align: center;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+}
+
+/* ---------- Ajustes responsivos ---------- */
+@media (max-width: 1280px) {
+  .reveal .slides {
+    font-size: 26px !important;
+  }
+  .reveal h1 {
+    font-size: 2.5rem !important;
+  }
+  .reveal h2 {
+    font-size: 2.0rem !important;
+  }
+  .reveal h3 {
+    font-size: 1.5rem !important;
+  }
+}

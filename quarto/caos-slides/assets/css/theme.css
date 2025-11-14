@@ -1,127 +1,366 @@
 /* ============================================================
    Theme: ProfessionalLight  —  Autor: Rubén Torre Merino
    Estilo: claro, minimalista, técnico
+   Archivo: theme.css (para Quarto + Reveal.js) — v2.1
    ============================================================ */
 
-$font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-$font-mono: "JetBrains Mono", Consolas, Menlo, monospace;
-
-/* Paleta */
-$bg: #f9f9fb;
-$fg: #1b1f24;
-$muted: #555c66;
-$accent: #0072c6;      /* azul institucional */
-$accent-soft: #e6f2fa; /* fondo de acento leve */
-$code-bg: #f1f3f5;
-$border: #d6d8dc;
-
-/* Reveal.js core variables */
+/* ---------- Variables CSS ---------- */
 :root {
-  --r-background-color: #{$bg};
-  --r-main-color: #{$fg};
-  --r-heading-color: #{$fg};
-  --r-link-color: #{$accent};
+  --bg: #f9f9fb;
+  --fg: #1b1f24;
+  --muted: #555c66;
+  --accent: #0072c6;        /* azul institucional */
+  --accent-soft: #e6f2fa;   /* fondo de acento leve */
+  --code-bg: #f1f3f5;
+  --border: #d6d8dc;
+
+  --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, Menlo, monospace;
+
+  /* Reveal.js core variables */
+  --r-background-color: var(--bg);
+  --r-main-color: var(--fg);
+  --r-heading-color: var(--fg);
+  --r-link-color: var(--accent);
   --r-link-color-hover: #004e92;
   --r-selection-background-color: #cfe6ff;
-  --r-selection-color: #{$fg};
-  --r-main-font: #{$font-sans};
-  --r-code-font: #{$font-mono};
+  --r-selection-color: var(--fg);
+  --r-main-font: var(--font-sans);
+  --r-code-font: var(--font-mono);
 }
 
-/* Fondo limpio con sutil trama */
+/* ---------- Fondo y tipografía base ---------- */
 .reveal {
-  background: #{$bg} url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='1' fill='%23dcdfe4'/%3E%3C/svg%3E") repeat;
+  background: var(--bg)
+    url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='1' fill='%23c8cbd1'/%3E%3C/svg%3E")
+    repeat;
   background-size: 200px 200px;
   color: var(--r-main-color);
   font-family: var(--r-main-font);
   letter-spacing: 0.1px;
 }
 
-/* Títulos */
-.reveal h1, .reveal h2, .reveal h3 {
+/* Tamaño base más generoso para todo el lienzo */
+.reveal .slides {
+  font-size: 42px !important;   /* tamaño global */
+}
+
+/* Texto y listas */
+.reveal p {
+  color: var(--fg);
+  font-size: 2.6rem;
+  line-height: 1.50;
+}
+.reveal li {
+  margin-bottom: 0.35em;
+}
+
+/* ---------- Títulos ---------- */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
   color: #0b1929;
   font-weight: 700;
   letter-spacing: 0.3px;
   line-height: 1.1;
-  margin-bottom: 0.6em;
 }
-.reveal h1 { font-size: 2.5rem; border-bottom: 2px solid $accent; padding-bottom: 0.3rem; }
-.reveal h2 { font-size: 1.8rem; color: #103a5d; }
-.reveal h3 { font-size: 1.4rem; color: #2f4f6e; }
 
-/* Texto y listas */
-.reveal p { color: $fg; font-size: 1.05rem; line-height: 1.45; }
-.reveal li { margin-bottom: 0.35em; }
+.reveal h1 {
+  font-size: 3.8rem !important;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.1em !important;  /* más separación con el contenido */
+}
 
-/* Enlaces */
-.reveal a { color: $accent; text-decoration: none; }
-.reveal a:hover { text-decoration: underline; }
+.reveal h2 {
+  font-size: 3.0rem !important;
+  color: #103a5d;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.9em;
+}
 
-/* Código */
+.reveal h3 {
+  font-size: 2.2rem !important;
+  color: #2f4f6e;
+}
+
+/* ---------- Enlaces ---------- */
+.reveal a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.reveal a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Código ---------- */
 .reveal pre code {
-  background: $code-bg;
-  border: 1px solid $border;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px 14px;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
-.reveal code { font-family: $font-mono; color: #0d3a66; }
+.reveal code {
+  font-family: var(--font-mono);
+  color: #0d3a66;
+}
 
-/* Bloques destacados (notas, citas) */
+/* Variante para bloques de código pequeños */
+.small-code pre code {
+  font-size: 0.9rem !important;
+  padding: 6px 10px !important;
+}
+
+/* ---------- Bloques destacados (citas / notas) ---------- */
 .reveal blockquote {
-  border-left: 4px solid $accent;
-  background: $accent-soft;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
   color: #0b1929;
   padding: 0.7em 1.2em;
   border-radius: 6px;
   font-style: italic;
 }
 
-/* Tablas */
+/* Bloque para fórmulas importantes */
+.highlight-eq {
+  background: #e6f2fa;
+  padding: 0.8rem 1.1rem;
+  border-left: 6px solid var(--accent);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* ---------- Tablas ---------- */
 .reveal table {
   border-collapse: collapse;
-  border: 1px solid $border;
+  border: 1px solid var(--border);
   border-radius: 6px;
   width: 100%;
+  font-size: 1.05rem;
 }
-.reveal th, .reveal td {
-  border: 1px solid $border;
+
+.reveal th,
+.reveal td {
+  border: 1px solid var(--border);
   padding: 8px 12px;
 }
+
 .reveal th {
-  background: $accent-soft;
+  background: var(--accent-soft);
   color: #0b1929;
   font-weight: 600;
 }
 
-/* Imágenes y vídeos */
-.reveal section img, .reveal section video {
-  border: 1px solid $border;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  background: white;
+/* Filas alternas para mejor legibilidad */
+.reveal table tr:nth-child(even) {
+  background: #f4f7fb;
 }
 
-/* Dos columnas */
+/* ---------- Imágenes y vídeos ---------- */
+.reveal section img,
+.reveal section video {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 4px 22px rgba(0,0,0,0.15);
+  background: #ffffff;
+}
+
+/* En diapositivas con fondo de color, ajusta el borde y sombra de las imágenes */
+.reveal section[data-background-color] img {
+  border-color: rgba(255,255,255,0.6);
+  box-shadow: 0 4px 26px rgba(0,0,0,0.35);
+}
+
+/* ---------- Disposición en dos columnas ---------- */
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
 }
 @media (max-width: 1000px) {
-  .columns { grid-template-columns: 1fr; }
+  .columns {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Pie de slide */
+/* ---------- Pie de slide ---------- */
 .footer-note {
-  color: $muted;
-  font-size: 0.85rem;
+  color: var(--muted);
+  font-size: 0.95rem;
   margin-top: 1.2rem;
   text-align: right;
 }
 
-/* Progreso azul fino */
+/* ---------- Barra de progreso ---------- */
 .reveal .progress span {
-  background: $accent;
+  background: var(--accent);
   height: 4px;
+}
+
+/* ---------- Tamaño de ecuaciones (MathJax/KaTeX) ---------- */
+/* Cobertura amplia de distintos motores/salidas */
+.reveal .slides .mjx-chtml,
+.reveal .slides .mjx-chtml .mjx-math,
+.reveal .slides .MathJax_SVG,
+.reveal .slides .MathJax,
+.reveal .slides .katex,
+.reveal .slides .katex .katex-html,
+.reveal .slides .math,
+.reveal .slides .math-display {
+  font-size: 50px !important;   /* ajusta si lo deseas: 46–56 px */
+  line-height: 1.05 !important;
+  transform: none !important;
+  transform-origin: center top !important;
+}
+
+/* Inline math */
+.reveal .slides span.mjx-inline,
+.reveal .slides .mjx-chtml > .mjx-math,
+.reveal .slides .katex .katex-math {
+  font-size: 50px !important;
+}
+
+/* Clase utilitaria para hacer un bloque grande explícito en el markdown */
+.big-equation {
+  font-size: 50px !important;
+  line-height: 1.05 !important;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Ajustes responsivos ---------- */
+@media (max-width: 1280px) {
+  .reveal .slides {
+    font-size: 50px !important;
+  }
+  .reveal h1 {
+    font-size: 4.4rem;
+  }
+  .reveal h2 {
+    font-size: 3.0rem;
+  }
+  .reveal h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- Utilidades ---------- */
+.center {
+  text-align: center;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+}
+
+/* Alinear un bloque a la derecha con ancho ajustado al contenido */
+.right-fit {
+  margin-left: auto;
+  width: fit-content;
+  max-width: 65%;
+}
+
+/* Panel con fondo heredado (para iframes, etc.) */
+.panel {
+  background-color: inherit !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Variante opcional de panel tipo tarjeta */
+.card-panel {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: #ffffffcc;
+  padding: 0.9rem 1.2rem;
+}
+
+/* ===== Slides de introducción de parte (centrado ajustado) ===== */
+.part-intro {
+  color: #ffffff !important;
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  background-color: inherit;
+  display: flex !important;
+  align-items: flex-start !important;  /* ancla arriba */
+  justify-content: center !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding-top: 29vh !important;        /* ligeramente más centrado visualmente */
+  text-align: center !important;
+
+  /* banda vertical clara tipo “strip” suavizada */
+  border-left: 22px solid rgba(255,255,255,0.35);
+  padding-left: 2.5rem !important;
+}
+
+.part-intro h1,
+.part-intro h2,
+.part-intro h3 {
+  color: #ffffff !important;
+  font-size: 3.8rem !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+/* ===== Ajuste vertical de los títulos en los slides ===== */
+.reveal section h1,
+.reveal section h2,
+.reveal section h3 {
+  margin-top: 0.6rem !important;
+}
+
+/* Texto en blanco sobre slides con background-color (p.ej. partes oscuras) */
+.reveal section[data-background-color] h1,
+.reveal section[data-background-color] h2,
+.reveal section[data-background-color] h3,
+.reveal section[data-background-color] p,
+.reveal section[data-background-color] li {
+  color: #ffffff !important;
+}
+
+/* Títulos grandes en slides de parte (como "¿Por qué estudiar el caos?") */
+.reveal section[data-background-color] h1,
+.reveal section[data-background-color] h2 {
+  font-size: 4.8rem !important;
+}
+
+/* Subtítulo / texto corto debajo del título en slides con fondo de color */
+.reveal section[data-background-color] p {
+  font-size: 1.9rem !important;
+  opacity: 0.95;
+}
+
+/* Enlaces sobre fondos con background-color: por defecto amarillo */
+.reveal section[data-background-color] a {
+  color: #ffd966 !important;
+}
+
+/* EXCEPCIÓN: diapositiva de Recursos -> enlaces azules */
+.reveal section.recursos-slide[data-background-color] a {
+  color: #0072c6 !important;   /* azul institucional */
+}
+
+.reveal section.recursos-slide[data-background-color] a:hover {
+  color: #004a87 !important;   /* azul más oscuro al pasar el ratón */
+}
+
+/* Paneles claros dentro de slides oscuras: mantienen texto oscuro */
+.reveal section[data-background-color] .card-panel {
+  background: #ffffffcc;
+  color: var(--fg);
+}
+
+/* Forzar texto de párrafos y listas grandes en TODAS las diapositivas */
+.reveal .slides section p,
+.reveal .slides section li {
+  font-size: 2.8rem !important;
+  line-height: 1.5 !important;
 }
