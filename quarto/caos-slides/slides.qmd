@@ -84,26 +84,127 @@ Contenido de la segunda diapositiva de la Parte 1.
 
 # Parte 3 · Caos en sistemas físicos sencillos {background-color="#8E1126" data-background-transition="slide"}
 
-## El péndulo doble {background-color="#8E1126"}
+## Simulación del péndulo doble {background-color="#8E1126"}
 
+:::: {.columns}
 
-<div style="
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:2rem;        /* empuja ligeramente hacia arriba */
-  height:70vh;            /* altura razonable para centrar sin aplastar */
-">
+::: {.column width="50%"}
+<div style="text-align:center;">
   <video
     src="videos/abanico.mp4"
     controls
     playsinline
     muted
-    style="max-width:75%; height:auto;"
+    style="max-width:90%; height:auto; border-radius:12px;"
   ></video>
 </div>
+:::
 
+::: {.column width="50%"}
+<div style="color:white; font-size:1.3rem; line-height:1.4;">
+  <p>
+    Simulación de 10.000 pendulos dobles separados inicialmente 10 microgrados
+  </p>
+  <p>
+    Separación total de 0.1 grados
+  </p>
+</div>
+:::
+
+::::
 ---
+
+
+## Simulación del péndulo doble {background-color="#8E1126"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <video
+    src="videos/PendulumCajas.mp4"
+    controls
+    playsinline
+    muted
+    style="max-width:90%; height:auto; border-radius:12px;"
+  ></video>
+</div>
+:::
+
+::: {.column width="50%"}
+<div style="color:white; font-size:1.3rem; line-height:1.4;">
+  <p>
+    Simulación de  36×36 de péndulos dobles en paralelo separados 10 grados
+  </p>
+
+</div>
+:::
+
+::::
+---
+
+## Simulación del péndulo doble {background-color="#8E1126"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <video
+    src="videos/MapaFase.mp4"
+    controls
+    playsinline
+    muted
+    style="max-width:90%; height:auto; border-radius:12px;"
+  ></video>
+</div>
+:::
+
+::: {.column width="50%"}
+<div style="color:white; font-size:1.3rem; line-height:1.4;">
+  <p>
+    Simulación de  720x720 de péndulos dobles en paralelo separados 0.5 grados
+  </p>
+  <p>
+    Cada color representa el mismo estado del péndulo
+  </p>
+
+</div>
+:::
+
+::::
+---
+
+## Simulación del péndulo doble {background-color="#8E1126"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <video
+    src="videos/ZoomSucesivo.mp4"
+    controls
+    playsinline
+    muted
+    style="max-width:90%; height:auto; border-radius:12px;"
+  ></video>
+</div>
+:::
+
+::: {.column width="50%"}
+<div style="color:white; font-size:1.3rem; line-height:1.4;">
+  <p>
+    Simulación de  720x720 de péndulos dobles en paralelo separados 0.5 grados
+  </p>
+  <p>
+    Por cada zoom seleccionado, se simulan 720x720 péndulos dentro de los ángulos del zoom
+  </p>
+
+</div>
+:::
+
+::::
+---
+
 
 ## Movimiento caótico {background-color="#8E1126"}
 
