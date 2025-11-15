@@ -748,9 +748,154 @@ Poco cambio en sequía global en 60 años.
 
 # Parte 6 · Determinismo y Caos {background-color="#C1473A" data-background-transition="slide"}
 
-## ¿Es el Universo predecible? {background-color="#C1473A"}
+## Tiempo, Leyes y Futuro {background-color="#C1473A"}
+:::: {.columns}
 
-Contenido de la primera diapositiva de la Parte 5.
+::: {.column width="50%"}
+
+<div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
+**Determinismo (Laplace)**
+
+⏱️ Universo = reloj mecánico<br>
+🔁 Leyes reversibles: pasado ⇄ futuro<br>
+🎯 Conoces el presente ⇒ futuro fijo<br>
+🚫 **El tiempo no crea novedad**<br>
+👁️‍🗨️ “Demonio de Laplace”: predicción perfecta
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
+**Caos (Prigogine)**
+
+🌪️ Universo abierto, no mecánico<br>
+🕒 Irreversibilidad: flecha temporal<br>
+🔀 Variaciones mínimas ⇒ trayectorias divergentes<br>
+✨ **El tiempo genera novedad**<br>
+🤯 Predicción limitada: abanicos de futuros
+
+</div>
+
+:::
+
+::::
+## Incertidumbre y Creatividad {background-color="#C1473A"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
+**Determinismo (Laplace)**
+
+📦 Todo está “contenido” en las condiciones iniciales<br>
+🔒 El azar no existe. Es ignorancia humana<br>
+🚂 Una única trayectoria para el Universo
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
+**Caos (Prigogine)**
+
+🌱 El futuro no está escrito en las condiciones iniciales<br>
+🎲 Fluctuaciones inevitables: térmicas y cuánticas<br>
+🌌 Muchas trayectorias posibles para el Universo
+
+</div>
+
+:::
+
+::::
+
+## ¿De dónde surgen las nuevas estructuras? {background-color="#C1473A"}
+
+<div class="panel" style="background:#ffffff22; padding:1.6rem; border-radius:14px; line-height:1.55; font-size:1.25rem;">
+
+🌟 **Creatividad del Universo = Tiempo + Caos + Energía**
+
+<ul style="margin-left:1.2rem; margin-top:0.6rem;">
+
+<li>🕒 <strong>Irreversibilidad</strong> → dirección del cambio</li>
+
+<li>🌪️ <strong>Caos</strong> → bifurcaciones y diversidad de caminos</li>
+
+<li>🔥 <strong>Energía</strong> → mantiene al sistema lejos del equilibrio</li>
+
+</ul>
+
+🌱 La vida, el clima, los ecosistemas, la evolución de las especies y las dinámicas sociales surgen de esta combinación.
+
+</div>
+
+## Mi observación {background-color="#C1473A"}
+
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:2rem;
+">
+  <img src="img/novedad.png" style="max-width:80%; height:auto; border-radius:12px;">
+</div>
+
+## Mi observación {background-color="#C1473A"}
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <img src="img/pendulo1.png" style="width:80%; border-radius:12px;">
+</div>
+:::
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <img src="img/pendulo2.png" style="width:80%; border-radius:12px;">
+</div>
+:::
+
+:::: 
+
+## Mi observación {background-color="#C1473A"}
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <img src="img/canicas1.png" style="width:80%; border-radius:12px;">
+</div>
+:::
+
+::: {.column width="50%"}
+<div style="text-align:center;">
+  <img src="img/canicas2.png" style="width:80%; border-radius:12px;">
+</div>
+:::
+
+:::: 
+
+## Principio de Compromiso Predictibilidad–Creatividad {background-color="#C1473A"}
+
+<div style=" background:#ffffff22; padding:3rem; border-radius:20px; max-width:85%; margin:auto; line-height:1.7; box-shadow:0 0 20px #00000033; "> <div style="font-style:italic; font-size:2.35rem; text-align:center; margin-top:0.5rem; line-height:1.55;"> «No es posible maximizar simultáneamente la predictibilidad detallada<br> y la creación de novedad en sistemas dinámicos complejos:<br> cuanto más creativa es su evolución,<br> menos plenamente predecible es su trayectoria fina —y viceversa» </div> </div>
+
+## Formulación matemática del Principio {background-color="#C1473A"}
+
+Horizonte de predictibilidad:
+$$
+T_p(\varepsilon,\Delta)=\frac{1}{\lambda}\,\ln\!\frac{\Delta}{\varepsilon}
+$$
+
+Relación predictibilidad–novedad:
+$$
+h_{\mathrm{KS}}\,T_p(\varepsilon,\Delta)=\ln\!\frac{\Delta}{\varepsilon}
+$$
+
+donde $h_{\mathrm{KS}}$: tasa de creación de novedad  
 
 
 # Parte 7. Conclusiones {background-color="#5F1A37" data-background-transition="slide"}
