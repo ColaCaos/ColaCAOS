@@ -53,23 +53,8 @@ Que todo lo que necesitamos son supercomputadores más potentes 🖥️⚡ para 
 
 ## {background-color="#0A7F8C"}
 
-Pero esta idea es equivocada ❌.
+Pero esta idea es, en muchos casos, equivocada ❌.
 
-## {background-color="#0A7F8C"}
-
-En sistemas caóticos 🌀, a pesar de tener las ecuaciones que los rigen, un error microscópico inicial 🪶 puede destrozar cualquier predicción a medio plazo ⏳, incluso en sistemas muy sencillos.
-
-## {background-color="#0A7F8C"}
-
-Fuera de las simulaciones, en la realidad 🌍, dos estados casi idénticos hoy 🔍 pueden ser muy diferentes dentro de poco tiempo ⏲️.
-
-## {background-color="#0A7F8C"}
-
-La naturaleza 🌿, a través del caos 💥, nos revela algo incómodo ⚠️🧠:
-
-## {background-color="#0A7F8C"}
-
-Incluso cuando conocemos las leyes físicas ⚛️ que gobiernan nuestro Universo 🌌, el estado futuro puede ser impredecible 🌀.
 
 ## Estudio progresivo del caos {background-color="#0A7F8C"}
 
@@ -200,10 +185,6 @@ $$
 
 Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sistema es caótico
 
-## Conclusiones y Reflexiones {background-color="#145A32"}
-
-- ⚡ Una mínima variación en los valores iniciales —incluso tan pequeña que ningún ordenador puede representarla ✨— termina creciendo hasta alterar por completo el resultado 🌀.  
-- 🤔¿Es este comportamiento exclusivo del ámbito matemático 📐, o se da también en los sistemas físicos 🌍?
 
 
 # Parte 3a· Caos en simulaciones de sistemas físicos. *La rueda caótica* {background-color="#8A004E" data-background-transition="slide"}
@@ -834,6 +815,7 @@ Poco cambio en sequía global en 60 años.
 
 </div>
 
+
 ## Mi observación {background-color="#C1473A"}
 
 <div style="
@@ -900,9 +882,11 @@ donde $h_{\mathrm{KS}}$: tasa de creación de novedad
 
 # Parte 7. Conclusiones {background-color="#5F1A37" data-background-transition="slide"}
 
-## Conclusiones {background-color="#5F1A37"}
+## Cerrando el círculo 🔄 {background-color="#5F1A37"}
 
-Contenido de la segunda diapositiva de la Parte 5.
+- ⛔ No podemos predecir **en detalle** 🔍 el estado futuro de sistemas caóticos aún sabiendo con exactitud las leyes 🧮 que los rigen, da igual la capacidad de cómputo 🖥️ de la que dispongamos
+- La misma dinámica que limita nuestra capacidad de predecir el futuro 🔮 es la que permite la emergencia de la vida 🧬, de la complejidad 🕸️ y de la novedad 🌟
+- El caos 💥 lejos de ser un obstáculo al conocimiento 📚, es el terreno fértil donde nace lo nuevo ✨.
 
 ## Recursos {background-color="#5F1A37" .recursos-slide}
 
