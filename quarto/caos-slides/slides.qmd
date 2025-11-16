@@ -20,7 +20,9 @@ format:
     background-transition: convex
     transition-speed: default
     slide-number: false      # ⬅️ desactiva los números de página
-
+    include-in-header:
+      text: |
+        <link rel="icon" type="image/png" href="img/favicon.png">
   pptx: default
 ---
 
