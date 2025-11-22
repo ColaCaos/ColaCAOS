@@ -60,7 +60,14 @@ Pero esta idea es, en muchos casos, equivocada ❌.
 
 ## Estudio progresivo del caos {background-color="#0A7F8C"}
 
-Contenido de la segunda diapositiva de la Parte 1.
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:2rem;
+">
+  <img src="img/estudio.png" style="max-width:80%; height:auto; border-radius:12px;">
+</div>
 
 
 # Parte 2 · Caos en los cálculos matemáticos {background-color="#145A32" data-background-transition="slide"}
