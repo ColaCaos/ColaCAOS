@@ -39,23 +39,7 @@ format:
 
 # Parte 1 · Motivación y contexto {background-color="#0A7F8C" data-background-transition="slide"}
 
-## ¿Podemos predecir el futuro con ecuaciones matemáticas y ordenadores ? {background-color="#0A7F8C"}
-
-## {background-color="#0A7F8C"}
-
-Asumimos que, si tenemos las ecuaciones 📘 de un sistema y sus condiciones iniciales 🎯, ya está todo hecho.
-
-## {background-color="#0A7F8C"}
-
-Que un modelo matemático exacto 📐 basta para anticipar el comportamiento de un sistema.
-
-## {background-color="#0A7F8C"}
-
-Que todo lo que necesitamos son supercomputadores más potentes 🖥️⚡ para los sistemas más grandes.
-
-## {background-color="#0A7F8C"}
-
-Pero esta idea es, en muchos casos, equivocada ❌.
+## ¿Podemos predecir el estado futuro de cualquier sistema con ecuaciones matemáticas y ordenadores ? {background-color="#0A7F8C"}
 
 
 ## Estudio progresivo del caos {background-color="#0A7F8C"}
@@ -430,7 +414,7 @@ Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sist
 
 ::::
 
-## Variable predecible {background-color="#8A004E"}
+## Variable predecible {background-color="#8E1126"}
 
 :::: {.columns}
 
@@ -528,25 +512,6 @@ Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sist
 :::: 
 ---
 
-## Humedad {background-color="#198c0a"}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-<div style="text-align:center;">
-  <img src="img/humedad1.png" style="width:80%; border-radius:12px;">
-</div>
-:::
-
-::: {.column width="50%"}
-<div style="text-align:center;">
-  <img src="img/humedad2.png" style="width:80%; border-radius:12px;">
-</div>
-:::
-
-:::: 
----
-
 ## Presión {background-color="#198c0a"}
 
 :::: {.columns}
@@ -566,24 +531,6 @@ Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sist
 :::: 
 ---
 
-## Viento {background-color="#198c0a"}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-<div style="text-align:center;">
-  <img src="img/viento1.png" style="width:80%; border-radius:12px;">
-</div>
-:::
-
-::: {.column width="50%"}
-<div style="text-align:center;">
-  <img src="img/viento2.png" style="width:80%; border-radius:12px;">
-</div>
-:::
-
-:::: 
----
 
 ## Entrevista con técnicos de la AEMET {background-color="#198c0a"}
 
@@ -746,9 +693,8 @@ Poco cambio en sequía global en 60 años.
 <div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
 **Determinismo (Laplace)**
 
-⏱️ Universo = reloj mecánico<br>
-🔁 Leyes reversibles: pasado ⇄ futuro<br>
 🎯 Conoces el presente ⇒ futuro fijo<br>
+🔒 El azar no existe. Es ignorancia humana<br>
 🚫 **El tiempo no crea novedad**<br>
 👁️‍🗨️ “Demonio de Laplace”: predicción perfecta
 
@@ -761,9 +707,8 @@ Poco cambio en sequía global en 60 años.
 <div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
 **Caos (Prigogine)**
 
-🌪️ Universo abierto, no mecánico<br>
-🕒 Irreversibilidad: flecha temporal<br>
 🔀 Variaciones mínimas ⇒ trayectorias divergentes<br>
+🎲 Fluctuaciones inevitables: térmicas y cuánticas<br>
 ✨ **El tiempo genera novedad**<br>
 🤯 Predicción limitada: abanicos de futuros
 
@@ -772,57 +717,6 @@ Poco cambio en sequía global en 60 años.
 :::
 
 ::::
-## Incertidumbre y Creatividad {background-color="#C1473A"}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-<div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
-**Determinismo (Laplace)**
-
-📦 Todo está “contenido” en las condiciones iniciales<br>
-🔒 El azar no existe. Es ignorancia humana<br>
-🚂 Una única trayectoria para el Universo
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-<div class="panel" style="background:#ffffff22; padding:1.4rem; border-radius:14px; line-height:1.5;">
-**Caos (Prigogine)**
-
-🌱 El futuro no está escrito en las condiciones iniciales<br>
-🎲 Fluctuaciones inevitables: térmicas y cuánticas<br>
-🌌 Muchas trayectorias posibles para el Universo
-
-</div>
-
-:::
-
-::::
-
-## ¿De dónde surgen las nuevas estructuras? {background-color="#C1473A"}
-
-<div class="panel" style="background:#ffffff22; padding:1.6rem; border-radius:14px; line-height:1.55; font-size:1.25rem;">
-
-🌟 **Creatividad del Universo = Tiempo + Caos + Energía**
-
-<ul style="margin-left:1.2rem; margin-top:0.6rem;">
-
-<li>🕒 <strong>Irreversibilidad</strong> → dirección del cambio</li>
-
-<li>🌪️ <strong>Caos</strong> → bifurcaciones y diversidad de caminos</li>
-
-<li>🔥 <strong>Energía</strong> → mantiene al sistema lejos del equilibrio</li>
-
-</ul>
-
-🌱 La vida, el clima, los ecosistemas, la evolución de las especies y las dinámicas sociales surgen de esta combinación.
-
-</div>
 
 
 ## Mi observación {background-color="#C1473A"}
