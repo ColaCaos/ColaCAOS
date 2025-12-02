@@ -2,7 +2,7 @@
 title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
 subtitle: "¿Es el Universo predecible en detalle?"
 author: "Rubén Torre Merino"
-date: 4 de diciembre de 2025
+date: 2025-12-04
 title-slide-attributes:
   data-background-color: "#0A3D91"
 output-file: index
