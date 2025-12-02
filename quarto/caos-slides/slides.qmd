@@ -2,7 +2,7 @@
 title: "Estudio del Caos en sistemas físicos y su relación con la predicción meteorológica"
 subtitle: "¿Es el Universo predecible en detalle?"
 author: "Rubén Torre Merino"
-date: today
+date: 4 de diciembre de 2025
 title-slide-attributes:
   data-background-color: "#0A3D91"
 output-file: index
@@ -41,7 +41,7 @@ format:
 
 ## ¿Podemos predecir el estado futuro de cualquier sistema con ecuaciones matemáticas y ordenadores ? {background-color="#0A7F8C"}
 
-
+<!--
 ## Estudio progresivo del caos {background-color="#0A7F8C"}
 
 <div style="
@@ -52,7 +52,7 @@ format:
 ">
   <img src="img/estudio.png" style="max-width:80%; height:auto; border-radius:12px;">
 </div>
-
+-->
 
 # Parte 2 · Caos en los cálculos matemáticos {background-color="#145A32" data-background-transition="slide"}
 
@@ -554,10 +554,7 @@ Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sist
 ## El clima y el Caos {background-color="#022c22"}
 <div style="font-style:italic; font-size:1.45rem; text-align:center; margin-top:2.5rem; line-height:1.55;">
   «El sistema climático es inherentemente no lineal y caótico,<br>
-  lo que hace que su predictibilidad sea inevitablemente limitada.<br>
-  Incluso con modelos y observaciones arbitrariamente precisos,<br>
-  existen límites fundamentales a la capacidad de predecir<br>
-  un sistema no lineal como el clima.»
+  lo que hace que su predictibilidad sea inevitablemente limitada»
 </div>
 
 <div style="text-align:center; font-size:1.1rem; margin-top:1rem; color:#dddddd;">
@@ -570,7 +567,7 @@ Un exponente de Lyapunov positivo indica en la mayoría de ocasiones que el sist
 
 <div style="flex:1; background:#084c46; padding:1.5rem; border-radius:12px;">
 <h3 style="margin-top:0;">Predicción ❄️<br><small>(Swart et al., Nature Climate Change, 2015)</small></h3>
-Pausas largas del deshielo muy improbables (≈5% para 20 años).
+Con una probabilid del 95% para 20 años el hielo en el Ártico disminuiría.
 </div>
 
 <div style="flex:1; background:#0b615a; padding:1.5rem; border-radius:12px;">
@@ -615,6 +612,7 @@ La precipitación mediterránea permanece prácticamente estacionaria durante ~1
 </div>
 
 
+<!--
 ## Lluvia en España {background-color="#022c22"}
 
 <div style="display:flex; gap:2rem;">
@@ -630,7 +628,9 @@ Tendencia muy débil; sin descenso significativo desde 1961.
 </div>
 
 </div>
+-->
 
+<!--
 
 ## Inundaciones {background-color="#022c22"}
 
@@ -648,6 +648,7 @@ Global (1971–2010): sin tendencia consistente.
 </div>
 
 </div>
+-->
 
 
 ## Sequías {background-color="#022c22"}
@@ -667,6 +668,7 @@ Poco cambio en sequía global en 60 años.
 
 </div>
 
+
 ## Anécdota 🎭 {background-color="#022c22"}
 
 <div style="font-size:0.85em;">
@@ -675,13 +677,17 @@ Poco cambio en sequía global en 60 años.
 [Artículo en El Mundo – CR280-13 (2001)](https://www.elmundo.es/cronica/2001/CR280/CR280-13.html)  
 
 - 🌊 En 2020 no habría playas en el Mediterráneo ni en el Atlántico
-- 🌴 El norte de España estaría lleno de palmeras   
-- 🌀🌩️ El número y la violencia de huracanes se habría disparado
 - 🏝️➡️🌊 Casi 300 islas del Pacífico habrían sido hundidas por la subida del mar.  
 - 🌊🗺️ Los deltas del Rin, Ebro y Guadalquivir habrían desaparecido bajo el agua.  
-
-
 </div>
+
+## 🔎 Resumen {background-color="#022c22"}
+
+- ❌🌡️⬆️ Sí se ha predicho bien el aumento de temperatura global 
+- ✅🗺️🌪️No se han predicho correctamente muchas tendencias regionales o fenómenos extremos 
+
+
+
 
 # Parte 6 · Determinismo y Caos {background-color="#C1473A" data-background-transition="slide"}
 
@@ -747,6 +753,7 @@ Poco cambio en sequía global en 60 años.
 
 :::: 
 
+<!--
 ## Mi observación {background-color="#C1473A"}
 :::: {.columns}
 
@@ -763,6 +770,8 @@ Poco cambio en sequía global en 60 años.
 :::
 
 :::: 
+
+-->
 
 ## Principio de Compromiso Predictibilidad–Creatividad {background-color="#C1473A"}
 
